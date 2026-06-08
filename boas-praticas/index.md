@@ -1,3 +1,6 @@
+---
+layout: default
+---
 
 # Boas Práticas de Organizações de Alto Impacto
 

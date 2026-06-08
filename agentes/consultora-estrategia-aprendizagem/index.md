@@ -1,3 +1,6 @@
+---
+layout: default
+---
 
 # Consultora de Estratégia de Aprendizagem
 

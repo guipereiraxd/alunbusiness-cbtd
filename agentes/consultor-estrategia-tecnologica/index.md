@@ -1,3 +1,6 @@
+---
+layout: default
+---
 
 # Consultor de Estratégia Tecnológica
 

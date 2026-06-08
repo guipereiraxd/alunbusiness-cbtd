@@ -1,8 +1,3 @@
----
-layout: default
-title: "Início"
----
-
 # Indo Além da Hype da IA: Como T&D Pode Transformar Sua Organização de Verdade
 
 > Material de aprofundamento da palestra apresentada no **CBTD 2026** por Guilherme Luiz Pereira.

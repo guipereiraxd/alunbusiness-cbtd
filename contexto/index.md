@@ -1,3 +1,6 @@
+---
+layout: default
+---
 
 # Contexto: A Sinergia Agêntica & Humana
 

@@ -1,3 +1,6 @@
+---
+layout: default
+---
 
 # Os 3 Aprendizados da Estratégia de Transformação
 

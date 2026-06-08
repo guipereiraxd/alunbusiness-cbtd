@@ -1,3 +1,6 @@
+---
+layout: default
+---
 
 # Modelos de Maturidade e Estratégia de T&D
 

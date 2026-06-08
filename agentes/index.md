@@ -1,3 +1,6 @@
+---
+layout: default
+---
 
 # Agentes de IA — Mão na Massa
 
