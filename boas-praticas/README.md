@@ -5,9 +5,9 @@
 
 Esta seção traduz os padrões observados nas organizações com maior maturidade de aprendizagem em práticas concretas, checklists de diagnóstico e exercícios de aplicação.
 
-| Tema | Arquivo |
+| Tema | Aprofundamento |
 |---|---|
-| As 6 dimensões da cultura de aprendizagem | [cultura-de-aprendizagem.md](./cultura-de-aprendizagem.md) |
+| As 6 dimensões da cultura de aprendizagem | [Acesse →](./cultura-de-aprendizagem) |
 
 ---
 

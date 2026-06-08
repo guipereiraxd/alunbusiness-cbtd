@@ -7,10 +7,10 @@ A Inteligência Artificial deixa de ser uma ferramenta passiva para se tornar um
 
 Três pilares definem esse contexto:
 
-| Pilar | Tema Central | Arquivo |
+| Pilar | Tema Central | Aprofundamento |
 |---|---|---|
-| Tecnologia & Operação | A ascensão da IA Agêntica e a fusão RH-Tech | [01-ia-agentica-e-rh.md](./01-ia-agentica-e-rh.md) |
-| Talentos & Habilidades | Regeneração do potencial humano | [02-potencial-humano.md](./02-potencial-humano.md) |
-| Cultura & Experiência | O novo contrato de trabalho | [03-novo-contrato-trabalho.md](./03-novo-contrato-trabalho.md) |
+| Tecnologia & Operação | A ascensão da IA Agêntica e a fusão RH-Tech | [Acesse →](./01-ia-agentica-e-rh.md) |
+| Talentos & Habilidades | Regeneração do potencial humano | [Acesse →](./02-potencial-humano.md) |
+| Cultura & Experiência | O novo contrato de trabalho | [Acesse →](./03-novo-contrato-trabalho.md) |
 
 > "Como a tecnologia vai amplificar o humano?" — essa é a pergunta central de toda a palestra.

@@ -3,10 +3,10 @@
 
 Esta seção reúne os dois frameworks mais importantes da palestra para quem quer **sair do diagnóstico e ir para a ação estratégica**.
 
-| Framework | Para que serve | Arquivo |
+| Framework | Para que serve | Aprofundamento |
 |---|---|---|
-| Modelo de Maturidade (Josh Bersin) | Diagnosticar onde sua empresa está e definir o próximo passo | [modelo-josh-bersin.md](./modelo-josh-bersin.md) |
-| Where to Play & How to Win | Construir o playbook estratégico de T&D | [framework-where-to-play.md](./framework-where-to-play.md) |
+| Modelo de Maturidade (Josh Bersin) | Diagnosticar onde sua empresa está e definir o próximo passo | [Acesse →](./modelo-josh-bersin.md) |
+| Where to Play & How to Win | Construir o playbook estratégico de T&D | [Acesse →](./framework-where-to-play.md) |
 
 **Sequência recomendada:**
 1. Faça o autodiagnóstico de maturidade para entender seu ponto de partida
