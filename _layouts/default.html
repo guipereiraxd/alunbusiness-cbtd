@@ -1,113 +1,650 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <style>
-      /* Header personalizado */
-      .page-header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        padding: 3rem 2rem;
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>{% if page.title and page.title != "Início" %}{{ page.title }} — CBTD 2026{% else %}Indo Além da Hype da IA · CBTD 2026{% endif %}</title>
+  <style>
+    /* ── Design tokens (Alun Business) ───────────────────────── */
+    :root {
+      --bg:         #0f0f0f;
+      --surface:    #161618;
+      --surface-2:  #1c1c1f;
+      --border:     #33363e;
+      --border-sub: #1e2026;
+      --text-1:     #ffffff;
+      --text-2:     #cfd2d8;
+      --text-3:     #8b8f9a;
+      --text-4:     #64687a;
+      --text-5:     #33363e;
+      --gold:       #d1a476;
+      --gold-dim:   rgba(209,164,118,0.12);
+      --gold-border:rgba(209,164,118,0.25);
+      --blue:       #4b6afc;
+      --blue-dim:   rgba(75,106,252,0.08);
+      --blue-border:rgba(75,106,252,0.2);
+      --tint-3:     rgba(255,255,255,0.03);
+      --tint-5:     rgba(255,255,255,0.05);
+    }
+
+    /* ── Reset ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--bg);
+      color: var(--text-2);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Layout ───────────────────────────────────────────────── */
+    .shell {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar ──────────────────────────────────────────────── */
+    .sidebar {
+      width: 240px;
+      flex-shrink: 0;
+      background: var(--surface);
+      border-right: 1px solid var(--border-sub);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 100;
+    }
+    .sidebar-logo {
+      padding: 24px 20px 16px;
+      border-bottom: 1px solid var(--border-sub);
+    }
+    .sidebar-logo .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .sidebar-logo .title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-1);
+      line-height: 1.3;
+    }
+    .sidebar-logo .sub {
+      font-size: 11px;
+      color: var(--text-4);
+      margin-top: 2px;
+    }
+    .sidebar-nav {
+      padding: 12px 10px;
+      flex: 1;
+    }
+    .nav-section {
+      margin-bottom: 4px;
+    }
+    .nav-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-5);
+      padding: 8px 10px 4px;
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      color: var(--text-3);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      line-height: 1.3;
+    }
+    .nav-link:hover {
+      background: var(--tint-5);
+      color: var(--text-1);
+      text-decoration: none;
+    }
+    .nav-link.active {
+      background: var(--gold-dim);
+      color: var(--gold);
+    }
+    .nav-link .icon {
+      font-size: 14px;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+    .sidebar-footer {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border-sub);
+    }
+    .sidebar-footer a {
+      font-size: 11px;
+      color: var(--text-4);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .sidebar-footer a:hover { color: var(--text-2); }
+
+    /* ── Mobile header ────────────────────────────────────────── */
+    .mobile-header {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 52px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-sub);
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 200;
+    }
+    .mobile-header .logo-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-1);
+    }
+    .mobile-header .logo-text span { color: var(--gold); }
+    .menu-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      padding: 5px 9px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 150;
+    }
+    .mobile-overlay.open { display: block; }
+    .sidebar.mobile-open { transform: translateX(0); }
+
+    /* ── Main content ─────────────────────────────────────────── */
+    .main {
+      margin-left: 240px;
+      flex: 1;
+      min-width: 0;
+    }
+    .content {
+      max-width: 760px;
+      padding: 48px 48px 80px;
+    }
+
+    /* ── Markdown typography ──────────────────────────────────── */
+    .content h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-1);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .content h1:first-child { margin-top: 0; }
+    .content h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-top: 40px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-sub);
+    }
+    .content h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+    .content h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-2);
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+    .content p {
+      color: var(--text-2);
+      margin-bottom: 16px;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+    .content a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-border);
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .content a:hover {
+      color: #e8c090;
+      border-bottom-color: var(--gold);
+    }
+    .content strong { color: var(--text-1); font-weight: 600; }
+    .content em { color: var(--text-3); font-style: italic; }
+    .content ul, .content ol {
+      margin: 0 0 16px 20px;
+      color: var(--text-2);
+    }
+    .content li {
+      margin-bottom: 6px;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+    .content li strong { color: var(--text-1); }
+    .content blockquote {
+      margin: 20px 0;
+      padding: 14px 18px;
+      background: var(--gold-dim);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      color: var(--text-2);
+      font-size: 0.9rem;
+    }
+    .content blockquote p { color: var(--text-2); margin-bottom: 0; font-style: italic; }
+    .content blockquote em { color: var(--text-3); }
+    .content hr {
+      border: none;
+      border-top: 1px solid var(--border-sub);
+      margin: 32px 0;
+    }
+    .content code {
+      background: #1a1a1f;
+      color: #e8e8eb;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.825rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+    .content pre {
+      background: #111114;
+      border: 1px solid var(--border-sub);
+      border-radius: 10px;
+      padding: 18px 20px;
+      overflow-x: auto;
+      margin: 16px 0 24px;
+    }
+    .content pre code {
+      background: none;
+      padding: 0;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: #a8b3c5;
+    }
+
+    /* ── Tables ───────────────────────────────────────────────── */
+    .content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px;
+      font-size: 0.875rem;
+    }
+    .content table th {
+      background: var(--tint-3);
+      color: var(--text-3);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .content table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-sub);
+      color: var(--text-2);
+      vertical-align: top;
+    }
+    .content table tr:last-child td { border-bottom: none; }
+    .content table tr:hover td { background: var(--tint-3); }
+    .content table a {
+      color: var(--gold);
+      border-bottom-color: transparent;
+    }
+    .content table a:hover { border-bottom-color: var(--gold-border); }
+
+    /* ── Checklist (task list items) ─────────────────────────── */
+    .content ul li input[type="checkbox"] {
+      accent-color: var(--gold);
+      margin-right: 8px;
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ── Page header band ────────────────────────────────────── */
+    .page-band {
+      padding: 32px 48px 0;
+      max-width: 760px;
+    }
+    .page-band .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-5);
+      margin-bottom: 6px;
+    }
+
+    /* ── Section cards (homepage) ─────────────────────────────── */
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+      margin: 24px 0 36px;
+    }
+    .section-card {
+      display: block;
+      padding: 18px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border-sub);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .section-card:hover {
+      border-color: var(--border);
+      background: var(--surface-2);
+      text-decoration: none;
+    }
+    .section-card .card-icon {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .section-card .card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-5);
+      margin-bottom: 4px;
+    }
+    .section-card .card-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 6px;
+    }
+    .section-card .card-desc {
+      font-size: 0.8125rem;
+      color: var(--text-4);
+      line-height: 1.5;
+    }
+
+    /* ── Hero (homepage only) ─────────────────────────────────── */
+    .hero {
+      padding: 48px 48px 0;
+      max-width: 760px;
+    }
+    .hero .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      color: var(--text-1);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero .subtitle {
+      font-size: 1rem;
+      color: var(--text-3);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      padding: 16px 20px;
+      background: var(--tint-3);
+      border: 1px solid var(--border-sub);
+      border-radius: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-meta .meta-item .label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-5);
+      margin-bottom: 3px;
+    }
+    .hero-meta .meta-item .value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-2);
+    }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
       }
-      .page-header .project-name {
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 1.3;
-        margin-bottom: 0.5rem;
+      .sidebar.mobile-open { transform: translateX(0); }
+      .mobile-header { display: flex; }
+      .main {
+        margin-left: 0;
+        padding-top: 52px;
       }
-      .page-header .project-tagline {
-        font-size: 1rem;
-        opacity: 0.85;
-        margin-bottom: 1.5rem;
+      .hero, .page-band, .content {
+        padding-left: 20px;
+        padding-right: 20px;
       }
-      .header-nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        justify-content: center;
-        margin-top: 1rem;
+      .section-grid {
+        grid-template-columns: 1fr;
       }
-      .header-nav a {
-        display: inline-block;
-        padding: 0.4rem 1rem;
-        border: 1px solid rgba(255,255,255,0.4);
-        border-radius: 20px;
-        color: white;
-        font-size: 0.85rem;
-        text-decoration: none;
-        transition: background 0.2s;
-      }
-      .header-nav a:hover {
-        background: rgba(255,255,255,0.15);
-        text-decoration: none;
-      }
-      /* Conteúdo */
-      .main-content {
-        max-width: 860px;
-        padding: 2.5rem 2rem;
-      }
-      .main-content h1:first-child {
-        display: none; /* esconde título duplicado na homepage */
-      }
-      .main-content table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 1.5rem 0;
-      }
-      .main-content table th,
-      .main-content table td {
-        padding: 0.6rem 1rem;
-        border: 1px solid #e0e0e0;
-        text-align: left;
-      }
-      .main-content table th {
-        background: #f5f5f5;
-        font-weight: 600;
-      }
-      /* Footer */
-      .site-footer {
-        border-top: 1px solid #e0e0e0;
-        margin-top: 3rem;
-        padding: 1.5rem 2rem;
-        font-size: 0.85rem;
-        color: #777;
-        text-align: center;
-      }
-      .site-footer a {
-        color: #555;
-      }
-    </style>
-  </head>
-  <body>
-    <header class="page-header" role="banner">
-      <h1 class="project-name">Indo Além da Hype da IA</h1>
-      <h2 class="project-tagline">Como T&D Pode Transformar Sua Organização de Verdade<br>
-        <small>Material de aprofundamento · CBTD 2026 · Guilherme Luiz Pereira</small>
-      </h2>
-      <nav class="header-nav">
-        <a href="{{ '/' | relative_url }}">Início</a>
-        <a href="{{ '/contexto/' | relative_url }}">Contexto</a>
-        <a href="{{ '/aprendizados/' | relative_url }}">3 Aprendizados</a>
-        <a href="{{ '/agentes/' | relative_url }}">Agentes de IA</a>
-        <a href="{{ '/maturidade/' | relative_url }}">Maturidade</a>
-        <a href="{{ '/boas-praticas/' | relative_url }}">Boas Práticas</a>
-        <a href="{{ '/recursos/' | relative_url }}">Recursos</a>
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <div class="logo-text">CBTD 2026 · <span>T&D e IA</span></div>
+    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+  </header>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <div class="shell">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="eyebrow">CBTD 2026</div>
+        <div class="title">Indo Além da Hype da IA</div>
+        <div class="sub">Como T&D pode transformar sua organização de verdade</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' or page.url == '/README' %}active{% endif %}">
+            <span class="icon">⌂</span> Início
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-label">Contexto</div>
+          <a href="{{ '/contexto/' | relative_url }}" class="nav-link {% if page.url contains '/contexto/' and page.url == '/contexto/' %}active{% endif %}">
+            <span class="icon">◉</span> Visão Geral
+          </a>
+          <a href="{{ '/contexto/01-ia-agentica-e-rh' | relative_url }}" class="nav-link {% if page.url contains '01-ia-agentica' %}active{% endif %}">
+            <span class="icon">◉</span> IA Agêntica & RH
+          </a>
+          <a href="{{ '/contexto/02-potencial-humano' | relative_url }}" class="nav-link {% if page.url contains '02-potencial' %}active{% endif %}">
+            <span class="icon">◉</span> Potencial Humano
+          </a>
+          <a href="{{ '/contexto/03-novo-contrato-trabalho' | relative_url }}" class="nav-link {% if page.url contains '03-novo-contrato' %}active{% endif %}">
+            <span class="icon">◉</span> Novo Contrato de Trabalho
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-label">3 Aprendizados</div>
+          <a href="{{ '/aprendizados/' | relative_url }}" class="nav-link {% if page.url == '/aprendizados/' %}active{% endif %}">
+            <span class="icon">◎</span> Visão Geral
+          </a>
+          <a href="{{ '/aprendizados/01-fazer-melhores-perguntas' | relative_url }}" class="nav-link {% if page.url contains '01-fazer' %}active{% endif %}">
+            <span class="icon">◎</span> Fazer Melhores Perguntas
+          </a>
+          <a href="{{ '/aprendizados/02-mindset-e-transformacao' | relative_url }}" class="nav-link {% if page.url contains '02-mindset' %}active{% endif %}">
+            <span class="icon">◎</span> Mindset & Transformação
+          </a>
+          <a href="{{ '/aprendizados/03-capacidade-humana' | relative_url }}" class="nav-link {% if page.url contains '03-capacidade' %}active{% endif %}">
+            <span class="icon">◎</span> Capacidade Humana
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-label">Agentes de IA</div>
+          <a href="{{ '/agentes/' | relative_url }}" class="nav-link {% if page.url == '/agentes/' %}active{% endif %}">
+            <span class="icon">⬡</span> Visão Geral
+          </a>
+          <a href="{{ '/agentes/consultor-estrategia-tecnologica/' | relative_url }}" class="nav-link {% if page.url contains 'consultor-estrategia-tecnologica' %}active{% endif %}">
+            <span class="icon">⬡</span> Estratégia Tecnológica
+          </a>
+          <a href="{{ '/agentes/consultora-estrategia-aprendizagem/' | relative_url }}" class="nav-link {% if page.url contains 'consultora-estrategia-aprendizagem' %}active{% endif %}">
+            <span class="icon">⬡</span> Estratégia de Aprendizagem
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-label">Frameworks</div>
+          <a href="{{ '/maturidade/modelo-josh-bersin' | relative_url }}" class="nav-link {% if page.url contains 'josh-bersin' %}active{% endif %}">
+            <span class="icon">▦</span> Modelo de Maturidade
+          </a>
+          <a href="{{ '/maturidade/framework-where-to-play' | relative_url }}" class="nav-link {% if page.url contains 'where-to-play' %}active{% endif %}">
+            <span class="icon">▦</span> Where to Play & How to Win
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-label">Boas Práticas</div>
+          <a href="{{ '/boas-praticas/cultura-de-aprendizagem' | relative_url }}" class="nav-link {% if page.url contains 'cultura-de-aprendizagem' %}active{% endif %}">
+            <span class="icon">✦</span> Cultura de Aprendizagem
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-label">Recursos</div>
+          <a href="{{ '/recursos/fontes-e-leituras' | relative_url }}" class="nav-link {% if page.url contains 'fontes' %}active{% endif %}">
+            <span class="icon">◻</span> Fontes & Leituras
+          </a>
+          <a href="{{ '/recursos/glossario' | relative_url }}" class="nav-link {% if page.url contains 'glossario' %}active{% endif %}">
+            <span class="icon">◻</span> Glossário
+          </a>
+        </div>
       </nav>
-    </header>
 
-    <main id="content" class="main-content" role="main">
-      {{ content }}
+      <div class="sidebar-footer">
+        <a href="https://www.linkedin.com/in/guilherme-luiz-pereira/" target="_blank">↗ Guilherme Luiz Pereira</a>
+        <a href="https://github.com/guipereiraxd/alunbusiness-cbtd" target="_blank">↗ Ver no GitHub</a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      {% if page.url == '/' or page.url == '/index.html' %}
+      <!-- Homepage hero -->
+      <div class="hero">
+        <div class="tag">CBTD 2026 · Palestra</div>
+        <h1>Indo Além da Hype da IA: <span>Como T&D Pode Transformar Sua Organização de Verdade</span></h1>
+        <p class="subtitle">Material de aprofundamento com dados, frameworks, exercícios práticos e dois agentes de IA prontos para usar na sua empresa.</p>
+        <div class="hero-meta">
+          <div class="meta-item"><div class="label">Palestrante</div><div class="value">Guilherme Luiz Pereira</div></div>
+          <div class="meta-item"><div class="label">Evento</div><div class="value">CBTD 2026</div></div>
+          <div class="meta-item"><div class="label">Público</div><div class="value">T&D · RH · Liderança</div></div>
+        </div>
+      </div>
+
+      <div class="content" style="padding-top: 0;">
+        <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-5);margin-bottom:14px;">Navegue pelo conteúdo</p>
+        <div class="section-grid">
+          <a href="{{ '/contexto/' | relative_url }}" class="section-card">
+            <div class="card-icon">◉</div>
+            <div class="card-label">Seção 1</div>
+            <div class="card-title">Contexto</div>
+            <div class="card-desc">IA Agêntica, potencial humano e o novo contrato de trabalho.</div>
+          </a>
+          <a href="{{ '/aprendizados/' | relative_url }}" class="section-card">
+            <div class="card-icon">◎</div>
+            <div class="card-label">Seção 2</div>
+            <div class="card-title">3 Aprendizados</div>
+            <div class="card-desc">Os fundamentos de qualquer transformação organizacional real.</div>
+          </a>
+          <a href="{{ '/agentes/' | relative_url }}" class="section-card" style="border-color:var(--gold-border);background:var(--gold-dim);">
+            <div class="card-icon">⬡</div>
+            <div class="card-label" style="color:var(--gold);">Seção 3 · Destaque</div>
+            <div class="card-title" style="color:var(--gold);">Agentes de IA</div>
+            <div class="card-desc" style="color:var(--text-3);">Dois GPTs prontos para usar agora na sua empresa.</div>
+          </a>
+          <a href="{{ '/maturidade/' | relative_url }}" class="section-card">
+            <div class="card-icon">▦</div>
+            <div class="card-label">Seção 4</div>
+            <div class="card-title">Modelos de Maturidade</div>
+            <div class="card-desc">Autodiagnóstico e frameworks estratégicos para T&D.</div>
+          </a>
+          <a href="{{ '/boas-praticas/' | relative_url }}" class="section-card">
+            <div class="card-icon">✦</div>
+            <div class="card-label">Seção 5</div>
+            <div class="card-title">Boas Práticas</div>
+            <div class="card-desc">Checklists das organizações de alto impacto.</div>
+          </a>
+          <a href="{{ '/recursos/' | relative_url }}" class="section-card">
+            <div class="card-icon">◻</div>
+            <div class="card-label">Seção 6</div>
+            <div class="card-title">Recursos</div>
+            <div class="card-desc">Fontes, leituras recomendadas e glossário completo.</div>
+          </a>
+        </div>
+
+        {{ content }}
+      </div>
+
+      {% else %}
+      <!-- Inner pages -->
+      <div class="content">
+        {{ content }}
+      </div>
+      {% endif %}
     </main>
+  </div>
 
-    <footer class="site-footer">
-      <p>
-        Material da palestra <strong>CBTD 2026</strong> por
-        <a href="https://www.linkedin.com/in/guilherme-luiz-pereira/" target="_blank">Guilherme Luiz Pereira</a>
-        · <a href="https://github.com/guipereiraxd/alunbusiness-cbtd" target="_blank">Ver no GitHub</a>
-      </p>
-    </footer>
-  </body>
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('mobile-open');
+      overlay.classList.toggle('open');
+    }
+  </script>
+
+</body>
 </html>
