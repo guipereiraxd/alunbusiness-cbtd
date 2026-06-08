@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Framework Where to Play & How to Win aplicado a T&D
 
 > Slides 47–50 da palestra | Adaptado de "Playing to Win: How Strategy Really Works", A.G. Lafley e Roger Martin, 2013

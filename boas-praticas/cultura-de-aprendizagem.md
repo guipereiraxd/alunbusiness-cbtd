@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Boas Práticas para Influenciar a Cultura de Aprendizagem
 
 > Slides 70–75 da palestra

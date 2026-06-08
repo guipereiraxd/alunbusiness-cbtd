@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # O Novo Contrato de Trabalho
 
 > Slides 15–17 da palestra | Contexto Cultura

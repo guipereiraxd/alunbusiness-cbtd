@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Consultor de Estratégia Tecnológica
 
 **[Acessar o agente no ChatGPT →](https://chatgpt.com/g/g-67efea2af4b881918adcccd42e821b84-consultor-de-estrategia-tecnologica)**

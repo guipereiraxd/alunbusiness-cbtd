@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Aprendizado #1: Líderes que sabem perguntar melhor também lideram melhor em ambientes de incerteza
 
 > Slides 27–28 da palestra

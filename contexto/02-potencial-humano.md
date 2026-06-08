@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Regeneração do Potencial Humano
 
 > Slides 12–14 da palestra | Contexto Pessoas

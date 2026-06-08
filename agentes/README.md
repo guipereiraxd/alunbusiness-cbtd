@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Agentes de IA — Mão na Massa
 
 > Slides 62–68 da palestra

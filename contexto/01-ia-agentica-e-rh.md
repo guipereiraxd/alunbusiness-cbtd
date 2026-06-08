@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # IA Agêntica e a Fusão entre RH e Tecnologia
 
 > Slides 10–11 da palestra | Contexto Tecnológico

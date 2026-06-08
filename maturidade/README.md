@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Modelos de Maturidade e Estratégia de T&D
 
 > Slides 41–50 e 57–59 da palestra

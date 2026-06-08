@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Consultor de Estratégia Tecnológica — Guia de Uso
 
 > [Acessar o agente →](https://chatgpt.com/g/g-67efea2af4b881918adcccd42e821b84-consultor-de-estrategia-tecnologica)

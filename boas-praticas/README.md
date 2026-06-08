@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Boas Práticas de Organizações de Alto Impacto
 
 > Slides 69–76 da palestra

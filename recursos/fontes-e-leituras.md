@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Fontes e Leituras Recomendadas
 
 Todas as fontes citadas na palestra, organizadas por tema, com contexto sobre por que vale a pena ler cada uma.

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Consultora de Estratégia de Aprendizagem
 
 **[Acessar o agente no ChatGPT →](https://chatgpt.com/g/g-AHm45TmKA-consultora-de-estrategia-de-aprendizagem)**

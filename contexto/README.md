@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Contexto: A Sinergia Agêntica & Humana
 
 > Tendências de RH e Educação Corporativa na Era da Cognição

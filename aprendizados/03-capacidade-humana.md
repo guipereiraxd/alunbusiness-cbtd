@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Aprendizado #3: Nenhuma tecnologia, metodologia ou processo terá impacto sem investimento genuíno na capacidade humana dos times
 
 > Slides 38–39 da palestra

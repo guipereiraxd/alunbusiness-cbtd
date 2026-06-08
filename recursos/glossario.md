@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Glossário
 
 Termos usados na palestra que podem ser novos ou ter significados específicos no contexto de T&D e transformação organizacional.
