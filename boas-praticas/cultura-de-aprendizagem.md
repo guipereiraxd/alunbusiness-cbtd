@@ -4,8 +4,6 @@ layout: default
 
 # Boas Práticas para Influenciar a Cultura de Aprendizagem
 
-> Slides 70–75 da palestra
-
 ---
 
 ## Por que cultura de aprendizagem é diferente de programas de treinamento

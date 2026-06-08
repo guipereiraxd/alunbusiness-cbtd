@@ -4,8 +4,6 @@ layout: default
 
 # Regeneração do Potencial Humano
 
-> Slides 12–14 da palestra | Contexto Pessoas
-
 ---
 
 ## Do time-to-hire para o time-to-productivity

@@ -4,8 +4,6 @@ layout: default
 
 # Aprendizado #2: Liderar em tempos de transformação exige mudar o mindset, os modelos de negócio e as estratégias
 
-> Slides 29–33 da palestra
-
 ---
 
 ## A armadilha das lentes do passado

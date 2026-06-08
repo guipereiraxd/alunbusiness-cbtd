@@ -1,8 +1,6 @@
 
 # Modelos de Maturidade e Estratégia de T&D
 
-> Slides 41–50 e 57–59 da palestra
-
 Esta seção reúne os dois frameworks mais importantes da palestra para quem quer **sair do diagnóstico e ir para a ação estratégica**.
 
 | Framework | Para que serve | Arquivo |

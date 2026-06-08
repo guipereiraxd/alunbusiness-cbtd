@@ -4,8 +4,6 @@ layout: default
 
 # Boas Práticas de Organizações de Alto Impacto
 
-> Slides 69–76 da palestra
-
 ---
 
 Esta seção traduz os padrões observados nas organizações com maior maturidade de aprendizagem em práticas concretas, checklists de diagnóstico e exercícios de aplicação.

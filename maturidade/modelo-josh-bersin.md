@@ -4,8 +4,6 @@ layout: default
 
 # Modelo de Maturidade do Ecossistema de Aprendizagem
 
-> Slides 57–59 da palestra | Fonte: Josh Bersin Company, 2025
-
 ---
 
 ## Os 4 Níveis de Maturidade
