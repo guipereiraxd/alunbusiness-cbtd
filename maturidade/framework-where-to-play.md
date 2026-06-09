@@ -315,6 +315,100 @@ title: "Framework de Estratégia Educacional"
     padding: 2px 0;
   }
 
+  /* ── Territory explainer box ────────────────────────────── */
+  .territory-box {
+    margin: 20px 0 28px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .territory-box-header {
+    padding: 12px 18px;
+    background: var(--tint-3);
+    border-bottom: 1px solid var(--border-sub);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .territory-box-header .icon {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+  .territory-box-header .title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+  .territory-box-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .territory-group {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .territory-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding-top: 1px;
+  }
+  .tb {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 700;
+    color: white;
+    background: var(--blue);
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .territory-group-text .group-name {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--text-1);
+    margin-bottom: 3px;
+  }
+  .territory-group-text .group-desc {
+    font-size: 0.8rem;
+    color: var(--text-4);
+    line-height: 1.55;
+  }
+  .territory-group-text .group-td {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-border);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .territory-divider {
+    border: none;
+    border-top: 1px solid var(--border-sub);
+    margin: 0;
+  }
+  .territory-box-intro {
+    font-size: 0.875rem;
+    color: var(--text-3);
+    line-height: 1.65;
+    padding: 0 18px 4px;
+  }
+
   @media (max-width: 640px) {
     .territory-wrap { grid-template-columns: 1fr; }
     .tactics-grid   { grid-template-columns: 1fr; }
@@ -458,11 +552,61 @@ A estratégia de T&D precisa estar conectada à estratégia corporativa. O frame
   </div>
 </div>
 
-**Como usar:**
+<div class="territory-box">
+  <div class="territory-box-header">
+    <span class="icon">▦</span>
+    <span class="title">O que são os Territórios?</span>
+  </div>
+  <p class="territory-box-intro">
+    Cada território é a interseção entre <strong>onde a empresa compete</strong> (mercado) e <strong>o que ela precisa saber fazer</strong> (competências). Os 9 territórios mapeiam todas as apostas possíveis de desenvolvimento — e revelam onde T&D deve concentrar seu esforço de aprendizagem.
+  </p>
+  <div class="territory-box-body">
 
-- **Territórios T1–T3 (Escalar):** core business — eficiência operacional. T&D atua em upskilling.
-- **Territórios T4–T6 (Dominar):** mercados adjacentes — competências existentes em novos contextos. T&D atua em reskilling.
-- **Territórios T7–T9 (Experimentar):** novos mercados — competências ainda inexistentes. T&D atua em exploração e inovação.
+    <div class="territory-group">
+      <div class="territory-badges">
+        <div class="tb">T1</div>
+        <div class="tb">T2</div>
+        <div class="tb">T3</div>
+      </div>
+      <div class="territory-group-text">
+        <div class="group-name">Escalar Competências — Core Business</div>
+        <div class="group-desc">A empresa já domina essas competências e opera em mercados conhecidos. O esforço é de eficiência, excelência operacional e multiplicação de boas práticas. Aqui T&D fortalece o que já funciona.</div>
+        <span class="group-td">T&D → Upskilling</span>
+      </div>
+    </div>
+
+    <hr class="territory-divider">
+
+    <div class="territory-group">
+      <div class="territory-badges">
+        <div class="tb">T4</div>
+        <div class="tb">T5</div>
+        <div class="tb">T6</div>
+      </div>
+      <div class="territory-group-text">
+        <div class="group-name">Dominar Competências — Mercados Adjacentes</div>
+        <div class="group-desc">Competências que já existem na organização, mas ainda não foram plenamente aplicadas em novos contextos ou segmentos. O esforço é de adaptação e expansão — levar o que se sabe para novas arenas.</div>
+        <span class="group-td">T&D → Reskilling</span>
+      </div>
+    </div>
+
+    <hr class="territory-divider">
+
+    <div class="territory-group">
+      <div class="territory-badges">
+        <div class="tb">T7</div>
+        <div class="tb">T8</div>
+        <div class="tb">T9</div>
+      </div>
+      <div class="territory-group-text">
+        <div class="group-name">Experimentar Competências — Novos Mercados</div>
+        <div class="group-desc">Competências que a organização ainda não possui, para mercados que ainda não explora. O esforço é de inovação e construção de capacidades inéditas. Aqui o erro faz parte do processo — é aprendizagem de fronteira.</div>
+        <span class="group-td">T&D → Exploração & Inovação</span>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ---
 
