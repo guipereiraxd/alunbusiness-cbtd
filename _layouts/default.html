@@ -784,7 +784,7 @@
           <summary>Recursos</summary>
           <div class="nav-items">
             <a href="{{ '/recursos/fontes-e-leituras' | relative_url }}" class="nav-link {% if page.url contains 'fontes' %}active{% endif %}">
-              <span class="icon">◻</span> Fontes & Leituras
+              <span class="icon">◻</span> Leituras Recomendadas
             </a>
             <a href="{{ '/recursos/glossario' | relative_url }}" class="nav-link {% if page.url contains 'glossario' %}active{% endif %}">
               <span class="icon">◻</span> Glossário
@@ -794,6 +794,12 @@
             </a>
           </div>
         </details>
+
+        <div class="nav-group">
+          <a href="{{ '/workshop/' | relative_url }}" class="nav-link {% if page.url contains '/workshop' %}active{% endif %}" style="font-weight:600;color:{% if page.url contains '/workshop' %}var(--gold){% else %}var(--text-2){% endif %};">
+            <span class="icon">◈</span> Workshop Edu Corp
+          </a>
+        </div>
 
       </nav>
 

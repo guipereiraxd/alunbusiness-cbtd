@@ -20,6 +20,7 @@ include:
   - maturidade
   - boas-praticas
   - recursos
+  - workshop
 
 defaults:
   - scope:
