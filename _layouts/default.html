@@ -497,7 +497,115 @@
       color: var(--text-2);
     }
 
+    /* ── Hero two-column layout ──────────────────────────────── */
+    .hero-outer {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      align-items: start;
+      padding: 48px 48px 0;
+      max-width: 1060px;
+    }
+    .hero-outer .hero { padding: 0; max-width: none; }
+
+    /* ── Inline registration form ─────────────────────────────── */
+    .irf-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .irf-eyebrow {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+    .irf-title {
+      font-size: 0.9375rem;
+      font-weight: 800;
+      color: var(--text-1);
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+    .irf-desc {
+      font-size: 0.8rem;
+      color: var(--text-4);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+    .irf-field { margin-bottom: 11px; }
+    .irf-label {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-4);
+      margin-bottom: 5px;
+    }
+    .irf-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 8px 11px;
+      font-size: 0.875rem;
+      color: var(--text-1);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+      -webkit-appearance: none;
+    }
+    .irf-input:focus { border-color: var(--gold); }
+    .irf-input::placeholder { color: var(--text-5); }
+    .irf-submit {
+      width: 100%;
+      background: var(--gold);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.15s;
+      margin-top: 4px;
+    }
+    .irf-submit:hover:not(:disabled) { opacity: 0.88; }
+    .irf-submit:disabled { opacity: 0.35; cursor: not-allowed; }
+    .irf-note {
+      font-size: 0.7rem;
+      color: var(--text-5);
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .irf-status {
+      font-size: 0.8125rem;
+      padding: 8px 11px;
+      border-radius: 7px;
+      margin-bottom: 12px;
+      display: none;
+      line-height: 1.5;
+    }
+    .irf-status.error { background: rgba(255,100,100,0.08); border: 1px solid rgba(255,100,100,0.2); color: #ff7070; display: block; }
+    .irf-welcome { text-align: center; padding: 10px 0; }
+    .irf-welcome-check { font-size: 20px; color: var(--gold); margin-bottom: 8px; }
+    .irf-welcome-title { font-size: 0.875rem; font-weight: 700; color: var(--text-1); margin-bottom: 5px; }
+    .irf-welcome-sub { font-size: 0.8rem; color: var(--text-4); line-height: 1.55; }
+
     /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-outer {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
     @media (max-width: 768px) {
       .sidebar {
         transform: translateX(-100%);
@@ -509,7 +617,7 @@
         margin-left: 0;
         padding-top: 52px;
       }
-      .hero, .page-band, .content {
+      .hero-outer, .hero, .page-band, .content {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -665,13 +773,56 @@
     <main class="main">
       {% if page.url == '/' or page.url == '/index.html' %}
       <!-- Homepage hero -->
-      <div class="hero">
-        <div class="tag">Alun Business</div>
-        <h1>Indo Além da Hype da IA: <span>Como T&D Pode Transformar Sua Organização de Verdade</span></h1>
-        <div class="subtitle">
-          <p class="subtitle-setup">As organizações do século XX não foram projetadas para humanos — foram projetadas em torno das limitações da tecnologia de coordenação disponível na época.</p>
-          <p class="subtitle-punch">A IA agêntica não está apenas automatizando tarefas. Está questionando por que as empresas existem do jeito que existem.</p>
+      <div class="hero-outer">
+
+        <div class="hero">
+          <div class="tag">Alun Business</div>
+          <h1>Indo Além da Hype da IA: <span>Como T&D Pode Transformar Sua Organização de Verdade</span></h1>
+          <div class="subtitle">
+            <p class="subtitle-setup">As organizações do século XX não foram projetadas para humanos — foram projetadas em torno das limitações da tecnologia de coordenação disponível na época.</p>
+            <p class="subtitle-punch">A IA agêntica não está apenas automatizando tarefas. Está questionando por que as empresas existem do jeito que existem.</p>
+          </div>
         </div>
+
+        <div class="hero-right">
+          <div class="irf-card">
+            <div id="irfStatus" class="irf-status"></div>
+
+            <!-- Form (shown when not registered) -->
+            <div id="irfFormWrap">
+              <div class="irf-eyebrow">Acesso gratuito</div>
+              <div class="irf-title">Acesse o conteúdo completo</div>
+              <div class="irf-desc">Cadastro único — sem senha, sem renovação.</div>
+              <form id="irfFormEl" autocomplete="on">
+                <div class="irf-field">
+                  <label class="irf-label" for="irfName">Nome</label>
+                  <input class="irf-input" id="irfName" type="text" placeholder="Seu nome" autocomplete="name" required>
+                </div>
+                <div class="irf-field">
+                  <label class="irf-label" for="irfEmail">E-mail</label>
+                  <input class="irf-input" id="irfEmail" type="email" placeholder="seu@empresa.com" autocomplete="email" required>
+                </div>
+                <div class="irf-field" style="margin-bottom:16px;">
+                  <label class="irf-label" for="irfCompany">Empresa <span style="font-weight:400;text-transform:none;letter-spacing:0;opacity:0.55;">(opcional)</span></label>
+                  <input class="irf-input" id="irfCompany" type="text" placeholder="Nome da empresa" autocomplete="organization">
+                </div>
+                <button class="irf-submit" id="irfSubmit" type="submit">Acessar o conteúdo →</button>
+              </form>
+              <p class="irf-note">Seus dados são usados apenas para liberar o acesso.</p>
+            </div>
+
+            <!-- Welcome (shown when already registered) -->
+            <div id="irfWelcome" style="display:none;">
+              <div class="irf-welcome">
+                <div class="irf-welcome-check">✓</div>
+                <div class="irf-welcome-title">Você já tem acesso</div>
+                <div class="irf-welcome-sub">Navegue pelo menu lateral ou explore os conteúdos abaixo.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
       <div class="content" style="padding-top: 0;">
@@ -745,6 +896,93 @@
 
         {{ content }}
       </div>
+
+      <script src="{{ '/assets/firebase-config.js' | relative_url }}"></script>
+      <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+      <script>
+      (function () {
+        function showWelcome() {
+          var f = document.getElementById('irfFormWrap');
+          var w = document.getElementById('irfWelcome');
+          if (f) f.style.display = 'none';
+          if (w) w.style.display = 'block';
+        }
+
+        // Already registered?
+        if (localStorage.getItem('aibc_registered') === 'true') { showWelcome(); return; }
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          if (cookies[i].trim().indexOf('aibc_session=1') === 0) {
+            localStorage.setItem('aibc_registered', 'true');
+            var m = document.cookie.match(/aibc_name=([^;]+)/);
+            if (m) localStorage.setItem('user_name', decodeURIComponent(m[1]));
+            showWelcome();
+            return;
+          }
+        }
+
+        // Init Firebase (graceful — form still works if config missing)
+        var db = null;
+        if (window.FIREBASE_CONFIG && window.firebase) {
+          try {
+            var app = firebase.apps.length ? firebase.app() : firebase.initializeApp(window.FIREBASE_CONFIG);
+            db = firebase.firestore(app);
+          } catch (e) { console.warn('[CBTD] Firebase init failed:', e); }
+        }
+
+        var COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+        function setSession(name) {
+          localStorage.setItem('aibc_registered', 'true');
+          localStorage.setItem('user_name', name);
+          document.cookie = 'aibc_session=1; max-age=' + COOKIE_MAX_AGE + '; path=/; SameSite=Strict';
+          document.cookie = 'aibc_name=' + encodeURIComponent(name) + '; max-age=' + COOKIE_MAX_AGE + '; path=/; SameSite=Strict';
+        }
+
+        var form = document.getElementById('irfFormEl');
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var name    = document.getElementById('irfName').value.trim();
+          var email   = document.getElementById('irfEmail').value.trim().toLowerCase();
+          var company = document.getElementById('irfCompany').value.trim();
+          var status  = document.getElementById('irfStatus');
+
+          if (!name || !email) {
+            status.className = 'irf-status error';
+            status.textContent = 'Preencha nome e e-mail para continuar.';
+            return;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            status.className = 'irf-status error';
+            status.textContent = 'Informe um e-mail válido.';
+            return;
+          }
+
+          var btn = document.getElementById('irfSubmit');
+          btn.disabled = true;
+          btn.textContent = 'Registrando…';
+
+          if (db) {
+            db.collection('registrations').add({
+              name: name, email: email, company: company || '',
+              source: 'cbtd_2026', registeredAt: new Date().toISOString()
+            }).catch(function (err) { console.warn('[Firebase] Write failed:', err); });
+          }
+
+          setSession(name);
+
+          // Update sidebar greeting
+          var sbUser = document.getElementById('sb-user');
+          var sbName = document.getElementById('sb-user-name');
+          if (sbUser) sbUser.style.display = 'block';
+          if (sbName) sbName.textContent = name.split(' ')[0];
+
+          showWelcome();
+        });
+      })();
+      </script>
 
       {% else %}
       <!-- Inner pages -->
