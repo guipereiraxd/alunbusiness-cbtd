@@ -180,7 +180,7 @@ title: "Acesso ao Conteúdo"
           </div>
           <button class="reg-submit" id="regSubmit" type="submit">Acessar o conteúdo →</button>
         </form>
-        <p class="reg-note">Ao acessar, você concorda com a <a href="https://ai-builder-camp.alura.com.br/privacy" target="_blank" style="color:var(--text-5);border-bottom:1px solid var(--border-sub);">política de privacidade</a>.</p>
+        <p class="reg-note">Ao acessar, você concorda com a <a href="{{ '/privacy/' | relative_url }}" target="_blank" style="color:var(--text-5);border-bottom:1px solid var(--border-sub);">política de privacidade</a>.</p>
       </div>
 
       <!-- Recovery form (hidden by default) -->
