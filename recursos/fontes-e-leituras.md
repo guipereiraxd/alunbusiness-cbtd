@@ -578,7 +578,7 @@ Uma curadoria do que realmente leio, releio e recomendo — livros, pesquisas e 
 
 ---
 
-<div class="lr-section">Quem Acompanho</div>
+<div class="lr-section">Pessoas para Acompanhar</div>
 
 <div class="follow-grid">
 
