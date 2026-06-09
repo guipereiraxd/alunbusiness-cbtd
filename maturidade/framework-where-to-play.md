@@ -561,7 +561,7 @@ A estratégia de T&D precisa estar conectada à estratégia corporativa. O frame
 
     <div class="territory-group">
       <div class="territory-group-text">
-        <div class="group-desc">Um <strong style="color:var(--text-1)">território</strong> é a interseção entre <strong style="color:var(--text-1)">onde a empresa compete</strong> (mercado) e <strong style="color:var(--text-1)">o que ela precisa saber fazer</strong> (competências). Cada cruzamento possível representa uma aposta estratégica — e revela onde T&D deve concentrar seu esforço de aprendizagem.</div>
+        <div class="group-desc">Cada território é a interseção entre <strong style="color:var(--text-1)">onde a empresa compete</strong> (mercado) e <strong style="color:var(--text-1)">o que ela precisa saber fazer</strong> (competências). Esses territórios mapeiam as apostas de desenvolvimento — e revelam onde T&D deve concentrar seu esforço de aprendizagem.</div>
       </div>
     </div>
 
