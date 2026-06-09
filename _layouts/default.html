@@ -193,11 +193,20 @@
       z-index: 200;
     }
     .mobile-header .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+    .mobile-header .logo-text .logo-name {
       font-size: 13px;
       font-weight: 700;
       color: var(--text-1);
     }
-    .mobile-header .logo-text span { color: var(--gold); }
+    .mobile-header .logo-text .logo-sub {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--gold);
+    }
     .menu-btn {
       background: none;
       border: 1px solid var(--border);
@@ -654,7 +663,10 @@
 
   <!-- Mobile header -->
   <header class="mobile-header">
-    <div class="logo-text">Alun Business · <span>Transformando seu Negócio com IA</span></div>
+    <div class="logo-text">
+      <span class="logo-name">Alun Business</span>
+      <span class="logo-sub">Transformando seu Negócio com IA</span>
+    </div>
     <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
   </header>
 
