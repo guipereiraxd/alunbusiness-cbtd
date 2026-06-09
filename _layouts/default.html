@@ -454,11 +454,25 @@
     }
     .hero h1 span { color: var(--gold); }
     .hero .subtitle {
-      font-size: 1rem;
-      color: var(--text-3);
-      line-height: 1.7;
       margin-bottom: 32px;
-      max-width: 540px;
+      max-width: 580px;
+    }
+    .hero .subtitle-setup {
+      font-size: 0.9375rem;
+      color: var(--text-4);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .hero .subtitle-punch {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--text-1);
+      line-height: 1.6;
+      padding: 14px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
     }
     .hero-meta {
       display: flex;
@@ -632,7 +646,10 @@
       <div class="hero">
         <div class="tag">Alun Business</div>
         <h1>Indo Além da Hype da IA: <span>Como T&D Pode Transformar Sua Organização de Verdade</span></h1>
-        <p class="subtitle">As organizações do século XX não foram projetadas para humanos — foram projetadas em torno das limitações da tecnologia de coordenação disponível na época. A IA agêntica não está apenas automatizando tarefas. Está questionando por que as empresas existem do jeito que existem.</p>
+        <div class="subtitle">
+          <p class="subtitle-setup">As organizações do século XX não foram projetadas para humanos — foram projetadas em torno das limitações da tecnologia de coordenação disponível na época.</p>
+          <p class="subtitle-punch">A IA agêntica não está apenas automatizando tarefas. Está questionando por que as empresas existem do jeito que existem.</p>
+        </div>
       </div>
 
       <div class="content" style="padding-top: 0;">
