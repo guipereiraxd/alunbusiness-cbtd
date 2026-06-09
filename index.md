@@ -162,6 +162,6 @@ title: "Início"
 </div>
 
 <div class="hp-closing">
-  <p class="hp-closing-question">Quanto da sua organização existe porque cria valor real para quem você serve — e quanto existe apenas porque a hierarquia era, até ontem, a melhor tecnologia disponível para coordenar informação e garantir controle?</p>
-  <p class="hp-closing-body">Essa pergunta vai definir mais o futuro das empresas do que qualquer programa de produtividade. Vai separar quem redesenha mercados de quem é redesenhado por eles. <strong>A firma agêntica ainda é hipótese em validação. Mas ignorá-la já é uma decisão estratégica.</strong></p>
+  <p class="hp-closing-question">Se você redesenhasse sua empresa do zero hoje — com IA agêntica disponível desde o primeiro dia — o que continuaria existindo? Quais estruturas sobreviveriam porque geram valor real, e quais existem porque eram a única forma que se conhecia de manter tudo funcionando?</p>
+  <p class="hp-closing-body">Fazer essa pergunta não é exercício acadêmico. É o trabalho concreto de quem vai decidir — ativamente ou por omissão — se sua organização molda o novo ambiente ou é moldada por ele. <strong>Para T&D, o momento de escolher o lado dessa equação é agora.</strong></p>
 </div>
