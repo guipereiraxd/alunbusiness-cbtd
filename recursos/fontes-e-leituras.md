@@ -309,26 +309,6 @@ Uma curadoria do que realmente leio, releio e recomendo — livros, pesquisas e 
   </div>
 </div>
 
-<div class="book-card">
-  <div class="book-cover-wrap">
-    <img class="book-cover"
-         src="https://covers.openlibrary.org/b/isbn/9780735216358-L.jpg"
-         alt="Thinking in Bets"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <div class="book-cover-placeholder" style="display:none">📖</div>
-  </div>
-  <div class="book-info">
-    <div class="book-cat">Decisão</div>
-    <div class="book-title">Thinking in Bets</div>
-    <div class="book-author">Annie Duke · 2018</div>
-    <p class="book-why">Annie Duke usa o poker profissional para ensinar a tomar decisões melhores em cenários de incerteza. Ideal para líderes que precisam agir sem ter todas as informações — o que é basicamente sempre.</p>
-    <a class="book-link" href="https://www.amazon.com.br/s?k=Thinking+in+Bets+Annie+Duke&i=stripbooks" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-      Ver na Amazon
-    </a>
-  </div>
-</div>
-
 </div>
 
 <div class="lr-section" style="margin-top:1.25rem;margin-bottom:0.75rem;font-size:9px;color:var(--text-4);letter-spacing:2px;">Aprendizagem Organizacional</div>
