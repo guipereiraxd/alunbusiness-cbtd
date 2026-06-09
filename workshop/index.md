@@ -280,7 +280,7 @@ description: Um workshop estruturado para construir, do zero, uma estratégia de
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--gold);
+  background: #ffffff;
   color: #0f0f0f;
   font-size: 0.95rem;
   font-weight: 800;
@@ -288,9 +288,9 @@ description: Um workshop estruturado para construir, do zero, uma estratégia de
   border-radius: 6px;
   padding: 14px 28px;
   letter-spacing: 0.3px;
-  transition: opacity 0.15s, transform 0.1s;
+  transition: background 0.15s, transform 0.1s;
 }
-.ws-cta-btn:hover { opacity: 0.9; transform: translateY(-1px); color: #0f0f0f; }
+.ws-cta-btn:hover { background: #f0ede8; transform: translateY(-1px); color: #0f0f0f; }
 .ws-cta-btn svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
 .ws-cta-note {
   margin-top: 1rem;
