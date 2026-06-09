@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% assign og_title = page.title | default: "Indo Além da Hype da IA" %}
-  {% assign og_desc  = page.description | default: site.description %}
+  {% assign og_title = page.og_title | default: "alunbusiness.md" %}
+  {% assign og_desc  = page.og_description | default: "Transformando seu negócio para além da IA" %}
   {% assign og_url   = page.url | prepend: site.url %}
   <meta name="description" content="{{ og_desc }}">
   <title>{% if page.title and page.title != "Início" %}{{ page.title }} — Alun Business{% else %}Indo Além da Hype da IA · Alun Business{% endif %}</title>
