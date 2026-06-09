@@ -123,10 +123,6 @@ title: "Início"
 
 <p class="hp-section-label">Por que isso importa agora</p>
 
-<div class="hp-pullquote">
-  <p>As organizações do século XX não foram projetadas para humanos — foram projetadas em torno das limitações da tecnologia de coordenação disponível na época. A IA agêntica não está apenas automatizando tarefas. Está questionando por que as empresas existem do jeito que existem.</p>
-</div>
-
 <div class="hp-insights">
 
   <div class="hp-insight">
