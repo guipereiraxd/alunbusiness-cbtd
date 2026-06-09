@@ -817,6 +817,12 @@
           </a>
         </div>
 
+        <div class="nav-group">
+          <a href="{{ '/curso-ia/' | relative_url }}" class="nav-link {% if page.url contains '/curso-ia' %}active{% endif %}" style="font-weight:600;">
+            <span class="icon" style="color:var(--blue);">⬡</span> Curso Prático de IA
+          </a>
+        </div>
+
       </nav>
 
       <div class="sidebar-footer">
@@ -921,9 +927,9 @@
 
         <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-5);margin-bottom:14px;margin-top:8px;">Material Complementar</p>
         <div class="section-grid">
-          <a href="https://ai-builder-camp.alura.com.br/" target="_blank" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
+          <a href="{{ '/curso-ia/' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
             <div class="card-icon" style="color:#4b6afc;">⬡</div>
-            <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 01 ↗</div>
+            <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 01</div>
             <div class="card-title">Curso Prático de IA</div>
             <div class="card-desc">Aprenda a usar IA como ferramenta real de trabalho — do zero a agentes em produção.</div>
           </a>
