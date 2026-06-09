@@ -90,6 +90,29 @@ title: "Início"
     margin-bottom: 20px;
   }
 
+  /* Closing provocation */
+  .hp-closing {
+    margin: 8px 0 0;
+    padding: 28px 28px 28px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+  }
+  .hp-closing-question {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-1);
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+  .hp-closing-body {
+    font-size: 0.9rem;
+    color: var(--text-3);
+    line-height: 1.75;
+  }
+  .hp-closing-body strong { color: var(--text-2); }
+
   @media (max-width: 640px) {
     .hp-pullquote { padding: 22px 20px; }
     .hp-pullquote::before { font-size: 40px; }
@@ -136,4 +159,9 @@ title: "Início"
     </div>
   </div>
 
+</div>
+
+<div class="hp-closing">
+  <p class="hp-closing-question">Quanto da sua organização existe porque cria valor real para quem você serve — e quanto existe apenas porque a hierarquia era, até ontem, a melhor tecnologia disponível para coordenar informação e garantir controle?</p>
+  <p class="hp-closing-body">Essa pergunta vai definir mais o futuro das empresas do que qualquer programa de produtividade. Vai separar quem redesenha mercados de quem é redesenhado por eles. <strong>A firma agêntica ainda é hipótese em validação. Mas ignorá-la já é uma decisão estratégica.</strong></p>
 </div>
