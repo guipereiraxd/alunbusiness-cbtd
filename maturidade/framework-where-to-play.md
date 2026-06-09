@@ -429,6 +429,11 @@ title: "Framework de Estratégia Educacional"
     .tactics-grid   { grid-template-columns: 1fr; }
     .pb-row-2       { grid-template-columns: 1fr; }
     .pb-connector   { gap: 40px; }
+    .tm-header,
+    .tm-row         { grid-template-columns: 80px repeat(3, 1fr); }
+    .tm-row-label   { padding: 10px 8px; font-size: 9px; }
+    .tm-cell        { padding: 8px 5px; font-size: 9px; }
+    .tm-dot-cell    { padding: 10px 5px; }
   }
 </style>
 
