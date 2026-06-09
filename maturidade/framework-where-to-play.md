@@ -557,51 +557,30 @@ A estratégia de T&D precisa estar conectada à estratégia corporativa. O frame
     <span class="icon">▦</span>
     <span class="title">O que são os Territórios?</span>
   </div>
-  <p class="territory-box-intro">
-    Cada território é a interseção entre <strong>onde a empresa compete</strong> (mercado) e <strong>o que ela precisa saber fazer</strong> (competências). Os 9 territórios mapeiam todas as apostas possíveis de desenvolvimento — e revelam onde T&D deve concentrar seu esforço de aprendizagem.
-  </p>
   <div class="territory-box-body">
 
     <div class="territory-group">
-      <div class="territory-badges">
-        <div class="tb">T1</div>
-        <div class="tb">T2</div>
-        <div class="tb">T3</div>
-      </div>
       <div class="territory-group-text">
-        <div class="group-name">Escalar Competências — Core Business</div>
-        <div class="group-desc">A empresa já domina essas competências e opera em mercados conhecidos. O esforço é de eficiência, excelência operacional e multiplicação de boas práticas. Aqui T&D fortalece o que já funciona.</div>
-        <span class="group-td">T&D → Upskilling</span>
+        <div class="group-desc">Um <strong style="color:var(--text-1)">território</strong> é a interseção entre <strong style="color:var(--text-1)">onde a empresa compete</strong> (mercado) e <strong style="color:var(--text-1)">o que ela precisa saber fazer</strong> (competências). Cada cruzamento possível representa uma aposta estratégica — e revela onde T&D deve concentrar seu esforço de aprendizagem.</div>
       </div>
     </div>
 
     <hr class="territory-divider">
 
     <div class="territory-group">
-      <div class="territory-badges">
-        <div class="tb">T4</div>
-        <div class="tb">T5</div>
-        <div class="tb">T6</div>
-      </div>
       <div class="territory-group-text">
-        <div class="group-name">Dominar Competências — Mercados Adjacentes</div>
-        <div class="group-desc">Competências que já existem na organização, mas ainda não foram plenamente aplicadas em novos contextos ou segmentos. O esforço é de adaptação e expansão — levar o que se sabe para novas arenas.</div>
-        <span class="group-td">T&D → Reskilling</span>
+        <div class="group-name">O mapa é ilustrativo</div>
+        <div class="group-desc">Os territórios T1 a T9 mostrados na matriz são um <strong style="color:var(--text-1)">exemplo</strong>. Cada empresa terá um número diferente de territórios, definido pela sua própria estratégia — quantos mercados ela atende e quais combinações de competências precisa desenvolver para competir em cada um deles.</div>
       </div>
     </div>
 
     <hr class="territory-divider">
 
     <div class="territory-group">
-      <div class="territory-badges">
-        <div class="tb">T7</div>
-        <div class="tb">T8</div>
-        <div class="tb">T9</div>
-      </div>
       <div class="territory-group-text">
-        <div class="group-name">Experimentar Competências — Novos Mercados</div>
-        <div class="group-desc">Competências que a organização ainda não possui, para mercados que ainda não explora. O esforço é de inovação e construção de capacidades inéditas. Aqui o erro faz parte do processo — é aprendizagem de fronteira.</div>
-        <span class="group-td">T&D → Exploração & Inovação</span>
+        <div class="group-name">Como usar na prática</div>
+        <div class="group-desc">Mapeie os territórios da <em>sua</em> empresa: identifique os mercados que ela ocupa hoje e os que quer conquistar, depois cruze com as competências que já domina, as que existem mas estão subutilizadas, e as que ainda precisam ser criadas. Os territórios que emergirem desse cruzamento são os pontos onde T&D tem maior potencial de impacto.</div>
+        <span class="group-td">Resultado → Portfólio de desenvolvimento com prioridade estratégica</span>
       </div>
     </div>
 
