@@ -8,7 +8,7 @@ Esta seção reúne os dois frameworks mais importantes da palestra para quem qu
 
 | Framework | Para que serve | Aprofundamento |
 |---|---|---|
-| Modelo de Maturidade (Josh Bersin) | Diagnosticar onde sua empresa está e definir o próximo passo | [Acesse →](./modelo-josh-bersin.md) |
+| Modelo de Maturidade | Diagnosticar onde sua empresa está e definir o próximo passo | [Acesse →](./diagnostico-maturidade.md) |
 | Where to Play & How to Win | Construir o playbook estratégico de T&D | [Acesse →](./framework-where-to-play.md) |
 
 **Sequência recomendada:**
