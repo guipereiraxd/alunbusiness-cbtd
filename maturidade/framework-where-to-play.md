@@ -189,6 +189,21 @@ title: "Framework de Estratégia Educacional"
     color: white;
     opacity: 0.85;
   }
+  .tm-quadrant {
+    width: 100%;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-5);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+  .tm-dot-cell.empty .tm-quadrant {
+    color: var(--text-5);
+    margin-top: 0;
+  }
   .tm-footer {
     background: var(--gold-dim);
     border-top: 1px solid var(--gold-border);
@@ -532,21 +547,21 @@ A estratégia de T&D precisa estar conectada à estratégia corporativa. O frame
     </div>
     <div class="tm-row">
       <div class="tm-row-label">Novos Mercados</div>
-      <div class="tm-dot-cell"></div>
-      <div class="tm-dot-cell"></div>
-      <div class="tm-dot-cell"><div class="tm-dot">T9</div></div>
+      <div class="tm-dot-cell empty"><div class="tm-quadrant">Transposição</div></div>
+      <div class="tm-dot-cell empty"><div class="tm-quadrant">Vanguarda</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T9</div><div class="tm-quadrant">Disrupção</div></div>
     </div>
     <div class="tm-row">
       <div class="tm-row-label">Mercados Não Endereçados</div>
-      <div class="tm-dot-cell"><div class="tm-dot">T5</div></div>
-      <div class="tm-dot-cell"><div class="tm-dot">T6</div></div>
-      <div class="tm-dot-cell"><div class="tm-dot">T8</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T5</div><div class="tm-quadrant">Expansão</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T6</div><div class="tm-quadrant">Adjacência</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T8</div><div class="tm-quadrant">Exploração</div></div>
     </div>
     <div class="tm-row">
       <div class="tm-row-label">Mercados Estabelecidos</div>
-      <div class="tm-dot-cell"><div class="tm-dot">T1</div><div class="tm-dot">T2</div><div class="tm-dot">T3</div></div>
-      <div class="tm-dot-cell"><div class="tm-dot">T4</div></div>
-      <div class="tm-dot-cell"><div class="tm-dot">T7</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T1</div><div class="tm-dot">T2</div><div class="tm-dot">T3</div><div class="tm-quadrant">Excelência</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T4</div><div class="tm-quadrant">Ativação</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T7</div><div class="tm-quadrant">Transformação</div></div>
     </div>
     <div class="tm-footer">Criação de Valor — Esforço de Aprendizagem Organizacional</div>
   </div>
