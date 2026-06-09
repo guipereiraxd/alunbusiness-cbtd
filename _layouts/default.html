@@ -795,15 +795,25 @@
           </div>
         </details>
 
+        <div style="margin: 16px 0 8px; padding: 0 12px;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-5);">Ferramentas</div>
+        </div>
+
         <div class="nav-group">
-          <a href="{{ '/workshop/' | relative_url }}" class="nav-link {% if page.url contains '/workshop' %}active{% endif %}" style="font-weight:600;color:{% if page.url contains '/workshop' %}var(--gold){% else %}var(--text-2){% endif %};">
-            <span class="icon">◈</span> Workshop Edu Corp
+          <a href="{{ '/maturidade/modelo-josh-bersin' | relative_url }}" class="nav-link {% if page.url contains 'josh-bersin' %}active{% endif %}" style="font-weight:600;">
+            <span class="icon" style="color:var(--gold);">◎</span> Autodiagnóstico de Maturidade
           </a>
         </div>
 
         <div class="nav-group">
-          <a href="{{ '/calculadora-roi/' | relative_url }}" class="nav-link {% if page.url contains '/calculadora-roi' %}active{% endif %}" style="font-weight:600;color:{% if page.url contains '/calculadora-roi' %}var(--blue){% else %}var(--text-2){% endif %};">
-            <span class="icon">▣</span> Calculadora de ROI
+          <a href="{{ '/workshop/' | relative_url }}" class="nav-link {% if page.url contains '/workshop' %}active{% endif %}" style="font-weight:600;">
+            <span class="icon" style="color:var(--gold);">◈</span> Workshop Edu Corp
+          </a>
+        </div>
+
+        <div class="nav-group">
+          <a href="{{ '/calculadora-roi/' | relative_url }}" class="nav-link {% if page.url contains '/calculadora-roi' %}active{% endif %}" style="font-weight:600;">
+            <span class="icon" style="color:var(--blue);">▣</span> Calculadora de ROI
           </a>
         </div>
 
