@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Framework Where to Play & How to Win"
+title: "Framework de Estratégia Educacional"
 ---
 
 <style>
@@ -99,35 +99,25 @@ title: "Framework Where to Play & How to Win"
   }
 
   /* ── Territory matrix ────────────────────────────────────── */
-  .territory-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin: 24px 0;
-    align-items: start;
-  }
-  .wtp-block {
+  .wtp-pills {
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    margin: 24px 0 16px;
+    flex-wrap: wrap;
   }
   .wtp-pill {
-    padding: 10px 14px;
+    padding: 10px 16px;
     border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    flex: 1;
+    min-width: 200px;
   }
-  .wtp-pill.gold {
-    background: var(--gold-dim);
-    border: 1px solid var(--gold-border);
-  }
-  .wtp-pill.blue {
-    background: var(--blue-dim);
-    border: 1px solid var(--blue-border);
-  }
-  .wtp-pill .label { font-size: 11px; font-weight: 700; color: var(--text-4); min-width: 70px; }
-  .wtp-pill .arrow { font-size: 16px; color: var(--text-5); }
+  .wtp-pill.gold { background: var(--gold-dim); border: 1px solid var(--gold-border); }
+  .wtp-pill.blue { background: var(--blue-dim);  border: 1px solid var(--blue-border); }
+  .wtp-pill .label { font-size: 11px; font-weight: 700; }
+  .wtp-pill .arrow { font-size: 14px; color: var(--text-5); }
   .wtp-pill .value { font-size: 12px; font-weight: 700; color: var(--text-1); }
   .wtp-pill.gold .label { color: var(--gold); }
   .wtp-pill.blue .label { color: var(--blue); }
@@ -137,33 +127,35 @@ title: "Framework Where to Play & How to Win"
     border-radius: 10px;
     overflow: hidden;
     font-size: 11px;
+    margin-bottom: 8px;
+    width: 100%;
   }
   .tm-header {
     display: grid;
-    grid-template-columns: 90px repeat(3, 1fr);
+    grid-template-columns: 130px repeat(3, 1fr);
     background: var(--tint-3);
     border-bottom: 1px solid var(--border-sub);
   }
   .tm-cell {
-    padding: 8px 6px;
+    padding: 10px 8px;
     text-align: center;
     color: var(--text-4);
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     border-right: 1px solid var(--border-sub);
-    line-height: 1.3;
+    line-height: 1.4;
   }
   .tm-cell:last-child { border-right: none; }
   .tm-row {
     display: grid;
-    grid-template-columns: 90px repeat(3, 1fr);
+    grid-template-columns: 130px repeat(3, 1fr);
     border-top: 1px solid var(--border-sub);
   }
   .tm-row-label {
-    padding: 10px 6px;
-    font-size: 9px;
+    padding: 14px 10px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -171,30 +163,31 @@ title: "Framework Where to Play & How to Win"
     border-right: 1px solid var(--border-sub);
     display: flex;
     align-items: center;
-    line-height: 1.3;
+    line-height: 1.4;
   }
   .tm-dot-cell {
-    padding: 8px 4px;
+    padding: 14px 8px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 6px;
     border-right: 1px solid var(--border-sub);
+    min-height: 64px;
   }
   .tm-dot-cell:last-child { border-right: none; }
   .tm-dot {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: var(--blue);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 700;
     color: white;
-    opacity: 0.8;
+    opacity: 0.85;
   }
   .tm-footer {
     background: var(--gold-dim);
@@ -330,7 +323,7 @@ title: "Framework Where to Play & How to Win"
   }
 </style>
 
-# Framework Where to Play & How to Win aplicado a T&D
+# Framework de Estratégia Educacional
 
 ---
 
@@ -424,49 +417,44 @@ Os sistemas, estruturas e indicadores que são necessários para dar suporte às
 A estratégia de T&D precisa estar conectada à estratégia corporativa. O framework conecta dois movimentos:
 
 <div class="fw-section">
-  <div class="territory-wrap">
-    <div class="wtp-block">
-      <div class="wtp-pill gold">
-        <span class="label">Where to Play</span>
-        <span class="arrow">›</span>
-        <span class="value">Territórios Estratégicos</span>
-      </div>
-      <div class="wtp-pill blue">
-        <span class="label">How to Win</span>
-        <span class="arrow">›</span>
-        <span class="value">Competências Tech & Digitais</span>
-      </div>
-      <p style="font-size:0.8125rem;color:var(--text-4);margin-top:8px;line-height:1.6;">
-        As empresas precisam de <strong style="color:var(--text-2)">ambidestria organizacional</strong>: trabalhar simultaneamente na eficiência do core business e na exploração de novos territórios.
-      </p>
+  <div class="wtp-pills">
+    <div class="wtp-pill gold">
+      <span class="label">Where to Play</span>
+      <span class="arrow">›</span>
+      <span class="value">Territórios Estratégicos</span>
     </div>
-    <div class="territory-matrix">
-      <div class="tm-header">
-        <div class="tm-cell"></div>
-        <div class="tm-cell">Escalar<br>competências</div>
-        <div class="tm-cell">Dominar<br>competências</div>
-        <div class="tm-cell">Experimentar<br>competências</div>
-      </div>
-      <div class="tm-row">
-        <div class="tm-row-label">Novos mercados</div>
-        <div class="tm-dot-cell"></div>
-        <div class="tm-dot-cell"></div>
-        <div class="tm-dot-cell"><div class="tm-dot">T9</div></div>
-      </div>
-      <div class="tm-row">
-        <div class="tm-row-label">Mercados não endereçados</div>
-        <div class="tm-dot-cell"><div class="tm-dot">T5</div></div>
-        <div class="tm-dot-cell"><div class="tm-dot">T6</div></div>
-        <div class="tm-dot-cell"><div class="tm-dot">T8</div></div>
-      </div>
-      <div class="tm-row">
-        <div class="tm-row-label">Mercados estabelecidos</div>
-        <div class="tm-dot-cell"><div class="tm-dot">T1</div><div class="tm-dot">T2</div><div class="tm-dot">T3</div></div>
-        <div class="tm-dot-cell"><div class="tm-dot">T4</div></div>
-        <div class="tm-dot-cell"><div class="tm-dot">T7</div></div>
-      </div>
-      <div class="tm-footer">Criação de Valor — Esforço de Aprendizagem Organizacional</div>
+    <div class="wtp-pill blue">
+      <span class="label">How to Win</span>
+      <span class="arrow">›</span>
+      <span class="value">Competências Tech & Digitais</span>
     </div>
+  </div>
+  <div class="territory-matrix">
+    <div class="tm-header">
+      <div class="tm-cell"></div>
+      <div class="tm-cell">Escalar<br>Competências</div>
+      <div class="tm-cell">Dominar<br>Competências</div>
+      <div class="tm-cell">Experimentar<br>Competências</div>
+    </div>
+    <div class="tm-row">
+      <div class="tm-row-label">Novos Mercados</div>
+      <div class="tm-dot-cell"></div>
+      <div class="tm-dot-cell"></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T9</div></div>
+    </div>
+    <div class="tm-row">
+      <div class="tm-row-label">Mercados Não Endereçados</div>
+      <div class="tm-dot-cell"><div class="tm-dot">T5</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T6</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T8</div></div>
+    </div>
+    <div class="tm-row">
+      <div class="tm-row-label">Mercados Estabelecidos</div>
+      <div class="tm-dot-cell"><div class="tm-dot">T1</div><div class="tm-dot">T2</div><div class="tm-dot">T3</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T4</div></div>
+      <div class="tm-dot-cell"><div class="tm-dot">T7</div></div>
+    </div>
+    <div class="tm-footer">Criação de Valor — Esforço de Aprendizagem Organizacional</div>
   </div>
 </div>
 
