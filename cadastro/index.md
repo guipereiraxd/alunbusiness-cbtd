@@ -257,17 +257,27 @@ title: "Acesso ao Conteúdo"
     btn.disabled = true;
     btn.textContent = 'Registrando...';
 
+    function finalize() {
+      setSession(name);
+      showStatus('success', 'Acesso liberado! Redirecionando…');
+      setTimeout(function () { window.location.replace(HOME); }, 800);
+    }
+
+    var guard = setTimeout(finalize, 4000);
     db.collection('registrations').add({
       name: name,
       email: email,
       company: company || '',
       source: 'cbtd_2026',
       registeredAt: new Date().toISOString()
-    }).catch(function (err) { console.warn('[Firebase] Registration write failed:', err); });
-
-    setSession(name);
-    showStatus('success', 'Acesso liberado! Redirecionando…');
-    setTimeout(function () { window.location.replace(HOME); }, 900);
+    }).then(function () {
+      clearTimeout(guard);
+      finalize();
+    }).catch(function (err) {
+      console.warn('[Firebase] Registration write failed:', err);
+      clearTimeout(guard);
+      finalize();
+    });
   });
 
   // ── Recovery ──────────────────────────────────────────

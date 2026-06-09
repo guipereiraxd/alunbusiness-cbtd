@@ -969,22 +969,31 @@
           btn.disabled = true;
           btn.textContent = 'Registrando…';
 
+          function finalize() {
+            setSession(name);
+            var sbUser = document.getElementById('sb-user');
+            var sbName = document.getElementById('sb-user-name');
+            if (sbUser) sbUser.style.display = 'block';
+            if (sbName) sbName.textContent = name.split(' ')[0];
+            showWelcome();
+          }
+
           if (db) {
+            var guard = setTimeout(finalize, 4000);
             db.collection('registrations').add({
               name: name, email: email, company: company || '',
               source: 'cbtd_2026', registeredAt: new Date().toISOString()
-            }).catch(function (err) { console.warn('[Firebase] Write failed:', err); });
+            }).then(function () {
+              clearTimeout(guard);
+              finalize();
+            }).catch(function (err) {
+              console.warn('[Firebase] Write failed:', err);
+              clearTimeout(guard);
+              finalize();
+            });
+          } else {
+            finalize();
           }
-
-          setSession(name);
-
-          // Update sidebar greeting
-          var sbUser = document.getElementById('sb-user');
-          var sbName = document.getElementById('sb-user-name');
-          if (sbUser) sbUser.style.display = 'block';
-          if (sbName) sbName.textContent = name.split(' ')[0];
-
-          showWelcome();
         });
       })();
       </script>
