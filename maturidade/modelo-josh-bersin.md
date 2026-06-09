@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Modelo de Maturidade do Ecossistema de Aprendizagem
+# Modelo de Maturidade de Educação Corporativa
 
 ---
 
