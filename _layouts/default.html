@@ -1010,6 +1010,26 @@
             showWelcome();
           }
 
+          // ── HubSpot (fire-and-forget) ──────────────────────
+          (function () {
+            try {
+              var parts = name.trim().split(' ');
+              fetch('https://api.hsforms.com/submissions/v3/integration/submit/21748317/052d048e-cd71-45bb-8b29-aa8d6e36cc1c', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  fields: [
+                    { name: 'firstname', value: parts[0] },
+                    { name: 'lastname',  value: parts.slice(1).join(' ') },
+                    { name: 'email',     value: email },
+                    { name: 'company',   value: company || '' }
+                  ],
+                  context: { pageUri: window.location.href, pageName: document.title }
+                })
+              }).catch(function (e) { console.warn('[HubSpot] submit failed:', e); });
+            } catch (e) { console.warn('[HubSpot] error:', e); }
+          })();
+
           if (db) {
             var guard = setTimeout(finalize, 4000);
             db.collection('registrations').add({
