@@ -21,6 +21,7 @@ include:
   - boas-praticas
   - recursos
   - workshop
+  - calculadora-roi
 
 defaults:
   - scope:
