@@ -357,11 +357,10 @@ Uma curadoria do que realmente leio, releio e recomendo — livros, pesquisas e 
 
 <div class="book-card">
   <div class="book-cover-wrap">
-    <img class="book-cover"
-         src="https://covers.openlibrary.org/b/isbn/9781264268498-L.jpg"
-         alt="Irresistible"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <div class="book-cover-placeholder" style="display:none">📖</div>
+    <div class="book-cover-placeholder" style="display:flex;background:linear-gradient(135deg,#1a1811 0%,#252010 100%);border-color:#362c18;flex-direction:column;gap:4px;padding:8px;text-align:center;">
+      <span style="font-size:20px">📗</span>
+      <span style="font-size:7px;color:#7a6a48;font-weight:700;letter-spacing:1px;line-height:1.3">JOSH<br>BERSIN</span>
+    </div>
   </div>
   <div class="book-info">
     <div class="book-cat">Pessoas & Cultura</div>
@@ -450,7 +449,7 @@ Uma curadoria do que realmente leio, releio e recomendo — livros, pesquisas e 
 <div class="book-card">
   <div class="book-cover-wrap">
     <img class="book-cover"
-         src="https://covers.openlibrary.org/b/isbn/9781620402085-L.jpg"
+         src="https://covers.openlibrary.org/b/isbn/9781620401453-L.jpg"
          alt="A More Beautiful Question"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="book-cover-placeholder" style="display:none">📖</div>
