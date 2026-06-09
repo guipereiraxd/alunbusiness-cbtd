@@ -331,9 +331,9 @@ description: Um workshop estruturado para construir, do zero, uma estratégia de
   <div class="ws-step-num">2</div>
   <div class="ws-step-body">
     <div class="ws-step-tag">Posicionamento Estratégico</div>
-    <div class="ws-step-title">Licenças Estratégicas de Transformação</div>
-    <div class="ws-step-desc">Definimos os territórios de atuação da empresa — o que é necessário para operar, para competir e para vencer — e identificamos as principais alavancas de inovação disponíveis.</div>
-    <div class="ws-step-deliverable">↳ Pirâmide de licenças estratégicas</div>
+    <div class="ws-step-title">Táticas de Transformação</div>
+    <div class="ws-step-desc">Definimos os territórios de atuação da empresa — o que é necessário para operar e vencer em cada área — e identificamos as principais alavancas de inovação disponíveis.</div>
+    <div class="ws-step-deliverable">↳ Táticas de Transformação da Empresa</div>
   </div>
 </div>
 
