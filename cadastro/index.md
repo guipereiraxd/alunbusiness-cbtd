@@ -147,8 +147,7 @@ title: "Acesso ao Conteúdo"
       return;
     }
   }
-  // Not registered — show the form
-  document.getElementById('reg-page').style.opacity = '1';
+  // Not registered — let the div render, then show it (script below the div handles this)
 })();
 </script>
 
@@ -206,6 +205,9 @@ title: "Acesso ao Conteúdo"
   </div>
 
 </div>
+
+<!-- Show form now that the div exists in the DOM -->
+<script>document.getElementById('reg-page').style.opacity = '1';</script>
 
 <!-- Firebase config injected at build time via GitHub Actions (never in source) -->
 <script src="{{ '/assets/firebase-config.js' | relative_url }}"></script>
