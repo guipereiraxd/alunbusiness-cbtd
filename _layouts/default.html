@@ -74,8 +74,8 @@
     }
     .sidebar-logo .title {
       font-size: 13px;
-      font-weight: 700;
-      color: var(--text-1);
+      font-weight: 800;
+      color: var(--gold);
       line-height: 1.3;
     }
     .sidebar-logo .sub {
@@ -84,27 +84,69 @@
       margin-top: 2px;
     }
     .sidebar-nav {
-      padding: 12px 10px;
+      padding: 8px 10px;
       flex: 1;
+      overflow-y: auto;
     }
-    .nav-section {
-      margin-bottom: 4px;
-    }
-    .nav-section-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-5);
-      padding: 8px 10px 4px;
-    }
-    .nav-link {
+
+    /* ── Início link (sem dropdown) ───────────────────────────── */
+    .nav-home {
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 7px 10px;
       border-radius: 7px;
       font-size: 13px;
+      color: var(--text-3);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      margin-bottom: 4px;
+    }
+    .nav-home:hover { background: var(--tint-5); color: var(--text-1); text-decoration: none; }
+    .nav-home.active { background: var(--gold-dim); color: var(--gold); }
+
+    /* ── Accordion ────────────────────────────────────────────── */
+    .nav-group {
+      margin-bottom: 2px;
+    }
+    .nav-group summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-4);
+      user-select: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-group summary::-webkit-details-marker { display: none; }
+    .nav-group summary::after {
+      content: '›';
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-5);
+      transition: transform 0.2s;
+      line-height: 1;
+    }
+    .nav-group[open] summary::after { transform: rotate(90deg); }
+    .nav-group summary:hover { background: var(--tint-3); color: var(--text-3); }
+    .nav-group[open] summary { color: var(--text-3); }
+    .nav-group .nav-items {
+      padding: 2px 0 6px 0;
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px 6px 18px;
+      border-radius: 7px;
+      font-size: 12.5px;
       color: var(--text-3);
       text-decoration: none;
       transition: background 0.15s, color 0.15s;
@@ -120,9 +162,9 @@
       color: var(--gold);
     }
     .nav-link .icon {
-      font-size: 14px;
+      font-size: 12px;
       flex-shrink: 0;
-      opacity: 0.7;
+      opacity: 0.6;
     }
     .sidebar-footer {
       padding: 16px 20px;
@@ -484,86 +526,98 @@
       </div>
 
       <nav class="sidebar-nav">
-        <div class="nav-section">
-          <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' or page.url == '/README' %}active{% endif %}">
-            <span class="icon">⌂</span> Início
-          </a>
-        </div>
 
-        <div class="nav-section">
-          <div class="nav-section-label">Contexto</div>
-          <a href="{{ '/contexto/' | relative_url }}" class="nav-link {% if page.url contains '/contexto/' and page.url == '/contexto/' %}active{% endif %}">
-            <span class="icon">◉</span> Visão Geral
-          </a>
-          <a href="{{ '/contexto/01-ia-agentica-e-rh' | relative_url }}" class="nav-link {% if page.url contains '01-ia-agentica' %}active{% endif %}">
-            <span class="icon">◉</span> IA Agêntica & RH
-          </a>
-          <a href="{{ '/contexto/02-potencial-humano' | relative_url }}" class="nav-link {% if page.url contains '02-potencial' %}active{% endif %}">
-            <span class="icon">◉</span> Potencial Humano
-          </a>
-          <a href="{{ '/contexto/03-novo-contrato-trabalho' | relative_url }}" class="nav-link {% if page.url contains '03-novo-contrato' %}active{% endif %}">
-            <span class="icon">◉</span> Novo Contrato de Trabalho
-          </a>
-        </div>
+        <a href="{{ '/' | relative_url }}" class="nav-home {% if page.url == '/' or page.url == '/index.html' %}active{% endif %}">
+          <span style="font-size:13px;">⌂</span> Início
+        </a>
 
-        <div class="nav-section">
-          <div class="nav-section-label">3 Aprendizados</div>
-          <a href="{{ '/aprendizados/' | relative_url }}" class="nav-link {% if page.url == '/aprendizados/' %}active{% endif %}">
-            <span class="icon">◎</span> Visão Geral
-          </a>
-          <a href="{{ '/aprendizados/01-fazer-melhores-perguntas' | relative_url }}" class="nav-link {% if page.url contains '01-fazer' %}active{% endif %}">
-            <span class="icon">◎</span> Fazer Melhores Perguntas
-          </a>
-          <a href="{{ '/aprendizados/02-mindset-e-transformacao' | relative_url }}" class="nav-link {% if page.url contains '02-mindset' %}active{% endif %}">
-            <span class="icon">◎</span> Mindset & Transformação
-          </a>
-          <a href="{{ '/aprendizados/03-capacidade-humana' | relative_url }}" class="nav-link {% if page.url contains '03-capacidade' %}active{% endif %}">
-            <span class="icon">◎</span> Capacidade Humana
-          </a>
-        </div>
+        <details class="nav-group" {% if page.url contains '/contexto/' %}open{% endif %}>
+          <summary>Contexto</summary>
+          <div class="nav-items">
+            <a href="{{ '/contexto/' | relative_url }}" class="nav-link {% if page.url == '/contexto/' %}active{% endif %}">
+              <span class="icon">◉</span> Visão Geral
+            </a>
+            <a href="{{ '/contexto/01-ia-agentica-e-rh' | relative_url }}" class="nav-link {% if page.url contains '01-ia-agentica' %}active{% endif %}">
+              <span class="icon">◉</span> IA Agêntica & RH
+            </a>
+            <a href="{{ '/contexto/02-potencial-humano' | relative_url }}" class="nav-link {% if page.url contains '02-potencial' %}active{% endif %}">
+              <span class="icon">◉</span> Potencial Humano
+            </a>
+            <a href="{{ '/contexto/03-novo-contrato-trabalho' | relative_url }}" class="nav-link {% if page.url contains '03-novo-contrato' %}active{% endif %}">
+              <span class="icon">◉</span> Novo Contrato de Trabalho
+            </a>
+          </div>
+        </details>
 
-        <div class="nav-section">
-          <div class="nav-section-label">Agentes de IA</div>
-          <a href="{{ '/agentes/' | relative_url }}" class="nav-link {% if page.url == '/agentes/' %}active{% endif %}">
-            <span class="icon">⬡</span> Visão Geral
-          </a>
-          <a href="{{ '/agentes/consultor-estrategia-tecnologica/' | relative_url }}" class="nav-link {% if page.url contains 'consultor-estrategia-tecnologica' %}active{% endif %}">
-            <span class="icon">⬡</span> Estratégia Tecnológica
-          </a>
-          <a href="{{ '/agentes/consultora-estrategia-aprendizagem/' | relative_url }}" class="nav-link {% if page.url contains 'consultora-estrategia-aprendizagem' %}active{% endif %}">
-            <span class="icon">⬡</span> Estratégia de Aprendizagem
-          </a>
-        </div>
+        <details class="nav-group" {% if page.url contains '/aprendizados/' %}open{% endif %}>
+          <summary>3 Aprendizados</summary>
+          <div class="nav-items">
+            <a href="{{ '/aprendizados/' | relative_url }}" class="nav-link {% if page.url == '/aprendizados/' %}active{% endif %}">
+              <span class="icon">◎</span> Visão Geral
+            </a>
+            <a href="{{ '/aprendizados/01-fazer-melhores-perguntas' | relative_url }}" class="nav-link {% if page.url contains '01-fazer' %}active{% endif %}">
+              <span class="icon">◎</span> Melhores Perguntas
+            </a>
+            <a href="{{ '/aprendizados/02-mindset-e-transformacao' | relative_url }}" class="nav-link {% if page.url contains '02-mindset' %}active{% endif %}">
+              <span class="icon">◎</span> Mindset & Transformação
+            </a>
+            <a href="{{ '/aprendizados/03-capacidade-humana' | relative_url }}" class="nav-link {% if page.url contains '03-capacidade' %}active{% endif %}">
+              <span class="icon">◎</span> Capacidade Humana
+            </a>
+          </div>
+        </details>
 
-        <div class="nav-section">
-          <div class="nav-section-label">Frameworks</div>
-          <a href="{{ '/maturidade/modelo-josh-bersin' | relative_url }}" class="nav-link {% if page.url contains 'josh-bersin' %}active{% endif %}">
-            <span class="icon">▦</span> Modelo de Maturidade
-          </a>
-          <a href="{{ '/maturidade/framework-where-to-play' | relative_url }}" class="nav-link {% if page.url contains 'where-to-play' %}active{% endif %}">
-            <span class="icon">▦</span> Where to Play & How to Win
-          </a>
-        </div>
+        <details class="nav-group" {% if page.url contains '/agentes/' %}open{% endif %}>
+          <summary>Agentes de IA</summary>
+          <div class="nav-items">
+            <a href="{{ '/agentes/' | relative_url }}" class="nav-link {% if page.url == '/agentes/' %}active{% endif %}">
+              <span class="icon">⬡</span> Visão Geral
+            </a>
+            <a href="{{ '/agentes/consultor-estrategia-tecnologica/' | relative_url }}" class="nav-link {% if page.url contains 'consultor-estrategia-tecnologica' %}active{% endif %}">
+              <span class="icon">⬡</span> Estratégia Tecnológica
+            </a>
+            <a href="{{ '/agentes/consultora-estrategia-aprendizagem/' | relative_url }}" class="nav-link {% if page.url contains 'consultora-estrategia-aprendizagem' %}active{% endif %}">
+              <span class="icon">⬡</span> Estratégia de Aprendizagem
+            </a>
+          </div>
+        </details>
 
-        <div class="nav-section">
-          <div class="nav-section-label">Boas Práticas</div>
-          <a href="{{ '/boas-praticas/cultura-de-aprendizagem' | relative_url }}" class="nav-link {% if page.url contains 'cultura-de-aprendizagem' %}active{% endif %}">
-            <span class="icon">✦</span> Cultura de Aprendizagem
-          </a>
-        </div>
+        <details class="nav-group" {% if page.url contains '/maturidade/' %}open{% endif %}>
+          <summary>Frameworks</summary>
+          <div class="nav-items">
+            <a href="{{ '/maturidade/modelo-josh-bersin' | relative_url }}" class="nav-link {% if page.url contains 'josh-bersin' %}active{% endif %}">
+              <span class="icon">▦</span> Modelo de Maturidade
+            </a>
+            <a href="{{ '/maturidade/framework-where-to-play' | relative_url }}" class="nav-link {% if page.url contains 'where-to-play' %}active{% endif %}">
+              <span class="icon">▦</span> Where to Play & How to Win
+            </a>
+          </div>
+        </details>
 
-        <div class="nav-section">
-          <div class="nav-section-label">Recursos</div>
-          <a href="{{ '/recursos/fontes-e-leituras' | relative_url }}" class="nav-link {% if page.url contains 'fontes' %}active{% endif %}">
-            <span class="icon">◻</span> Fontes & Leituras
-          </a>
-          <a href="{{ '/recursos/glossario' | relative_url }}" class="nav-link {% if page.url contains 'glossario' %}active{% endif %}">
-            <span class="icon">◻</span> Glossário
-          </a>
-          <a href="{{ '/recursos/promptoteca' | relative_url }}" class="nav-link {% if page.url contains 'promptoteca' %}active{% endif %}">
-            <span class="icon">✦</span> Promptoteca
-          </a>
-        </div>
+        <details class="nav-group" {% if page.url contains '/boas-praticas/' %}open{% endif %}>
+          <summary>Boas Práticas</summary>
+          <div class="nav-items">
+            <a href="{{ '/boas-praticas/cultura-de-aprendizagem' | relative_url }}" class="nav-link {% if page.url contains 'cultura-de-aprendizagem' %}active{% endif %}">
+              <span class="icon">✦</span> Cultura de Aprendizagem
+            </a>
+          </div>
+        </details>
+
+        <details class="nav-group" {% if page.url contains '/recursos/' %}open{% endif %}>
+          <summary>Recursos</summary>
+          <div class="nav-items">
+            <a href="{{ '/recursos/fontes-e-leituras' | relative_url }}" class="nav-link {% if page.url contains 'fontes' %}active{% endif %}">
+              <span class="icon">◻</span> Fontes & Leituras
+            </a>
+            <a href="{{ '/recursos/glossario' | relative_url }}" class="nav-link {% if page.url contains 'glossario' %}active{% endif %}">
+              <span class="icon">◻</span> Glossário
+            </a>
+            <a href="{{ '/recursos/promptoteca' | relative_url }}" class="nav-link {% if page.url contains 'promptoteca' %}active{% endif %}">
+              <span class="icon">✦</span> Promptoteca
+            </a>
+          </div>
+        </details>
+
       </nav>
 
       <div class="sidebar-footer">
