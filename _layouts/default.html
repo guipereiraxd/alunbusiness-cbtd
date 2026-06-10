@@ -452,12 +452,14 @@
       border: 1px solid var(--border-sub);
       border-radius: 12px;
       text-decoration: none;
-      transition: border-color 0.15s, background 0.15s;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
     }
     .section-card:hover {
       border-color: var(--border);
       background: var(--surface-2);
       text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
     }
     .section-card .card-icon {
       font-size: 18px;
@@ -496,13 +498,15 @@
       border: 1px solid var(--gold-border);
       border-radius: 14px;
       text-decoration: none;
-      transition: border-color 0.15s, transform 0.15s;
+      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
       position: relative;
       overflow: hidden;
     }
     .featured-card:hover {
       border-color: var(--gold);
       text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.4), 0 4px 16px rgba(209,164,118,0.07);
     }
     .featured-card .fc-icon .svgi { width: 26px; height: 26px; stroke-width: 1.75; }
     .featured-card .fc-icon {
@@ -959,12 +963,6 @@
         <div class="nav-group">
           <a href="{{ '/curso-ia/' | relative_url }}" class="nav-link {% if page.url contains '/curso-ia' %}active{% endif %}" style="font-weight:600;">
             <span class="icon" style="color:var(--blue);"><svg class="svgi"><use href="#i-grad"/></svg></span> Curso Prático de IA
-          </a>
-        </div>
-
-        <div class="nav-group">
-          <a href="{{ '/agentes/' | relative_url }}" class="nav-link {% if page.url contains '/agentes' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--blue);"><svg class="svgi"><use href="#i-bot"/></svg></span> Agentes de IA para T&D
           </a>
         </div>
 
