@@ -13,4 +13,4 @@ Três pilares definem esse contexto:
 | Talentos & Habilidades | Regeneração do potencial humano | [Acesse →](./02-potencial-humano.md) |
 | Cultura & Experiência | O novo contrato de trabalho | [Acesse →](./03-novo-contrato-trabalho.md) |
 
-> "Como a tecnologia vai amplificar o humano?" — essa é a pergunta central de toda a palestra.
+> "Como a tecnologia vai amplificar o humano?" — essa é a pergunta central de todo este material.

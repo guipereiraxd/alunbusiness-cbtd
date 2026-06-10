@@ -22,7 +22,7 @@ Isso não é metáfora. É uma descrição precisa de por que a maioria das tran
 
 ## Por que projetos de IA falham (de verdade)
 
-Os 87% de falha em transformações e projetos de IA citados na palestra não se explicam por problemas de tecnologia. Explicam-se por:
+Os 87% de falha em transformações e projetos de IA citados neste material não se explicam por problemas de tecnologia. Explicam-se por:
 
 1. **Falta de capacidade de absorção** — a organização não tem as competências para incorporar o que a tecnologia oferece
 2. **Resistência cultural** — as pessoas não foram preparadas para a mudança, apenas informadas sobre ela

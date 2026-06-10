@@ -5,7 +5,7 @@
 
 ## O que são estes agentes
 
-Durante a palestra, dois GPTs foram apresentados para uso prático na sessão "Mão na Massa". Eles foram desenvolvidos para ajudar profissionais de T&D e RH a **aplicar os conceitos da palestra na realidade da sua empresa** — sem precisar de conhecimento técnico de IA.
+Dois GPTs desenvolvidos para uso prático, no formato "Mão na Massa". Eles ajudam profissionais de T&D e RH a **aplicar os conceitos deste material na realidade da sua empresa** — sem precisar de conhecimento técnico de IA.
 
 Os agentes foram construídos com instruções especializadas para atuar como consultores nas suas respectivas áreas. Não são chatbots genéricos — foram projetados para conduzir análises estruturadas e entregar outputs acionáveis.
 
@@ -22,7 +22,7 @@ Os agentes foram construídos com instruções especializadas para atuar como co
 
 ## Como usar — fluxo recomendado
 
-Os agentes foram desenhados para trabalhar em sequência, na ordem dos exercícios práticos da palestra:
+Os agentes foram desenhados para trabalhar em sequência:
 
 ```
 PASSO 1                          PASSO 2                        PASSO 3

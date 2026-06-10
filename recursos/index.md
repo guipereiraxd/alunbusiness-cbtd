@@ -6,5 +6,5 @@ layout: default
 
 | Aprofundamento | Conteúdo |
 |---|---|
-| [Fontes & Leituras](./fontes-e-leituras.md) | Todos os relatórios, livros, pensadores e publicações citados na palestra |
-| [Glossário](./glossario.md) | Definições dos principais termos usados na palestra |
+| [Fontes & Leituras](./fontes-e-leituras.md) | Relatórios, livros, pensadores e publicações que fundamentam este material |
+| [Glossário](./glossario.md) | Definições dos principais termos usados neste material |

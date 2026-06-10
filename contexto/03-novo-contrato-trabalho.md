@@ -63,7 +63,7 @@ Mais de **1 bilhão de pessoas** no mundo têm alguma necessidade de acessibilid
 
 ## O que fazer — sugestões práticas
 
-A palestra propõe sete movimentos para responder a esse novo contexto:
+Propomos sete movimentos para responder a esse novo contexto:
 
 1. **Monitorar o Retorno sobre Autonomia (RoA)** — Estabeleça uma governança centralizada (em parceria com TI e Jurídico) para supervisionar todos os agentes de IA e garantir que eles estejam agindo de acordo com a cultura da empresa.
 

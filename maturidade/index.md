@@ -4,7 +4,7 @@ layout: default
 
 # Modelos de Maturidade e Estratégia de T&D
 
-Esta seção reúne os dois frameworks mais importantes da palestra para quem quer **sair do diagnóstico e ir para a ação estratégica**.
+Esta seção reúne os dois frameworks mais importantes deste material para quem quer **sair do diagnóstico e ir para a ação estratégica**.
 
 | Framework | Para que serve | Aprofundamento |
 |---|---|---|

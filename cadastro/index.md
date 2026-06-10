@@ -155,9 +155,9 @@ title: "Acesso ao Conteúdo"
 
   <div class="reg-wrap">
 
-    <div class="reg-eyebrow">Alun Business · CBTD 2026</div>
+    <div class="reg-eyebrow">Alun Business</div>
     <div class="reg-title">Indo Além da Hype da IA</div>
-    <div class="reg-desc">Para acessar o conteúdo completo da palestra, deixe seus dados abaixo. O acesso é gratuito e permanente.</div>
+    <div class="reg-desc">Para acessar o conteúdo completo, deixe seus dados abaixo. O acesso é gratuito e permanente.</div>
 
     <div class="reg-card">
 

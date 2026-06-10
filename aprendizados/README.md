@@ -1,7 +1,7 @@
 
 # Os 3 Aprendizados da Estratégia de Transformação
 
-Antes de falar sobre transformação, a palestra propõe uma reflexão: o que aprendemos com as transformações do passado que se aplica ao presente?
+Antes de falar sobre transformação, propomos uma reflexão: o que aprendemos com as transformações do passado que se aplica ao presente?
 
 Três aprendizados fundamentais emergem dessa análise:
 

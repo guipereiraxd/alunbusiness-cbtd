@@ -1,14 +1,14 @@
 # Indo Além da Hype da IA: Como T&D Pode Transformar Sua Organização de Verdade
 
-> Material de aprofundamento da palestra apresentada no **CBTD 2026** por Guilherme Luiz Pereira.
+> Material de aprofundamento sobre IA, educação corporativa e transformação organizacional, por Guilherme Luiz Pereira.
 
 ---
 
-## Sobre esta palestra
+## Sobre este material
 
-Vivemos a Era da Transformação Cognitiva — e a maioria das organizações ainda responde a esse novo paradigma com as lentes do passado. Esta palestra conecta três forças que estão redefinindo o trabalho: **tecnologia agêntica**, **regeneração do potencial humano** e **cultura organizacional**. E propõe um papel central para T&D nessa equação.
+Vivemos a Era da Transformação Cognitiva — e a maioria das organizações ainda responde a esse novo paradigma com as lentes do passado. Este material conecta três forças que estão redefinindo o trabalho: **tecnologia agêntica**, **regeneração do potencial humano** e **cultura organizacional**. E propõe um papel central para T&D nessa equação.
 
-Este repositório é uma extensão da palestra. Aqui você encontra:
+Aqui você encontra:
 
 - Aprofundamento de cada tema com dados, frameworks e fontes
 - Os **3 aprendizados** da estratégia de transformação
@@ -21,7 +21,7 @@ Este repositório é uma extensão da palestra. Aqui você encontra:
 
 ## Como navegar
 
-Este repositório é organizado na mesma sequência da palestra. Você pode seguir do início ao fim ou ir direto ao tema que mais interessa.
+Este repositório segue uma sequência pensada para construir o raciocínio passo a passo. Você pode seguir do início ao fim ou ir direto ao tema que mais interessa.
 
 | Seção | O que você vai encontrar |
 |---|---|
@@ -44,7 +44,7 @@ Speaker no **SXSW em 2018 e 2023**, desenvolveu ferramentas, metodologias e mode
 
 ---
 
-## Estrutura da palestra
+## Estrutura do conteúdo
 
 ```
 1. O momento atual de T&D — um contexto desafiador
