@@ -96,7 +96,6 @@
       top: 0;
       left: 0;
       height: 100vh;
-      overflow-y: auto;
       z-index: 100;
     }
     .sidebar-logo {
@@ -292,6 +291,26 @@
     .content {
       max-width: 760px;
       padding: 48px 48px 80px;
+    }
+
+    /* ── Breadcrumb eyebrow (inner pages) ─────────────────────── */
+    .crumb {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.75;
+      margin-bottom: 10px;
+    }
+
+    /* ── Keyboard focus ───────────────────────────────────────── */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
     }
 
     /* ── Markdown typography ──────────────────────────────────── */
@@ -1286,6 +1305,21 @@
       {% else %}
       <!-- Inner pages -->
       <div class="content">
+        {% assign url_parts = page.url | split: '/' %}
+        {% assign section_slug = url_parts[1] %}
+        {% case section_slug %}
+          {% when 'contexto' %}{% assign crumb = 'Contexto' %}
+          {% when 'aprendizados' %}{% assign crumb = '3 Aprendizados' %}
+          {% when 'agentes' %}{% assign crumb = 'Agentes de IA' %}
+          {% when 'maturidade' %}{% assign crumb = 'Frameworks' %}
+          {% when 'boas-praticas' %}{% assign crumb = 'Boas Práticas' %}
+          {% when 'recursos' %}{% assign crumb = 'Recursos' %}
+          {% when 'workshop' %}{% assign crumb = 'Ferramentas' %}
+          {% when 'calculadora-roi' %}{% assign crumb = 'Ferramentas' %}
+          {% when 'curso-ia' %}{% assign crumb = 'Ferramentas' %}
+          {% else %}{% assign crumb = nil %}
+        {% endcase %}
+        {% if crumb %}<div class="crumb">{{ crumb }}</div>{% endif %}
         {{ content }}
       </div>
       {% endif %}
