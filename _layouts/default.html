@@ -71,6 +71,19 @@
       min-height: 100vh;
     }
 
+    /* ── SVG icons ────────────────────────────────────────────── */
+    .svgi {
+      width: 1em;
+      height: 1em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      display: block;
+      flex-shrink: 0;
+    }
+
     /* ── Sidebar ──────────────────────────────────────────────── */
     .sidebar {
       width: 240px;
@@ -192,7 +205,10 @@
       font-size: 12px;
       flex-shrink: 0;
       opacity: 0.6;
+      display: flex;
+      align-items: center;
     }
+    .nav-link .icon .svgi { width: 13px; height: 13px; stroke-width: 1.75; }
     .sidebar-footer {
       padding: 16px 20px;
       border-top: 1px solid var(--border-sub);
@@ -447,6 +463,7 @@
       font-size: 18px;
       margin-bottom: 10px;
     }
+    .section-card .card-icon .svgi { width: 20px; height: 20px; stroke-width: 1.75; }
     .section-card .card-label {
       font-size: 10px;
       font-weight: 700;
@@ -487,6 +504,7 @@
       border-color: var(--gold);
       text-decoration: none;
     }
+    .featured-card .fc-icon .svgi { width: 26px; height: 26px; stroke-width: 1.75; }
     .featured-card .fc-icon {
       font-size: 28px;
       color: var(--gold);
@@ -783,6 +801,25 @@
 </head>
 <body>
 
+  <!-- SVG icon sprite (Lucide-style) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none;" aria-hidden="true">
+    <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+    <symbol id="i-present" viewBox="0 0 24 24"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+    <symbol id="i-game" viewBox="0 0 24 24"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59C2.6 9.42 2 14.46 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.41-1.41A2 2 0 0 1 9.83 16h4.34a2 2 0 0 1 1.42.59L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.54-.6-6.58-.68-7.26A4 4 0 0 0 17.32 5z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/><path d="M5 3v4"/><path d="M3 5h4"/><path d="M19 17v4"/><path d="M17 19h4"/></symbol>
+  </svg>
+
   <!-- Mobile header -->
   <header class="mobile-header">
     <div class="logo-text">
@@ -807,23 +844,23 @@
       <nav class="sidebar-nav">
 
         <a href="{{ '/' | relative_url }}" class="nav-home {% if page.url == '/' or page.url == '/index.html' %}active{% endif %}">
-          <span style="font-size:13px;">⌂</span> Início
+          <svg class="svgi" style="width:13px;height:13px;stroke-width:1.75;"><use href="#i-house"/></svg> Início
         </a>
 
         <details class="nav-group" {% if page.url contains '/contexto/' %}open{% endif %}>
           <summary>Contexto</summary>
           <div class="nav-items">
             <a href="{{ '/contexto/' | relative_url }}" class="nav-link {% if page.url == '/contexto/' %}active{% endif %}">
-              <span class="icon">◉</span> Visão Geral
+              <span class="icon"><svg class="svgi"><use href="#i-compass"/></svg></span> Visão Geral
             </a>
             <a href="{{ '/contexto/01-ia-agentica-e-rh' | relative_url }}" class="nav-link {% if page.url contains '01-ia-agentica' %}active{% endif %}">
-              <span class="icon">◉</span> IA Agêntica & RH
+              <span class="icon"><svg class="svgi"><use href="#i-compass"/></svg></span> IA Agêntica & RH
             </a>
             <a href="{{ '/contexto/02-potencial-humano' | relative_url }}" class="nav-link {% if page.url contains '02-potencial' %}active{% endif %}">
-              <span class="icon">◉</span> Potencial Humano
+              <span class="icon"><svg class="svgi"><use href="#i-compass"/></svg></span> Potencial Humano
             </a>
             <a href="{{ '/contexto/03-novo-contrato-trabalho' | relative_url }}" class="nav-link {% if page.url contains '03-novo-contrato' %}active{% endif %}">
-              <span class="icon">◉</span> Novo Contrato de Trabalho
+              <span class="icon"><svg class="svgi"><use href="#i-compass"/></svg></span> Novo Contrato de Trabalho
             </a>
           </div>
         </details>
@@ -832,16 +869,16 @@
           <summary>3 Aprendizados</summary>
           <div class="nav-items">
             <a href="{{ '/aprendizados/' | relative_url }}" class="nav-link {% if page.url == '/aprendizados/' %}active{% endif %}">
-              <span class="icon">◎</span> Visão Geral
+              <span class="icon"><svg class="svgi"><use href="#i-bulb"/></svg></span> Visão Geral
             </a>
             <a href="{{ '/aprendizados/01-fazer-melhores-perguntas' | relative_url }}" class="nav-link {% if page.url contains '01-fazer' %}active{% endif %}">
-              <span class="icon">◎</span> Melhores Perguntas
+              <span class="icon"><svg class="svgi"><use href="#i-bulb"/></svg></span> Melhores Perguntas
             </a>
             <a href="{{ '/aprendizados/02-mindset-e-transformacao' | relative_url }}" class="nav-link {% if page.url contains '02-mindset' %}active{% endif %}">
-              <span class="icon">◎</span> Mindset & Transformação
+              <span class="icon"><svg class="svgi"><use href="#i-bulb"/></svg></span> Mindset & Transformação
             </a>
             <a href="{{ '/aprendizados/03-capacidade-humana' | relative_url }}" class="nav-link {% if page.url contains '03-capacidade' %}active{% endif %}">
-              <span class="icon">◎</span> Capacidade Humana
+              <span class="icon"><svg class="svgi"><use href="#i-bulb"/></svg></span> Capacidade Humana
             </a>
           </div>
         </details>
@@ -850,13 +887,13 @@
           <summary>Agentes de IA</summary>
           <div class="nav-items">
             <a href="{{ '/agentes/' | relative_url }}" class="nav-link {% if page.url == '/agentes/' %}active{% endif %}">
-              <span class="icon">⬡</span> Visão Geral
+              <span class="icon"><svg class="svgi"><use href="#i-bot"/></svg></span> Visão Geral
             </a>
             <a href="{{ '/agentes/consultor-estrategia-tecnologica/' | relative_url }}" class="nav-link {% if page.url contains 'consultor-estrategia-tecnologica' %}active{% endif %}">
-              <span class="icon">⬡</span> Estratégia Tecnológica
+              <span class="icon"><svg class="svgi"><use href="#i-bot"/></svg></span> Estratégia Tecnológica
             </a>
             <a href="{{ '/agentes/consultora-estrategia-aprendizagem/' | relative_url }}" class="nav-link {% if page.url contains 'consultora-estrategia-aprendizagem' %}active{% endif %}">
-              <span class="icon">⬡</span> Estratégia de Aprendizagem
+              <span class="icon"><svg class="svgi"><use href="#i-bot"/></svg></span> Estratégia de Aprendizagem
             </a>
           </div>
         </details>
@@ -865,10 +902,10 @@
           <summary>Frameworks</summary>
           <div class="nav-items">
             <a href="{{ '/maturidade/diagnostico-maturidade' | relative_url }}" class="nav-link {% if page.url contains 'diagnostico-maturidade' %}active{% endif %}">
-              <span class="icon">▦</span> Modelo de Maturidade
+              <span class="icon"><svg class="svgi"><use href="#i-grid"/></svg></span> Modelo de Maturidade
             </a>
             <a href="{{ '/maturidade/framework-where-to-play' | relative_url }}" class="nav-link {% if page.url contains 'where-to-play' %}active{% endif %}">
-              <span class="icon">▦</span> Framework de Estratégia
+              <span class="icon"><svg class="svgi"><use href="#i-grid"/></svg></span> Framework de Estratégia
             </a>
           </div>
         </details>
@@ -877,7 +914,7 @@
           <summary>Boas Práticas</summary>
           <div class="nav-items">
             <a href="{{ '/boas-praticas/cultura-de-aprendizagem' | relative_url }}" class="nav-link {% if page.url contains 'cultura-de-aprendizagem' %}active{% endif %}">
-              <span class="icon">✦</span> Cultura de Aprendizagem
+              <span class="icon"><svg class="svgi"><use href="#i-check"/></svg></span> Cultura de Aprendizagem
             </a>
           </div>
         </details>
@@ -886,13 +923,13 @@
           <summary>Recursos</summary>
           <div class="nav-items">
             <a href="{{ '/recursos/fontes-e-leituras' | relative_url }}" class="nav-link {% if page.url contains 'fontes' %}active{% endif %}">
-              <span class="icon">◻</span> Leituras Recomendadas
+              <span class="icon"><svg class="svgi"><use href="#i-book"/></svg></span> Leituras Recomendadas
             </a>
             <a href="{{ '/recursos/glossario' | relative_url }}" class="nav-link {% if page.url contains 'glossario' %}active{% endif %}">
-              <span class="icon">◻</span> Glossário
+              <span class="icon"><svg class="svgi"><use href="#i-list"/></svg></span> Glossário
             </a>
             <a href="{{ '/recursos/promptoteca' | relative_url }}" class="nav-link {% if page.url contains 'promptoteca' %}active{% endif %}">
-              <span class="icon">✦</span> Promptoteca
+              <span class="icon"><svg class="svgi"><use href="#i-chat"/></svg></span> Promptoteca
             </a>
           </div>
         </details>
@@ -903,31 +940,31 @@
 
         <div class="nav-group">
           <a href="{{ '/maturidade/diagnostico-maturidade' | relative_url }}" class="nav-link {% if page.url contains 'diagnostico-maturidade' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--gold);">◎</span> Autodiagnóstico de Maturidade
+            <span class="icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-gauge"/></svg></span> Autodiagnóstico de Maturidade
           </a>
         </div>
 
         <div class="nav-group">
           <a href="{{ '/workshop/' | relative_url }}" class="nav-link {% if page.url contains '/workshop' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--gold);">◈</span> Workshop Edu Corp
+            <span class="icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-present"/></svg></span> Workshop Edu Corp
           </a>
         </div>
 
         <div class="nav-group">
           <a href="{{ '/calculadora-roi/' | relative_url }}" class="nav-link {% if page.url contains '/calculadora-roi' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--blue);">▣</span> Calculadora de ROI
+            <span class="icon" style="color:var(--blue);"><svg class="svgi"><use href="#i-calc"/></svg></span> Calculadora de ROI
           </a>
         </div>
 
         <div class="nav-group">
           <a href="{{ '/curso-ia/' | relative_url }}" class="nav-link {% if page.url contains '/curso-ia' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--blue);">⬡</span> Curso Prático de IA
+            <span class="icon" style="color:var(--blue);"><svg class="svgi"><use href="#i-grad"/></svg></span> Curso Prático de IA
           </a>
         </div>
 
         <div class="nav-group">
           <a href="{{ '/agentes/' | relative_url }}" class="nav-link {% if page.url contains '/agentes' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--blue);">⬡</span> Agentes de IA para T&D
+            <span class="icon" style="color:var(--blue);"><svg class="svgi"><use href="#i-bot"/></svg></span> Agentes de IA para T&D
           </a>
         </div>
 
@@ -1002,7 +1039,7 @@
       <div class="content" style="padding-top: 0;">
 
         <a href="{{ '/maturidade/diagnostico-maturidade' | relative_url }}" class="featured-card">
-          <div class="fc-icon">◎</div>
+          <div class="fc-icon"><svg class="svgi"><use href="#i-gauge"/></svg></div>
           <div class="fc-body">
             <div class="fc-label">Comece por aqui</div>
             <div class="fc-title">Autodiagnóstico de Maturidade de T&D</div>
@@ -1014,31 +1051,31 @@
         <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-5);margin-bottom:14px;">Conteúdos de Aprofundamento</p>
         <div class="section-grid">
           <a href="{{ '/contexto/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);">◉</div>
+            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-compass"/></svg></div>
             <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 1</div>
             <div class="card-title">Contexto Atual de T&D</div>
             <div class="card-desc">IA Agêntica, potencial humano e o novo contrato de trabalho.</div>
           </a>
           <a href="{{ '/aprendizados/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);">◎</div>
+            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-bulb"/></svg></div>
             <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 2</div>
             <div class="card-title">3 Aprendizados sobre Transformação</div>
             <div class="card-desc">Os fundamentos de qualquer transformação organizacional real.</div>
           </a>
           <a href="{{ '/agentes/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);">⬡</div>
+            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-bot"/></svg></div>
             <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 3</div>
             <div class="card-title">Agentes de IA para T&D</div>
             <div class="card-desc">Dois GPTs prontos para usar agora na sua empresa.</div>
           </a>
           <a href="{{ '/maturidade/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);">▦</div>
+            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-grid"/></svg></div>
             <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 4</div>
             <div class="card-title">Modelo de Maturidade de Educação</div>
             <div class="card-desc">Autodiagnóstico e frameworks estratégicos para T&D.</div>
           </a>
           <a href="{{ '/boas-praticas/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);">✦</div>
+            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-check"/></svg></div>
             <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 5</div>
             <div class="card-title">Boas Práticas T&D</div>
             <div class="card-desc">Checklists das organizações de alto impacto.</div>
@@ -1048,43 +1085,43 @@
         <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-5);margin-bottom:14px;margin-top:8px;">Material Complementar</p>
         <div class="section-grid">
           <a href="{{ '/curso-ia/' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;">⬡</div>
+            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-grad"/></svg></div>
             <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 01</div>
             <div class="card-title">Curso Prático de IA</div>
             <div class="card-desc">Aprenda a usar IA como ferramenta real de trabalho — do zero a agentes em produção.</div>
           </a>
           <a href="{{ '/workshop/' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;">◈</div>
+            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-present"/></svg></div>
             <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 02</div>
             <div class="card-title">Workshop de Estratégia de Educação Corporativa</div>
             <div class="card-desc">6 módulos práticos para construir uma estratégia de T&D alinhada ao negócio — com roadmap pronto ao final.</div>
           </a>
           <a href="{{ '/recursos/promptoteca' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;">✦</div>
+            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-chat"/></svg></div>
             <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 03</div>
             <div class="card-title">Promptoteca de Educação Corporativa</div>
             <div class="card-desc">25 prompts prontos para estratégia, design instrucional, avaliação e IA aplicada em T&D.</div>
           </a>
           <a href="{{ '/recursos/' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;">◻</div>
+            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-book"/></svg></div>
             <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 04</div>
             <div class="card-title">Leituras Adicionais</div>
             <div class="card-desc">Fontes, leituras recomendadas e glossário completo.</div>
           </a>
           <a href="https://performance-lab-game.alura.com.br/" target="_blank" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;">▦</div>
+            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-game"/></svg></div>
             <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 05 ↗</div>
             <div class="card-title">Performance Lab — Jogo</div>
             <div class="card-desc">O jogo da performance de T&D.</div>
           </a>
           <a href="https://luminawork.com.br/" target="_blank" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;">⬡</div>
+            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-spark"/></svg></div>
             <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 06 ↗</div>
             <div class="card-title">Conheça a Lumina</div>
             <div class="card-desc">Plataforma de IA do Grupo Alun com 55+ agentes especializados por área — RH, T&D, liderança e mais — acessíveis sem conhecimento técnico.</div>
           </a>
           <a href="{{ '/calculadora-roi/' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;">▣</div>
+            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-calc"/></svg></div>
             <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 07</div>
             <div class="card-title">Calculadora de ROI de T&D</div>
             <div class="card-desc">Traduza o impacto das suas iniciativas de educação corporativa em retorno financeiro mensurável.</div>
