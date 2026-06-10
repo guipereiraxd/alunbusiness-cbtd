@@ -209,6 +209,20 @@
       align-items: center;
     }
     .nav-link .icon .svgi { width: 13px; height: 13px; stroke-width: 1.75; }
+    /* ── Sidebar: Ferramentas section ─────────────────────────── */
+    .nav-section-label {
+      margin: 16px 0 8px;
+      padding: 0 12px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-5);
+    }
+    .nav-tool { font-weight: 600; }
+    .nav-tool--gold .icon { color: var(--gold); }
+    .nav-tool--blue .icon { color: var(--blue); }
+
     .sidebar-footer {
       padding: 16px 20px;
       border-top: 1px solid var(--border-sub);
@@ -439,6 +453,15 @@
     }
 
     /* ── Section cards (homepage) ─────────────────────────────── */
+    .content-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-5);
+      margin-bottom: 14px;
+    }
+    .content-label--spaced { margin-top: 8px; }
     .section-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -486,6 +509,22 @@
       color: var(--text-4);
       line-height: 1.5;
     }
+    .section-card--gold .card-icon  { color: var(--gold); }
+    .section-card--gold .card-label { color: rgba(209,164,118,0.6); }
+    .section-card--blue {
+      background: var(--blue-dim);
+      border-color: var(--blue-border);
+    }
+    .section-card--blue .card-icon  { color: var(--blue); }
+    .section-card--blue .card-label { color: rgba(75,106,252,0.6); }
+    /* .content a sets border-bottom (link underline); restore card borders */
+    .content .section-card { border-bottom: 1px solid var(--border-sub); }
+    .content .section-card:hover { border-bottom-color: var(--border); }
+    .content .section-card--blue,
+    .content .section-card--blue:hover { border-color: var(--blue-border); }
+    .content .featured-card,
+    .content .featured-card:hover { border-bottom: 1px solid var(--gold-border); }
+    .content .featured-card:hover { border-color: var(--gold); }
 
     /* ── Featured card (comece por aqui) ─────────────────────── */
     .featured-card {
@@ -777,11 +816,12 @@
       .section-grid {
         grid-template-columns: 1fr;
       }
-      .content table {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
+    }
+
+    /* ── Responsive table wrapper (added via JS) ──────────────── */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
   </style>
 
@@ -938,31 +978,29 @@
           </div>
         </details>
 
-        <div style="margin: 16px 0 8px; padding: 0 12px;">
-          <div style="font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-5);">Ferramentas</div>
-        </div>
+        <div class="nav-section-label">Ferramentas</div>
 
         <div class="nav-group">
-          <a href="{{ '/maturidade/diagnostico-maturidade' | relative_url }}" class="nav-link {% if page.url contains 'diagnostico-maturidade' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-gauge"/></svg></span> Autodiagnóstico de Maturidade
+          <a href="{{ '/maturidade/diagnostico-maturidade' | relative_url }}" class="nav-link nav-tool nav-tool--gold {% if page.url contains 'diagnostico-maturidade' %}active{% endif %}">
+            <span class="icon"><svg class="svgi"><use href="#i-gauge"/></svg></span> Autodiagnóstico de Maturidade
           </a>
         </div>
 
         <div class="nav-group">
-          <a href="{{ '/workshop/' | relative_url }}" class="nav-link {% if page.url contains '/workshop' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-present"/></svg></span> Workshop Edu Corp
+          <a href="{{ '/workshop/' | relative_url }}" class="nav-link nav-tool nav-tool--gold {% if page.url contains '/workshop' %}active{% endif %}">
+            <span class="icon"><svg class="svgi"><use href="#i-present"/></svg></span> Workshop Edu Corp
           </a>
         </div>
 
         <div class="nav-group">
-          <a href="{{ '/calculadora-roi/' | relative_url }}" class="nav-link {% if page.url contains '/calculadora-roi' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--blue);"><svg class="svgi"><use href="#i-calc"/></svg></span> Calculadora de ROI
+          <a href="{{ '/calculadora-roi/' | relative_url }}" class="nav-link nav-tool nav-tool--blue {% if page.url contains '/calculadora-roi' %}active{% endif %}">
+            <span class="icon"><svg class="svgi"><use href="#i-calc"/></svg></span> Calculadora de ROI
           </a>
         </div>
 
         <div class="nav-group">
-          <a href="{{ '/curso-ia/' | relative_url }}" class="nav-link {% if page.url contains '/curso-ia' %}active{% endif %}" style="font-weight:600;">
-            <span class="icon" style="color:var(--blue);"><svg class="svgi"><use href="#i-grad"/></svg></span> Curso Prático de IA
+          <a href="{{ '/curso-ia/' | relative_url }}" class="nav-link nav-tool nav-tool--blue {% if page.url contains '/curso-ia' %}active{% endif %}">
+            <span class="icon"><svg class="svgi"><use href="#i-grad"/></svg></span> Curso Prático de IA
           </a>
         </div>
 
@@ -1046,81 +1084,81 @@
           <div class="fc-arrow">→</div>
         </a>
 
-        <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-5);margin-bottom:14px;">Conteúdos de Aprofundamento</p>
+        <p class="content-label">Conteúdos de Aprofundamento</p>
         <div class="section-grid">
-          <a href="{{ '/contexto/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-compass"/></svg></div>
-            <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 1</div>
+          <a href="{{ '/contexto/' | relative_url }}" class="section-card section-card--gold">
+            <div class="card-icon"><svg class="svgi"><use href="#i-compass"/></svg></div>
+            <div class="card-label">Seção 1</div>
             <div class="card-title">Contexto Atual de T&D</div>
             <div class="card-desc">IA Agêntica, potencial humano e o novo contrato de trabalho.</div>
           </a>
-          <a href="{{ '/aprendizados/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-bulb"/></svg></div>
-            <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 2</div>
+          <a href="{{ '/aprendizados/' | relative_url }}" class="section-card section-card--gold">
+            <div class="card-icon"><svg class="svgi"><use href="#i-bulb"/></svg></div>
+            <div class="card-label">Seção 2</div>
             <div class="card-title">3 Aprendizados sobre Transformação</div>
             <div class="card-desc">Os fundamentos de qualquer transformação organizacional real.</div>
           </a>
-          <a href="{{ '/agentes/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-bot"/></svg></div>
-            <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 3</div>
+          <a href="{{ '/agentes/' | relative_url }}" class="section-card section-card--gold">
+            <div class="card-icon"><svg class="svgi"><use href="#i-bot"/></svg></div>
+            <div class="card-label">Seção 3</div>
             <div class="card-title">Agentes de IA para T&D</div>
             <div class="card-desc">Dois GPTs prontos para usar agora na sua empresa.</div>
           </a>
-          <a href="{{ '/maturidade/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-grid"/></svg></div>
-            <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 4</div>
+          <a href="{{ '/maturidade/' | relative_url }}" class="section-card section-card--gold">
+            <div class="card-icon"><svg class="svgi"><use href="#i-grid"/></svg></div>
+            <div class="card-label">Seção 4</div>
             <div class="card-title">Modelo de Maturidade de Educação</div>
             <div class="card-desc">Autodiagnóstico e frameworks estratégicos para T&D.</div>
           </a>
-          <a href="{{ '/boas-praticas/' | relative_url }}" class="section-card">
-            <div class="card-icon" style="color:var(--gold);"><svg class="svgi"><use href="#i-check"/></svg></div>
-            <div class="card-label" style="color:rgba(209,164,118,0.6);">Seção 5</div>
+          <a href="{{ '/boas-praticas/' | relative_url }}" class="section-card section-card--gold">
+            <div class="card-icon"><svg class="svgi"><use href="#i-check"/></svg></div>
+            <div class="card-label">Seção 5</div>
             <div class="card-title">Boas Práticas T&D</div>
             <div class="card-desc">Checklists das organizações de alto impacto.</div>
           </a>
         </div>
 
-        <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-5);margin-bottom:14px;margin-top:8px;">Material Complementar</p>
+        <p class="content-label content-label--spaced">Material Complementar</p>
         <div class="section-grid">
-          <a href="{{ '/curso-ia/' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-grad"/></svg></div>
-            <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 01</div>
+          <a href="{{ '/curso-ia/' | relative_url }}" class="section-card section-card--blue">
+            <div class="card-icon"><svg class="svgi"><use href="#i-grad"/></svg></div>
+            <div class="card-label">Material 01</div>
             <div class="card-title">Curso Prático de IA</div>
             <div class="card-desc">Aprenda a usar IA como ferramenta real de trabalho — do zero a agentes em produção.</div>
           </a>
-          <a href="{{ '/workshop/' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-present"/></svg></div>
-            <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 02</div>
+          <a href="{{ '/workshop/' | relative_url }}" class="section-card section-card--blue">
+            <div class="card-icon"><svg class="svgi"><use href="#i-present"/></svg></div>
+            <div class="card-label">Material 02</div>
             <div class="card-title">Workshop de Estratégia de Educação Corporativa</div>
             <div class="card-desc">6 módulos práticos para construir uma estratégia de T&D alinhada ao negócio — com roadmap pronto ao final.</div>
           </a>
-          <a href="{{ '/recursos/promptoteca' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-chat"/></svg></div>
-            <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 03</div>
+          <a href="{{ '/recursos/promptoteca' | relative_url }}" class="section-card section-card--blue">
+            <div class="card-icon"><svg class="svgi"><use href="#i-chat"/></svg></div>
+            <div class="card-label">Material 03</div>
             <div class="card-title">Promptoteca de Educação Corporativa</div>
             <div class="card-desc">25 prompts prontos para estratégia, design instrucional, avaliação e IA aplicada em T&D.</div>
           </a>
-          <a href="{{ '/recursos/' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-book"/></svg></div>
-            <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 04</div>
+          <a href="{{ '/recursos/' | relative_url }}" class="section-card section-card--blue">
+            <div class="card-icon"><svg class="svgi"><use href="#i-book"/></svg></div>
+            <div class="card-label">Material 04</div>
             <div class="card-title">Leituras Adicionais</div>
             <div class="card-desc">Fontes, leituras recomendadas e glossário completo.</div>
           </a>
-          <a href="https://performance-lab-game.alura.com.br/" target="_blank" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-game"/></svg></div>
-            <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 05 ↗</div>
+          <a href="https://performance-lab-game.alura.com.br/" target="_blank" class="section-card section-card--blue">
+            <div class="card-icon"><svg class="svgi"><use href="#i-game"/></svg></div>
+            <div class="card-label">Material 05 ↗</div>
             <div class="card-title">Performance Lab — Jogo</div>
             <div class="card-desc">O jogo da performance de T&D.</div>
           </a>
-          <a href="https://luminawork.com.br/" target="_blank" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-spark"/></svg></div>
-            <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 06 ↗</div>
+          <a href="https://luminawork.com.br/" target="_blank" class="section-card section-card--blue">
+            <div class="card-icon"><svg class="svgi"><use href="#i-spark"/></svg></div>
+            <div class="card-label">Material 06 ↗</div>
             <div class="card-title">Conheça a Lumina</div>
             <div class="card-desc">Plataforma de IA do Grupo Alun com 55+ agentes especializados por área — RH, T&D, liderança e mais — acessíveis sem conhecimento técnico.</div>
           </a>
-          <a href="{{ '/calculadora-roi/' | relative_url }}" class="section-card" style="background:var(--blue-dim);border-color:var(--blue-border);">
-            <div class="card-icon" style="color:#4b6afc;"><svg class="svgi"><use href="#i-calc"/></svg></div>
-            <div class="card-label" style="color:rgba(75,106,252,0.6);">Material 07</div>
+          <a href="{{ '/calculadora-roi/' | relative_url }}" class="section-card section-card--blue">
+            <div class="card-icon"><svg class="svgi"><use href="#i-calc"/></svg></div>
+            <div class="card-label">Material 07</div>
             <div class="card-title">Calculadora de ROI de T&D</div>
             <div class="card-desc">Traduza o impacto das suas iniciativas de educação corporativa em retorno financeiro mensurável.</div>
           </a>
@@ -1261,6 +1299,16 @@
       sidebar.classList.toggle('mobile-open');
       overlay.classList.toggle('open');
     }
+
+    // Wrap content tables for horizontal scroll on small screens
+    (function () {
+      document.querySelectorAll('.content table').forEach(function (t) {
+        var w = document.createElement('div');
+        w.className = 'table-wrap';
+        t.parentNode.insertBefore(w, t);
+        w.appendChild(t);
+      });
+    })();
 
     // Show user name in sidebar if registered
     (function () {
