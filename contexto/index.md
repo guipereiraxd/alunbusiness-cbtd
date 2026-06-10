@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Contexto Atual de T&D"
 ---
 
 # Contexto: A Sinergia Agêntica & Humana
@@ -10,11 +11,26 @@ A Inteligência Artificial deixa de ser uma ferramenta passiva para se tornar um
 
 Três pilares definem esse contexto:
 
-| Pilar | Tema Central | Aprofundamento |
-|---|---|---|
-| Tecnologia & Operação | A ascensão da IA Agêntica e a fusão RH-Tech | [Acesse →](./01-ia-agentica-e-rh.md) |
-| Talentos & Habilidades | Regeneração do potencial humano | [Acesse →](./02-potencial-humano.md) |
-| Cultura & Experiência | O novo contrato de trabalho | [Acesse →](./03-novo-contrato-trabalho.md) |
+<div class="section-grid">
+  <a href="{{ '/contexto/01-ia-agentica-e-rh' | relative_url }}" class="section-card section-card--gold">
+    <div class="card-icon"><svg class="svgi"><use href="#i-bot"/></svg></div>
+    <div class="card-label">Pilar 01 · Tecnologia & Operação</div>
+    <div class="card-title">IA Agêntica & RH</div>
+    <div class="card-desc">A ascensão da IA Agêntica e a fusão RH-Tech.</div>
+  </a>
+  <a href="{{ '/contexto/02-potencial-humano' | relative_url }}" class="section-card section-card--gold">
+    <div class="card-icon"><svg class="svgi"><use href="#i-bulb"/></svg></div>
+    <div class="card-label">Pilar 02 · Talentos & Habilidades</div>
+    <div class="card-title">Potencial Humano</div>
+    <div class="card-desc">Regeneração do potencial humano como vantagem competitiva.</div>
+  </a>
+  <a href="{{ '/contexto/03-novo-contrato-trabalho' | relative_url }}" class="section-card section-card--gold">
+    <div class="card-icon"><svg class="svgi"><use href="#i-compass"/></svg></div>
+    <div class="card-label">Pilar 03 · Cultura & Experiência</div>
+    <div class="card-title">O Novo Contrato de Trabalho</div>
+    <div class="card-desc">RTO, bem-estar e pertencimento — o que mudou na relação com o trabalho.</div>
+  </a>
+</div>
 
 > "Como a tecnologia vai amplificar o humano?" — essa é a pergunta central de todo este material.
 

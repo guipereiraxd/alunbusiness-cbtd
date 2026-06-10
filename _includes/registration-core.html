@@ -1,0 +1,82 @@
+<!-- Núcleo compartilhado de cadastro: Firebase + HubSpot + sessão.
+     Usado pela homepage (form inline) e por /cadastro/. -->
+<script src="{{ '/assets/firebase-config.js' | relative_url }}"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script>
+window.AIBC = (function () {
+  var COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+  var db = null;
+
+  if (window.FIREBASE_CONFIG && window.firebase) {
+    try {
+      var app = firebase.apps.length ? firebase.app() : firebase.initializeApp(window.FIREBASE_CONFIG);
+      db = firebase.firestore(app);
+    } catch (e) { console.warn('[AIBC] Firebase init failed:', e); }
+  }
+
+  function setSession(name) {
+    localStorage.setItem('aibc_registered', 'true');
+    localStorage.setItem('user_name', name);
+    document.cookie = 'aibc_session=1; max-age=' + COOKIE_MAX_AGE + '; path=/; SameSite=Strict';
+    document.cookie = 'aibc_name=' + encodeURIComponent(name) + '; max-age=' + COOKIE_MAX_AGE + '; path=/; SameSite=Strict';
+  }
+
+  function validate(name, email) {
+    if (!name || !email) return 'Preencha nome e e-mail para continuar.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'Informe um e-mail válido.';
+    return null;
+  }
+
+  function submitToHubSpot(name, email, company) {
+    try {
+      var parts = name.trim().split(' ');
+      fetch('https://api.hsforms.com/submissions/v3/integration/submit/21748317/052d048e-cd71-45bb-8b29-aa8d6e36cc1c', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fields: [
+            { name: 'firstname', value: parts[0] },
+            { name: 'lastname',  value: parts.slice(1).join(' ') },
+            { name: 'email',     value: email },
+            { name: 'company',   value: company || '' }
+          ],
+          context: { pageUri: window.location.href, pageName: document.title }
+        })
+      }).catch(function (e) { console.warn('[HubSpot] submit failed:', e); });
+    } catch (e) { console.warn('[HubSpot] error:', e); }
+  }
+
+  /* Registra nas duas bases; resolve sempre (timeout de guarda de 4s)
+     para nunca travar a UX por falha de rede. */
+  function register(name, email, company) {
+    submitToHubSpot(name, email, company);
+    return new Promise(function (resolve) {
+      if (!db) { resolve(); return; }
+      var guard = setTimeout(resolve, 4000);
+      db.collection('registrations').add({
+        name: name, email: email, company: company || '',
+        source: 'cbtd_2026', registeredAt: new Date().toISOString()
+      }).then(function () { clearTimeout(guard); resolve(); })
+        .catch(function (err) {
+          console.warn('[Firebase] Write failed:', err);
+          clearTimeout(guard); resolve();
+        });
+    });
+  }
+
+  function findByEmail(email) {
+    if (!db) return Promise.resolve(null);
+    return db.collection('registrations').where('email', '==', email).get()
+      .then(function (snap) { return snap.empty ? null : snap.docs[0].data(); });
+  }
+
+  return {
+    setSession: setSession,
+    validate: validate,
+    register: register,
+    findByEmail: findByEmail,
+    hasDb: function () { return !!db; }
+  };
+})();
+</script>

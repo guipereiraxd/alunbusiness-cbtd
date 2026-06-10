@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "O Novo Contrato de Trabalho"
 ---
 
 # O Novo Contrato de Trabalho

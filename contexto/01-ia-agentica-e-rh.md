@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "IA Agêntica & RH"
 ---
 
 # IA Agêntica e a Fusão entre RH e Tecnologia

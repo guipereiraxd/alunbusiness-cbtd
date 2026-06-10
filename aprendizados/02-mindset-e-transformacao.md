@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Mindset & Transformação"
 ---
 
 # Aprendizado #2: Liderar em tempos de transformação exige mudar o mindset, os modelos de negócio e as estratégias

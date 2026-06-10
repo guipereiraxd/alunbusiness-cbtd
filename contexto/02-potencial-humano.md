@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Potencial Humano"
 ---
 
 # Regeneração do Potencial Humano

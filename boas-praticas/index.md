@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Boas Práticas de T&D"
 ---
 
 # Boas Práticas de Organizações de Alto Impacto
@@ -8,9 +9,14 @@ layout: default
 
 Esta seção traduz os padrões observados nas organizações com maior maturidade de aprendizagem em práticas concretas, checklists de diagnóstico e exercícios de aplicação.
 
-| Tema | Aprofundamento |
-|---|---|
-| As 6 dimensões da cultura de aprendizagem | [Acesse →](./cultura-de-aprendizagem) |
+<div class="section-grid">
+  <a href="{{ '/boas-praticas/cultura-de-aprendizagem' | relative_url }}" class="section-card section-card--gold">
+    <div class="card-icon"><svg class="svgi"><use href="#i-check"/></svg></div>
+    <div class="card-label">Aprofundamento</div>
+    <div class="card-title">As 6 Dimensões da Cultura de Aprendizagem</div>
+    <div class="card-desc">Checklists de diagnóstico e práticas concretas das organizações de alto impacto.</div>
+  </a>
+</div>
 
 ---
 

@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Consultora de Estratégia de Aprendizagem"
 ---
 
 # Consultora de Estratégia de Aprendizagem

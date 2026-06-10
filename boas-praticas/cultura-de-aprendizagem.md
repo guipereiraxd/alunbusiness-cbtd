@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Cultura de Aprendizagem"
 ---
 
 # Boas Práticas para Influenciar a Cultura de Aprendizagem

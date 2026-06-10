@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Fazer Melhores Perguntas"
 ---
 
 # Aprendizado #1: Líderes que sabem perguntar melhor também lideram melhor em ambientes de incerteza

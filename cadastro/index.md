@@ -209,33 +209,18 @@ title: "Acesso ao Conteúdo"
 <!-- Show form now that the div exists in the DOM -->
 <script>document.getElementById('reg-page').style.opacity = '1';</script>
 
-<!-- Firebase config injected at build time via GitHub Actions (never in source) -->
-<script src="{{ '/assets/firebase-config.js' | relative_url }}"></script>
-<!-- Firebase SDK (only loaded on this page) -->
-<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+{% include registration-core.html %}
 
 <script>
 (function () {
 
-  if (!window.FIREBASE_CONFIG) {
+  if (!AIBC.hasDb()) {
     console.warn('[CBTD] Firebase config not found — registration disabled.');
     document.getElementById('regSubmit').textContent = 'Configuração indisponível';
     return;
   }
 
-  var app = firebase.apps.length ? firebase.app() : firebase.initializeApp(window.FIREBASE_CONFIG);
-  var db = firebase.firestore(app);
-
   var HOME = '{{ "/" | relative_url }}';
-  var COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
-
-  function setSession(name) {
-    localStorage.setItem('aibc_registered', 'true');
-    localStorage.setItem('user_name', name);
-    document.cookie = 'aibc_session=1; max-age=' + COOKIE_MAX_AGE + '; path=/; SameSite=Strict';
-    document.cookie = 'aibc_name=' + encodeURIComponent(name) + '; max-age=' + COOKIE_MAX_AGE + '; path=/; SameSite=Strict';
-  }
 
   function showStatus(type, msg) {
     var el = document.getElementById('formStatus');
@@ -250,53 +235,17 @@ title: "Acesso ao Conteúdo"
     var email   = document.getElementById('regEmail').value.trim().toLowerCase();
     var company = document.getElementById('regCompany').value.trim();
 
-    if (!name || !email) { showStatus('error', 'Preencha nome e e-mail para continuar.'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showStatus('error', 'Informe um e-mail válido.'); return; }
+    var err = AIBC.validate(name, email);
+    if (err) { showStatus('error', err); return; }
 
     var btn = document.getElementById('regSubmit');
     btn.disabled = true;
     btn.textContent = 'Registrando...';
 
-    function finalize() {
-      setSession(name);
+    AIBC.register(name, email, company).then(function () {
+      AIBC.setSession(name);
       showStatus('success', 'Acesso liberado! Redirecionando…');
       setTimeout(function () { window.location.replace(HOME); }, 800);
-    }
-
-    // ── HubSpot (fire-and-forget) ────────────────────────
-    (function () {
-      try {
-        var parts = name.trim().split(' ');
-        fetch('https://api.hsforms.com/submissions/v3/integration/submit/21748317/052d048e-cd71-45bb-8b29-aa8d6e36cc1c', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fields: [
-              { name: 'firstname', value: parts[0] },
-              { name: 'lastname',  value: parts.slice(1).join(' ') },
-              { name: 'email',     value: email },
-              { name: 'company',   value: company || '' }
-            ],
-            context: { pageUri: window.location.href, pageName: document.title }
-          })
-        }).catch(function (e) { console.warn('[HubSpot] submit failed:', e); });
-      } catch (e) { console.warn('[HubSpot] error:', e); }
-    })();
-
-    var guard = setTimeout(finalize, 4000);
-    db.collection('registrations').add({
-      name: name,
-      email: email,
-      company: company || '',
-      source: 'cbtd_2026',
-      registeredAt: new Date().toISOString()
-    }).then(function () {
-      clearTimeout(guard);
-      finalize();
-    }).catch(function (err) {
-      console.warn('[Firebase] Registration write failed:', err);
-      clearTimeout(guard);
-      finalize();
     });
   });
 
@@ -321,11 +270,10 @@ title: "Acesso ao Conteúdo"
     btn.disabled = true;
     btn.textContent = 'Buscando…';
 
-    db.collection('registrations').where('email', '==', email).get()
-      .then(function (snap) {
-        if (!snap.empty) {
-          var data = snap.docs[0].data();
-          setSession(data.name || '');
+    AIBC.findByEmail(email)
+      .then(function (data) {
+        if (data) {
+          AIBC.setSession(data.name || '');
           showStatus('success', 'Acesso recuperado! Redirecionando…');
           setTimeout(function () { window.location.replace(HOME); }, 900);
         } else {

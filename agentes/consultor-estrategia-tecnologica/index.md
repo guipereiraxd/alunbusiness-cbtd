@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Consultor de Estratégia Tecnológica"
 ---
 
 # Consultor de Estratégia Tecnológica

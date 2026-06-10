@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% assign og_title = page.og_title | default: "alunbusiness.md" %}
+  {% if page.og_title %}{% assign og_title = page.og_title %}{% elsif page.title and page.title != "Início" %}{% assign og_title = page.title | append: " — Alun Business" %}{% else %}{% assign og_title = "alunbusiness.md" %}{% endif %}
   {% assign og_desc  = page.og_description | default: "Transformando seu negócio para além da IA" %}
   {% assign og_url   = page.url | prepend: site.url %}
   <meta name="description" content="{{ og_desc }}">
@@ -302,6 +302,51 @@
       color: var(--gold);
       opacity: 0.75;
       margin-bottom: 10px;
+    }
+
+    /* ── Prev/next pager (inner pages) ────────────────────────── */
+    .pager {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-sub);
+    }
+    .content .pager a {
+      display: block;
+      padding: 14px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border-sub);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
+    }
+    .content .pager a:hover {
+      border-color: var(--border);
+      background: var(--surface-2);
+      transform: translateY(-2px);
+    }
+    .pager-prev { grid-column: 1; }
+    .pager-next { grid-column: 2; text-align: right; }
+    .pager-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-5);
+      margin-bottom: 4px;
+    }
+    .pager-title {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-1);
+      line-height: 1.35;
+    }
+    @media (max-width: 640px) {
+      .pager { grid-template-columns: 1fr; }
+      .pager-prev, .pager-next { grid-column: 1; text-align: left; }
     }
 
     /* ── Keyboard focus ───────────────────────────────────────── */
@@ -1186,9 +1231,7 @@
         {{ content }}
       </div>
 
-      <script src="{{ '/assets/firebase-config.js' | relative_url }}"></script>
-      <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+      {% include registration-core.html %}
       <script>
       (function () {
         function showWelcome() {
@@ -1211,23 +1254,6 @@
           }
         }
 
-        // Init Firebase (graceful — form still works if config missing)
-        var db = null;
-        if (window.FIREBASE_CONFIG && window.firebase) {
-          try {
-            var app = firebase.apps.length ? firebase.app() : firebase.initializeApp(window.FIREBASE_CONFIG);
-            db = firebase.firestore(app);
-          } catch (e) { console.warn('[CBTD] Firebase init failed:', e); }
-        }
-
-        var COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
-        function setSession(name) {
-          localStorage.setItem('aibc_registered', 'true');
-          localStorage.setItem('user_name', name);
-          document.cookie = 'aibc_session=1; max-age=' + COOKIE_MAX_AGE + '; path=/; SameSite=Strict';
-          document.cookie = 'aibc_name=' + encodeURIComponent(name) + '; max-age=' + COOKIE_MAX_AGE + '; path=/; SameSite=Strict';
-        }
-
         var form = document.getElementById('irfFormEl');
         if (!form) return;
 
@@ -1238,14 +1264,10 @@
           var company = document.getElementById('irfCompany').value.trim();
           var status  = document.getElementById('irfStatus');
 
-          if (!name || !email) {
+          var err = AIBC.validate(name, email);
+          if (err) {
             status.className = 'irf-status error';
-            status.textContent = 'Preencha nome e e-mail para continuar.';
-            return;
-          }
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            status.className = 'irf-status error';
-            status.textContent = 'Informe um e-mail válido.';
+            status.textContent = err;
             return;
           }
 
@@ -1253,51 +1275,14 @@
           btn.disabled = true;
           btn.textContent = 'Registrando…';
 
-          function finalize() {
-            setSession(name);
+          AIBC.register(name, email, company).then(function () {
+            AIBC.setSession(name);
             var sbUser = document.getElementById('sb-user');
             var sbName = document.getElementById('sb-user-name');
             if (sbUser) sbUser.style.display = 'block';
             if (sbName) sbName.textContent = name.split(' ')[0];
             showWelcome();
-          }
-
-          // ── HubSpot (fire-and-forget) ──────────────────────
-          (function () {
-            try {
-              var parts = name.trim().split(' ');
-              fetch('https://api.hsforms.com/submissions/v3/integration/submit/21748317/052d048e-cd71-45bb-8b29-aa8d6e36cc1c', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  fields: [
-                    { name: 'firstname', value: parts[0] },
-                    { name: 'lastname',  value: parts.slice(1).join(' ') },
-                    { name: 'email',     value: email },
-                    { name: 'company',   value: company || '' }
-                  ],
-                  context: { pageUri: window.location.href, pageName: document.title }
-                })
-              }).catch(function (e) { console.warn('[HubSpot] submit failed:', e); });
-            } catch (e) { console.warn('[HubSpot] error:', e); }
-          })();
-
-          if (db) {
-            var guard = setTimeout(finalize, 4000);
-            db.collection('registrations').add({
-              name: name, email: email, company: company || '',
-              source: 'cbtd_2026', registeredAt: new Date().toISOString()
-            }).then(function () {
-              clearTimeout(guard);
-              finalize();
-            }).catch(function (err) {
-              console.warn('[Firebase] Write failed:', err);
-              clearTimeout(guard);
-              finalize();
-            });
-          } else {
-            finalize();
-          }
+          });
         });
       })();
       </script>
@@ -1321,6 +1306,38 @@
         {% endcase %}
         {% if crumb %}<div class="crumb">{{ crumb }}</div>{% endif %}
         {{ content }}
+
+        {% comment %} Jornada de leitura: pager anterior/próximo {% endcomment %}
+        {% capture journey_raw %}/contexto/::Contexto Atual de T&D;/contexto/01-ia-agentica-e-rh::IA Agêntica & RH;/contexto/02-potencial-humano::Potencial Humano;/contexto/03-novo-contrato-trabalho::O Novo Contrato de Trabalho;/aprendizados/::3 Aprendizados sobre Transformação;/aprendizados/01-fazer-melhores-perguntas::Fazer Melhores Perguntas;/aprendizados/02-mindset-e-transformacao::Mindset & Transformação;/aprendizados/03-capacidade-humana::Capacidade Humana;/agentes/::Agentes de IA para T&D;/agentes/consultor-estrategia-tecnologica/::Consultor de Estratégia Tecnológica;/agentes/consultora-estrategia-aprendizagem/::Consultora de Estratégia de Aprendizagem;/maturidade/::Modelos de Maturidade;/maturidade/diagnostico-maturidade::Autodiagnóstico de Maturidade;/maturidade/framework-where-to-play::Framework Where to Play;/boas-praticas/::Boas Práticas de T&D;/boas-praticas/cultura-de-aprendizagem::Cultura de Aprendizagem{% endcapture %}
+        {% assign journey = journey_raw | strip | split: ';' %}
+        {% assign cur_url = page.url | replace: '.html', '' %}
+        {% assign cur_idx = nil %}
+        {% for entry in journey %}
+          {% assign pair = entry | split: '::' %}
+          {% if pair[0] == cur_url %}{% assign cur_idx = forloop.index0 %}{% endif %}
+        {% endfor %}
+        {% if cur_idx %}
+          {% assign prev_idx = cur_idx | minus: 1 %}
+          {% assign next_idx = cur_idx | plus: 1 %}
+          {% if cur_idx > 0 %}{% assign prev_pair = journey[prev_idx] | split: '::' %}{% endif %}
+          {% assign next_pair = journey[next_idx] | split: '::' %}
+          {% if prev_pair[0] or next_pair[0] %}
+          <nav class="pager" aria-label="Navegação entre conteúdos">
+            {% if prev_pair[0] %}
+            <a class="pager-prev" href="{{ prev_pair[0] | relative_url }}">
+              <div class="pager-label">← Anterior</div>
+              <div class="pager-title">{{ prev_pair[1] }}</div>
+            </a>
+            {% endif %}
+            {% if next_pair[0] %}
+            <a class="pager-next" href="{{ next_pair[0] | relative_url }}">
+              <div class="pager-label">Próximo →</div>
+              <div class="pager-title">{{ next_pair[1] }}</div>
+            </a>
+            {% endif %}
+          </nav>
+          {% endif %}
+        {% endif %}
       </div>
       {% endif %}
     </main>

@@ -1,15 +1,26 @@
 ---
 layout: default
+title: "Modelos de Maturidade"
 ---
 
 # Modelos de Maturidade e Estratégia de T&D
 
 Esta seção reúne os dois frameworks mais importantes deste material para quem quer **sair do diagnóstico e ir para a ação estratégica**.
 
-| Framework | Para que serve | Aprofundamento |
-|---|---|---|
-| Modelo de Maturidade | Diagnosticar onde sua empresa está e definir o próximo passo | [Acesse →](./diagnostico-maturidade.md) |
-| Where to Play & How to Win | Construir o playbook estratégico de T&D | [Acesse →](./framework-where-to-play.md) |
+<div class="section-grid">
+  <a href="{{ '/maturidade/diagnostico-maturidade' | relative_url }}" class="section-card section-card--gold">
+    <div class="card-icon"><svg class="svgi"><use href="#i-gauge"/></svg></div>
+    <div class="card-label">Framework 01</div>
+    <div class="card-title">Modelo de Maturidade</div>
+    <div class="card-desc">Diagnostique onde sua empresa está e defina o próximo passo — com autodiagnóstico interativo.</div>
+  </a>
+  <a href="{{ '/maturidade/framework-where-to-play' | relative_url }}" class="section-card section-card--gold">
+    <div class="card-icon"><svg class="svgi"><use href="#i-grid"/></svg></div>
+    <div class="card-label">Framework 02</div>
+    <div class="card-title">Where to Play & How to Win</div>
+    <div class="card-desc">Construa o playbook estratégico de T&D: onde atuar e como vencer.</div>
+  </a>
+</div>
 
 **Sequência recomendada:**
 1. Faça o autodiagnóstico de maturidade para entender seu ponto de partida

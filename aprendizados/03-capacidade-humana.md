@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Capacidade Humana"
 ---
 
 # Aprendizado #3: Nenhuma tecnologia, metodologia ou processo terá impacto sem investimento genuíno na capacidade humana dos times
