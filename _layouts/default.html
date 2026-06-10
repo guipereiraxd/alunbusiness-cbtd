@@ -615,8 +615,24 @@
       align-items: start;
       padding: 48px 48px 0;
       max-width: 1060px;
+      position: relative;
     }
     .hero-outer .hero { padding: 0; max-width: none; }
+
+    /* ── Hero ambient glow ───────────────────────────────────── */
+    .hero-glow {
+      position: absolute;
+      top: -180px;
+      left: -120px;
+      width: 720px;
+      height: 560px;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 60% 50% at 30% 30%, rgba(209,164,118,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 40% at 70% 15%, rgba(75,106,252,0.04) 0%, transparent 70%);
+    }
+    .hero-outer > .hero, .hero-outer > .hero-right { position: relative; }
 
     /* ── Inline registration form ─────────────────────────────── */
     .irf-card {
@@ -730,6 +746,11 @@
       .hero-outer, .hero, .page-band, .content {
         padding-left: 20px;
         padding-right: 20px;
+      }
+      .hero-glow {
+        width: 100%;
+        left: 0;
+        top: -120px;
       }
       .section-grid {
         grid-template-columns: 1fr;
@@ -926,6 +947,7 @@
       {% if page.url == '/' or page.url == '/index.html' %}
       <!-- Homepage hero -->
       <div class="hero-outer">
+        <div class="hero-glow" aria-hidden="true"></div>
 
         <div class="hero">
           <div class="tag">Alun Business</div>
