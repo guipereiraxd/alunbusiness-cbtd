@@ -124,12 +124,55 @@ window.Render = (function () {
         '<div class="ctx-win">janela de contexto</div></div>';
       var left = screenHead(s) + '<div class="states" data-reveal="2">' + states + '</div>';
       return '<div class="split"><div class="split-l">' + left + '</div><div class="split-r">' + right + '</div></div>';
+    },
+
+    // Tela 8 — evaluation: o artefato atravessa gates + tipos de avaliação
+    gates: function (s) {
+      var gates = s.gates.map(function (g) { return '<span class="gate">' + esc(g) + '</span>'; }).join('<span class="gate-sep">›</span>');
+      var evals = s.evals.map(function (e) { return '<span class="alt">' + esc(e) + '</span>'; }).join('');
+      return screenHead(s) +
+        '<div class="gates" data-reveal="1"><span class="artifact">' + esc(s.artifact) + '</span><span class="gate-sep">»</span>' + gates + '</div>' +
+        '<div class="alts" data-reveal="2">' + evals + '</div>';
+    },
+
+    // Tela 9 — SDLC: a esteira linear se dobra em rede de loops
+    sdlc: function (s) {
+      var lin = s.linear.map(function (x) { return '<span class="lin-node">' + esc(x) + '</span>'; }).join('<span class="lin-sep">›</span>');
+      var net = s.network.map(function (x) { return '<span class="net-node">' + esc(x) + '</span>'; }).join('');
+      return screenHead(s) +
+        '<div class="linrow" data-reveal="1"><span class="lin-tag">Tradicional</span>' + lin + '</div>' +
+        '<div class="netwrap" data-reveal="2"><span class="lin-tag on">Agêntico</span><div class="net">' + net + '</div></div>';
+    },
+
+    // Tela 10 — papel: metamorfose antes → depois + competências emergentes
+    role: function (s) {
+      var skills = s.skills.map(function (x) { return '<button class="skill" data-block>' + esc(x) + '</button>'; }).join('');
+      return screenHead(s) +
+        '<div class="role" data-reveal="1">' +
+          '<div class="role-card before"><b>' + esc(s.before.label) + '</b><span>' + esc(s.before.v) + '</span></div>' +
+          '<div class="role-arrow">→</div>' +
+          '<div class="role-card after"><b>' + esc(s.after.label) + '</b><span>' + esc(s.after.v) + '</span></div>' +
+        '</div>' +
+        '<div class="skills" data-reveal="2"><span class="skills-hint">Escolha as 3 que mais crescem</span>' + skills + '</div>';
+    },
+
+    // Tela 11 — mapa final: conceitos conectados + QR + trilhas
+    mapfinal: function (s) {
+      var nodes = s.concepts.map(function (c) { return '<a class="mapnode" href="#/conceito/' + esc(c.id) + '">' + esc(c.t) + '</a>'; }).join('');
+      var trilhas = s.trilhas.map(function (t) { return '<span class="trilha">' + esc(t) + '</span>'; }).join('');
+      var left = screenHead(s) +
+        '<div class="mapfoot" data-reveal="2">' +
+          '<div class="qr big" aria-hidden="true"></div>' +
+          '<div class="trilhas"><span class="trilhas-lbl">Trilhas</span>' + trilhas + '</div>' +
+        '</div>';
+      var right = '<div class="mapnodes" data-reveal="1">' + nodes + '</div>';
+      return '<div class="split"><div class="split-l">' + left + '</div><div class="split-r">' + right + '</div></div>';
     }
   };
 
   function screen(s) {
     var body = (byType[s.type] || function () { return screenHead(s); })(s);
-    return '<section class="stage"><div class="screen" data-screen="' + esc(s.id) + '">' + body + '</div></section>';
+    return '<section class="stage"><div class="screen" data-screen="' + esc(s.id) + '" data-type="' + esc(s.type) + '">' + body + '</div></section>';
   }
 
   function stub(title, msg) {

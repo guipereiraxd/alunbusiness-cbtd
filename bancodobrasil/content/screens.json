@@ -152,6 +152,80 @@
         "summary": "Descobrir, selecionar, comprimir e entregar contexto sob demanda.",
         "items": ["Descoberta de contexto", "Seleção e compressão", "Contexto sob demanda", "Memória persistente", "Proveniência e atualidade"]
       }
+    },
+    {
+      "id": "evaluation-driven",
+      "order": 8,
+      "kicker": "08 · Evaluation-Driven Development",
+      "type": "gates",
+      "insight": "Sem avaliações, autonomia é apenas velocidade sem evidência.",
+      "highlight": "avaliações",
+      "steps": 2,
+      "artifact": "artefato gerado",
+      "gates": ["Funcionalidade", "Arquitetura", "Segurança", "Manutenção", "Performance", "Negócio"],
+      "evals": ["Evals offline", "Evals online", "Golden datasets", "Rubricas", "LLM-as-judge", "Regressão de comportamento"],
+      "speakerNotes": "Avaliações não são etapa final; definem o que o agente consegue aprender, corrigir e executar com autonomia.",
+      "explore": {
+        "summary": "Definir o comportamento desejado antes de ampliar a autonomia.",
+        "items": ["Evals offline antes da mudança", "Evals online em produção", "Golden datasets", "LLM-as-judge com calibração", "Outcome-based validation"]
+      }
+    },
+    {
+      "id": "agentic-sdlc",
+      "order": 9,
+      "kicker": "09 · Agentic SDLC",
+      "type": "sdlc",
+      "insight": "O ciclo deixa de ser uma esteira e passa a ser uma rede de loops.",
+      "highlight": "rede de loops",
+      "steps": 2,
+      "linear": ["Requisito", "Código", "Teste", "Deploy"],
+      "network": ["Planejamento", "Execução paralela", "Revisão multiagente", "Integração contínua", "Validação independente", "Feedback de produção", "Manutenção contínua"],
+      "speakerNotes": "O ganho vem de mudar coordenação, paralelismo, feedback e distribuição de responsabilidade.",
+      "explore": {
+        "summary": "Agentes participam de múltiplas fases, de forma assíncrona e paralela.",
+        "items": ["Planejamento e decomposição", "Execução paralela", "Revisão multiagente", "Feedback de produção", "Manutenção contínua"]
+      }
+    },
+    {
+      "id": "novo-papel",
+      "order": 10,
+      "kicker": "10 · O novo papel do desenvolvedor",
+      "type": "role",
+      "insight": "De produzir cada linha para projetar o sistema que produz software.",
+      "highlight": "projetar o sistema",
+      "steps": 2,
+      "before": { "label": "Antes", "v": "Editor de código — cada linha escrita à mão" },
+      "after": { "label": "Depois", "v": "Painel de arquitetura, loops, evidências e políticas" },
+      "skills": ["Decomposição", "Arquitetura", "Context Engineering", "Harness Engineering", "Evaluation Engineering", "Observabilidade", "Segurança", "Julgamento"],
+      "speakerNotes": "O trabalho se desloca para níveis mais altos de abstração e exige maior capacidade de julgamento técnico.",
+      "explore": {
+        "summary": "Do artesão do código ao arquiteto do sistema que produz software.",
+        "items": []
+      }
+    },
+    {
+      "id": "mapa-final",
+      "order": 11,
+      "kicker": "11 · Mapa final",
+      "type": "mapfinal",
+      "insight": "A nova engenharia é a do sistema que cria, verifica e melhora software.",
+      "highlight": "cria, verifica e melhora",
+      "steps": 2,
+      "concepts": [
+        { "id": "o-gargalo-mudou", "t": "Gargalo" },
+        { "id": "engenharia-de-loop", "t": "Loop" },
+        { "id": "harness-engineering", "t": "Harness" },
+        { "id": "context-engineering", "t": "Contexto" },
+        { "id": "evaluation-driven", "t": "Avaliações" },
+        { "id": "agentic-sdlc", "t": "SDLC agêntico" },
+        { "id": "novo-papel", "t": "Papel humano" }
+      ],
+      "trilhas": ["Liderança", "Arquitetura", "Desenvolvimento", "Segurança & governança", "Plataforma & operação"],
+      "speakerNotes": "Fechar sem resumir tudo. Reforçar que o mapa continua disponível para exploração.",
+      "explore": {
+        "summary": "O mapa completo da nova engenharia de software agêntica.",
+        "items": []
+      }
     }
   ]
 }
