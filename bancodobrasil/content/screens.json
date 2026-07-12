@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Depois do Código",
+    "subtitle": "A nova engenharia de software agêntica e os desafios dos times de tecnologia",
+    "total": 11
+  },
+  "screens": [
+    {
+      "id": "a-pergunta",
+      "order": 1,
+      "kicker": "01 · A pergunta",
+      "type": "question",
+      "insight": "Se hoje uma IA consegue escrever software, por que as empresas ainda não entregam software dez vezes mais rápido?",
+      "highlight": "dez vezes mais rápido",
+      "steps": 3,
+      "poll": {
+        "prompt": "Qual o motivo dominante?",
+        "options": [
+          "A IA ainda erra muito",
+          "Arquitetura e sistemas legados",
+          "Segurança e governança",
+          "Integração e operação",
+          "Cultura e organização",
+          "Não sabemos medir o ganho"
+        ]
+      },
+      "speakerNotes": "Não responder imediatamente. Pedir que a audiência escolha o motivo dominante e observar a dispersão das respostas.",
+      "explore": {
+        "summary": "A promessa de velocidade da IA não se converteu em throughput 10x. Por quê?",
+        "items": [
+          "A IA ainda erra muito",
+          "Arquitetura e sistemas legados",
+          "Segurança e governança",
+          "Integração e operação",
+          "Cultura e organização",
+          "Não sabemos medir o ganho"
+        ]
+      }
+    },
+    {
+      "id": "a-falsa-equacao",
+      "order": 2,
+      "kicker": "02 · A falsa equação",
+      "type": "equation",
+      "insight": "Mais código ≠ mais software entregue",
+      "steps": 2,
+      "equation": {
+        "up": "capacidade de gerar código",
+        "flat": "throughput de valor"
+      },
+      "queues": ["Revisão", "Integração", "Segurança", "Operação"],
+      "speakerNotes": "Otimizar uma etapa não garante ganho do sistema. A IA pode mover o gargalo, e até aumentar o volume de trabalho nas etapas seguintes.",
+      "explore": {
+        "summary": "Produção local versus fluxo ponta a ponta.",
+        "items": [
+          "Tempo de ciclo",
+          "Retrabalho",
+          "Fila de revisão",
+          "Taxa de falha de mudança",
+          "Tempo para restaurar"
+        ]
+      }
+    },
+    {
+      "id": "o-codigo-ficou-barato",
+      "order": 3,
+      "kicker": "03 · O código ficou barato",
+      "type": "twocol",
+      "insight": "O software continua caro. O código ficou barato.",
+      "steps": 2,
+      "cheaper": {
+        "label": "Ficou mais barato",
+        "items": ["Boilerplate", "Documentação inicial", "Testes básicos", "Refatorações locais", "Protótipos"]
+      },
+      "expensive": {
+        "label": "Continua caro",
+        "items": ["Entendimento de domínio", "Arquitetura", "Integração", "Confiabilidade", "Segurança", "Operação", "Julgamento"]
+      },
+      "speakerNotes": "Evitar dizer que código perdeu importância. O insight é que sua produção deixou de ser a restrição dominante em muitos cenários.",
+      "explore": {
+        "summary": "O que barateou e o que continua sendo o trabalho difícil da engenharia.",
+        "items": []
+      }
+    }
+  ]
+}
