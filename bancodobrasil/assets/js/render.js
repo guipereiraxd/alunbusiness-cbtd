@@ -48,29 +48,33 @@ window.Render = (function () {
         '<div class="bar-track"><div class="bar-fill"></div></div></div>';
     }).join('');
     return '<div class="poll" data-poll-id="' + esc(poll.id) + '" data-state="closed"' + (revealStep != null ? ' data-reveal="' + revealStep + '"' : '') + '>' +
-      '<div class="poll-cta">' +
-        '<div class="qr" aria-hidden="true"></div>' +
-        '<div><b>' + esc(poll.prompt) + '</b><span>Responda pelo QR ou link curto</span></div>' +
-      '</div>' +
       '<div class="poll-live">' +
-        '<div class="qr live" aria-hidden="true"></div>' +
-        '<div><b>' + esc(poll.prompt) + '</b><span class="poll-live-count">Recebendo respostas · <b class="poll-count">0</b></span></div>' +
+        '<div class="qr" aria-hidden="true"></div>' +
+        '<div class="poll-live-info">' +
+          '<b>' + esc(poll.prompt) + '</b>' +
+          '<span class="poll-live-count">Recebendo respostas · <b class="poll-count">0</b></span>' +
+          '<span class="poll-live-hint">Escaneie o QR para responder</span>' +
+        '</div>' +
       '</div>' +
-      '<div class="poll-result">' + bars + '</div>' +
+      '<div class="poll-result">' +
+        '<div class="poll-bars">' + bars + '</div>' +
+        '<div class="poll-result-qr">' +
+          '<div class="qr" aria-hidden="true"></div>' +
+          '<span class="poll-qr-hint">Continue votando</span>' +
+          '<span class="poll-live-count"><b class="poll-count">0</b> respostas</span>' +
+        '</div>' +
+      '</div>' +
     '</div>';
   }
 
   var byType = {
     question: function (s) {
-      var alts = s.explore.items.map(function (a) { return '<span class="alt">' + esc(a) + '</span>'; }).join('');
       // marca o "dez vezes mais rápido" já vem do highlight; ativa pulse via data-active-at
       var head = screenHead(s).replace(
         '<span class="y">' + esc(s.highlight) + '</span>',
         '<span class="y q-10x" data-active-at="1">' + esc(s.highlight) + '</span>'
       );
-      return head +
-        pollWidget(s.poll, 2) +
-        '<div class="alts" data-reveal="3">' + alts + '</div>';
+      return head + pollWidget(s.poll, 2);
     },
     equation: function (s) {
       var qs = s.queues.map(function (q) { return '<span class="queue">' + esc(q) + '</span>'; }).join('');

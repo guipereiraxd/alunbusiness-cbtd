@@ -24,7 +24,9 @@
           "Cultura e organização",
           "Não sabemos medir o ganho"
         ],
-        "demo": [12, 26, 10, 22, 18, 12]
+        "demo": [12, 26, 10, 22, 18, 12],
+        "pollOpenStep": 2,
+        "pollRevealStep": 3
       },
       "speakerNotes": "Não responder imediatamente. Pedir que a audiência escolha o motivo dominante e observar a dispersão das respostas.",
       "explore": {
@@ -90,14 +92,16 @@
       "kicker": "04 · O gargalo mudou",
       "type": "flow",
       "insight": "A engenharia começa onde a geração termina.",
-      "steps": 2,
+      "steps": 3,
       "fast": "código gerado",
       "stages": ["Arquitetura", "Revisão", "Testes", "Compliance", "Deploy", "Sustentação"],
       "poll": {
         "id": "p2-gargalo",
         "prompt": "Onde seu fluxo trava hoje?",
         "options": ["Arquitetura", "Contexto & requisitos", "Revisão & confiança", "Segurança", "Integração", "Operação"],
-        "demo": [22, 14, 20, 12, 16, 16]
+        "demo": [22, 14, 20, 12, 16, 16],
+        "pollOpenStep": 2,
+        "pollRevealStep": 3
       },
       "speakerNotes": "Os próximos conceitos são respostas para operar nesse novo gargalo.",
       "explore": {

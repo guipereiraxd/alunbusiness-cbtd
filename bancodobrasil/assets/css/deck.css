@@ -370,37 +370,40 @@ body[data-view="map"], body[data-view="concept"] { overflow-y: auto; overflow-x:
 @media (max-width: 720px) { .doc-grid { grid-template-columns: 1fr; } }
 
 /* ═══ ENQUETES (Fase 3) ═════════════════════════════════════ */
+/* Estados dirigidos pelo clique: recebendo → revelar. O QR permanece
+   na revelação (para quem chega atrasado continuar votando). */
 .poll[data-state="closed"] .poll-live,
 .poll[data-state="closed"] .poll-result,
-.poll[data-state="open"] .poll-cta,
 .poll[data-state="open"] .poll-result,
-.poll[data-state="revealed"] .poll-cta,
 .poll[data-state="revealed"] .poll-live { display: none; }
 
+/* Recebendo respostas */
 .poll-live {
-  margin-top: 40px; display: inline-flex; align-items: center; gap: 14px;
-  padding: 16px 22px; border: 1px solid var(--yellow-bd); border-radius: 10px; background: var(--yellow-dim);
+  margin-top: 32px; display: inline-flex; align-items: center; gap: 24px;
+  padding: 22px 26px; border: 1px solid var(--yellow-bd); border-radius: 14px; background: var(--yellow-dim);
 }
-.poll-live .qr { width: 46px; height: 46px; border-radius: 6px; background: repeating-conic-gradient(var(--nav-900) 0 25%, var(--yellow) 0 50%) 0 0 / 12px 12px; }
-.poll-live b { color: var(--ink-1); font-weight: 600; display: block; }
-.poll-live-count { font-size: 0.85rem; color: var(--ink-3); }
+.poll-live-info { display: flex; flex-direction: column; gap: 5px; }
+.poll-live-info b { color: var(--ink-1); font-weight: 600; font-size: 1.1rem; }
+.poll-live-count { font-size: 0.92rem; color: var(--ink-3); }
+.poll-live-hint { font-size: 0.82rem; color: var(--ink-3); }
 .poll-count { color: var(--yellow); }
-.qr.live { position: relative; }
-.qr.live::after {
-  content: ""; position: absolute; top: -5px; right: -5px; width: 10px; height: 10px;
-  border-radius: 50%; background: var(--yellow); animation: pulse-dot 1.2s ease-in-out infinite;
-}
-@keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
 
 /* QR real (gerado): módulos escuros sobre fundo branco, escaneável */
-.qr.qr-real { background: #fff; padding: 5px; border-radius: 6px; }
+.qr { border-radius: 6px; }
+.qr.qr-real { background: #fff; padding: 7px; border-radius: 10px; }
 .qr.qr-real svg { display: block; width: 100%; height: 100%; }
 .qr.qr-real::after { display: none; }
-.poll-cta .qr.qr-real { width: 66px; height: 66px; }
-.poll-live { align-items: center; }
-.poll-live .qr.qr-real { width: 132px; height: 132px; }
+.poll-live .qr.qr-real { width: 208px; height: 208px; }
+.poll-result-qr .qr.qr-real { width: 156px; height: 156px; }
 
-.poll-result { margin-top: 24px; display: flex; flex-direction: column; gap: 9px; max-width: 640px; }
+/* Revelação: barras + QR mantido ao lado */
+.poll-result { margin-top: 22px; display: flex; align-items: flex-start; gap: 44px; }
+.poll-bars { flex: 1; max-width: 560px; display: flex; flex-direction: column; gap: 9px; }
+.poll-result-qr { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.poll-qr-hint { font-family: var(--font-display); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--yellow); }
+.poll-result-qr .poll-live-count { font-size: 0.82rem; }
+@media (max-width: 760px) { .poll-result { flex-direction: column; gap: 22px; } }
+
 .bar-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
 .bar-label { color: var(--ink-2); font-size: 0.85rem; }
 .bar-pct { color: var(--ink-3); font-size: 0.78rem; font-family: var(--font-display); }

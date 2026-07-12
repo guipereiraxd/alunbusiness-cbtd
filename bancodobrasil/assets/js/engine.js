@@ -43,6 +43,7 @@
 
   function route() {
     if (!DATA) return;
+    pollOverride = {}; // avançar (clique/tecla) resume o fluxo dirigido pela microetapa
     var t = parseHash();
     state.view = t.view;
 
@@ -116,8 +117,20 @@
   var simId = null, simPoll = null;
   var pollSub = null;  // { id, unsub }
   var forceDemo = false;
+  var pollOverride = {}; // pollId -> estado forçado pelo apresentador (P/R); limpo ao avançar
 
   function liveOn() { return !forceDemo && window.PollsLive && PollsLive.available(); }
+  // Estado da enquete dirigido pela microetapa (clique). P/R sobrepõem até o próximo avanço.
+  function derivePollState(poll) {
+    if (pollOverride[poll.id]) return pollOverride[poll.id];
+    var s = state.step;
+    if (poll.pollRevealStep != null && s >= poll.pollRevealStep) return 'revealed';
+    if (poll.pollOpenStep != null && s >= poll.pollOpenStep) return 'open';
+    return 'closed';
+  }
+  function setCounts(id, n) {
+    app.querySelectorAll('.poll[data-poll-id="' + id + '"] .poll-count').forEach(function (c) { c.textContent = n; });
+  }
   function currentPoll() {
     return (state.view === 'stage' && DATA.screens[state.idx]) ? DATA.screens[state.idx].poll : null;
   }
@@ -128,8 +141,7 @@
     if (pollCounts[id] == null) pollCounts[id] = 0;
     simId = setInterval(function () {
       pollCounts[id] += Math.floor(Math.random() * 5) + 1;
-      var el = app.querySelector('.poll[data-poll-id="' + id + '"] .poll-count');
-      if (el) el.textContent = pollCounts[id];
+      setCounts(id, pollCounts[id]);
       updatePresenter();
     }, 320);
   }
@@ -140,11 +152,9 @@
     clearSub();
     pollSub = { id: poll.id, unsub: PollsLive.subscribe(poll.id, poll.options.length, function (counts, total) {
       liveCounts[poll.id] = counts; liveTotal[poll.id] = total;
+      setCounts(poll.id, total);
       var el = app.querySelector('.poll[data-poll-id="' + poll.id + '"]');
-      if (el) {
-        var cnt = el.querySelector('.poll-count'); if (cnt) cnt.textContent = total;
-        if ((pollStates[poll.id] || 'closed') === 'revealed') fillBars(el, counts);
-      }
+      if (el && (pollStates[poll.id] || 'closed') === 'revealed') fillBars(el, counts);
       updatePresenter();
     }) };
   }
@@ -167,31 +177,31 @@
     if (!el) { stopSim(); clearSub(); return; }
     var id = el.getAttribute('data-poll-id');
     var poll = DATA.screens[state.idx].poll;
-    var st = pollStates[id] || 'closed';
+    var st = derivePollState(poll);
+    pollStates[id] = st;
     var live = liveOn();
     el.setAttribute('data-state', st);
-    var cnt = el.querySelector('.poll-count');
+    setCounts(id, live ? (liveTotal[id] || 0) : (pollCounts[id] || 0));
 
     if (st === 'open') {
-      if (live) { ensureSub(poll); stopSim(); if (cnt) cnt.textContent = liveTotal[id] || 0; }
+      if (live) { ensureSub(poll); stopSim(); }
       else { clearSub(); startSim(id); }
     } else if (st === 'revealed') {
-      stopSim();
+      // mantém a assinatura ao vivo p/ quem chega atrasado atualizar as barras
       if (live) { ensureSub(poll); fillBars(el, liveCounts[id] || []); }
-      else { clearSub(); fillBars(el, poll.demo); }
+      else { clearSub(); stopSim(); fillBars(el, poll.demo); }
     } else { // closed
       stopSim(); clearSub();
-      if (cnt) cnt.textContent = live ? (liveTotal[id] || 0) : (pollCounts[id] || 0);
     }
   }
   function togglePoll() {
     var p = currentPoll(); if (!p) return;
-    pollStates[p.id] = (pollStates[p.id] === 'open') ? 'closed' : 'open';
+    pollOverride[p.id] = (pollStates[p.id] === 'open') ? 'closed' : 'open';
     applyPollState(); updatePresenter();
   }
   function revealPoll() {
     var p = currentPoll(); if (!p) return;
-    pollStates[p.id] = 'revealed';
+    pollOverride[p.id] = 'revealed';
     applyPollState(); updatePresenter();
   }
   function toggleDemo() { forceDemo = !forceDemo; applyPollState(); updatePresenter(); }

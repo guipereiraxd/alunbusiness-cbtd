@@ -1,7 +1,7 @@
 /* Service worker — Depois do Código.
    Deixa a apresentação rodar offline (modo demo). O voto ao vivo precisa
    de rede; offline, o deck cai no simulado automaticamente. */
-var CACHE = 'dc-v1';
+var CACHE = 'dc-v2';
 var CORE = [
   './', 'index.html',
   'assets/css/deck.css',
@@ -47,16 +47,17 @@ self.addEventListener('fetch', function (e) {
   // Firebase SDK e config: só rede (offline → falha → modo demo). Não cachear.
   if (url.host === 'www.gstatic.com' || url.pathname.indexOf('firebase-config') >= 0) return;
 
-  // App (mesmo domínio): stale-while-revalidate
+  // App (mesmo domínio): network-first — online sempre pega a versão nova;
+  // o cache é só o fallback offline.
   if (url.origin === location.origin) {
-    e.respondWith(caches.open(CACHE).then(function (c) {
-      return c.match(req).then(function (hit) {
-        var net = fetch(req).then(function (res) {
-          if (res && res.status === 200) c.put(req, res.clone());
-          return res;
-        }).catch(function () { return hit; });
-        return hit || net;
-      });
-    }));
+    e.respondWith(
+      fetch(req).then(function (res) {
+        if (res && res.status === 200) {
+          var clone = res.clone();
+          caches.open(CACHE).then(function (c) { c.put(req, clone); });
+        }
+        return res;
+      }).catch(function () { return caches.match(req); })
+    );
   }
 });
