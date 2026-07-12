@@ -265,13 +265,13 @@ description: Um workshop estruturado para construir, do zero, uma estratégia de
 .ws-cta-title {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-1);
+  color: #ffffff;
   margin-bottom: 0.75rem;
   line-height: 1.25;
 }
 .ws-cta-sub {
   font-size: 0.95rem;
-  color: var(--text-3);
+  color: rgba(255,255,255,0.62);
   max-width: 480px;
   margin: 0 auto 1.75rem;
   line-height: 1.6;

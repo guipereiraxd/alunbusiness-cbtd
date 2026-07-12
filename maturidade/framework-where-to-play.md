@@ -53,8 +53,8 @@ title: "Framework de Estratégia Educacional"
     color: var(--text-5);
     margin-bottom: 4px;
   }
-  .pb-card.gold .tag { color: rgba(209,164,118,0.5); }
-  .pb-card.blue .tag { color: rgba(75,106,252,0.5); }
+  .pb-card.gold .tag { color: var(--gold); }
+  .pb-card.blue .tag { color: var(--blue); }
   .pb-card .title {
     font-size: 0.875rem;
     font-weight: 700;

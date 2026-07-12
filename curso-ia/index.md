@@ -250,12 +250,12 @@ description: Do zero a agentes de IA em produção — sem atalhos, sem superfic
 .ci-cta-title {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-1);
+  color: #ffffff;
   margin-bottom: 0.75rem;
 }
 .ci-cta-sub {
   font-size: 0.95rem;
-  color: var(--text-3);
+  color: rgba(255,255,255,0.62);
   max-width: 520px;
   margin: 0 auto 1.75rem;
   line-height: 1.6;

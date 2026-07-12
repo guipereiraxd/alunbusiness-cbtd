@@ -101,7 +101,7 @@ title: "Modelo de Maturidade de Educação Corporativa"
   font-family: inherit;
   transition: border-color 0.15s, background 0.15s;
 }
-.ass-opt:hover { border-color: var(--border); background: rgba(255,255,255,0.02); }
+.ass-opt:hover { border-color: var(--border); background: var(--tint-3); }
 .ass-opt.sel { border-color: var(--gold); background: var(--gold-dim); }
 .ass-opt-badge {
   width: 22px;
@@ -147,11 +147,11 @@ title: "Modelo de Maturidade de Educação Corporativa"
   color: var(--text-4);
   border-color: var(--border);
 }
-.ass-btn-sec:hover:not(:disabled) { color: var(--text-2); background: rgba(255,255,255,0.03); }
+.ass-btn-sec:hover:not(:disabled) { color: var(--text-2); background: var(--tint-5); }
 .ass-btn-sec:disabled { opacity: 0.25; cursor: not-allowed; }
 .ass-btn-pri {
   background: var(--gold);
-  color: #000;
+  color: var(--on-gold);
   border-color: var(--gold);
 }
 .ass-btn-pri:hover:not(:disabled) { opacity: 0.88; }
@@ -225,7 +225,7 @@ title: "Modelo de Maturidade de Educação Corporativa"
   padding: 14px 16px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: rgba(255,255,255,0.02);
+  background: var(--tint-3);
   margin: 20px 0 20px;
 }
 .ass-res-block-lbl {
@@ -349,7 +349,7 @@ title: "Modelo de Maturidade de Educação Corporativa"
   color: var(--text-4);
   line-height: 1.6;
   padding: 10px 14px;
-  background: rgba(255,255,255,0.02);
+  background: var(--tint-3);
   border: 1px solid var(--border-sub);
   border-radius: 8px;
 }
@@ -392,7 +392,7 @@ title: "Modelo de Maturidade de Educação Corporativa"
   padding: 22px 22px 18px;
   border: 1px solid var(--border-sub);
   border-radius: 12px;
-  background: rgba(255,255,255,0.01);
+  background: var(--tint-3);
 }
 .mjb-reflex-eyebrow {
   font-size: 9px;

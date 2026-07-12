@@ -66,7 +66,7 @@ title: "Acesso ao Conteúdo"
 .reg-submit {
   width: 100%;
   background: var(--gold);
-  color: #000;
+  color: var(--on-gold);
   border: none;
   border-radius: 10px;
   padding: 13px;
@@ -107,7 +107,7 @@ title: "Acesso ao Conteúdo"
   border-bottom: 1px solid var(--gold-border);
   transition: color 0.15s;
 }
-.reg-recovery-toggle button:hover { color: #e8c090; }
+.reg-recovery-toggle button:hover { color: var(--gold); }
 .reg-status {
   padding: 10px 14px;
   border-radius: 8px;

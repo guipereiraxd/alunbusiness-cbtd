@@ -22,7 +22,45 @@
       --blue-border:rgba(75,106,252,0.2);
       --tint-3:     rgba(255,255,255,0.03);
       --tint-5:     rgba(255,255,255,0.05);
+      --on-gold:    #000;
+      --shadow-card:     0 8px 24px rgba(0,0,0,0.35);
+      --shadow-featured: 0 10px 28px rgba(0,0,0,0.4), 0 4px 16px rgba(209,164,118,0.07);
       --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    /* ── Light theme overrides ───────────────────────────────── */
+    [data-theme="light"] {
+      --bg:         #fbfaf8;
+      --surface:    #ffffff;
+      --surface-2:  #f4f2ee;
+      --border:     #ddd6ca;
+      --border-sub: #ece7de;
+      --text-1:     #1a1815;
+      --text-2:     #3a3833;
+      --text-3:     #6b6862;
+      --text-4:     #8f8a81;
+      --text-5:     #c2bcb1;
+      --gold:       #9a6b38;
+      --gold-dim:   rgba(154,107,56,0.10);
+      --gold-border:rgba(154,107,56,0.28);
+      --blue:       #3a52d6;
+      --blue-dim:   rgba(58,82,214,0.07);
+      --blue-border:rgba(58,82,214,0.22);
+      --tint-3:     rgba(0,0,0,0.025);
+      --tint-5:     rgba(0,0,0,0.05);
+      --on-gold:    #ffffff;
+      --shadow-card:     0 6px 20px rgba(60,50,30,0.10);
+      --shadow-featured: 0 8px 24px rgba(60,50,30,0.12), 0 2px 10px rgba(154,107,56,0.08);
+    }
+    [data-theme="light"] .content a:hover { color: #7d5526; }
+    [data-theme="light"] .content code { background: #f0ece4; color: #5a4a33; }
+    [data-theme="light"] .content pre { background: #f6f3ee; }
+    [data-theme="light"] .content pre code { color: #4a4640; background: none; }
+    [data-theme="light"] .sidebar-logo img { filter: invert(1) hue-rotate(180deg) brightness(0.9); }
+    [data-theme="light"] .hero-glow {
+      background:
+        radial-gradient(ellipse 60% 50% at 30% 30%, rgba(154,107,56,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 40% at 70% 15%, rgba(58,82,214,0.05) 0%, transparent 70%);
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -35,6 +73,40 @@
       line-height: 1.6;
       min-height: 100vh;
     }
+    body, .sidebar, .mobile-header, .section-card, .featured-card {
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* ── Theme toggle ─────────────────────────────────────────── */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 4px 0;
+      margin-bottom: 10px;
+      color: var(--text-4);
+      font-size: 11px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .theme-toggle:hover { color: var(--text-2); }
+    .theme-toggle .svgi { width: 14px; height: 14px; stroke-width: 1.75; }
+    .theme-toggle-mini {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      padding: 5px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .theme-toggle-mini .svgi { width: 15px; height: 15px; stroke-width: 1.75; }
+    .mobile-actions { display: flex; align-items: center; gap: 8px; }
 
     /* ── Layout ───────────────────────────────────────────────── */
     .shell {
@@ -517,7 +589,7 @@
       background: var(--surface-2);
       text-decoration: none;
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      box-shadow: var(--shadow-card);
     }
     .section-card .card-icon {
       font-size: 18px;
@@ -580,7 +652,7 @@
       border-color: var(--gold);
       text-decoration: none;
       transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.4), 0 4px 16px rgba(209,164,118,0.07);
+      box-shadow: var(--shadow-featured);
     }
     .featured-card .fc-icon .svgi { width: 26px; height: 26px; stroke-width: 1.75; }
     .featured-card .fc-icon {
@@ -787,7 +859,7 @@
     .irf-submit {
       width: 100%;
       background: var(--gold);
-      color: #000;
+      color: var(--on-gold);
       border: none;
       border-radius: 8px;
       padding: 10px;
