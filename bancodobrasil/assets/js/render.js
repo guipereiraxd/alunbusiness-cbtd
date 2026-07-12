@@ -72,6 +72,58 @@ window.Render = (function () {
           '<div class="col cheap" data-reveal="1"><h3>' + esc(s.cheaper.label) + '</h3><ul>' + list(s.cheaper.items) + '</ul></div>' +
           '<div class="col exp" data-reveal="2"><h3>' + esc(s.expensive.label) + '</h3><ul>' + list(s.expensive.items) + '</ul></div>' +
         '</div>';
+    },
+
+    // Tela 4 — o gargalo: código passa rápido e acumula nas etapas
+    flow: function (s) {
+      var jam = s.stages.map(function (st) { return '<span class="jam-stage">' + esc(st) + '</span>'; }).join('');
+      return screenHead(s) +
+        '<div class="flow" data-reveal="1">' +
+          '<div class="flow-fast"><span>' + esc(s.fast) + '</span>' + chevrons + '</div>' +
+          '<div class="flow-jam">' + jam + '</div>' +
+        '</div>' +
+        '<div class="poll-cta" data-reveal="2"><div class="qr" aria-hidden="true"></div>' +
+          '<div><b>' + esc(s.poll.prompt) + '</b><span>Responda pelo QR ou link curto</span></div></div>';
+    },
+
+    // Tela 5 — loop: nós dispostos em círculo + modos de participação humana
+    loop: function (s) {
+      var n = s.nodes.length;
+      var nodes = s.nodes.map(function (nm, k) {
+        return '<span class="loop-node" style="--a:' + (k * 360 / n) + 'deg">' + esc(nm) + '</span>';
+      }).join('');
+      var modes = s.modes.map(function (m, k) {
+        return '<button class="mode' + (k === 0 ? ' on' : '') + '" data-block>' + esc(m) + '</button>';
+      }).join('');
+      var ring = '<div class="loop-ring" data-reveal="1"><span class="loop-core">' + chevrons + '</span>' + nodes + '</div>';
+      var left = screenHead(s) + '<div class="modes" data-reveal="2">' + modes + '</div>';
+      return '<div class="split"><div class="split-l">' + left + '</div><div class="split-r">' + ring + '</div></div>';
+    },
+
+    // Tela 6 — harness: camadas concêntricas ao redor do modelo + categorias
+    layers: function (s) {
+      var nest = '<span class="nest-core">' + esc(s.core) + '</span>';
+      s.rings.forEach(function (r) {
+        nest = '<div class="nest"><span class="nest-label">' + esc(r) + '</span>' + nest + '</div>';
+      });
+      var cats = s.cats.map(function (c) {
+        return '<div class="cat"><b>' + esc(c.k) + '</b><span>' + esc(c.v) + '</span></div>';
+      }).join('');
+      var left = screenHead(s) + '<div class="cats" data-reveal="2">' + cats + '</div>';
+      var right = '<div class="nest-wrap" data-reveal="1">' + nest + '</div>';
+      return '<div class="split"><div class="split-l">' + left + '</div><div class="split-r">' + right + '</div></div>';
+    },
+
+    // Tela 7 — context: fontes convergindo para a janela de contexto + estados
+    context: function (s) {
+      var srcs = s.sources.map(function (x) { return '<span class="src">' + esc(x) + '</span>'; }).join('');
+      var states = s.states.map(function (st, k) {
+        return '<span class="state' + (k === 1 ? ' ok' : '') + '">' + esc(st) + '</span>';
+      }).join('');
+      var right = '<div class="ctx" data-reveal="1"><div class="ctx-srcs">' + srcs + '</div>' +
+        '<div class="ctx-win">janela de contexto</div></div>';
+      var left = screenHead(s) + '<div class="states" data-reveal="2">' + states + '</div>';
+      return '<div class="split"><div class="split-l">' + left + '</div><div class="split-r">' + right + '</div></div>';
     }
   };
 

@@ -81,6 +81,77 @@
         "summary": "O que barateou e o que continua sendo o trabalho difícil da engenharia.",
         "items": []
       }
+    },
+    {
+      "id": "o-gargalo-mudou",
+      "order": 4,
+      "kicker": "04 · O gargalo mudou",
+      "type": "flow",
+      "insight": "A engenharia começa onde a geração termina.",
+      "steps": 2,
+      "fast": "código gerado",
+      "stages": ["Arquitetura", "Revisão", "Testes", "Compliance", "Deploy", "Sustentação"],
+      "poll": { "prompt": "Onde seu fluxo trava hoje?" },
+      "speakerNotes": "Os próximos conceitos são respostas para operar nesse novo gargalo.",
+      "explore": {
+        "summary": "O código passa rápido e acumula nas etapas de engenharia.",
+        "items": ["Arquitetura e coerência", "Contexto e requisitos", "Revisão e confiança", "Segurança", "Integração", "Operação", "Decisão organizacional"]
+      }
+    },
+    {
+      "id": "engenharia-de-loop",
+      "order": 5,
+      "kicker": "05 · Engenharia de Loop",
+      "type": "loop",
+      "insight": "O novo objeto de engenharia é o loop que produz e melhora o artefato.",
+      "highlight": "loop",
+      "steps": 2,
+      "nodes": ["Intenção", "Contexto", "Planejamento", "Ação", "Execução", "Observação", "Avaliação", "Correção", "Memória"],
+      "modes": ["Humano no loop", "Humano sobre o loop", "Humano fora do loop"],
+      "speakerNotes": "Engenharia de Loop é o desenho deliberado dos ciclos que conectam agentes, ferramentas e pessoas.",
+      "explore": {
+        "summary": "Projetar os ciclos de geração, execução, observação, avaliação e melhoria.",
+        "items": ["Qual sinal fecha o loop?", "Quem define sucesso?", "O que vira memória?", "Quando escalar para humano?", "Como impedir repetição de erros?"]
+      }
+    },
+    {
+      "id": "harness-engineering",
+      "order": 6,
+      "kicker": "06 · Harness Engineering",
+      "type": "layers",
+      "insight": "Modelos dão capacidade. Harnesses transformam capacidade em trabalho confiável.",
+      "highlight": "Harnesses",
+      "steps": 2,
+      "core": "Modelo",
+      "rings": ["Contexto", "Ferramentas", "Sensores", "Políticas", "Supervisão"],
+      "cats": [
+        { "k": "Guides", "v": "instruções, arquitetura, padrões, planos" },
+        { "k": "Sensors", "v": "testes, linters, segurança, observabilidade" },
+        { "k": "Actuators", "v": "ferramentas, terminal, APIs, repositório" },
+        { "k": "Boundaries", "v": "permissões, sandbox, budgets, gates" },
+        { "k": "State", "v": "memória, histórico, decisões, artefatos" }
+      ],
+      "speakerNotes": "Autonomia segura não emerge de um prompt; é construída por uma infraestrutura que guia, restringe, observa e corrige o agente.",
+      "explore": {
+        "summary": "A engenharia do ambiente que transforma um modelo em um agente confiável.",
+        "items": []
+      }
+    },
+    {
+      "id": "context-engineering",
+      "order": 7,
+      "kicker": "07 · Context Engineering",
+      "type": "context",
+      "insight": "O prompt inicia a tarefa. O contexto sustenta o trabalho.",
+      "highlight": "contexto",
+      "steps": 2,
+      "sources": ["Arquitetura", "Domínio", "Histórico", "Regras", "Exemplos", "Estado", "Ferramentas"],
+      "states": ["Insuficiente", "Certo", "Excessivo"],
+      "speakerNotes": "Contexto como infraestrutura: um sistema que encontra, seleciona, atualiza e entrega a informação certa no momento certo.",
+      "explore": {
+        "summary": "Descobrir, selecionar, comprimir e entregar contexto sob demanda.",
+        "items": ["Descoberta de contexto", "Seleção e compressão", "Contexto sob demanda", "Memória persistente", "Proveniência e atualidade"]
+      }
     }
   ]
 }
