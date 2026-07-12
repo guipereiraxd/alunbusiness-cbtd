@@ -83,6 +83,29 @@
     }
     applyReveals();
     applyPollState();
+    renderPollQRs();
+  }
+
+  /* ── QR nativo dos links de voto ──────────────────────────── */
+  function voteUrl(id) {
+    var base = location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
+    return location.origin + base + '/votar/?p=' + encodeURIComponent(id);
+  }
+  function renderPollQRs() {
+    if (!window.qrcode) return;
+    var poll = currentPoll();
+    if (!poll) return;
+    var url = voteUrl(poll.id);
+    app.querySelectorAll('.poll .qr').forEach(function (q) {
+      if (q.querySelector('svg')) return; // já gerado
+      try {
+        var qr = qrcode(0, 'M');
+        qr.addData(url);
+        qr.make();
+        q.classList.add('qr-real');
+        q.innerHTML = qr.createSvgTag({ scalable: true, margin: 2, cellSize: 4, alt: 'QR para votar' });
+      } catch (e) { console.warn('[qr]', e); }
+    });
   }
 
   /* ── Enquetes (Fase 3) — ao vivo (Firestore) ou demo ──────── */

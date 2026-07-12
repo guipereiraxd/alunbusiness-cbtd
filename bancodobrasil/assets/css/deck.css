@@ -392,6 +392,14 @@ body[data-view="map"], body[data-view="concept"] { overflow-y: auto; overflow-x:
 }
 @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
 
+/* QR real (gerado): módulos escuros sobre fundo branco, escaneável */
+.qr.qr-real { background: #fff; padding: 5px; border-radius: 6px; }
+.qr.qr-real svg { display: block; width: 100%; height: 100%; }
+.qr.qr-real::after { display: none; }
+.poll-cta .qr.qr-real { width: 66px; height: 66px; }
+.poll-live { align-items: center; }
+.poll-live .qr.qr-real { width: 132px; height: 132px; }
+
 .poll-result { margin-top: 24px; display: flex; flex-direction: column; gap: 9px; max-width: 640px; }
 .bar-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
 .bar-label { color: var(--ink-2); font-size: 0.85rem; }

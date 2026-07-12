@@ -34,8 +34,18 @@
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
   <script src="assets/js/polls-live.js"></script>
+  <script src="assets/js/vendor/qrcode.js"></script>
 
   <script src="assets/js/render.js"></script>
   <script src="assets/js/engine.js"></script>
+
+  <!-- Offline / PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function (e) { console.warn('[sw]', e); });
+      });
+    }
+  </script>
 </body>
 </html>
