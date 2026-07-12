@@ -2,7 +2,7 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 .bundle/
-vendor/
+/vendor/
 
 # Firebase config is generated at build time from GitHub Secrets — never commit it
 assets/firebase-config.js
