@@ -369,6 +369,65 @@ body[data-view="map"], body[data-view="concept"] { overflow-y: auto; overflow-x:
 .doc-foot { margin-top: 24px; }
 @media (max-width: 720px) { .doc-grid { grid-template-columns: 1fr; } }
 
+/* ═══ ENQUETES (Fase 3) ═════════════════════════════════════ */
+.poll[data-state="closed"] .poll-live,
+.poll[data-state="closed"] .poll-result,
+.poll[data-state="open"] .poll-cta,
+.poll[data-state="open"] .poll-result,
+.poll[data-state="revealed"] .poll-cta,
+.poll[data-state="revealed"] .poll-live { display: none; }
+
+.poll-live {
+  margin-top: 40px; display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 22px; border: 1px solid var(--yellow-bd); border-radius: 10px; background: var(--yellow-dim);
+}
+.poll-live .qr { width: 46px; height: 46px; border-radius: 6px; background: repeating-conic-gradient(var(--nav-900) 0 25%, var(--yellow) 0 50%) 0 0 / 12px 12px; }
+.poll-live b { color: var(--ink-1); font-weight: 600; display: block; }
+.poll-live-count { font-size: 0.85rem; color: var(--ink-3); }
+.poll-count { color: var(--yellow); }
+.qr.live { position: relative; }
+.qr.live::after {
+  content: ""; position: absolute; top: -5px; right: -5px; width: 10px; height: 10px;
+  border-radius: 50%; background: var(--yellow); animation: pulse-dot 1.2s ease-in-out infinite;
+}
+@keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+.poll-result { margin-top: 24px; display: flex; flex-direction: column; gap: 9px; max-width: 640px; }
+.bar-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
+.bar-label { color: var(--ink-2); font-size: 0.85rem; }
+.bar-pct { color: var(--ink-3); font-size: 0.78rem; font-family: var(--font-display); }
+.bar-track { height: 8px; background: var(--nav-700); border-radius: 6px; overflow: hidden; }
+.bar-fill { height: 100%; width: 0; background: var(--nav-600); border-radius: 6px; transition: width 0.85s var(--ease); }
+.bar.top .bar-fill { background: var(--yellow); }
+.bar.top .bar-pct { color: var(--yellow); }
+
+/* ═══ MODO APRESENTADOR ═════════════════════════════════════ */
+.presenter {
+  position: fixed; inset: 0; z-index: 100; overflow: auto;
+  background: rgba(4, 8, 20, 0.95); backdrop-filter: blur(5px);
+  color: var(--ink-2); padding: 5vh 6vw; font-family: var(--font-body);
+}
+.presenter[hidden] { display: none; }
+.pr-top { display: flex; align-items: center; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--nav-600); }
+.pr-timer { font-family: var(--font-display); font-size: 2.6rem; font-weight: 700; color: var(--ink-1); font-variant-numeric: tabular-nums; }
+.pr-timer.half { color: var(--yellow); }
+.pr-timer.soon { color: #ffb020; }
+.pr-timer.warn { color: #ff8a3d; }
+.pr-timer.over { color: #ff5757; }
+.pr-nav { color: var(--ink-3); font-size: 0.9rem; }
+.pr-close { margin-left: auto; background: var(--nav-700); border: 1px solid var(--nav-600); color: var(--ink-2); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-family: inherit; }
+.pr-close:hover { border-color: var(--yellow-bd); color: var(--yellow); }
+.pr-body { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.pr-lbl { font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: var(--yellow); display: block; margin-bottom: 8px; }
+.pr-now, .pr-next { font-family: var(--font-display); color: var(--ink-1); font-size: 1.05rem; margin-bottom: 22px; }
+.pr-now p, .pr-next p { font-family: var(--font-body); color: var(--ink-2); font-size: 0.95rem; line-height: 1.5; margin-top: 6px; font-weight: 400; }
+.pr-notes { color: var(--ink-2); font-size: 1.05rem; line-height: 1.65; }
+.pr-poll { margin-top: 6px; border: 1px solid var(--nav-600); border-radius: 10px; padding: 14px 16px; }
+.pr-poll b { color: var(--yellow); text-transform: uppercase; font-size: 0.85rem; }
+.pr-hint { display: block; margin-top: 8px; color: var(--ink-3); font-size: 0.8rem; }
+.pr-shortcuts { margin-top: 20px; color: var(--ink-3); font-size: 0.8rem; }
+@media (max-width: 720px) { .pr-body { grid-template-columns: 1fr; } }
+
 /* ═══ Chrome do palco ═══════════════════════════════════════ */
 .chrome[hidden] { display: none; }
 .chrome { position: fixed; inset: auto 0 0 0; z-index: 5; pointer-events: none; }

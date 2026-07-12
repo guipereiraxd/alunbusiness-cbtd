@@ -14,6 +14,7 @@
       "highlight": "dez vezes mais rápido",
       "steps": 3,
       "poll": {
+        "id": "p1-motivo",
         "prompt": "Qual o motivo dominante?",
         "options": [
           "A IA ainda erra muito",
@@ -22,7 +23,8 @@
           "Integração e operação",
           "Cultura e organização",
           "Não sabemos medir o ganho"
-        ]
+        ],
+        "demo": [12, 26, 10, 22, 18, 12]
       },
       "speakerNotes": "Não responder imediatamente. Pedir que a audiência escolha o motivo dominante e observar a dispersão das respostas.",
       "explore": {
@@ -91,7 +93,12 @@
       "steps": 2,
       "fast": "código gerado",
       "stages": ["Arquitetura", "Revisão", "Testes", "Compliance", "Deploy", "Sustentação"],
-      "poll": { "prompt": "Onde seu fluxo trava hoje?" },
+      "poll": {
+        "id": "p2-gargalo",
+        "prompt": "Onde seu fluxo trava hoje?",
+        "options": ["Arquitetura", "Contexto & requisitos", "Revisão & confiança", "Segurança", "Integração", "Operação"],
+        "demo": [22, 14, 20, 12, 16, 16]
+      },
       "speakerNotes": "Os próximos conceitos são respostas para operar nesse novo gargalo.",
       "explore": {
         "summary": "O código passa rápido e acumula nas etapas de engenharia.",

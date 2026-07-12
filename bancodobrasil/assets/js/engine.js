@@ -61,6 +61,7 @@
       renderStatic(Render.landing(DATA.meta));
     }
     updateChrome();
+    updatePresenter();
   }
 
   window.addEventListener('hashchange', route);
@@ -81,7 +82,129 @@
       renderedKey = key;
     }
     applyReveals();
+    applyPollState();
   }
+
+  /* ── Enquetes (Fase 3, dados simulados) ───────────────────── */
+  var pollStates = {}; // pollId -> 'closed' | 'open' | 'revealed'
+  var pollCounts = {}; // pollId -> nº simulado de respostas
+  var simId = null, simPoll = null;
+
+  function currentPoll() {
+    return (state.view === 'stage' && DATA.screens[state.idx]) ? DATA.screens[state.idx].poll : null;
+  }
+  function stopSim() { if (simId) { clearInterval(simId); simId = null; simPoll = null; } }
+  function startSim(id) {
+    if (simId && simPoll === id) return;
+    stopSim(); simPoll = id;
+    if (pollCounts[id] == null) pollCounts[id] = 0;
+    simId = setInterval(function () {
+      pollCounts[id] += Math.floor(Math.random() * 5) + 1;
+      var el = app.querySelector('.poll[data-poll-id="' + id + '"] .poll-count');
+      if (el) el.textContent = pollCounts[id];
+      updatePresenter();
+    }, 320);
+  }
+  function fillBars(el, poll) {
+    var demo = poll.demo || [];
+    var sum = demo.reduce(function (a, b) { return a + b; }, 0) || 1;
+    var max = Math.max.apply(null, demo);
+    el.querySelectorAll('.bar').forEach(function (bar) {
+      var i = +bar.getAttribute('data-i');
+      var pct = Math.round(demo[i] / sum * 100);
+      bar.classList.toggle('top', demo[i] === max);
+      var fill = bar.querySelector('.bar-fill');
+      bar.querySelector('.bar-pct').textContent = pct + '%';
+      requestAnimationFrame(function () { fill.style.width = pct + '%'; });
+    });
+  }
+  function applyPollState() {
+    var el = app.querySelector('.poll');
+    if (!el) { stopSim(); return; }
+    var id = el.getAttribute('data-poll-id');
+    var st = pollStates[id] || 'closed';
+    el.setAttribute('data-state', st);
+    var cnt = el.querySelector('.poll-count');
+    if (cnt) cnt.textContent = pollCounts[id] || 0;
+    if (st === 'revealed') { stopSim(); fillBars(el, DATA.screens[state.idx].poll); }
+    else if (st === 'open') { startSim(id); }
+    else { stopSim(); }
+  }
+  function togglePoll() {
+    var p = currentPoll(); if (!p) return;
+    pollStates[p.id] = (pollStates[p.id] === 'open') ? 'closed' : 'open';
+    applyPollState(); updatePresenter();
+  }
+  function revealPoll() {
+    var p = currentPoll(); if (!p) return;
+    pollStates[p.id] = 'revealed';
+    applyPollState(); updatePresenter();
+  }
+
+  /* ── Modo apresentador (overlay: N) ───────────────────────── */
+  var presenterEl = null;
+  var startTime = Date.now();
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c];
+    });
+  }
+  function fmt(ms) {
+    var s = Math.floor(ms / 1000), m = Math.floor(s / 60);
+    s = s % 60;
+    return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+  function buildPresenter() {
+    presenterEl = document.createElement('div');
+    presenterEl.className = 'presenter';
+    presenterEl.hidden = true;
+    presenterEl.addEventListener('click', function (e) {
+      if (e.target.closest('.pr-close')) togglePresenter();
+    });
+    document.body.appendChild(presenterEl);
+  }
+  function togglePresenter() {
+    if (!presenterEl) return;
+    presenterEl.hidden = !presenterEl.hidden;
+    updatePresenter();
+  }
+  function updatePresenter() {
+    if (!presenterEl || presenterEl.hidden) return;
+    var cur = DATA.screens[state.idx], nxt = DATA.screens[state.idx + 1];
+    var p = currentPoll();
+    var elapsed = Date.now() - startTime, mins = elapsed / 60000;
+    var alert = mins >= 10 ? 'over' : mins >= 9 ? 'warn' : mins >= 8 ? 'soon' : mins >= 5 ? 'half' : '';
+    var pos = state.view === 'stage'
+      ? 'Tela ' + (state.idx + 1) + '/' + DATA.screens.length + ' · etapa ' + state.step
+      : state.view;
+    var pollBox = p
+      ? '<div class="pr-poll"><span class="pr-lbl">Enquete</span>' +
+        'Estado: <b>' + (pollStates[p.id] || 'closed') + '</b> · ' + (pollCounts[p.id] || 0) + ' respostas' +
+        '<span class="pr-hint">P abrir/fechar · R revelar</span></div>'
+      : '';
+    presenterEl.innerHTML =
+      '<div class="pr-top">' +
+        '<span class="pr-timer ' + alert + '">' + fmt(elapsed) + '</span>' +
+        '<span class="pr-nav">' + esc(pos) + '</span>' +
+        '<button class="pr-close" data-block>N · fechar</button>' +
+      '</div>' +
+      '<div class="pr-body">' +
+        '<div class="pr-col">' +
+          '<span class="pr-lbl">Agora</span>' +
+          '<div class="pr-now">' + (cur ? esc(cur.kicker) + '<p>' + esc(cur.insight) + '</p>' : '—') + '</div>' +
+          '<span class="pr-lbl">Notas de fala</span>' +
+          '<p class="pr-notes">' + (cur && cur.speakerNotes ? esc(cur.speakerNotes) : '—') + '</p>' +
+        '</div>' +
+        '<div class="pr-col">' +
+          '<span class="pr-lbl">Próximo</span>' +
+          '<div class="pr-next">' + (nxt ? esc(nxt.kicker) + '<p>' + esc(nxt.insight) + '</p>' : 'Fim → mapa explorável') + '</div>' +
+          pollBox +
+          '<p class="pr-shortcuts">→ espaço avança · ← volta · F tela cheia · M mapa</p>' +
+        '</div>' +
+      '</div>';
+  }
+  buildPresenter();
+  setInterval(updatePresenter, 1000);
 
   // Mostra elementos cuja microetapa alvo já foi atingida
   function applyReveals() {
@@ -186,6 +309,9 @@
         e.preventDefault(); prev(); break;
       case 'f': case 'F': toggleFs(); break;
       case 'm': case 'M': go('map'); break;
+      case 'p': case 'P': togglePoll(); break;
+      case 'r': case 'R': revealPoll(); break;
+      case 'n': case 'N': togglePresenter(); break;
       case 'Home': go('landing'); break;
     }
   });

@@ -40,6 +40,26 @@ window.Render = (function () {
            '<h1 class="insight">' + highlight(s.insight, s.highlight) + '</h1>';
   }
 
+  // Widget de enquete com 3 estados (fechada / recebendo / revelada)
+  function pollWidget(poll, revealStep) {
+    var bars = poll.options.map(function (o, i) {
+      return '<div class="bar" data-i="' + i + '">' +
+        '<div class="bar-row"><span class="bar-label">' + esc(o) + '</span><span class="bar-pct">0%</span></div>' +
+        '<div class="bar-track"><div class="bar-fill"></div></div></div>';
+    }).join('');
+    return '<div class="poll" data-poll-id="' + esc(poll.id) + '" data-state="closed"' + (revealStep != null ? ' data-reveal="' + revealStep + '"' : '') + '>' +
+      '<div class="poll-cta">' +
+        '<div class="qr" aria-hidden="true"></div>' +
+        '<div><b>' + esc(poll.prompt) + '</b><span>Responda pelo QR ou link curto</span></div>' +
+      '</div>' +
+      '<div class="poll-live">' +
+        '<div class="qr live" aria-hidden="true"></div>' +
+        '<div><b>' + esc(poll.prompt) + '</b><span class="poll-live-count">Recebendo respostas · <b class="poll-count">0</b></span></div>' +
+      '</div>' +
+      '<div class="poll-result">' + bars + '</div>' +
+    '</div>';
+  }
+
   var byType = {
     question: function (s) {
       var alts = s.explore.items.map(function (a) { return '<span class="alt">' + esc(a) + '</span>'; }).join('');
@@ -49,10 +69,7 @@ window.Render = (function () {
         '<span class="y q-10x" data-active-at="1">' + esc(s.highlight) + '</span>'
       );
       return head +
-        '<div class="poll-cta" data-reveal="2">' +
-          '<div class="qr" aria-hidden="true"></div>' +
-          '<div><b>' + esc(s.poll.prompt) + '</b><span>Responda pelo QR ou link curto</span></div>' +
-        '</div>' +
+        pollWidget(s.poll, 2) +
         '<div class="alts" data-reveal="3">' + alts + '</div>';
     },
     equation: function (s) {
@@ -82,8 +99,7 @@ window.Render = (function () {
           '<div class="flow-fast"><span>' + esc(s.fast) + '</span>' + chevrons + '</div>' +
           '<div class="flow-jam">' + jam + '</div>' +
         '</div>' +
-        '<div class="poll-cta" data-reveal="2"><div class="qr" aria-hidden="true"></div>' +
-          '<div><b>' + esc(s.poll.prompt) + '</b><span>Responda pelo QR ou link curto</span></div></div>';
+        pollWidget(s.poll, 2);
     },
 
     // Tela 5 — loop: nós dispostos em círculo + modos de participação humana
