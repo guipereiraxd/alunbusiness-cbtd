@@ -85,11 +85,16 @@
     applyPollState();
   }
 
-  /* ── Enquetes (Fase 3, dados simulados) ───────────────────── */
+  /* ── Enquetes (Fase 3) — ao vivo (Firestore) ou demo ──────── */
   var pollStates = {}; // pollId -> 'closed' | 'open' | 'revealed'
-  var pollCounts = {}; // pollId -> nº simulado de respostas
+  var pollCounts = {}; // pollId -> contador simulado (modo demo)
+  var liveCounts = {}; // pollId -> [contagens por opção] (ao vivo)
+  var liveTotal = {};  // pollId -> total (ao vivo)
   var simId = null, simPoll = null;
+  var pollSub = null;  // { id, unsub }
+  var forceDemo = false;
 
+  function liveOn() { return !forceDemo && window.PollsLive && PollsLive.available(); }
   function currentPoll() {
     return (state.view === 'stage' && DATA.screens[state.idx]) ? DATA.screens[state.idx].poll : null;
   }
@@ -105,14 +110,30 @@
       updatePresenter();
     }, 320);
   }
-  function fillBars(el, poll) {
-    var demo = poll.demo || [];
-    var sum = demo.reduce(function (a, b) { return a + b; }, 0) || 1;
-    var max = Math.max.apply(null, demo);
+  function clearSub() { if (pollSub && pollSub.unsub) pollSub.unsub(); pollSub = null; }
+  function ensureSub(poll) {
+    if (!liveOn()) return;
+    if (pollSub && pollSub.id === poll.id) return;
+    clearSub();
+    pollSub = { id: poll.id, unsub: PollsLive.subscribe(poll.id, poll.options.length, function (counts, total) {
+      liveCounts[poll.id] = counts; liveTotal[poll.id] = total;
+      var el = app.querySelector('.poll[data-poll-id="' + poll.id + '"]');
+      if (el) {
+        var cnt = el.querySelector('.poll-count'); if (cnt) cnt.textContent = total;
+        if ((pollStates[poll.id] || 'closed') === 'revealed') fillBars(el, counts);
+      }
+      updatePresenter();
+    }) };
+  }
+  function fillBars(el, counts) {
+    counts = counts || [];
+    var sum = counts.reduce(function (a, b) { return a + b; }, 0);
+    var max = counts.length ? Math.max.apply(null, counts) : 0;
     el.querySelectorAll('.bar').forEach(function (bar) {
       var i = +bar.getAttribute('data-i');
-      var pct = Math.round(demo[i] / sum * 100);
-      bar.classList.toggle('top', demo[i] === max);
+      var v = counts[i] || 0;
+      var pct = sum ? Math.round(v / sum * 100) : 0;
+      bar.classList.toggle('top', v === max && v > 0);
       var fill = bar.querySelector('.bar-fill');
       bar.querySelector('.bar-pct').textContent = pct + '%';
       requestAnimationFrame(function () { fill.style.width = pct + '%'; });
@@ -120,15 +141,25 @@
   }
   function applyPollState() {
     var el = app.querySelector('.poll');
-    if (!el) { stopSim(); return; }
+    if (!el) { stopSim(); clearSub(); return; }
     var id = el.getAttribute('data-poll-id');
+    var poll = DATA.screens[state.idx].poll;
     var st = pollStates[id] || 'closed';
+    var live = liveOn();
     el.setAttribute('data-state', st);
     var cnt = el.querySelector('.poll-count');
-    if (cnt) cnt.textContent = pollCounts[id] || 0;
-    if (st === 'revealed') { stopSim(); fillBars(el, DATA.screens[state.idx].poll); }
-    else if (st === 'open') { startSim(id); }
-    else { stopSim(); }
+
+    if (st === 'open') {
+      if (live) { ensureSub(poll); stopSim(); if (cnt) cnt.textContent = liveTotal[id] || 0; }
+      else { clearSub(); startSim(id); }
+    } else if (st === 'revealed') {
+      stopSim();
+      if (live) { ensureSub(poll); fillBars(el, liveCounts[id] || []); }
+      else { clearSub(); fillBars(el, poll.demo); }
+    } else { // closed
+      stopSim(); clearSub();
+      if (cnt) cnt.textContent = live ? (liveTotal[id] || 0) : (pollCounts[id] || 0);
+    }
   }
   function togglePoll() {
     var p = currentPoll(); if (!p) return;
@@ -139,6 +170,22 @@
     var p = currentPoll(); if (!p) return;
     pollStates[p.id] = 'revealed';
     applyPollState(); updatePresenter();
+  }
+  function toggleDemo() { forceDemo = !forceDemo; applyPollState(); updatePresenter(); }
+  function exportPoll() {
+    var p = currentPoll(); if (!p) return;
+    var live = liveOn();
+    var counts = live ? (liveCounts[p.id] || []) : (p.demo || []);
+    var data = {
+      pollId: p.id, prompt: p.prompt, source: live ? 'firestore' : 'demo',
+      exportedAt: new Date().toISOString(),
+      results: p.options.map(function (o, i) { return { option: o, votes: counts[i] || 0 }; })
+    };
+    var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'enquete-' + p.id + '.json';
+    a.click();
   }
 
   /* ── Modo apresentador (overlay: N) ───────────────────────── */
@@ -160,6 +207,7 @@
     presenterEl.hidden = true;
     presenterEl.addEventListener('click', function (e) {
       if (e.target.closest('.pr-close')) togglePresenter();
+      else if (e.target.closest('.pr-export')) exportPoll();
     });
     document.body.appendChild(presenterEl);
   }
@@ -177,10 +225,13 @@
     var pos = state.view === 'stage'
       ? 'Tela ' + (state.idx + 1) + '/' + DATA.screens.length + ' · etapa ' + state.step
       : state.view;
+    var live = liveOn();
+    var pollCnt = p ? (live ? (liveTotal[p.id] || 0) : (pollCounts[p.id] || 0)) : 0;
     var pollBox = p
-      ? '<div class="pr-poll"><span class="pr-lbl">Enquete</span>' +
-        'Estado: <b>' + (pollStates[p.id] || 'closed') + '</b> · ' + (pollCounts[p.id] || 0) + ' respostas' +
-        '<span class="pr-hint">P abrir/fechar · R revelar</span></div>'
+      ? '<div class="pr-poll"><span class="pr-lbl">Enquete · ' + (live ? 'AO VIVO' : 'demo') + '</span>' +
+        'Estado: <b>' + (pollStates[p.id] || 'closed') + '</b> · ' + pollCnt + ' respostas' +
+        '<span class="pr-hint">P abrir/fechar · R revelar · D alterna demo/ao vivo</span>' +
+        '<button class="pr-export" data-block>Exportar JSON</button></div>'
       : '';
     presenterEl.innerHTML =
       '<div class="pr-top">' +
@@ -311,6 +362,7 @@
       case 'm': case 'M': go('map'); break;
       case 'p': case 'P': togglePoll(); break;
       case 'r': case 'R': revealPoll(); break;
+      case 'd': case 'D': toggleDemo(); break;
       case 'n': case 'N': togglePresenter(); break;
       case 'Home': go('landing'); break;
     }

@@ -29,6 +29,12 @@
     <button class="chrome-btn" id="btnFs" title="Tela cheia (F)" aria-label="Tela cheia">⛶</button>
   </div>
 
+  <!-- Firebase (opcional): habilita voto ao vivo; sem ele, cai no modo demo -->
+  <script src="/assets/firebase-config.js" onerror="/* sem config → modo demo */"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+  <script src="assets/js/polls-live.js"></script>
+
   <script src="assets/js/render.js"></script>
   <script src="assets/js/engine.js"></script>
 </body>
