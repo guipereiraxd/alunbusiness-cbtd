@@ -16,13 +16,17 @@
   var renderedKey = null; // evita re-render ao só avançar microetapa
 
   /* ── Boot ─────────────────────────────────────────────────── */
-  fetch('content/screens.json')
-    .then(function (r) { return r.json(); })
-    .then(function (json) { DATA = json; route(); })
-    .catch(function (e) {
-      app.innerHTML = Render.stub('Erro', 'Não foi possível carregar o conteúdo.');
-      console.error('[deck] carregamento falhou:', e);
-    });
+  Promise.all([
+    fetch('content/screens.json').then(function (r) { return r.json(); }),
+    fetch('content/concepts.json').then(function (r) { return r.json(); })
+  ]).then(function (res) {
+    DATA = res[0];
+    DATA.concepts = (res[1] && res[1].concepts) || [];
+    route();
+  }).catch(function (e) {
+    app.innerHTML = Render.stub('Erro', 'Não foi possível carregar o conteúdo.');
+    console.error('[deck] carregamento falhou:', e);
+  });
 
   /* ── Roteamento por hash ──────────────────────────────────── */
   function parseHash() {
@@ -48,9 +52,11 @@
       state.step = Math.max(0, Math.min(t.step, max));
       renderStage();
     } else if (t.view === 'map') {
-      renderStatic(Render.stub('Mapa explorável', 'O mapa de conceitos chega na Fase 2. Por enquanto, siga pela apresentação.'));
+      renderStatic(Render.map(DATA.concepts || []));
+      initMap();
     } else if (t.view === 'concept') {
-      renderStatic(Render.stub('Conceito', 'As páginas de conceito chegam na Fase 2.'));
+      var c = (DATA.concepts || []).filter(function (x) { return x.id === t.id; })[0];
+      renderStatic(c ? Render.concept(c) : Render.stub('Conceito', 'Conceito não encontrado.'));
     } else {
       renderStatic(Render.landing(DATA.meta));
     }
@@ -86,6 +92,39 @@
       var on = state.step >= parseInt(el.getAttribute('data-active-at'), 10);
       el.classList.toggle('active', on);
       el.classList.toggle('pulse', on); // .q-10x ganha o brilho pulsante
+    });
+  }
+
+  /* ── Mapa: busca + filtro por tema ────────────────────────── */
+  function initMap() {
+    var grid = document.getElementById('mapGrid');
+    var search = document.getElementById('mapSearch');
+    var empty = document.getElementById('mapEmpty');
+    var chips = app.querySelectorAll('.mapchip');
+    if (!grid) return;
+    var theme = 'all';
+
+    function apply() {
+      var q = (search && search.value || '').toLowerCase().trim();
+      var shown = 0;
+      grid.querySelectorAll('.mapcard').forEach(function (card) {
+        var okT = theme === 'all' || card.getAttribute('data-theme') === theme;
+        var okQ = !q || card.getAttribute('data-text').indexOf(q) >= 0;
+        var vis = okT && okQ;
+        card.hidden = !vis;
+        if (vis) shown++;
+      });
+      if (empty) empty.hidden = shown > 0;
+    }
+
+    if (search) search.addEventListener('input', apply);
+    chips.forEach(function (ch) {
+      ch.addEventListener('click', function () {
+        chips.forEach(function (c) { c.classList.remove('on'); });
+        ch.classList.add('on');
+        theme = ch.getAttribute('data-theme');
+        apply();
+      });
     });
   }
 
@@ -139,6 +178,7 @@
 
   /* ── Teclado ──────────────────────────────────────────────── */
   document.addEventListener('keydown', function (e) {
+    if (e.target.matches('input, textarea, select')) return; // não navegar ao digitar
     switch (e.key) {
       case 'ArrowRight': case 'PageDown': case ' ': case 'Spacebar':
         e.preventDefault(); next(); break;

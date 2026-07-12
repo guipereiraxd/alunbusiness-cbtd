@@ -1,0 +1,123 @@
+{
+  "concepts": [
+    {
+      "id": "engenharia-de-loop",
+      "title": "Engenharia de Loop",
+      "theme": "agentes",
+      "screen": 5,
+      "insight": "O novo objeto de engenharia é o loop que produz e melhora o artefato.",
+      "definicao": "Disciplina de projetar deliberadamente os ciclos que conectam intenção, contexto, ação, execução, observação, avaliação, correção e memória. O loop — e não o artefato isolado — passa a ser a unidade que se projeta, versiona e melhora.",
+      "exemplo": "Um agente de correção de bugs gera um patch, roda a suíte de testes, lê o resultado, ajusta e só então abre o PR — repetindo o ciclo até os sinais fecharem.",
+      "antipadrao": "Rodar o agente uma vez, aceitar a primeira saída e chamar isso de automação — um loop sem sinal objetivo que o feche.",
+      "perguntas": ["Qual sinal objetivo fecha o loop?", "Quem define sucesso?", "O que vira memória entre execuções?", "Quando escalar para um humano?"],
+      "metrica": "Taxa de sucesso por iteração e número de ciclos até convergir.",
+      "proximoPasso": "Escolha um fluxo repetitivo e desenhe seu loop explícito: gatilho, sinal de sucesso e ponto de escalonamento.",
+      "fontes": [
+        { "t": "OpenAI — Unrolling the Codex agent loop" },
+        { "t": "OpenAI Cookbook — Agent improvement loop with traces, evals and feedback" },
+        { "t": "Martin Fowler — Humans and Agents in Software Engineering Loops" }
+      ]
+    },
+    {
+      "id": "harness-engineering",
+      "title": "Harness Engineering",
+      "theme": "arquitetura",
+      "screen": 6,
+      "insight": "Modelos dão capacidade. Harnesses transformam capacidade em trabalho confiável.",
+      "definicao": "Engenharia do ambiente que transforma um modelo em um agente capaz de trabalhar de forma orientada, observável e controlada: guias, sensores, atuadores, limites e estado ao redor do modelo. Autonomia segura não vem do prompt — vem da infraestrutura que guia, restringe, observa e corrige.",
+      "exemplo": "Dar ao agente acesso ao terminal e ao repositório (atuadores), com testes e linters como sensores, sandbox e budgets como limites, e memória de decisões como estado.",
+      "antipadrao": "Esperar confiabilidade apenas de um prompt melhor, sem sensores nem limites — capacidade sem controle.",
+      "perguntas": ["Quais sensores dão evidência ao agente?", "Que limites impedem dano?", "O que é determinístico e o que é probabilístico aqui?"],
+      "metrica": "Proporção de ações cobertas por verificação automática; incidentes por nível de autonomia concedido.",
+      "proximoPasso": "Mapeie, para uma tarefa, os cinco elementos do harness: guias, sensores, atuadores, limites e estado.",
+      "fontes": [
+        { "t": "OpenAI — Harness engineering: leveraging Codex in an agent-first world" },
+        { "t": "Anthropic — Harness design for long-running application development" },
+        { "t": "Anthropic — Effective harnesses for long-running agents" },
+        { "t": "Martin Fowler — Harness engineering for coding agent users" }
+      ]
+    },
+    {
+      "id": "context-engineering",
+      "title": "Context Engineering",
+      "theme": "arquitetura",
+      "screen": 7,
+      "insight": "O prompt inicia a tarefa. O contexto sustenta o trabalho.",
+      "definicao": "Sistema que descobre, seleciona, estrutura, comprime e entrega a informação certa no momento certo. Separa conhecimento permanente, contexto de tarefa, memória e estado operacional, carregando sob demanda em vez de despejar tudo de uma vez.",
+      "exemplo": "Um agente que busca só os arquivos relevantes ao ticket, resume decisões passadas e injeta as regras de arquitetura aplicáveis — nada além disso.",
+      "antipadrao": "Empurrar todo o repositório para a janela: excesso de contexto reduz qualidade e aumenta custo tanto quanto a falta.",
+      "perguntas": ["Qual contexto é permanente e qual é da tarefa?", "Como controlar atualidade e proveniência?", "O que carregar sob demanda?"],
+      "metrica": "Relevância e utilização do contexto entregue; custo por tarefa.",
+      "proximoPasso": "Trate repositório, documentação e decisões como interfaces legíveis por agentes.",
+      "fontes": [
+        { "t": "Martin Fowler — Context Engineering for Coding Agents" }
+      ]
+    },
+    {
+      "id": "evaluation-driven",
+      "title": "Evaluation-Driven Development",
+      "theme": "qualidade",
+      "screen": 8,
+      "insight": "Sem avaliações, autonomia é apenas velocidade sem evidência.",
+      "definicao": "Definir o comportamento desejado antes de ampliar a autonomia, combinando testes determinísticos e avaliações probabilísticas. Avaliações não são etapa final: definem o que o agente pode aprender, corrigir e executar sozinho.",
+      "exemplo": "Golden datasets rodados antes de promover uma mudança, LLM-as-judge calibrado para critérios subjetivos e evals online monitorando regressão de comportamento em produção.",
+      "antipadrao": "Verificar qualidade só no fim, à mão — geração sem avaliação apenas acelera o erro.",
+      "perguntas": ["O que é sucesso, de forma mensurável?", "Teste determinístico ou rubrica?", "Como detectar regressão de comportamento?"],
+      "metrica": "Cobertura de evals por caminho crítico; regressões pegas antes de produção.",
+      "proximoPasso": "Crie um golden dataset pequeno para o fluxo mais arriscado e rode-o a cada mudança.",
+      "fontes": [
+        { "t": "Anthropic — Demystifying evals for AI agents" },
+        { "t": "GitHub — Validating agentic behavior when \"correct\" is not deterministic" }
+      ]
+    },
+    {
+      "id": "engenharia-de-evidencias",
+      "title": "Engenharia de Evidências",
+      "theme": "seguranca",
+      "insight": "Confiança não é um número. É um rastro verificável.",
+      "definicao": "Cada ação relevante do agente deve deixar evidência reproduzível: testes, traces, fontes consultadas, decisões, diffs, métricas e aprovações. Proveniência e reprodutibilidade viram requisitos de engenharia; o artefato final vem acompanhado da justificativa que o sustenta.",
+      "exemplo": "Um PR do agente que anexa os testes executados, as fontes consultadas, o trace da decisão e a avaliação que aprovou a mudança.",
+      "antipadrao": "Apresentar um único score de confiança sem decompor as evidências que o sustentam.",
+      "perguntas": ["Que rastro cada ação deixa?", "O resultado é reproduzível?", "A justificativa acompanha o artefato?"],
+      "metrica": "Percentual de mudanças com evidência completa e reproduzível.",
+      "proximoPasso": "Defina o pacote mínimo de evidência que todo artefato agêntico deve carregar.",
+      "fontes": [
+        { "t": "GitHub — Validating agentic behavior when \"correct\" is not deterministic" },
+        { "t": "OpenAI Cookbook — Agent improvement loop with traces, evals and feedback" }
+      ]
+    },
+    {
+      "id": "agentic-sdlc",
+      "title": "Agentic SDLC",
+      "theme": "operacao",
+      "screen": 9,
+      "insight": "O ciclo de desenvolvimento deixa de ser uma esteira e passa a ser uma rede de loops.",
+      "definicao": "Agentes participam de múltiplas fases — não só da escrita de código — de forma assíncrona, paralela e orientada por objetivos. Planos, decisões e dívida técnica viram artefatos versionados; revisão e validação tornam-se independentes da geração; feedback de produção realimenta manutenção e aprendizado.",
+      "exemplo": "Vários agentes trabalhando em issues em paralelo, com um revisor independente e o feedback de incidentes voltando como novas avaliações.",
+      "antipadrao": "Encaixar agentes numa esteira linear sem redesenhar filas, papéis e ownership.",
+      "perguntas": ["O que pode ser assíncrono e paralelo?", "Quem valida, independente de quem gera?", "Como o feedback de produção realimenta o ciclo?"],
+      "metrica": "Throughput ponta a ponta e tempo de ciclo — não a velocidade de uma etapa.",
+      "proximoPasso": "Redesenhe uma fase do SDLC como loop com validação independente.",
+      "fontes": [
+        { "t": "GitHub — Agent-driven development in Copilot Applied Science" }
+      ]
+    },
+    {
+      "id": "novo-papel",
+      "title": "Novo papel humano",
+      "theme": "lideranca",
+      "screen": 10,
+      "insight": "De produzir cada linha para projetar o sistema que produz software.",
+      "definicao": "O humano define objetivos e critérios de sucesso, escolhe níveis de autonomia, projeta contexto, loops e harnesses, interpreta evidência e preserva arquitetura, segurança e responsabilidade. O trabalho se desloca para níveis mais altos de abstração e julgamento — não desaparece.",
+      "exemplo": "Um tech lead que deixa de revisar cada linha e passa a definir gates, políticas e os pontos onde o humano decide.",
+      "antipadrao": "Narrar o desaparecimento do desenvolvedor — ou, no oposto, revisar tudo à mão como antes.",
+      "perguntas": ["Que decisões continuam humanas?", "Qual nível de autonomia é adequado por tarefa?", "Quem é responsável pelo resultado?"],
+      "metrica": "Tempo gasto em design de sistema versus execução manual.",
+      "proximoPasso": "Liste as três competências que mais crescem no seu time e comece por uma.",
+      "fontes": [
+        { "t": "Martin Fowler — Humans and Agents in Software Engineering Loops" },
+        { "t": "GitHub — Building an agentic memory system for GitHub Copilot" }
+      ]
+    }
+  ]
+}

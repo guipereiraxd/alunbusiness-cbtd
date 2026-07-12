@@ -212,11 +212,11 @@
       "highlight": "cria, verifica e melhora",
       "steps": 2,
       "concepts": [
-        { "id": "o-gargalo-mudou", "t": "Gargalo" },
         { "id": "engenharia-de-loop", "t": "Loop" },
         { "id": "harness-engineering", "t": "Harness" },
         { "id": "context-engineering", "t": "Contexto" },
         { "id": "evaluation-driven", "t": "Avaliações" },
+        { "id": "engenharia-de-evidencias", "t": "Evidências" },
         { "id": "agentic-sdlc", "t": "SDLC agêntico" },
         { "id": "novo-papel", "t": "Papel humano" }
       ],

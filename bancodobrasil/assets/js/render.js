@@ -184,5 +184,67 @@ window.Render = (function () {
       '</section>';
   }
 
-  return { landing: landing, screen: screen, stub: stub };
+  var THEMES = {
+    arquitetura: 'Arquitetura', qualidade: 'Qualidade', agentes: 'Agentes',
+    lideranca: 'Liderança', seguranca: 'Segurança', operacao: 'Operação'
+  };
+  function themeLabel(t) { return THEMES[t] || t; }
+
+  // Mapa explorável: busca + filtro por tema + cards de conceito
+  function map(concepts) {
+    var cards = concepts.map(function (c) {
+      var text = (c.title + ' ' + c.insight + ' ' + c.definicao).toLowerCase();
+      return '<a class="mapcard" href="#/conceito/' + esc(c.id) + '" data-theme="' + esc(c.theme) + '" data-text="' + esc(text) + '">' +
+        '<span class="mapcard-tag">' + esc(themeLabel(c.theme)) + '</span>' +
+        '<span class="mapcard-title">' + esc(c.title) + '</span>' +
+        '<span class="mapcard-insight">' + esc(c.insight) + '</span>' +
+      '</a>';
+    }).join('');
+    var chips = ['all', 'arquitetura', 'qualidade', 'agentes', 'lideranca', 'seguranca', 'operacao'].map(function (t, i) {
+      return '<button class="mapchip' + (i === 0 ? ' on' : '') + '" data-theme="' + t + '">' + (t === 'all' ? 'Todos' : themeLabel(t)) + '</button>';
+    }).join('');
+    return '<div class="mapv">' +
+      '<div class="mapv-head"><div>' +
+        '<div class="doc-kicker">' + chevrons + 'Mapa explorável</div>' +
+        '<h1 class="mapv-title">A nova engenharia, conectada</h1>' +
+      '</div><a class="btn btn-ghost" href="#/">← Início</a></div>' +
+      '<div class="mapv-tools">' +
+        '<input id="mapSearch" class="mapv-search" type="search" placeholder="Buscar conceito ou termo…" aria-label="Buscar">' +
+        '<div class="mapv-filters">' + chips + '</div>' +
+      '</div>' +
+      '<div class="mapv-grid" id="mapGrid">' + cards + '</div>' +
+      '<p class="mapv-empty" id="mapEmpty" hidden>Nada encontrado com esse filtro.</p>' +
+    '</div>';
+  }
+
+  // Página de conceito (estrutura editorial do brief)
+  function concept(c) {
+    function block(title, inner, span) {
+      return '<section class="doc-block' + (span ? ' span2' : '') + '"><h3>' + esc(title) + '</h3>' + inner + '</section>';
+    }
+    function list(items, cls) {
+      return '<ul class="' + (cls || '') + '">' + items.map(function (i) {
+        return '<li>' + esc(i.t !== undefined ? i.t : i) + '</li>';
+      }).join('') + '</ul>';
+    }
+    var stageLink = c.screen ? '<a class="btn btn-ghost" href="#/tela/' + c.screen + '/0">Ver na apresentação →</a>' : '';
+    return '<div class="doc">' +
+      '<a class="doc-back" href="#/mapa">' + chevrons + 'Mapa</a>' +
+      '<div class="doc-kicker">' + esc(themeLabel(c.theme)) + ' · Conceito</div>' +
+      '<h1 class="doc-title">' + esc(c.title) + '</h1>' +
+      '<p class="doc-insight">' + esc(c.insight) + '</p>' +
+      '<div class="doc-grid">' +
+        block('Definição', '<p>' + esc(c.definicao) + '</p>', true) +
+        block('Exemplo', '<p>' + esc(c.exemplo) + '</p>') +
+        block('Antipadrão', '<p>' + esc(c.antipadrao) + '</p>') +
+        block('Perguntas para a liderança', list(c.perguntas)) +
+        block('Métrica', '<p>' + esc(c.metrica) + '</p>') +
+        block('Próximo passo', '<p>' + esc(c.proximoPasso) + '</p>') +
+        block('Evidência', list(c.fontes, 'fontes'), true) +
+      '</div>' +
+      '<div class="doc-foot">' + stageLink + '</div>' +
+    '</div>';
+  }
+
+  return { landing: landing, screen: screen, stub: stub, map: map, concept: concept };
 })();
