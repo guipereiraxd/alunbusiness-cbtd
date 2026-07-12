@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Área pública, fora das buscas -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>{% if page.title %}{{ page.title }}{% else %}Alun Business{% endif %}</title>
+
+  <style>
+    /* ── Área Banco do Brasil — layout próprio, independente do site ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bb-bg:      #f7f8fa;
+      --bb-surface: #ffffff;
+      --bb-ink-1:   #14161c;
+      --bb-ink-2:   #4a4f5c;
+      --bb-ink-3:   #7c8291;
+      --bb-border:  #e4e7ec;
+      --bb-accent:  #0a3d8f;   /* azul institucional — ajustável */
+      --bb-accent-2:#f5c500;   /* amarelo — ajustável */
+      --bb-max:     880px;
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body {
+      background: var(--bb-bg);
+      color: var(--bb-ink-2);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .bb-header {
+      background: var(--bb-surface);
+      border-bottom: 1px solid var(--bb-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .bb-header-inner {
+      max-width: var(--bb-max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .bb-wordmark {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--bb-ink-1);
+      text-decoration: none;
+    }
+    .bb-wordmark span { color: var(--bb-accent); }
+    .bb-nav { display: flex; gap: 20px; }
+    .bb-nav a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--bb-ink-3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .bb-nav a:hover, .bb-nav a[aria-current="page"] { color: var(--bb-accent); }
+
+    /* Content */
+    .bb-main {
+      flex: 1;
+      width: 100%;
+      max-width: var(--bb-max);
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+
+    /* Footer */
+    .bb-footer {
+      border-top: 1px solid var(--bb-border);
+      background: var(--bb-surface);
+    }
+    .bb-footer-inner {
+      max-width: var(--bb-max);
+      margin: 0 auto;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--bb-ink-3);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .bb-footer a { color: var(--bb-ink-3); text-decoration: none; }
+    .bb-footer a:hover { color: var(--bb-ink-2); }
+
+    @media (max-width: 640px) {
+      .bb-header-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .bb-main { padding: 28px 18px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="bb-header">
+    <div class="bb-header-inner">
+      <a class="bb-wordmark" href="{{ '/bancodobrasil/' | relative_url }}">Alun <span>Business</span></a>
+      {% comment %} Navegação da sequência — edite conforme as páginas forem criadas {% endcomment %}
+      <nav class="bb-nav">
+        <a href="{{ '/bancodobrasil/' | relative_url }}">Início</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="bb-main">
+    {{ content }}
+  </main>
+
+  <footer class="bb-footer">
+    <div class="bb-footer-inner">
+      <span>© {{ site.time | date: '%Y' }} Alun Business</span>
+      <span>Conteúdo restrito · não indexado</span>
+    </div>
+  </footer>
+
+</body>
+</html>

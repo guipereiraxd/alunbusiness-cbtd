@@ -23,6 +23,7 @@ include:
   - workshop
   - calculadora-roi
   - curso-ia
+  - bancodobrasil
 
 defaults:
   - scope:
@@ -30,3 +31,8 @@ defaults:
       type: "pages"
     values:
       layout: "default"
+  - scope:
+      path: "bancodobrasil"
+      type: "pages"
+    values:
+      layout: "bancodobrasil"
