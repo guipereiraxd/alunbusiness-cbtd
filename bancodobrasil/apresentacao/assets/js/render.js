@@ -211,11 +211,10 @@ window.Render = (function () {
     // Tela de apoio do Fishbowl — capa remasterizada com perguntas-guia
     // reveladas uma a uma, clique a clique.
     fishbowl: function (s) {
-      var total = s.questions.length;
       var blocks = s.questions.map(function (q, i) {
         var deepen = q.deepen.map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('');
         return '<div class="fishbowl-q-block" data-step="' + (i + 1) + '">' +
-          '<div class="fishbowl-q-label">Pergunta ' + (i + 1) + ' de ' + total + ' · ' + esc(q.title) + '</div>' +
+          '<div class="fishbowl-q-label">' + esc(q.title) + '</div>' +
           '<p class="fishbowl-q-main">' + esc(q.question) + '</p>' +
           '<span class="fishbowl-deepen-label">Perguntas de aprofundamento</span>' +
           '<ul class="fishbowl-q-deepen">' + deepen + '</ul>' +
@@ -229,8 +228,6 @@ window.Render = (function () {
         landingHeroArrow() +
         '<div class="fishbowl-center">' +
           '<div class="kicker">' + chevrons + esc(s.kicker) + '</div>' +
-          '<h1 class="fishbowl-title">' + esc(s.title) + '</h1>' +
-          '<p class="sub fishbowl-sub">' + esc(s.subtitle) + '</p>' +
           intro + blocks +
         '</div>' +
       '</div>';
