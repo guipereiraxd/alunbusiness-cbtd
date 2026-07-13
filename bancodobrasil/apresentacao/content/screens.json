@@ -2,7 +2,7 @@
   "meta": {
     "title": "Depois do Código",
     "subtitle": "A nova engenharia de software agêntica e os desafios dos times de tecnologia",
-    "total": 12
+    "total": 14
   },
   "screens": [
     {
@@ -14,22 +14,65 @@
       "steps": 1,
       "schedule": {
         "manha": [
-          { "time": "10h00–10h20", "session": "Café de boas-vindas", "break": true },
-          { "time": "10h20–10h35", "session": "Abertura: Depois do Código", "speaker": "Hosts do Evento" },
-          { "time": "10h35–11h10", "session": "Quando escrever código deixa de ser o principal gargalo", "speaker": "Paulo Silveira" },
-          { "time": "11h10–12h10", "session": "Dev em T + Filtrando o Hype", "speaker": "Sérgio Lopes" },
-          { "time": "12h10–13h40", "session": "Almoço", "break": true }
+          {
+            "time": "10h00–10h20",
+            "session": "Café de boas-vindas",
+            "break": true
+          },
+          {
+            "time": "10h20–10h35",
+            "session": "Abertura: Depois do Código",
+            "speaker": "Hosts do Evento"
+          },
+          {
+            "time": "10h35–11h10",
+            "session": "Quando escrever código deixa de ser o principal gargalo",
+            "speaker": "Paulo Silveira"
+          },
+          {
+            "time": "11h10–12h10",
+            "session": "Dev em T + Filtrando o Hype",
+            "speaker": "Sérgio Lopes"
+          },
+          {
+            "time": "12h10–13h40",
+            "session": "Almoço",
+            "break": true
+          }
         ],
         "tarde": [
-          { "time": "13h40–14h10", "session": "Qualidade de software no mundo da IA", "speaker": "Mauricio Aniche" },
-          { "time": "14h10–14h50", "session": "Como seria um ciclo de desenvolvimento com agentes de IA?", "speaker": "Tiago Santos" },
-          { "time": "14h50–15h10", "session": "Pausa para café", "break": true },
-          { "time": "15h10–16h00", "session": "Aquário técnico", "speaker": "Guilherme Pereira" },
-          { "time": "16h00–16h05", "session": "Encerramento", "speaker": "Hosts do Evento" }
+          {
+            "time": "13h40–14h10",
+            "session": "Qualidade de software no mundo da IA",
+            "speaker": "Mauricio Aniche"
+          },
+          {
+            "time": "14h10–14h50",
+            "session": "Como seria um ciclo de desenvolvimento com agentes de IA?",
+            "speaker": "Tiago Santos"
+          },
+          {
+            "time": "14h50–15h10",
+            "session": "Pausa para café",
+            "break": true
+          },
+          {
+            "time": "15h10–16h00",
+            "session": "Aquário técnico",
+            "speaker": "Guilherme Pereira"
+          },
+          {
+            "time": "16h00–16h05",
+            "session": "Encerramento",
+            "speaker": "Hosts do Evento"
+          }
         ]
       },
       "speakerNotes": "Mostrar o roteiro completo do dia antes de entrar na apresentação — dá contexto de quanto tempo cada bloco leva e quando são as pausas.",
-      "explore": { "summary": "Cronograma completo do encontro.", "items": [] }
+      "explore": {
+        "summary": "Cronograma completo do encontro.",
+        "items": []
+      }
     },
     {
       "id": "a-pergunta",
@@ -50,7 +93,14 @@
           "Cultura e organização",
           "Não sabemos medir o ganho"
         ],
-        "demo": [12, 26, 10, 22, 18, 12],
+        "demo": [
+          12,
+          26,
+          10,
+          22,
+          18,
+          12
+        ],
         "pollOpenStep": 2,
         "pollRevealStep": 3
       },
@@ -68,9 +118,47 @@
       }
     },
     {
-      "id": "a-falsa-equacao",
+      "id": "mesma-fabrica",
       "order": 3,
-      "kicker": "03 · A falsa equação",
+      "kicker": "03 · Antes",
+      "type": "imageslide",
+      "insight": "Trocamos a máquina a vapor pelo motor elétrico. A fábrica continuou a mesma.",
+      "steps": 1,
+      "image": {
+        "src": "/bancodobrasil/assets/slide-antes.png",
+        "alt": "Fábricas com máquinas a vapor e fábricas com motores elétricos"
+      },
+      "speakerNotes": "A eletricidade chegou às fábricas décadas antes de qualquer ganho real de produtividade — o chão de fábrica continuou organizado como na era do vapor, só trocando a fonte de energia.",
+      "explore": {
+        "summary": "Trocar a tecnologia sem redesenhar o processo não move produtividade.",
+        "items": []
+      }
+    },
+    {
+      "id": "o-verdadeiro-salto",
+      "order": 4,
+      "kicker": "04 · Depois",
+      "type": "imageslide",
+      "insight": "O ganho só veio quando a linha de produção foi reinventada.",
+      "steps": 2,
+      "image": {
+        "src": "/bancodobrasil/assets/slide-depois.png",
+        "alt": "Conceito de linha de produção"
+      },
+      "quote": {
+        "text": "87% das transformações e projetos de IA falham, porque a maioria das organizações aborda esse novo paradigma tecnológico da mesma forma que fizemos o último",
+        "highlight": "87%"
+      },
+      "speakerNotes": "O salto de produtividade só apareceu quando o processo em si foi reinventado em torno da linha de produção — não bastou trocar a máquina. É a mesma armadilha que ronda as transformações de IA hoje.",
+      "explore": {
+        "summary": "O paradigma novo exige um processo novo, não o antigo com uma tecnologia diferente.",
+        "items": []
+      }
+    },
+    {
+      "id": "a-falsa-equacao",
+      "order": 5,
+      "kicker": "05 · A falsa equação",
       "type": "equation",
       "insight": "Mais código ≠ mais software entregue",
       "steps": 2,
@@ -78,7 +166,12 @@
         "up": "capacidade de gerar código",
         "flat": "throughput de valor"
       },
-      "queues": ["Revisão", "Integração", "Segurança", "Operação"],
+      "queues": [
+        "Revisão",
+        "Integração",
+        "Segurança",
+        "Operação"
+      ],
       "speakerNotes": "Otimizar uma etapa não garante ganho do sistema. A IA pode mover o gargalo, e até aumentar o volume de trabalho nas etapas seguintes.",
       "explore": {
         "summary": "Produção local versus fluxo ponta a ponta.",
@@ -93,18 +186,32 @@
     },
     {
       "id": "o-codigo-ficou-barato",
-      "order": 4,
-      "kicker": "04 · O código ficou barato",
+      "order": 6,
+      "kicker": "06 · O código ficou barato",
       "type": "twocol",
       "insight": "O software continua caro. O código ficou barato.",
       "steps": 2,
       "cheaper": {
         "label": "Ficou mais barato",
-        "items": ["Boilerplate", "Documentação inicial", "Testes básicos", "Refatorações locais", "Protótipos"]
+        "items": [
+          "Boilerplate",
+          "Documentação inicial",
+          "Testes básicos",
+          "Refatorações locais",
+          "Protótipos"
+        ]
       },
       "expensive": {
         "label": "Continua caro",
-        "items": ["Entendimento de domínio", "Arquitetura", "Integração", "Confiabilidade", "Segurança", "Operação", "Julgamento"]
+        "items": [
+          "Entendimento de domínio",
+          "Arquitetura",
+          "Integração",
+          "Confiabilidade",
+          "Segurança",
+          "Operação",
+          "Julgamento"
+        ]
       },
       "speakerNotes": "Evitar dizer que código perdeu importância. O insight é que sua produção deixou de ser a restrição dominante em muitos cenários.",
       "explore": {
@@ -114,59 +221,129 @@
     },
     {
       "id": "o-gargalo-mudou",
-      "order": 5,
-      "kicker": "05 · O gargalo mudou",
+      "order": 7,
+      "kicker": "07 · O gargalo mudou",
       "type": "flow",
       "insight": "A engenharia começa onde a geração termina.",
       "steps": 3,
       "fast": "código gerado",
-      "stages": ["Arquitetura", "Revisão", "Testes", "Compliance", "Deploy", "Sustentação"],
+      "stages": [
+        "Arquitetura",
+        "Revisão",
+        "Testes",
+        "Compliance",
+        "Deploy",
+        "Sustentação"
+      ],
       "poll": {
         "id": "p2-gargalo",
         "prompt": "Onde seu fluxo trava hoje?",
-        "options": ["Arquitetura", "Contexto & requisitos", "Revisão & confiança", "Segurança", "Integração", "Operação"],
-        "demo": [22, 14, 20, 12, 16, 16],
+        "options": [
+          "Arquitetura",
+          "Contexto & requisitos",
+          "Revisão & confiança",
+          "Segurança",
+          "Integração",
+          "Operação"
+        ],
+        "demo": [
+          22,
+          14,
+          20,
+          12,
+          16,
+          16
+        ],
         "pollOpenStep": 2,
         "pollRevealStep": 3
       },
       "speakerNotes": "Os próximos conceitos são respostas para operar nesse novo gargalo.",
       "explore": {
         "summary": "O código passa rápido e acumula nas etapas de engenharia.",
-        "items": ["Arquitetura e coerência", "Contexto e requisitos", "Revisão e confiança", "Segurança", "Integração", "Operação", "Decisão organizacional"]
+        "items": [
+          "Arquitetura e coerência",
+          "Contexto e requisitos",
+          "Revisão e confiança",
+          "Segurança",
+          "Integração",
+          "Operação",
+          "Decisão organizacional"
+        ]
       }
     },
     {
       "id": "engenharia-de-loop",
-      "order": 6,
-      "kicker": "06 · Engenharia de Loop",
+      "order": 8,
+      "kicker": "08 · Engenharia de Loop",
       "type": "loop",
       "insight": "O novo objeto de engenharia é o loop que produz e melhora o artefato.",
       "highlight": "loop",
       "steps": 2,
-      "nodes": ["Intenção", "Contexto", "Planejamento", "Ação", "Execução", "Observação", "Avaliação", "Correção", "Memória"],
-      "modes": ["Humano no loop", "Humano sobre o loop", "Humano fora do loop"],
+      "nodes": [
+        "Intenção",
+        "Contexto",
+        "Planejamento",
+        "Ação",
+        "Execução",
+        "Observação",
+        "Avaliação",
+        "Correção",
+        "Memória"
+      ],
+      "modes": [
+        "Humano no loop",
+        "Humano sobre o loop",
+        "Humano fora do loop"
+      ],
       "speakerNotes": "Engenharia de Loop é o desenho deliberado dos ciclos que conectam agentes, ferramentas e pessoas.",
       "explore": {
         "summary": "Projetar os ciclos de geração, execução, observação, avaliação e melhoria.",
-        "items": ["Qual sinal fecha o loop?", "Quem define sucesso?", "O que vira memória?", "Quando escalar para humano?", "Como impedir repetição de erros?"]
+        "items": [
+          "Qual sinal fecha o loop?",
+          "Quem define sucesso?",
+          "O que vira memória?",
+          "Quando escalar para humano?",
+          "Como impedir repetição de erros?"
+        ]
       }
     },
     {
       "id": "harness-engineering",
-      "order": 7,
-      "kicker": "07 · Harness Engineering",
+      "order": 9,
+      "kicker": "09 · Harness Engineering",
       "type": "layers",
       "insight": "Modelos dão capacidade. Harnesses transformam capacidade em trabalho confiável.",
       "highlight": "Harnesses",
       "steps": 2,
       "core": "Modelo",
-      "rings": ["Contexto", "Ferramentas", "Sensores", "Políticas", "Supervisão"],
+      "rings": [
+        "Contexto",
+        "Ferramentas",
+        "Sensores",
+        "Políticas",
+        "Supervisão"
+      ],
       "cats": [
-        { "k": "Guides", "v": "instruções, arquitetura, padrões, planos" },
-        { "k": "Sensors", "v": "testes, linters, segurança, observabilidade" },
-        { "k": "Actuators", "v": "ferramentas, terminal, APIs, repositório" },
-        { "k": "Boundaries", "v": "permissões, sandbox, budgets, gates" },
-        { "k": "State", "v": "memória, histórico, decisões, artefatos" }
+        {
+          "k": "Guides",
+          "v": "instruções, arquitetura, padrões, planos"
+        },
+        {
+          "k": "Sensors",
+          "v": "testes, linters, segurança, observabilidade"
+        },
+        {
+          "k": "Actuators",
+          "v": "ferramentas, terminal, APIs, repositório"
+        },
+        {
+          "k": "Boundaries",
+          "v": "permissões, sandbox, budgets, gates"
+        },
+        {
+          "k": "State",
+          "v": "memória, histórico, decisões, artefatos"
+        }
       ],
       "speakerNotes": "Autonomia segura não emerge de um prompt; é construída por uma infraestrutura que guia, restringe, observa e corrige o agente.",
       "explore": {
@@ -176,64 +353,136 @@
     },
     {
       "id": "context-engineering",
-      "order": 8,
-      "kicker": "08 · Context Engineering",
+      "order": 10,
+      "kicker": "10 · Context Engineering",
       "type": "context",
       "insight": "O prompt inicia a tarefa. O contexto sustenta o trabalho.",
       "highlight": "contexto",
       "steps": 2,
-      "sources": ["Arquitetura", "Domínio", "Histórico", "Regras", "Exemplos", "Estado", "Ferramentas"],
-      "states": ["Insuficiente", "Certo", "Excessivo"],
+      "sources": [
+        "Arquitetura",
+        "Domínio",
+        "Histórico",
+        "Regras",
+        "Exemplos",
+        "Estado",
+        "Ferramentas"
+      ],
+      "states": [
+        "Insuficiente",
+        "Certo",
+        "Excessivo"
+      ],
       "speakerNotes": "Contexto como infraestrutura: um sistema que encontra, seleciona, atualiza e entrega a informação certa no momento certo.",
       "explore": {
         "summary": "Descobrir, selecionar, comprimir e entregar contexto sob demanda.",
-        "items": ["Descoberta de contexto", "Seleção e compressão", "Contexto sob demanda", "Memória persistente", "Proveniência e atualidade"]
+        "items": [
+          "Descoberta de contexto",
+          "Seleção e compressão",
+          "Contexto sob demanda",
+          "Memória persistente",
+          "Proveniência e atualidade"
+        ]
       }
     },
     {
       "id": "evaluation-driven",
-      "order": 9,
-      "kicker": "09 · Evaluation-Driven Development",
+      "order": 11,
+      "kicker": "11 · Evaluation-Driven Development",
       "type": "gates",
       "insight": "Sem avaliações, autonomia é apenas velocidade sem evidência.",
       "highlight": "avaliações",
       "steps": 2,
       "artifact": "artefato gerado",
-      "gates": ["Funcionalidade", "Arquitetura", "Segurança", "Manutenção", "Performance", "Negócio"],
-      "evals": ["Evals offline", "Evals online", "Golden datasets", "Rubricas", "LLM-as-judge", "Regressão de comportamento"],
+      "gates": [
+        "Funcionalidade",
+        "Arquitetura",
+        "Segurança",
+        "Manutenção",
+        "Performance",
+        "Negócio"
+      ],
+      "evals": [
+        "Evals offline",
+        "Evals online",
+        "Golden datasets",
+        "Rubricas",
+        "LLM-as-judge",
+        "Regressão de comportamento"
+      ],
       "speakerNotes": "Avaliações não são etapa final; definem o que o agente consegue aprender, corrigir e executar com autonomia.",
       "explore": {
         "summary": "Definir o comportamento desejado antes de ampliar a autonomia.",
-        "items": ["Evals offline antes da mudança", "Evals online em produção", "Golden datasets", "LLM-as-judge com calibração", "Outcome-based validation"]
+        "items": [
+          "Evals offline antes da mudança",
+          "Evals online em produção",
+          "Golden datasets",
+          "LLM-as-judge com calibração",
+          "Outcome-based validation"
+        ]
       }
     },
     {
       "id": "agentic-sdlc",
-      "order": 10,
-      "kicker": "10 · Agentic SDLC",
+      "order": 12,
+      "kicker": "12 · Agentic SDLC",
       "type": "sdlc",
       "insight": "O ciclo deixa de ser uma esteira e passa a ser uma rede de loops.",
       "highlight": "rede de loops",
       "steps": 2,
-      "linear": ["Requisito", "Código", "Teste", "Deploy"],
-      "network": ["Planejamento", "Execução paralela", "Revisão multiagente", "Integração contínua", "Validação independente", "Feedback de produção", "Manutenção contínua"],
+      "linear": [
+        "Requisito",
+        "Código",
+        "Teste",
+        "Deploy"
+      ],
+      "network": [
+        "Planejamento",
+        "Execução paralela",
+        "Revisão multiagente",
+        "Integração contínua",
+        "Validação independente",
+        "Feedback de produção",
+        "Manutenção contínua"
+      ],
       "speakerNotes": "O ganho vem de mudar coordenação, paralelismo, feedback e distribuição de responsabilidade.",
       "explore": {
         "summary": "Agentes participam de múltiplas fases, de forma assíncrona e paralela.",
-        "items": ["Planejamento e decomposição", "Execução paralela", "Revisão multiagente", "Feedback de produção", "Manutenção contínua"]
+        "items": [
+          "Planejamento e decomposição",
+          "Execução paralela",
+          "Revisão multiagente",
+          "Feedback de produção",
+          "Manutenção contínua"
+        ]
       }
     },
     {
       "id": "novo-papel",
-      "order": 11,
-      "kicker": "11 · O novo papel do desenvolvedor",
+      "order": 13,
+      "kicker": "13 · O novo papel do desenvolvedor",
       "type": "role",
       "insight": "De produzir cada linha para projetar o sistema que produz software.",
       "highlight": "projetar o sistema",
       "steps": 2,
-      "before": { "label": "Antes", "v": "Editor de código — cada linha escrita à mão" },
-      "after": { "label": "Depois", "v": "Painel de arquitetura, loops, evidências e políticas" },
-      "skills": ["Decomposição", "Arquitetura", "Context Engineering", "Harness Engineering", "Evaluation Engineering", "Observabilidade", "Segurança", "Julgamento"],
+      "before": {
+        "label": "Antes",
+        "v": "Editor de código — cada linha escrita à mão"
+      },
+      "after": {
+        "label": "Depois",
+        "v": "Painel de arquitetura, loops, evidências e políticas"
+      },
+      "skills": [
+        "Decomposição",
+        "Arquitetura",
+        "Context Engineering",
+        "Harness Engineering",
+        "Evaluation Engineering",
+        "Observabilidade",
+        "Segurança",
+        "Julgamento"
+      ],
       "speakerNotes": "O trabalho se desloca para níveis mais altos de abstração e exige maior capacidade de julgamento técnico.",
       "explore": {
         "summary": "Do artesão do código ao arquiteto do sistema que produz software.",
@@ -242,22 +491,49 @@
     },
     {
       "id": "mapa-final",
-      "order": 12,
-      "kicker": "12 · Mapa final",
+      "order": 14,
+      "kicker": "14 · Mapa final",
       "type": "mapfinal",
       "insight": "A nova engenharia é a do sistema que cria, verifica e melhora software.",
       "highlight": "cria, verifica e melhora",
       "steps": 2,
       "concepts": [
-        { "id": "engenharia-de-loop", "t": "Loop" },
-        { "id": "harness-engineering", "t": "Harness" },
-        { "id": "context-engineering", "t": "Contexto" },
-        { "id": "evaluation-driven", "t": "Avaliações" },
-        { "id": "engenharia-de-evidencias", "t": "Evidências" },
-        { "id": "agentic-sdlc", "t": "SDLC agêntico" },
-        { "id": "novo-papel", "t": "Papel humano" }
+        {
+          "id": "engenharia-de-loop",
+          "t": "Loop"
+        },
+        {
+          "id": "harness-engineering",
+          "t": "Harness"
+        },
+        {
+          "id": "context-engineering",
+          "t": "Contexto"
+        },
+        {
+          "id": "evaluation-driven",
+          "t": "Avaliações"
+        },
+        {
+          "id": "engenharia-de-evidencias",
+          "t": "Evidências"
+        },
+        {
+          "id": "agentic-sdlc",
+          "t": "SDLC agêntico"
+        },
+        {
+          "id": "novo-papel",
+          "t": "Papel humano"
+        }
       ],
-      "trilhas": ["Liderança", "Arquitetura", "Desenvolvimento", "Segurança & governança", "Plataforma & operação"],
+      "trilhas": [
+        "Liderança",
+        "Arquitetura",
+        "Desenvolvimento",
+        "Segurança & governança",
+        "Plataforma & operação"
+      ],
       "speakerNotes": "Fechar sem resumir tudo. Reforçar que o mapa continua disponível para exploração.",
       "explore": {
         "summary": "O mapa completo da nova engenharia de software agêntica.",

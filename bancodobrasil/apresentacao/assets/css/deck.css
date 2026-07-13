@@ -237,6 +237,22 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 .cronograma-row.break .cronograma-session { font-style: italic; }
 .cronograma-speaker { font-size: 0.82rem; color: var(--ink-3); }
 
+/* ── Telas 3–4: antes/depois — mesma virada de paradigma ─────── */
+.imgslide-wrap { width: 100%; }
+.imgslide-img {
+  width: 100%; display: block; border-radius: 10px;
+  border: 1px solid var(--nav-600); box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+.imgslide-quote {
+  margin-top: 26px; max-width: 46ch;
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem); line-height: 1.5;
+  color: var(--ink-1);
+  padding: 18px 22px; border-left: 3px solid var(--yellow);
+  background: rgba(255,255,255,0.02);
+}
+.imgslide-quote .y { color: var(--yellow); }
+
 /* ── Tela 1: pergunta ───────────────────────────────────────── */
 .q-10x { display: inline-block; color: var(--yellow); position: relative; }
 .q-10x.pulse { animation: pulse 2.2s var(--ease) infinite; }

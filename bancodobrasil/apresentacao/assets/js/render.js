@@ -131,6 +131,15 @@ window.Render = (function () {
           col('Tarde', s.schedule.tarde) +
         '</div>';
     },
+    // Telas 3–4 — antes/depois: mesma virada de paradigma, texto + imagem em colunas
+    imageslide: function (s) {
+      var img = '<div class="imgslide-wrap" data-reveal="1"><img class="imgslide-img" src="' + esc(s.image.src) + '" alt="' + esc(s.image.alt || '') + '"></div>';
+      var quote = s.quote
+        ? '<div class="imgslide-quote" data-reveal="2">' + highlight(s.quote.text, s.quote.highlight) + '</div>'
+        : '';
+      var left = screenHead(s) + quote;
+      return '<div class="split"><div class="split-l">' + left + '</div><div class="split-r">' + img + '</div></div>';
+    },
     question: function (s) {
       // marca o "dez vezes mais rápido" já vem do highlight; ativa pulse via data-active-at
       var head = screenHead(s).replace(
