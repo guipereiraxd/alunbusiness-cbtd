@@ -84,14 +84,14 @@
       "steps": 3,
       "poll": {
         "id": "p1-motivo",
-        "prompt": "Qual o motivo dominante?",
+        "prompt": "Por que as empresas ainda não entregam software 10× mais rápido?",
         "options": [
-          "A IA ainda erra muito",
-          "Arquitetura e sistemas legados",
-          "Segurança e governança",
-          "Integração e operação",
-          "Cultura e organização",
-          "Não sabemos medir o ganho"
+          "Requisitos e prioridades instáveis",
+          "Contexto e legado fragmentados",
+          "IA ainda falha no complexo",
+          "Revisão e testes viraram gargalo",
+          "Arquitetura e pipelines lentos",
+          "Processos e silos não mudaram"
         ],
         "demo": [
           12,
@@ -108,12 +108,12 @@
       "explore": {
         "summary": "A promessa de velocidade da IA não se converteu em throughput 10x. Por quê?",
         "items": [
-          "A IA ainda erra muito",
-          "Arquitetura e sistemas legados",
-          "Segurança e governança",
-          "Integração e operação",
-          "Cultura e organização",
-          "Não sabemos medir o ganho"
+          "Requisitos e prioridades instáveis",
+          "Contexto e legado fragmentados",
+          "IA ainda falha no complexo",
+          "Revisão e testes viraram gargalo",
+          "Arquitetura e pipelines lentos",
+          "Processos e silos não mudaram"
         ]
       }
     },
