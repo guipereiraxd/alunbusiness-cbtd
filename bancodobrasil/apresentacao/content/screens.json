@@ -238,14 +238,14 @@
       ],
       "poll": {
         "id": "p2-gargalo",
-        "prompt": "Onde seu fluxo trava hoje?",
+        "prompt": "Se a IA já acelera a escrita de código, onde deveríamos investir primeiro para transformar esse ganho em mais software entregue?",
         "options": [
-          "Arquitetura",
-          "Contexto & requisitos",
-          "Revisão & confiança",
-          "Segurança",
-          "Integração",
-          "Operação"
+          "Clareza de produto e prioridades",
+          "Plataforma de engenharia e CI/CD",
+          "Testes e validação automatizados",
+          "Modernização da arquitetura e do legado",
+          "Contexto interno acessível à IA",
+          "Capacitação e autonomia dos times"
         ],
         "demo": [
           22,
