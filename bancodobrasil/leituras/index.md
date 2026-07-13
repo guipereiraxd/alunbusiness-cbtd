@@ -48,7 +48,18 @@ title: "Leituras Complementares"
   <li><a href="https://martinfowler.com/articles/harness-engineering.html" target="_blank" rel="noopener">Harness Engineering for Coding Agent Users — Martin Fowler ↗</a></li>
 </ul>
 
-<h2>6. Segurança, permissões e governança de agentes</h2>
+<h2>6. Loop Engineering, orquestração e melhoria contínua</h2>
+<ul class="bb-reading">
+  <li><a href="https://addyosmani.com/blog/loop-engineering/" target="_blank" rel="noopener">Loop Engineering — Addy Osmani ↗</a></li>
+  <li><a href="https://www.deeplearning.ai/the-batch/three-key-loops-for-building-great-software" target="_blank" rel="noopener">Three Key Loops for Building Great Software — Andrew Ng ↗</a></li>
+  <li><a href="https://arxiv.org/abs/2607.00038" target="_blank" rel="noopener">Stop Hand-Holding Your Coding Agent: Engineering the Loops that Replace Step-by-Step Prompting — Sandeco Macedo ↗</a></li>
+  <li><a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" target="_blank" rel="noopener">Humans and Agents in Software Engineering Loops — Martin Fowler ↗</a></li>
+  <li><a href="https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop" target="_blank" rel="noopener">Build an Agent Improvement Loop with Traces, Evals and Codex — OpenAI ↗</a></li>
+  <li><a href="https://martinfowler.com/articles/pushing-ai-autonomy.html" target="_blank" rel="noopener">How Far Can We Push AI Autonomy in Code Generation? — Martin Fowler ↗</a></li>
+  <li><a href="https://addyosmani.com/blog/self-improving-agents/" target="_blank" rel="noopener">Self-Improving Coding Agents — Addy Osmani ↗</a></li>
+</ul>
+
+<h2>7. Segurança, permissões e governança de agentes</h2>
 <ul class="bb-reading">
   <li><a href="https://csrc.nist.gov/pubs/sp/800/218/a/final" target="_blank" rel="noopener">Secure Software Development Practices for Generative AI and Dual-Use Foundation Models — NIST ↗</a></li>
   <li><a href="https://genai.owasp.org/resource/owasp-top-10-para-aplicacoes-de-llm-e-ia-generativa-2025/" target="_blank" rel="noopener">OWASP Top 10 para Aplicações de LLM e IA Generativa — 2025 ↗</a></li>
@@ -59,7 +70,7 @@ title: "Leituras Complementares"
   <li><a href="https://github.blog/open-source/maintainers/securing-the-ai-software-supply-chain-security-results-across-67-open-source-projects/" target="_blank" rel="noopener">Securing the AI Software Supply Chain — GitHub ↗</a></li>
 </ul>
 
-<h2>7. Avaliação, testes e confiabilidade</h2>
+<h2>8. Avaliação, testes e confiabilidade</h2>
 <ul class="bb-reading">
   <li><a href="https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop" target="_blank" rel="noopener">Build an Agent Improvement Loop with Traces, Evals and Codex — OpenAI ↗</a></li>
   <li><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener">Demystifying Evals for AI Agents — Anthropic ↗</a></li>
@@ -68,14 +79,14 @@ title: "Leituras Complementares"
   <li><a href="https://dora.dev/capabilities/continuous-integration/" target="_blank" rel="noopener">Continuous Integration — DORA ↗</a></li>
 </ul>
 
-<h2>8. Plataforma, arquitetura e fluxo de entrega</h2>
+<h2>9. Plataforma, arquitetura e fluxo de entrega</h2>
 <ul class="bb-reading">
   <li><a href="https://dora.dev/capabilities/platform-engineering/" target="_blank" rel="noopener">Platform Engineering — DORA ↗</a></li>
   <li><a href="https://dora.dev/capabilities/working-in-small-batches/" target="_blank" rel="noopener">Working in Small Batches — DORA ↗</a></li>
   <li><a href="https://dora.dev/capabilities/loosely-coupled-teams/" target="_blank" rel="noopener">Loosely Coupled Teams — DORA ↗</a></li>
 </ul>
 
-<h2>9. Casos e fronteiras da engenharia agêntica</h2>
+<h2>10. Casos e fronteiras da engenharia agêntica</h2>
 <ul class="bb-reading">
   <li><a href="https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/" target="_blank" rel="noopener">AlphaEvolve: A Gemini-powered Coding Agent for Designing Advanced Algorithms — Google DeepMind ↗</a></li>
   <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-cli-open-source-ai-agent/" target="_blank" rel="noopener">Introducing Gemini CLI: An Open-source AI Agent — Google ↗</a></li>
