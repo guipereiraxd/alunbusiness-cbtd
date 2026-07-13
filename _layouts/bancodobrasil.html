@@ -150,6 +150,20 @@
     .bb-card-title { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; color: var(--ink-1); margin-bottom: 6px; }
     .bb-card-desc { font-size: 0.86rem; color: var(--ink-3); line-height: 1.5; }
 
+    /* Poll results */
+    .bb-poll { margin-bottom: 40px; padding: 24px 26px; background: var(--nav-800); border: 1px solid var(--nav-600); border-radius: 14px; }
+    .bb-poll-prompt { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--ink-1); margin-bottom: 4px; }
+    .bb-poll-meta { font-size: 0.82rem; color: var(--ink-3); margin-bottom: 18px; }
+    .bb-poll-meta b { color: var(--yellow); }
+    .bb-bar-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
+    .bb-bar-label { color: var(--ink-2); font-size: 0.88rem; }
+    .bb-bar-pct { color: var(--ink-3); font-size: 0.8rem; font-family: var(--font-display); }
+    .bb-bar-track { height: 9px; background: var(--nav-700); border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+    .bb-bar-fill { height: 100%; width: 0; background: var(--nav-600); border-radius: 6px; transition: width 0.8s cubic-bezier(0.22,1,0.36,1); }
+    .bb-bar.top .bb-bar-fill { background: var(--yellow); }
+    .bb-bar.top .bb-bar-pct { color: var(--yellow); }
+    .bb-poll-offline { font-size: 0.85rem; color: #ffb020; }
+
     /* Schedule table */
     .bb-schedule { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
     .bb-slot {
@@ -190,6 +204,7 @@
       <nav class="bb-nav">
         <a href="{{ '/bancodobrasil/' | relative_url }}" {% if page.url == '/bancodobrasil/' %}aria-current="page"{% endif %}>Início</a>
         <a href="{{ '/bancodobrasil/cronograma/' | relative_url }}" {% if page.url contains '/cronograma' %}aria-current="page"{% endif %}>Cronograma</a>
+        <a href="{{ '/bancodobrasil/resultados/' | relative_url }}" {% if page.url contains '/resultados' %}aria-current="page"{% endif %}>Resultados</a>
         <a href="{{ '/bancodobrasil/apresentacao/#/mapa' | relative_url }}">Mapa</a>
         <a href="{{ '/bancodobrasil/' | relative_url }}#materiais">Materiais</a>
       </nav>
