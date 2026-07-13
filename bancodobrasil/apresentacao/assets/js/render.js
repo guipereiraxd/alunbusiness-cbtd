@@ -210,7 +210,7 @@ window.Render = (function () {
   };
   function themeLabel(t) { return THEMES[t] || t; }
 
-  // Mapa explorável: busca + filtro por tema + cards de conceito
+  // Mapa de Conceitos: busca + filtro por tema + cards de conceito
   function map(concepts) {
     var cards = concepts.map(function (c) {
       var text = (c.title + ' ' + c.insight + ' ' + c.definicao).toLowerCase();
@@ -225,7 +225,7 @@ window.Render = (function () {
     }).join('');
     return '<div class="mapv">' +
       '<div class="mapv-head"><div>' +
-        '<div class="doc-kicker">' + chevrons + 'Mapa explorável</div>' +
+        '<div class="doc-kicker">' + chevrons + 'Mapa de Conceitos</div>' +
         '<h1 class="mapv-title">A nova engenharia, conectada</h1>' +
       '</div><a class="btn btn-ghost" href="#/">← Início</a></div>' +
       '<div class="mapv-tools">' +

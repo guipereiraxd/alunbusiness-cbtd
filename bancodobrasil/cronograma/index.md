@@ -2,7 +2,7 @@
 title: "Cronograma"
 ---
 
-<div class="bb-eyebrow"><span class="chevrons" aria-hidden="true"><i></i><i></i><i></i></span>Amanhã · 13 de julho</div>
+<div class="bb-eyebrow"><span class="chevrons" aria-hidden="true"><i></i><i></i><i></i></span>13 de julho</div>
 
 <h1 class="bb-h1">Cronograma do <span class="y">encontro</span></h1>
 
@@ -18,7 +18,7 @@ title: "Cronograma"
   <div class="bb-slot">
     <div class="bb-slot-time">10h20–10h35</div>
     <div class="bb-slot-session">Abertura: Depois do Código</div>
-    <div class="bb-slot-speaker">Executivo BB + Guilherme Pereira</div>
+    <div class="bb-slot-speaker">Hosts do Evento</div>
   </div>
 
   <div class="bb-slot">
@@ -64,7 +64,7 @@ title: "Cronograma"
   <div class="bb-slot">
     <div class="bb-slot-time">16h00–16h05</div>
     <div class="bb-slot-session">Encerramento</div>
-    <div class="bb-slot-speaker">Executivo BB + Alura</div>
+    <div class="bb-slot-speaker">Hosts do Evento</div>
   </div>
 
 </div>

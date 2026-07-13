@@ -138,6 +138,14 @@
     .bb-main p { margin-bottom: 14px; }
     .bb-main a { color: var(--yellow); }
 
+    /* Reading list */
+    .bb-reading { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px; }
+    .bb-reading li {
+      padding: 14px 18px; background: var(--nav-800); border: 1px solid var(--nav-600); border-radius: 10px;
+      color: var(--ink-2); font-size: 0.94rem; display: flex; gap: 10px;
+    }
+    .bb-reading li::before { content: "—"; color: var(--yellow); flex-shrink: 0; }
+
     /* Cards */
     .bb-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin-top: 8px; }
     .bb-card {
@@ -182,11 +190,11 @@
 
     /* Footer */
     .bb-footer { border-top: 1px solid var(--line); }
-    .bb-footer-inner {
-      max-width: var(--max); margin: 0 auto; padding: 24px;
-      font-size: 12px; color: var(--ink-3);
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
-    }
+    .bb-footer-inner { max-width: var(--max); margin: 0 auto; padding: 24px; }
+    .bb-orgs { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; padding-bottom: 20px; margin-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .bb-orgs-label { font-family: var(--font-display); font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+    .bb-org-logo { height: 26px; width: auto; opacity: 0.92; }
+    .bb-footer-meta { font-size: 12px; color: var(--ink-3); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
     .bb-footer a { color: var(--ink-3); text-decoration: none; }
     .bb-footer a:hover { color: var(--ink-2); }
 
@@ -204,7 +212,7 @@
       <nav class="bb-nav">
         <a href="{{ '/bancodobrasil/' | relative_url }}" {% if page.url == '/bancodobrasil/' %}aria-current="page"{% endif %}>Início</a>
         <a href="{{ '/bancodobrasil/cronograma/' | relative_url }}" {% if page.url contains '/cronograma' %}aria-current="page"{% endif %}>Cronograma</a>
-        <a href="{{ '/bancodobrasil/resultados/' | relative_url }}" {% if page.url contains '/resultados' %}aria-current="page"{% endif %}>Resultados</a>
+        <a href="{{ '/bancodobrasil/resultados/' | relative_url }}" {% if page.url contains '/resultados' %}aria-current="page"{% endif %}>Enquete</a>
         <a href="{{ '/bancodobrasil/apresentacao/#/mapa' | relative_url }}">Mapa</a>
         <a href="{{ '/bancodobrasil/' | relative_url }}#materiais">Materiais</a>
       </nav>
@@ -217,8 +225,15 @@
 
   <footer class="bb-footer">
     <div class="bb-footer-inner">
-      <span>Depois do Código · Alun Business</span>
-      <span>Conteúdo do evento · não indexado</span>
+      <div class="bb-orgs">
+        <span class="bb-orgs-label">Realização</span>
+        <img class="bb-org-logo" src="{{ '/assets/logo-alun-business.png' | relative_url }}" alt="Alun Business">
+        {% comment %} UniBB logo entra aqui assim que o arquivo for adicionado em bancodobrasil/assets/img/logo-unibb.png {% endcomment %}
+      </div>
+      <div class="bb-footer-meta">
+        <span>Depois do Código</span>
+        <span>Conteúdo do evento · não indexado</span>
+      </div>
     </div>
   </footer>
 
