@@ -208,6 +208,26 @@ window.Render = (function () {
         '<div class="manifesto-body" data-reveal="1">' + paras + '</div>' +
         '<div class="manifesto-close" data-reveal="2">' + closing + '</div>';
     },
+    // Tela de apoio do Fishbowl — capa remasterizada com perguntas-guia
+    // reveladas uma a uma, clique a clique.
+    fishbowl: function (s) {
+      var qs = s.questions.map(function (q, i) {
+        return '<li class="fishbowl-q" data-reveal="' + (i + 1) + '">' +
+          '<span class="fishbowl-q-num">' + (i + 1) + '</span>' +
+          '<span class="fishbowl-q-text">' + esc(q) + '</span>' +
+        '</li>';
+      }).join('');
+      return '<div class="fishbowl-stage">' +
+        landingNetwork() +
+        landingHeroArrow() +
+        '<div class="fishbowl-center">' +
+          '<div class="kicker">' + chevrons + esc(s.kicker) + '</div>' +
+          '<h1 class="fishbowl-title">' + esc(s.title) + '</h1>' +
+          '<p class="sub fishbowl-sub">' + esc(s.subtitle) + '</p>' +
+          '<ul class="fishbowl-questions">' + qs + '</ul>' +
+        '</div>' +
+      '</div>';
+    },
     question: function (s) {
       // marca o "dez vezes mais rápido" já vem do highlight; ativa pulse via data-active-at
       var head = screenHead(s).replace(

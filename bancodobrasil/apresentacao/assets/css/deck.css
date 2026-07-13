@@ -318,6 +318,36 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 }
 .manifesto-close p:last-child { color: var(--yellow); margin-top: 4px; }
 
+/* ── Tela 9: Aquário Técnico (Fishbowl) — capa remasterizada ──── */
+.fishbowl-stage {
+  position: relative; width: 100%; overflow: hidden;
+  padding: 46px 54px; border-radius: 18px; background: var(--nav-800);
+  border: 1px solid var(--nav-600);
+}
+.fishbowl-stage .landing-net { opacity: 0.5; }
+.fishbowl-stage .hero-arrow { opacity: 0.85; }
+.fishbowl-center { position: relative; z-index: 1; }
+.fishbowl-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2rem, 4.4vw, 3.1rem); color: var(--ink-1); margin-top: 20px;
+}
+.fishbowl-sub { margin-top: 14px; max-width: 56ch; }
+.fishbowl-questions {
+  list-style: none; margin-top: 36px; display: flex; flex-direction: column;
+  gap: 16px; max-width: 66ch;
+}
+.fishbowl-q { display: flex; gap: 16px; align-items: flex-start; }
+.fishbowl-q-num {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+  color: var(--nav-900); background: var(--yellow);
+}
+.fishbowl-q-text { font-size: 1.05rem; line-height: 1.5; color: var(--ink-1); padding-top: 4px; }
+@media (max-width: 860px) {
+  .fishbowl-stage .hero-arrow { display: none; }
+}
+
 /* ── Tela 1: pergunta ───────────────────────────────────────── */
 .q-10x { display: inline-block; color: var(--yellow); position: relative; }
 .q-10x.pulse { animation: pulse 2.2s var(--ease) infinite; }

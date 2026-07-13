@@ -2,7 +2,7 @@
   "meta": {
     "title": "Depois do Código",
     "subtitle": "A nova engenharia de software agêntica e os desafios dos times de tecnologia",
-    "total": 8
+    "total": 9
   },
   "screens": [
     {
@@ -278,6 +278,7 @@
       "kicker": "08 · Mudança de paradigma",
       "type": "manifesto",
       "steps": 2,
+      "loopTo": 1,
       "paragraphs": [
         "Durante décadas, operamos em um mundo de escassez de informação, de acesso e de capacidade de execução — e desenhamos tudo a partir disso: empresas, carreiras, sistemas. Mas esse mundo acabou.",
         "As organizações do século XX não foram projetadas para humanos — foram projetadas em torno das limitações da tecnologia de coordenação disponível na época."
@@ -291,6 +292,24 @@
         "summary": "A tecnologia de coordenação mudou; as organizações desenhadas em torno da escassez ainda não.",
         "items": []
       }
+    },
+    {
+      "id": "aquario-tecnico",
+      "order": 9,
+      "kicker": "Aquário Técnico · Fishbowl",
+      "type": "fishbowl",
+      "title": "Aquário Técnico",
+      "subtitle": "Debate sobre as principais necessidades de transformação do BB frente ao futuro emergente.",
+      "steps": 5,
+      "questions": [
+        "O que muda para o desenvolvimento de software no dia a dia dos times?",
+        "Como qualidade se redefine quando parte do código é gerada por IA?",
+        "Que mudanças a arquitetura precisa sustentar nesse novo cenário?",
+        "Que riscos de segurança e governança essa transformação introduz?",
+        "Como a liderança técnica precisa se adaptar para conduzir esse momento?"
+      ],
+      "speakerNotes": "Tela de apoio para a dinâmica Fishbowl das 15h10. Perguntas de partida derivadas dos 5 temas do cronograma (desenvolvimento, qualidade, arquitetura, segurança, liderança) — substituir livremente por perguntas próprias antes do dia. Acesso direto via URL; não faz parte da sequência automática das telas 1–8.",
+      "explore": { "summary": "Perguntas-guia para o Fishbowl do Aquário Técnico.", "items": [] }
     }
   ]
 }

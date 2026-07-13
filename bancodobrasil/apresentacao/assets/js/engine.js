@@ -417,8 +417,9 @@
     if (state.view !== 'stage') return;
     var s = DATA.screens[state.idx];
     if (state.step < (s.steps || 0)) { go('stage', state.idx, state.step + 1); }
+    else if (s.loopTo != null) { go('stage', s.loopTo - 1, 0); } // encerra o ato e retoma o cronograma
     else if (state.idx < DATA.screens.length - 1) { go('stage', state.idx + 1, 0); }
-    else { go('stage', 0, 0); } // fim → retoma o cronograma para as palestras
+    else { go('stage', 0, 0); }
   }
 
   function prev() {

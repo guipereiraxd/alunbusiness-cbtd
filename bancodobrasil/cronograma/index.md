@@ -57,7 +57,7 @@ title: "Cronograma"
 
   <div class="bb-slot">
     <div class="bb-slot-time">15h10–16h00</div>
-    <div class="bb-slot-session">Aquário técnico: o que muda para desenvolvimento, qualidade, arquitetura, segurança e liderança técnica?</div>
+    <div class="bb-slot-session"><a href="{{ '/bancodobrasil/aquario-tecnico/' | relative_url }}">Aquário técnico ↗</a>: o que muda para desenvolvimento, qualidade, arquitetura, segurança e liderança técnica?</div>
     <div class="bb-slot-speaker">Guilherme Pereira</div>
   </div>
 
