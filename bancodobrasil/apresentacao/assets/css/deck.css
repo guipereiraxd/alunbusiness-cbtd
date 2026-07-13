@@ -173,15 +173,15 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 /* QR de acesso à experiência aumentada — canto inferior esquerdo */
 .landing-qr {
   position: fixed; bottom: 18px; left: 18px; z-index: 5;
-  display: flex; align-items: center; gap: 12px;
-  padding: 8px 16px 8px 8px; border-radius: 10px;
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 22px 14px 14px; border-radius: 12px;
   background: var(--nav-700); border: 1px solid var(--nav-600);
 }
 .landing-qr .qr {
-  width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; background:
+  width: 108px; height: 108px; border-radius: 8px; flex-shrink: 0; background:
   repeating-conic-gradient(var(--nav-900) 0 25%, var(--yellow) 0 50%) 0 0 / 12px 12px;
 }
-.landing-qr-label { font-size: 0.78rem; line-height: 1.35; color: var(--ink-2); max-width: 16ch; text-align: left; }
+.landing-qr-label { font-size: 0.95rem; line-height: 1.4; color: var(--ink-2); max-width: 17ch; text-align: left; }
 .landing-qr-label b { color: var(--yellow); font-weight: 600; }
 @media (max-width: 640px) {
   .landing-qr { position: static; margin-top: 28px; }
