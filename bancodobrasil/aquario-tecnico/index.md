@@ -8,7 +8,6 @@ title: "Aquário Técnico — Fishbowl"
 
 <p class="bb-lede">Debate sobre as principais necessidades de transformação do BB frente ao futuro emergente — conduzido em formato Fishbowl, pensado para tirar a audiência da plateia e trazê-la para dentro da conversa.</p>
 
-<p>Para um público de CTOs, Tech Leads, arquitetos e staff engineers, o formato tradicional de painel tende a concentrar a discussão em poucos convidados e deixar a audiência como espectadora. O Fishbowl inverte essa lógica: a qualquer momento, alguém da plateia pode ocupar a cadeira vazia e entrar na conversa — transformando a audiência em coautora do debate, não apenas em plateia dele.</p>
 
 <div class="bb-practice">
   <div class="bb-practice-title">Como funciona</div>
@@ -34,4 +33,3 @@ title: "Aquário Técnico — Fishbowl"
   </ul>
 </div>
 
-<p class="bb-lede">Guilherme Pereira conduz a dinâmica das 15h10 às 16h00.</p>
