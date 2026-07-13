@@ -123,7 +123,7 @@
       "kicker": "03 · Antes",
       "type": "imageslide",
       "insight": "Trocamos a máquina a vapor pelo motor elétrico. A fábrica continuou a mesma.",
-      "steps": 1,
+      "steps": 0,
       "image": {
         "src": "/bancodobrasil/assets/slide-antes.png",
         "alt": "Fábricas com máquinas a vapor e fábricas com motores elétricos"
@@ -140,7 +140,7 @@
       "kicker": "04 · Depois",
       "type": "imageslide",
       "insight": "O ganho só veio quando a linha de produção foi reinventada.",
-      "steps": 2,
+      "steps": 0,
       "image": {
         "src": "/bancodobrasil/assets/slide-depois.png",
         "alt": "Conceito de linha de produção"

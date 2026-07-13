@@ -189,9 +189,9 @@ window.Render = (function () {
     },
     // Telas 3–4 — antes/depois: mesma virada de paradigma, texto + imagem em colunas
     imageslide: function (s) {
-      var img = '<div class="imgslide-wrap" data-reveal="1"><img class="imgslide-img" src="' + esc(s.image.src) + '" alt="' + esc(s.image.alt || '') + '"></div>';
+      var img = '<div class="imgslide-wrap"><img class="imgslide-img" src="' + esc(s.image.src) + '" alt="' + esc(s.image.alt || '') + '"></div>';
       var quote = s.quote
-        ? '<div class="imgslide-quote" data-reveal="2">' + highlight(s.quote.text, s.quote.highlight) + '</div>'
+        ? '<div class="imgslide-quote">' + highlight(s.quote.text, s.quote.highlight) + '</div>'
         : '';
       var left = screenHead(s) + quote;
       return '<div class="split"><div class="split-l">' + left + '</div><div class="split-r">' + img + '</div></div>';
