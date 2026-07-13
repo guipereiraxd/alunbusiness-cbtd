@@ -220,8 +220,16 @@ window.Render = (function () {
           '<ul class="fishbowl-q-deepen">' + deepen + '</ul>' +
         '</div>';
       }).join('');
+      var rules = (s.goldenRules || []).map(function (r, i) {
+        return '<li class="fishbowl-rule">' +
+          '<span class="fishbowl-rule-num">' + (i + 1) + '</span>' +
+          '<span class="fishbowl-rule-text"><b>' + esc(r.title) + '</b> ' + esc(r.desc) + '</span>' +
+        '</li>';
+      }).join('');
       var intro = '<div class="fishbowl-q-block fishbowl-intro" data-step="0">' +
-        '<p class="fishbowl-q-main">Clique para revelar a primeira pergunta.</p>' +
+        '<div class="fishbowl-rules-label">Regras de ouro</div>' +
+        '<ul class="fishbowl-rules">' + rules + '</ul>' +
+        '<p class="fishbowl-rules-hint">Clique para revelar a primeira pergunta →</p>' +
       '</div>';
       return '<div class="fishbowl-stage">' +
         landingNetwork() +
