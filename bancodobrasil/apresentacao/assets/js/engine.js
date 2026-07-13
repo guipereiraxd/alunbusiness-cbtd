@@ -403,7 +403,7 @@
     var s = DATA.screens[state.idx];
     if (state.step < (s.steps || 0)) { go('stage', state.idx, state.step + 1); }
     else if (state.idx < DATA.screens.length - 1) { go('stage', state.idx + 1, 0); }
-    else { go('map'); } // fim → mapa
+    else { go('stage', 0, 0); } // fim → retoma o cronograma para as palestras
   }
 
   function prev() {

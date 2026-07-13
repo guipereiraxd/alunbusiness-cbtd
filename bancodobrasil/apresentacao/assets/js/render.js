@@ -140,6 +140,18 @@ window.Render = (function () {
       var left = screenHead(s) + quote;
       return '<div class="split"><div class="split-l">' + left + '</div><div class="split-r">' + img + '</div></div>';
     },
+    // Tela 8 — fechamento: mudança de paradigma, texto corrido + punchline
+    manifesto: function (s) {
+      var paras = s.paragraphs.map(function (p) {
+        return '<p class="manifesto-p">' + esc(p) + '</p>';
+      }).join('');
+      var closing = s.closing.map(function (l) {
+        return '<p>' + esc(l) + '</p>';
+      }).join('');
+      return '<div class="kicker">' + chevrons + esc(s.kicker) + '</div>' +
+        '<div class="manifesto-body" data-reveal="1">' + paras + '</div>' +
+        '<div class="manifesto-close" data-reveal="2">' + closing + '</div>';
+    },
     question: function (s) {
       // marca o "dez vezes mais rápido" já vem do highlight; ativa pulse via data-active-at
       var head = screenHead(s).replace(
