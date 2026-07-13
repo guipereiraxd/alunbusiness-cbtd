@@ -112,6 +112,40 @@ body.cursor-hidden { cursor: none; }
 @keyframes net-float { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(var(--fx,8px), var(--fy,-10px)); } }
 @keyframes net-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
 
+/* Chevron heroico — a marca ">>>" da apresentação, em grande escala:
+   um chevron sólido seguido de cópias menores e mais discretas, com
+   espaço real entre elas, flutuando de forma independente. */
+.hero-arrow {
+  position: absolute; top: 50%; right: 3%; transform: translateY(-50%);
+  width: clamp(200px, 22vw, 300px); height: auto; z-index: 0; pointer-events: none;
+  overflow: visible;
+}
+.hero-arrow .chev-part {
+  opacity: var(--fop, 1);
+  animation: chev-float var(--ffdur, 6.5s) ease-in-out infinite var(--fdelay, 0s);
+  transform-box: fill-box; transform-origin: center;
+}
+.hero-arrow .chev-main {
+  animation: chev-float var(--ffdur, 6.5s) ease-in-out infinite var(--fdelay, 0s),
+             chev-glow 3.4s ease-in-out infinite;
+}
+.hero-arrow .chev-spark {
+  fill: var(--yellow);
+  animation: think-pulse 2.2s ease-in-out infinite var(--sdelay, 0s);
+}
+@keyframes chev-float {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+@keyframes chev-glow {
+  0%, 100% { filter: drop-shadow(0 0 16px rgba(245,217,10,0.3)); }
+  50% { filter: drop-shadow(0 0 32px rgba(245,217,10,0.55)); }
+}
+@media (max-width: 860px) {
+  /* Layout empilhado não sobra espaço limpo para o gráfico decorativo */
+  .hero-arrow { display: none; }
+}
+
 /* Controle discreto de início, canto inferior direito */
 .landing-start {
   position: fixed; bottom: 18px; right: 68px; z-index: 5; pointer-events: auto;

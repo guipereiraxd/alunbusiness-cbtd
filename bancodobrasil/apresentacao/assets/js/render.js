@@ -26,6 +26,7 @@ window.Render = (function () {
     return '' +
       '<section class="landing landing-cover">' +
         landingNetwork() +
+        landingHeroArrow() +
         '<div class="landing-center">' +
           '<div class="thinking" aria-hidden="true">' +
             '<span class="thinking-dots"><i></i><i></i><i></i></span>' +
@@ -80,6 +81,57 @@ window.Render = (function () {
     return '<svg class="landing-net" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
       '<g class="edges">' + lines + '</g>' +
       '<g class="nodes">' + circles + '</g>' +
+    '</svg>';
+  }
+
+  // Chevron heroico da capa — a mesma marca ">>>" dos kickers, em escala
+  // grande: um chevron sólido (gradiente + contorno amarelo) seguido de
+  // cópias menores e mais discretas, com espaço real entre elas para não
+  // sumirem atrás da forma principal.
+  function chevPoints(w, h, ox, oy) {
+    var pts = [[0, 0], [0.6 * w, 0], [w, 0.5 * h], [0.6 * w, h], [0, h], [0.4 * w, 0.5 * h]];
+    return pts.map(function (p) { return (ox + p[0]).toFixed(1) + ',' + (oy + p[1]).toFixed(1); }).join(' ');
+  }
+  function landingHeroArrow() {
+    var midY = 145;
+    var chevs = [
+      { w: 112, h: 172, op: 1,    fill: 'url(#chevMainFill)', main: true,  fdur: 6.2, delay: 0 },
+      { w: 84,  h: 130, op: 0.45, fill: '#5a72d6',             main: false, fdur: 6.6, delay: 0.5 },
+      { w: 62,  h: 96,  op: 0.22, fill: '#8fa1e6',             main: false, fdur: 7.0, delay: 1.0 }
+    ];
+    var x = 0, gap = 18;
+    var groupW = 0;
+    var polys = chevs.map(function (c) {
+      var y = midY - c.h / 2;
+      var pts = chevPoints(c.w, c.h, x, y);
+      var cls = 'chev-part' + (c.main ? ' chev-main' : ' chev-echo');
+      var stroke = c.main ? ' stroke="var(--yellow)" stroke-width="4" stroke-linejoin="round"' : '';
+      var markup = '<polygon class="' + cls + '" points="' + pts + '" fill="' + c.fill + '"' + stroke +
+        ' style="--fop:' + c.op + ';--ffdur:' + c.fdur + 's;--fdelay:' + c.delay + 's"></polygon>';
+      x += c.w + gap;
+      groupW = x - gap;
+      return markup;
+    }).join('');
+    var tipX = chevs[0].w;
+    var sparks = [
+      { x: tipX + 10, y: midY - 76, r: 4, delay: 0 },
+      { x: tipX + 34, y: midY - 50, r: 2.5, delay: 0.4 },
+      { x: tipX + 16, y: midY + 70, r: 3, delay: 0.8 },
+      { x: tipX + 38, y: midY + 50, r: 2.5, delay: 1.2 }
+    ].map(function (s) {
+      return '<circle class="chev-spark" cx="' + s.x + '" cy="' + s.y + '" r="' + s.r + '" ' +
+        'style="--sdelay:' + s.delay + 's"></circle>';
+    }).join('');
+    return '<svg class="hero-arrow" viewBox="0 0 ' + (groupW + 20) + ' 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
+      '<defs>' +
+        '<linearGradient id="chevMainFill" x1="0" y1="0" x2="1" y2="1">' +
+          '<stop offset="0%" stop-color="#12245e"/>' +
+          '<stop offset="55%" stop-color="#3552c9"/>' +
+          '<stop offset="100%" stop-color="#f5d90a"/>' +
+        '</linearGradient>' +
+      '</defs>' +
+      '<g class="chev-sparks">' + sparks + '</g>' +
+      polys +
     '</svg>';
   }
 
