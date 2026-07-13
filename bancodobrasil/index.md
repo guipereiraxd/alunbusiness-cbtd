@@ -30,6 +30,11 @@ title: "Início"
 <p style="color:var(--ink-3);font-size:0.9rem;margin-top:-8px;">Mais materiais em breve. Para começar:</p>
 
 <div class="bb-cards">
+  <a class="bb-card" href="{{ '/bancodobrasil/cursos-alura/' | relative_url }}">
+    <div class="bb-card-icon">⬡</div>
+    <div class="bb-card-title">Cursos e Trilha na Alura</div>
+    <div class="bb-card-desc">10 cursos correlacionados com os temas do encontro, disponíveis no seu acesso à Plataforma Alura.</div>
+  </a>
   <a class="bb-card" href="https://maturidade-ia.alura.com.br/" target="_blank" rel="noopener">
     <div class="bb-card-icon">◎</div>
     <div class="bb-card-title">Autodiagnóstico de Maturidade de Engenharia de Software com IA ↗</div>
@@ -44,11 +49,6 @@ title: "Início"
     <div class="bb-card-icon">▦</div>
     <div class="bb-card-title">12 Práticas Fundamentais da Engenharia de IA</div>
     <div class="bb-card-desc">Os princípios do SEI/Carnegie Mellon para construir soluções de IA robustas e prontas para ambientes corporativos.</div>
-  </a>
-  <a class="bb-card" href="{{ '/bancodobrasil/cursos-alura/' | relative_url }}">
-    <div class="bb-card-icon">⬡</div>
-    <div class="bb-card-title">Cursos e Trilha na Alura</div>
-    <div class="bb-card-desc">10 cursos correlacionados com os temas do encontro, disponíveis no seu acesso à Plataforma Alura.</div>
   </a>
   <a class="bb-card" href="https://hipsters.network/" target="_blank" rel="noopener">
     <div class="bb-card-icon">◉</div>
