@@ -76,6 +76,7 @@
   ];
   function stopThinking() { if (thinkingId) { clearInterval(thinkingId); thinkingId = null; } }
   function initLanding() {
+    renderLandingQr();
     var el = document.getElementById('thinkingText');
     if (!el) return;
     var i = 0;
@@ -87,6 +88,20 @@
         el.classList.remove('fade');
       }, 350);
     }, 2600);
+  }
+
+  /* ── QR da capa: acesso à experiência aumentada (site público) ── */
+  function renderLandingQr() {
+    if (!window.qrcode) return;
+    var q = document.getElementById('landingQr');
+    if (!q || q.querySelector('svg')) return;
+    try {
+      var qr = qrcode(0, 'M');
+      qr.addData('https://alunbusiness.md/bancodobrasil/');
+      qr.make();
+      q.classList.add('qr-real');
+      q.innerHTML = qr.createSvgTag({ scalable: true, margin: 2, cellSize: 4, alt: 'QR para a experiência aumentada do evento' });
+    } catch (e) { console.warn('[qr]', e); }
   }
 
   window.addEventListener('hashchange', route);

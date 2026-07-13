@@ -39,6 +39,10 @@ window.Render = (function () {
           '<img class="landing-org-logo alun" src="/assets/logo-alun-business.png" alt="Alun Business">' +
           '<img class="landing-org-logo unibb" src="/bancodobrasil/assets/unibb-transp.png" alt="UniBB">' +
         '</div>' +
+        '<div class="landing-qr">' +
+          '<div class="qr" id="landingQr" aria-hidden="true"></div>' +
+          '<span class="landing-qr-label">Acesse a <b>Experiência Aumentada</b> deste evento</span>' +
+        '</div>' +
         '<a class="landing-start" href="#/tela/1/0" data-action="start">Iniciar evento →</a>' +
       '</section>';
   }
