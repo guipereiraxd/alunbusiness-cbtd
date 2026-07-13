@@ -305,6 +305,14 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 .col.exp li::before { color: var(--ink-3); }
 @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
 
+/* Insight mais longo (ex: latência decisória) precisa de menos espaço
+   para sobrar altura para as colunas abaixo, no palco 16:9. */
+.screen[data-type="twocol"] .insight { font-size: clamp(1.5rem, 3vw, 2.3rem); max-width: 36ch; }
+.screen[data-type="twocol"] .cols { margin-top: 26px; }
+.screen[data-type="twocol"] .col { padding: 18px 22px; }
+.screen[data-type="twocol"] .col li { font-size: 0.88rem; }
+.screen[data-type="twocol"] .col ul { gap: 6px; }
+
 /* ── Layout dividido (insight | diagrama) ───────────────────── */
 .split { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 5vw; align-items: center; }
 .split .insight { font-size: clamp(1.5rem, 3.4vw, 2.75rem); max-width: 16ch; }

@@ -151,12 +151,12 @@ window.Render = (function () {
     equation: function (s) {
       var qs = s.queues.map(function (q) { return '<span class="queue">' + esc(q) + '</span>'; }).join('');
       return screenHead(s) +
-        '<div class="eq" data-reveal="1">' +
+        '<div class="eq">' +
           '<div class="eq-term eq-up"><div class="lbl">gerar código</div><div class="val">' + esc(s.equation.up) + '</div></div>' +
           '<div class="eq-neq">≠</div>' +
           '<div class="eq-term eq-flat"><div class="lbl">valor entregue</div><div class="val">' + esc(s.equation.flat) + '</div></div>' +
         '</div>' +
-        '<div class="queues" data-reveal="2">' + qs + '</div>';
+        '<div class="queues">' + qs + '</div>';
     },
     twocol: function (s) {
       function list(items) { return items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join(''); }

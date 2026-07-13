@@ -160,8 +160,8 @@
       "order": 5,
       "kicker": "05 · A falsa equação",
       "type": "equation",
-      "insight": "Mais código ≠ mais software entregue",
-      "steps": 2,
+      "insight": "Mais código ≠ mais qualidade de solução",
+      "steps": 0,
       "equation": {
         "up": "capacidade de gerar código",
         "flat": "throughput de valor"
@@ -189,7 +189,8 @@
       "order": 6,
       "kicker": "06 · O código ficou barato",
       "type": "twocol",
-      "insight": "O software continua caro. O código ficou barato.",
+      "insight": "LATÊNCIA DECISÓRIA: Antes executar era caro e pensar era barato. Agora executar é barato e pensar mal ficou caro demais.",
+      "highlight": "pensar mal ficou caro demais",
       "steps": 2,
       "cheaper": {
         "label": "Ficou mais barato",
