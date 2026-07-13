@@ -44,6 +44,7 @@
   function route() {
     if (!DATA) return;
     pollOverride = {}; // avançar (clique/tecla) resume o fluxo dirigido pela microetapa
+    stopThinking();
     var t = parseHash();
     state.view = t.view;
 
@@ -60,9 +61,32 @@
       renderStatic(c ? Render.concept(c) : Render.stub('Conceito', 'Conceito não encontrado.'));
     } else {
       renderStatic(Render.landing(DATA.meta));
+      initLanding();
     }
     updateChrome();
     updatePresenter();
+  }
+
+  /* ── Capa: cicla frases de "pensando" no indicador tipo LLM ── */
+  var thinkingId = null;
+  var THINKING_PHRASES = [
+    'Analisando o gargalo…', 'Mapeando o loop…', 'Carregando contexto…',
+    'Selecionando ferramentas…', 'Avaliando evidências…', 'Verificando com o harness…',
+    'Compilando a resposta…', 'Preparando a apresentação…'
+  ];
+  function stopThinking() { if (thinkingId) { clearInterval(thinkingId); thinkingId = null; } }
+  function initLanding() {
+    var el = document.getElementById('thinkingText');
+    if (!el) return;
+    var i = 0;
+    thinkingId = setInterval(function () {
+      el.classList.add('fade');
+      setTimeout(function () {
+        i = (i + 1) % THINKING_PHRASES.length;
+        el.textContent = THINKING_PHRASES[i];
+        el.classList.remove('fade');
+      }, 350);
+    }, 2600);
   }
 
   window.addEventListener('hashchange', route);

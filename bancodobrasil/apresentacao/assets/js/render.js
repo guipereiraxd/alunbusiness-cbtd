@@ -24,13 +24,23 @@ window.Render = (function () {
       .replace('engenharia de software agêntica', '<b>engenharia de software agêntica</b>')
       .replace('desafios', '<b>desafios</b>');
     return '' +
-      '<section class="landing">' +
-        '<div class="brace">' + chevrons + '{ Depois do Código }</div>' +
-        '<h1>Depois<br>do <span class="y">Código</span></h1>' +
-        '<p class="sub">' + sub + '</p>' +
-        '<div class="actions">' +
-          '<a class="btn btn-primary" href="#/tela/1/0" data-action="start">Iniciar apresentação →</a>' +
-          '<a class="btn btn-ghost" href="#/mapa" data-action="explore">Explorar mapa</a>' +
+      '<section class="landing landing-cover">' +
+        '<div class="landing-center">' +
+          '<div class="thinking" aria-hidden="true">' +
+            '<span class="thinking-dots"><i></i><i></i><i></i></span>' +
+            '<span class="thinking-text" id="thinkingText">Analisando o gargalo…</span>' +
+          '</div>' +
+          '<h1>Depois<br>do <span class="y">Código</span></h1>' +
+          '<p class="sub">' + sub + '</p>' +
+          '<div class="actions">' +
+            '<a class="btn btn-primary" href="#/tela/1/0" data-action="start">Iniciar apresentação →</a>' +
+            '<a class="btn btn-ghost" href="#/mapa" data-action="explore">Explorar mapa</a>' +
+          '</div>' +
+        '</div>' +
+        '<div class="landing-orgs">' +
+          '<span class="landing-orgs-label">Realização</span>' +
+          '<img class="landing-org-logo alun" src="/assets/logo-alun-business.png" alt="Alun Business">' +
+          '<img class="landing-org-logo unibb" src="/bancodobrasil/assets/unibb-transp.png" alt="UniBB">' +
         '</div>' +
       '</section>';
   }

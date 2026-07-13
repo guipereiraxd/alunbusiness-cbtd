@@ -89,6 +89,57 @@ body.cursor-hidden { cursor: none; }
 .landing .sub b { color: var(--yellow); font-weight: 600; }
 .landing .actions { margin-top: 48px; display: flex; gap: 14px; flex-wrap: wrap; }
 
+/* ── Capa (tela inicial) — composição centralizada, viva ────── */
+.landing-cover { position: relative; align-items: center; text-align: center; }
+.landing-center { display: flex; flex-direction: column; align-items: center; }
+.landing-cover h1 { text-align: center; }
+.landing-cover .sub { text-align: center; }
+.landing-cover .actions { justify-content: center; margin-top: 52px; }
+
+/* Indicador "pensando" — substitui o eyebrow estático por um LLM em ação */
+.thinking {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--yellow);
+  margin-bottom: 34px; min-height: 1.2em;
+}
+.thinking-dots { display: inline-flex; gap: 4px; flex-shrink: 0; }
+.thinking-dots i {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--yellow);
+  animation: think-pulse 1.3s ease-in-out infinite;
+}
+.thinking-dots i:nth-child(2) { animation-delay: 0.15s; }
+.thinking-dots i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes think-pulse {
+  0%, 60%, 100% { opacity: 0.25; transform: scale(0.8); }
+  30% { opacity: 1; transform: scale(1.15); }
+}
+.thinking-text { opacity: 1; transition: opacity 0.35s ease; }
+.thinking-text.fade { opacity: 0; }
+
+/* Fundo com leve respiração — só na capa, para não distrair durante o palco */
+body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infinite; }
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.07); }
+}
+
+/* Organizadores — rodapé discreto da capa */
+.landing-orgs {
+  position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 20px;
+}
+.landing-orgs-label {
+  font-family: var(--font-display); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+}
+.landing-org-logo { width: auto; opacity: 0.88; display: block; }
+.landing-org-logo.alun  { height: 15px; }
+.landing-org-logo.unibb { height: 24px; }
+@media (max-width: 640px) {
+  .landing-orgs { position: static; margin-top: 56px; transform: none; flex-wrap: wrap; justify-content: center; }
+}
+
 .btn {
   font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
   padding: 14px 26px; border-radius: 8px; cursor: pointer;
