@@ -71,6 +71,66 @@
       ]
     },
     {
+      "id": "multi-agent-systems",
+      "title": "Multi-Agent Systems",
+      "theme": "sistemas-agenticos",
+      "insight": "Um agente faz uma coisa bem. Vários agentes, coordenados, fazem um sistema.",
+      "definicao": "Arquitetura em que múltiplos agentes especializados colaboram — em paralelo ou em sequência — para resolver uma tarefa que nenhum deles resolveria sozinho com a mesma qualidade. Exige papéis claros, protocolos de comunicação entre agentes e um mecanismo de coordenação.",
+      "exemplo": "Um agente de planejamento decompõe uma feature em tarefas, agentes especializados implementam cada parte em paralelo, e um agente revisor valida a integração antes do merge.",
+      "antipadrao": "Multiplicar agentes genéricos idênticos esperando que a quantidade compense a falta de especialização e coordenação.",
+      "perguntas": ["Qual agente é responsável por qual decisão?", "Como os agentes se comunicam e resolvem conflitos?", "Quem coordena — um orquestrador central ou negociação entre pares?"],
+      "metrica": "Taxa de conflito e retrabalho entre agentes; tempo total versus soma dos tempos individuais.",
+      "proximoPasso": "Antes de adicionar um segundo agente, defina por escrito o papel e a fronteira de decisão de cada um.",
+      "fontes": [
+        { "t": "Anthropic — Building effective agents" }
+      ]
+    },
+    {
+      "id": "memory-engineering",
+      "title": "Memory Engineering",
+      "theme": "sistemas-agenticos",
+      "insight": "Um agente sem memória repete os mesmos erros para sempre.",
+      "definicao": "Disciplina de projetar como um agente retém, recupera e esquece informação entre execuções — decisões passadas, preferências aprendidas, erros corrigidos. Separa memória de curto prazo, da tarefa atual, de memória de longo prazo, entre sessões, com mecanismos de atualização e expiração.",
+      "exemplo": "Um agente de suporte que lembra como um problema similar foi resolvido antes e reaplica a solução, em vez de investigar do zero.",
+      "antipadrao": "Tratar cada execução como se fosse a primeira — ou, no extremo oposto, acumular memória indefinidamente sem curadoria, até virar ruído.",
+      "perguntas": ["O que deve virar memória de longo prazo?", "Como a memória é validada antes de reaplicada?", "Quando a memória deve expirar?"],
+      "metrica": "Taxa de reuso de soluções passadas; redução de retrabalho em tarefas recorrentes.",
+      "proximoPasso": "Escolha um tipo de decisão recorrente do seu time e defina o que dela deveria virar memória persistente do agente.",
+      "fontes": [
+        { "t": "GitHub — Building an agentic memory system for GitHub Copilot" }
+      ]
+    },
+    {
+      "id": "workflow-engineering",
+      "title": "Workflow Engineering",
+      "theme": "sistemas-agenticos",
+      "insight": "Nem toda tarefa precisa de um agente autônomo — muitas precisam de um workflow bem desenhado.",
+      "definicao": "Projetar a sequência de passos, decisões e pontos de controle que conectam modelo, ferramentas e humanos para uma tarefa específica — desde pipelines fixos e previsíveis até fluxos que o próprio agente decide dinamicamente. A escolha entre workflow rígido e agente autônomo é uma decisão de engenharia, não uma preferência estética.",
+      "exemplo": "Um pipeline fixo — extrair, validar, transformar, carregar — para dados estruturados, reservando autonomia de agente só para os casos que o pipeline não cobre.",
+      "antipadrao": "Usar um agente totalmente autônomo para uma tarefa determinística e previsível, com complexidade e custo desnecessários.",
+      "perguntas": ["Essa tarefa é previsível o suficiente para um workflow fixo?", "Onde exatamente a decisão do agente agrega valor sobre um passo fixo?", "Como o workflow lida com o caminho que não foi previsto?"],
+      "metrica": "Proporção de execuções que seguem o caminho previsto versus exigem intervenção.",
+      "proximoPasso": "Para uma tarefa que hoje usa um agente livre, desenhe o workflow equivalente e compare custo e previsibilidade.",
+      "fontes": [
+        { "t": "OpenAI — A Practical Guide to Building Agents" }
+      ]
+    },
+    {
+      "id": "tool-engineering",
+      "title": "Tool Engineering",
+      "theme": "sistemas-agenticos",
+      "insight": "Um agente só é tão bom quanto as ferramentas que ele sabe usar corretamente.",
+      "definicao": "Projetar, documentar e limitar as ferramentas — funções, APIs, ações — que um agente pode chamar: nomes e parâmetros claros o bastante para o modelo escolher a ferramenta certa, escopo restrito o bastante para limitar o dano de uma escolha errada.",
+      "exemplo": "Trocar uma ferramenta genérica \"executar consulta\" por ferramentas específicas e restritas, como \"buscar pedido por ID\", reduzindo a superfície de erro.",
+      "antipadrao": "Expor dezenas de ferramentas amplas e sobrepostas, forçando o modelo a adivinhar qual usar.",
+      "perguntas": ["A ferramenta tem escopo restrito o bastante para limitar erros?", "O nome e a descrição são inequívocos para o modelo?", "O que acontece quando a ferramenta falha?"],
+      "metrica": "Taxa de acerto na escolha de ferramenta; taxa de erro por chamada malformada.",
+      "proximoPasso": "Audite as ferramentas que seu agente tem acesso hoje e elimine as que se sobrepõem.",
+      "fontes": [
+        { "t": "Anthropic — Building effective agents" }
+      ]
+    },
+    {
       "id": "engenharia-de-evidencias",
       "title": "Engenharia de Evidências",
       "theme": "confianca-confiabilidade",
@@ -85,6 +145,58 @@
         { "t": "GitHub — Validating agentic behavior when \"correct\" is not deterministic" },
         { "t": "OpenAI Cookbook — Agent improvement loop with traces, evals and feedback" }
       ]
+    },
+    {
+      "id": "trust-engineering",
+      "title": "Trust Engineering",
+      "theme": "confianca-confiabilidade",
+      "insight": "Confiança não se pede — se constrói, sinal por sinal, ao longo do tempo.",
+      "definicao": "Disciplina de projetar os sinais, o histórico e a transparência que permitem a um humano calibrar corretamente o quanto confiar em um agente — nem confiança cega, nem desconfiança que anula o ganho de autonomia. Conecta evidência, transparência e histórico de acerto em um sinal legível para quem decide autonomia.",
+      "exemplo": "Um painel que mostra o histórico de acerto do agente por tipo de tarefa, para que o time calibre em quais tarefas confiar mais autonomia.",
+      "antipadrao": "Pedir para o time \"confiar na IA\" sem oferecer nenhum sinal verificável que sustente essa confiança.",
+      "perguntas": ["Que sinal comunica o quanto confiar no agente, tarefa a tarefa?", "A confiança é calibrada com base em histórico real ou em intuição?", "Como a confiança é revista quando o agente erra?"],
+      "metrica": "Correlação entre confiança declarada pelo time e taxa de acerto real do agente.",
+      "proximoPasso": "Meça, para uma tarefa específica, a taxa de acerto real do agente e compare com o quanto o time hoje confia nele.",
+      "fontes": []
+    },
+    {
+      "id": "observability-engineering",
+      "title": "Observability Engineering",
+      "theme": "confianca-confiabilidade",
+      "insight": "Não dá para confiar no que não dá para ver.",
+      "definicao": "Instrumentar agentes para que cada decisão, chamada de ferramenta e resultado intermediário seja visível, rastreável e correlacionável — não só se o resultado final funcionou, mas por que e como o agente chegou lá.",
+      "exemplo": "Um trace completo de uma execução de agente, mostrando cada etapa de raciocínio, ferramenta chamada e resposta, disponível para debug depois de uma falha em produção.",
+      "antipadrao": "Só observar o resultado final do agente, sem visibilidade do caminho que ele percorreu para chegar lá.",
+      "perguntas": ["É possível reconstruir o caminho completo de uma decisão do agente?", "Os traces são estruturados o bastante para análise automática?", "A observabilidade cobre falhas silenciosas, não só erros explícitos?"],
+      "metrica": "Cobertura de traces por execução; tempo médio para diagnosticar uma falha.",
+      "proximoPasso": "Escolha uma falha recente de agente e veja se o trace disponível seria suficiente para diagnosticá-la sem acesso ao código.",
+      "fontes": []
+    },
+    {
+      "id": "reliability-engineering",
+      "title": "Reliability Engineering",
+      "theme": "confianca-confiabilidade",
+      "insight": "Um agente que funciona 95% das vezes ainda precisa de um plano para os outros 5%.",
+      "definicao": "Aplicar princípios de confiabilidade de sistemas — redundância, degradação graciosa, retries com critério, circuit breakers — ao comportamento probabilístico de agentes de IA, que falham de formas diferentes do software tradicional.",
+      "exemplo": "Um agente que, após duas tentativas malsucedidas numa tarefa, escala automaticamente para um humano em vez de insistir indefinidamente.",
+      "antipadrao": "Tratar toda falha de agente como bug a corrigir no próximo prompt, sem mecanismo estrutural de fallback.",
+      "perguntas": ["O que acontece quando o agente falha de forma inesperada?", "Existe um caminho de degradação graciosa?", "Quantas tentativas antes de escalar?"],
+      "metrica": "Taxa de falha recuperada automaticamente versus escalada; tempo médio de recuperação.",
+      "proximoPasso": "Defina o que acontece, passo a passo, na terceira falha consecutiva do seu agente numa mesma tarefa.",
+      "fontes": []
+    },
+    {
+      "id": "resilience-engineering",
+      "title": "Resilience Engineering",
+      "theme": "confianca-confiabilidade",
+      "insight": "O sistema não é resiliente porque nunca falha — é resiliente porque absorve a falha sem quebrar.",
+      "definicao": "Capacidade do sistema agêntico de continuar operando, mesmo que com funcionalidade reduzida, quando um componente falha — um modelo indisponível, uma ferramenta fora do ar, um contexto corrompido — em vez de travar por completo.",
+      "exemplo": "Um agente que, quando a ferramenta de busca externa está fora do ar, ainda consegue responder com o que já sabe, sinalizando a limitação, em vez de falhar por completo.",
+      "antipadrao": "Um sistema onde a falha de qualquer componente único derruba toda a cadeia de tarefas.",
+      "perguntas": ["O que falha junto quando um componente cai?", "Existe um modo degradado, ou é tudo ou nada?", "O sistema se recupera sozinho quando o componente volta?"],
+      "metrica": "Tempo de indisponibilidade total do sistema por falha de um componente único.",
+      "proximoPasso": "Identifique o ponto único de falha mais crítico do seu pipeline de agentes hoje.",
+      "fontes": []
     },
     {
       "id": "agentic-sdlc",
@@ -116,6 +228,127 @@
       "proximoPasso": "Mapeie, para as tarefas do seu time, qual modo de colaboração é hoje e qual deveria ser.",
       "fontes": [
         { "t": "Martin Fowler — Humans and Agents in Software Engineering Loops" }
+      ]
+    },
+    {
+      "id": "governance-engineering",
+      "title": "Governance Engineering",
+      "theme": "organizacao-lideranca",
+      "insight": "Autonomia sem governança não é agilidade — é risco não gerenciado.",
+      "definicao": "Traduzir política e responsabilidade organizacional em mecanismos técnicos concretos: quem aprova o quê, que ações exigem revisão, como decisões de agentes se conectam a responsabilidade humana formal. Governança deixa de ser documento e passa a ser código — gates, permissões, políticas versionadas.",
+      "exemplo": "Uma política de \"nenhum agente altera produção sem aprovação humana\" implementada como gate técnico obrigatório, não como regra informal.",
+      "antipadrao": "Escrever políticas de uso de IA em documentos que ninguém consulta e que nenhum sistema realmente aplica.",
+      "perguntas": ["Toda política relevante tem um mecanismo técnico que a aplica?", "Quem é formalmente responsável por uma decisão que o agente tomou?", "Como a governança evolui conforme a confiança no agente cresce?"],
+      "metrica": "Proporção de políticas de uso de IA que têm um controle técnico correspondente.",
+      "proximoPasso": "Escolha uma política de uso de IA do seu time e verifique se ela é aplicada por um mecanismo técnico ou só por confiança.",
+      "fontes": []
+    },
+    {
+      "id": "autonomy-engineering",
+      "title": "Autonomy Engineering",
+      "theme": "organizacao-lideranca",
+      "insight": "Autonomia não é um interruptor — é um espectro que se ajusta tarefa a tarefa.",
+      "definicao": "Projetar deliberadamente o nível de autonomia concedido a um agente por tipo de tarefa e por contexto de risco — desde sugestão simples até execução completa sem supervisão — e os critérios objetivos que determinam quando esse nível pode aumentar ou precisa recuar.",
+      "exemplo": "Um agente que começa sugerindo mudanças para revisão humana e, após um histórico comprovado de acerto num tipo de tarefa, passa a executá-las diretamente com auditoria posterior.",
+      "antipadrao": "Definir o nível de autonomia uma vez, no início do projeto, e nunca revisitar conforme o comportamento real do agente.",
+      "perguntas": ["Qual o nível de autonomia certo para esta tarefa, hoje?", "Que evidência justificaria aumentar esse nível?", "O que faz o nível de autonomia recuar?"],
+      "metrica": "Distribuição de tarefas por nível de autonomia; incidentes por nível concedido.",
+      "proximoPasso": "Liste as tarefas do seu agente por nível de autonomia atual e questione se cada nível ainda é o certo.",
+      "fontes": [
+        { "t": "OpenAI — Harness engineering: leveraging Codex in an agent-first world" }
+      ]
+    },
+    {
+      "id": "knowledge-engineering",
+      "title": "Knowledge Engineering",
+      "theme": "organizacao-lideranca",
+      "insight": "O conhecimento que só existe na cabeça das pessoas não pode virar contexto de agente.",
+      "definicao": "Capturar, estruturar e manter atualizado o conhecimento organizacional — decisões de arquitetura, convenções, contexto de domínio — em uma forma que tanto humanos quanto agentes conseguem consultar e confiar. Sem isso, Context Engineering não tem o que entregar.",
+      "exemplo": "Documentar decisões arquiteturais como ADRs versionados e pesquisáveis, em vez de conhecimento tribal que só existe na memória de quem estava na reunião.",
+      "antipadrao": "Depender de conhecimento tácito, não documentado, que só um punhado de pessoas domina — e que nenhum agente consegue acessar.",
+      "perguntas": ["Que conhecimento crítico só existe na cabeça de alguém?", "Como esse conhecimento é mantido atualizado?", "Um agente consegue consultar esse conhecimento de forma confiável?"],
+      "metrica": "Proporção de decisões relevantes documentadas e acessíveis versus apenas conhecidas informalmente.",
+      "proximoPasso": "Escolha uma decisão de arquitetura recente que só está na cabeça de alguém e documente-a.",
+      "fontes": []
+    },
+    {
+      "id": "token-economics",
+      "title": "Token Economics",
+      "theme": "economia-ia",
+      "insight": "Cada token tem um custo — e cada escolha de arquitetura multiplica ou divide esse custo.",
+      "definicao": "Entender e gerenciar como o consumo de tokens de entrada e saída de modelos de linguagem se relaciona com custo, latência e qualidade — e como decisões de design, como tamanho de contexto, número de chamadas e granularidade de tarefas, afetam essa equação de forma não linear.",
+      "exemplo": "Reduzir o contexto enviado a cada chamada de 50 mil para 5 mil tokens relevantes corta custo e latência sem perda de qualidade — às vezes com ganho, por reduzir ruído.",
+      "antipadrao": "Tratar o custo de tokens como um detalhe de infraestrutura a resolver depois, em vez de uma variável de design desde o início.",
+      "perguntas": ["Quanto custa, em tokens, a tarefa mais frequente do seu agente?", "Esse custo escala linearmente com o uso, ou pior?", "Onde há desperdício de contexto que não afeta a qualidade da resposta?"],
+      "metrica": "Custo médio por tarefa concluída; tokens consumidos por unidade de valor entregue.",
+      "proximoPasso": "Meça o custo em tokens da tarefa mais frequente do seu agente e identifique o maior desperdício.",
+      "fontes": []
+    },
+    {
+      "id": "model-routing",
+      "title": "Model Routing",
+      "theme": "economia-ia",
+      "insight": "Nem toda tarefa precisa do modelo mais caro e mais poderoso disponível.",
+      "definicao": "Direcionar cada tarefa para o modelo mais adequado ao seu nível de complexidade e criticidade — modelos menores e mais baratos para tarefas simples e de alto volume, modelos maiores para raciocínio complexo — em vez de usar um único modelo para tudo.",
+      "exemplo": "Classificar tickets de suporte com um modelo pequeno e rápido, e escalar só os casos ambíguos para um modelo maior.",
+      "antipadrao": "Usar o modelo mais caro e capaz disponível para todas as tarefas, independente da complexidade real.",
+      "perguntas": ["Quais tarefas realmente exigem o modelo mais avançado?", "Existe um critério objetivo para escalar de um modelo menor para um maior?", "O roteamento é avaliado por qualidade, não só por custo?"],
+      "metrica": "Custo médio por tarefa após roteamento versus custo com modelo único; qualidade mantida por faixa de complexidade.",
+      "proximoPasso": "Segmente as tarefas do seu agente por complexidade real e teste um modelo menor nas mais simples.",
+      "fontes": []
+    },
+    {
+      "id": "cost-engineering",
+      "title": "Cost Engineering",
+      "theme": "economia-ia",
+      "insight": "O custo de um sistema de IA não aparece só na fatura do modelo.",
+      "definicao": "Gerenciar o custo total de um sistema agêntico — modelo, infraestrutura, ferramentas, retrabalho humano de correção — como uma disciplina de engenharia contínua, não como um item de FinOps revisado uma vez por trimestre. Inclui orçamentos por tarefa e alertas antes do custo escalar.",
+      "exemplo": "Definir um orçamento máximo de tokens por execução de agente, com corte automático e escalonamento humano se ultrapassado.",
+      "antipadrao": "Descobrir o custo real de um sistema de IA só quando a fatura mensal chega, sem orçamento nem alerta antecipado.",
+      "perguntas": ["Qual o custo total, não só de modelo, por tarefa concluída?", "Existe um orçamento definido por execução ou por período?", "O que acontece quando o orçamento é excedido?"],
+      "metrica": "Custo total por tarefa concluída, incluindo retrabalho humano; variação de custo mês a mês.",
+      "proximoPasso": "Calcule o custo total — modelo, infraestrutura, retrabalho — da tarefa mais cara do seu agente, não só o custo de tokens.",
+      "fontes": []
+    },
+    {
+      "id": "outcome-engineering",
+      "title": "Outcome Engineering",
+      "theme": "entrega-valor",
+      "insight": "Entregar código não é o objetivo. Entregar o resultado de negócio é.",
+      "definicao": "Projetar o trabalho do agente — e as métricas que o avaliam — em função do resultado de negócio desejado, não da atividade técnica realizada. Um agente pode gerar muito código e entregar pouco valor; Outcome Engineering conecta as duas pontas deliberadamente.",
+      "exemplo": "Medir um agente de otimização de checkout pela taxa de conversão que ele efetivamente melhora, não pelo número de mudanças de código que ele propõe.",
+      "antipadrao": "Medir produtividade de agentes por volume de código gerado ou tarefas concluídas, sem conectar isso a um resultado de negócio real.",
+      "perguntas": ["Qual resultado de negócio esta tarefa deveria mover?", "Como saber se o agente moveu esse resultado, e não só produziu atividade?", "A métrica de sucesso do agente está alinhada com a métrica de sucesso do negócio?"],
+      "metrica": "Correlação entre atividade do agente e resultado de negócio movido — receita, retenção, eficiência.",
+      "proximoPasso": "Para uma métrica de atividade que você usa hoje para avaliar um agente, identifique a métrica de resultado de negócio equivalente.",
+      "fontes": []
+    },
+    {
+      "id": "decision-engineering",
+      "title": "Decision Engineering",
+      "theme": "entrega-valor",
+      "insight": "Um agente que decide bem é mais valioso do que um agente que executa rápido.",
+      "definicao": "Projetar explicitamente como decisões são tomadas ao longo de um fluxo agêntico — quais critérios pesam, que dados informam, e onde a decisão do agente termina e a decisão humana começa. Trata decisão como um artefato de design, não como um subproduto implícito da geração.",
+      "exemplo": "Definir explicitamente os critérios de decisão de um agente que escolhe entre três estratégias de correção de bug, em vez de deixar a escolha implícita no prompt.",
+      "antipadrao": "Deixar critérios de decisão implícitos no prompt, sem documentá-los nem revisá-los — ninguém sabe por que o agente decide o que decide.",
+      "perguntas": ["Quais critérios o agente usa para decidir, explicitamente?", "Essa decisão deveria ser do agente, ou de um humano?", "Como a qualidade da decisão é avaliada depois?"],
+      "metrica": "Taxa de decisões do agente revertidas ou corrigidas por humanos.",
+      "proximoPasso": "Escolha uma decisão que seu agente toma hoje de forma implícita e escreva os critérios explicitamente.",
+      "fontes": []
+    },
+    {
+      "id": "experiment-engineering",
+      "title": "Experiment Engineering",
+      "theme": "entrega-valor",
+      "insight": "Toda mudança em um sistema de IA é uma hipótese até ser testada.",
+      "definicao": "Tratar cada mudança relevante em modelos, prompts, harnesses ou workflows como um experimento controlado — com hipótese, grupo de comparação e critério de sucesso definidos antes de ir ao ar — em vez de mudanças em produção avaliadas só por impressão subjetiva.",
+      "exemplo": "Rodar uma nova versão de prompt em paralelo com a atual, comparando taxa de sucesso em uma amostra, antes de promovê-la para todos os usuários.",
+      "antipadrao": "Trocar prompt, modelo ou harness em produção e julgar o resultado por sensação, sem comparação controlada.",
+      "perguntas": ["Qual é a hipótese desta mudança?", "Existe um grupo de comparação, um baseline?", "Qual critério decide se o experimento teve sucesso?"],
+      "metrica": "Proporção de mudanças relevantes lançadas com experimento controlado prévio.",
+      "proximoPasso": "Na próxima mudança de prompt ou modelo, defina hipótese e critério de sucesso antes de lançar.",
+      "fontes": [
+        { "t": "OpenAI Cookbook — Agent improvement loop with traces, evals and feedback" }
       ]
     }
   ]

@@ -265,6 +265,7 @@ window.Render = (function () {
       }).join('') + '</ul>';
     }
     var stageLink = c.screen ? '<a class="btn btn-ghost" href="#/tela/' + c.screen + '/0">Ver na apresentação →</a>' : '';
+    var fontesBlock = (c.fontes && c.fontes.length) ? block('Evidência', list(c.fontes, 'fontes'), true) : '';
     return '<div class="doc">' +
       '<a class="doc-back" href="#/mapa">' + chevrons + 'Mapa</a>' +
       '<div class="doc-kicker">' + esc(themeLabel(c.theme)) + ' · Conceito</div>' +
@@ -277,7 +278,7 @@ window.Render = (function () {
         block('Perguntas para a liderança', list(c.perguntas)) +
         block('Métrica', '<p>' + esc(c.metrica) + '</p>') +
         block('Próximo passo', '<p>' + esc(c.proximoPasso) + '</p>') +
-        block('Evidência', list(c.fontes, 'fontes'), true) +
+        fontesBlock +
       '</div>' +
       '<div class="doc-foot">' + stageLink + '</div>' +
     '</div>';
