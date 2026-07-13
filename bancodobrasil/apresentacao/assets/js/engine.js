@@ -396,7 +396,11 @@
   /* ── Chrome: progresso + botão ────────────────────────────── */
   function updateChrome() {
     var isStage = state.view === 'stage';
-    chrome.hidden = !isStage;
+    var isLanding = state.view === 'landing';
+    // O botão de tela cheia aparece na capa e no palco; a barra de
+    // progresso só faz sentido durante a apresentação em si.
+    chrome.hidden = !(isStage || isLanding);
+    if (progress) progress.style.display = isStage ? '' : 'none';
     if (isStage) {
       var totalSteps = DATA.screens.reduce(function (a, s) { return a + (s.steps || 0) + 1; }, 0);
       var done = 0;

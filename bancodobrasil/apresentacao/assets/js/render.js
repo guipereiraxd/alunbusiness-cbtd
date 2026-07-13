@@ -25,6 +25,7 @@ window.Render = (function () {
       .replace('desafios', '<b>desafios</b>');
     return '' +
       '<section class="landing landing-cover">' +
+        landingNetwork() +
         '<div class="landing-center">' +
           '<div class="thinking" aria-hidden="true">' +
             '<span class="thinking-dots"><i></i><i></i><i></i></span>' +
@@ -32,17 +33,50 @@ window.Render = (function () {
           '</div>' +
           '<h1>Depois<br>do <span class="y">Código</span></h1>' +
           '<p class="sub">' + sub + '</p>' +
-          '<div class="actions">' +
-            '<a class="btn btn-primary" href="#/tela/1/0" data-action="start">Iniciar apresentação →</a>' +
-            '<a class="btn btn-ghost" href="#/mapa" data-action="explore">Explorar mapa</a>' +
-          '</div>' +
         '</div>' +
         '<div class="landing-orgs">' +
           '<span class="landing-orgs-label">Realização</span>' +
           '<img class="landing-org-logo alun" src="/assets/logo-alun-business.png" alt="Alun Business">' +
           '<img class="landing-org-logo unibb" src="/bancodobrasil/assets/unibb-transp.png" alt="UniBB">' +
         '</div>' +
+        '<a class="landing-start" href="#/tela/1/0" data-action="start">Iniciar evento →</a>' +
       '</section>';
+  }
+
+  // Rede geométrica animada de fundo — nós conectados, no espírito de
+  // "sistemas de agentes" que a apresentação introduz.
+  function landingNetwork() {
+    var nodes = [
+      { x: 120, y: 140, fx: 10, fy: -12, fdur: 6.5, pdur: 3.2, delay: 0 },
+      { x: 300, y: 90,  fx: -8, fy: 14,  fdur: 7,   pdur: 2.8, delay: 0.4 },
+      { x: 520, y: 150, fx: 12, fy: 8,   fdur: 6,   pdur: 3.5, delay: 0.8 },
+      { x: 980, y: 120, fx: -10, fy: -10, fdur: 7.5, pdur: 3,   delay: 0.2 },
+      { x: 1100, y: 260, fx: 8, fy: 12,  fdur: 6.8, pdur: 2.6, delay: 0.6 },
+      { x: 150, y: 620, fx: -12, fy: -8, fdur: 7.2, pdur: 3.3, delay: 1 },
+      { x: 350, y: 700, fx: 10, fy: -10, fdur: 6.4, pdur: 2.9, delay: 0.3 },
+      { x: 900, y: 650, fx: -8, fy: 10,  fdur: 7,   pdur: 3.1, delay: 0.7 },
+      { x: 1080, y: 560, fx: 12, fy: -8, fdur: 6.6, pdur: 2.7, delay: 0.5 },
+      { x: 700, y: 70,  fx: -10, fy: 12, fdur: 7.3, pdur: 3.4, delay: 0.9 }
+    ];
+    var edges = [[0,1],[1,2],[2,9],[9,3],[3,4],[0,5],[5,6],[7,8],[4,8],[2,3]];
+    var pulseIdx = [2, 6];
+
+    var lines = edges.map(function (e, i) {
+      var a = nodes[e[0]], b = nodes[e[1]];
+      var cls = pulseIdx.indexOf(i) >= 0 ? ' pulse-line' : '';
+      return '<line class="edge' + cls + '" x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y + '"/>';
+    }).join('');
+
+    var circles = nodes.map(function (n, i) {
+      var accent = (i % 3 === 0) ? ' accent' : '';
+      return '<circle class="node' + accent + '" cx="' + n.x + '" cy="' + n.y + '" r="' + (accent ? 5 : 3.5) + '" ' +
+        'style="--fx:' + n.fx + 'px;--fy:' + n.fy + 'px;--fdur:' + n.fdur + 's;--pdur:' + n.pdur + 's;--fdelay:' + n.delay + 's;"></circle>';
+    }).join('');
+
+    return '<svg class="landing-net" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+      '<g class="edges">' + lines + '</g>' +
+      '<g class="nodes">' + circles + '</g>' +
+    '</svg>';
   }
 
   function screenHead(s) {

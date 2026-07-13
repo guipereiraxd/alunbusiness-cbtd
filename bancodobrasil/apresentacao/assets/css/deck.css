@@ -90,11 +90,41 @@ body.cursor-hidden { cursor: none; }
 .landing .actions { margin-top: 48px; display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* ── Capa (tela inicial) — composição centralizada, viva ────── */
-.landing-cover { position: relative; align-items: center; text-align: center; }
-.landing-center { display: flex; flex-direction: column; align-items: center; }
+.landing-cover { position: relative; align-items: center; text-align: center; overflow: hidden; }
+.landing-center { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
 .landing-cover h1 { text-align: center; }
 .landing-cover .sub { text-align: center; }
-.landing-cover .actions { justify-content: center; margin-top: 52px; }
+
+/* Rede geométrica de fundo — nós flutuando, sinal correndo em algumas linhas */
+.landing-net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.55; }
+.landing-net .edges line { stroke: var(--line); stroke-width: 1.5; }
+.landing-net .edges line.pulse-line {
+  stroke: var(--yellow); stroke-width: 1.6; stroke-dasharray: 6 16; opacity: 0.85;
+  animation: net-flow 3.4s linear infinite;
+}
+@keyframes net-flow { to { stroke-dashoffset: -220; } }
+.landing-net .node { fill: var(--ink-3); transform-box: fill-box; transform-origin: center; }
+.landing-net .node.accent { fill: var(--yellow); }
+.landing-net .node {
+  animation: net-float var(--fdur, 6s) ease-in-out infinite var(--fdelay, 0s),
+             net-pulse var(--pdur, 3s) ease-in-out infinite var(--fdelay, 0s);
+}
+@keyframes net-float { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(var(--fx,8px), var(--fy,-10px)); } }
+@keyframes net-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+/* Controle discreto de início, canto inferior direito */
+.landing-start {
+  position: fixed; bottom: 18px; right: 68px; z-index: 5; pointer-events: auto;
+  height: 40px; padding: 0 18px; border-radius: 8px;
+  background: var(--nav-700); border: 1px solid var(--nav-600);
+  color: var(--ink-2); font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+  display: inline-flex; align-items: center; text-decoration: none;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.landing-start:hover { color: var(--yellow); border-color: var(--yellow-bd); background: var(--nav-800); }
+@media (max-width: 640px) {
+  .landing-start { position: static; margin-top: 40px; }
+}
 
 /* Indicador "pensando" — substitui o eyebrow estático por um LLM em ação */
 .thinking {
@@ -126,7 +156,7 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 
 /* Organizadores — rodapé discreto da capa */
 .landing-orgs {
-  position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 1;
   display: flex; align-items: center; gap: 20px;
 }
 .landing-orgs-label {
