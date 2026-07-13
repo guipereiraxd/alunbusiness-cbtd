@@ -25,6 +25,12 @@
         },
         {
           "t": "Martin Fowler — Humans and Agents in Software Engineering Loops"
+        },
+        {
+          "t": "Addy Osmani — Loop Engineering"
+        },
+        {
+          "t": "Addy Osmani — Self-Improving Coding Agents"
         }
       ]
     },
@@ -212,6 +218,45 @@
       ]
     },
     {
+      "id": "security-engineering",
+      "title": "Security Engineering",
+      "theme": "confianca-confiabilidade",
+      "insight": "Um agente com acesso a ferramentas tem uma superfície de ataque que nenhum código tradicional tinha.",
+      "definicao": "Disciplina de identificar e mitigar riscos específicos de agentes de IA — prompt injection, exfiltração de dados via ferramentas, ações não autorizadas, supply chain de modelos e dependências — aplicando frameworks emergentes (OWASP, NIST, CISA) desde o design do agente, não como camada adicionada depois.",
+      "exemplo": "Um agente com acesso a e-mail e navegador que trata qualquer instrução encontrada em conteúdo externo como dado, não como comando, validando a origem antes de agir sobre ela.",
+      "antipadrao": "Tratar segurança de agentes como extensão da segurança de aplicações tradicionais, ignorando riscos novos como instruções maliciosas embutidas em contexto ou dados.",
+      "perguntas": [
+        "O agente distingue instrução do usuário de conteúdo que ele apenas lê?",
+        "Que ferramentas o agente pode chamar sem aprovação humana?",
+        "A cadeia de dependências e modelos usados é auditável?"
+      ],
+      "metrica": "Taxa de tentativas de prompt injection bloqueadas; cobertura de ferramentas sensíveis por política de aprovação.",
+      "proximoPasso": "Rode um teste simples de red-team: injete uma instrução maliciosa em um documento que o agente processa e veja se ele obedece.",
+      "fontes": [
+        {
+          "t": "NIST — Secure Software Development Practices for Generative AI and Dual-Use Foundation Models"
+        },
+        {
+          "t": "OWASP — Top 10 para Aplicações de LLM e IA Generativa (2025)"
+        },
+        {
+          "t": "OWASP — Top 10 for Agentic Applications (2026)"
+        },
+        {
+          "t": "CISA — Careful Adoption of Agentic AI Services"
+        },
+        {
+          "t": "OpenAI — Designing AI Agents to Resist Prompt Injection"
+        },
+        {
+          "t": "GitHub — How GitHub's Agentic Security Principles Make AI Agents More Secure"
+        },
+        {
+          "t": "GitHub — Securing the AI Software Supply Chain"
+        }
+      ]
+    },
+    {
       "id": "trust-engineering",
       "title": "Trust Engineering",
       "theme": "confianca-confiabilidade",
@@ -356,6 +401,9 @@
       "fontes": [
         {
           "t": "OpenAI — Harness engineering: leveraging Codex in an agent-first world"
+        },
+        {
+          "t": "Martin Fowler — How Far Can We Push AI Autonomy in Code Generation?"
         }
       ]
     },
