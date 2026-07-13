@@ -2,13 +2,39 @@
   "meta": {
     "title": "Depois do Código",
     "subtitle": "A nova engenharia de software agêntica e os desafios dos times de tecnologia",
-    "total": 11
+    "total": 12
   },
   "screens": [
     {
-      "id": "a-pergunta",
+      "id": "cronograma",
       "order": 1,
-      "kicker": "01 · A pergunta",
+      "kicker": "01 · Cronograma do dia",
+      "type": "cronograma",
+      "insight": "O roteiro de hoje.",
+      "steps": 1,
+      "schedule": {
+        "manha": [
+          { "time": "10h00–10h20", "session": "Café de boas-vindas", "break": true },
+          { "time": "10h20–10h35", "session": "Abertura: Depois do Código", "speaker": "Hosts do Evento" },
+          { "time": "10h35–11h10", "session": "Quando escrever código deixa de ser o principal gargalo", "speaker": "Paulo Silveira" },
+          { "time": "11h10–12h10", "session": "Dev em T + Filtrando o Hype", "speaker": "Sérgio Lopes" },
+          { "time": "12h10–13h40", "session": "Almoço", "break": true }
+        ],
+        "tarde": [
+          { "time": "13h40–14h10", "session": "Qualidade de software no mundo da IA", "speaker": "Mauricio Aniche" },
+          { "time": "14h10–14h50", "session": "Como seria um ciclo de desenvolvimento com agentes de IA?", "speaker": "Tiago Santos" },
+          { "time": "14h50–15h10", "session": "Pausa para café", "break": true },
+          { "time": "15h10–16h00", "session": "Aquário técnico", "speaker": "Guilherme Pereira" },
+          { "time": "16h00–16h05", "session": "Encerramento", "speaker": "Hosts do Evento" }
+        ]
+      },
+      "speakerNotes": "Mostrar o roteiro completo do dia antes de entrar na apresentação — dá contexto de quanto tempo cada bloco leva e quando são as pausas.",
+      "explore": { "summary": "Cronograma completo do encontro.", "items": [] }
+    },
+    {
+      "id": "a-pergunta",
+      "order": 2,
+      "kicker": "02 · A pergunta",
       "type": "question",
       "insight": "Se hoje uma IA consegue escrever software, por que as empresas ainda não entregam software dez vezes mais rápido?",
       "highlight": "dez vezes mais rápido",
@@ -43,8 +69,8 @@
     },
     {
       "id": "a-falsa-equacao",
-      "order": 2,
-      "kicker": "02 · A falsa equação",
+      "order": 3,
+      "kicker": "03 · A falsa equação",
       "type": "equation",
       "insight": "Mais código ≠ mais software entregue",
       "steps": 2,
@@ -67,8 +93,8 @@
     },
     {
       "id": "o-codigo-ficou-barato",
-      "order": 3,
-      "kicker": "03 · O código ficou barato",
+      "order": 4,
+      "kicker": "04 · O código ficou barato",
       "type": "twocol",
       "insight": "O software continua caro. O código ficou barato.",
       "steps": 2,
@@ -88,8 +114,8 @@
     },
     {
       "id": "o-gargalo-mudou",
-      "order": 4,
-      "kicker": "04 · O gargalo mudou",
+      "order": 5,
+      "kicker": "05 · O gargalo mudou",
       "type": "flow",
       "insight": "A engenharia começa onde a geração termina.",
       "steps": 3,
@@ -111,8 +137,8 @@
     },
     {
       "id": "engenharia-de-loop",
-      "order": 5,
-      "kicker": "05 · Engenharia de Loop",
+      "order": 6,
+      "kicker": "06 · Engenharia de Loop",
       "type": "loop",
       "insight": "O novo objeto de engenharia é o loop que produz e melhora o artefato.",
       "highlight": "loop",
@@ -127,8 +153,8 @@
     },
     {
       "id": "harness-engineering",
-      "order": 6,
-      "kicker": "06 · Harness Engineering",
+      "order": 7,
+      "kicker": "07 · Harness Engineering",
       "type": "layers",
       "insight": "Modelos dão capacidade. Harnesses transformam capacidade em trabalho confiável.",
       "highlight": "Harnesses",
@@ -150,8 +176,8 @@
     },
     {
       "id": "context-engineering",
-      "order": 7,
-      "kicker": "07 · Context Engineering",
+      "order": 8,
+      "kicker": "08 · Context Engineering",
       "type": "context",
       "insight": "O prompt inicia a tarefa. O contexto sustenta o trabalho.",
       "highlight": "contexto",
@@ -166,8 +192,8 @@
     },
     {
       "id": "evaluation-driven",
-      "order": 8,
-      "kicker": "08 · Evaluation-Driven Development",
+      "order": 9,
+      "kicker": "09 · Evaluation-Driven Development",
       "type": "gates",
       "insight": "Sem avaliações, autonomia é apenas velocidade sem evidência.",
       "highlight": "avaliações",
@@ -183,8 +209,8 @@
     },
     {
       "id": "agentic-sdlc",
-      "order": 9,
-      "kicker": "09 · Agentic SDLC",
+      "order": 10,
+      "kicker": "10 · Agentic SDLC",
       "type": "sdlc",
       "insight": "O ciclo deixa de ser uma esteira e passa a ser uma rede de loops.",
       "highlight": "rede de loops",
@@ -199,8 +225,8 @@
     },
     {
       "id": "novo-papel",
-      "order": 10,
-      "kicker": "10 · O novo papel do desenvolvedor",
+      "order": 11,
+      "kicker": "11 · O novo papel do desenvolvedor",
       "type": "role",
       "insight": "De produzir cada linha para projetar o sistema que produz software.",
       "highlight": "projetar o sistema",
@@ -216,8 +242,8 @@
     },
     {
       "id": "mapa-final",
-      "order": 11,
-      "kicker": "11 · Mapa final",
+      "order": 12,
+      "kicker": "12 · Mapa final",
       "type": "mapfinal",
       "insight": "A nova engenharia é a do sistema que cria, verifica e melhora software.",
       "highlight": "cria, verifica e melhora",

@@ -92,20 +92,42 @@
   window.addEventListener('hashchange', route);
 
   /* ── Render ───────────────────────────────────────────────── */
+  var firstRender = true;
+  // Crossfade suave ao trocar de tela; instantâneo na primeira renderização
+  // e não usado para avanços de microetapa dentro da mesma tela.
+  function swap(fn) {
+    if (firstRender) { firstRender = false; fn(); return; }
+    app.classList.add('fading');
+    setTimeout(function () {
+      fn();
+      void app.offsetWidth;
+      app.classList.remove('fading');
+    }, 220);
+  }
+
   function renderStatic(html) {
-    document.body.dataset.view = state.view;
-    app.innerHTML = html;
-    renderedKey = null;
+    swap(function () {
+      document.body.dataset.view = state.view;
+      app.innerHTML = html;
+      renderedKey = null;
+    });
   }
 
   function renderStage() {
-    document.body.dataset.view = 'stage';
     var s = DATA.screens[state.idx];
     var key = 'stage:' + state.idx;
     if (renderedKey !== key) {
-      app.innerHTML = Render.screen(s);
-      renderedKey = key;
+      swap(function () {
+        document.body.dataset.view = 'stage';
+        app.innerHTML = Render.screen(s);
+        renderedKey = key;
+        applyReveals();
+        applyPollState();
+        renderPollQRs();
+      });
+      return;
     }
+    document.body.dataset.view = 'stage';
     applyReveals();
     applyPollState();
     renderPollQRs();

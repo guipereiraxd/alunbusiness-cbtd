@@ -112,6 +112,25 @@ window.Render = (function () {
   }
 
   var byType = {
+    // Tela 1 — cronograma do dia, em duas colunas (manhã/tarde)
+    cronograma: function (s) {
+      function col(label, items) {
+        var rows = items.map(function (it) {
+          var cls = it.break ? ' break' : '';
+          var speaker = (!it.break && it.speaker) ? '<div class="cronograma-speaker">' + esc(it.speaker) + '</div>' : '';
+          return '<div class="cronograma-row' + cls + '">' +
+            '<div class="cronograma-time">' + esc(it.time) + '</div>' +
+            '<div class="cronograma-body"><div class="cronograma-session">' + esc(it.session) + '</div>' + speaker + '</div>' +
+          '</div>';
+        }).join('');
+        return '<div class="cronograma-col"><span class="cronograma-col-label">' + esc(label) + '</span>' + rows + '</div>';
+      }
+      return screenHead(s) +
+        '<div class="cronograma-grid" data-reveal="1">' +
+          col('Manhã', s.schedule.manha) +
+          col('Tarde', s.schedule.tarde) +
+        '</div>';
+    },
     question: function (s) {
       // marca o "dez vezes mais rápido" já vem do highlight; ativa pulse via data-active-at
       var head = screenHead(s).replace(
