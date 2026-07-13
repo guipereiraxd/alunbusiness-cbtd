@@ -38,11 +38,21 @@ title: "Início"
   <a class="bb-card" href="{{ '/bancodobrasil/leituras/' | relative_url }}">
     <div class="bb-card-icon">◻</div>
     <div class="bb-card-title">Leituras Complementares</div>
-    <div class="bb-card-desc">Artigos da OpenAI, Anthropic, Martin Fowler e GitHub que fundamentam os conceitos do encontro.</div>
+    <div class="bb-card-desc">Artigos da OpenAI, Anthropic, Martin Fowler, GitHub e Google DeepMind que fundamentam os conceitos do encontro.</div>
   </a>
   <a class="bb-card" href="{{ '/bancodobrasil/cursos-alura/' | relative_url }}">
     <div class="bb-card-icon">⬡</div>
     <div class="bb-card-title">Cursos e Trilha na Alura</div>
     <div class="bb-card-desc">10 cursos correlacionados com os temas do encontro, disponíveis no seu acesso à Plataforma Alura.</div>
+  </a>
+  <a class="bb-card" href="https://hipsters.network/" target="_blank" rel="noopener">
+    <div class="bb-card-icon">◉</div>
+    <div class="bb-card-title">Hipsters Network ↗</div>
+    <div class="bb-card-desc">Os podcasts da Alura, FIAP e PM3 com a StartSe — tecnologia, programação, IA, produtos digitais, negócios, design e dados.</div>
+  </a>
+  <a class="bb-card" href="https://www.iaconferencebrasil.com.br/" target="_blank" rel="noopener">
+    <div class="bb-card-icon">✦</div>
+    <div class="bb-card-title">IA Conference 2026 ↗</div>
+    <div class="bb-card-desc">O maior evento de Inteligência Artificial do Brasil, pela Alura e Grupo Alun. 24 de setembro de 2026 — São Paulo/SP.</div>
   </a>
 </div>

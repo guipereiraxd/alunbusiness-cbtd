@@ -140,11 +140,13 @@
 
     /* Reading list */
     .bb-reading { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px; }
-    .bb-reading li {
+    .bb-reading a {
       padding: 14px 18px; background: var(--nav-800); border: 1px solid var(--nav-600); border-radius: 10px;
-      color: var(--ink-2); font-size: 0.94rem; display: flex; gap: 10px;
+      color: var(--ink-2); font-size: 0.94rem; display: flex; gap: 10px; align-items: baseline;
+      text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
-    .bb-reading li::before { content: "—"; color: var(--yellow); flex-shrink: 0; }
+    .bb-reading a:hover { border-color: var(--yellow-bd); color: var(--ink-1); background: var(--nav-700); }
+    .bb-reading a::before { content: "—"; color: var(--yellow); flex-shrink: 0; }
 
     /* Cards */
     .bb-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin-top: 8px; }
