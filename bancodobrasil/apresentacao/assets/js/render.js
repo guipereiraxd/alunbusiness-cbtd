@@ -204,25 +204,42 @@ window.Render = (function () {
       '</section>';
   }
 
-  var THEMES = {
-    arquitetura: 'Arquitetura', qualidade: 'Qualidade', agentes: 'Agentes',
-    lideranca: 'Liderança', seguranca: 'Segurança', operacao: 'Operação'
-  };
+  // As 6 frentes da Engenharia Agêntica — ordem fixa do mapa
+  var CATS = [
+    { slug: 'engenharia-agentica',      label: 'Engenharia Agêntica' },
+    { slug: 'sistemas-agenticos',       label: 'Sistemas Agênticos' },
+    { slug: 'confianca-confiabilidade', label: 'Confiança e Confiabilidade' },
+    { slug: 'organizacao-lideranca',    label: 'Organização e Liderança' },
+    { slug: 'economia-ia',              label: 'Economia da IA' },
+    { slug: 'entrega-valor',            label: 'Entrega de Valor' }
+  ];
+  var THEMES = CATS.reduce(function (acc, c) { acc[c.slug] = c.label; return acc; }, {});
   function themeLabel(t) { return THEMES[t] || t; }
 
-  // Mapa de Conceitos: busca + filtro por tema + cards de conceito
+  // Mapa de Conceitos: 6 seções (frentes) + busca + filtro por categoria
   function map(concepts) {
-    var cards = concepts.map(function (c) {
-      var text = (c.title + ' ' + c.insight + ' ' + c.definicao).toLowerCase();
-      return '<a class="mapcard" href="#/conceito/' + esc(c.id) + '" data-theme="' + esc(c.theme) + '" data-text="' + esc(text) + '">' +
-        '<span class="mapcard-tag">' + esc(themeLabel(c.theme)) + '</span>' +
-        '<span class="mapcard-title">' + esc(c.title) + '</span>' +
-        '<span class="mapcard-insight">' + esc(c.insight) + '</span>' +
-      '</a>';
+    var chips = ['all'].concat(CATS.map(function (c) { return c.slug; })).map(function (slug, i) {
+      return '<button class="mapchip' + (i === 0 ? ' on' : '') + '" data-theme="' + slug + '">' +
+        (slug === 'all' ? 'Todos' : themeLabel(slug)) + '</button>';
     }).join('');
-    var chips = ['all', 'arquitetura', 'qualidade', 'agentes', 'lideranca', 'seguranca', 'operacao'].map(function (t, i) {
-      return '<button class="mapchip' + (i === 0 ? ' on' : '') + '" data-theme="' + t + '">' + (t === 'all' ? 'Todos' : themeLabel(t)) + '</button>';
+
+    var sections = CATS.map(function (cat) {
+      var items = concepts.filter(function (c) { return c.theme === cat.slug; });
+      var body = items.length
+        ? items.map(function (c) {
+            var text = (c.title + ' ' + c.insight + ' ' + c.definicao).toLowerCase();
+            return '<a class="mapcard" href="#/conceito/' + esc(c.id) + '" data-text="' + esc(text) + '">' +
+              '<span class="mapcard-title">' + esc(c.title) + '</span>' +
+              '<span class="mapcard-insight">' + esc(c.insight) + '</span>' +
+            '</a>';
+          }).join('')
+        : '<div class="mapcard-empty">Em breve</div>';
+      return '<div class="mapv-section" data-cat="' + cat.slug + '">' +
+        '<div class="mapv-section-head"><span class="mapv-section-title">' + esc(cat.label) + '</span><span class="mapv-section-line"></span></div>' +
+        '<div class="mapv-grid">' + body + '</div>' +
+      '</div>';
     }).join('');
+
     return '<div class="mapv">' +
       '<div class="mapv-head"><div>' +
         '<div class="doc-kicker">' + chevrons + 'Mapa de Conceitos</div>' +
@@ -232,7 +249,7 @@ window.Render = (function () {
         '<input id="mapSearch" class="mapv-search" type="search" placeholder="Buscar conceito ou termo…" aria-label="Buscar">' +
         '<div class="mapv-filters">' + chips + '</div>' +
       '</div>' +
-      '<div class="mapv-grid" id="mapGrid">' + cards + '</div>' +
+      '<div id="mapSections">' + sections + '</div>' +
       '<p class="mapv-empty" id="mapEmpty" hidden>Nada encontrado com esse filtro.</p>' +
     '</div>';
   }

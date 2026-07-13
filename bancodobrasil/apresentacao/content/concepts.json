@@ -3,7 +3,7 @@
     {
       "id": "engenharia-de-loop",
       "title": "Engenharia de Loop",
-      "theme": "agentes",
+      "theme": "engenharia-agentica",
       "screen": 5,
       "insight": "O novo objeto de engenharia é o loop que produz e melhora o artefato.",
       "definicao": "Disciplina de projetar deliberadamente os ciclos que conectam intenção, contexto, ação, execução, observação, avaliação, correção e memória. O loop — e não o artefato isolado — passa a ser a unidade que se projeta, versiona e melhora.",
@@ -21,7 +21,7 @@
     {
       "id": "harness-engineering",
       "title": "Harness Engineering",
-      "theme": "arquitetura",
+      "theme": "engenharia-agentica",
       "screen": 6,
       "insight": "Modelos dão capacidade. Harnesses transformam capacidade em trabalho confiável.",
       "definicao": "Engenharia do ambiente que transforma um modelo em um agente capaz de trabalhar de forma orientada, observável e controlada: guias, sensores, atuadores, limites e estado ao redor do modelo. Autonomia segura não vem do prompt — vem da infraestrutura que guia, restringe, observa e corrige.",
@@ -40,7 +40,7 @@
     {
       "id": "context-engineering",
       "title": "Context Engineering",
-      "theme": "arquitetura",
+      "theme": "engenharia-agentica",
       "screen": 7,
       "insight": "O prompt inicia a tarefa. O contexto sustenta o trabalho.",
       "definicao": "Sistema que descobre, seleciona, estrutura, comprime e entrega a informação certa no momento certo. Separa conhecimento permanente, contexto de tarefa, memória e estado operacional, carregando sob demanda em vez de despejar tudo de uma vez.",
@@ -55,8 +55,8 @@
     },
     {
       "id": "evaluation-driven",
-      "title": "Evaluation-Driven Development",
-      "theme": "qualidade",
+      "title": "Evaluation Engineering",
+      "theme": "engenharia-agentica",
       "screen": 8,
       "insight": "Sem avaliações, autonomia é apenas velocidade sem evidência.",
       "definicao": "Definir o comportamento desejado antes de ampliar a autonomia, combinando testes determinísticos e avaliações probabilísticas. Avaliações não são etapa final: definem o que o agente pode aprender, corrigir e executar sozinho.",
@@ -73,7 +73,7 @@
     {
       "id": "engenharia-de-evidencias",
       "title": "Engenharia de Evidências",
-      "theme": "seguranca",
+      "theme": "confianca-confiabilidade",
       "insight": "Confiança não é um número. É um rastro verificável.",
       "definicao": "Cada ação relevante do agente deve deixar evidência reproduzível: testes, traces, fontes consultadas, decisões, diffs, métricas e aprovações. Proveniência e reprodutibilidade viram requisitos de engenharia; o artefato final vem acompanhado da justificativa que o sustenta.",
       "exemplo": "Um PR do agente que anexa os testes executados, as fontes consultadas, o trace da decisão e a avaliação que aprovou a mudança.",
@@ -89,7 +89,7 @@
     {
       "id": "agentic-sdlc",
       "title": "Agentic SDLC",
-      "theme": "operacao",
+      "theme": "sistemas-agenticos",
       "screen": 9,
       "insight": "O ciclo de desenvolvimento deixa de ser uma esteira e passa a ser uma rede de loops.",
       "definicao": "Agentes participam de múltiplas fases — não só da escrita de código — de forma assíncrona, paralela e orientada por objetivos. Planos, decisões e dívida técnica viram artefatos versionados; revisão e validação tornam-se independentes da geração; feedback de produção realimenta manutenção e aprendizado.",
@@ -104,19 +104,18 @@
     },
     {
       "id": "novo-papel",
-      "title": "Novo papel humano",
-      "theme": "lideranca",
+      "title": "Human-Agent Collaboration",
+      "theme": "organizacao-lideranca",
       "screen": 10,
       "insight": "De produzir cada linha para projetar o sistema que produz software.",
-      "definicao": "O humano define objetivos e critérios de sucesso, escolhe níveis de autonomia, projeta contexto, loops e harnesses, interpreta evidência e preserva arquitetura, segurança e responsabilidade. O trabalho se desloca para níveis mais altos de abstração e julgamento — não desaparece.",
-      "exemplo": "Um tech lead que deixa de revisar cada linha e passa a definir gates, políticas e os pontos onde o humano decide.",
-      "antipadrao": "Narrar o desaparecimento do desenvolvedor — ou, no oposto, revisar tudo à mão como antes.",
-      "perguntas": ["Que decisões continuam humanas?", "Qual nível de autonomia é adequado por tarefa?", "Quem é responsável pelo resultado?"],
-      "metrica": "Tempo gasto em design de sistema versus execução manual.",
-      "proximoPasso": "Liste as três competências que mais crescem no seu time e comece por uma.",
+      "definicao": "Como humanos e agentes dividem trabalho, decisão e responsabilidade ao longo do loop — do \"humano no loop\" (aprova cada ação) ao \"humano sobre o loop\" (supervisiona por exceção) até o \"humano fora do loop\" (audita resultados). Colaboração eficaz escolhe o modo certo para cada tarefa, não um modo único para tudo.",
+      "exemplo": "Um time usa \"humano no loop\" para mudanças em sistemas de pagamento, mas \"humano sobre o loop\" para refatorações de baixo risco — o agente executa e só escala exceções.",
+      "antipadrao": "Aplicar o mesmo nível de supervisão a todas as tarefas, independente do risco — ou não supervisionar nada, achando que autonomia significa ausência do humano.",
+      "perguntas": ["Qual modo de colaboração cabe a cada tipo de tarefa?", "Quem decide quando escalar para o humano?", "Como o modo muda conforme a confiança no agente cresce?"],
+      "metrica": "Proporção de tarefas em cada modo de colaboração; taxa de escalonamento humano por tipo de tarefa.",
+      "proximoPasso": "Mapeie, para as tarefas do seu time, qual modo de colaboração é hoje e qual deveria ser.",
       "fontes": [
-        { "t": "Martin Fowler — Humans and Agents in Software Engineering Loops" },
-        { "t": "GitHub — Building an agentic memory system for GitHub Copilot" }
+        { "t": "Martin Fowler — Humans and Agents in Software Engineering Loops" }
       ]
     }
   ]

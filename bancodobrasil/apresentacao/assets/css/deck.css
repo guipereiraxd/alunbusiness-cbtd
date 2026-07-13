@@ -337,7 +337,13 @@ body[data-view="map"], body[data-view="concept"] { overflow-y: auto; overflow-x:
 }
 .mapchip:hover { color: var(--ink-2); }
 .mapchip.on { border-color: var(--yellow-bd); color: var(--yellow); background: var(--yellow-dim); }
-.mapv-grid { margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 14px; }
+.mapv-section { margin-top: 40px; }
+.mapv-section:first-of-type { margin-top: 30px; }
+.mapv-section[hidden] { display: none; }
+.mapv-section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; }
+.mapv-section-title { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--yellow); white-space: nowrap; }
+.mapv-section-line { flex: 1; height: 1px; background: var(--nav-600); }
+.mapv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 14px; }
 .mapcard {
   display: flex; flex-direction: column; gap: 8px; padding: 20px;
   border: 1px solid var(--nav-600); border-radius: 14px; background: var(--nav-800);
@@ -345,9 +351,12 @@ body[data-view="map"], body[data-view="concept"] { overflow-y: auto; overflow-x:
 }
 .mapcard:hover { border-color: var(--yellow-bd); transform: translateY(-2px); }
 .mapcard[hidden] { display: none; }
-.mapcard-tag { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--yellow); }
 .mapcard-title { font-family: var(--font-display); font-size: 1.05rem; color: var(--ink-1); }
 .mapcard-insight { font-size: 0.86rem; color: var(--ink-3); line-height: 1.5; }
+.mapcard-empty {
+  grid-column: 1 / -1; padding: 18px 20px; border: 1px dashed var(--nav-600); border-radius: 14px;
+  color: var(--ink-3); font-size: 0.86rem;
+}
 .mapv-empty { margin-top: 30px; color: var(--ink-3); }
 
 /* ── Página de conceito ─────────────────────────────────────── */

@@ -302,26 +302,34 @@
     });
   }
 
-  /* ── Mapa: busca + filtro por tema ────────────────────────── */
+  /* ── Mapa: seções por categoria + busca + filtro ──────────── */
   function initMap() {
-    var grid = document.getElementById('mapGrid');
+    var wrap = document.getElementById('mapSections');
     var search = document.getElementById('mapSearch');
     var empty = document.getElementById('mapEmpty');
     var chips = app.querySelectorAll('.mapchip');
-    if (!grid) return;
+    if (!wrap) return;
     var theme = 'all';
 
     function apply() {
       var q = (search && search.value || '').toLowerCase().trim();
-      var shown = 0;
-      grid.querySelectorAll('.mapcard').forEach(function (card) {
-        var okT = theme === 'all' || card.getAttribute('data-theme') === theme;
-        var okQ = !q || card.getAttribute('data-text').indexOf(q) >= 0;
-        var vis = okT && okQ;
-        card.hidden = !vis;
-        if (vis) shown++;
+      var anyVisible = false;
+      wrap.querySelectorAll('.mapv-section').forEach(function (section) {
+        var themeOk = theme === 'all' || theme === section.getAttribute('data-cat');
+        var cards = section.querySelectorAll('.mapcard');
+        var shown = 0;
+        cards.forEach(function (card) {
+          var vis = !q || card.getAttribute('data-text').indexOf(q) >= 0;
+          card.hidden = !vis;
+          if (vis) shown++;
+        });
+        // Seções ainda sem conteúdo (placeholder "Em breve") somem durante
+        // busca ativa — nada ali para encontrar — mas aparecem ao navegar.
+        var sectionVisible = themeOk && (cards.length ? shown > 0 : !q);
+        section.hidden = !sectionVisible;
+        if (sectionVisible) anyVisible = true;
       });
-      if (empty) empty.hidden = shown > 0;
+      if (empty) empty.hidden = anyVisible;
     }
 
     if (search) search.addEventListener('input', apply);
@@ -333,6 +341,7 @@
         apply();
       });
     });
+    apply();
   }
 
   /* ── Navegação ────────────────────────────────────────────── */
