@@ -54,14 +54,12 @@
       state.step = Math.max(0, Math.min(t.step, max));
       renderStage();
     } else if (t.view === 'map') {
-      renderStatic(Render.map(DATA.concepts || []));
-      initMap();
+      renderStatic(Render.map(DATA.concepts || []), initMap);
     } else if (t.view === 'concept') {
       var c = (DATA.concepts || []).filter(function (x) { return x.id === t.id; })[0];
       renderStatic(c ? Render.concept(c) : Render.stub('Conceito', 'Conceito não encontrado.'));
     } else {
-      renderStatic(Render.landing(DATA.meta));
-      initLanding();
+      renderStatic(Render.landing(DATA.meta), initLanding);
     }
     updateChrome();
     updatePresenter();
@@ -120,11 +118,12 @@
     }, 220);
   }
 
-  function renderStatic(html) {
+  function renderStatic(html, after) {
     swap(function () {
       document.body.dataset.view = state.view;
       app.innerHTML = html;
       renderedKey = null;
+      if (after) after();
     });
   }
 
