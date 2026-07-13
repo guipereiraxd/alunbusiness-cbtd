@@ -158,6 +158,20 @@
     .bb-card-title { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; color: var(--ink-1); margin-bottom: 6px; }
     .bb-card-desc { font-size: 0.86rem; color: var(--ink-3); line-height: 1.5; }
 
+    /* Course cards */
+    .bb-courses { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 8px; }
+    .bb-course {
+      display: flex; flex-direction: column; gap: 10px; padding: 22px 24px;
+      background: var(--nav-800); border: 1px solid var(--nav-600); border-radius: 14px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .bb-course:hover { border-color: var(--yellow-bd); transform: translateY(-2px); }
+    .bb-course-num { font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; color: var(--yellow); }
+    .bb-course-title { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; color: var(--ink-1); line-height: 1.32; }
+    .bb-course-desc { font-size: 0.87rem; color: var(--ink-3); line-height: 1.55; flex: 1; }
+    .bb-course-link { align-self: flex-start; font-size: 0.82rem; font-weight: 600; color: var(--yellow); text-decoration: none; }
+    .bb-course-link:hover { text-decoration: underline; }
+
     /* Poll results */
     .bb-poll { margin-bottom: 40px; padding: 24px 26px; background: var(--nav-800); border: 1px solid var(--nav-600); border-radius: 14px; }
     .bb-poll-prompt { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--ink-1); margin-bottom: 4px; }
@@ -193,7 +207,9 @@
     .bb-footer-inner { max-width: var(--max); margin: 0 auto; padding: 24px; }
     .bb-orgs { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; padding-bottom: 20px; margin-bottom: 16px; border-bottom: 1px solid var(--line); }
     .bb-orgs-label { font-family: var(--font-display); font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
-    .bb-org-logo { height: 26px; width: auto; opacity: 0.92; }
+    .bb-org-logo { width: auto; opacity: 0.92; display: block; }
+    .bb-org-logo.alun  { height: 17px; }
+    .bb-org-logo.unibb { height: 34px; }
     .bb-footer-meta { font-size: 12px; color: var(--ink-3); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
     .bb-footer a { color: var(--ink-3); text-decoration: none; }
     .bb-footer a:hover { color: var(--ink-2); }
@@ -227,8 +243,8 @@
     <div class="bb-footer-inner">
       <div class="bb-orgs">
         <span class="bb-orgs-label">Realização</span>
-        <img class="bb-org-logo" src="{{ '/assets/logo-alun-business.png' | relative_url }}" alt="Alun Business">
-        {% comment %} UniBB logo entra aqui assim que o arquivo for adicionado em bancodobrasil/assets/img/logo-unibb.png {% endcomment %}
+        <img class="bb-org-logo alun" src="{{ '/assets/logo-alun-business.png' | relative_url }}" alt="Alun Business">
+        <img class="bb-org-logo unibb" src="{{ '/bancodobrasil/assets/unibb.png' | relative_url }}" alt="UniBB">
       </div>
       <div class="bb-footer-meta">
         <span>Depois do Código</span>

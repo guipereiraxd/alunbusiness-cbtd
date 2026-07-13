@@ -40,4 +40,9 @@ title: "Início"
     <div class="bb-card-title">Leituras Complementares</div>
     <div class="bb-card-desc">Artigos da OpenAI, Anthropic, Martin Fowler e GitHub que fundamentam os conceitos do encontro.</div>
   </a>
+  <a class="bb-card" href="{{ '/bancodobrasil/cursos-alura/' | relative_url }}">
+    <div class="bb-card-icon">⬡</div>
+    <div class="bb-card-title">Cursos e Trilha na Alura</div>
+    <div class="bb-card-desc">10 cursos correlacionados com os temas do encontro, disponíveis no seu acesso à Plataforma Alura.</div>
+  </a>
 </div>

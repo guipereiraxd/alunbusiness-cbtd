@@ -6,3 +6,4 @@ _site/
 
 # Firebase config is generated at build time from GitHub Secrets — never commit it
 assets/firebase-config.js
+.DS_Store
