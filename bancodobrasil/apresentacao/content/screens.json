@@ -27,12 +27,14 @@
           {
             "time": "10h35–11h10",
             "session": "Quando escrever código deixa de ser o principal gargalo",
-            "speaker": "Paulo Silveira"
+            "speaker": "Paulo Silveira",
+            "pdf": "/bancodobrasil/assets/palestras/PauloSilveira.pdf"
           },
           {
             "time": "11h10–12h10",
             "session": "Dev em T + Filtrando o Hype",
-            "speaker": "Sérgio Lopes"
+            "speaker": "Sérgio Lopes",
+            "pdf": "/bancodobrasil/assets/palestras/SergioLopes.pdf"
           },
           {
             "time": "12h10–13h40",
@@ -44,12 +46,14 @@
           {
             "time": "13h40–14h10",
             "session": "Qualidade de software no mundo da IA",
-            "speaker": "Mauricio Aniche"
+            "speaker": "Mauricio Aniche",
+            "pdf": "/bancodobrasil/assets/palestras/MauricioAniche.pdf"
           },
           {
             "time": "14h10–14h50",
             "session": "Como seria um ciclo de desenvolvimento com agentes de IA?",
-            "speaker": "Tiago Santos"
+            "speaker": "Tiago Santos",
+            "pdf": "/bancodobrasil/assets/palestras/TiagoSantos.pdf"
           },
           {
             "time": "14h50–15h10",

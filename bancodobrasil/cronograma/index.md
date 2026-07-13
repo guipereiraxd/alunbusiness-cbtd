@@ -25,12 +25,14 @@ title: "Cronograma"
     <div class="bb-slot-time">10h35–11h10</div>
     <div class="bb-slot-session">Quando escrever código deixa de ser o principal gargalo</div>
     <div class="bb-slot-speaker">Paulo Silveira</div>
+    <div class="bb-slot-pdf"><a href="{{ '/bancodobrasil/assets/palestras/PauloSilveira.pdf' | relative_url }}" target="_blank" rel="noopener">Slides (PDF) ↗</a></div>
   </div>
 
   <div class="bb-slot">
     <div class="bb-slot-time">11h10–12h10</div>
     <div class="bb-slot-session">Dev em T + Filtrando o Hype</div>
     <div class="bb-slot-speaker">Sérgio Lopes</div>
+    <div class="bb-slot-pdf"><a href="{{ '/bancodobrasil/assets/palestras/SergioLopes.pdf' | relative_url }}" target="_blank" rel="noopener">Slides (PDF) ↗</a></div>
   </div>
 
   <div class="bb-slot break">
@@ -42,12 +44,14 @@ title: "Cronograma"
     <div class="bb-slot-time">13h40–14h10</div>
     <div class="bb-slot-session">Qualidade de software no mundo da IA</div>
     <div class="bb-slot-speaker">Mauricio Aniche</div>
+    <div class="bb-slot-pdf"><a href="{{ '/bancodobrasil/assets/palestras/MauricioAniche.pdf' | relative_url }}" target="_blank" rel="noopener">Slides (PDF) ↗</a></div>
   </div>
 
   <div class="bb-slot">
     <div class="bb-slot-time">14h10–14h50</div>
     <div class="bb-slot-session">Como seria um ciclo de desenvolvimento com agentes de IA?</div>
     <div class="bb-slot-speaker">Tiago Santos</div>
+    <div class="bb-slot-pdf"><a href="{{ '/bancodobrasil/assets/palestras/TiagoSantos.pdf' | relative_url }}" target="_blank" rel="noopener">Slides (PDF) ↗</a></div>
   </div>
 
   <div class="bb-slot break">

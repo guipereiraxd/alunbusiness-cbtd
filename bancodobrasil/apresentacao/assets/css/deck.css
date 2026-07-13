@@ -287,6 +287,8 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 .cronograma-session { font-size: 0.98rem; color: var(--ink-1); line-height: 1.3; }
 .cronograma-row.break .cronograma-session { font-style: italic; }
 .cronograma-speaker { font-size: 0.82rem; color: var(--ink-3); }
+.cronograma-pdf { font-size: 0.78rem; font-weight: 600; color: var(--yellow); text-decoration: none; margin-top: 2px; display: inline-block; }
+.cronograma-pdf:hover { text-decoration: underline; }
 
 /* ── Telas 3–4: antes/depois — mesma virada de paradigma ─────── */
 .imgslide-wrap { width: 100%; }

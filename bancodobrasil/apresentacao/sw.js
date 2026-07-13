@@ -1,7 +1,7 @@
 /* Service worker — Depois do Código.
    Deixa a apresentação rodar offline (modo demo). O voto ao vivo precisa
    de rede; offline, o deck cai no simulado automaticamente. */
-var CACHE = 'dc-v24';
+var CACHE = 'dc-v25';
 var CORE = [
   './', 'index.html',
   'assets/css/deck.css',

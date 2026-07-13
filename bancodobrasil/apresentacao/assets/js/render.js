@@ -174,9 +174,10 @@ window.Render = (function () {
         var rows = items.map(function (it) {
           var cls = it.break ? ' break' : '';
           var speaker = (!it.break && it.speaker) ? '<div class="cronograma-speaker">' + esc(it.speaker) + '</div>' : '';
+          var pdf = it.pdf ? '<a class="cronograma-pdf" href="' + esc(it.pdf) + '" target="_blank" rel="noopener">Slides (PDF) ↗</a>' : '';
           return '<div class="cronograma-row' + cls + '">' +
             '<div class="cronograma-time">' + esc(it.time) + '</div>' +
-            '<div class="cronograma-body"><div class="cronograma-session">' + esc(it.session) + '</div>' + speaker + '</div>' +
+            '<div class="cronograma-body"><div class="cronograma-session">' + esc(it.session) + '</div>' + speaker + pdf + '</div>' +
           '</div>';
         }).join('');
         return '<div class="cronograma-col"><span class="cronograma-col-label">' + esc(label) + '</span>' + rows + '</div>';
