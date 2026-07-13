@@ -99,7 +99,7 @@ window.Render = (function () {
       { w: 84,  h: 130, op: 0.45, fill: '#5a72d6',             main: false, fdur: 6.6, delay: 0.5 },
       { w: 62,  h: 96,  op: 0.22, fill: '#8fa1e6',             main: false, fdur: 7.0, delay: 1.0 }
     ];
-    var x = 0, gap = 18;
+    var x = 70, gap = 18;
     var groupW = 0;
     var polys = chevs.map(function (c) {
       var y = midY - c.h / 2;
@@ -112,7 +112,7 @@ window.Render = (function () {
       groupW = x - gap;
       return markup;
     }).join('');
-    var tipX = chevs[0].w;
+    var tipX = 70 + chevs[0].w;
     var sparks = [
       { x: tipX + 10, y: midY - 76, r: 4, delay: 0 },
       { x: tipX + 34, y: midY - 50, r: 2.5, delay: 0.4 },
