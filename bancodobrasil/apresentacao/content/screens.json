@@ -227,14 +227,13 @@
       "type": "flow",
       "insight": "A engenharia fica mais complexa depois que a geração de código por IA acontece.",
       "steps": 3,
-      "fast": "código gerado",
-      "stages": [
-        "Arquitetura",
-        "Revisão",
-        "Testes",
-        "Compliance",
-        "Deploy",
-        "Sustentação"
+      "dimensions": [
+        { "label": "Direção", "desc": "Saber o que construir e para quem." },
+        { "label": "Fluxo", "desc": "Remover fricções de build, ambientes e deploy." },
+        { "label": "Qualidade", "desc": "Validar mais código sem sobrecarregar revisores." },
+        { "label": "Arquitetura", "desc": "Permitir mudanças independentes e menores." },
+        { "label": "Contexto", "desc": "Dar à IA acesso seguro a código, documentação, padrões e regras do negócio." },
+        { "label": "Pessoas e organização", "desc": "Desenvolver fluência crítica em IA e reduzir dependências, aprovações e handoffs." }
       ],
       "poll": {
         "id": "p2-gargalo",

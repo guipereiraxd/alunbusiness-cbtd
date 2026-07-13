@@ -269,12 +269,12 @@ window.Render = (function () {
 
     // Tela 4 — o gargalo: código passa rápido e acumula nas etapas
     flow: function (s) {
-      var jam = s.stages.map(function (st) { return '<span class="jam-stage">' + esc(st) + '</span>'; }).join('');
+      var dims = s.dimensions.map(function (d) {
+        return '<div class="dim-card"><div class="dim-label">' + esc(d.label) + '</div>' +
+          '<div class="dim-desc">' + esc(d.desc) + '</div></div>';
+      }).join('');
       return screenHead(s) +
-        '<div class="flow" data-reveal="1">' +
-          '<div class="flow-fast"><span>' + esc(s.fast) + '</span>' + chevrons + '</div>' +
-          '<div class="flow-jam">' + jam + '</div>' +
-        '</div>' +
+        '<div class="dim-grid">' + dims + '</div>' +
         pollWidget(s.poll, 2);
     },
 
