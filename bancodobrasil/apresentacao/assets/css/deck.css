@@ -462,6 +462,18 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 .dim-desc { font-size: 0.78rem; line-height: 1.35; color: var(--ink-3); }
 @media (max-width: 860px) { .dim-grid { grid-template-columns: 1fr 1fr; } }
 
+/* Tela 7 acumula grade + enquete no mesmo palco — encolhe para caber
+   com margem de segurança no 16:9. */
+.screen[data-type="flow"] .insight { font-size: clamp(1.4rem, 2.8vw, 2.2rem); max-width: 34ch; }
+.screen[data-type="flow"] .dim-grid { margin-top: 16px; gap: 8px; }
+.screen[data-type="flow"] .dim-card { padding: 9px 12px; }
+.screen[data-type="flow"] .dim-label { font-size: 0.82rem; margin-bottom: 2px; }
+.screen[data-type="flow"] .dim-desc { font-size: 0.72rem; line-height: 1.3; }
+.screen[data-type="flow"] .poll-live { margin-top: 18px; padding: 16px 20px; gap: 18px; }
+.screen[data-type="flow"] .poll-live .qr.qr-real { width: 128px; height: 128px; }
+.screen[data-type="flow"] .poll-result { margin-top: 16px; gap: 28px; }
+.screen[data-type="flow"] .poll-result-qr .qr.qr-real { width: 108px; height: 108px; }
+
 /* ── Tela 5: anel do loop ───────────────────────────────────── */
 .loop-ring { position: relative; width: min(46vh, 400px); aspect-ratio: 1; margin: 0 auto; }
 .loop-ring::before {
