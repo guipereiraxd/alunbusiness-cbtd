@@ -321,7 +321,7 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 /* ── Tela 9: Aquário Técnico (Fishbowl) — capa remasterizada ──── */
 .fishbowl-stage {
   position: relative; width: 100%; overflow: hidden;
-  padding: 46px 54px; border-radius: 18px; background: var(--nav-800);
+  padding: 34px 48px; border-radius: 18px; background: var(--nav-800);
   border: 1px solid var(--nav-600);
 }
 .fishbowl-stage .landing-net { opacity: 0.5; }
@@ -329,11 +329,11 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 .fishbowl-center { position: relative; z-index: 1; }
 .fishbowl-title {
   font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(2rem, 4.4vw, 3.1rem); color: var(--ink-1); margin-top: 20px;
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem); color: var(--ink-1); margin-top: 14px;
 }
-.fishbowl-sub { margin-top: 14px; max-width: 56ch; }
+.fishbowl-sub { margin-top: 10px; max-width: 56ch; }
 /* Blocos exclusivos: só o do passo atual aparece, substituindo o anterior */
-.fishbowl-q-block { display: none; margin-top: 34px; max-width: 68ch; }
+.fishbowl-q-block { display: none; margin-top: 22px; max-width: 68ch; }
 .fishbowl-q-block.shown { display: block; }
 .fishbowl-intro .fishbowl-q-main { color: var(--ink-3); font-style: italic; }
 .fishbowl-q-label {
@@ -343,12 +343,17 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
 }
 .fishbowl-q-main {
   font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(1.2rem, 2.1vw, 1.55rem); line-height: 1.4; color: var(--ink-1);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem); line-height: 1.3; color: var(--ink-1);
+  margin-bottom: 6px;
 }
-.fishbowl-deepen-label { margin-top: 24px; }
-.fishbowl-q-deepen { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.fishbowl-deepen-label {
+  display: block; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--nav-600);
+  font-family: var(--font-display); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
+}
+.fishbowl-q-deepen { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
 .fishbowl-q-deepen li {
-  font-size: 0.92rem; line-height: 1.5; color: var(--ink-2);
+  font-size: 0.88rem; line-height: 1.4; color: var(--ink-2);
   display: flex; gap: 10px;
 }
 .fishbowl-q-deepen li::before { content: "›"; color: var(--yellow); flex-shrink: 0; }

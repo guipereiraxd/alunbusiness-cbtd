@@ -33,9 +33,11 @@ title: "Aquário Técnico — Fishbowl"
   </ul>
 </div>
 
-<a class="bb-card" href="{{ '/bancodobrasil/apresentacao/#/tela/9/0' | relative_url }}" target="_blank" rel="noopener" style="margin-top: 40px;">
-  <div class="bb-card-icon">◉</div>
-  <div class="bb-card-title">Acesse as perguntas do Fishbowl ↗</div>
-  <div class="bb-card-desc">As 5 perguntas-guia da dinâmica, reveladas uma a uma.</div>
-</a>
+<div class="bb-cards" style="margin-top: 40px;">
+  <a class="bb-card" href="{{ '/bancodobrasil/apresentacao/#/tela/9/0' | relative_url }}" target="_blank" rel="noopener">
+    <div class="bb-card-icon">◉</div>
+    <div class="bb-card-title">Acesse as perguntas do Fishbowl ↗</div>
+    <div class="bb-card-desc">As 5 perguntas-guia da dinâmica, reveladas uma a uma.</div>
+  </a>
+</div>
 

@@ -217,7 +217,7 @@ window.Render = (function () {
         return '<div class="fishbowl-q-block" data-step="' + (i + 1) + '">' +
           '<div class="fishbowl-q-label">Pergunta ' + (i + 1) + ' de ' + total + ' · ' + esc(q.title) + '</div>' +
           '<p class="fishbowl-q-main">' + esc(q.question) + '</p>' +
-          '<span class="bb-list-label fishbowl-deepen-label">Perguntas de aprofundamento</span>' +
+          '<span class="fishbowl-deepen-label">Perguntas de aprofundamento</span>' +
           '<ul class="fishbowl-q-deepen">' + deepen + '</ul>' +
         '</div>';
       }).join('');
