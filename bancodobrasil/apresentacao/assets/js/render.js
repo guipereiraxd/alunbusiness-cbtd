@@ -200,7 +200,7 @@ window.Render = (function () {
       '<div class="brace">' + chevrons + '{ ' + esc(title) + ' }</div>' +
       '<h1>Em<br><span class="y">construção</span></h1>' +
       '<p class="sub">' + esc(msg) + '</p>' +
-      '<div class="actions"><a class="btn btn-ghost" href="#/">← Voltar ao início</a></div>' +
+      '<div class="actions"><a class="btn btn-ghost" href="/bancodobrasil/">← Voltar ao início</a></div>' +
       '</section>';
   }
 
@@ -227,7 +227,7 @@ window.Render = (function () {
       '<div class="mapv-head"><div>' +
         '<div class="doc-kicker">' + chevrons + 'Mapa de Conceitos</div>' +
         '<h1 class="mapv-title">A nova engenharia, conectada</h1>' +
-      '</div><a class="btn btn-ghost" href="#/">← Início</a></div>' +
+      '</div><a class="btn btn-ghost" href="/bancodobrasil/">← Início</a></div>' +
       '<div class="mapv-tools">' +
         '<input id="mapSearch" class="mapv-search" type="search" placeholder="Buscar conceito ou termo…" aria-label="Buscar">' +
         '<div class="mapv-filters">' + chips + '</div>' +
