@@ -302,13 +302,57 @@
       "subtitle": "Debate sobre as principais necessidades de transformação do BB frente ao futuro emergente.",
       "steps": 5,
       "questions": [
-        "O que muda para o desenvolvimento de software no dia a dia dos times?",
-        "Como qualidade se redefine quando parte do código é gerada por IA?",
-        "Que mudanças a arquitetura precisa sustentar nesse novo cenário?",
-        "Que riscos de segurança e governança essa transformação introduz?",
-        "Como a liderança técnica precisa se adaptar para conduzir esse momento?"
+        {
+          "title": "Produtividade sistêmica e o novo gargalo",
+          "question": "Quando a IA aumenta drasticamente a capacidade de gerar mudanças, mas revisão, integração e operação não crescem na mesma velocidade, o que a organização deveria redesenhar primeiro — e que evidência mostraria que o gargalo realmente mudou?",
+          "deepen": [
+            "Em qual ponto do fluxo a produtividade individual começa a produzir sobrecarga coletiva?",
+            "Que capacidade deveria crescer antes de distribuirmos agentes para todos os desenvolvedores?",
+            "Existe algum momento em que limitar a geração de código seria uma decisão racional?"
+          ]
+        },
+        {
+          "title": "Intenção, especificação e conhecimento do domínio",
+          "question": "Quando implementar se torna mais barato do que decidir o que deve ser construído, qual artefato deve carregar a intenção do sistema — e como negócio, arquitetura e engenharia deveriam negociá-lo, refiná-lo e versioná-lo?",
+          "deepen": [
+            "A especificação passa a ser mais importante do que o código?",
+            "O que não pode ser especificado antecipadamente e só emerge durante a implementação?",
+            "Quem deve decidir quando uma especificação possui detalhe suficiente para um agente começar?",
+            "Como impedir que uma especificação errada escale erros por todo o sistema?"
+          ]
+        },
+        {
+          "title": "Arquitetura e legibilidade para agentes",
+          "question": "Como projetar uma base de código que precise ser compreendida e modificada por humanos e agentes ao mesmo tempo — e quais princípios arquiteturais deveriam deixar de ser apenas documentação para se tornarem restrições executáveis?",
+          "deepen": [
+            "O que significa uma arquitetura \"legível por agentes\"?",
+            "Quais decisões deveriam estar em ADRs e quais deveriam estar codificadas como testes ou políticas?",
+            "Como preservar coerência arquitetural quando dezenas de agentes trabalham em paralelo?",
+            "Que tipo de dívida técnica se torna mais perigosa: a dívida de código ou a dívida de contexto?"
+          ]
+        },
+        {
+          "title": "Qualidade, avaliação e conflitos de evidência",
+          "question": "Quando uma mudança passa nos testes funcionais, mas piora a manutenibilidade, a segurança ou a coerência do domínio, quem define que ela está pronta — e como resolver conflitos entre evidências que apontam em direções diferentes?",
+          "deepen": [
+            "Qual evidência deve ter maior peso: teste, avaliação arquitetural, análise de segurança ou revisão humana?",
+            "Como avaliar aspectos que não possuem resposta binária, como clareza, simplicidade e coerência?",
+            "O agente que gera uma solução deveria poder avaliá-la?",
+            "Quem avalia o avaliador quando usamos outro modelo como juiz?"
+          ]
+        },
+        {
+          "title": "Autonomia, contenção e autoridade operacional",
+          "question": "Que combinação de limites, observabilidade, mecanismos de recuperação e histórico de desempenho um agente precisa acumular antes de ganhar autoridade para fazer merge, deploy ou agir em produção — e por quais sinais essa autoridade deveria ser reduzida?",
+          "deepen": [
+            "Autonomia deveria ser conquistada por tarefa, por agente ou por domínio?",
+            "Como diferenciar uma ação reversível de uma ação que exige aprovação prévia?",
+            "Que falhas deveriam suspender automaticamente a autonomia?",
+            "Quem é responsável quando o agente opera dentro das permissões recebidas, mas produz um resultado indesejado?"
+          ]
+        }
       ],
-      "speakerNotes": "Tela de apoio para a dinâmica Fishbowl das 15h10. Perguntas de partida derivadas dos 5 temas do cronograma (desenvolvimento, qualidade, arquitetura, segurança, liderança) — substituir livremente por perguntas próprias antes do dia. Acesso direto via URL; não faz parte da sequência automática das telas 1–8.",
+      "speakerNotes": "Tela de apoio para a dinâmica Fishbowl das 15h10. Um clique revela cada pergunta principal (com as perguntas de aprofundamento), substituindo a anterior. Acesso direto via URL; não faz parte da sequência automática das telas 1–8.",
       "explore": { "summary": "Perguntas-guia para o Fishbowl do Aquário Técnico.", "items": [] }
     }
   ]

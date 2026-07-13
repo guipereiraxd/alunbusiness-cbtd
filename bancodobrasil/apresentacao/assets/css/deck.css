@@ -332,18 +332,26 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
   font-size: clamp(2rem, 4.4vw, 3.1rem); color: var(--ink-1); margin-top: 20px;
 }
 .fishbowl-sub { margin-top: 14px; max-width: 56ch; }
-.fishbowl-questions {
-  list-style: none; margin-top: 36px; display: flex; flex-direction: column;
-  gap: 16px; max-width: 66ch;
+/* Blocos exclusivos: só o do passo atual aparece, substituindo o anterior */
+.fishbowl-q-block { display: none; margin-top: 34px; max-width: 68ch; }
+.fishbowl-q-block.shown { display: block; }
+.fishbowl-intro .fishbowl-q-main { color: var(--ink-3); font-style: italic; }
+.fishbowl-q-label {
+  font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow);
+  margin-bottom: 14px;
 }
-.fishbowl-q { display: flex; gap: 16px; align-items: flex-start; }
-.fishbowl-q-num {
-  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
-  color: var(--nav-900); background: var(--yellow);
+.fishbowl-q-main {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.2rem, 2.1vw, 1.55rem); line-height: 1.4; color: var(--ink-1);
 }
-.fishbowl-q-text { font-size: 1.05rem; line-height: 1.5; color: var(--ink-1); padding-top: 4px; }
+.fishbowl-deepen-label { margin-top: 24px; }
+.fishbowl-q-deepen { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.fishbowl-q-deepen li {
+  font-size: 0.92rem; line-height: 1.5; color: var(--ink-2);
+  display: flex; gap: 10px;
+}
+.fishbowl-q-deepen li::before { content: "›"; color: var(--yellow); flex-shrink: 0; }
 @media (max-width: 860px) {
   .fishbowl-stage .hero-arrow { display: none; }
 }

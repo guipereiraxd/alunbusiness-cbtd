@@ -361,6 +361,10 @@
       el.classList.toggle('active', on);
       el.classList.toggle('pulse', on); // .q-10x ganha o brilho pulsante
     });
+    // Blocos exclusivos: só o que corresponde exatamente à microetapa atual aparece
+    app.querySelectorAll('[data-step]').forEach(function (el) {
+      el.classList.toggle('shown', state.step === parseInt(el.getAttribute('data-step'), 10));
+    });
   }
 
   /* ── Mapa: seções por categoria + busca + filtro ──────────── */

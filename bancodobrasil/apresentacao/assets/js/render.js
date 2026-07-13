@@ -211,12 +211,19 @@ window.Render = (function () {
     // Tela de apoio do Fishbowl — capa remasterizada com perguntas-guia
     // reveladas uma a uma, clique a clique.
     fishbowl: function (s) {
-      var qs = s.questions.map(function (q, i) {
-        return '<li class="fishbowl-q" data-reveal="' + (i + 1) + '">' +
-          '<span class="fishbowl-q-num">' + (i + 1) + '</span>' +
-          '<span class="fishbowl-q-text">' + esc(q) + '</span>' +
-        '</li>';
+      var total = s.questions.length;
+      var blocks = s.questions.map(function (q, i) {
+        var deepen = q.deepen.map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('');
+        return '<div class="fishbowl-q-block" data-step="' + (i + 1) + '">' +
+          '<div class="fishbowl-q-label">Pergunta ' + (i + 1) + ' de ' + total + ' · ' + esc(q.title) + '</div>' +
+          '<p class="fishbowl-q-main">' + esc(q.question) + '</p>' +
+          '<span class="bb-list-label fishbowl-deepen-label">Perguntas de aprofundamento</span>' +
+          '<ul class="fishbowl-q-deepen">' + deepen + '</ul>' +
+        '</div>';
       }).join('');
+      var intro = '<div class="fishbowl-q-block fishbowl-intro" data-step="0">' +
+        '<p class="fishbowl-q-main">Clique para revelar a primeira pergunta.</p>' +
+      '</div>';
       return '<div class="fishbowl-stage">' +
         landingNetwork() +
         landingHeroArrow() +
@@ -224,7 +231,7 @@ window.Render = (function () {
           '<div class="kicker">' + chevrons + esc(s.kicker) + '</div>' +
           '<h1 class="fishbowl-title">' + esc(s.title) + '</h1>' +
           '<p class="sub fishbowl-sub">' + esc(s.subtitle) + '</p>' +
-          '<ul class="fishbowl-questions">' + qs + '</ul>' +
+          intro + blocks +
         '</div>' +
       '</div>';
     },
