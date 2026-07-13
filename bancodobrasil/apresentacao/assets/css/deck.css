@@ -303,6 +303,10 @@ body[data-view="landing"] .bg-glow { animation: glow-breathe 7s ease-in-out infi
   background: rgba(255,255,255,0.02);
 }
 .imgslide-quote .y { color: var(--yellow); }
+/* Dá o máximo de espaço possível para a imagem — texto encolhe */
+.screen[data-type="imageslide"] .split { grid-template-columns: 0.6fr 1.4fr; gap: 3vw; }
+.screen[data-type="imageslide"] .split .insight { font-size: clamp(1.2rem, 2.4vw, 1.9rem); max-width: 15ch; }
+.screen[data-type="imageslide"] .imgslide-quote { max-width: none; }
 
 /* ── Tela 8: fechamento — mudança de paradigma ────────────────── */
 .manifesto-body { margin-top: 30px; max-width: 62ch; }
