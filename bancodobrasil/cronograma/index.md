@@ -72,3 +72,87 @@ title: "Cronograma"
   </div>
 
 </div>
+
+<div class="bb-comment">
+  <h2>Deixe um comentário sobre o conteúdo</h2>
+  <form class="bb-comment-form" id="bbCommentForm">
+    <div class="bb-comment-row">
+      <div class="bb-comment-field">
+        <label for="bbCName">Nome</label>
+        <input type="text" id="bbCName" name="name" required autocomplete="name">
+      </div>
+      <div class="bb-comment-field">
+        <label for="bbCEmail">E-mail</label>
+        <input type="email" id="bbCEmail" name="email" required autocomplete="email">
+      </div>
+    </div>
+    <div class="bb-comment-field">
+      <label for="bbCComment">Comentário</label>
+      <textarea id="bbCComment" name="comment" required></textarea>
+    </div>
+    <button type="submit" class="bb-comment-submit" id="bbCSubmit">Enviar comentário</button>
+    <p class="bb-comment-status" id="bbCStatus"></p>
+    <p class="bb-comment-hint">Seu comentário é enviado apenas à organização do evento, para acompanhamento e melhoria de conteúdo.</p>
+  </form>
+</div>
+
+<script src="{{ '/assets/firebase-config.js' | relative_url }}"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script>
+(function () {
+  var db = null;
+  if (window.FIREBASE_CONFIG && window.firebase) {
+    try {
+      var app = firebase.apps.length ? firebase.app() : firebase.initializeApp(window.FIREBASE_CONFIG);
+      db = firebase.firestore(app);
+    } catch (e) { console.warn('[bb-comment] Firebase init failed:', e); }
+  }
+
+  var form = document.getElementById('bbCommentForm');
+  var status = document.getElementById('bbCStatus');
+  var submitBtn = document.getElementById('bbCSubmit');
+
+  function setStatus(msg, cls) {
+    status.textContent = msg;
+    status.className = 'bb-comment-status' + (cls ? ' ' + cls : '');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('bbCName').value.trim();
+    var email = document.getElementById('bbCEmail').value.trim();
+    var comment = document.getElementById('bbCComment').value.trim();
+
+    if (!name || !email || !comment) {
+      setStatus('Preencha todos os campos.', 'err');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus('Informe um e-mail válido.', 'err');
+      return;
+    }
+    if (!db) {
+      setStatus('Não foi possível enviar agora. Tente novamente mais tarde.', 'err');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    setStatus('Enviando…');
+    db.collection('dc_comentarios').add({
+      name: name, email: email, comment: comment,
+      page: window.location.pathname,
+      source: 'depois-do-codigo',
+      ts: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(function () {
+      setStatus('Comentário enviado — obrigado!', 'ok');
+      form.reset();
+      submitBtn.disabled = false;
+    }).catch(function (err) {
+      console.warn('[bb-comment] write failed:', err);
+      setStatus('Não foi possível enviar. Tente novamente.', 'err');
+      submitBtn.disabled = false;
+    });
+  });
+})();
+</script>
