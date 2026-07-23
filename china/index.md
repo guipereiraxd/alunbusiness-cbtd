@@ -7,8 +7,8 @@
   <p class="lede">O que a China antecipa sobre economia, inteligência artificial e organizações do futuro — e o que disso é aprendizado transferível para o Brasil.</p>
   <div class="stats">
     <div><b>5</b><span>atos</span></div>
-    <div><b>41</b><span>verbetes</span></div>
-    <div><b>135</b><span>números-chave</span></div>
+    <div><b>42</b><span>verbetes</span></div>
+    <div><b>139</b><span>números-chave</span></div>
     <div><b>11</b><span>eixos transversais</span></div>
   </div>
 </header>
@@ -33,7 +33,7 @@
   <h2>O impacto da inteligência artificial</h2>
   <div class="sub">A régua mudou de lugar</div>
   <p class="ab">A corrida de IA foi narrada como disputa pelo modelo mais inteligente. Essa régua mudou. O que passou a contar é quanto custa cada resposta, quantas pessoas conseguem usar o sistema e o quanto ele se integra a fábricas e…</p>
-  <div class="n">8 verbetes →</div>
+  <div class="n">9 verbetes →</div>
 </a>
 <a class="ato-card" data-c="IV" href="{{ '/china/ato-4/' | relative_url }}">
   <div class="k">Ato IV</div>
