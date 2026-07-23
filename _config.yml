@@ -24,6 +24,10 @@ include:
   - calculadora-roi
   - curso-ia
   - bancodobrasil
+  - china
+
+exclude:
+  - china/china-repositorio
 
 defaults:
   - scope:
@@ -36,3 +40,8 @@ defaults:
       type: "pages"
     values:
       layout: "bancodobrasil"
+  - scope:
+      path: "china"
+      type: "pages"
+    values:
+      layout: "china"

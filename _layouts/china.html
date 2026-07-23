@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if page.title %}{{ page.title }} · {% endif %}China · Repositório de conteúdo</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF6; --ink:#15171C; --slate:#5C6470; --line:#E4E1D8; --wash:#F2F0E9;
+  --c-I:#C8281E; --c-II:#B07A16; --c-III:#0052D9; --c-IV:#0A7A48; --c-V:#6B3FA0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+/* ---------- top nav ---------- */
+header.site{border-bottom:2px solid var(--ink);background:var(--paper);position:sticky;top:0;z-index:40}
+header.site .in{max-width:840px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;
+  gap:22px;flex-wrap:wrap}
+header.site .brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:16px;
+  text-transform:uppercase;letter-spacing:-.01em;text-decoration:none;color:var(--ink);white-space:nowrap}
+header.site nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+header.site nav a{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--slate);text-decoration:none;padding:6px 9px;border:1px solid transparent}
+header.site nav a:hover{color:var(--ink);border-color:var(--line)}
+header.site nav a.on{color:var(--ink);border-color:var(--ink);background:var(--wash)}
+@media(max-width:700px){ header.site .in{padding:14px 20px} }
+
+main{max-width:840px;margin:0 auto;padding:0 40px 100px}
+@media(max-width:700px){ main{padding:0 20px 80px} }
+
+.hero{padding:56px 0 36px;border-bottom:3px solid var(--ink)}
+.hero .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--c-I);font-weight:600}
+.hero h1{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 118;font-weight:900;
+  font-size:clamp(30px,5.6vw,54px);line-height:1.02;letter-spacing:-.02em;margin:18px 0 0;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--c-I)}
+.hero p.lede{font-size:19px;line-height:1.5;max-width:620px;margin-top:16px;color:#2A2D33}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);margin-top:30px;background:#fff}
+.stats div{padding:16px 14px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;display:block;line-height:1}
+.stats span{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--slate);
+  letter-spacing:.07em;display:block;margin-top:6px;line-height:1.4}
+@media(max-width:700px){ .stats{grid-template-columns:repeat(2,1fr)} }
+
+/* ---------- Ato cards (home) ---------- */
+.ato-cards{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.ato-card{display:block;text-decoration:none;color:inherit;border-bottom:1px solid var(--line);
+  padding:26px 0;border-left:5px solid transparent;padding-left:20px;margin-left:-20px;transition:background .15s}
+.ato-card:hover{background:var(--wash)}
+.ato-card[data-c="I"]{border-left-color:var(--c-I)} .ato-card[data-c="II"]{border-left-color:var(--c-II)}
+.ato-card[data-c="III"]{border-left-color:var(--c-III)} .ato-card[data-c="IV"]{border-left-color:var(--c-IV)}
+.ato-card[data-c="V"]{border-left-color:var(--c-V)}
+.ato-card .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;font-weight:600}
+.ato-card[data-c="I"] .k{color:var(--c-I)} .ato-card[data-c="II"] .k{color:var(--c-II)}
+.ato-card[data-c="III"] .k{color:var(--c-III)} .ato-card[data-c="IV"] .k{color:var(--c-IV)}
+.ato-card[data-c="V"] .k{color:var(--c-V)}
+.ato-card h2{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112;font-weight:800;
+  font-size:clamp(22px,3.4vw,30px);line-height:1.1;letter-spacing:-.015em;margin:6px 0 4px}
+.ato-card .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--slate);letter-spacing:.05em}
+.ato-card .ab{font-size:15.5px;color:#3A3E46;margin-top:10px;max-width:640px;line-height:1.5}
+.ato-card .n{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--slate);margin-top:10px}
+
+.axes{margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
+.axes .fl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--slate);margin-bottom:10px}
+.axes .tg{display:flex;gap:6px;flex-wrap:wrap}
+.axes .tg span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);
+  border:1px solid var(--line);padding:4px 10px;background:#fff}
+
+/* ---------- Ato header (ato pages) ---------- */
+.ato-head{border-left:5px solid;padding-left:20px;margin:44px 0 28px}
+.ato-head.first{margin-top:0}
+main[data-c="I"] .ato-head{border-color:var(--c-I)} main[data-c="II"] .ato-head{border-color:var(--c-II)}
+main[data-c="III"] .ato-head{border-color:var(--c-III)} main[data-c="IV"] .ato-head{border-color:var(--c-IV)}
+main[data-c="V"] .ato-head{border-color:var(--c-V)}
+.ato-head .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;font-weight:600}
+main[data-c="I"] .k{color:var(--c-I)} main[data-c="II"] .k{color:var(--c-II)}
+main[data-c="III"] .k{color:var(--c-III)} main[data-c="IV"] .k{color:var(--c-IV)}
+main[data-c="V"] .k{color:var(--c-V)}
+.ato-head h1{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112;font-weight:800;
+  font-size:clamp(26px,4vw,38px);line-height:1.05;letter-spacing:-.015em;margin:8px 0 6px}
+.ato-head .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--slate);letter-spacing:.06em}
+.ato-head .ab{font-size:17px;color:#3A3E46;margin-top:14px;max-width:660px}
+
+/* ---------- verbete ---------- */
+.v{border-top:1px solid var(--line);padding:26px 0}
+.v:last-child{border-bottom:1px solid var(--line)}
+.v-id{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--slate)}
+.v-t{font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.25;
+  letter-spacing:-.01em;margin-top:4px}
+.v-r{font-size:15.5px;color:var(--slate);margin-top:6px;line-height:1.45;max-width:660px}
+.tese{border-left:3px solid var(--ink);padding:2px 0 2px 18px;margin:20px 0;font-size:17.5px;line-height:1.5}
+.v-body p{margin-bottom:15px;max-width:660px}
+.dados{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--ink);background:#fff;margin:22px 0}
+.dados .d{padding:14px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dados .d:nth-child(2n){border-right:0}
+.dados .d:nth-last-child(-n+2){border-bottom:0}
+.dados .dv{font-family:'Archivo',sans-serif;font-weight:900;font-size:23px;line-height:1;letter-spacing:-.02em}
+.dados .dl{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--slate);
+  letter-spacing:.05em;margin-top:7px;line-height:1.45}
+.br{background:var(--wash);border:1px solid var(--line);padding:18px 20px;margin-top:6px}
+.br .brt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;margin-bottom:8px}
+main[data-c="I"] .brt{color:var(--c-I)} main[data-c="II"] .brt{color:var(--c-II)}
+main[data-c="III"] .brt{color:var(--c-III)} main[data-c="IV"] .brt{color:var(--c-IV)}
+main[data-c="V"] .brt{color:var(--c-V)}
+.br p{margin:0;font-size:15.5px}
+.tg{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.tg span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--slate);
+  border:1px solid var(--line);padding:2px 8px;background:#fff}
+@media(max-width:700px){ .dados{grid-template-columns:1fr} .dados .d{border-right:0} }
+
+footer.site{background:var(--ink);color:#C9CBD2;padding:48px 40px 44px;margin-top:20px}
+footer.site .in{max-width:840px;margin:0 auto}
+footer.site h4{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#fff;margin-bottom:14px}
+footer.site p{font-size:15px;max-width:680px;margin-bottom:12px}
+footer.site a{color:#fff}
+footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.09em;color:#8A8F9B;
+  border-top:1px solid #33363E;padding-top:16px;margin-top:26px;line-height:1.7}
+@media print{
+  header.site,footer.site{display:none}
+  main{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="in">
+    <a class="brand" href="{{ '/china/' | relative_url }}">China · Repositório</a>
+    <nav>
+      <a href="{{ '/china/' | relative_url }}"{% if page.url == '/china/' %} class="on"{% endif %}>Início</a>
+      <a href="{{ '/china/ato-1/' | relative_url }}"{% if page.url contains 'ato-1' %} class="on"{% endif %}>Ato I</a>
+      <a href="{{ '/china/ato-2/' | relative_url }}"{% if page.url contains 'ato-2' %} class="on"{% endif %}>Ato II</a>
+      <a href="{{ '/china/ato-3/' | relative_url }}"{% if page.url contains 'ato-3' %} class="on"{% endif %}>Ato III</a>
+      <a href="{{ '/china/ato-4/' | relative_url }}"{% if page.url contains 'ato-4' %} class="on"{% endif %}>Ato IV</a>
+      <a href="{{ '/china/ato-5/' | relative_url }}"{% if page.url contains 'ato-5' %} class="on"{% endif %}>Ato V</a>
+    </nav>
+  </div>
+</header>
+
+<main{% if page.cor %} data-c="{{ page.cor }}"{% endif %}>
+  {{ content }}
+</main>
+
+<footer class="site">
+  <div class="in">
+    <h4>Como usar este repositório</h4>
+    <p>Cada verbete é uma unidade autônoma: uma <strong>tese</strong> que cabe num slide, um <strong>corpo</strong> que sustenta um argumento, <strong>números</strong> prontos para citar e uma <strong>implicação para o Brasil</strong> que serve de ponte para qualquer público executivo.</p>
+    <p>Os eixos transversais permitem recombinar o material sem seguir a ordem dos atos — filtre mentalmente por <em>governança</em>, <em>manufatura</em> ou <em>adoção</em> e monte uma narrativa nova a partir das mesmas peças.</p>
+    <div class="sig">
+      CHINA · REPOSITÓRIO DE CONTEÚDO · v1.0 · julho de 2026 · <a href="https://alunbusiness.md">alunbusiness.md</a><br>
+      SÍNTESE AUTORAL A PARTIR DE DADOS OFICIAIS (ESCRITÓRIO NACIONAL DE ESTATÍSTICA DA CHINA, CONSELHO DE ESTADO, OCDE, FMI, BANCO MUNDIAL, AIE, IFR, UIT, IBGE), PESQUISA ESPECIALIZADA (RAND, MERICS, CARNEGIE, CSET/GEORGETOWN, CFR, NATURE, THE CHINA QUARTERLY, ASIA SOCIETY, WEF), LEVANTAMENTOS DE MERCADO (IEA, INTERACT ANALYSIS, OMDIA, OPENROUTER, COUNTERPOINT), IMPRENSA (CAIXIN, MIT TECHNOLOGY REVIEW, IMPRENSA BRASILEIRA) E OBSERVAÇÃO DE CAMPO EM XANGAI E PEQUIM, JULHO DE 2026.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
