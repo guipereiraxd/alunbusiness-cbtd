@@ -29,22 +29,22 @@
       <div class="strip-item">
         <svg class="ic"><use href="#i-trend"></use></svg>
         <h3>Economia em transição</h3>
-        <p>Da imobiliária ao consumo — o motor de crescimento mudou de lugar.</p>
+        <p>Da construção civil ao consumo — o motor de crescimento mudou de lugar.</p>
       </div>
       <div class="strip-item">
         <svg class="ic"><use href="#i-cpu"></use></svg>
         <h3>IA como política de Estado</h3>
-        <p>Difusão, não fronteira, é a estratégia que está vencendo.</p>
+        <p>Difusão é a estratégia que está vencendo.</p>
       </div>
       <div class="strip-item">
         <svg class="ic"><use href="#i-skyline"></use></svg>
         <h3>Os novos dragões</h3>
-        <p>Empresas que nascem globais e verticalizam desde o dia um.</p>
+        <p>Não é o unicórnio de app. É a empresa que nasce global e verticaliza desde o dia um.</p>
       </div>
       <div class="strip-item">
         <svg class="ic"><use href="#i-compass"></use></svg>
         <h3>Pontes com o Brasil</h3>
-        <p>O que é mecanismo replicável, e o que é regime — só isso.</p>
+        <p>O que é mecanismo replicável, e o que é específico do regime chinês.</p>
       </div>
     </div>
   </div>
