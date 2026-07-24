@@ -4,7 +4,7 @@ cor: "II"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato II · 7 verbetes</div>
+  <div class="k">Ato II · 7 descobertas</div>
   <h1>A nova economia chinesa</h1>
   <div class="sub">Trocar o motor com o carro andando</div>
   <p class="ab">Por décadas a China cresceu construindo. Esse motor perdeu força: o investimento imobiliário despencou e sobram dezenas de milhões de imóveis vazios. O mecanismo financeiro que erguia prédios não parou — mudou de alvo, e migrou para manufatura avançada, levando junto o mesmo problema de excesso de capacidade. Este ato explica de onde vem o dinheiro, por que a involução virou palavra do ano, e como um país que produz mais do que consegue vender está tentando virar economia de consumo sem parar de exportar.</p>

@@ -4,7 +4,7 @@ cor: "IV"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato IV · 9 verbetes</div>
+  <div class="k">Ato IV · 9 descobertas</div>
   <h1>Empresas chinesas e os novos dragões</h1>
   <div class="sub">A anatomia de uma geração</div>
   <p class="ab">A geração anterior de gigantes chinesas nasceu protegida por um muro e conquistou o mercado interno. A nova nasce olhando para fora desde o primeiro dia — e chega ao Brasil não como exportadora, mas como fábrica, marca e concorrente. Este ato desmonta o mecanismo: a pirâmide estatal que fabrica campeões de nicho, a densidade de fornecedores que permite errar barato, a seleção brutal da involução, e a saída internacional em três movimentos.</p>

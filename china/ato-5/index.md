@@ -4,7 +4,7 @@ cor: "V"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato V · 9 verbetes</div>
+  <div class="k">Ato V · 9 descobertas</div>
   <h1>Aprendizados sobre o modelo chinês</h1>
   <div class="sub">O que é mecanismo e o que é regime</div>
   <p class="ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom. A primeira categoria não é replicável e boa parte dela não é desejável. A segunda é maior do que se imagina — e quase toda ela está disponível para organizações brasileiras que decidam medir, integrar e cobrar. Este ato fecha com o inventário honesto dos custos e com perguntas práticas.</p>

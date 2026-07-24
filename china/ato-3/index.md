@@ -4,7 +4,7 @@ cor: "III"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato III · 9 verbetes</div>
+  <div class="k">Ato III · 9 descobertas</div>
   <h1>O impacto da inteligência artificial</h1>
   <div class="sub">A régua mudou de lugar</div>
   <p class="ab">A corrida de IA foi narrada como disputa pelo modelo mais inteligente. Essa régua mudou. O que passou a contar é quanto custa cada resposta, quantas pessoas conseguem usar o sistema e o quanto ele se integra a fábricas e serviços — e essa mudança favorece estruturalmente a estratégia chinesa de modelos abertos, baratos e acoplados à economia física. Este ato cobre a economia do token, a restrição de chips vinda dos dois lados, o programa estatal de difusão e a disputa pela governança global.</p>

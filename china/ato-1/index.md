@@ -4,7 +4,7 @@ cor: "I"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato I · 8 verbetes</div>
+  <div class="k">Ato I · 8 descobertas</div>
   <h1>Entendendo a China moderna</h1>
   <div class="sub">As condições de partida</div>
   <p class="ab">Antes de qualquer conversa sobre tecnologia, existe um país. Uma sociedade milenar que atravessou uma revolução, uma revolução cultural contra a própria tradição e uma abertura econômica — e que hoje combina mercado feroz com direção estatal. Este ato reúne as estruturas que explicam tudo o que vem depois: demografia, desigualdade codificada em lei, a máquina que transforma prioridade nacional em obra, e o muro que criou um mercado cativo.</p>

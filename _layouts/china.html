@@ -147,49 +147,107 @@ body{overflow-x:hidden}
 .axes .tg span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);
   border:1px solid var(--line);padding:4px 10px;background:#fff}
 
-/* ---------- Ato header (ato pages) ---------- */
-.ato-head{border-left:5px solid;padding-left:20px;margin:44px 0 28px}
-.ato-head.first{margin-top:0}
-main[data-c="I"] .ato-head{border-color:var(--c-I)} main[data-c="II"] .ato-head{border-color:var(--c-II)}
-main[data-c="III"] .ato-head{border-color:var(--c-III)} main[data-c="IV"] .ato-head{border-color:var(--c-IV)}
-main[data-c="V"] .ato-head{border-color:var(--c-V)}
-.ato-head .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
-  text-transform:uppercase;font-weight:600}
-main[data-c="I"] .k{color:var(--c-I)} main[data-c="II"] .k{color:var(--c-II)}
-main[data-c="III"] .k{color:var(--c-III)} main[data-c="IV"] .k{color:var(--c-IV)}
-main[data-c="V"] .k{color:var(--c-V)}
-.ato-head h1{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112;font-weight:800;
-  font-size:clamp(26px,4vw,38px);line-height:1.05;letter-spacing:-.015em;margin:8px 0 6px}
-.ato-head .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--slate);letter-spacing:.06em}
-.ato-head .ab{font-size:17px;color:#3A3E46;margin-top:14px;max-width:660px}
+/* ---------- Ato page: per-ato accent + two-column shell ---------- */
+main[data-c="I"]{--ac:var(--c-I)} main[data-c="II"]{--ac:var(--c-II)}
+main[data-c="III"]{--ac:var(--c-III)} main[data-c="IV"]{--ac:var(--c-IV)} main[data-c="V"]{--ac:var(--c-V)}
+main.ato-page{max-width:none;padding:0 0 40px}
+.ato-shell{max-width:1180px;margin:0 auto;padding:44px 40px 0;
+  display:grid;grid-template-columns:250px minmax(0,1fr);gap:60px;align-items:start}
+.ato-content{min-width:0}
+@media(max-width:960px){ .ato-shell{grid-template-columns:1fr;gap:0;padding:0} }
 
-/* ---------- verbete ---------- */
-.v{border-top:1px solid var(--line);padding:26px 0}
-.v:last-child{border-bottom:1px solid var(--line)}
-.v-id{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--slate)}
-.v-t{font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.25;
-  letter-spacing:-.01em;margin-top:4px}
-.v-r{font-size:15.5px;color:var(--slate);margin-top:6px;line-height:1.45;max-width:660px}
-.tese{border-left:3px solid var(--ink);padding:2px 0 2px 18px;margin:20px 0;font-size:17.5px;line-height:1.5}
-.v-body p{margin-bottom:15px;max-width:660px}
-.dados{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--ink);background:#fff;margin:22px 0}
-.dados .d{padding:14px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+/* ---------- sticky TOC sidebar ---------- */
+.toc{position:sticky;top:84px;max-height:calc(100vh - 108px);overflow-y:auto;padding-right:6px}
+.toc-toggle{display:none}
+.toc-actidx{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ac);font-weight:600;margin-bottom:4px}
+.toc-attitle{font-family:'Playfair Display',serif;font-weight:700;font-size:19px;line-height:1.15;
+  color:var(--ink);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.toc-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--slate);font-weight:600;margin-bottom:8px}
+.toc-list{list-style:none;border-left:2px solid var(--line)}
+.toc-list a{display:flex;gap:10px;text-decoration:none;color:var(--slate);
+  padding:8px 10px 8px 15px;margin-left:-2px;border-left:2px solid transparent;
+  font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.35;
+  transition:color .15s,border-color .15s}
+.toc-list a:hover{color:var(--ink)}
+.toc-n{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:#A7A090;
+  flex-shrink:0;padding-top:2px;letter-spacing:.02em}
+.toc-list a.active{color:var(--ink);font-weight:600;border-left-color:var(--ac)}
+.toc-list a.active .toc-n{color:var(--ac)}
+
+/* ---------- Ato header ---------- */
+.ato-head{margin:0 0 4px;padding:0 0 30px;border-bottom:1px solid var(--line)}
+.ato-head .icbox{width:48px;height:48px;border-radius:14px;border:1.5px solid var(--ac);
+  color:var(--ac);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.ato-head .icbox svg{width:25px;height:25px}
+.ato-head .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;font-weight:600;color:var(--ac)}
+.ato-head h1{font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(30px,4.4vw,46px);line-height:1.06;letter-spacing:-.01em;margin:10px 0 8px;color:#1A130E}
+.ato-head .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--slate);letter-spacing:.06em}
+.ato-head .ab{font-family:'Source Serif 4',serif;font-size:17.5px;color:#3A3E46;margin-top:16px;
+  max-width:680px;line-height:1.6}
+
+/* ---------- discovery entry ---------- */
+.v{border-top:1px solid var(--line);padding:36px 0;scroll-margin-top:92px}
+.v:last-of-type{border-bottom:1px solid var(--line)}
+.v-id{display:inline-flex;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;
+  color:var(--ac);border:1px solid var(--ac);border-radius:999px;padding:3px 11px;letter-spacing:.05em}
+.v-t{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(21px,2.6vw,26px);line-height:1.2;
+  letter-spacing:-.015em;margin-top:14px}
+.v-r{font-family:'Source Serif 4',serif;font-size:16px;color:var(--slate);margin-top:8px;
+  line-height:1.5;max-width:680px}
+.tese{border-left:3px solid var(--ac);padding:4px 0 4px 20px;margin:24px 0;
+  font-family:'Source Serif 4',serif;font-size:18.5px;line-height:1.55;color:#25272C}
+.v-body p{margin-bottom:16px;max-width:680px}
+.dados{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;background:#fff;margin:24px 0}
+.dados .d{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .dados .d:nth-child(2n){border-right:0}
 .dados .d:nth-last-child(-n+2){border-bottom:0}
-.dados .dv{font-family:'Archivo',sans-serif;font-weight:900;font-size:23px;line-height:1;letter-spacing:-.02em}
+.dados .dv{font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;line-height:1;
+  letter-spacing:-.02em;color:var(--ac)}
 .dados .dl{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--slate);
-  letter-spacing:.05em;margin-top:7px;line-height:1.45}
-.br{background:var(--wash);border:1px solid var(--line);padding:18px 20px;margin-top:6px}
+  letter-spacing:.05em;margin-top:8px;line-height:1.45}
+.br{background:var(--wash);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:8px}
 .br .brt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;margin-bottom:8px}
-main[data-c="I"] .brt{color:var(--c-I)} main[data-c="II"] .brt{color:var(--c-II)}
-main[data-c="III"] .brt{color:var(--c-III)} main[data-c="IV"] .brt{color:var(--c-IV)}
-main[data-c="V"] .brt{color:var(--c-V)}
-.br p{margin:0;font-size:15.5px}
-.tg{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+  text-transform:uppercase;margin-bottom:9px;color:var(--ac)}
+.br p{margin:0;font-size:15.5px;line-height:1.6}
+.tg{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
 .tg span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--slate);
-  border:1px solid var(--line);padding:2px 8px;background:#fff}
-@media(max-width:700px){ .dados{grid-template-columns:1fr} .dados .d{border-right:0} }
+  border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:#fff}
+
+/* ---------- prev / next ato ---------- */
+.ato-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:52px}
+.ato-nav a{text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:16px;
+  padding:20px 22px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.ato-nav a:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(21,23,28,.09);border-color:transparent}
+.ato-nav .dir{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+.ato-nav .tt{font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;line-height:1.25;color:var(--ink)}
+.ato-nav .next{text-align:right}
+.ato-nav .spacer{border:0}
+
+@media(max-width:960px){
+  header.site{position:static}
+  .toc{position:sticky;top:0;z-index:30;max-height:none;overflow:visible;background:var(--paper);
+    margin:0 0 24px;padding:0;border-bottom:1px solid var(--line);border-radius:0}
+  .toc-attitle,.toc-label{display:none}
+  .toc-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;
+    background:none;border:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ac);padding:14px 22px}
+  .toc-toggle .chev{transition:transform .2s}
+  .toc.open .toc-toggle .chev{transform:rotate(180deg)}
+  .toc-inner{display:none;padding:0 22px 14px}
+  .toc.open .toc-inner{display:block}
+  .toc-actidx{display:none}
+  .ato-content{padding:0 22px}
+  .ato-nav{grid-template-columns:1fr}
+  .ato-nav .next{text-align:left}
+  .dados{grid-template-columns:1fr}
+  .dados .d{border-right:0}
+}
 
 footer.site{background:var(--ink);color:#C9CBD2;padding:48px 40px 44px;margin-top:20px}
 footer.site .in{max-width:840px;margin:0 auto}
@@ -239,9 +297,32 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
   </div>
 </header>
 
-<main{% if page.cor %} data-c="{{ page.cor }}"{% endif %}>
+{% if page.cor %}
+<main data-c="{{ page.cor }}" class="ato-page">
+  <div class="ato-shell">
+    <aside class="toc" id="toc" aria-label="Índice do ato"></aside>
+    <div class="ato-content">
+      {{ content }}
+
+      {% case page.cor %}
+        {% when "I" %}{% assign pt = "" %}{% assign pu = "" %}{% assign nt = "A nova economia chinesa" %}{% assign nu = "/china/ato-2/" %}{% assign nk = "Ato II" %}
+        {% when "II" %}{% assign pt = "Entendendo a China moderna" %}{% assign pu = "/china/ato-1/" %}{% assign pk = "Ato I" %}{% assign nt = "O impacto da inteligência artificial" %}{% assign nu = "/china/ato-3/" %}{% assign nk = "Ato III" %}
+        {% when "III" %}{% assign pt = "A nova economia chinesa" %}{% assign pu = "/china/ato-2/" %}{% assign pk = "Ato II" %}{% assign nt = "Empresas chinesas e os novos dragões" %}{% assign nu = "/china/ato-4/" %}{% assign nk = "Ato IV" %}
+        {% when "IV" %}{% assign pt = "O impacto da inteligência artificial" %}{% assign pu = "/china/ato-3/" %}{% assign pk = "Ato III" %}{% assign nt = "Aprendizados sobre o modelo chinês" %}{% assign nu = "/china/ato-5/" %}{% assign nk = "Ato V" %}
+        {% when "V" %}{% assign pt = "Empresas chinesas e os novos dragões" %}{% assign pu = "/china/ato-4/" %}{% assign pk = "Ato IV" %}{% assign nt = "" %}{% assign nu = "" %}
+      {% endcase %}
+      <nav class="ato-nav">
+        {% if pu != "" %}<a class="prev" href="{{ pu | relative_url }}"><div class="dir">← {{ pk }}</div><div class="tt">{{ pt }}</div></a>{% else %}<span class="spacer"></span>{% endif %}
+        {% if nu != "" %}<a class="next" href="{{ nu | relative_url }}"><div class="dir">{{ nk }} →</div><div class="tt">{{ nt }}</div></a>{% else %}<a class="next" href="{{ '/china/' | relative_url }}"><div class="dir">Voltar →</div><div class="tt">Início da imersão</div></a>{% endif %}
+      </nav>
+    </div>
+  </div>
+</main>
+{% else %}
+<main>
   {{ content }}
 </main>
+{% endif %}
 
 <footer class="site">
   <div class="in">
@@ -254,6 +335,79 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var main = document.querySelector('main.ato-page');
+  var toc = document.getElementById('toc');
+  if(!main || !toc) return;
+  var cor = main.getAttribute('data-c');
+  var icons = {I:'i-gate', II:'i-trend', III:'i-cpu', IV:'i-skyline', V:'i-compass'};
+
+  // Ícone no cabeçalho do ato
+  var head = main.querySelector('.ato-head');
+  if(head && icons[cor]){
+    var box = document.createElement('div');
+    box.className = 'icbox';
+    box.innerHTML = '<svg><use href="#'+icons[cor]+'"></use></svg>';
+    head.insertBefore(box, head.firstChild);
+  }
+  var atoTitle = head ? (head.querySelector('h1')||{}).textContent : '';
+
+  // IDs em cada descoberta + coleta para o índice
+  var items = [].slice.call(main.querySelectorAll('.v'));
+  var links = [];
+  items.forEach(function(v){
+    var idEl = v.querySelector('.v-id');
+    var tEl = v.querySelector('.v-t');
+    if(!idEl || !tEl) return;
+    var slug = 'v-' + idEl.textContent.trim().replace(/[^\w]+/g,'-');
+    v.id = slug;
+    links.push({slug:slug, id:idEl.textContent.trim(), title:tEl.textContent.trim(), el:v});
+  });
+
+  // Monta o índice lateral
+  var listHtml = links.map(function(l){
+    return '<li><a href="#'+l.slug+'" data-slug="'+l.slug+'">'+
+      '<span class="toc-n">'+l.id+'</span><span>'+l.title+'</span></a></li>';
+  }).join('');
+  toc.innerHTML =
+    '<button class="toc-toggle" type="button">Neste ato <span class="chev">▾</span></button>'+
+    '<div class="toc-inner">'+
+      '<div class="toc-actidx">Ato '+cor+'</div>'+
+      '<div class="toc-attitle">'+atoTitle+'</div>'+
+      '<div class="toc-label">Descobertas</div>'+
+      '<ol class="toc-list">'+listHtml+'</ol>'+
+    '</div>';
+
+  var tocLinks = {};
+  [].slice.call(toc.querySelectorAll('.toc-list a')).forEach(function(a){
+    tocLinks[a.getAttribute('data-slug')] = a;
+  });
+
+  // Scrollspy
+  var current = null;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current && tocLinks[current]) tocLinks[current].classList.remove('active');
+        current = e.target.id;
+        if(tocLinks[current]) tocLinks[current].classList.add('active');
+      }
+    });
+  }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+  items.forEach(function(v){ obs.observe(v); });
+
+  // Toggle mobile
+  var toggle = toc.querySelector('.toc-toggle');
+  toggle.addEventListener('click', function(){ toc.classList.toggle('open'); });
+  toc.addEventListener('click', function(e){
+    if(e.target.closest('.toc-list a') && window.matchMedia('(max-width:960px)').matches){
+      toc.classList.remove('open');
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
