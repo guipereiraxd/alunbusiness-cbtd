@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% if page.title %}{{ page.title }} · {% endif %}China · Repositório de conteúdo</title>
+<title>{% if page.title %}{{ page.title }} · {% endif %}China · Uma imersão · Alun Business</title>
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400..700&family=Noto+Serif+SC:wght@700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#FBFAF6; --ink:#15171C; --slate:#5C6470; --line:#E4E1D8; --wash:#F2F0E9;
@@ -35,14 +35,25 @@ header.site nav a.on{color:var(--ink);border-color:var(--ink);background:var(--w
 main{max-width:840px;margin:0 auto;padding:0 40px 100px}
 @media(max-width:700px){ main{padding:0 20px 80px} }
 
-.hero{padding:56px 0 36px;border-bottom:3px solid var(--ink)}
-.hero .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+.hero{position:relative;overflow:hidden;padding:64px 0 40px;border-bottom:3px solid var(--ink);
+  background:radial-gradient(ellipse 620px 420px at 88% -8%, rgba(200,40,30,.08), transparent 65%)}
+.hero .cn-glyph{position:absolute;right:-38px;top:-58px;font-family:'Noto Serif SC',serif;font-weight:900;
+  font-size:min(30vw,300px);line-height:1;color:var(--c-I);opacity:.06;pointer-events:none;
+  user-select:none;z-index:0}
+.hero .seal{position:relative;z-index:1;display:inline-flex;align-items:center;gap:10px;margin-bottom:2px}
+.hero .seal i{width:9px;height:9px;background:var(--c-I);flex-shrink:0}
+.hero .seal b{font-family:'Noto Serif SC',serif;font-weight:700;font-size:15px;color:var(--c-I);
+  letter-spacing:.02em}
+.hero .eyebrow{position:relative;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--c-I);font-weight:600}
-.hero h1{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 118;font-weight:900;
-  font-size:clamp(30px,5.6vw,54px);line-height:1.02;letter-spacing:-.02em;margin:18px 0 0;text-transform:uppercase}
+.hero h1{position:relative;z-index:1;font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 118;font-weight:900;
+  font-size:clamp(32px,6vw,58px);line-height:1.02;letter-spacing:-.02em;margin:16px 0 0;text-transform:uppercase}
 .hero h1 em{font-style:normal;color:var(--c-I)}
-.hero p.lede{font-size:19px;line-height:1.5;max-width:620px;margin-top:16px;color:#2A2D33}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);margin-top:30px;background:#fff}
+.hero .rule{position:relative;z-index:1;display:flex;align-items:center;gap:8px;margin-top:18px}
+.hero .rule span{height:3px;background:var(--c-I);width:56px}
+.hero .rule i{width:6px;height:6px;border-radius:50%;background:var(--c-II)}
+.hero p.lede{position:relative;z-index:1;font-size:19px;line-height:1.5;max-width:620px;margin-top:18px;color:#2A2D33}
+.stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);margin-top:30px;background:#fff}
 .stats div{padding:16px 14px;border-right:1px solid var(--line)}
 .stats div:last-child{border-right:0}
 .stats b{font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;display:block;line-height:1}
@@ -137,7 +148,7 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
 
 <header class="site">
   <div class="in">
-    <a class="brand" href="{{ '/china/' | relative_url }}">China · Repositório</a>
+    <a class="brand" href="{{ '/china/' | relative_url }}">China</a>
     <nav>
       <a href="{{ '/china/' | relative_url }}"{% if page.url == '/china/' %} class="on"{% endif %}>Início</a>
       <a href="{{ '/china/ato-1/' | relative_url }}"{% if page.url contains 'ato-1' %} class="on"{% endif %}>Ato I</a>
@@ -155,11 +166,11 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
 
 <footer class="site">
   <div class="in">
-    <h4>Como usar este repositório</h4>
-    <p>Cada verbete é uma unidade autônoma: uma <strong>tese</strong> que cabe num slide, um <strong>corpo</strong> que sustenta um argumento, <strong>números</strong> prontos para citar e uma <strong>implicação para o Brasil</strong> que serve de ponte para qualquer público executivo.</p>
-    <p>Os eixos transversais permitem recombinar o material sem seguir a ordem dos atos — filtre mentalmente por <em>governança</em>, <em>manufatura</em> ou <em>adoção</em> e monte uma narrativa nova a partir das mesmas peças.</p>
+    <h4>Como aproveitar esta imersão</h4>
+    <p>Cada descoberta é uma unidade autônoma: uma <strong>tese</strong> que cabe num slide, um raciocínio que sustenta um argumento, <strong>números</strong> prontos para citar e uma <strong>implicação para o Brasil</strong> que serve de ponte para qualquer público executivo.</p>
+    <p>Os temas que atravessam os 5 atos permitem recombinar o material sem seguir a ordem da jornada — pense em <em>governança</em>, <em>manufatura</em> ou <em>adoção</em> e monte uma narrativa nova a partir das mesmas peças.</p>
     <div class="sig">
-      CHINA · REPOSITÓRIO DE CONTEÚDO · v1.0 · julho de 2026 · <a href="https://alunbusiness.md">alunbusiness.md</a><br>
+      CHINA · UMA IMERSÃO DA ALUN BUSINESS · v1.0 · julho de 2026 · <a href="https://alunbusiness.md">alunbusiness.md</a><br>
       SÍNTESE AUTORAL A PARTIR DE DADOS OFICIAIS (ESCRITÓRIO NACIONAL DE ESTATÍSTICA DA CHINA, CONSELHO DE ESTADO, OCDE, FMI, BANCO MUNDIAL, AIE, IFR, UIT, IBGE), PESQUISA ESPECIALIZADA (RAND, MERICS, CARNEGIE, CSET/GEORGETOWN, CFR, NATURE, THE CHINA QUARTERLY, ASIA SOCIETY, WEF), LEVANTAMENTOS DE MERCADO (IEA, INTERACT ANALYSIS, OMDIA, OPENROUTER, COUNTERPOINT), IMPRENSA (CAIXIN, MIT TECHNOLOGY REVIEW, IMPRENSA BRASILEIRA) E OBSERVAÇÃO DE CAMPO EM XANGAI E PEQUIM, JULHO DE 2026.
     </div>
   </div>
