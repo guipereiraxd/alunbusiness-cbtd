@@ -2,12 +2,17 @@
 ---
 
 <section class="hero">
-  <div class="grain" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="petals" aria-hidden="true">
+    <i class="petal" style="left:12%;--fd:14s;--fdel:0s;--fx:-110px"></i>
+    <i class="petal" style="left:26%;--fd:17s;--fdel:4s;--fx:-70px"></i>
+    <i class="petal" style="left:42%;--fd:15s;--fdel:8s;--fx:-130px"></i>
+    <i class="petal" style="left:58%;--fd:19s;--fdel:2s;--fx:-90px"></i>
+    <i class="petal" style="left:73%;--fd:16s;--fdel:10s;--fx:-120px"></i>
+    <i class="petal" style="left:88%;--fd:18s;--fdel:6s;--fx:-80px"></i>
+  </div>
   <span class="vtext" aria-hidden="true">中国 · 传统与未来</span>
-  <svg class="swirl" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-    <path d="M10 150 Q 50 100 10 60 Q 90 80 60 20 Q 130 60 100 130 Q 160 110 150 170" stroke-width="1.4" opacity=".7"/>
-    <path d="M30 170 Q 70 140 40 100" stroke-width="1.2" opacity=".4"/>
-  </svg>
 
   <div class="hero-in">
     <div class="badge"><i></i>Uma imersão na China de hoje</div>
