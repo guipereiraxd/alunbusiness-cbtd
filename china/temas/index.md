@@ -5,15 +5,15 @@ title: "Temas"
 <section class="temas-hero">
   <div class="fl">Leitura por tema</div>
   <h1>Onze fios que atravessam os cinco atos</h1>
-  <p>A imersão foi escrita para ser recombinada. Cada descoberta carrega os temas que a atravessam — siga um deles e leia a China por um único ângulo, fora da ordem dos atos. São 54 descobertas cruzando 11 temas.</p>
+  <p>A imersão foi escrita para ser recombinada. Cada descoberta carrega os temas que a atravessam — siga um deles e leia a China por um único ângulo, fora da ordem dos atos. São 55 descobertas cruzando 11 temas.</p>
 </section>
 
 <nav class="temas-jump">
-  <a href="#brasil">Brasil <b>11</b></a>
+  <a href="#brasil">Brasil <b>12</b></a>
   <a href="#dados-e-governanca">Dados e governança <b>7</b></a>
-  <a href="#economia">Economia <b>17</b></a>
+  <a href="#economia">Economia <b>18</b></a>
   <a href="#educacao-e-ciencia">Educação e ciência <b>7</b></a>
-  <a href="#empresas-e-mercado">Empresas e mercado <b>15</b></a>
+  <a href="#empresas-e-mercado">Empresas e mercado <b>16</b></a>
   <a href="#estado-e-politica-publica">Estado e política pública <b>18</b></a>
   <a href="#geopolitica-e-soberania">Geopolítica e soberania <b>6</b></a>
   <a href="#gestao-e-adocao">Gestão e adoção <b>19</b></a>
@@ -23,7 +23,7 @@ title: "Temas"
 </nav>
 
 <section class="tema" id="brasil">
-  <div class="tema-head"><h2>Brasil</h2><span class="tema-n">11 descobertas</span></div>
+  <div class="tema-head"><h2>Brasil</h2><span class="tema-n">12 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-2/#v-II-8"><span class="tl-id">II.8</span><span class="tl-body"><span class="tl-t">Quando o dinheiro vira software</span><span class="tl-r">O yuan digital processou 19,5 trilhões de yuans até o fim de 2025 e virou a maior moeda digital de banco central em operação no mundo. A aposta agora é transfronteiriça.</span></span></a></li>
     <li><a href="/china/ato-2/#v-II-10"><span class="tl-id">II.10</span><span class="tl-body"><span class="tl-t">Hongqiao e a importação como infraestrutura</span><span class="tl-r">A China é o segundo maior importador do mundo há 16 anos. E transformou a própria porta de entrada — feira, distrito, hub logístico — em instrumento de política.</span></span></a></li>
@@ -32,6 +32,7 @@ title: "Temas"
     <li><a href="/china/ato-4/#v-IV-3"><span class="tl-id">IV.3</span><span class="tl-body"><span class="tl-t">BYD: verticalização como doutrina</span><span class="tl-r">De fabricante de baterias a maior montadora de elétricos do mundo — e a maior fábrica fora da Ásia é no Brasil.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-6"><span class="tl-id">IV.6</span><span class="tl-body"><span class="tl-t">Pop Mart e a exportação de desejo</span><span class="tl-r">Receita de RMB 37,1 bilhões em 2025 e crescimento de 748% nas Américas. A China descobriu como exportar marca, não só produto.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-9"><span class="tl-id">IV.9</span><span class="tl-body"><span class="tl-t">A chegada ao Brasil: de hidrelétricas a sorvete</span><span class="tl-r">Mais de 200 empresas chinesas operando, intenções de R$ 200 bilhões até 2030 e uma mudança de perfil que muda tudo.</span></span></a></li>
+    <li><a href="/china/ato-4/#v-IV-12"><span class="tl-id">IV.12</span><span class="tl-body"><span class="tl-t">Neijuan exportado: a concorrência chega em enxame</span><span class="tl-r">Uma empresa ocidental disputa o mercado com dez rivais; a chinesa equivalente, com centenas. E quando uma se internacionaliza, raramente vem sozinha — abre caminho para um enxame.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-5"><span class="tl-id">V.5</span><span class="tl-body"><span class="tl-t">Difusão vence fronteira (para quem não vai ganhar a corrida de capital)</span><span class="tl-r">Modelo virou commodity barata. O que continua caro é dado próprio, processo integrado e gente que saiba operar.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-6"><span class="tl-id">V.6</span><span class="tl-body"><span class="tl-t">O vértice que falta</span><span class="tl-r">Universidade de um lado, empresa do outro, e um vazio no meio onde deveria morar a pesquisa de longo prazo.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-7"><span class="tl-id">V.7</span><span class="tl-body"><span class="tl-t">Soberania por camadas</span><span class="tl-r">Ninguém tem autonomia na cadeia inteira. A pergunta prática é: em qual camada queremos ter.</span></span></a></li>
@@ -53,7 +54,7 @@ title: "Temas"
 </section>
 
 <section class="tema" id="economia">
-  <div class="tema-head"><h2>Economia</h2><span class="tema-n">17 descobertas</span></div>
+  <div class="tema-head"><h2>Economia</h2><span class="tema-n">18 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-2/#v-II-1"><span class="tl-id">II.1</span><span class="tl-body"><span class="tl-t">O motor que perdeu força</span><span class="tl-r">Investimento imobiliário caiu 17,2% em 2025 e sobram ~80 milhões de imóveis vazios. O ciclo antigo não volta.</span></span></a></li>
     <li><a href="/china/ato-2/#v-II-2"><span class="tl-id">II.2</span><span class="tl-body"><span class="tl-t">Repressão financeira: de onde vem o dinheiro barato</span><span class="tl-r">165 trilhões de yuans em depósitos das famílias, equivalentes a 122% do PIB, canalizados a juro baixo para setores escolhidos.</span></span></a></li>
@@ -72,6 +73,7 @@ title: "Temas"
     <li><a href="/china/ato-4/#v-IV-7"><span class="tl-id">IV.7</span><span class="tl-body"><span class="tl-t">Os tigres de IA e o ano dos IPOs</span><span class="tl-r">2026 é o ano em que os laboratórios chineses de IA abriram capital. Dois estrearam em Hong Kong só em janeiro.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-9"><span class="tl-id">IV.9</span><span class="tl-body"><span class="tl-t">A chegada ao Brasil: de hidrelétricas a sorvete</span><span class="tl-r">Mais de 200 empresas chinesas operando, intenções de R$ 200 bilhões até 2030 e uma mudança de perfil que muda tudo.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-10"><span class="tl-id">IV.10</span><span class="tl-body"><span class="tl-t">NIO: o carro vendido como assinatura</span><span class="tl-r">100 milhões de trocas de bateria e milhares de estações. Ao separar a bateria do carro, a NIO transformou o componente mais caro num serviço mensal.</span></span></a></li>
+    <li><a href="/china/ato-4/#v-IV-12"><span class="tl-id">IV.12</span><span class="tl-body"><span class="tl-t">Neijuan exportado: a concorrência chega em enxame</span><span class="tl-r">Uma empresa ocidental disputa o mercado com dez rivais; a chinesa equivalente, com centenas. E quando uma se internacionaliza, raramente vem sozinha — abre caminho para um enxame.</span></span></a></li>
   </ul>
 </section>
 
@@ -89,7 +91,7 @@ title: "Temas"
 </section>
 
 <section class="tema" id="empresas-e-mercado">
-  <div class="tema-head"><h2>Empresas e mercado</h2><span class="tema-n">15 descobertas</span></div>
+  <div class="tema-head"><h2>Empresas e mercado</h2><span class="tema-n">16 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-1/#v-I-5"><span class="tl-id">I.5</span><span class="tl-body"><span class="tl-t">A escada estatal de empresas</span><span class="tl-r">Seis degraus formais, certificação oficial em cada um, e incubadoras avaliadas com nota e verba.</span></span></a></li>
     <li><a href="/china/ato-2/#v-II-9"><span class="tl-id">II.9</span><span class="tl-body"><span class="tl-t">Live commerce: quando a venda vira linha de produção</span><span class="tl-r">Mais de 18% do varejo online chinês passa por transmissão ao vivo. O que começou como um vendedor diante da câmera virou prédio inteiro operando em turnos.</span></span></a></li>
@@ -105,6 +107,7 @@ title: "Temas"
     <li><a href="/china/ato-4/#v-IV-9"><span class="tl-id">IV.9</span><span class="tl-body"><span class="tl-t">A chegada ao Brasil: de hidrelétricas a sorvete</span><span class="tl-r">Mais de 200 empresas chinesas operando, intenções de R$ 200 bilhões até 2030 e uma mudança de perfil que muda tudo.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-10"><span class="tl-id">IV.10</span><span class="tl-body"><span class="tl-t">NIO: o carro vendido como assinatura</span><span class="tl-r">100 milhões de trocas de bateria e milhares de estações. Ao separar a bateria do carro, a NIO transformou o componente mais caro num serviço mensal.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-11"><span class="tl-id">IV.11</span><span class="tl-body"><span class="tl-t">JD.com: achatar o organograma não é dividir o poder</span><span class="tl-r">Mais de 900 mil pessoas no ecossistema e uma logística feita em casa. A hierarquia é curta; a autoridade, concentrada.</span></span></a></li>
+    <li><a href="/china/ato-4/#v-IV-12"><span class="tl-id">IV.12</span><span class="tl-body"><span class="tl-t">Neijuan exportado: a concorrência chega em enxame</span><span class="tl-r">Uma empresa ocidental disputa o mercado com dez rivais; a chinesa equivalente, com centenas. E quando uma se internacionaliza, raramente vem sozinha — abre caminho para um enxame.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-13"><span class="tl-id">V.13</span><span class="tl-body"><span class="tl-t">Construir a capacidade antes de precisar dela</span><span class="tl-r">Boa parte do salto chinês veio de uma disciplina: alinhar a ambição de longo prazo ao desenvolvimento antecipado das capacidades que a sustentam. Quatro decisões.</span></span></a></li>
   </ul>
 </section>

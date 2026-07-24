@@ -4,7 +4,7 @@ cor: "IV"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato IV · 11 descobertas</div>
+  <div class="k">Ato IV · 12 descobertas</div>
   <h1>Empresas chinesas e os novos dragões</h1>
   <div class="sub">A anatomia de uma geração</div>
   <p class="ab">A geração anterior de gigantes chinesas cresceu protegida pela Muralha e dominou o mercado interno. A nova já nasce olhando para fora, e chega ao Brasil não como exportadora, mas como fábrica, marca e concorrente. Este ato abre o mecanismo por dentro: a pirâmide estatal que fabrica campeão de nicho, a densidade de fornecedores que deixa errar barato, a seleção brutal da <a class="xref" href="/china/ato-2/#v-II-3">involução<sup>II.3</sup></a> e a saída para o mundo em três tempos.</p>
@@ -214,5 +214,23 @@ cor: "IV"
       <p>É a descoberta mais desconfortável para quem lidera. Muita empresa brasileira 'achata o organograma' e chama isso de descentralização, quando apenas encurtou a distância até um centro que decide tudo. Reduzir camadas acelera a execução, mas só distribui poder de verdade quem também distribui a decisão. Confundir as duas coisas cria a ilusão de uma organização ágil que, na prática, ainda depende de uma única cabeça para tudo que importa.</p>
     </div>
     <div class="tg"><span>Empresas e mercado</span><span>Gestão e adoção</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-IV-12">
+  <div class="v-id">IV.12</div>
+  <div class="v-t">Neijuan exportado: a concorrência chega em enxame</div>
+  <p class="v-r">Uma empresa ocidental disputa o mercado com dez rivais; a chinesa equivalente, com centenas. E quando uma se internacionaliza, raramente vem sozinha — abre caminho para um enxame.</p>
+  <div class="v-body">
+    <div class="tese">A China segue exportando produto, tecnologia e capital. Mas a exportação que muda o jogo para o Brasil é outra: as próprias empresas chinesas, forjadas num ambiente competitivo que quase nenhum outro mercado reproduz. O país não fabrica só bens em escala; fabrica concorrentes em escala.</div>
+    <p>Qualquer setor que ganha tração na China atrai depressa uma multidão de empresas — carro elétrico, drone, cosmético, robótica, painel solar, software, equipamento médico, restaurante, comércio eletrônico. Enquanto uma empresa brasileira costuma monitorar cinco, dez ou vinte rivais relevantes, a chinesa pode nascer disputando cliente, fornecedor, talento, capital e atenção com centenas. Ali, a concorrência não é um episódio do ciclo de vida; é o ambiente em que a empresa aprende a existir.</p>
+    <p>Esse ambiente tem nome: <a class="xref" href="/china/ato-2/#v-II-3">neijuan<sup>II.3</sup></a>, a hipercompetição em que se corre cada vez mais só para manter a posição. Ele espreme a margem, acelera o lançamento e cobra eficiência — e, no limite, empurra a empresa para fora do país. Quando o mercado interno satura, internacionalizar deixa de ser ambição distante e vira necessidade estratégica, como <a class="xref" href="/china/ato-4/#v-IV-4">a CATL admitiu sem rodeio<sup>IV.4</sup></a>.</p>
+    <p>E quase nunca uma chega sozinha. A pioneira que abre um mercado abre caminho para as compatriotas que vêm atrás — fornecedor, concorrente, plataforma. Há pouco mais de uma década, poucos brasileiros citariam uma marca chinesa de consumo. Hoje Lenovo, Xiaomi, TikTok, Shein, AliExpress, BYD e GWM fazem parte do cotidiano, e nomes como GAC, Geely, Zeekr, OMODA, JAECOO e OPPO começam a soar familiares. Em vários setores, a pergunta deixou de ser <em>se</em> uma empresa chinesa vai chegar ao Brasil e virou quantas, em quanto tempo e com que agressividade.</p>
+    <div class="dados"><div class="d"><div class="dv">10 → centenas</div><div class="dl">rivais que uma empresa monitora: setor ocidental vs chinês</div></div><div class="d"><div class="dv">1 → enxame</div><div class="dl">o que vem atrás quando uma pioneira se internacionaliza</div></div><div class="d"><div class="dv">&gt;200</div><div class="dl">empresas chinesas já operando no Brasil</div></div><div class="d"><div class="dv">~1 década</div><div class="dl">para marcas chinesas saírem do zero ao cotidiano brasileiro</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>Para a estratégia de uma empresa brasileira, a lição corrige um erro de escala. Mapear o concorrente chinês que já chegou não basta: atrás dele costuma vir o enxame formado na mesma seleção brutal. A pergunta útil deixou de ser 'como reajo a esta entrante' e passou a ser 'quantas outras vêm na esteira, e o meu setor aguenta a mesma guerra de preço que quebrou empresa até dentro da China?'</p>
+    </div>
+    <div class="tg"><span>Empresas e mercado</span><span>Economia</span><span>Brasil</span></div>
   </div>
 </div>

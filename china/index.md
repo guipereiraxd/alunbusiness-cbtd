@@ -139,7 +139,7 @@
       <h3>Empresas chinesas e os novos dragões</h3>
       <p class="ac-sub">A anatomia de uma geração</p>
       <p class="ac-ab">A geração anterior conquistou o mercado interno atrás da Muralha. A nova nasce olhando para fora — e chega ao Brasil como fábrica, marca e investidor.</p>
-      <span class="ac-n">11 descobertas →</span>
+      <span class="ac-n">12 descobertas →</span>
     </a>
     <a class="ato-card2" data-c="V" href="{{ '/china/ato-5/' | relative_url }}">
       <div class="ac-icon"><svg><use href="#i-compass"></use></svg></div>
