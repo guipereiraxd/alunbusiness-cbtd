@@ -4,13 +4,13 @@ cor: "II"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato II · 7 descobertas</div>
+  <div class="k">Ato II · 8 descobertas</div>
   <h1>A nova economia chinesa</h1>
   <div class="sub">Trocar o motor com o carro andando</div>
   <p class="ab">Por décadas a China cresceu construindo. Esse motor perdeu força: o investimento imobiliário despencou e sobram dezenas de milhões de imóveis vazios. O mecanismo financeiro que erguia prédios não parou — mudou de alvo, e migrou para manufatura avançada, levando junto o mesmo problema de excesso de capacidade. Este ato explica de onde vem o dinheiro, por que a involução virou palavra do ano, e como um país que produz mais do que consegue vender está tentando virar economia de consumo sem parar de exportar.</p>
 </div>
 
-<div class="v">
+<div class="v" id="v-II-1">
   <div class="v-id">II.1</div>
   <div class="v-t">O motor que perdeu força</div>
   <p class="v-r">Investimento imobiliário caiu 17,2% em 2025 e sobram ~80 milhões de imóveis vazios. O ciclo antigo não volta.</p>
@@ -28,7 +28,7 @@ cor: "II"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-II-2">
   <div class="v-id">II.2</div>
   <div class="v-t">Repressão financeira: de onde vem o dinheiro barato</div>
   <p class="v-r">165 trilhões de yuans em depósitos das famílias, equivalentes a 122% do PIB, canalizados a juro baixo para setores escolhidos.</p>
@@ -46,7 +46,7 @@ cor: "II"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-II-3">
   <div class="v-id">II.3</div>
   <div class="v-t">Neijuan: a involução como doença econômica</div>
   <p class="v-r">Esforço crescente com retorno decrescente. Todo mundo correndo mais e ninguém saindo do lugar.</p>
@@ -64,7 +64,7 @@ cor: "II"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-II-4">
   <div class="v-id">II.4</div>
   <div class="v-t">O 15º Plano Quinquenal (2026-2030)</div>
   <p class="v-r">Meta abaixo de 5% pela primeira vez desde 1991, IA citada 52 vezes e o primeiro plano quinquenal dedicado só a consumo.</p>
@@ -83,7 +83,7 @@ cor: "II"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-II-5">
   <div class="v-id">II.5</div>
   <div class="v-t">Os 'novos três' e a exportação verde</div>
   <p class="v-r">Veículos elétricos, baterias e células solares: US$ 118,4 bilhões exportados só no primeiro semestre de 2026, alta de 51,6%.</p>
@@ -101,7 +101,7 @@ cor: "II"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-II-6">
   <div class="v-id">II.6</div>
   <div class="v-t">Shenzhen e a economia do protótipo</div>
   <p class="v-r">Uma variação de produto custa +20% em vez de +80%. Isso muda toda a estratégia: o mercado vira o teste.</p>
@@ -120,14 +120,14 @@ cor: "II"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-II-7">
   <div class="v-id">II.7</div>
   <div class="v-t">O dado como fator de produção</div>
   <p class="v-r">A China oficializou o dado ao lado de terra, trabalho, capital e tecnologia — e construiu uma bolsa para negociá-lo.</p>
   <div class="v-body">
     <div class="tese">Tratar dado como mercadoria com preço e registro não é metáfora de palestra: é decisão de política econômica formalizada, com infraestrutura de mercado construída para operá-la.</div>
     <p>O país oficializou o dado como fator de produção ao lado dos quatro clássicos, e montou em Xangai uma bolsa onde dados são registrados, precificados e negociados como ativos. O mercado formal ainda é pequeno em volume, mas cresce rápido e se consolida num sistema nacional.</p>
-    <p>O insumo por trás disso é o ecossistema fechado descrito no Ato I: super apps que integram mensagem, pagamento, transporte, comércio e serviço público produzem um volume e uma continuidade de dados comportamentais difíceis de obter em ecossistemas fragmentados como o nosso.</p>
+    <p>O insumo por trás disso é o ecossistema fechado <a class="xref" href="/china/ato-1/#v-I-8">descrito no Ato I<sup>I.8</sup></a>: super apps que integram mensagem, pagamento, transporte, comércio e serviço público produzem um volume e uma continuidade de dados comportamentais difíceis de obter em ecossistemas fragmentados como o nosso.</p>
     <p>Quatro jurisdições partem de filosofias distintas sobre o que se pode fazer com dado: a China o trata como fator produtivo com mercado formal; a União Europeia parte do direito individual e da limitação de uso; o Brasil construiu um regime de proteção inspirado no europeu e um trilho de portabilidade via Open Finance; os Estados Unidos operam sem lei federal abrangente, com regras setoriais e estaduais. Não é uma escala de mais ou menos avançado — são pontos de partida diferentes que produzem economias diferentes.</p>
     <div class="dados"><div class="d"><div class="dv">5º</div><div class="dl">fator de produção oficializado, ao lado de terra, trabalho, capital e tecnologia</div></div><div class="d"><div class="dv">4</div><div class="dl">filosofias regulatórias distintas: China, UE, Brasil, EUA</div></div></div>
     <div class="br">
@@ -135,5 +135,23 @@ cor: "II"
       <p>O Brasil tem duas peças raras — LGPD funcional e Open Finance operando em escala — e nenhuma camada que transforme dado operacional em ativo negociável. A discussão sobre 'economia de dados' aqui ainda é quase toda sobre proteção, quase nada sobre produção.</p>
     </div>
     <div class="tg"><span>Dados e governança</span><span>Estado e política pública</span><span>Economia</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-II-8">
+  <div class="v-id">II.8</div>
+  <div class="v-t">Quando o dinheiro vira software</div>
+  <p class="v-r">O yuan digital processou 19,5 trilhões de yuans até o fim de 2025 e virou a maior moeda digital de banco central em operação no mundo. A aposta agora é transfronteiriça.</p>
+  <div class="v-body">
+    <div class="tese">A China está transformando dinheiro em infraestrutura programável. O yuan digital não é uma versão eletrônica do papel — é uma camada de liquidação controlada pelo Estado, construída sobre os mesmos trilhos de super app que já treinaram centenas de milhões de pessoas a pagar com um toque.</div>
+    <p>Os números fazem dele o maior experimento vivo de moeda digital de banco central do planeta: cerca de 3,57 bilhões de transações e 19,5 trilhões de yuans em valor acumulado até o fim de 2025, com 230 milhões de carteiras pessoais e 19 milhões corporativas abertas, e crescimento superior a 800% desde 2023. Vinte e nove cidades-piloto já integraram o e-CNY a transporte público e a redes de varejo. E o banco central anunciou a virada mais relevante: torná-lo remunerado a partir de 2026, pagando juros sobre o saldo — o que o aproxima, na prática, de um depósito bancário emitido diretamente pelo Estado.</p>
+    <p>A adoção é rápida porque os trilhos já existiam. O <a class="xref" href="/china/ato-1/#v-I-8">ecossistema fechado descrito no Ato I<sup>I.8</sup></a> — super apps que unem mensagem, pagamento, transporte e serviço público — já fez o trabalho comportamental de ensinar o país a pagar apontando a câmera para um código. O yuan digital não cria um hábito novo: encaixa-se num que já está formado. A diferença em relação ao cartão ou ao pagamento instantâneo privado é dupla: o dinheiro passa a ser programável (pode carregar regras de uso, prazo, destino) e visível para o Estado no nível da transação.</p>
+    <p>A ambição real, porém, é externa. O projeto mBridge, que a China conduz com o Banco de Compensações Internacionais e os bancos centrais de Tailândia, Emirados Árabes e Hong Kong, já liquidou o equivalente a cerca de US$ 55 bilhões — perto de 387 bilhões de yuans —, com o e-CNY respondendo por mais de 95% do volume. O objetivo declarado é permitir que comércio seja liquidado sem passar pela cadeia de bancos correspondentes em dólar. O volume ainda é ínfimo diante dos fluxos globais, e a relação institucional com o BIS teve idas e vindas — mas a direção é inequívoca: construir um trilho de pagamento internacional que não dependa da infraestrutura ocidental.</p>
+    <div class="dados"><div class="d"><div class="dv">19,5 tri ¥</div><div class="dl">valor acumulado em e-CNY até o fim de 2025</div></div><div class="d"><div class="dv">230 mi</div><div class="dl">carteiras pessoais de yuan digital abertas</div></div><div class="d"><div class="dv">~95%</div><div class="dl">do volume liquidado no mBridge é em e-CNY</div></div><div class="d"><div class="dv">&gt;800%</div><div class="dl">crescimento do uso do e-CNY desde 2023</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>O Brasil resolveu parte do mesmo problema por outro caminho: o Pix modernizou o pagamento doméstico com uma adoção que a China levou anos para alcançar — mas sem uma camada programável nem um trilho transfronteiriço próprio, já que o Drex ainda é piloto. A pergunta de soberania não é 'ter uma moeda digital'. É quem opera os trilhos que vão liquidar o comércio Brasil-China quando ele dobrar de tamanho — e hoje a resposta passa por infraestrutura de terceiros.</p>
+    </div>
+    <div class="tg"><span>Economia</span><span>Dados e governança</span><span>Geopolítica e soberania</span><span>Brasil</span></div>
   </div>
 </div>

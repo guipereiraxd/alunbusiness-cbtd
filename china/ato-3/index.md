@@ -4,13 +4,13 @@ cor: "III"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato III · 9 descobertas</div>
+  <div class="k">Ato III · 10 descobertas</div>
   <h1>O impacto da inteligência artificial</h1>
   <div class="sub">A régua mudou de lugar</div>
   <p class="ab">A corrida de IA foi narrada como disputa pelo modelo mais inteligente. Essa régua mudou. O que passou a contar é quanto custa cada resposta, quantas pessoas conseguem usar o sistema e o quanto ele se integra a fábricas e serviços — e essa mudança favorece estruturalmente a estratégia chinesa de modelos abertos, baratos e acoplados à economia física. Este ato cobre a economia do token, a restrição de chips vinda dos dois lados, o programa estatal de difusão e a disputa pela governança global.</p>
 </div>
 
-<div class="v">
+<div class="v" id="v-III-1">
   <div class="v-id">III.1</div>
   <div class="v-t">A disputa é entre ecossistemas, não entre modelos</div>
   <p class="v-r">Dois ciclos de retroalimentação: o digital (aberto a todos) e o físico (onde a base industrial vira ativo de IA).</p>
@@ -28,7 +28,7 @@ cor: "III"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-III-2">
   <div class="v-id">III.2</div>
   <div class="v-t">Aberto e barato: a estratégia de difusão</div>
   <p class="v-r">Provedores chineses saíram de menos de 2% para mais de 45% do tráfego de um dos maiores roteadores de modelos do mundo em um ano.</p>
@@ -47,7 +47,7 @@ cor: "III"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-III-3">
   <div class="v-id">III.3</div>
   <div class="v-t">A economia do token</div>
   <p class="v-r">O token virou unidade produtiva, como o quilowatt-hora. E a inferência virou o mercado que define margem.</p>
@@ -65,7 +65,7 @@ cor: "III"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-III-4">
   <div class="v-id">III.4</div>
   <div class="v-t">Chips: a restrição que veio dos dois lados</div>
   <p class="v-r">Washington restringe para conter. Pequim também restringe — para forçar a maturação da indústria própria.</p>
@@ -84,15 +84,15 @@ cor: "III"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-III-5">
   <div class="v-id">III.5</div>
   <div class="v-t">AI+ : difusão como programa de Estado</div>
   <p class="v-r">Meta oficial: 70% de penetração de agentes em setores-chave até 2027, mais de 90% até 2030.</p>
   <div class="v-body">
-    <div class="tese">Enquanto o Ocidente discute capacidade de fronteira, a China transformou *adoção* em política pública com meta numérica, prazo e cobrança. O programa AI+ é a organização estatal da difusão.</div>
+    <div class="tese">Enquanto o Ocidente discute capacidade de fronteira, a China transformou <em>adoção</em> em política pública com meta numérica, prazo e cobrança. O programa AI+ é a organização estatal da difusão.</div>
     <p>As diretrizes do Conselho de Estado publicadas em agosto de 2025 cobrem seis domínios — ciência e tecnologia, desenvolvimento industrial, consumo, bem-estar público, capacidade de governança e cooperação internacional — e fixam metas escalonadas: até 2027, penetração de terminais inteligentes e agentes acima de 70% em setores-chave; até 2030, acima de 90%; até 2035, entrada plena numa 'economia inteligente'.</p>
     <p>Em maio de 2026, três órgãos publicaram conjuntamente o primeiro marco dedicado especificamente a agentes — a primeira vez que a China trata IA agêntica como infraestrutura digital e objeto de governança próprios, e não como mais uma camada de aplicação sobre modelos de linguagem.</p>
-    <p>A execução acontece no nível local, com a mesma lógica de competição territorial do Ato I. Quando um arcabouço de agentes de código aberto viralizou em março de 2026, governos municipais responderam com créditos de computação gratuitos e prêmios em dinheiro para quem construísse em cima — e surgiu uma economia paralela de serviços de instalação, 'empresas de uma pessoa só' operando com agentes, e alta de 40% na venda de computadores num grande marketplace no mesmo mês.</p>
+    <p>A execução acontece no nível local, com a mesma lógica de <a class="xref" href="/china/ato-1/#v-I-4">competição territorial do Ato I<sup>I.4</sup></a>. Quando um arcabouço de agentes de código aberto viralizou em março de 2026, governos municipais responderam com créditos de computação gratuitos e prêmios em dinheiro para quem construísse em cima — e surgiu uma economia paralela de serviços de instalação, 'empresas de uma pessoa só' operando com agentes, e alta de 40% na venda de computadores num grande marketplace no mesmo mês.</p>
     <p>Vale reter o formato: a política não escolhe o modelo vencedor. Ela subsidia a adoção e mede a penetração.</p>
     <div class="dados"><div class="d"><div class="dv">70% / 90%</div><div class="dl">penetração de agentes: meta para 2027 / 2030</div></div><div class="d"><div class="dv">6</div><div class="dl">domínios cobertos pelo programa AI+</div></div><div class="d"><div class="dv">&gt;10 tri ¥</div><div class="dl">valor projetado das indústrias de IA até 2030 (~US$ 1,4 tri)</div></div><div class="d"><div class="dv">mai/2026</div><div class="dl">primeiro marco regulatório dedicado a agentes de IA</div></div></div>
     <div class="br">
@@ -103,7 +103,7 @@ cor: "III"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-III-6">
   <div class="v-id">III.6</div>
   <div class="v-t">O ciclo físico: robótica e IA incorporada</div>
   <p class="v-r">276 mil robôs industriais instalados em 2025 — mais que Japão, EUA, Alemanha e Coreia somados. Humanoides ainda são 18 mil.</p>
@@ -122,7 +122,7 @@ cor: "III"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-III-7">
   <div class="v-id">III.7</div>
   <div class="v-t">O terceiro vértice: entre a universidade e a empresa</div>
   <p class="v-r">Uma instituição sem fins lucrativos fundada pelo Estado e pelas empresas que competem entre si.</p>
@@ -142,7 +142,7 @@ cor: "III"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-III-8">
   <div class="v-id">III.8</div>
   <div class="v-t">Governança global: dois arranjos, dois mapas</div>
   <p class="v-r">WAICO, sediada em Xangai, e Pax Silica, liderada por Washington. As listas de membros quase não se sobrepõem.</p>
@@ -151,7 +151,7 @@ cor: "III"
     <p>O acordo que funda a Organização Mundial de Cooperação em IA foi assinado em 16 de julho de 2026, na véspera da abertura da conferência de Xangai, por representantes de 29 países, com o secretário-geral da ONU presente — chancela simbólica a uma organização criada fora do sistema ONU. Entre os fundadores: Brasil, Indonésia, Malásia, África do Sul, Senegal, Rússia, Paquistão, Cazaquistão, Sérvia, Cuba, Venezuela, além de dez países africanos e doze asiáticos. Estados Unidos, União Europeia e Reino Unido não estão.</p>
     <p>Sete meses antes, em dezembro de 2025, o Departamento de Estado americano lançou a Pax Silica, iniciativa própria de coordenação em IA e cadeias de suprimento, que em junho de 2026 contava 24 signatários — entre eles União Europeia, Alemanha, Países Baixos, Japão, Coreia do Sul, Índia, Israel, Reino Unido, Emirados Árabes e Catar.</p>
     <p>As lógicas são distintas. A WAICO fala de desenvolvimento, redução de desigualdade no acesso, soberania, capacitação, transferência de conhecimento, infraestrutura compartilhada e modelos abertos — é a primeira organização intergovernamental de IA desenhada a partir dos problemas do Sul Global. A Pax Silica fala de minerais críticos, energia, manufatura avançada, semicondutores e logística, com o objetivo declarado de reduzir dependências coercitivas e proteger a capacidade dos aliados.</p>
-    <p>Resumindo o mapa: a WAICO reúne sobretudo países que buscam *entrar* na tecnologia; a Pax Silica, os que já dominam partes dela e querem proteger a posição.</p>
+    <p>Resumindo o mapa: a WAICO reúne sobretudo países que buscam <em>entrar</em> na tecnologia; a Pax Silica, os que já dominam partes dela e querem proteger a posição.</p>
     <p>A ressalva vale para os dois lados: organizações nascidas no meio de uma disputa entre potências correm o risco de servir mais aos interesses dos países poderosos que as lideram do que ao conjunto de seus membros.</p>
     <div class="dados"><div class="d"><div class="dv">29</div><div class="dl">países fundadores da WAICO (16/jul/2026, sede em Xangai)</div></div><div class="d"><div class="dv">24</div><div class="dl">signatários da Pax Silica (junho de 2026)</div></div><div class="d"><div class="dv">~0</div><div class="dl">sobreposição relevante entre as duas listas de membros</div></div><div class="d"><div class="dv">2017 → 2026</div><div class="dl">de feira de tecnologia a palco de governança global</div></div></div>
     <div class="br">
@@ -162,25 +162,40 @@ cor: "III"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-III-9">
   <div class="v-id">III.9</div>
   <div class="v-t">IA + Educação: o plano que redesenha o sistema educacional</div>
   <p class="v-r">Um plano de cinco órgãos do governo central, com meta para 2030: toda pessoa aprende sobre IA, e quase todo processo educacional passa a usar IA.</p>
   <div class="v-body">
     <div class="tese">A China não está adicionando inteligência artificial ao sistema educacional que já existe. Está construindo um sistema novo, organizado ao redor da IA — currículo, docência, avaliação, gestão, pesquisa e infraestrutura tratados como partes da mesma estratégia nacional, junto com dados, modelos e política industrial.</div>
-    <p><strong>O plano.</strong> O nome oficial é 《"人工智能+教育"行动计划》 — Plano de Ação "Inteligência Artificial + Educação". Assinado em 2 de abril de 2026 e divulgado em 10 de abril de 2026, conjuntamente por cinco órgãos: Ministério da Educação, Comissão Nacional de Desenvolvimento e Reforma, Ministério da Indústria e Tecnologia da Informação, Ministério da Ciência e Tecnologia e Administração Nacional de Dados. A síntese mais direta: toda pessoa deve aprender sobre IA, e praticamente todo processo educacional deve passar a utilizar IA — não uma disciplina nova, mas uma transformação declarada do currículo, do trabalho docente, da avaliação, da gestão das instituições, da pesquisa científica e da infraestrutura educacional até 2030.</p>
-    <p><strong>Formação básica universal.</strong> Na educação básica, a IA deve entrar nos currículos locais, em atividades interdisciplinares, projetos, atividades extracurriculares e experiências práticas, com escolas rurais e de regiões remotas acessando esse conteúdo por plataformas nacionais. Alfabetização em IA, no texto do plano, não é aprender a programar ou operar ferramentas: é compreender a tecnologia, usá-la racionalmente, desenvolver pensamento crítico, criatividade e capacidade de resolver problemas complexos, combinando formação científica e humanística. Nas universidades a ambição é maior: IA como disciplina básica comum a todos os estudantes, não só aos de computação, com cada área desenvolvendo seus próprios conteúdos — medicina, direito, engenharia, comunicação, cada uma com sua versão de "X + IA". O plano também prevê novos cursos e profissões ligados à economia inteligente, programas interdisciplinares no modelo "X + IA", cursos curtos e orientados à aplicação, participação de universidades, laboratórios nacionais e grandes empresas na formação, microcertificações e microcredenciais, e educação em IA para adultos e trabalhadores ao longo da vida. A Universidade Fudan já soma mais de 100 disciplinas relacionadas a IA e 41 programas de dupla formação "X + IA" — o tipo de transformação que o governo quer disseminar.</p>
-    <p><strong>O papel do professor.</strong> Uma das medidas mais simbólicas é a criação de um padrão nacional de competências em IA para professores, com capacitação diferenciada por função, avaliações de proficiência, atualização da formação inicial docente e inclusão de conhecimentos sobre IA nos exames de certificação. Na prática pedagógica, os sistemas de IA devem apoiar a análise das dificuldades de cada turma, o planejamento e a simulação de aulas, a geração de recursos multimodais, a correção de atividades, respostas a dúvidas, tutoria personalizada, análise das interações em sala e recomendações para melhorar a prática docente. O modelo declarado é de ensino colaborativo entre professor, estudante e máquina — não substituição do professor por um chatbot —, embora o nível real de autonomia dado à tecnologia ainda dependa da implementação local.</p>
-    <p><strong>Uma camada nacional de inteligência educacional.</strong> Esta é a parte mais ambiciosa — e menos comentada — do plano: uma infraestrutura nacional reunindo capacidade computacional, bases de dados educacionais, corpus nacionais, modelos educacionais, ferramentas e agentes, registros digitais dos estudantes e plataformas de avaliação e recomendação. O plano prevê uma plataforma nacional de serviços de computação para educação, conectando recursos de universidades, empresas, centros nacionais de computação e redes acadêmicas, além de modelos educacionais nacionais separados por nível de ensino — evitando que cada província ou instituição construa a mesma solução do zero. Para os estudantes, aparecem os chamados "companheiros inteligentes de aprendizagem", que usam registros digitais sobre capacidades, características, interesses e progresso para ajustar continuamente as rotas de aprendizagem. Para a gestão pública, o plano propõe um "cérebro inteligente da educação", capaz de prever mudanças demográficas, antecipar demandas profissionais, ajustar a distribuição de escolas e recursos, orientar abertura ou fechamento de cursos universitários, recomendar oportunidades de emprego, apoiar a elaboração, fiscalização e correção de provas, e identificar riscos de segurança nos campi. A IA, aqui, funciona como uma espécie de sistema operacional da política educacional — não apenas conteúdo.</p>
-    <p><strong>Educação, pesquisa e indústria.</strong> O plano trata educação como política social, política tecnológica e política industrial ao mesmo tempo. Na educação profissional, os cursos tradicionais devem ser redesenhados conforme a transformação das ocupações, com empresas participando da definição de currículos, da criação de laboratórios e da oferta de ambientes de prática. Na pesquisa, universidades devem criar agentes científicos, assistentes de pesquisa, laboratórios inteligentes e estruturas experimentais parcialmente autônomas, capazes de ajudar a formular experimentos, executá-los e analisar resultados. Essa agenda deriva da política nacional mais ampla de "IA+", publicada em 2025, que integra IA à ciência, indústria, consumo, serviços públicos, governança e educação — educação aparece, portanto, tanto como o mecanismo que prepara a mão de obra quanto como um grande campo de aplicação para modelos, chips, agentes e plataformas chinesas.</p>
-    <p><strong>Um cuidado com a informação das "oito horas obrigatórias".</strong> Há publicações afirmando que o plano nacional tornou obrigatórias oito ou dez horas anuais de IA para todas as crianças chinesas. Isso não está exatamente no documento nacional. O plano federal determina que cada região defina objetivos, conteúdos e carga horária. Pequim, que já tinha política própria, oferece pelo menos oito horas anuais; a província de Heilongjiang definiu recentemente oito horas anuais na educação básica e recomendou, nas universidades, pelo menos dois créditos ou 32 horas. São exemplos locais de implementação — não uma carga horária nacional única.</p>
-    <p><strong>Tensões e riscos.</strong> O plano traz preocupações explícitas com proteção de dados, auditoria dos modelos, propriedade intelectual, fraude, cola, pressão excessiva sobre estudantes e uso inadequado de IA nas escolas, propondo avaliação e registro das aplicações educacionais antes de sua disseminação. Ainda assim, a mesma infraestrutura que permite personalização pode ampliar a vigilância: o documento fala em perfis detalhados de estudantes, análise do comportamento em sala de aula, monitoramento inteligente de provas e sistemas de segurança e avaliação longitudinal. Há também uma dimensão ideológica explícita — modelos de IA voltados à formação política e moral, auditoria do conteúdo gerado e mecanismos de alinhamento de valores —, o que mostra que, no modelo chinês, a IA educacional não é concebida como infraestrutura neutra. O documento nacional apresenta direção, mas não especifica orçamento consolidado, carga horária nacional, metas intermediárias detalhadas ou um único modelo de implantação; grande parte da execução cabe a províncias, municípios, universidades e escolas, e é provável bastante variação regional até 2030.</p>
-    <p><strong>Cinco ideias, não uma disciplina nova.</strong> O movimento mais relevante não é "a China criou aulas de prompt". É a consolidação de cinco ideias: alfabetização em IA vira formação geral, como matemática ou comunicação; toda formação passa a ser "X + IA", deslocando a pergunta de "quantos estudarão ciência de dados" para "como medicina, direito, negócios, engenharia e educação mudam com IA"; o professor se torna um profissional aumentado por IA, mas precisa demonstrar formalmente capacidade de utilizar, avaliar e supervisionar esses sistemas; a plataforma educacional deixa de ser catálogo de conteúdo e vira camada de diagnóstico, recomendação, acompanhamento, experimentação e certificação; e educação continuada e microcredenciais entram na política nacional de trabalho, permitindo ciclos de atualização muito mais curtos que uma graduação tradicional.</p>
+    <p>O nome oficial é 《"人工智能+教育"行动计划》 — Plano de Ação "Inteligência Artificial + Educação", assinado em abril de 2026 por cinco órgãos do governo central, do Ministério da Educação à Administração Nacional de Dados. A síntese cabe numa frase: toda pessoa deve aprender sobre IA, e praticamente todo processo educacional deve passar a usar IA. Não é acrescentar uma disciplina — é redesenhar até 2030 o currículo, a docência, a avaliação, a gestão das escolas, a pesquisa e a infraestrutura como partes de uma mesma estratégia nacional.</p>
+    <p>Quatro movimentos organizam a execução. O primeiro torna a alfabetização em IA formação geral — não aprender a programar, mas compreender, usar com juízo crítico e resolver problemas —, da educação básica ao ensino superior, onde a IA vira disciplina comum a todos os cursos e cada área monta sua versão de "X + IA" (a Universidade Fudan já soma mais de 100 disciplinas e 41 programas de dupla formação). O segundo cria um padrão nacional de competências docentes: o professor passa a ser avaliado e certificado na capacidade de usar, avaliar e supervisionar esses sistemas, num modelo declarado de ensino colaborativo entre professor, estudante e máquina — não de substituição. O terceiro, o mais ambicioso e o menos comentado, é uma camada nacional de inteligência educacional: computação, bases de dados, modelos e registros digitais de cada estudante alimentando "companheiros inteligentes de aprendizagem" e um "cérebro da educação" que prevê demanda profissional, orienta a abertura de cursos e distribui recursos. O quarto amarra educação a política industrial — currículos redesenhados com empresas, laboratórios de pesquisa parcialmente autônomos —, desdobramento da política nacional de "IA+" de 2025.</p>
+    <p>Dois cuidados de leitura. O primeiro é factual: circula que o plano tornou obrigatórias oito horas anuais de IA para toda criança chinesa — não é o que o documento nacional diz. Ele delega a carga horária às regiões; foram Pequim e a província de Heilongjiang que fixaram as oito horas. O segundo é de fundo: a mesma infraestrutura que personaliza também vigia — perfis detalhados, monitoramento de prova, avaliação longitudinal —, e o plano é explícito quanto à dimensão ideológica, com modelos voltados à formação política e moral, auditoria de conteúdo e alinhamento de valores. No modelo chinês, a IA educacional não é concebida como infraestrutura neutra. E, como quase tudo na China, o documento dá a direção sem orçamento consolidado nem carga nacional única: a execução cabe às províncias, e a variação regional até 2030 será grande.</p>
+    <p>O movimento relevante não é "a China criou aula de prompt". É a consolidação de uma ideia: a alfabetização em IA vira formação geral como a matemática, toda formação passa a ser "X + IA", o professor vira um profissional aumentado que precisa provar competência, e a plataforma educacional deixa de ser catálogo de conteúdo para virar camada de diagnóstico, acompanhamento e certificação — com as microcredenciais entrando na política de trabalho e encurtando o ciclo de atualização de uma carreira inteira.</p>
     <div class="dados"><div class="d"><div class="dv">5</div><div class="dl">órgãos do governo central assinam o plano em conjunto</div></div><div class="d"><div class="dv">2030</div><div class="dl">ano-meta para transformar currículo, docência, avaliação e infraestrutura</div></div><div class="d"><div class="dv">100+</div><div class="dl">disciplinas de IA já oferecidas pela Universidade Fudan</div></div><div class="d"><div class="dv">41</div><div class="dl">programas de dupla formação "X + IA" na Fudan</div></div></div>
     <div class="br">
       <div class="brt">Implicação para o Brasil</div>
       <p>A estrutura em quatro movimentos — alfabetização em IA como formação geral, "X + IA" no ensino superior, padrão de competência docente e camada nacional de infraestrutura — é um roteiro de referência, mas a implementação unificada não é replicável do jeito chinês: aqui a política precisa negociar com 26 estados e mais de 5.500 municípios com autonomia constitucional real, o mesmo obstáculo estrutural que aparece em I.1. A peça mais transferível é a menos dependente de escala estatal — o padrão de competências docentes e o modelo de ensino colaborativo entre professor, estudante e IA — enquanto a camada nacional de dados e modelos exige um nível de coordenação federativa que o Brasil ainda não tem desenho para construir.</p>
     </div>
     <div class="tg"><span>Inteligência artificial</span><span>Educação e ciência</span><span>Estado e política pública</span><span>Dados e governança</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-III-10">
+  <div class="v-id">III.10</div>
+  <div class="v-t">A energia é o novo silício</div>
+  <p class="v-r">A China instalou mais de 430 GW de eólica e solar em 2025 — mais da metade de tudo que o mundo somou — enquanto trata a energia, não o chip, como o gargalo decisivo da IA.</p>
+  <div class="v-body">
+    <div class="tese">O Ocidente narra a corrida de IA como disputa por chips. A China a trata cada vez mais como disputa por energia — e é justamente na energia que sua posição estrutural é mais forte. Quando o <a class="xref" href="/china/ato-3/#v-III-3">custo do token<sup>III.3</sup></a> é decomposto até o fim, no fundo dele há um quilowatt-hora.</div>
+    <p>O ponto de partida é a escala. As renováveis já respondem por 56% da capacidade elétrica instalada no país, e só em 2025 a China adicionou mais de 430 gigawatts de eólica e solar — mais da metade de tudo que o mundo instalou no ano. É o maior produtor de eletricidade do planeta com folga, e o único que expande geração limpa numa velocidade compatível com o que a computação de IA vai exigir.</p>
+    <p>Do outro lado da equação está a demanda. A capacidade de data centers deve passar de 32 gigawatts no fim de 2025 para cerca de 40 até o fim de 2026, e o consumo desses centros caminha para 289 terawatts-hora até 2030 — mais que o dobro do nível recente e cerca de 2,3% de toda a eletricidade do país, crescendo perto de 19% ao ano. A diferença em relação a outras economias é a margem: projeta-se que a China tenha por volta de 400 gigawatts de capacidade ociosa em 2030, o triplo da demanda esperada de toda a frota global de data centers.</p>
+    <p>E há política industrial em cima disso. O programa apelidado de 'dados a leste, computação a oeste' desloca deliberadamente os data centers para regiões ricas em renovável, como a Mongólia Interior, onde sobra energia limpa longe dos centros de consumo. O plano de 2025 para data centers verdes exige que novos projetos nos oito hubs nacionais de computação tirem pelo menos 80% da energia de fontes renováveis. É a decisão de transformar excedente de energia limpa em vantagem de hospedagem de computação — por decreto.</p>
+    <p>O ponto estratégico é este: o que limita a IA em escala deixou de ser só o transistor e passou a ser também o elétron. E há uma assimetria decisiva — chips podem ser barrados por controle de exportação, como descrito na disputa de silício deste ato; eletricidade, não. A abundância energética é o seguro da China contra o aperto nos chips.</p>
+    <div class="dados"><div class="d"><div class="dv">&gt;430 GW</div><div class="dl">eólica e solar adicionados em 2025 (&gt;metade do total global)</div></div><div class="d"><div class="dv">40 GW</div><div class="dl">capacidade de data center projetada para o fim de 2026 (32 em 2025)</div></div><div class="d"><div class="dv">~289 TWh</div><div class="dl">consumo de data centers projetado para 2030 (~2,3% da demanda)</div></div><div class="d"><div class="dv">80%</div><div class="dl">mínimo de energia renovável exigido em novos data centers dos hubs nacionais</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>É a ponte mais concreta do dossiê inteiro. Num mundo em que a IA passa a ser limitada por energia, o Brasil tem o ativo que quase nenhum concorrente tem — uma matriz elétrica majoritariamente limpa e barata. Mas ter o elétron não é ter a computação: falta a política deliberada que a China escreveu, de atrair e localizar data centers onde a energia limpa sobra, em vez de exportar o excedente como commodity. A escolha é hospedar a computação do mundo ou vender energia para quem a hospeda.</p>
+    </div>
+    <div class="tg"><span>Inteligência artificial</span><span>Indústria e manufatura</span><span>Economia</span><span>Brasil</span></div>
   </div>
 </div>

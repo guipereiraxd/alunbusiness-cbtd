@@ -10,7 +10,7 @@ cor: "I"
   <p class="ab">Antes de qualquer conversa sobre tecnologia, existe um país. Uma sociedade milenar que atravessou uma revolução, uma revolução cultural contra a própria tradição e uma abertura econômica — e que hoje combina mercado feroz com direção estatal. Este ato reúne as estruturas que explicam tudo o que vem depois: demografia, desigualdade codificada em lei, a máquina que transforma prioridade nacional em obra, e o muro que criou um mercado cativo.</p>
 </div>
 
-<div class="v">
+<div class="v" id="v-I-1">
   <div class="v-id">I.1</div>
   <div class="v-t">As quatro chaves</div>
   <p class="v-r">Cultura, demografia, desigualdade e educação: o arcabouço mínimo para não ler a China pelos olhos de outra pessoa.</p>
@@ -18,7 +18,7 @@ cor: "I"
     <div class="tese">Quase todo mal-entendido ocidental sobre a China vem de aplicar a ela categorias que foram desenhadas para outros países. Quatro dimensões dão o arcabouço: uma herança cultural de mais de dois milênios, uma demografia em contração, formas próprias de desigualdade e um Estado unitário que implementa política num passo que federações não alcançam.</div>
     <p><strong>Cultura e história.</strong> A tradição confucionista organizou por séculos a relação entre indivíduo, família e Estado, com harmonia social como valor e autoridade legítima quando exercida com virtude. O sistema de exames imperiais selecionava funcionários por mérito aferido em prova e durou mais de mil anos — herança que ajuda a explicar tanto a centralidade da educação quanto a legitimidade de um Estado que se apresenta como tecnicamente competente. O Partido Comunista nasceu antiConfuciano e a Revolução Cultural levou esse ataque ao extremo; décadas depois o movimento se inverteu, e o confucionismo voltou como cimento de estabilidade e identidade nacional. O que existe hoje sobrepõe as camadas: mercado, propriedade privada e competição intensa dentro de um Estado que mantém direção estratégica e tira legitimidade de desempenho.</p>
     <p><strong>Demografia.</strong> Quase sete vezes a população brasileira, mas com taxa de fecundidade em torno de 1 filho por mulher, contra 1,6 no Brasil — os dois abaixo da reposição, a China muito mais. Quando a força de trabalho encolhe e envelhece, automação deixa de ser escolha e vira necessidade contábil. É a diferença mais importante de contexto entre os dois países: no Brasil, discutir substituição de mão de obra é tabu; ali é planejamento.</p>
-    <p><strong>Desigualdade.</strong> No recorte étnico não há comparação — 91% han, contra um Brasil sem grupo majoritário. Mas a homogeneidade acaba aí: dezenas de idiomas regionais mutuamente ininteligíveis (a escrita unifica, a fala não), fosso entre litoral leste e interior, e um mecanismo que o Brasil não tem — o *hukou*, registro domiciliar que vincula direitos ao local de registro e não ao de residência.</p>
+    <p><strong>Desigualdade.</strong> No recorte étnico não há comparação — 91% han, contra um Brasil sem grupo majoritário. Mas a homogeneidade acaba aí: dezenas de idiomas regionais mutuamente ininteligíveis (a escrita unifica, a fala não), fosso entre litoral leste e interior, e um mecanismo que o Brasil não tem — o <a class="xref" href="/china/ato-1/#v-I-3"><em>hukou</em><sup>I.3</sup></a>, registro domiciliar que vincula direitos ao local de registro e não ao de residência.</p>
     <p><strong>Educação e Estado.</strong> O Brasil é federação; a China, Estado unitário. Há descentralização de execução, mas o centro define currículo e implementa reformas num ciclo único — o currículo obrigatório de IA é o exemplo vivo. No Brasil, qualquer política negocia com 26 estados e mais de 5.500 municípios com autonomia constitucional real. Nem melhor nem pior: incomparável.</p>
     <div class="dados"><div class="d"><div class="dv">1,4 bi</div><div class="dl">habitantes, já em declínio populacional absoluto</div></div><div class="d"><div class="dv">~1,0</div><div class="dl">filho por mulher (Brasil: 1,6 · reposição: 2,1)</div></div><div class="d"><div class="dv">91%</div><div class="dl">da população é da etnia han</div></div><div class="d"><div class="dv">41 vs 34</div><div class="dl">idade mediana China vs Brasil (anos)</div></div></div>
     <div class="br">
@@ -29,7 +29,7 @@ cor: "I"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-I-2">
   <div class="v-id">I.2</div>
   <div class="v-t">O choque demográfico como motor tecnológico</div>
   <p class="v-r">A China perde população em termos absolutos. Robótica e IA não são hobby: são resposta contábil.</p>
@@ -37,7 +37,7 @@ cor: "I"
     <div class="tese">A automação chinesa não é entusiasmo tecnológico — é aritmética. Um país cuja força de trabalho encolhe desde 2015 e que registrou em 2025 o menor número de nascimentos desde a fundação da República Popular precisa de produtividade por trabalhador numa escala que só a máquina entrega.</div>
     <p>Os dados divulgados em janeiro de 2026 registram 7,92 milhões de nascimentos em 2025 — o menor número desde 1949 — e queda de 3,39 milhões na população total. Projeções independentes estimam perda de quase 60 milhões de habitantes entre 2026 e 2035, quase a população da França, com a queda anual chegando a 7,6 milhões em 2035.</p>
     <p>O efeito sobre a política industrial é direto e verificável: a China instalou 276 mil robôs industriais em 2025, mais que Japão, Estados Unidos, Alemanha e Coreia do Sul somados, e hoje supera Alemanha e Japão na razão entre robôs e trabalhadores de manufatura. A aposta em humanoides, que parece futurismo de feira, ganha outro sentido quando lida contra essa curva.</p>
-    <p>Há um segundo efeito, menos comentado: a pressão demográfica muda a *conversa social* sobre automação. Onde falta gente, substituir trabalho por máquina não gera o mesmo conflito político que geraria num país com bônus demográfico ainda em curso.</p>
+    <p>Há um segundo efeito, menos comentado: a pressão demográfica muda a <em>conversa social</em> sobre automação. Onde falta gente, substituir trabalho por máquina não gera o mesmo conflito político que geraria num país com bônus demográfico ainda em curso.</p>
     <div class="dados"><div class="d"><div class="dv">7,92 mi</div><div class="dl">nascimentos em 2025 — menor número desde 1949</div></div><div class="d"><div class="dv">-3,39 mi</div><div class="dl">queda da população total em 2025</div></div><div class="d"><div class="dv">2015</div><div class="dl">ano em que a força de trabalho começou a encolher</div></div><div class="d"><div class="dv">~60 mi</div><div class="dl">perda populacional projetada entre 2026 e 2035</div></div></div>
     <div class="br">
       <div class="brt">Implicação para o Brasil</div>
@@ -47,7 +47,7 @@ cor: "I"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-I-3">
   <div class="v-id">I.3</div>
   <div class="v-t">Hukou: a desigualdade escrita na lei</div>
   <p class="v-r">Centenas de milhões de pessoas vivem numa cidade sem ter direito pleno a ela. É o custo escondido da ordem urbana.</p>
@@ -65,7 +65,7 @@ cor: "I"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-I-4">
   <div class="v-id">I.4</div>
   <div class="v-t">Como uma prioridade nacional chega à fábrica</div>
   <p class="v-r">Pequim define, a província traduz, o distrito executa — e os dirigentes competem entre si pela carreira.</p>
@@ -84,7 +84,7 @@ cor: "I"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-I-5">
   <div class="v-id">I.5</div>
   <div class="v-t">A escada estatal de empresas</div>
   <p class="v-r">Seis estágios formais, certificação oficial em cada degrau, e incubadoras avaliadas com nota e verba.</p>
@@ -97,13 +97,13 @@ cor: "I"
     <div class="dados"><div class="d"><div class="dv">6</div><div class="dl">estágios formais na escada de empresas de tecnologia</div></div><div class="d"><div class="dv">91% / 70%</div><div class="dl">das empresas que abriram capital tinham certificação prévia</div></div><div class="d"><div class="dv">345</div><div class="dl">incubadoras de Xangai avaliadas com nota e consequência (2025)</div></div><div class="d"><div class="dv">5.433 → 24 mil</div><div class="dl">empresas de alta tecnologia em Xangai, 2014 → 2023</div></div></div>
     <div class="br">
       <div class="brt">Implicação para o Brasil</div>
-      <p>Três características interessam a quem pensa política pública aqui: o aparato é **longitudinal** (acompanha a empresa por estágios em vez de tratar apoio como evento isolado), é **mensurado** (quem recebe é avaliado publicamente, com nota e consequência) e é **operado por instituição permanente**, que existe há quase quatro décadas e absorveu funções em vez de ser refundada a cada ciclo. A diferença entre ter e não ter uma engrenagem dessas talvez seja menos sobre quanto se investe e mais sobre quem cuida da continuidade.</p>
+      <p>Três características interessam a quem pensa política pública aqui: o aparato é <strong>longitudinal</strong> (acompanha a empresa por estágios em vez de tratar apoio como evento isolado), é <strong>mensurado</strong> (quem recebe é avaliado publicamente, com nota e consequência) e é <strong>operado por instituição permanente</strong>, que existe há quase quatro décadas e absorveu funções em vez de ser refundada a cada ciclo. A diferença entre ter e não ter uma engrenagem dessas talvez seja menos sobre quanto se investe e mais sobre quem cuida da continuidade.</p>
     </div>
     <div class="tg"><span>Estado e política pública</span><span>Empresas e mercado</span></div>
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-I-6">
   <div class="v-id">I.6</div>
   <div class="v-t">A universidade como infraestrutura de Estado</div>
   <p class="v-r">Duas décadas para construir o maior sistema de pesquisa do mundo — e a fatura que veio junto.</p>
@@ -122,7 +122,7 @@ cor: "I"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-I-7">
   <div class="v-id">I.7</div>
   <div class="v-t">A megalópole que funciona (e o que ela cobra)</div>
   <p class="v-r">Metrô pontual, calçada sem buraco e um cérebro urbano com 40 mil sensores. Também: vigilância e migrantes sem direitos.</p>
@@ -130,7 +130,7 @@ cor: "I"
     <div class="tese">Uma cidade que funciona nessa escala é resultado de quatro coisas simultâneas — investimento em infraestrutura fora do nosso alcance, uma plataforma que integra o que aqui está separado, um mecanismo que faz gestores competirem por ordem urbana, e um controle migratório que resolve certos problemas com custo social concreto.</div>
     <p>Comece pelo dimensionamento. Xangai tem 24,8 milhões de residentes registrados e mais de 28 milhões contando a população flutuante — mais gente que a Austrália. Seu metrô tem cerca de 900 km e 508 estações, transporta 10 milhões de passageiros por dia útil com 99% de pontualidade. São Paulo, com menos habitantes, construiu 110,9 km: oito vezes menos trilho, e cada quilômetro de linha carrega três vezes mais gente por dia.</p>
     <p>A camada de gestão tem nome: uma plataforma de 'gestão unificada em uma rede' que integra transporte, infraestrutura, emergência e serviços públicos num centro único de operação. Em um único distrito de 1.200 km² foram instalados cerca de 40 mil sensores e câmeras alimentando o que chamam de cérebro urbano. Os dados oficiais falam em queda de 15% no congestionamento local após semáforos inteligentes — números produzidos por quem implementou o sistema, sem verificação independente.</p>
-    <p>A camada cultural é mais precisa que o estereótipo. Existe o *li*, código de conduta ritual do confucionismo estendido ao comportamento cotidiano, e existe a palavra *wenming* (civilização). Mas a herança não age sozinha: desde 2005 há o título de Cidade Civilizada Nacional, já conferido a 505 cidades e distritos, com avaliação anual de 1 a 100, inspetores incógnitos e critérios que incluem limpeza urbana, conduta no trânsito, voluntariado e qualidade do ar. Dirigentes municipais competem por essa pontuação. Comportamento cívico ali é também política pública, com meta, medição e incentivo.</p>
+    <p>A camada cultural é mais precisa que o estereótipo. Existe o <em>li</em>, código de conduta ritual do confucionismo estendido ao comportamento cotidiano, e existe a palavra <em>wenming</em> (civilização). Mas a herança não age sozinha: desde 2005 há o título de Cidade Civilizada Nacional, já conferido a 505 cidades e distritos, com avaliação anual de 1 a 100, inspetores incógnitos e critérios que incluem limpeza urbana, conduta no trânsito, voluntariado e qualidade do ar. Dirigentes municipais competem por essa pontuação. Comportamento cívico ali é também política pública, com meta, medição e incentivo.</p>
     <p>E há o preço. Uma cidade que se gerencia por dados é uma cidade que coleta dados sobre quem vive nela — num ambiente onde pesquisadores apontam a ausência de uma lei de privacidade funcional aplicável à maior parte dos dados de infraestrutura urbana inteligente.</p>
     <div class="dados"><div class="d"><div class="dv">900 km</div><div class="dl">de metrô em Xangai (São Paulo: 110,9 km)</div></div><div class="d"><div class="dv">99%</div><div class="dl">índice de pontualidade do metrô</div></div><div class="d"><div class="dv">~40 mil</div><div class="dl">sensores e câmeras em um único distrito</div></div><div class="d"><div class="dv">505</div><div class="dl">cidades e distritos já titulados como Cidade Civilizada Nacional</div></div></div>
     <div class="br">
@@ -141,14 +141,14 @@ cor: "I"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-I-8">
   <div class="v-id">I.8</div>
   <div class="v-t">O muro tem duas funções</div>
   <p class="v-r">Censura, sim. Mas também o protecionismo mais lucrativo da história recente — e o berço das gigantes chinesas.</p>
   <div class="v-body">
     <div class="tese">O Grande Firewall é lido de fora como censura, e é. Mas sua segunda função é economicamente mais relevante: ao bloquear as gigantes globais, criou um mercado cativo de centenas de milhões de usuários onde alternativas domésticas cresceram sem concorrência estrangeira direta. Alibaba, Tencent e Baidu são filhas desse muro.</div>
-    <p>O sistema começou em 1998 e opera em camadas: bloqueia endereços, corrompe a tradução de nomes de sites em endereços de máquina, e inspeciona o tráfego para identificar o *formato* da conexão — o que permite derrubar VPNs sem ler o que trafega dentro delas. Nos últimos anos incorporou modelos de IA para reconhecer novas formas de contorno em tempo real.</p>
-    <p>O paradoxo que todo visitante encontra: apesar da fricção externa, a integração *interna* é maior que a nossa. Bicicleta compartilhada e metrô num toque; baterias portáteis de empresas diferentes retiradas num ponto e devolvidas em outro sem cadastro, caução ou contrato — basta apontar a câmera para um QR dentro do super app. Serviços de empresas distintas conversando entre si, mediados por uma camada comum que já sabe quem você é.</p>
+    <p>O sistema começou em 1998 e opera em camadas: bloqueia endereços, corrompe a tradução de nomes de sites em endereços de máquina, e inspeciona o tráfego para identificar o <em>formato</em> da conexão — o que permite derrubar VPNs sem ler o que trafega dentro delas. Nos últimos anos incorporou modelos de IA para reconhecer novas formas de contorno em tempo real.</p>
+    <p>O paradoxo que todo visitante encontra: apesar da fricção externa, a integração <em>interna</em> é maior que a nossa. Bicicleta compartilhada e metrô num toque; baterias portáteis de empresas diferentes retiradas num ponto e devolvidas em outro sem cadastro, caução ou contrato — basta apontar a câmera para um QR dentro do super app. Serviços de empresas distintas conversando entre si, mediados por uma camada comum que já sabe quem você é.</p>
     <p>As mesmas regras alcançam a IA, e nesse caso são públicas. As Medidas Provisórias para Serviços de IA Generativa, em vigor desde agosto de 2023, exigem que o conteúdo gerado sustente os valores centrais socialistas; serviços com atributos de opinião pública passam por avaliação de segurança e registro de algoritmo. Para aprovação de lançamento público, os provedores submetem um conjunto de duas mil perguntas cobrindo categorias de risco. A regra é pública; o critério de fiscalização, não — a ponto de dois dos principais pesquisadores da área discordarem sobre se aquilo é registro ou licenciamento.</p>
     <p>A comparação honesta importa. Um estudo publicado na PNAS Nexus, com 145 perguntas políticas, encontrou taxas de recusa muito maiores em modelos chineses. Mas um levantamento do Oversight Board, com dez modelos de seis empresas ocidentais e mais de treze mil solicitações, encontrou 34% de recusa para conteúdo crítico sobre países de legislação restritiva contra 14% sobre países com proteção à liberdade de expressão — e 41% de recusa para pedidos de opinião nos dois grupos, sem relação com a lei do país tratado. Todo modelo carrega restrições. O que muda é a origem: norma estatal explícita de um lado, política de empresa e risco jurídico do outro.</p>
     <div class="dados"><div class="d"><div class="dv">1998</div><div class="dl">início do sistema de filtragem da internet chinesa</div></div><div class="d"><div class="dv">ago/2023</div><div class="dl">Medidas Provisórias para IA generativa entram em vigor</div></div><div class="d"><div class="dv">2.000</div><div class="dl">perguntas no conjunto de avaliação para lançamento público</div></div><div class="d"><div class="dv">34% vs 14%</div><div class="dl">recusa de modelos ocidentais: países restritivos vs livres</div></div></div>

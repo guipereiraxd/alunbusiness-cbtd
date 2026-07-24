@@ -7,17 +7,17 @@ cor: "IV"
   <div class="k">Ato IV · 9 descobertas</div>
   <h1>Empresas chinesas e os novos dragões</h1>
   <div class="sub">A anatomia de uma geração</div>
-  <p class="ab">A geração anterior de gigantes chinesas nasceu protegida por um muro e conquistou o mercado interno. A nova nasce olhando para fora desde o primeiro dia — e chega ao Brasil não como exportadora, mas como fábrica, marca e concorrente. Este ato desmonta o mecanismo: a pirâmide estatal que fabrica campeões de nicho, a densidade de fornecedores que permite errar barato, a seleção brutal da involução, e a saída internacional em três movimentos.</p>
+  <p class="ab">A geração anterior de gigantes chinesas nasceu protegida por um muro e conquistou o mercado interno. A nova nasce olhando para fora desde o primeiro dia — e chega ao Brasil não como exportadora, mas como fábrica, marca e concorrente. Este ato desmonta o mecanismo: a pirâmide estatal que fabrica campeões de nicho, a densidade de fornecedores que permite errar barato, a seleção brutal da <a class="xref" href="/china/ato-2/#v-II-3">involução<sup>II.3</sup></a>, e a saída internacional em três movimentos.</p>
 </div>
 
-<div class="v">
+<div class="v" id="v-IV-1">
   <div class="v-id">IV.1</div>
   <div class="v-t">O que é um 'novo dragão'</div>
   <p class="v-r">Não é a big tech dos anos 2010. É a empresa que nasce global, verticaliza e exporta o modelo inteiro.</p>
   <div class="v-body">
     <div class="tese">Os dragões antigos — Alibaba, Tencent, Baidu — cresceram dentro de um mercado protegido, resolvendo para o consumidor chinês. Os novos são outra espécie: competem em cadeias físicas, verticalizam produção, tratam o mundo como mercado desde o começo e chegam com preço que o incumbente local não consegue igualar.</div>
     <p>Cinco traços definem a espécie. <strong>Verticalização</strong>: fazem o componente crítico em casa em vez de comprá-lo — a montadora que era fabricante de baterias, a fabricante de robôs que produz seus próprios motores, redutores e sensores. <strong>Velocidade de iteração</strong>: ciclos de produto medidos em semanas, viabilizados pela densidade de fornecedores. <strong>Preço como arma de entrada</strong>, sustentado por escala doméstica e, em vários casos, por crédito subsidiado. <strong>Marca própria no exterior</strong>, em vez de fabricação para terceiros. E <strong>exportação do modelo operacional</strong>, não só do produto.</p>
-    <p>A trajetória típica não começa numa garagem e sim num degrau da escada estatal descrita no Ato I: certificação de empresa de alta tecnologia, depois pequeno gigante, depois mercado de capitais — com benefício fiscal, crédito e acesso a cadeia em cada nível.</p>
+    <p>A trajetória típica não começa numa garagem e sim num degrau da <a class="xref" href="/china/ato-1/#v-I-5">escada estatal descrita no Ato I<sup>I.5</sup></a>: certificação de empresa de alta tecnologia, depois pequeno gigante, depois mercado de capitais — com benefício fiscal, crédito e acesso a cadeia em cada nível.</p>
     <p>E não começa sozinha. Cerca de 90% dos 'pequenos gigantes' certificados fornecem para grandes empresas, locais ou globais. O dragão visível é a ponta de um sistema de fornecedores invisíveis, quase todos também subsidiados.</p>
     <div class="dados"><div class="d"><div class="dv">5</div><div class="dl">traços: verticalizar, iterar, precificar, marcar, exportar o modelo</div></div><div class="d"><div class="dv">90%</div><div class="dl">dos pequenos gigantes fornecem para grandes empresas</div></div></div>
     <div class="br">
@@ -28,7 +28,7 @@ cor: "IV"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-IV-2">
   <div class="v-id">IV.2</div>
   <div class="v-t">A pirâmide dos pequenos gigantes</div>
   <p class="v-r">De menos de 40 mil para mais de 140 mil empresas 'especializadas' em cinco anos. Pequenos gigantes: de 5 mil para 17,6 mil.</p>
@@ -47,7 +47,7 @@ cor: "IV"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-IV-3">
   <div class="v-id">IV.3</div>
   <div class="v-t">BYD: verticalização como doutrina</div>
   <p class="v-r">De fabricante de baterias a maior montadora de elétricos do mundo — e a maior fábrica fora da Ásia é no Brasil.</p>
@@ -66,7 +66,7 @@ cor: "IV"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-IV-4">
   <div class="v-id">IV.4</div>
   <div class="v-t">CATL: quando o mercado interno satura</div>
   <p class="v-r">Fornece praticamente todas as montadoras chinesas. Por isso precisou sair do país.</p>
@@ -84,13 +84,13 @@ cor: "IV"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-IV-5">
   <div class="v-id">IV.5</div>
   <div class="v-t">Robótica: Unitree, AgiBot e a cadeia do Yangtzé</div>
   <p class="v-r">Motores, redutores e sensores feitos em casa; fornecedores a duas horas; compradores do tamanho de BYD, CATL e Foxconn.</p>
   <div class="v-body">
     <div class="tese">A liderança chinesa em robótica repousa em três forças que se reforçam: integração vertical da cadeia, coordenação de política nacional e — o fator mais subestimado — uma base de compradores domésticos que nenhum outro país tem.</div>
-    <p><strong>Integração.</strong> O Delta do Yangtzé abriga a cadeia de humanoides mais verticalizada do mundo. A fabricante líder produz internamente motores, redutores e sensores; os fornecedores de componentes estão a um raio logístico de duas horas. A cadeia de Shenzhen permite prototipar um braço robótico em dias em vez de meses.</p>
+    <p><strong>Integração.</strong> O Delta do Yangtzé abriga a cadeia de humanoides mais verticalizada do mundo. A fabricante líder produz internamente motores, redutores e sensores; os fornecedores de componentes estão a um raio logístico de duas horas. A cadeia de <a class="xref" href="/china/ato-2/#v-II-6">Shenzhen<sup>II.6</sup></a> permite prototipar um braço robótico em dias em vez de meses.</p>
     <p><strong>Política.</strong> O Plano de Ação para Robôs Humanoides, publicado pelo ministério da indústria com outros cinco ministérios, fixa meta de 100 mil humanoides implantados até 2027.</p>
     <p><strong>Demanda.</strong> BYD, CATL e Foxconn sozinhas representam demanda por dezenas de milhares de sistemas. Nenhum outro país tem uma base de compradores dessa escala concentrada no mesmo território — e é isso que permite amortizar desenvolvimento antes de existir mercado consumidor amplo.</p>
     <p>O padrão a observar é o mesmo dos veículos elétricos: competição feroz no produto final, queda rápida de preços, e fortalecimento estrutural de quem fornece componentes — juntas, motores, redutores, sensores, mãos, controladores, sistemas de refrigeração, plataformas de captura de dados. É lá, e não no produto final, que costuma sobrar margem.</p>
@@ -103,7 +103,7 @@ cor: "IV"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-IV-6">
   <div class="v-id">IV.6</div>
   <div class="v-t">Pop Mart e a exportação de desejo</div>
   <p class="v-r">Receita de RMB 37,1 bilhões em 2025 e crescimento de 748% nas Américas. A China descobriu como exportar marca, não só produto.</p>
@@ -122,7 +122,7 @@ cor: "IV"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-IV-7">
   <div class="v-id">IV.7</div>
   <div class="v-t">Os tigres de IA e o ano dos IPOs</div>
   <p class="v-r">2026 é o ano em que os laboratórios chineses de IA abriram capital. Dois estrearam em Hong Kong só em janeiro.</p>
@@ -141,7 +141,7 @@ cor: "IV"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-IV-8">
   <div class="v-id">IV.8</div>
   <div class="v-t">Como um dragão nasce: o mecanismo em cinco tempos</div>
   <p class="v-r">Mercado protegido → escada estatal → densidade de fornecedores → seleção brutal → saída internacional.</p>
@@ -152,7 +152,7 @@ cor: "IV"
     <p><strong>3. Densidade de fornecedores.</strong> Componentes padronizados e disponíveis no mesmo dia reduzem o custo de tentar. Lançar cinco produtos custa quase o mesmo que lançar um, então o mercado vira o teste.</p>
     <p><strong>4. Seleção brutal (involução).</strong> Dezenas de concorrentes no mesmo nicho, guerra de preços, margens negativas. É onde a maioria morre — e onde os sobreviventes adquirem a estrutura de custo com que chegam ao exterior.</p>
     <p><strong>5. Saída internacional em três movimentos.</strong> Produto no exterior; depois estratégia no exterior (presença, suporte técnico, parceiros, fábrica local); e por fim padrões no exterior — participar da definição das normas que estruturam o mercado.</p>
-    <p>O quinto tempo é o menos observado e o mais consequente. Quando uma empresa chega ao estágio de escrever padrão, ela deixou de competir dentro das regras e passou a competir *pelas* regras.</p>
+    <p>O quinto tempo é o menos observado e o mais consequente. Quando uma empresa chega ao estágio de escrever padrão, ela deixou de competir dentro das regras e passou a competir <em>pelas</em> regras.</p>
     <div class="dados"><div class="d"><div class="dv">5</div><div class="dl">tempos do mecanismo, do mercado protegido ao padrão técnico</div></div><div class="d"><div class="dv">3</div><div class="dl">movimentos da saída: produto, estratégia, padrões</div></div></div>
     <div class="br">
       <div class="brt">Implicação para o Brasil</div>
@@ -162,7 +162,7 @@ cor: "IV"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-IV-9">
   <div class="v-id">IV.9</div>
   <div class="v-t">A chegada ao Brasil: de hidrelétricas a sorvete</div>
   <p class="v-r">Mais de 200 empresas chinesas operando, intenções de R$ 200 bilhões até 2030 e uma mudança de perfil que muda tudo.</p>

@@ -10,7 +10,7 @@ cor: "V"
   <p class="ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom. A primeira categoria não é replicável e boa parte dela não é desejável. A segunda é maior do que se imagina — e quase toda ela está disponível para organizações brasileiras que decidam medir, integrar e cobrar. Este ato fecha com o inventário honesto dos custos e com perguntas práticas.</p>
 </div>
 
-<div class="v">
+<div class="v" id="v-V-1">
   <div class="v-id">V.1</div>
   <div class="v-t">Separar mecanismo de regime</div>
   <p class="v-r">A primeira disciplina analítica: nem tudo que funciona lá depende de lá.</p>
@@ -30,7 +30,7 @@ cor: "V"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-V-2">
   <div class="v-id">V.2</div>
   <div class="v-t">Continuidade vence programa</div>
   <p class="v-r">Instituições de 1988 ainda operando, absorvendo funções em vez de serem refundadas a cada ciclo.</p>
@@ -48,7 +48,7 @@ cor: "V"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-V-3">
   <div class="v-id">V.3</div>
   <div class="v-t">Medir tem consequência — inclusive as que você não quer</div>
   <p class="v-r">Vinte anos premiando volume de publicação produziram 17 mil retratações. E depois uma correção de rumo.</p>
@@ -66,7 +66,7 @@ cor: "V"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-V-4">
   <div class="v-id">V.4</div>
   <div class="v-t">Cenário de aplicação, não piloto</div>
   <p class="v-r">A unidade de trabalho que faz a IA sair do laboratório: problema delimitado, dado disponível, ambiente de validação, referência replicável.</p>
@@ -84,7 +84,7 @@ cor: "V"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-V-5">
   <div class="v-id">V.5</div>
   <div class="v-t">Difusão vence fronteira (para quem não vai ganhar a corrida de capital)</div>
   <p class="v-r">Modelo virou commodity barata. O que continua caro é dado próprio, processo integrado e gente que saiba operar.</p>
@@ -92,7 +92,7 @@ cor: "V"
     <div class="tese">Nenhum país fora do eixo Estados Unidos-China vai ganhar a corrida de capital em IA — a comparação de cifras encerra o assunto. Mas a régua mudou de lugar, e a régua nova favorece quem sabe difundir.</div>
     <p>Três movimentos definem a estratégia de quem não tem capital de fronteira. <strong>Pragmatismo de modelo</strong>: escolher por tarefa, não por marca ou benchmark, e trocar quando o custo por tarefa mudar. <strong>Distribuição própria</strong>: colocar a IA onde as pessoas já estão, dentro do fluxo de trabalho existente, em vez de criar um destino novo para onde a organização precisa migrar. <strong>Eficiência como vantagem</strong>: roteamento de tarefas, arbitragem de geração de hardware, reaproveitamento de respostas já calculadas.</p>
     <p>O ativo defensável não está na camada de modelo. Está no dado operacional que só a sua organização tem, no processo que só você conhece e nas pessoas que sabem operar o conjunto. Nenhum desses três é baixável do Hugging Face.</p>
-    <p>E é aqui que o segundo ciclo — o físico — decide o jogo para o Brasil. Agricultura, mineração, energia e logística brasileiras geram dados operacionais que não estão na internet de ninguém. O que falta é a ligação entre esses dados e quem desenvolve modelos. Sem essa ligação, participamos apenas do ciclo digital, que está aberto a todos e por isso não gera vantagem para ninguém.</p>
+    <p>E é aqui que <a class="xref" href="/china/ato-3/#v-III-1">o segundo ciclo — o físico<sup>III.1</sup></a> — decide o jogo para o Brasil. Agricultura, mineração, energia e logística brasileiras geram dados operacionais que não estão na internet de ninguém. O que falta é a ligação entre esses dados e quem desenvolve modelos. Sem essa ligação, participamos apenas do ciclo digital, que está aberto a todos e por isso não gera vantagem para ninguém.</p>
     <div class="dados"><div class="d"><div class="dv">3</div><div class="dl">movimentos: pragmatismo de modelo, distribuição própria, eficiência</div></div><div class="d"><div class="dv">US$ 725 bi</div><div class="dl">reservados por duas empresas americanas para IA só em 2026</div></div></div>
     <div class="br">
       <div class="brt">Implicação para o Brasil</div>
@@ -102,13 +102,13 @@ cor: "V"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-V-6">
   <div class="v-id">V.6</div>
   <div class="v-t">O vértice que falta</div>
   <p class="v-r">Universidade de um lado, empresa do outro, e um vazio no meio onde deveria morar a pesquisa de longo prazo.</p>
   <div class="v-body">
     <div class="tese">O Brasil tem universidades de pesquisa e tem empresas de tecnologia. O que não tem com clareza é a instituição do meio: financiamento estável, liberdade para pesquisar sem prazo de produto, obrigação de abrir o que produz e relação de cooperação com empresas em vez de prestação de serviço.</div>
-    <p>O arranjo existe fora da China — institutos canadenses sem fins lucrativos com financiamento público formam a base da estratégia nacional de IA daquele país. O que distingue o caso chinês é a escala e o fato de as empresas serem *fundadoras*, e não apenas parceiras: concorrentes diretos que se sentam na mesma mesa de governança.</p>
+    <p>O arranjo existe fora da China — institutos canadenses sem fins lucrativos com financiamento público formam a base da estratégia nacional de IA daquele país. O que distingue o caso chinês é a escala e o fato de as empresas serem <em>fundadoras</em>, e não apenas parceiras: concorrentes diretos que se sentam na mesma mesa de governança.</p>
     <p>A função declarada dessas instituições, e confirmada por análises independentes, não é produzir o melhor modelo — os modelos mais avançados e mais adotados saem de empresas privadas. É outra coisa: incubar talento que depois abastece o setor privado, e executar prioridades públicas que o mercado não financia — padrões técnicos, segurança, ciência básica, interoperabilidade.</p>
     <p>É exatamente essa a lacuna brasileira. Sem esse espaço, a pesquisa de fronteira fica sujeita ao prazo do mercado ou ao ciclo eleitoral, e nenhum dos dois acomoda trabalho de longo prazo.</p>
     <div class="dados"><div class="d"><div class="dv">3</div><div class="dl">vértices: universidade, empresa e o instituto que falta</div></div><div class="d"><div class="dv">4</div><div class="dl">atributos do vértice: verba estável, liberdade, abertura, cooperação</div></div></div>
@@ -120,7 +120,7 @@ cor: "V"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-V-7">
   <div class="v-id">V.7</div>
   <div class="v-t">Soberania por camadas</div>
   <p class="v-r">Ninguém tem autonomia na cadeia inteira. A pergunta prática é: em qual camada queremos ter.</p>
@@ -138,7 +138,7 @@ cor: "V"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-V-8">
   <div class="v-id">V.8</div>
   <div class="v-t">O inventário honesto dos custos</div>
   <p class="v-r">Involução, hukou, vigilância, censura, fraude acadêmica. O que vem junto com a velocidade.</p>
@@ -159,13 +159,13 @@ cor: "V"
   </div>
 </div>
 
-<div class="v">
+<div class="v" id="v-V-9">
   <div class="v-id">V.9</div>
   <div class="v-t">Nove perguntas para levar à sua organização</div>
   <p class="v-r">O repositório inteiro reduzido a um roteiro de conversa de diretoria.</p>
   <div class="v-body">
     <div class="tese">Tudo que está aqui pode ser convertido em nove perguntas. Se a sua organização responder todas com clareza, a China deixou de ser assunto de tendência e virou insumo de estratégia.</div>
-    <p><strong>1.</strong> Em qual dos cinco tempos do mecanismo a concorrência chinesa está no nosso setor — e quanto tempo isso nos dá?</p>
+    <p><strong>1.</strong> Em qual dos <a class="xref" href="/china/ato-4/#v-IV-8">cinco tempos do mecanismo<sup>IV.8</sup></a> a concorrência chinesa está no nosso setor — e quanto tempo isso nos dá?</p>
     <p><strong>2.</strong> Qual parte da nossa jornada de cliente ainda tem o pagamento, o atendimento ou a decisão como etapa visível, quando poderia ser contexto?</p>
     <p><strong>3.</strong> Que dado operacional só nós temos, que não está na internet de ninguém, e o que estamos fazendo com ele?</p>
     <p><strong>4.</strong> Nossos projetos de IA são pilotos ou cenários de aplicação? Quem é o executivo que responde pelo resultado de cada um, pessoalmente?</p>
