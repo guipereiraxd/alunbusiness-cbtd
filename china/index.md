@@ -147,7 +147,7 @@
       <h3>Aprendizados sobre o modelo chinês</h3>
       <p class="ac-sub">O que é mecanismo e o que é regime</p>
       <p class="ac-ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom.</p>
-      <span class="ac-n">12 descobertas →</span>
+      <span class="ac-n">14 descobertas →</span>
     </a>
   </div>
 </section>

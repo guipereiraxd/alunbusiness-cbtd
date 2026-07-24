@@ -4,10 +4,10 @@ cor: "V"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato V · 12 descobertas</div>
+  <div class="k">Ato V · 14 descobertas</div>
   <h1>Aprendizados sobre o modelo chinês</h1>
   <div class="sub">O que é mecanismo e o que é regime</div>
-  <p class="ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom. A primeira categoria não se replica, e boa parte dela nem é desejável. A segunda é maior do que parece — e quase toda ela está ao alcance de organizações brasileiras dispostas a medir, integrar e cobrar. Este ato fecha a imersão com o inventário honesto dos custos, um punhado de perguntas práticas e a síntese do que a viagem inteira deixou: dois enquadramentos de gestão e os três aprendizados que atravessam tudo.</p>
+  <p class="ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom. A primeira categoria não se replica, e boa parte dela nem é desejável. A segunda é maior do que parece — e quase toda ela está ao alcance de organizações brasileiras dispostas a medir, integrar e cobrar. Este ato fecha a imersão com o inventário honesto dos custos, uma revisão de dois preconceitos ocidentais sobre planejamento e autonomia, e a síntese do que a viagem inteira deixou — perguntas práticas, enquadramentos de gestão e três aprendizados.</p>
 </div>
 
 <div class="v" id="v-V-1">
@@ -227,6 +227,45 @@ cor: "V"
 
 <div class="v" id="v-V-12">
   <div class="v-id">V.12</div>
+  <div class="v-t">O mito de que o comando sufoca a inovação</div>
+  <p class="v-r">Um preconceito ocidental diz que todo modelo de comando e controle mata a criatividade. Vista de perto, a China embaralha essa certeza.</p>
+  <div class="v-body">
+    <div class="tese">Um dos preconceitos mais arraigados da gestão ocidental é o de que todo modelo de comando e controle sufoca a inovação. A China embaralha essa certeza — e também outra, a de que ali ninguém reclama e por isso mudar de rumo seria fácil. As duas caem, mas não do jeito que se imagina.</div>
+    <p>Quem caminha pelos bairros encontra, na parede, a foto do representante político responsável por aquela região, com um número de contato ao lado. O cidadão é estimulado a se manifestar, e o governo recorre a internet, redes sociais e canais oficiais para consultar, entender o que agrada ou incomoda e testar a recepção de uma medida antes de transformá-la em política.</p>
+    <p>E os chineses reclamam, questionam e debatem. A diferença está menos na ausência de crítica e mais no canal por onde ela escoa: costuma chegar orientada à solução, ao resultado e a uma ideia de harmonia coletiva. Isso não apaga os limites de expressão que <a class="xref" href="/china/ato-5/#v-V-8">o inventário de custos<sup>V.8</sup></a> registra — a consulta é real, mas roda dentro de uma moldura que não admite oposição organizada.</p>
+    <p>Nas empresas, o padrão se repete. No lugar da iniciativa individual suprimida, o que aparece são lideranças que usam dado o tempo todo para escutar, ler sinais e corrigir a rota. A direção estratégica é comunicada com antecedência — em boa parte pelos <a class="xref" href="/china/ato-2/#v-II-4">planos quinquenais<sup>II.4</sup></a>, que fixam prioridade, indicador e sinal de investimento para a economia inteira —, e dentro dela sobra espaço para experimentar, errar e competir.</p>
+    <p>A fórmula que resume o arranjo é simples: a liderança escuta, recolhe a informação e define o para-onde; os times e as empresas disputam o como. Quando todos entendem o que está alinhado à estratégia, a autonomia para de virar dispersão e passa a gerar potência.</p>
+    <div class="dados"><div class="d"><div class="dv">2</div><div class="dl">preconceitos que a imersão desfez: comando mata inovação; ninguém reclama</div></div><div class="d"><div class="dv">para-onde / como</div><div class="dl">o que a liderança define / o que os times disputam</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>Aqui não depende de regime. A lição de gestão é direta: autonomia sem direção clara vira dispersão; direção clara sem autonomia vira burocracia. A organização que comunica o para-onde com antecedência e mantém o como aberto colhe iniciativa no lugar de desalinhamento — e isso vale igual para uma diretoria e para um ministério.</p>
+    </div>
+    <div class="tg"><span>Gestão e adoção</span><span>Estado e política pública</span><span>Sociedade e trabalho</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-V-13">
+  <div class="v-id">V.13</div>
+  <div class="v-t">Construir a capacidade antes de precisar dela</div>
+  <p class="v-r">Boa parte do salto chinês veio de uma disciplina: alinhar a ambição de longo prazo ao desenvolvimento antecipado das capacidades que a sustentam. Quatro decisões.</p>
+  <div class="v-body">
+    <div class="tese">Em vez de gastar toda a energia no resultado imediato, o ecossistema chinês tomou decisões práticas de investimento voltadas ao futuro — construindo a capacidade humana, organizacional e industrial antes de a ambição precisar dela. Quatro pilares organizam esse movimento, e cada um já apareceu, de perto, nos atos anteriores.</div>
+    <p><strong>1. Formação de talento.</strong> Sair da manufatura barata rumo à alta tecnologia exigiu investimento fundo em educação: o sistema universitário foi ampliado e reorganizado com ênfase em ciência, tecnologia, engenharia e matemática. Em paralelo, programas de repatriação trouxeram de volta cientistas, engenheiros e executivos chineses formados no Vale do Silício e em outros centros — menos para recuperar pessoas do que para absorver depressa o conhecimento acumulado fora. É o insumo humano que abastece <a class="xref" href="/china/ato-3/#v-III-7">o vértice de pesquisa<sup>III.7</sup></a>.</p>
+    <p><strong>2. Consistência estratégica.</strong> Enquanto o investimento corporativo no Ocidente apanha de ciclo eleitoral, troca de gestão e resultado trimestral, <a class="xref" href="/china/ato-2/#v-II-4">o plano quinquenal<sup>II.4</sup></a> funciona como sinal de mercado. Não elimina a incerteza, mas deixa claro qual tecnologia e qual setor serão prioridade — e universidade, governo local, empresa e investidor passam a decidir com horizonte mais longo.</p>
+    <p><strong>3. Ecossistema territorial.</strong> A China entendeu que empresa inovadora não brota isolada. Cidades e províncias inteiras foram organizadas em torno de uma vertical, juntando universidade, centro de pesquisa, fornecedor, infraestrutura, capital e grande empresa no mesmo lugar — a densidade que <a class="xref" href="/china/ato-2/#v-II-6">Shenzhen<sup>II.6</sup></a> levou às últimas consequências. O alvo é o ecossistema completo, não a companhia de destaque cercada de vazio.</p>
+    <p><strong>4. Apoio estatal com competição feroz.</strong> O Estado direcionou recurso para setor estratégico — carro elétrico e solar receberam subsídio, crédito e apoio inicial —, mas não protegeu uma ou duas escolhidas para sempre. Centenas de empresas locais foram estimuladas a se estraçalhar na concorrência, na <a class="xref" href="/china/ato-2/#v-II-3">involução<sup>II.3</sup></a> que <a class="xref" href="/china/ato-4/#v-IV-8">o mecanismo em cinco tempos<sup>IV.8</sup></a> descreve. O Estado ajudou a construir o campo; a competição decidiu quem sobreviveria nele.</p>
+    <p>No fundo, a lição é que planejamento e inovação não são forças opostas. Quando a direção é clara, a capacidade é construída com antecedência e a experimentação corre descentralizada, estratégia de longo prazo e autonomia se reforçam. A China não abriu mão do comando, do controle ou do plano — combinou os três com escuta, competição e liberdade de execução.</p>
+    <div class="dados"><div class="d"><div class="dv">4</div><div class="dl">pilares: talento, consistência, ecossistema, apoio com competição</div></div><div class="d"><div class="dv">1</div><div class="dl">disciplina: alinhar a ambição de longo prazo à capacidade que a sustenta</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>Nenhum dos quatro pilares depende do regime; todos dependem de horizonte. O mais transferível é o primeiro — formar e atrair talento antes de o mercado exigir. O mais difícil é o segundo: no Brasil, a estratégia troca a cada eleição e a cada nova diretoria, e sem sinal estável de para onde o país, ou a empresa, pretende ir, ninguém investe em capacidade com anos de antecedência.</p>
+    </div>
+    <div class="tg"><span>Estado e política pública</span><span>Educação e ciência</span><span>Empresas e mercado</span><span>Gestão e adoção</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-V-14">
+  <div class="v-id">V.14</div>
   <div class="v-t">O que fica: três aprendizados que atravessam tudo</div>
   <p class="v-r">Se a imersão inteira tivesse de caber em três frases, seriam estas.</p>
   <div class="v-body">

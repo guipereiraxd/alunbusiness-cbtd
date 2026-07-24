@@ -5,21 +5,21 @@ title: "Temas"
 <section class="temas-hero">
   <div class="fl">Leitura por tema</div>
   <h1>Onze fios que atravessam os cinco atos</h1>
-  <p>A imersão foi escrita para ser recombinada. Cada descoberta carrega os temas que a atravessam — siga um deles e leia a China por um único ângulo, fora da ordem dos atos. São 52 descobertas cruzando 11 temas.</p>
+  <p>A imersão foi escrita para ser recombinada. Cada descoberta carrega os temas que a atravessam — siga um deles e leia a China por um único ângulo, fora da ordem dos atos. São 54 descobertas cruzando 11 temas.</p>
 </section>
 
 <nav class="temas-jump">
   <a href="#brasil">Brasil <b>11</b></a>
   <a href="#dados-e-governanca">Dados e governança <b>7</b></a>
   <a href="#economia">Economia <b>17</b></a>
-  <a href="#educacao-e-ciencia">Educação e ciência <b>6</b></a>
-  <a href="#empresas-e-mercado">Empresas e mercado <b>14</b></a>
-  <a href="#estado-e-politica-publica">Estado e política pública <b>16</b></a>
+  <a href="#educacao-e-ciencia">Educação e ciência <b>7</b></a>
+  <a href="#empresas-e-mercado">Empresas e mercado <b>15</b></a>
+  <a href="#estado-e-politica-publica">Estado e política pública <b>18</b></a>
   <a href="#geopolitica-e-soberania">Geopolítica e soberania <b>6</b></a>
-  <a href="#gestao-e-adocao">Gestão e adoção <b>17</b></a>
+  <a href="#gestao-e-adocao">Gestão e adoção <b>19</b></a>
   <a href="#industria-e-manufatura">Indústria e manufatura <b>11</b></a>
   <a href="#inteligencia-artificial">Inteligência artificial <b>15</b></a>
-  <a href="#sociedade-e-trabalho">Sociedade e trabalho <b>6</b></a>
+  <a href="#sociedade-e-trabalho">Sociedade e trabalho <b>7</b></a>
 </nav>
 
 <section class="tema" id="brasil">
@@ -35,7 +35,7 @@ title: "Temas"
     <li><a href="/china/ato-5/#v-V-5"><span class="tl-id">V.5</span><span class="tl-body"><span class="tl-t">Difusão vence fronteira (para quem não vai ganhar a corrida de capital)</span><span class="tl-r">Modelo virou commodity barata. O que continua caro é dado próprio, processo integrado e gente que saiba operar.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-6"><span class="tl-id">V.6</span><span class="tl-body"><span class="tl-t">O vértice que falta</span><span class="tl-r">Universidade de um lado, empresa do outro, e um vazio no meio onde deveria morar a pesquisa de longo prazo.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-7"><span class="tl-id">V.7</span><span class="tl-body"><span class="tl-t">Soberania por camadas</span><span class="tl-r">Ninguém tem autonomia na cadeia inteira. A pergunta prática é: em qual camada queremos ter.</span></span></a></li>
-    <li><a href="/china/ato-5/#v-V-12"><span class="tl-id">V.12</span><span class="tl-body"><span class="tl-t">O que fica: três aprendizados que atravessam tudo</span><span class="tl-r">Se a imersão inteira tivesse de caber em três frases, seriam estas.</span></span></a></li>
+    <li><a href="/china/ato-5/#v-V-14"><span class="tl-id">V.14</span><span class="tl-body"><span class="tl-t">O que fica: três aprendizados que atravessam tudo</span><span class="tl-r">Se a imersão inteira tivesse de caber em três frases, seriam estas.</span></span></a></li>
   </ul>
 </section>
 
@@ -76,7 +76,7 @@ title: "Temas"
 </section>
 
 <section class="tema" id="educacao-e-ciencia">
-  <div class="tema-head"><h2>Educação e ciência</h2><span class="tema-n">6 descobertas</span></div>
+  <div class="tema-head"><h2>Educação e ciência</h2><span class="tema-n">7 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-1/#v-I-1"><span class="tl-id">I.1</span><span class="tl-body"><span class="tl-t">As quatro chaves</span><span class="tl-r">Cultura, demografia, desigualdade e educação: o mínimo para não ler a China pelos olhos de outra pessoa.</span></span></a></li>
     <li><a href="/china/ato-1/#v-I-6"><span class="tl-id">I.6</span><span class="tl-body"><span class="tl-t">A universidade como infraestrutura de Estado</span><span class="tl-r">Duas décadas para construir o maior sistema de pesquisa do mundo — e a fatura que veio junto.</span></span></a></li>
@@ -84,11 +84,12 @@ title: "Temas"
     <li><a href="/china/ato-3/#v-III-9"><span class="tl-id">III.9</span><span class="tl-body"><span class="tl-t">IA + Educação: o plano que redesenha o sistema educacional</span><span class="tl-r">Um plano de cinco órgãos do governo central, com meta para 2030: toda pessoa aprende sobre IA, e quase todo processo educacional passa a usar IA.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-3"><span class="tl-id">V.3</span><span class="tl-body"><span class="tl-t">Medir tem consequência — inclusive as que você não quer</span><span class="tl-r">Vinte anos premiando volume de publicação produziram 17 mil retratações. E depois uma correção de rumo.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-6"><span class="tl-id">V.6</span><span class="tl-body"><span class="tl-t">O vértice que falta</span><span class="tl-r">Universidade de um lado, empresa do outro, e um vazio no meio onde deveria morar a pesquisa de longo prazo.</span></span></a></li>
+    <li><a href="/china/ato-5/#v-V-13"><span class="tl-id">V.13</span><span class="tl-body"><span class="tl-t">Construir a capacidade antes de precisar dela</span><span class="tl-r">Boa parte do salto chinês veio de uma disciplina: alinhar a ambição de longo prazo ao desenvolvimento antecipado das capacidades que a sustentam. Quatro decisões.</span></span></a></li>
   </ul>
 </section>
 
 <section class="tema" id="empresas-e-mercado">
-  <div class="tema-head"><h2>Empresas e mercado</h2><span class="tema-n">14 descobertas</span></div>
+  <div class="tema-head"><h2>Empresas e mercado</h2><span class="tema-n">15 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-1/#v-I-5"><span class="tl-id">I.5</span><span class="tl-body"><span class="tl-t">A escada estatal de empresas</span><span class="tl-r">Seis degraus formais, certificação oficial em cada um, e incubadoras avaliadas com nota e verba.</span></span></a></li>
     <li><a href="/china/ato-2/#v-II-9"><span class="tl-id">II.9</span><span class="tl-body"><span class="tl-t">Live commerce: quando a venda vira linha de produção</span><span class="tl-r">Mais de 18% do varejo online chinês passa por transmissão ao vivo. O que começou como um vendedor diante da câmera virou prédio inteiro operando em turnos.</span></span></a></li>
@@ -104,11 +105,12 @@ title: "Temas"
     <li><a href="/china/ato-4/#v-IV-9"><span class="tl-id">IV.9</span><span class="tl-body"><span class="tl-t">A chegada ao Brasil: de hidrelétricas a sorvete</span><span class="tl-r">Mais de 200 empresas chinesas operando, intenções de R$ 200 bilhões até 2030 e uma mudança de perfil que muda tudo.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-10"><span class="tl-id">IV.10</span><span class="tl-body"><span class="tl-t">NIO: o carro vendido como assinatura</span><span class="tl-r">100 milhões de trocas de bateria e milhares de estações. Ao separar a bateria do carro, a NIO transformou o componente mais caro num serviço mensal.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-11"><span class="tl-id">IV.11</span><span class="tl-body"><span class="tl-t">JD.com: achatar o organograma não é dividir o poder</span><span class="tl-r">Mais de 900 mil pessoas no ecossistema e uma logística feita em casa. A hierarquia é curta; a autoridade, concentrada.</span></span></a></li>
+    <li><a href="/china/ato-5/#v-V-13"><span class="tl-id">V.13</span><span class="tl-body"><span class="tl-t">Construir a capacidade antes de precisar dela</span><span class="tl-r">Boa parte do salto chinês veio de uma disciplina: alinhar a ambição de longo prazo ao desenvolvimento antecipado das capacidades que a sustentam. Quatro decisões.</span></span></a></li>
   </ul>
 </section>
 
 <section class="tema" id="estado-e-politica-publica">
-  <div class="tema-head"><h2>Estado e política pública</h2><span class="tema-n">16 descobertas</span></div>
+  <div class="tema-head"><h2>Estado e política pública</h2><span class="tema-n">18 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-1/#v-I-4"><span class="tl-id">I.4</span><span class="tl-body"><span class="tl-t">Como uma prioridade nacional chega à fábrica</span><span class="tl-r">Pequim define, a província traduz, o distrito executa — e os dirigentes disputam carreira entre si no caminho.</span></span></a></li>
     <li><a href="/china/ato-1/#v-I-5"><span class="tl-id">I.5</span><span class="tl-body"><span class="tl-t">A escada estatal de empresas</span><span class="tl-r">Seis degraus formais, certificação oficial em cada um, e incubadoras avaliadas com nota e verba.</span></span></a></li>
@@ -126,6 +128,8 @@ title: "Temas"
     <li><a href="/china/ato-5/#v-V-6"><span class="tl-id">V.6</span><span class="tl-body"><span class="tl-t">O vértice que falta</span><span class="tl-r">Universidade de um lado, empresa do outro, e um vazio no meio onde deveria morar a pesquisa de longo prazo.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-10"><span class="tl-id">V.10</span><span class="tl-body"><span class="tl-t">Run, Transform, Beyond: operar três horizontes ao mesmo tempo</span><span class="tl-r">Rodar o negócio de hoje, transformar o modelo de amanhã e apostar no que ainda não existe — as três coisas em paralelo, não em sequência.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-11"><span class="tl-id">V.11</span><span class="tl-body"><span class="tl-t">Os oito padrões em que os grupos convergiram</span><span class="tl-r">Depois de dezenas de visitas, os grupos da imersão chegaram, por conta própria, ao mesmo lugar dos enquadramentos de abertura.</span></span></a></li>
+    <li><a href="/china/ato-5/#v-V-12"><span class="tl-id">V.12</span><span class="tl-body"><span class="tl-t">O mito de que o comando sufoca a inovação</span><span class="tl-r">Um preconceito ocidental diz que todo modelo de comando e controle mata a criatividade. Vista de perto, a China embaralha essa certeza.</span></span></a></li>
+    <li><a href="/china/ato-5/#v-V-13"><span class="tl-id">V.13</span><span class="tl-body"><span class="tl-t">Construir a capacidade antes de precisar dela</span><span class="tl-r">Boa parte do salto chinês veio de uma disciplina: alinhar a ambição de longo prazo ao desenvolvimento antecipado das capacidades que a sustentam. Quatro decisões.</span></span></a></li>
   </ul>
 </section>
 
@@ -142,7 +146,7 @@ title: "Temas"
 </section>
 
 <section class="tema" id="gestao-e-adocao">
-  <div class="tema-head"><h2>Gestão e adoção</h2><span class="tema-n">17 descobertas</span></div>
+  <div class="tema-head"><h2>Gestão e adoção</h2><span class="tema-n">19 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-3/#v-III-1"><span class="tl-id">III.1</span><span class="tl-body"><span class="tl-t">A disputa é entre ecossistemas, não entre modelos</span><span class="tl-r">Dois ciclos de retroalimentação: o digital (aberto a todos) e o físico (onde a base industrial vira ativo de IA).</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-3"><span class="tl-id">III.3</span><span class="tl-body"><span class="tl-t">A economia do token</span><span class="tl-r">O token virou unidade produtiva, como o quilowatt-hora. E a inferência virou o mercado que define margem.</span></span></a></li>
@@ -160,7 +164,9 @@ title: "Temas"
     <li><a href="/china/ato-5/#v-V-9"><span class="tl-id">V.9</span><span class="tl-body"><span class="tl-t">Nove perguntas para levar à sua organização</span><span class="tl-r">A imersão inteira reduzida a um roteiro de conversa de diretoria.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-10"><span class="tl-id">V.10</span><span class="tl-body"><span class="tl-t">Run, Transform, Beyond: operar três horizontes ao mesmo tempo</span><span class="tl-r">Rodar o negócio de hoje, transformar o modelo de amanhã e apostar no que ainda não existe — as três coisas em paralelo, não em sequência.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-11"><span class="tl-id">V.11</span><span class="tl-body"><span class="tl-t">Os oito padrões em que os grupos convergiram</span><span class="tl-r">Depois de dezenas de visitas, os grupos da imersão chegaram, por conta própria, ao mesmo lugar dos enquadramentos de abertura.</span></span></a></li>
-    <li><a href="/china/ato-5/#v-V-12"><span class="tl-id">V.12</span><span class="tl-body"><span class="tl-t">O que fica: três aprendizados que atravessam tudo</span><span class="tl-r">Se a imersão inteira tivesse de caber em três frases, seriam estas.</span></span></a></li>
+    <li><a href="/china/ato-5/#v-V-12"><span class="tl-id">V.12</span><span class="tl-body"><span class="tl-t">O mito de que o comando sufoca a inovação</span><span class="tl-r">Um preconceito ocidental diz que todo modelo de comando e controle mata a criatividade. Vista de perto, a China embaralha essa certeza.</span></span></a></li>
+    <li><a href="/china/ato-5/#v-V-13"><span class="tl-id">V.13</span><span class="tl-body"><span class="tl-t">Construir a capacidade antes de precisar dela</span><span class="tl-r">Boa parte do salto chinês veio de uma disciplina: alinhar a ambição de longo prazo ao desenvolvimento antecipado das capacidades que a sustentam. Quatro decisões.</span></span></a></li>
+    <li><a href="/china/ato-5/#v-V-14"><span class="tl-id">V.14</span><span class="tl-body"><span class="tl-t">O que fica: três aprendizados que atravessam tudo</span><span class="tl-r">Se a imersão inteira tivesse de caber em três frases, seriam estas.</span></span></a></li>
   </ul>
 </section>
 
@@ -203,7 +209,7 @@ title: "Temas"
 </section>
 
 <section class="tema" id="sociedade-e-trabalho">
-  <div class="tema-head"><h2>Sociedade e trabalho</h2><span class="tema-n">6 descobertas</span></div>
+  <div class="tema-head"><h2>Sociedade e trabalho</h2><span class="tema-n">7 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-1/#v-I-1"><span class="tl-id">I.1</span><span class="tl-body"><span class="tl-t">As quatro chaves</span><span class="tl-r">Cultura, demografia, desigualdade e educação: o mínimo para não ler a China pelos olhos de outra pessoa.</span></span></a></li>
     <li><a href="/china/ato-1/#v-I-2"><span class="tl-id">I.2</span><span class="tl-body"><span class="tl-t">O choque demográfico como motor tecnológico</span><span class="tl-r">A China perde população em números absolutos. Robótica e IA, ali, não são hobby: são resposta de caixa.</span></span></a></li>
@@ -211,5 +217,6 @@ title: "Temas"
     <li><a href="/china/ato-1/#v-I-7"><span class="tl-id">I.7</span><span class="tl-body"><span class="tl-t">A megalópole que funciona (e o que ela cobra)</span><span class="tl-r">Metrô pontual, calçada sem buraco e um cérebro urbano com 40 mil sensores. E também: vigilância e migrantes sem direitos.</span></span></a></li>
     <li><a href="/china/ato-2/#v-II-9"><span class="tl-id">II.9</span><span class="tl-body"><span class="tl-t">Live commerce: quando a venda vira linha de produção</span><span class="tl-r">Mais de 18% do varejo online chinês passa por transmissão ao vivo. O que começou como um vendedor diante da câmera virou prédio inteiro operando em turnos.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-8"><span class="tl-id">V.8</span><span class="tl-body"><span class="tl-t">O inventário honesto dos custos</span><span class="tl-r">Involução, hukou, vigilância, censura, fraude acadêmica. O que vem junto com a velocidade.</span></span></a></li>
+    <li><a href="/china/ato-5/#v-V-12"><span class="tl-id">V.12</span><span class="tl-body"><span class="tl-t">O mito de que o comando sufoca a inovação</span><span class="tl-r">Um preconceito ocidental diz que todo modelo de comando e controle mata a criatividade. Vista de perto, a China embaralha essa certeza.</span></span></a></li>
   </ul>
 </section>
