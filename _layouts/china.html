@@ -195,16 +195,16 @@ body{overflow-x:hidden}
   display:inline-flex;align-items:center;gap:6px}
 
 .axes{margin-top:56px;padding-top:22px;border-top:1px solid var(--line)}
-.axes .fl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
+.axes .fl{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--slate);margin-bottom:10px}
 .axes .tg{display:flex;gap:6px;flex-wrap:wrap}
 .axes .tg span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);
   border:1px solid var(--line);padding:4px 10px;background:#fff}
 /* home: bloco de temas vira link para a página de leitura por tema */
-a.axes{display:block;text-decoration:none;color:inherit;transition:opacity .15s}
-a.axes:hover{opacity:.72}
-a.axes .fl{color:var(--c-I)}
-a.axes .axes-cta{display:inline-block;margin-top:14px;font-family:'Archivo',sans-serif;
+.axes-link{display:block;text-decoration:none;color:inherit;transition:opacity .15s}
+.axes-link:hover{opacity:.72}
+.axes-link .fl{color:var(--c-I)}
+.axes-cta{display:inline-block;margin-top:14px;font-family:'Archivo',sans-serif;
   font-weight:700;font-size:13px;color:var(--ink)}
 
 /* ---------- página Temas (leitura por tema) ---------- */

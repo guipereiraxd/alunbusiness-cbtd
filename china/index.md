@@ -101,8 +101,10 @@
   </div>
 </section>
 
-<a class="axes" href="{{ '/china/temas/' | relative_url }}">
-  <div class="fl">Leitura por tema</div>
-  <div class="tg"><span>Brasil</span><span>Dados e governança</span><span>Economia</span><span>Educação e ciência</span><span>Empresas e mercado</span><span>Estado e política pública</span><span>Geopolítica e soberania</span><span>Gestão e adoção</span><span>Indústria e manufatura</span><span>Inteligência artificial</span><span>Sociedade e trabalho</span></div>
-  <span class="axes-cta">Seguir um fio e ler a China por um único ângulo →</span>
-</a>
+<div class="axes">
+  <a class="axes-link" href="{{ '/china/temas/' | relative_url }}">
+    <span class="fl">Leitura por tema</span>
+    <span class="tg"><span>Brasil</span><span>Dados e governança</span><span>Economia</span><span>Educação e ciência</span><span>Empresas e mercado</span><span>Estado e política pública</span><span>Geopolítica e soberania</span><span>Gestão e adoção</span><span>Indústria e manufatura</span><span>Inteligência artificial</span><span>Sociedade e trabalho</span></span>
+    <span class="axes-cta">Seguir um fio e ler a China por um único ângulo →</span>
+  </a>
+</div>
