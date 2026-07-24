@@ -1,58 +1,100 @@
 ---
 ---
 
-<header class="hero">
-  <span class="cn-glyph" aria-hidden="true">龙</span>
-  <div class="seal"><i></i><b>中国</b></div>
-  <div class="eyebrow">Uma imersão na China · Alun Business</div>
-  <h1>Na terra dos<br><em>novos dragões</em></h1>
-  <div class="rule"><span></span><i></i></div>
-  <p class="lede">Um mergulho na China de hoje — economia, inteligência artificial e as organizações do futuro — e o que disso é aprendizado transferível para quem lidera no Brasil.</p>
-  <div class="stats">
-    <div><b>5</b><span>atos</span></div>
-    <div><b>42</b><span>descobertas</span></div>
-    <div><b>139</b><span>números-chave</span></div>
-    <div><b>11</b><span>temas que conectam tudo</span></div>
-  </div>
-</header>
+<section class="hero">
+  <div class="grain" aria-hidden="true"></div>
+  <span class="vtext" aria-hidden="true">中国 · 传统与未来</span>
+  <svg class="swirl" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M10 150 Q 50 100 10 60 Q 90 80 60 20 Q 130 60 100 130 Q 160 110 150 170" stroke-width="1.4" opacity=".7"/>
+    <path d="M30 170 Q 70 140 40 100" stroke-width="1.2" opacity=".4"/>
+  </svg>
 
-<div class="ato-cards">
-<a class="ato-card" data-c="I" href="{{ '/china/ato-1/' | relative_url }}">
-  <div class="k">Ato I</div>
-  <h2>Entendendo a China moderna</h2>
-  <div class="sub">As condições de partida</div>
-  <p class="ab">Antes de qualquer conversa sobre tecnologia, existe um país. Uma sociedade milenar que atravessou uma revolução, uma revolução cultural contra a própria tradição e uma abertura econômica — e que hoje combina mercado fero…</p>
-  <div class="n">8 descobertas →</div>
-</a>
-<a class="ato-card" data-c="II" href="{{ '/china/ato-2/' | relative_url }}">
-  <div class="k">Ato II</div>
-  <h2>A nova economia chinesa</h2>
-  <div class="sub">Trocar o motor com o carro andando</div>
-  <p class="ab">Por décadas a China cresceu construindo. Esse motor perdeu força: o investimento imobiliário despencou e sobram dezenas de milhões de imóveis vazios. O mecanismo financeiro que erguia prédios não parou — mudou de alvo, e…</p>
-  <div class="n">7 descobertas →</div>
-</a>
-<a class="ato-card" data-c="III" href="{{ '/china/ato-3/' | relative_url }}">
-  <div class="k">Ato III</div>
-  <h2>O impacto da inteligência artificial</h2>
-  <div class="sub">A régua mudou de lugar</div>
-  <p class="ab">A corrida de IA foi narrada como disputa pelo modelo mais inteligente. Essa régua mudou. O que passou a contar é quanto custa cada resposta, quantas pessoas conseguem usar o sistema e o quanto ele se integra a fábricas e…</p>
-  <div class="n">9 descobertas →</div>
-</a>
-<a class="ato-card" data-c="IV" href="{{ '/china/ato-4/' | relative_url }}">
-  <div class="k">Ato IV</div>
-  <h2>Empresas chinesas e os novos dragões</h2>
-  <div class="sub">A anatomia de uma geração</div>
-  <p class="ab">A geração anterior de gigantes chinesas nasceu protegida por um muro e conquistou o mercado interno. A nova nasce olhando para fora desde o primeiro dia — e chega ao Brasil não como exportadora, mas como fábrica, marca e…</p>
-  <div class="n">9 descobertas →</div>
-</a>
-<a class="ato-card" data-c="V" href="{{ '/china/ato-5/' | relative_url }}">
-  <div class="k">Ato V</div>
-  <h2>Aprendizados sobre o modelo chinês</h2>
-  <div class="sub">O que é mecanismo e o que é regime</div>
-  <p class="ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom. A primeira categoria não é replicável e boa parte dela não é desejável. A segund…</p>
-  <div class="n">9 descobertas →</div>
-</a>
-</div>
+  <div class="hero-in">
+    <div class="badge"><i></i>Uma imersão na China de hoje</div>
+    <h1>Tradição milenar,<br><em>futuro em construção</em></h1>
+    <p class="lede">Economia, inteligência artificial e as organizações do futuro — cinco atos que atravessam a China de hoje e voltam com o que, de fato, é aprendizado transferível para quem lidera no Brasil.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="{{ '/china/ato-1/' | relative_url }}">Começar pelo Ato I →</a>
+      <a class="btn-ghost" href="#atos">Ver os 5 atos ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-strip">
+    <div class="strip-grid">
+      <div class="strip-item">
+        <svg class="ic"><use href="#i-trend"></use></svg>
+        <h3>Economia em transição</h3>
+        <p>Da imobiliária ao consumo — o motor de crescimento mudou de lugar.</p>
+      </div>
+      <div class="strip-item">
+        <svg class="ic"><use href="#i-cpu"></use></svg>
+        <h3>IA como política de Estado</h3>
+        <p>Difusão, não fronteira, é a estratégia que está vencendo.</p>
+      </div>
+      <div class="strip-item">
+        <svg class="ic"><use href="#i-skyline"></use></svg>
+        <h3>Os novos dragões</h3>
+        <p>Empresas que nascem globais e verticalizam desde o dia um.</p>
+      </div>
+      <div class="strip-item">
+        <svg class="ic"><use href="#i-compass"></use></svg>
+        <h3>Pontes com o Brasil</h3>
+        <p>O que é mecanismo replicável, e o que é regime — só isso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="atos-section" id="atos">
+  <div class="atos-head">
+    <div class="fl">A jornada em 5 atos</div>
+    <h2>Da fundação aos aprendizados</h2>
+    <p>Cada ato é um capítulo autocontido — comece pelo I para a jornada completa, ou entre direto no tema que mais te interessa.</p>
+  </div>
+
+  <div class="ato-grid">
+    <a class="ato-card2" data-c="I" href="{{ '/china/ato-1/' | relative_url }}">
+      <div class="ac-icon"><svg><use href="#i-gate"></use></svg></div>
+      <div class="ac-k">Ato I</div>
+      <h3>Entendendo a China moderna</h3>
+      <p class="ac-sub">As condições de partida</p>
+      <p class="ac-ab">Antes de qualquer conversa sobre tecnologia, existe um país — uma sociedade milenar que atravessou revolução, ruptura cultural e abertura econômica.</p>
+      <span class="ac-n">8 descobertas →</span>
+    </a>
+    <a class="ato-card2" data-c="II" href="{{ '/china/ato-2/' | relative_url }}">
+      <div class="ac-icon"><svg><use href="#i-trend"></use></svg></div>
+      <div class="ac-k">Ato II</div>
+      <h3>A nova economia chinesa</h3>
+      <p class="ac-sub">Trocar o motor com o carro andando</p>
+      <p class="ac-ab">O investimento imobiliário despencou e sobram dezenas de milhões de imóveis vazios. O motor não parou — mudou de alvo.</p>
+      <span class="ac-n">7 descobertas →</span>
+    </a>
+    <a class="ato-card2" data-c="III" href="{{ '/china/ato-3/' | relative_url }}">
+      <div class="ac-icon"><svg><use href="#i-cpu"></use></svg></div>
+      <div class="ac-k">Ato III</div>
+      <h3>O impacto da inteligência artificial</h3>
+      <p class="ac-sub">A régua mudou de lugar</p>
+      <p class="ac-ab">A corrida de IA foi narrada como disputa pelo modelo mais inteligente. Hoje o que conta é custo, alcance e integração com a economia física.</p>
+      <span class="ac-n">9 descobertas →</span>
+    </a>
+    <a class="ato-card2" data-c="IV" href="{{ '/china/ato-4/' | relative_url }}">
+      <div class="ac-icon"><svg><use href="#i-skyline"></use></svg></div>
+      <div class="ac-k">Ato IV</div>
+      <h3>Empresas chinesas e os novos dragões</h3>
+      <p class="ac-sub">A anatomia de uma geração</p>
+      <p class="ac-ab">A geração anterior conquistou o mercado interno atrás de um muro. A nova nasce olhando para fora — e chega ao Brasil como fábrica, marca e investidor.</p>
+      <span class="ac-n">9 descobertas →</span>
+    </a>
+    <a class="ato-card2" data-c="V" href="{{ '/china/ato-5/' | relative_url }}">
+      <div class="ac-icon"><svg><use href="#i-compass"></use></svg></div>
+      <div class="ac-k">Ato V</div>
+      <h3>Aprendizados sobre o modelo chinês</h3>
+      <p class="ac-sub">O que é mecanismo e o que é regime</p>
+      <p class="ac-ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom.</p>
+      <span class="ac-n">9 descobertas →</span>
+    </a>
+  </div>
+</section>
 
 <div class="axes">
   <div class="fl">Temas que atravessam os 5 atos</div>

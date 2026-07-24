@@ -7,7 +7,7 @@
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400..700&family=Noto+Serif+SC:wght@700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400..700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Noto+Serif+SC:wght@700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#FBFAF6; --ink:#15171C; --slate:#5C6470; --line:#E4E1D8; --wash:#F2F0E9;
@@ -35,52 +35,101 @@ header.site nav a.on{color:var(--ink);border-color:var(--ink);background:var(--w
 main{max-width:840px;margin:0 auto;padding:0 40px 100px}
 @media(max-width:700px){ main{padding:0 20px 80px} }
 
-.hero{position:relative;overflow:hidden;padding:64px 0 40px;border-bottom:3px solid var(--ink);
-  background:radial-gradient(ellipse 620px 420px at 88% -8%, rgba(200,40,30,.08), transparent 65%)}
-.hero .cn-glyph{position:absolute;right:-38px;top:-58px;font-family:'Noto Serif SC',serif;font-weight:900;
-  font-size:min(30vw,300px);line-height:1;color:var(--c-I);opacity:.06;pointer-events:none;
-  user-select:none;z-index:0}
-.hero .seal{position:relative;z-index:1;display:inline-flex;align-items:center;gap:10px;margin-bottom:2px}
-.hero .seal i{width:9px;height:9px;background:var(--c-I);flex-shrink:0}
-.hero .seal b{font-family:'Noto Serif SC',serif;font-weight:700;font-size:15px;color:var(--c-I);
-  letter-spacing:.02em}
-.hero .eyebrow{position:relative;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+/* ==================== HERO (cinematic, dark) ==================== */
+body{overflow-x:hidden}
+.hero{
+  position:relative;overflow:hidden;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  background:#0B0908;color:#F3EDE3;padding:0 0 56px;
+}
+.hero::before{
+  content:"";position:absolute;inset:-15%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(680px 520px at 86% 6%, rgba(200,40,30,.38), transparent 60%),
+    radial-gradient(560px 480px at 6% 96%, rgba(176,122,22,.24), transparent 60%),
+    radial-gradient(1100px 800px at 50% 40%, rgba(200,40,30,.08), transparent 70%);
+  animation:heroDrift 16s ease-in-out infinite alternate;
+}
+@keyframes heroDrift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-3%,2%) scale(1.07)}}
+.hero .grain{position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none;
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)}
+.hero .vtext{position:absolute;left:26px;top:52%;transform:translateY(-50%);z-index:1;
+  writing-mode:vertical-rl;font-family:'Noto Serif SC',serif;font-size:13px;letter-spacing:.4em;
+  color:rgba(243,237,227,.32)}
+.hero .swirl{position:absolute;left:-60px;bottom:-60px;width:340px;height:340px;z-index:0;opacity:.5;
+  stroke:var(--c-II);pointer-events:none}
+@media(max-width:700px){ .hero .vtext{display:none} }
+
+.hero-in{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:104px 40px 0}
+@media(max-width:700px){ .hero-in{padding:88px 22px 0} }
+.badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 12px;
+  border:1px solid rgba(243,237,227,.24);border-radius:999px;background:rgba(255,255,255,.03);
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:#E8B34A}
+.badge i{width:6px;height:6px;border-radius:50%;background:var(--c-I);flex-shrink:0;
+  box-shadow:0 0 0 3px rgba(200,40,30,.2)}
+.hero h1{position:relative;z-index:1;font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(38px,6.4vw,72px);line-height:1.06;letter-spacing:-.01em;margin:22px 0 0;color:#F7F2E8}
+.hero h1 em{font-style:italic;
+  background:linear-gradient(92deg,#E8543F,#E8B34A 70%);-webkit-background-clip:text;background-clip:text;
+  color:transparent}
+.hero p.lede{position:relative;z-index:1;font-family:'Source Serif 4',serif;font-size:19px;line-height:1.6;
+  max-width:600px;margin-top:20px;color:rgba(243,237,227,.72)}
+.hero .cta-row{position:relative;z-index:1;display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn-primary,.btn-ghost{font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px;
+  padding:14px 26px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;
+  transition:transform .18s ease,border-color .18s ease}
+.btn-primary{background:linear-gradient(95deg,#D6362A,#9C1F17);color:#fff;
+  box-shadow:0 10px 26px rgba(200,40,30,.32)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(243,237,227,.3);color:#F3EDE3}
+.btn-ghost:hover{border-color:#F3EDE3;transform:translateY(-2px)}
+
+.hero-strip{position:relative;z-index:1;max-width:900px;margin:56px auto 0;padding:0 40px}
+@media(max-width:700px){ .hero-strip{padding:0 22px} }
+.strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(243,237,227,.12);
+  border:1px solid rgba(243,237,227,.14);border-radius:16px;overflow:hidden}
+.strip-item{background:rgba(255,255,255,.025);padding:22px 20px}
+.strip-item .ic{width:26px;height:26px;color:var(--c-II);margin-bottom:12px}
+.strip-item h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#F3EDE3;margin-bottom:5px}
+.strip-item p{font-size:12px;color:rgba(243,237,227,.55);line-height:1.5}
+@media(max-width:700px){ .strip-grid{grid-template-columns:1fr 1fr} }
+
+/* ==================== Ato cards (home) ==================== */
+.atos-section{margin-top:60px}
+.atos-head{max-width:640px}
+.atos-head .fl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--c-I);font-weight:600}
-.hero h1{position:relative;z-index:1;font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 118;font-weight:900;
-  font-size:clamp(32px,6vw,58px);line-height:1.02;letter-spacing:-.02em;margin:16px 0 0;text-transform:uppercase}
-.hero h1 em{font-style:normal;color:var(--c-I)}
-.hero .rule{position:relative;z-index:1;display:flex;align-items:center;gap:8px;margin-top:18px}
-.hero .rule span{height:3px;background:var(--c-I);width:56px}
-.hero .rule i{width:6px;height:6px;border-radius:50%;background:var(--c-II)}
-.hero p.lede{position:relative;z-index:1;font-size:19px;line-height:1.5;max-width:620px;margin-top:18px;color:#2A2D33}
-.stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);margin-top:30px;background:#fff}
-.stats div{padding:16px 14px;border-right:1px solid var(--line)}
-.stats div:last-child{border-right:0}
-.stats b{font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;display:block;line-height:1}
-.stats span{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--slate);
-  letter-spacing:.07em;display:block;margin-top:6px;line-height:1.4}
-@media(max-width:700px){ .stats{grid-template-columns:repeat(2,1fr)} }
+.atos-head h2{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112;font-weight:800;
+  font-size:clamp(26px,3.6vw,36px);letter-spacing:-.015em;margin:10px 0 8px;line-height:1.1}
+.atos-head p{font-size:16px;color:#3A3E46;line-height:1.55}
 
-/* ---------- Ato cards (home) ---------- */
-.ato-cards{display:flex;flex-direction:column;gap:0;margin-top:8px}
-.ato-card{display:block;text-decoration:none;color:inherit;border-bottom:1px solid var(--line);
-  padding:26px 0;border-left:5px solid transparent;padding-left:20px;margin-left:-20px;transition:background .15s}
-.ato-card:hover{background:var(--wash)}
-.ato-card[data-c="I"]{border-left-color:var(--c-I)} .ato-card[data-c="II"]{border-left-color:var(--c-II)}
-.ato-card[data-c="III"]{border-left-color:var(--c-III)} .ato-card[data-c="IV"]{border-left-color:var(--c-IV)}
-.ato-card[data-c="V"]{border-left-color:var(--c-V)}
-.ato-card .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
-  text-transform:uppercase;font-weight:600}
-.ato-card[data-c="I"] .k{color:var(--c-I)} .ato-card[data-c="II"] .k{color:var(--c-II)}
-.ato-card[data-c="III"] .k{color:var(--c-III)} .ato-card[data-c="IV"] .k{color:var(--c-IV)}
-.ato-card[data-c="V"] .k{color:var(--c-V)}
-.ato-card h2{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112;font-weight:800;
-  font-size:clamp(22px,3.4vw,30px);line-height:1.1;letter-spacing:-.015em;margin:6px 0 4px}
-.ato-card .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--slate);letter-spacing:.05em}
-.ato-card .ab{font-size:15.5px;color:#3A3E46;margin-top:10px;max-width:640px;line-height:1.5}
-.ato-card .n{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--slate);margin-top:10px}
+.ato-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:30px}
+.ato-card2{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;
+  border:1px solid var(--line);border-radius:16px;padding:24px;position:relative;overflow:hidden;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.ato-card2::before{content:"";position:absolute;top:0;left:0;right:0;height:4px}
+.ato-card2[data-c="I"]::before{background:var(--c-I)} .ato-card2[data-c="II"]::before{background:var(--c-II)}
+.ato-card2[data-c="III"]::before{background:var(--c-III)} .ato-card2[data-c="IV"]::before{background:var(--c-IV)}
+.ato-card2[data-c="V"]::before{background:var(--c-V)}
+.ato-card2:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(21,23,28,.1);border-color:transparent}
+.ac-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px}
+.ac-icon svg{width:22px;height:22px}
+.ato-card2[data-c="I"] .ac-icon{background:rgba(200,40,30,.1);color:var(--c-I)}
+.ato-card2[data-c="II"] .ac-icon{background:rgba(176,122,22,.12);color:var(--c-II)}
+.ato-card2[data-c="III"] .ac-icon{background:rgba(0,82,217,.1);color:var(--c-III)}
+.ato-card2[data-c="IV"] .ac-icon{background:rgba(10,122,72,.1);color:var(--c-IV)}
+.ato-card2[data-c="V"] .ac-icon{background:rgba(107,63,160,.1);color:var(--c-V)}
+.ac-k{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:600;color:var(--slate)}
+.ato-card2 h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;line-height:1.2;
+  letter-spacing:-.01em;margin:6px 0 4px}
+.ac-sub{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);letter-spacing:.03em}
+.ac-ab{font-size:14px;color:#3A3E46;margin-top:10px;line-height:1.5;flex:1}
+.ac-n{font-family:'Archivo',sans-serif;font-weight:700;font-size:12.5px;color:var(--ink);margin-top:16px;
+  display:inline-flex;align-items:center;gap:6px}
 
-.axes{margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
+.axes{margin-top:56px;padding-top:22px;border-top:1px solid var(--line)}
 .axes .fl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--slate);margin-bottom:10px}
 .axes .tg{display:flex;gap:6px;flex-wrap:wrap}
@@ -145,6 +194,25 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
 </style>
 </head>
 <body>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-gate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 21h16M6 21V10M10 21V10M14 21V10M18 21V10M4 10l8-6 8 6"/>
+  </symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 17l6-6 4 4 8-8M21 7h-6M21 7v6"/>
+  </symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="7" y="7" width="10" height="10" rx="1"/><rect x="10" y="10" width="4" height="4"/>
+    <path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"/>
+  </symbol>
+  <symbol id="i-skyline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 21v-8h4v8M10 21V8h4v13M16 21V4h4v17M2 21h20"/>
+  </symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M15.3 8.7l-2 5.3-5.3 2 2-5.3z"/>
+  </symbol>
+</svg>
 
 <header class="site">
   <div class="in">
