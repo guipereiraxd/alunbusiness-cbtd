@@ -8,10 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400..700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Noto+Serif+SC:wght@700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+/* enable scroll-reveal pre-paint only when JS + IntersectionObserver exist and motion isn't reduced */
+if('IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)){
+  document.documentElement.className += ' reveal-on';
+}
+</script>
 <style>
 :root{
   --paper:#FBFAF6; --ink:#15171C; --slate:#5C6470; --line:#E4E1D8; --wash:#F2F0E9;
   --c-I:#C8281E; --c-II:#B07A16; --c-III:#0052D9; --c-IV:#0A7A48; --c-V:#6B3FA0;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
@@ -26,6 +33,23 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--ink);outline-offs
   background:var(--ink);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;
   padding:10px 18px;border-radius:999px;text-decoration:none;transition:transform .18s ease}
 .skip:focus{transform:translateX(-50%) translateY(0)}
+
+/* ---------- motion: entrance, scroll reveal, reading progress ---------- */
+@keyframes heroUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero .badge,.hero h1,.hero p.lede,.hero .cta-row{animation:heroUp .9s var(--ease) both}
+.hero h1{animation-delay:.12s} .hero p.lede{animation-delay:.26s} .hero .cta-row{animation-delay:.4s}
+@keyframes revealUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+/* hidden state applied pre-paint via html.reveal-on (set in <head>) — no FOUC, degrades to visible without JS */
+html.reveal-on .strip-item,html.reveal-on .atos-head,html.reveal-on .ato-card2,
+html.reveal-on .axes,html.reveal-on .ato-head,html.reveal-on .v{opacity:0}
+html.reveal-on .rv-in{animation:revealUp .6s var(--ease) forwards}
+html.reveal-on .rv-done{opacity:1;animation:none}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:var(--ink);
+  transition:width .12s linear;will-change:width}
+
+/* ---------- typographic refinement ---------- */
+.hero h1,.ato-head h1,.atos-head h2,.v-t,.ato-card2 h3{text-wrap:balance}
+.hero p.lede,.ato-head .ab,.atos-head p,.ac-ab,.v-r,.v-body p,.br p,.tese{text-wrap:pretty}
 
 /* ---------- top nav ---------- */
 header.site{border-bottom:2px solid var(--ink);background:var(--paper);position:sticky;top:0;z-index:40}
@@ -111,7 +135,11 @@ body{overflow-x:hidden}
 .strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .strip-item{background:rgba(251,250,246,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border:1px solid rgba(255,255,255,.65);border-radius:16px;padding:20px 20px 18px;
-  box-shadow:0 10px 30px rgba(21,23,28,.10)}
+  box-shadow:0 10px 30px rgba(21,23,28,.10);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.strip-item:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(21,23,28,.16)}
+.strip-item .ic{transition:transform .25s var(--ease)}
+.strip-item:hover .ic{transform:scale(1.1)}
 .strip-item .ic{width:25px;height:25px;color:#9C2C1B;margin-bottom:11px}
 .strip-item h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#1A130E;margin-bottom:5px}
 .strip-item p{font-size:12px;color:#4A463F;line-height:1.5}
@@ -130,11 +158,25 @@ body{overflow-x:hidden}
 .ato-card2{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;
   border:1px solid var(--line);border-radius:16px;padding:24px;position:relative;overflow:hidden;
   transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.ato-card2::before{content:"";position:absolute;top:0;left:0;right:0;height:4px}
+.ato-card2::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  transition:height .22s var(--ease)}
+.ato-card2:hover::before{height:7px}
 .ato-card2[data-c="I"]::before{background:var(--c-I)} .ato-card2[data-c="II"]::before{background:var(--c-II)}
 .ato-card2[data-c="III"]::before{background:var(--c-III)} .ato-card2[data-c="IV"]::before{background:var(--c-IV)}
 .ato-card2[data-c="V"]::before{background:var(--c-V)}
-.ato-card2:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(21,23,28,.1);border-color:transparent}
+.ato-card2:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(21,23,28,.12);border-color:transparent}
+.ato-card2[data-c="I"]:hover{box-shadow:0 20px 44px rgba(200,40,30,.20)}
+.ato-card2[data-c="II"]:hover{box-shadow:0 20px 44px rgba(176,122,22,.20)}
+.ato-card2[data-c="III"]:hover{box-shadow:0 20px 44px rgba(0,82,217,.18)}
+.ato-card2[data-c="IV"]:hover{box-shadow:0 20px 44px rgba(10,122,72,.18)}
+.ato-card2[data-c="V"]:hover{box-shadow:0 20px 44px rgba(107,63,160,.18)}
+.ato-card2 .ac-icon{transition:transform .25s var(--ease)}
+.ato-card2:hover .ac-icon{transform:scale(1.08) rotate(-3deg)}
+.ato-card2 .ac-n{transition:transform .22s var(--ease),color .22s ease}
+.ato-card2:hover .ac-n{transform:translateX(5px)}
+.ato-card2[data-c="I"]:hover .ac-n{color:var(--c-I)} .ato-card2[data-c="II"]:hover .ac-n{color:var(--c-II)}
+.ato-card2[data-c="III"]:hover .ac-n{color:var(--c-III)} .ato-card2[data-c="IV"]:hover .ac-n{color:var(--c-IV)}
+.ato-card2[data-c="V"]:hover .ac-n{color:var(--c-V)}
 .ac-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
   margin-bottom:16px}
 .ac-icon svg{width:22px;height:22px}
@@ -210,19 +252,24 @@ main.ato-page{max-width:none;padding:0 0 40px}
   letter-spacing:-.015em;margin-top:14px}
 .v-r{font-family:'Source Serif 4',serif;font-size:16px;color:var(--slate);margin-top:8px;
   line-height:1.5;max-width:680px}
-.tese{border-left:3px solid var(--ac);padding:4px 0 4px 20px;margin:24px 0;
-  font-family:'Source Serif 4',serif;font-size:18.5px;line-height:1.55;color:#25272C}
+.tese{border-left:3px solid var(--ac);padding:14px 22px 14px 22px;margin:26px 0;border-radius:0 12px 12px 0;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 7%,transparent),transparent 62%);
+  font-family:'Source Serif 4',serif;font-size:19px;line-height:1.5;color:#1F2126;font-weight:500;
+  text-wrap:pretty}
 .v-body p{margin-bottom:16px;max-width:680px}
 .dados{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:14px;
   overflow:hidden;background:#fff;margin:24px 0}
-.dados .d{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dados .d{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  transition:background .2s ease}
+.dados .d:hover{background:color-mix(in srgb,var(--ac) 5%,#fff)}
 .dados .d:nth-child(2n){border-right:0}
 .dados .d:nth-last-child(-n+2){border-bottom:0}
-.dados .dv{font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;line-height:1;
+.dados .dv{font-family:'Archivo',sans-serif;font-weight:900;font-size:27px;line-height:1;
   letter-spacing:-.02em;color:var(--ac)}
 .dados .dl{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--slate);
   letter-spacing:.05em;margin-top:8px;line-height:1.45}
-.br{background:var(--wash);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:8px}
+.br{background:var(--wash);border:1px solid var(--line);border-left:3px solid var(--ac);
+  border-radius:4px 14px 14px 4px;padding:20px 22px;margin-top:8px}
 .br .brt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;
   text-transform:uppercase;margin-bottom:9px;color:var(--ac)}
 .br p{margin:0;font-size:15.5px;line-height:1.6}
@@ -272,7 +319,7 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
   html{scroll-behavior:auto}
   *,*::before,*::after{
     animation-duration:.001ms!important;animation-iteration-count:1!important;
-    transition-duration:.001ms!important}
+    animation-delay:0!important;transition-duration:.001ms!important;transition-delay:0!important}
   .hero-bg{animation:none;transform:none}
   .petals{display:none}
 }
@@ -365,6 +412,25 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
   if(!main || !toc) return;
   var cor = main.getAttribute('data-c');
   var icons = {I:'i-gate', II:'i-trend', III:'i-cpu', IV:'i-skyline', V:'i-compass'};
+  var accents = {I:'#C8281E', II:'#B07A16', III:'#0052D9', IV:'#0A7A48', V:'#6B3FA0'};
+
+  // Barra de progresso de leitura (na cor do ato)
+  var bar = document.createElement('div');
+  bar.className = 'progress';
+  bar.style.background = accents[cor] || '#15171C';
+  document.body.appendChild(bar);
+  var ticking = false;
+  function updateBar(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(updateBar); }
+  }, {passive:true});
+  window.addEventListener('resize', updateBar);
+  updateBar();
 
   // Ícone no cabeçalho do ato
   var head = main.querySelector('.ato-head');
@@ -428,6 +494,44 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
       toc.classList.remove('open');
     }
   });
+})();
+
+// Reveal on scroll (homepage + atos) — só roda se o <head> habilitou .reveal-on
+(function(){
+  if(!document.documentElement.classList.contains('reveal-on')) return;
+
+  // [selector, stagger em ms entre irmãos]
+  var groups = [
+    ['.strip-item', 70],
+    ['.atos-head', 0],
+    ['.ato-card2', 80],
+    ['.axes', 0],
+    ['.ato-head', 0],
+    ['.v', 0]
+  ];
+  var targets = [];
+  groups.forEach(function(g){
+    [].slice.call(document.querySelectorAll(g[0])).forEach(function(el, i){
+      if(g[1]) el.style.animationDelay = (Math.min(i, 6) * g[1]) / 1000 + 's';
+      targets.push(el);
+    });
+  });
+  if(!targets.length) return;
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      el.classList.add('rv-in');
+      obs.unobserve(el);
+      // ao terminar, fixa em rv-done: mantém visível e libera o transform p/ hover
+      el.addEventListener('animationend', function(){
+        el.classList.add('rv-done');
+        el.style.animationDelay = '';
+      }, {once:true});
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+  targets.forEach(function(el){ obs.observe(el); });
 })();
 </script>
 
