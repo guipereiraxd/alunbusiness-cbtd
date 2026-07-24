@@ -7,3 +7,6 @@ _site/
 # Firebase config is generated at build time from GitHub Secrets — never commit it
 assets/firebase-config.js
 .DS_Store
+
+# Material-fonte usado para gerar o conteúdo do site /china/ — não publicar
+china/china-repositorio/

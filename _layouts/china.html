@@ -14,10 +14,18 @@
   --c-I:#C8281E; --c-II:#B07A16; --c-III:#0052D9; --c-IV:#0A7A48; --c-V:#6B3FA0;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;
   font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
 .mono{font-family:'IBM Plex Mono',monospace}
+
+/* ---------- accessibility: focus + skip link ---------- */
+a:focus-visible,button:focus-visible{outline:2.5px solid var(--ink);outline-offset:3px;border-radius:4px}
+.ato-page a:focus-visible,.ato-page button:focus-visible{outline-color:var(--ac,var(--ink))}
+.skip{position:absolute;left:50%;transform:translateX(-50%) translateY(-140%);top:8px;z-index:80;
+  background:var(--ink);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;
+  padding:10px 18px;border-radius:999px;text-decoration:none;transition:transform .18s ease}
+.skip:focus{transform:translateX(-50%) translateY(0)}
 
 /* ---------- top nav ---------- */
 header.site{border-bottom:2px solid var(--ink);background:var(--paper);position:sticky;top:0;z-index:40}
@@ -30,7 +38,11 @@ header.site nav a{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-
   text-transform:uppercase;color:var(--slate);text-decoration:none;padding:6px 9px;border:1px solid transparent}
 header.site nav a:hover{color:var(--ink);border-color:var(--line)}
 header.site nav a.on{color:var(--ink);border-color:var(--ink);background:var(--wash)}
-@media(max-width:700px){ header.site .in{padding:14px 20px} }
+@media(max-width:700px){
+  header.site .in{padding:14px 20px}
+  header.site nav{gap:2px}
+  header.site nav a{padding:11px 12px}
+}
 
 main{max-width:840px;margin:0 auto;padding:0 40px 100px}
 @media(max-width:700px){ main{padding:0 20px 80px} }
@@ -97,7 +109,7 @@ body{overflow-x:hidden}
 .hero-strip{position:relative;z-index:2;width:100%;max-width:1180px;margin:64px auto 0;padding:0 48px}
 @media(max-width:700px){ .hero-strip{padding:0 22px;margin-top:48px} }
 .strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.strip-item{background:rgba(251,250,246,.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+.strip-item{background:rgba(251,250,246,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border:1px solid rgba(255,255,255,.65);border-radius:16px;padding:20px 20px 18px;
   box-shadow:0 10px 30px rgba(21,23,28,.10)}
 .strip-item .ic{width:25px;height:25px;color:#9C2C1B;margin-bottom:11px}
@@ -256,13 +268,23 @@ footer.site p{font-size:15px;max-width:680px;margin-bottom:12px}
 footer.site a{color:#fff}
 footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.09em;color:#8A8F9B;
   border-top:1px solid #33363E;padding-top:16px;margin-top:26px;line-height:1.7}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important}
+  .hero-bg{animation:none;transform:none}
+  .petals{display:none}
+}
 @media print{
-  header.site,footer.site{display:none}
+  header.site,footer.site,.skip{display:none}
   main{max-width:100%}
 }
 </style>
 </head>
 <body>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
 <svg style="display:none" aria-hidden="true">
   <symbol id="i-gate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -298,7 +320,7 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
 </header>
 
 {% if page.cor %}
-<main data-c="{{ page.cor }}" class="ato-page">
+<main id="conteudo" data-c="{{ page.cor }}" class="ato-page">
   <div class="ato-shell">
     <aside class="toc" id="toc" aria-label="Índice do ato"></aside>
     <div class="ato-content">
@@ -319,7 +341,7 @@ footer.site .sig{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-s
   </div>
 </main>
 {% else %}
-<main>
+<main id="conteudo">
   {{ content }}
 </main>
 {% endif %}
