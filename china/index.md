@@ -50,6 +50,57 @@
   </div>
 </section>
 
+<section class="framework">
+  <div class="fw-head">
+    <div class="fl">O modelo mental</div>
+    <h2>Antes de olhar as peças, o sistema</h2>
+    <p>Do super app ao robô, do trem-bala ao yuan digital, tudo no ecossistema chinês se apoia num mesmo arranjo. Dois enquadramentos ajudam a ler o resto da imersão: como a China chegou até aqui, e sobre o que ela se sustenta.</p>
+  </div>
+
+  <div class="eras">
+    <div class="eras-label">As três eras</div>
+    <ol class="eras-track">
+      <li class="era">
+        <span class="era-yr">1980 – 2000</span>
+        <span class="era-t">Made in China</span>
+        <span class="era-d">A fábrica do mundo: mão de obra barata, manufatura para exportação e vinte anos de aprendizado industrial se acumulando.</span>
+      </li>
+      <li class="era">
+        <span class="era-yr">2000 – 2015</span>
+        <span class="era-t">Copy to China</span>
+        <span class="era-d">Os modelos do Vale do Silício replicados e adaptados ao mercado interno. É a era em que "a China copia".</span>
+      </li>
+      <li class="era">
+        <span class="era-yr">2015 – ?</span>
+        <span class="era-t">Copy from China</span>
+        <span class="era-d">A inversão: super app, live commerce, pagamento, carro elétrico e IA nascem na China e passam a ser copiados pelo mundo.</span>
+      </li>
+    </ol>
+  </div>
+
+  <div class="pilares">
+    <div class="pilares-label">Os três pilares da Nova China</div>
+    <div class="pilar-grid">
+      <div class="pilar">
+        <span class="pilar-cn" aria-hidden="true">国</span>
+        <h3>Estado</h3>
+        <p>Define a direção, financia a infraestrutura e sinaliza onde está a oportunidade. Quando o plano prioriza carro elétrico, robótica ou IA, licença, subsídio e talento passam a andar juntos. O Estado não é obstáculo; é a moldura do possível.</p>
+      </div>
+      <div class="pilar">
+        <span class="pilar-cn" aria-hidden="true">民</span>
+        <h3>Sociedade</h3>
+        <p>Adota tecnologia numa velocidade e numa escala sem paralelo. Mais de um bilhão de pessoas que pagam, compram, assistem e trabalham dentro dos mesmos ecossistemas — e é essa densidade de dados que alimenta a próxima geração de produtos.</p>
+      </div>
+      <div class="pilar">
+        <span class="pilar-cn" aria-hidden="true">量</span>
+        <h3>Escala</h3>
+        <p>Transforma qualquer ideia viável em fenômeno de massa. O que funciona para 10 mil usuários chega a 100 milhões em meses. Escala não é consequência do sucesso; é premissa de projeto, embutida na infraestrutura desde o primeiro dia.</p>
+      </div>
+    </div>
+    <p class="pilares-foot">Comparar uma empresa chinesa com uma ocidental, uma a uma, é erro de categoria. A unidade de análise é o sistema: Estado que direciona, sociedade que adota, escala que amplifica.</p>
+  </div>
+</section>
+
 <section class="atos-section" id="atos">
   <div class="atos-head">
     <div class="fl">A jornada em 5 atos</div>
