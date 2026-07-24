@@ -7,7 +7,7 @@ cor: "IV"
   <div class="k">Ato IV · 9 descobertas</div>
   <h1>Empresas chinesas e os novos dragões</h1>
   <div class="sub">A anatomia de uma geração</div>
-  <p class="ab">A geração anterior de gigantes chinesas cresceu protegida por um muro e dominou o mercado interno. A nova já nasce olhando para fora, e chega ao Brasil não como exportadora, mas como fábrica, marca e concorrente. Este ato abre o mecanismo por dentro: a pirâmide estatal que fabrica campeão de nicho, a densidade de fornecedores que deixa errar barato, a seleção brutal da <a class="xref" href="/china/ato-2/#v-II-3">involução<sup>II.3</sup></a> e a saída para o mundo em três tempos.</p>
+  <p class="ab">A geração anterior de gigantes chinesas cresceu protegida pela Muralha e dominou o mercado interno. A nova já nasce olhando para fora, e chega ao Brasil não como exportadora, mas como fábrica, marca e concorrente. Este ato abre o mecanismo por dentro: a pirâmide estatal que fabrica campeão de nicho, a densidade de fornecedores que deixa errar barato, a seleção brutal da <a class="xref" href="/china/ato-2/#v-II-3">involução<sup>II.3</sup></a> e a saída para o mundo em três tempos.</p>
 </div>
 
 <div class="v" id="v-IV-1">

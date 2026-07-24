@@ -7,7 +7,7 @@ cor: "I"
   <div class="k">Ato I · 8 descobertas</div>
   <h1>Entendendo a China moderna</h1>
   <div class="sub">As condições de partida</div>
-  <p class="ab">Antes de qualquer conversa sobre tecnologia, existe um país — uma sociedade com milênios de história, que passou por uma revolução comunista, por uma revolução cultural contra a própria tradição e por uma abertura de mercado, e que hoje junta competição feroz com direção estatal. Este ato trata das estruturas que vêm antes de tudo o mais: a demografia que encolhe, uma desigualdade escrita na lei, a engrenagem que transforma decisão de Pequim em obra na província, e o muro que, de quebra, fabricou as gigantes de tecnologia do país.</p>
+  <p class="ab">Antes de qualquer conversa sobre tecnologia, existe um país — uma sociedade com milênios de história, que passou por uma revolução comunista, por uma revolução cultural contra a própria tradição e por uma abertura de mercado, e que hoje junta competição feroz com direção estatal. Este ato trata das estruturas que vêm antes de tudo o mais: a demografia que encolhe, uma desigualdade escrita na lei, a engrenagem que transforma decisão de Pequim em obra na província, e a Muralha que, de quebra, fabricou as gigantes de tecnologia do país.</p>
 </div>
 
 <div class="v" id="v-I-1">
@@ -143,10 +143,10 @@ cor: "I"
 
 <div class="v" id="v-I-8">
   <div class="v-id">I.8</div>
-  <div class="v-t">O muro tem duas funções</div>
+  <div class="v-t">A Muralha tem duas funções</div>
   <p class="v-r">Censura, claro. Mas também o protecionismo mais lucrativo da história recente — e o berço das gigantes chinesas.</p>
   <div class="v-body">
-    <div class="tese">Visto de fora, o Grande Firewall é censura, e é mesmo. Mas a segunda função dele pesa mais no bolso: ao barrar as gigantes globais, criou um mercado cativo de centenas de milhões de usuários, onde as alternativas locais cresceram sem concorrência estrangeira em cima. Alibaba, Tencent e Baidu são filhas desse muro.</div>
+    <div class="tese">Visto de fora, o Great Firewall é censura, e é mesmo. Mas a segunda função dele pesa mais no bolso: ao barrar as gigantes globais, criou um mercado cativo de centenas de milhões de usuários, onde as alternativas locais cresceram sem concorrência estrangeira em cima. Alibaba, Tencent e Baidu são filhas dessa Muralha.</div>
     <p>O sistema começou em 1998 e trabalha em camadas: bloqueia endereços, adultera a tradução de nomes de sites em endereços de máquina e inspeciona o tráfego para reconhecer o <em>formato</em> da conexão — o que deixa derrubar VPNs sem precisar ler o que passa dentro delas. Nos últimos anos, passou a usar modelos de IA para farejar novas formas de contorno em tempo real.</p>
     <p>Aí vem o paradoxo que todo visitante sente na pele: apesar de todo o atrito para fora, por dentro a integração é maior que a nossa. Bicicleta compartilhada e metrô num toque; bateria portátil de uma empresa retirada num ponto e devolvida em outro, de outra empresa, sem cadastro, caução ou contrato — basta apontar a câmera para um QR dentro do super app. Serviços de empresas diferentes conversando entre si, costurados por uma camada comum que já sabe quem você é.</p>
     <p>As mesmas regras alcançam a IA, e nesse caso são abertas. As Medidas Provisórias para Serviços de IA Generativa, em vigor desde agosto de 2023, exigem que o conteúdo gerado sustente os 'valores centrais socialistas'; serviços com potencial de formar opinião pública passam por avaliação de segurança e registro de algoritmo. Para liberar o lançamento, o provedor responde a um conjunto de duas mil perguntas cobrindo categorias de risco. A regra é pública; o critério de fiscalização, não — a ponto de dois dos maiores especialistas da área discordarem sobre se aquilo é registro ou licenciamento.</p>
