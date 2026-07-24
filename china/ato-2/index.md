@@ -58,7 +58,7 @@ cor: "II"
     <div class="dados"><div class="d"><div class="dv">2/3</div><div class="dl">da capacidade global de polissilício adicionada em &lt;4 anos</div></div><div class="d"><div class="dv">&lt;40%</div><div class="dl">utilização das fábricas de polissilício em 2025</div></div><div class="d"><div class="dv">~1/3</div><div class="dl">das empresas de vários setores operando no prejuízo</div></div><div class="d"><div class="dv">1963</div><div class="dl">ano em que o conceito de involução foi cunhado</div></div></div>
     <div class="br">
       <div class="brt">Implicação para o Brasil</div>
-      <p>A involução é o lado escuro da velocidade que a gente tanto admira. O mesmo sistema que entrega o carro elétrico mais barato do mundo entrega também margem negativa, guerra de preço sem fim e empresa que só sobrevive por subsídio. Quem copia a velocidade sem levar junto essa seleção brutal está copiando só metade da engrenagem.</p>
+      <p>A involução é o lado escuro da velocidade que a gente tanto admira. O mesmo sistema que entrega o carro elétrico mais barato do mundo entrega também margem negativa, guerra de preço sem fim e empresa que só sobrevive por subsídio. Quem copia a velocidade sem levar junto essa seleção brutal está copiando só metade da engrenagem. E essa engrenagem não fica em casa: quando o mercado interno satura, a mesma seleção empurra as sobreviventes para fora, e a involução <a class="xref" href="/china/ato-4/#v-IV-12">chega ao Brasil em enxame<sup>IV.12</sup></a>.</p>
     </div>
     <div class="tg"><span>Economia</span></div>
   </div>
