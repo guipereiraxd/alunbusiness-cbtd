@@ -4,7 +4,7 @@ cor: "IV"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato IV · 9 descobertas</div>
+  <div class="k">Ato IV · 11 descobertas</div>
   <h1>Empresas chinesas e os novos dragões</h1>
   <div class="sub">A anatomia de uma geração</div>
   <p class="ab">A geração anterior de gigantes chinesas cresceu protegida pela Muralha e dominou o mercado interno. A nova já nasce olhando para fora, e chega ao Brasil não como exportadora, mas como fábrica, marca e concorrente. Este ato abre o mecanismo por dentro: a pirâmide estatal que fabrica campeão de nicho, a densidade de fornecedores que deixa errar barato, a seleção brutal da <a class="xref" href="/china/ato-2/#v-II-3">involução<sup>II.3</sup></a> e a saída para o mundo em três tempos.</p>
@@ -178,5 +178,41 @@ cor: "IV"
       <p>Para uma empresa brasileira, a pergunta útil não é se a China vai chegar no seu setor. É saber em que estágio dos <a class="xref" href="/china/ato-4/#v-IV-8">cinco tempos<sup>IV.8</sup></a> ela já está ali, e quanto tempo isso te dá. Em energia, mineração e automotivo, a resposta é a mesma: já chegou, e está na fase de localizar produção.</p>
     </div>
     <div class="tg"><span>Brasil</span><span>Economia</span><span>Empresas e mercado</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-IV-10">
+  <div class="v-id">IV.10</div>
+  <div class="v-t">NIO: o carro vendido como assinatura</div>
+  <p class="v-r">100 milhões de trocas de bateria e milhares de estações. Ao separar a bateria do carro, a NIO transformou o componente mais caro num serviço mensal.</p>
+  <div class="v-body">
+    <div class="tese">A BYD mostrou a força de <a class="xref" href="/china/ato-4/#v-IV-3">fazer a própria bateria<sup>IV.3</sup></a>. A NIO foi por um caminho diferente e igualmente instrutivo: em vez de baratear o carro elétrico pela fábrica, mexeu no modelo de posse — desacoplou a bateria do veículo e passou a alugá-la.</div>
+    <p>A engrenagem é a troca de bateria. Em fevereiro de 2026 a empresa cruzou a marca de 100 milhões de trocas acumuladas, com cerca de 3.750 estações em operação e um recorde de quase 176 mil trocas num único dia. Em vez de esperar a recarga, o carro entra na estação e sai em poucos minutos com uma bateria cheia, trocada de forma automática.</p>
+    <p>Sobre esse trilho, a NIO vende o carro sem a bateria — mais barato na entrada — e cobra uma mensalidade pelo uso dela, no modelo que chama de bateria como serviço. O ativo mais caro e que mais se desvaloriza sai da conta da compra e vira despesa recorrente, com direito a trocar por uma bateria de maior capacidade quando quiser. Some a isso os NIO Houses, espaços de convívio para donos, e o que se vende deixa de ser um veículo e passa a ser uma assinatura com comunidade em volta.</p>
+    <p>Nem tudo é lucro: bancar milhares de estações e um estoque de baterias custa caro, e a companhia queima capital nessa aposta. Mas a ideia por trás dela é o que interessa a quem não fabrica carro nenhum.</p>
+    <div class="dados"><div class="d"><div class="dv">100 mi</div><div class="dl">trocas de bateria acumuladas até fev/2026</div></div><div class="d"><div class="dv">~3.750</div><div class="dl">estações de troca em operação</div></div><div class="d"><div class="dv">~176 mil</div><div class="dl">trocas em um único dia (recorde)</div></div><div class="d"><div class="dv">+1.000</div><div class="dl">novas estações planejadas para 2026</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>A lição transferível não é a troca de bateria, que faz sentido na escala chinesa e talvez não na brasileira. É a pergunta de modelo de negócio que ela força: qual é o ativo mais caro que o seu cliente hoje é obrigado a comprar de uma vez, e que poderia virar acesso por assinatura? Vale para máquina, equipamento, frota, software embarcado — em muitos setores, quem desacoplar o ativo caro da posse abre um mercado que o concorrente preso a vender o produto não enxerga.</p>
+    </div>
+    <div class="tg"><span>Empresas e mercado</span><span>Indústria e manufatura</span><span>Economia</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-IV-11">
+  <div class="v-id">IV.11</div>
+  <div class="v-t">JD.com: achatar o organograma não é dividir o poder</div>
+  <p class="v-r">Mais de 900 mil pessoas no ecossistema e uma logística feita em casa. A hierarquia é curta; a autoridade, concentrada.</p>
+  <div class="v-body">
+    <div class="tese">A JD.com é a gigante do comércio eletrônico que escolheu o caminho mais pesado: em vez do modelo enxuto que só conecta vendedor e comprador, comprou os armazéns, contratou os entregadores e passou a controlar a corrente inteira, do estoque à porta do cliente.</div>
+    <p>A escala do braço físico impressiona. O ecossistema da empresa reúne mais de 900 mil pessoas, boa parte na logística própria, que sozinha fatura mais de 217 bilhões de yuans e entrega no mesmo dia numa fatia enorme do país. É a verticalização levada ao varejo: controlar a experiência de ponta a ponta em vez de terceirizar o elo mais visível para o cliente.</p>
+    <p>O que a visita revela, porém, é um paradoxo de gestão. A empresa achatou os níveis entre o topo e o chão — poucas camadas, decisão rápida —, mas a autoridade não se distribuiu na mesma medida: continua fluindo para um centro personalista, ancorado na figura do fundador. A velocidade nasce da combinação de organograma curto com poder concentrado, e não de equipes autônomas decidindo por conta.</p>
+    <p>Aí mora o limite que a própria companhia começa a enfrentar. Enquanto o julgamento do fundador foi o modelo que orientava as decisões, o sistema andou rápido; ao crescer, esse modelo vira gargalo, e a empresa se vê obrigada a codificar em processo — e, cada vez mais, em IA — o que antes morava na cabeça de uma pessoa só.</p>
+    <div class="dados"><div class="d"><div class="dv">&gt;900 mil</div><div class="dl">pessoas no ecossistema da empresa</div></div><div class="d"><div class="dv">217 bi ¥</div><div class="dl">receita só do braço de logística</div></div><div class="d"><div class="dv">3</div><div class="dl">segmentos verticalizados: varejo, logística e novos negócios</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>É a descoberta mais desconfortável para quem lidera. Muita empresa brasileira 'achata o organograma' e chama isso de descentralização, quando apenas encurtou a distância até um centro que decide tudo. Reduzir camadas acelera a execução, mas só distribui poder de verdade quem também distribui a decisão. Confundir as duas coisas cria a ilusão de uma organização ágil que, na prática, ainda depende de uma única cabeça para tudo que importa.</p>
+    </div>
+    <div class="tg"><span>Empresas e mercado</span><span>Gestão e adoção</span></div>
   </div>
 </div>

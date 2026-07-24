@@ -123,7 +123,7 @@
       <h3>A nova economia chinesa</h3>
       <p class="ac-sub">Trocar o motor com o carro andando</p>
       <p class="ac-ab">O investimento imobiliário despencou e sobram dezenas de milhões de imóveis vazios. O motor não parou — mudou de alvo.</p>
-      <span class="ac-n">8 descobertas →</span>
+      <span class="ac-n">10 descobertas →</span>
     </a>
     <a class="ato-card2" data-c="III" href="{{ '/china/ato-3/' | relative_url }}">
       <div class="ac-icon"><svg><use href="#i-cpu"></use></svg></div>
@@ -131,15 +131,15 @@
       <h3>O impacto da inteligência artificial</h3>
       <p class="ac-sub">A régua mudou de lugar</p>
       <p class="ac-ab">A corrida de IA foi narrada como disputa pelo modelo mais inteligente. Hoje o que conta é custo, alcance e integração com a economia física.</p>
-      <span class="ac-n">10 descobertas →</span>
+      <span class="ac-n">11 descobertas →</span>
     </a>
     <a class="ato-card2" data-c="IV" href="{{ '/china/ato-4/' | relative_url }}">
       <div class="ac-icon"><svg><use href="#i-skyline"></use></svg></div>
       <div class="ac-k">Ato IV</div>
       <h3>Empresas chinesas e os novos dragões</h3>
       <p class="ac-sub">A anatomia de uma geração</p>
-      <p class="ac-ab">A geração anterior conquistou o mercado interno atrás de um muro. A nova nasce olhando para fora — e chega ao Brasil como fábrica, marca e investidor.</p>
-      <span class="ac-n">10 descobertas →</span>
+      <p class="ac-ab">A geração anterior conquistou o mercado interno atrás da Muralha. A nova nasce olhando para fora — e chega ao Brasil como fábrica, marca e investidor.</p>
+      <span class="ac-n">11 descobertas →</span>
     </a>
     <a class="ato-card2" data-c="V" href="{{ '/china/ato-5/' | relative_url }}">
       <div class="ac-icon"><svg><use href="#i-compass"></use></svg></div>
@@ -147,7 +147,7 @@
       <h3>Aprendizados sobre o modelo chinês</h3>
       <p class="ac-sub">O que é mecanismo e o que é regime</p>
       <p class="ac-ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom.</p>
-      <span class="ac-n">10 descobertas →</span>
+      <span class="ac-n">12 descobertas →</span>
     </a>
   </div>
 </section>

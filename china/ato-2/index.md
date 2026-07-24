@@ -4,7 +4,7 @@ cor: "II"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato II · 8 descobertas</div>
+  <div class="k">Ato II · 10 descobertas</div>
   <h1>A nova economia chinesa</h1>
   <div class="sub">Trocar o motor com o carro andando</div>
   <p class="ab">Por décadas, a China cresceu construindo. Esse motor perdeu força — o investimento imobiliário despencou e sobram dezenas de milhões de imóveis vazios. Mas a máquina financeira que erguia prédios não parou: mudou de alvo e migrou para a manufatura avançada, levando junto o mesmo vício de produzir demais. Este ato mostra de onde sai o dinheiro barato, por que a 'involução' virou a palavra do ano e como um país que fabrica mais do que consegue vender tenta virar economia de consumo sem largar a exportação.</p>
@@ -153,5 +153,41 @@ cor: "II"
       <p>O Brasil atacou parte do mesmo problema por outro caminho: o Pix modernizou o pagamento doméstico com uma adoção que a China levou anos para alcançar — só que sem uma camada programável nem um trilho transfronteiriço próprio, já que o Drex ainda é piloto. A questão de soberania não é ter ou não uma moeda digital. É saber quem vai operar os trilhos que liquidam o comércio Brasil-China quando ele dobrar de tamanho — e, por ora, esses trilhos são de terceiros.</p>
     </div>
     <div class="tg"><span>Economia</span><span>Dados e governança</span><span>Geopolítica e soberania</span><span>Brasil</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-II-9">
+  <div class="v-id">II.9</div>
+  <div class="v-t">Live commerce: quando a venda vira linha de produção</div>
+  <p class="v-r">Mais de 18% do varejo online chinês passa por transmissão ao vivo. O que começou como um vendedor diante da câmera virou prédio inteiro operando em turnos.</p>
+  <div class="v-body">
+    <div class="tese">No Brasil, a live de vendas ainda é evento: alguém liga a câmera, mostra o produto e torce para converter. Na China, virou processo industrial, com turno, roteiro, meta e uma retaguarda de bastidores que lembra mais uma fábrica do que uma loja.</div>
+    <p>A escala explica a mudança de natureza. A venda por transmissão ao vivo já responde por mais de 18% de todo o comércio eletrônico de varejo do país — uma penetração que não existe em nenhum outro mercado. Só a Kuaishou, segunda maior plataforma atrás da Douyin, reúne cerca de 600 milhões de usuários mensais que passam mais de 100 minutos por dia no aplicativo, e movimenta centenas de bilhões de dólares em mercadoria por ano.</p>
+    <p>Numa das visitas da imersão, o formato aparece por dentro: um parque onde andares inteiros funcionam como estúdios encadeados, com apresentadores se revezando em turno, equipe de produção, logística e dado de audiência girando em tempo real. A distância entre fazer uma live e operar uma fábrica de lives é a mesma que separa o artesanato da linha de montagem — e a China cruzou essa fronteira.</p>
+    <p>O que se industrializou não foi a venda isolada, e sim a junção de três coisas que no Ocidente vivem separadas: o conteúdo que prende atenção, a comunidade que confia no apresentador e a transação que fecha ali mesmo, sem sair da tela. Quem opera o canal fica com os três — a atenção, a conversão e o dado de comportamento que <a class="xref" href="/china/ato-1/#v-I-8">o ecossistema fechado<sup>I.8</sup></a> já sabia capturar.</p>
+    <div class="dados"><div class="d"><div class="dv">&gt;18%</div><div class="dl">do varejo online chinês passa por transmissão ao vivo</div></div><div class="d"><div class="dv">~600 mi</div><div class="dl">usuários mensais só na Kuaishou (~100 min/dia)</div></div><div class="d"><div class="dv">2º</div><div class="dl">maior operador de live commerce do país, atrás da Douyin</div></div><div class="d"><div class="dv">3 em 1</div><div class="dl">conteúdo, comunidade e comércio no mesmo fluxo</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>O live commerce brasileiro ainda é ação pontual de marketing — um evento no calendário da marca. A lição chinesa não está na ferramenta da transmissão, disponível para qualquer varejista, e sim na industrialização em volta dela: processo repetível, equipe dedicada, dado que realimenta o próximo turno. Quem trata a live como campanha vai competir com quem a trata como operação.</p>
+    </div>
+    <div class="tg"><span>Economia</span><span>Empresas e mercado</span><span>Sociedade e trabalho</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-II-10">
+  <div class="v-id">II.10</div>
+  <div class="v-t">Hongqiao e a importação como infraestrutura</div>
+  <p class="v-r">A China é o segundo maior importador do mundo há 16 anos. E transformou a própria porta de entrada — feira, distrito, hub logístico — em instrumento de política.</p>
+  <div class="v-body">
+    <div class="tese">Falar da China exportadora é fácil; a parte menos contada é a máquina que ela montou para importar. Não como gesto de abertura genérica, e sim como estrutura deliberada: a entrada para o consumidor chinês ganhou endereço, calendário e dono.</div>
+    <p>O centro disso é Xangai. A Exposição Internacional de Importações, criada em 2018, reúne a cada edição milhares de marcas de mais de 120 países; ao lado dela, o hub de Hongqiao converte o que era estande temporário de feira em comércio o ano inteiro, com o distrito de negócios ao redor crescendo em dois dígitos e atraindo sede de multinacional e centro de comércio eletrônico transfronteiriço.</p>
+    <p>A lógica econômica conversa direto com <a class="xref" href="/china/ato-2/#v-II-4">o giro para o consumo<sup>II.4</sup></a>: um país que decidiu crescer puxado pela demanda interna precisa de um trilho por onde o produto de fora entra, se distribui e alcança o comprador. Ser a segunda maior porta de importação do planeta — com importações somando mais de US$ 15 trilhões ao longo do último quinquênio — deixa de ser estatística e vira alavanca. O acesso a mais de um bilhão de consumidores é uma moeda de troca que poucos países têm para oferecer.</p>
+    <p>Para quem vende de fora, a consequência é concreta. Chegar ao consumidor chinês não se resolve só com o produto certo; passa por uma estrutura que o Estado desenhou, calibra e pode abrir ou apertar conforme a conveniência do momento.</p>
+    <div class="dados"><div class="d"><div class="dv">16 anos</div><div class="dl">como segundo maior mercado importador do mundo</div></div><div class="d"><div class="dv">~US$ 15 tri</div><div class="dl">em importações no quinquênio 2021-2025</div></div><div class="d"><div class="dv">120+</div><div class="dl">países com marcas no hub de importação de Xangai</div></div><div class="d"><div class="dv">2018</div><div class="dl">criação da feira que virou infraestrutura permanente</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>O Brasil vende muito para a China, mas quase tudo a granel: soja, minério, carne, petróleo. Alcançar o consumidor chinês com marca e produto acabado — e não como commodity anônima — depende de entrar por uma infraestrutura que a China controla de ponta a ponta. Fica a pergunta que o agro e o varejo exportador ainda evitam: quem é o dono do trilho pelo qual o nosso produto chega à mesa chinesa?</p>
+    </div>
+    <div class="tg"><span>Economia</span><span>Geopolítica e soberania</span><span>Brasil</span></div>
   </div>
 </div>

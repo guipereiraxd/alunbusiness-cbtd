@@ -4,7 +4,7 @@ cor: "III"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato III · 10 descobertas</div>
+  <div class="k">Ato III · 11 descobertas</div>
   <h1>O impacto da inteligência artificial</h1>
   <div class="sub">A régua mudou de lugar</div>
   <p class="ab">A corrida de IA foi contada como uma disputa pelo modelo mais inteligente. Essa régua mudou de lugar. Hoje o que pesa é quanto custa cada resposta, quanta gente consegue usar o sistema e o quanto ele se enfia em fábrica e serviço — e essa virada joga a favor da estratégia chinesa de modelo aberto, barato e colado na economia física. Este ato trata da economia do token, do cerco aos chips vindo dos dois lados, do programa estatal de difusão, da energia que virou gargalo e da disputa pelas regras globais.</p>
@@ -197,5 +197,23 @@ cor: "III"
       <p>É a ponte mais concreta do dossiê inteiro. Num mundo em que a IA passa a esbarrar em energia, o Brasil tem o ativo que quase nenhum concorrente tem: uma matriz elétrica majoritariamente limpa e barata. Só que ter o elétron não é ter a computação — falta a política deliberada que a China escreveu, de atrair e fixar data center onde a energia limpa sobra, em vez de exportar o excedente como commodity. A escolha é entre hospedar a computação do mundo ou vender energia para quem a hospeda.</p>
     </div>
     <div class="tg"><span>Inteligência artificial</span><span>Indústria e manufatura</span><span>Economia</span><span>Brasil</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-III-11">
+  <div class="v-id">III.11</div>
+  <div class="v-t">Tencent: a IA que desaparece dentro do fluxo</div>
+  <p class="v-r">1,4 bilhão de pessoas num aplicativo só, 4,3 milhões de mini programas rodando dentro dele. A aposta de IA da Tencent é sumir no que já existe em vez de virar um destino novo.</p>
+  <div class="v-body">
+    <div class="tese">Enquanto boa parte do Ocidente trata a IA como lugar aonde se vai — um site, um chat, um produto à parte —, a Tencent segue o caminho contrário: enfiar o modelo dentro do fluxo que a pessoa já percorre todo dia, a ponto de ela nem perceber que está usando IA.</div>
+    <p>O terreno onde isso acontece é o maior ecossistema fechado do mundo. O WeChat passou de 1,43 bilhão de usuários mensais, e por dentro dele rodam mais de 4,3 milhões de mini programas — aplicativos que abrem sem instalar, dentro do próprio app, e que já somam quase 950 milhões de usuários por mês. Pagamento, transporte, serviço público, compra e atendimento acontecem sem sair da mesma tela.</p>
+    <p>É nessa malha que a IA entra: resumo de conversa, busca, assistente e recomendação aparecem embutidos no chat e nos mini programas, e não como um produto separado para onde o usuário precisa migrar. A régua de sucesso deixa de ser quantas pessoas visitam um chatbot e passa a ser quantas interações do dia a dia já têm IA por baixo, sem anúncio.</p>
+    <p>É a versão corporativa da tese que atravessa o Ato V: <a class="xref" href="/china/ato-5/#v-V-5">pôr a inteligência onde as pessoas já estão<sup>V.5</sup></a>, dentro do trabalho que existe, em vez de construir um destino novo e torcer para a organização migrar até ele.</p>
+    <div class="dados"><div class="d"><div class="dv">1,43 bi</div><div class="dl">usuários mensais do WeChat</div></div><div class="d"><div class="dv">4,3 mi</div><div class="dl">mini programas rodando dentro do app</div></div><div class="d"><div class="dv">~950 mi</div><div class="dl">usuários mensais de mini programas</div></div><div class="d"><div class="dv">0</div><div class="dl">instalações para abrir um mini programa</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>Para a empresa brasileira, o padrão vale palavra por palavra e não depende de ter um super app: a IA que gera valor é a que some dentro do sistema que a equipe já usa — o CRM, o ERP, o canal de atendimento — e não a que exige abrir mais uma aba e aprender mais uma ferramenta. Todo projeto que cria um 'destino de IA' apartado do trabalho está competindo com o hábito, e o hábito costuma ganhar.</p>
+    </div>
+    <div class="tg"><span>Inteligência artificial</span><span>Empresas e mercado</span><span>Gestão e adoção</span></div>
   </div>
 </div>

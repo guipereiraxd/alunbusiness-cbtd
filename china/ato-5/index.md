@@ -4,10 +4,10 @@ cor: "V"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato V · 9 descobertas</div>
+  <div class="k">Ato V · 12 descobertas</div>
   <h1>Aprendizados sobre o modelo chinês</h1>
   <div class="sub">O que é mecanismo e o que é regime</div>
-  <p class="ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom. A primeira categoria não se replica, e boa parte dela nem é desejável. A segunda é maior do que parece — e quase toda ela está ao alcance de organizações brasileiras dispostas a medir, integrar e cobrar. Este ato fecha a imersão com o inventário honesto dos custos e um punhado de perguntas práticas.</p>
+  <p class="ab">Todo aprendizado sobre a China começa por uma separação: o que funciona porque o regime permite, e o que funciona porque o mecanismo é bom. A primeira categoria não se replica, e boa parte dela nem é desejável. A segunda é maior do que parece — e quase toda ela está ao alcance de organizações brasileiras dispostas a medir, integrar e cobrar. Este ato fecha a imersão com o inventário honesto dos custos, um punhado de perguntas práticas e a síntese do que a viagem inteira deixou: dois enquadramentos de gestão e os três aprendizados que atravessam tudo.</p>
 </div>
 
 <div class="v" id="v-V-1">
@@ -180,5 +180,66 @@ cor: "V"
       <p>A nona é a mais reveladora. Se a organização não consegue produzir esse número, ela não está medindo adoção; está colecionando iniciativa. Meta de penetração é ferramenta de gestão disponível para qualquer empresa, sem depender de política pública nenhuma.</p>
     </div>
     <div class="tg"><span>Gestão e adoção</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-V-10">
+  <div class="v-id">V.10</div>
+  <div class="v-t">Run, Transform, Beyond: operar três horizontes ao mesmo tempo</div>
+  <p class="v-r">Rodar o negócio de hoje, transformar o modelo de amanhã e apostar no que ainda não existe — as três coisas em paralelo, não em sequência.</p>
+  <div class="v-body">
+    <div class="tese">Um segundo enquadramento ajuda a ler o que se viu nas empresas: a distância entre operar bem o presente e construir o futuro. A leitura mais transferível da imersão não está em nenhuma tecnologia específica, e sim em como as organizações chinesas administram três horizontes ao mesmo tempo.</div>
+    <p><strong>Run</strong> é o negócio que paga a conta hoje: eficiência, margem, execução do que já funciona. <strong>Transform</strong> é reconstruir o próprio modelo com capacidade nova — foi o que a masterclass de varejo chamou de mudança de categoria, não de digitalização do que já existia. <strong>Beyond</strong> é a aposta no que ainda não tem mercado: robô humanoide, energia para IA, moeda programável.</p>
+    <p>O que chama atenção não é a existência dos três horizontes, que qualquer manual descreve, e sim a recusa a tratá-los como fases. A empresa chinesa típica opera o Run com disciplina de custo, roda o Transform sem esperar o Run desacelerar e mantém o Beyond vivo porque parte do risco do horizonte mais distante é absorvida pelo Estado — o pilar que <a class="xref" href="/china/ato-1/#v-I-5">banca a direção de longo prazo<sup>I.5</sup></a> e deixa a empresa arriscar onde sozinha não arriscaria.</p>
+    <p>É aí que a maioria das organizações trava. Consome todo o fôlego no Run, promete o Transform para quando sobrar tempo — e nunca sobra — e trata o Beyond como slide de fim de ano. O modelo chinês sugere o contrário: os três precisam de dono, orçamento e prazo próprios, rodando em paralelo.</p>
+    <div class="dados"><div class="d"><div class="dv">3</div><div class="dl">horizontes simultâneos: operar, transformar, apostar</div></div><div class="d"><div class="dv">Beyond</div><div class="dl">o horizonte que o Estado ajuda a bancar</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>Sem um Estado que compartilhe o risco do horizonte mais distante, a empresa brasileira precisa resolver o Beyond por outros meios — consórcio setorial, pesquisa pré-competitiva, parceria com universidade. Mas a pergunta de gestão independe disso: quem, na sua organização, é dono de cada horizonte, e com que orçamento? Se a resposta for 'a mesma equipe, no tempo que sobrar', só o Run existe de verdade.</p>
+    </div>
+    <div class="tg"><span>Gestão e adoção</span><span>Estado e política pública</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-V-11">
+  <div class="v-id">V.11</div>
+  <div class="v-t">Os oito padrões em que os grupos convergiram</div>
+  <p class="v-r">Depois de dezenas de visitas, os grupos da imersão chegaram, por conta própria, ao mesmo lugar dos enquadramentos de abertura.</p>
+  <div class="v-body">
+    <div class="tese">No fim da imersão, os grupos foram desafiados a destilar o que tinham visto. Sem combinar, convergiram para oito padrões — e o mais revelador é que eles reencontram, pela observação de campo, o mesmo sistema que os <a class="xref" href="/china/ato-1/#v-I-5">enquadramentos de abertura<sup>I.5</sup></a> já anunciavam.</div>
+    <p><strong>1. Visão de longo prazo.</strong> Direção que atravessa governos e ciclos, medida em décadas, não em mandatos.</p>
+    <p><strong>2. Estado indutor.</strong> O poder público define rumo, financia infraestrutura e sinaliza a oportunidade, sem operar a empresa.</p>
+    <p><strong>3. Infraestrutura como plataforma.</strong> Estrada, trilho, energia, pagamento e dado tratados como base sobre a qual o privado constrói.</p>
+    <p><strong>4. P&amp;D e inovação contínua.</strong> Pesquisa como fluxo permanente, não como projeto com início e fim.</p>
+    <p><strong>5. Experimentação acima do perfeccionismo.</strong> Lançar, medir e corrigir em escala vale mais que acertar de primeira.</p>
+    <p><strong>6. Foco, disciplina e pragmatismo.</strong> Resolver o problema concreto sem burocracia nem discussão interminável.</p>
+    <p><strong>7. Competição em larga escala.</strong> Muitos experimentam, poucos escalam, o mercado seleciona os melhores — a <a class="xref" href="/china/ato-2/#v-II-3">involução<sup>II.3</sup></a> vista pelo lado da seleção.</p>
+    <p><strong>8. Ecossistemas, não produtos.</strong> A empresa desenha a jornada inteira, e cada interação gera o dado que melhora a próxima.</p>
+    <p>A convergência é o dado interessante. Grupos diferentes, olhando empresas diferentes, terminaram na mesma frase: o diferencial chinês não está numa política ou numa tecnologia isolada, mas na combinação entre direção, execução, coordenação e aprendizado contínuo em escala.</p>
+    <div class="dados"><div class="d"><div class="dv">8</div><div class="dl">padrões destilados de forma independente pelos grupos</div></div><div class="d"><div class="dv">1</div><div class="dl">conclusão comum: o diferencial é a combinação, não a peça</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>Os oito servem de checklist de leitura, não de receita a copiar. Diante de qualquer 'sucesso chinês', dá para perguntar quais desses padrões o sustentam — e quantos deles a sua organização, ou o seu setor, teria como reproduzir sem depender do regime. Costuma sobrar mais coisa acionável do que a admiração à primeira vista sugere.</p>
+    </div>
+    <div class="tg"><span>Gestão e adoção</span><span>Estado e política pública</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-V-12">
+  <div class="v-id">V.12</div>
+  <div class="v-t">O que fica: três aprendizados que atravessam tudo</div>
+  <p class="v-r">Se a imersão inteira tivesse de caber em três frases, seriam estas.</p>
+  <div class="v-body">
+    <div class="tese">Por baixo de tudo o que veio até aqui — os números, as visitas, as descobertas —, ficam três ideias que voltam o tempo todo, e que valem para qualquer organização, com ou sem China no assunto.</div>
+    <p><strong>A velocidade está na arquitetura, não no esforço.</strong> O 'China speed' visto de perto não é gente trabalhando mais; é trem-bala que funde cidades, mini programa que elimina o atrito de adoção, parque que industrializa a produção de lives, prédio que opera como linha de montagem. Cada camada foi desenhada para que executar rápido seja o comportamento natural do sistema. A pergunta que isso devolve: a sua velocidade depende de heroísmo individual ou está embutida na estrutura? Se depende de esforço, não escala e não dura.</p>
+    <p><strong>Fronteiras que o Ocidente trata como fixas, a China trata como variáveis.</strong> Conteúdo e comércio, carro e serviço, empresa e Estado, universidade e indústria: em visita após visita, a vantagem nasceu de dissolver uma divisão que o manual considera dada. O exercício, para um líder, é inverter a pergunta de estratégia — em vez de 'qual é o nosso núcleo', perguntar que fronteira do setor todo mundo trata como intocável, e o que aconteceria se ela caísse.</p>
+    <p><strong>A vantagem não é a ferramenta; é a capacidade construída em volta dela.</strong> Nenhuma empresa visitada venceu por ter acesso exclusivo a uma tecnologia — IA, robô, live, pagamento estão disponíveis para todos, inclusive para o concorrente brasileiro. O que separa é o que se faz em volta: processo, dado, gente treinada em volume, disposição de reconstruir o próprio modelo a cada estágio. É a mesma tese que abre e fecha a imersão — <a class="xref" href="/china/ato-5/#v-V-5">o valor mora na capacidade organizacional<sup>V.5</sup></a>, não no software.</p>
+    <p class="v-close">"Comparar empresas é olhar as peças. A China só faz sentido quando se olha o tabuleiro."</p>
+    <div class="dados"><div class="d"><div class="dv">3</div><div class="dl">aprendizados: velocidade é sistema, fronteiras são variáveis, capacidade vence ferramenta</div></div><div class="d"><div class="dv">1</div><div class="dl">unidade de análise: o tabuleiro, não a peça</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>O futuro não chega pronto; é construído por quem começa a aprender antes. A China não digitalizou o varejo que existia — construiu, estágio após estágio, a capacidade de operar um varejo que ainda não existia. Para quem lidera no Brasil, o convite da imersão não é imitar a China, e sim adquirir essa mesma disciplina de aprender e reconstruir antes de ser obrigado.</p>
+    </div>
+    <div class="tg"><span>Gestão e adoção</span><span>Brasil</span></div>
   </div>
 </div>
