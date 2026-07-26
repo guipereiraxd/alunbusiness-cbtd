@@ -3,73 +3,122 @@ title: "Início"
 ---
 
 <section class="hero">
-  <div class="hero-fx" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="eyebrow"><i></i>IA · Setor Público</div>
-    <h1>Inteligência artificial a <span class="grad">serviço público</span></h1>
-    <p class="lede">[Subtítulo — uma ou duas frases: o que a IA muda no Estado e por que isso importa para quem lidera e para quem executa no serviço público.]</p>
+    <div class="eyebrow"><i></i>IA para valor público</div>
+    <h1>Inteligência artificial para gerar <span class="ac">valor público</span></h1>
+    <p class="lede">[Subtítulo — explore oportunidades, conheça casos, avalie riscos e construa um caminho responsável para aplicar IA em sua organização.]</p>
     <div class="actions">
-      <a class="btn btn-primary" href="{{ '/setorpublico/eixo-1/' | relative_url }}">Começar pelo Módulo 01 →</a>
-      <a class="btn btn-line" href="#modulos">Ver os módulos ↓</a>
-    </div>
-    <div class="coord mono">
-      <span><b>STATUS</b> · em construção</span>
-      <span><b>MÓDULOS</b> · 04</span>
-      <span><b>BUILD</b> · 0.1</span>
+      <a class="btn btn-primary" href="{{ '/setorpublico/oportunidades/' | relative_url }}">Explorar oportunidades <svg width="16" height="16"><use href="#i-arrow"></use></svg></a>
+      <a class="btn btn-line" href="{{ '/setorpublico/diagnostico/' | relative_url }}">Avaliar maturidade</a>
     </div>
   </div>
 </section>
 
-<section class="wrap">
-  <div class="stats">
-    <div class="stat"><div class="v">[—]</div><div class="l">[Indicador 01]</div></div>
-    <div class="stat"><div class="v">[—]</div><div class="l">[Indicador 02]</div></div>
-    <div class="stat"><div class="v">[—]</div><div class="l">[Indicador 03]</div></div>
-    <div class="stat"><div class="v">[—]</div><div class="l">[Indicador 04]</div></div>
+<section class="blk">
+  <div class="wrap">
+    <div class="sk">Personalização</div>
+    <h2>Por onde você deseja começar?</h2>
+    <p class="lead">[No protótipo final, esta escolha adapta o que aparece em destaque. Por ora, leva direto à seção correspondente.]</p>
+    <div class="cards auto rv">
+      <a class="card" href="{{ '/setorpublico/oportunidades/' | relative_url }}"><h3>Quero encontrar oportunidades</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card" href="{{ '/setorpublico/oportunidades/' | relative_url }}"><h3>Quero resolver um problema</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card" href="{{ '/setorpublico/diagnostico/' | relative_url }}"><h3>Quero avaliar minha organização</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card" href="{{ '/setorpublico/governanca/' | relative_url }}"><h3>Quero entender riscos</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card" href="{{ '/setorpublico/trilhas/' | relative_url }}"><h3>Quero capacitar minha equipe</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card" href="{{ '/setorpublico/ferramentas/' | relative_url }}"><h3>Quero estruturar uma estratégia</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+    </div>
   </div>
 </section>
 
-<section class="wrap sec" id="modulos">
-  <div class="sec-k">Índice · 04 módulos</div>
-  <h2>[Título da seção de módulos]</h2>
-  <p class="desc">Cada módulo é autocontido — comece pelo 01 para a leitura completa, ou entre direto no tema que mais te interessa.</p>
+<section class="blk">
+  <div class="wrap">
+    <div class="sk">Quatro dimensões de impacto</div>
+    <h2>Onde a IA gera valor público</h2>
+    <div class="cards c4 rv">
+      <div class="card"><div class="card-ic"><svg><use href="#i-gear"></use></svg></div><h3>Estado mais eficiente</h3><p>[Automação, redução de retrabalho, produtividade e melhoria de processos.]</p></div>
+      <div class="card"><div class="card-ic"><svg><use href="#i-hands"></use></svg></div><h3>Serviços mais simples</h3><p>[Atendimento, acessibilidade, personalização e redução do tempo de resposta.]</p></div>
+      <div class="card"><div class="card-ic"><svg><use href="#i-chart"></use></svg></div><h3>Decisões mais informadas</h3><p>[Análise de dados, cenários, previsões e apoio à formulação de políticas.]</p></div>
+      <div class="card"><div class="card-ic"><svg><use href="#i-shield"></use></svg></div><h3>Estado mais íntegro</h3><p>[Fiscalização, auditoria, prevenção de fraudes, gestão de riscos e transparência.]</p></div>
+    </div>
+  </div>
+</section>
 
-  <div class="mods">
-    <a class="mod" href="{{ '/setorpublico/eixo-1/' | relative_url }}">
-      <div class="mod-idx"><b>01</b> / 04</div>
-      <h3>[Título do Módulo 01]</h3>
-      <div class="sub">[subtítulo curto]</div>
-      <p>[Resumo do módulo em uma ou duas frases: qual pergunta ele responde.]</p>
-      <span class="go">Abrir módulo →</span>
-    </a>
-    <a class="mod" href="{{ '/setorpublico/eixo-2/' | relative_url }}">
-      <div class="mod-idx"><b>02</b> / 04</div>
-      <h3>[Título do Módulo 02]</h3>
-      <div class="sub">[subtítulo curto]</div>
-      <p>[Resumo do módulo em uma ou duas frases: qual pergunta ele responde.]</p>
-      <span class="go">Abrir módulo →</span>
-    </a>
-    <a class="mod" href="{{ '/setorpublico/eixo-3/' | relative_url }}">
-      <div class="mod-idx"><b>03</b> / 04</div>
-      <h3>[Título do Módulo 03]</h3>
-      <div class="sub">[subtítulo curto]</div>
-      <p>[Resumo do módulo em uma ou duas frases: qual pergunta ele responde.]</p>
-      <span class="go">Abrir módulo →</span>
-    </a>
-    <a class="mod" href="{{ '/setorpublico/eixo-4/' | relative_url }}">
-      <div class="mod-idx"><b>04</b> / 04</div>
-      <h3>[Título do Módulo 04]</h3>
-      <div class="sub">[subtítulo curto]</div>
-      <p>[Resumo do módulo em uma ou duas frases: qual pergunta ele responde.]</p>
-      <span class="go">Abrir módulo →</span>
+<section class="blk">
+  <div class="wrap">
+    <div class="sk">Mapa de oportunidades</div>
+    <h2>Escolha sua área e veja onde a IA se aplica</h2>
+    <p class="lead">[Para cada área: principais problemas, aplicações possíveis, benefícios, riscos e o próximo passo recomendado.]</p>
+    <a class="panel-link" href="{{ '/setorpublico/oportunidades/' | relative_url }}">
+      <div><div class="k">6 áreas mapeadas</div><h3>Atendimento · Processos · Compras · Controle · Políticas · Pessoas</h3></div>
+      <span class="cta">Abrir o mapa →</span>
     </a>
   </div>
 </section>
 
-<section class="wrap">
-  <a class="panel-link" href="{{ '/setorpublico/temas/' | relative_url }}">
-    <div class="k">Leitura por tema</div>
-    <div class="tags"><span>[Tema A]</span><span>[Tema B]</span><span>[Tema C]</span><span>[Tema D]</span><span>[Tema E]</span></div>
-    <span class="cta">Seguir um fio e ler por um único ângulo →</span>
-  </a>
+<section class="blk">
+  <div class="wrap">
+    <div class="sk">Casos em destaque</div>
+    <h2>Aplicações reais no setor público</h2>
+    <div class="cards c3 rv">
+      <a class="card" href="{{ '/setorpublico/casos/' | relative_url }}"><div class="card-k">[Órgão] · [Área]</div><h3>[Nome do caso]</h3><p>[Problema → aplicação → resultado.]</p><span class="badge ris" style="margin-top:14px"><i></i>Risco: [grau]</span></a>
+      <a class="card" href="{{ '/setorpublico/casos/' | relative_url }}"><div class="card-k">[Órgão] · [Área]</div><h3>[Nome do caso]</h3><p>[Problema → aplicação → resultado.]</p><span class="badge ris" style="margin-top:14px"><i></i>Risco: [grau]</span></a>
+      <a class="card" href="{{ '/setorpublico/casos/' | relative_url }}"><div class="card-k">[Órgão] · [Área]</div><h3>[Nome do caso]</h3><p>[Problema → aplicação → resultado.]</p><span class="badge ris" style="margin-top:14px"><i></i>Risco: [grau]</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap">
+    <div class="sk">Ferramentas de decisão</div>
+    <h2>Avalie antes de agir</h2>
+    <div class="toolbox rv">
+      <div class="ic"><svg><use href="#i-gauge"></use></svg></div>
+      <div class="bd"><h3>Sua organização está preparada para utilizar IA?</h3><p>[Responda a um diagnóstico rápido e receba uma visão preliminar sobre estratégia, dados, governança, tecnologia, pessoas e capacidade de escala.]</p></div>
+      <a class="btn btn-line" href="{{ '/setorpublico/diagnostico/' | relative_url }}">Fazer diagnóstico</a>
+    </div>
+    <div class="toolbox rv">
+      <div class="ic"><svg><use href="#i-scale"></use></svg></div>
+      <div class="bd"><h3>Este caso de uso deveria ser priorizado?</h3><p>[Avalie valor público, viabilidade e risco antes de iniciar um experimento.]</p></div>
+      <a class="btn btn-line" href="{{ '/setorpublico/ferramentas/' | relative_url }}">Abrir priorizador</a>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap">
+    <div class="sk">Jornada de adoção</div>
+    <h2>Do interesse à escala</h2>
+    <div class="journey rv">
+      <div class="jstep"><div class="n">01</div><h4>Entender</h4><p>[Repertório, dimensões de impacto, riscos.]</p></div>
+      <div class="jstep"><div class="n">02</div><h4>Priorizar</h4><p>[Selecionar casos por valor, viabilidade e risco.]</p></div>
+      <div class="jstep"><div class="n">03</div><h4>Experimentar</h4><p>[Prototipar em ambiente controlado.]</p></div>
+      <div class="jstep"><div class="n">04</div><h4>Institucionalizar</h4><p>[Governança, papéis e política.]</p></div>
+      <div class="jstep"><div class="n">05</div><h4>Escalar</h4><p>[Padrões, centro de competência, reúso.]</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap">
+    <div class="sk">Recursos</div>
+    <h2>Ferramentas, trilhas e observatório</h2>
+    <div class="cards c3 rv">
+      <a class="card" href="{{ '/setorpublico/ferramentas/' | relative_url }}"><div class="card-ic"><svg><use href="#i-tools"></use></svg></div><h3>Caixa de ferramentas</h3><p>[Kits de uso seguro, experimentação, governança, contratação e escala.]</p><span class="go">Ver kits <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card" href="{{ '/setorpublico/trilhas/' | relative_url }}"><div class="card-ic"><svg><use href="#i-path"></use></svg></div><h3>Trilhas de aprendizagem</h3><p>[Por perfil: liderança, áreas finalísticas, tecnologia, jurídico, compras, controle e pessoas.]</p><span class="go">Ver trilhas <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card" href="{{ '/setorpublico/observatorio/' | relative_url }}"><div class="card-ic"><svg><use href="#i-eye"></use></svg></div><h3>Observatório</h3><p>[Casos, normas, estudos, guias e eventos, atualizados continuamente.]</p><span class="go">Acompanhar <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap">
+    <div class="sk">Próximo passo</div>
+    <h2>Construa uma agenda de IA para sua organização</h2>
+    <p class="lead">[Transforme os desafios da sua instituição em uma jornada estruturada de estratégia, capacitação, experimentação e geração de valor público.]</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ '/setorpublico/contato/' | relative_url }}">Fale com a Alun Business <svg width="16" height="16"><use href="#i-arrow"></use></svg></a>
+      <a class="btn btn-line" href="{{ '/setorpublico/diagnostico/' | relative_url }}">Receber um diagnóstico</a>
+    </div>
+  </div>
 </section>

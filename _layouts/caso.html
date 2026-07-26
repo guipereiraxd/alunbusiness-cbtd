@@ -1,0 +1,37 @@
+---
+layout: setorpublico
+---
+<div class="wrap case">
+  <div class="crumb"><a href="{{ '/setorpublico/casos/' | relative_url }}">Casos de uso</a> / {{ page.area | default: "—" }}</div>
+  <div class="kicker" style="margin-top:16px">
+    {% if page.status %}<span class="badge apr"><i></i>{{ page.status }}</span>{% endif %}
+    {% if page.grau_risco %}<span class="badge ris"><i></i>Risco: {{ page.grau_risco }}</span>{% endif %}
+  </div>
+  <h1>{{ page.title | default: "[Título do caso]" }}</h1>
+  <p class="lede">{{ page.resumo | default: "[Resumo do caso em uma ou duas frases.]" }}</p>
+
+  <ul class="klist">
+    <li><b>Organização</b> {{ page.organizacao | default: "[—]" }}</li>
+    <li><b>Esfera / Poder</b> {{ page.esfera | default: "[—]" }} · {{ page.poder | default: "[—]" }}</li>
+    <li><b>Área</b> {{ page.area | default: "[—]" }}</li>
+    <li><b>Localidade</b> {{ page.localidade | default: "[—]" }}</li>
+    <li><b>Ano</b> {{ page.ano | default: "[—]" }}</li>
+  </ul>
+
+  <div class="case-grid">
+    <div class="case-sec"><h2>Problema</h2><p>{{ page.problema | default: "[Situação anterior, público afetado, volume e consequências.]" }}</p></div>
+    <div class="case-sec"><h2>Solução</h2><p>{{ page.solucao | default: "[O que a IA faz, tecnologia utilizada, dados, integrações e participação humana.]" }}</p></div>
+    <div class="case-sec"><h2>Impacto</h2><p>{{ page.impacto | default: "[Resultados quantitativos e qualitativos, indicadores, abrangência e beneficiários.]" }}</p></div>
+    <div class="case-sec"><h2>Governança</h2><p>{{ page.governanca | default: "[Principais riscos, salvaguardas, responsáveis, monitoramento, transparência e canal de contestação.]" }}</p></div>
+    <div class="case-sec"><h2>Aprendizados</h2><p>{{ page.aprendizados | default: "[O que funcionou, o que não funcionou, limitações, próximos passos e possibilidade de replicação.]" }}</p></div>
+  </div>
+
+  {{ content }}
+
+  <div class="note" style="margin-top:30px"><b>Status de qualidade:</b> {{ page.qualidade | default: "[Informações verificadas / fornecidas pela organização / dados públicos / em experimentação / em produção.]" }}</div>
+
+  <a class="panel-link" href="{{ '/setorpublico/casos/' | relative_url }}">
+    <div><div class="k">Biblioteca</div><h3>Ver todos os casos de uso</h3></div>
+    <span class="cta">Voltar aos casos →</span>
+  </a>
+</div>

@@ -6,6 +6,11 @@ baseurl: ""
 
 theme: jekyll-theme-cayman
 
+collections:
+  casos:
+    output: true
+    permalink: /setorpublico/casos/:name/
+
 plugins:
   - jekyll-relative-links
 
@@ -51,3 +56,8 @@ defaults:
       type: "pages"
     values:
       layout: "setorpublico"
+  - scope:
+      path: ""
+      type: "casos"
+    values:
+      layout: "caso"
