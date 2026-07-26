@@ -22,8 +22,8 @@ title: "Ferramentas"
 
     <div class="toolbox rv" style="margin-top:36px">
       <div class="ic"><svg><use href="#i-scale"></use></svg></div>
-      <div class="bd"><h3>Priorizador de casos de uso</h3><p>[Avalie valor público, viabilidade e risco e receba uma classificação: Comece agora · Experimente com controles · Prepare as fundações · Avaliação reforçada.]</p></div>
-      <span class="soon">Ferramenta · Fase B</span>
+      <div class="bd"><h3>Priorizador de casos de uso</h3><p>Avalie valor público, viabilidade e risco e receba uma classificação: Comece agora · Experimente com controles · Prepare as fundações · Avaliação reforçada.</p></div>
+      <a class="btn btn-primary" href="{{ '/setorpublico/ferramentas/priorizador/' | relative_url }}">Abrir ferramenta <svg width="16" height="16"><use href="#i-arrow"></use></svg></a>
     </div>
 
     <div class="note"><b>Calculadora de valor público</b> e <b>Laboratório de prompts</b> entram em fase posterior (Evolução). Formatos previstos dos kits: PDF, DOCX, XLSX, PPTX e modelos editáveis.</div>

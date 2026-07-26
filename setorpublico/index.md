@@ -80,7 +80,7 @@ title: "Início"
     <div class="toolbox rv">
       <div class="ic"><svg><use href="#i-scale"></use></svg></div>
       <div class="bd"><h3>Este caso de uso deveria ser priorizado?</h3><p>[Avalie valor público, viabilidade e risco antes de iniciar um experimento.]</p></div>
-      <a class="btn btn-line" href="{{ '/setorpublico/ferramentas/' | relative_url }}">Abrir priorizador</a>
+      <a class="btn btn-line" href="{{ '/setorpublico/ferramentas/priorizador/' | relative_url }}">Abrir priorizador</a>
     </div>
   </div>
 </section>
