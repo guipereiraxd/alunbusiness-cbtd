@@ -18,6 +18,19 @@ title: "Observatório"
   </div>
 
   <section class="blk" style="border-bottom:0;padding-top:34px">
+    <div class="sk">Em destaque</div>
+    <h2>Referência da vez</h2>
+    <div class="cards c2 rv">
+      <a class="card" href="{{ '/setorpublico/observatorio/m-25-21/' | relative_url }}">
+        <div class="card-k">Regulamentação · Internacional · EUA</div>
+        <h3>M-25-21: como os EUA reorganizaram o uso federal de IA</h3>
+        <p>O memorando da OMB que virou referência de governança de IA de governo em 2025 — prazos, IA de alto impacto e o que é transferível para o Brasil.</p>
+        <span class="go">Ler análise <svg width="14" height="14"><use href="#i-arrow"></use></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="blk" style="border-bottom:0;padding-top:34px">
     <div class="sk">Classificação obrigatória</div>
     <h2>Como cada item é etiquetado</h2>
     <div class="cards auto rv">

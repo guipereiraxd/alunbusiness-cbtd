@@ -1,0 +1,105 @@
+---
+title: "M-25-21: a diretriz federal de IA dos EUA"
+---
+
+<div class="wrap case">
+  <div class="crumb"><a href="{{ '/setorpublico/observatorio/' | relative_url }}">Observatório</a> / Referência internacional</div>
+  <div class="kicker" style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+    <span class="badge gov"><i></i>Regulamentação</span>
+    <span class="badge via"><i></i>Internacional · EUA</span>
+    <span class="badge apr"><i></i>3 de abril de 2025</span>
+  </div>
+  <h1>M-25-21: como os EUA reorganizaram o uso federal de IA</h1>
+  <p class="lede">O memorando da OMB “Accelerating Federal Use of AI through Innovation, Governance, and Public Trust” virou a principal referência de governança de IA de governo em 2025. Vale entender o que ele exige — e o que dele é transferível para o Brasil.</p>
+</div>
+
+<div class="wrap">
+  <section class="blk" style="border-bottom:0;padding-top:34px">
+    <div class="sk">O contexto</div>
+    <h2>De onde veio</h2>
+    <p class="lead">Em janeiro de 2025, a Ordem Executiva 14179 revogou a EO 14110 (a base da política anterior) e mandou revisar tudo o que havia sido feito sob ela. Em 3 de abril de 2025, cumprindo essa ordem, a OMB publicou o <b>M-25-21</b>, que substituiu o memorando M-24-10. A mudança de tom é explícita: sai a postura “avessa a risco” e entra uma abordagem <b>pró-inovação</b>, com a meta declarada de remover “restrições burocráticas desnecessárias” — mantendo, ainda assim, boa parte das salvaguardas centrais.</p>
+  </section>
+
+  <section class="blk" style="border-bottom:0;padding-top:20px">
+    <div class="sk">O arcabouço</div>
+    <h2>Três prioridades</h2>
+    <div class="cards c3">
+      <div class="card"><div class="card-ic"><svg><use href="#i-gear"></use></svg></div><h3>Inovação</h3><p>Remover exigências que inibem a adoção responsável; reaproveitar dados, modelos, código e avaliações entre agências; priorizar IA desenvolvida nos EUA.</p></div>
+      <div class="card"><div class="card-ic"><svg><use href="#i-shield"></use></svg></div><h3>Governança</h3><p>Governança como facilitadora de inovação segura — não como obstáculo. Liderança designada e aceitação de risco delegada a responsáveis, com salvaguardas.</p></div>
+      <div class="card"><div class="card-ic"><svg><use href="#i-hands"></use></svg></div><h3>Confiança pública</h3><p>A inovação não pode se dar às custas de direitos civis, liberdades ou privacidade. Transparência via inventários públicos de casos de uso.</p></div>
+    </div>
+  </section>
+
+  <section class="blk" style="border-bottom:0;padding-top:20px">
+    <div class="sk">Estrutura de liderança</div>
+    <h2>Quem responde pela IA</h2>
+    <ul class="klist">
+      <li><b>Chief AI Officer</b> Cada agência designa um CAIO para conduzir a implementação, aprovar casos de uso e determinar a aposentadoria dos que deixarem de cumprir os requisitos. Em agências de gabinete, o cargo tem nível de alta gestão (SES).</li>
+      <li><b>Conselho de CAIOs</b> A OMB preside um conselho interagências para coordenar desenvolvimento e uso de IA no governo.</li>
+      <li><b>Conselhos de governança</b> Cada agência mantém uma instância de governança de IA para dirigir e monitorar o uso.</li>
+      <li><b>Inventário público</b> Anualmente, cada agência inventaria e publica seus casos de uso de IA.</li>
+    </ul>
+  </section>
+
+  <section class="blk" style="border-bottom:0;padding-top:20px">
+    <div class="sk">Prazos</div>
+    <h2>O calendário de conformidade</h2>
+    <ul class="klist">
+      <li><b>30 jun 2025</b> Designação do Chief AI Officer em cada agência.</li>
+      <li><b>~1 out 2025 (180 dias)</b> Submeter à OMB e publicar o plano de conformidade — ou certificar que não usa IA coberta. Começam a valer as regras de compra (M-25-22).</li>
+      <li><b>26 dez 2025</b> Agências de gabinete publicam a estratégia de IA (infraestrutura, acesso a dados, força de trabalho, gestão de risco e compras).</li>
+      <li><b>Anual</b> Atualização do inventário de casos de uso, submetido à OMB.</li>
+      <li><b>A cada 2 anos, até 2036</b> Revisão dos planos de conformidade.</li>
+    </ul>
+  </section>
+
+  <section class="blk" style="border-bottom:0;padding-top:20px">
+    <div class="sk">O ponto sensível</div>
+    <h2>IA de “alto impacto”</h2>
+    <p class="lead">A régua mais dura recai sobre a IA de alto impacto: aquela cujo resultado é a <b>base principal de decisões com efeito jurídico, material, vinculante ou significativo</b> sobre a vida das pessoas — direitos civis, acesso a programas públicos, saúde e segurança, infraestrutura crítica, além de áreas como educação, moradia, crédito, seguro e emprego.</p>
+    <p class="lead" style="margin-top:8px">Para esses sistemas, o memorando fixa práticas mínimas de gestão de risco:</p>
+    <ol class="numlist">
+      <li><b>Teste pré-implantação</b> com plano documentado de mitigação de riscos.</li>
+      <li><b>Avaliação de impacto</b> — propósito, qualidade dos dados, efeitos sobre privacidade e direitos, e cronograma de reavaliação.</li>
+      <li><b>Monitoramento contínuo</b> do desempenho em condições reais.</li>
+      <li><b>Supervisão humana adequada</b> e treinamento de pessoal específico para cada sistema.</li>
+      <li><b>Processo de recurso e remédio</b> para pessoas afetadas.</li>
+      <li><b>Incorporação de feedback</b> dos usuários finais e do público.</li>
+    </ol>
+    <div class="note"><b>Uma nuance importante:</b> o M-25-21 abrandou o “cumpra ou desligue” automático do memorando anterior. As práticas viram uma base sobre a qual a agência constrói — mas continua obrigada a manter planos de contingência e de <b>descontinuação</b> para a IA de alto impacto que não puder ser adequadamente controlada.</div>
+  </section>
+
+  <section class="blk" style="border-bottom:0;padding-top:20px">
+    <div class="sk">O memorando irmão</div>
+    <h2>M-25-22: a compra de IA</h2>
+    <p class="lead">No mesmo 3 de abril, a OMB publicou o <b>M-25-22</b> (“Driving Efficient Acquisition of AI in Government”), que substituiu o M-24-18 e trata da <b>contratação</b> — o elo mais relevante para quem atua em compras públicas.</p>
+    <div class="cards c2">
+      <div class="card"><h3>Mercado competitivo</h3><p>Fomentar um mercado americano de IA que entregue soluções de qualidade e custo-efetivas; evitar dependência de fornecedor (<i>vendor lock-in</i>).</p></div>
+      <div class="card"><h3>Proteger o contribuinte</h3><p>Rastrear o desempenho da IA e gerir riscos ao longo do ciclo — da pesquisa de mercado à administração e ao encerramento do contrato.</p></div>
+      <div class="card"><h3>Dados e propriedade intelectual</h3><p>Cláusulas claras de titularidade e PI; revisão dos processos de propriedade quando dados do governo forem usados para treinar a IA.</p></div>
+      <div class="card"><h3>Teste antes de adjudicar</h3><p>Validação de desempenho e teste pré-adjudicação para IA de alto impacto; equipes multifuncionais na condução da compra.</p></div>
+    </div>
+  </section>
+
+  <section class="blk" style="border-bottom:0;padding-top:20px">
+    <div class="sk">Ponte para o Brasil</div>
+    <h2>O que dá para trazer</h2>
+    <p class="lead">O Brasil não tem um memorando equivalente, mas já tem peças que conversam com o M-25-21 — a LGPD, o debate do marco legal de IA e experiências como a <a href="{{ '/setorpublico/casos/alice-cgu/' | relative_url }}">Comissão Alice</a>, que antecipou a lógica de um núcleo de governança dedicado. O valor está menos na norma e mais no <b>desenho</b>:</p>
+    <ul class="klist">
+      <li><b>Nomeie um responsável</b> A figura do CAIO cabe em qualquer órgão: alguém que aprova casos de uso e responde pela carteira de IA.</li>
+      <li><b>Mantenha um inventário</b> Saber quais sistemas de IA existem, para quê e com que risco é o primeiro passo de governança — e não depende de lei nova.</li>
+      <li><b>Classifique por impacto</b> Concentrar as práticas mais rígidas na IA que decide sobre direitos e acesso a serviços é proporcional e viável.</li>
+      <li><b>Leve a governança para a compra</b> Titularidade de dados, portabilidade e prevenção de dependência de fornecedor são cláusulas, não intenções.</li>
+    </ul>
+    <div class="note"><b>Leitura orientativa:</b> este resumo não substitui a norma original nem constitui aconselhamento jurídico. Consulte os documentos oficiais para decisões concretas.</div>
+  </section>
+
+  <section class="blk" style="border-bottom:0;padding-top:20px;padding-bottom:56px">
+    <div class="sk">Fontes</div>
+    <ul class="klist">
+      <li><b>M-25-21</b> OMB — <a href="https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-21-Accelerating-Federal-Use-of-AI-through-Innovation-Governance-and-Public-Trust.pdf">Accelerating Federal Use of AI (PDF)</a></li>
+      <li><b>M-25-22</b> OMB — <a href="https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-22-Driving-Efficient-Acquisition-of-Artificial-Intelligence-in-Government.pdf">Driving Efficient Acquisition of AI (PDF)</a></li>
+      <li><b>Prazos e requisitos</b> — análises de Wiley, Hunton, Akin Gump e LegalClarity (2025).</li>
+    </ul>
+  </section>
+</div>

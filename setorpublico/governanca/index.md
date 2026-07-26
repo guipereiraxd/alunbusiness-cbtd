@@ -38,7 +38,7 @@ title: "Governança"
 
     <div class="sk" style="margin-top:44px">Referências internacionais</div>
     <h2>O que dizem as diretrizes recentes</h2>
-    <p class="lead">A governança de IA no setor público converge em torno de poucos princípios. O Memorando M‑25‑21 da Casa Branca (abril de 2025), sobre o uso federal de IA nos EUA, organiza-os em três prioridades.</p>
+    <p class="lead">A governança de IA no setor público converge em torno de poucos princípios. O Memorando M‑25‑21 da Casa Branca (abril de 2025), sobre o uso federal de IA nos EUA, organiza-os em três prioridades. <a href="{{ '/setorpublico/observatorio/m-25-21/' | relative_url }}">Leia a análise completa →</a></p>
     <div class="cards c3 rv">
       <div class="card"><div class="card-ic"><svg><use href="#i-gear"></use></svg></div><h3>Inovação</h3><p>Remover exigências burocráticas que inibem a adoção responsável e reaproveitar dados, modelos e código entre órgãos, evitando gasto duplicado.</p></div>
       <div class="card"><div class="card-ic"><svg><use href="#i-shield"></use></svg></div><h3>Governança</h3><p>Governança como facilitadora de inovação segura: cada agência nomeia um <b>Chief AI Officer</b>, e a aceitação de risco é delegada a responsáveis, com salvaguardas.</p></div>
