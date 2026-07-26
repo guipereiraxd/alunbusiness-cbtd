@@ -12,6 +12,7 @@ title: "Início"
       <a class="btn btn-primary" href="{{ '/setorpublico/oportunidades/' | relative_url }}">Explorar oportunidades <svg width="16" height="16"><use href="#i-arrow"></use></svg></a>
       <a class="btn btn-line" href="{{ '/setorpublico/diagnostico/' | relative_url }}">Avaliar maturidade</a>
     </div>
+    <div id="sp-resume-wrap"></div>
   </div>
 </section>
 
@@ -21,12 +22,12 @@ title: "Início"
     <h2>Por onde você deseja começar?</h2>
     <p class="lead">[No protótipo final, esta escolha adapta o que aparece em destaque. Por ora, leva direto à seção correspondente.]</p>
     <div class="cards auto rv">
-      <a class="card" href="{{ '/setorpublico/oportunidades/' | relative_url }}"><h3>Quero encontrar oportunidades</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
-      <a class="card" href="{{ '/setorpublico/oportunidades/' | relative_url }}"><h3>Quero resolver um problema</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
-      <a class="card" href="{{ '/setorpublico/diagnostico/' | relative_url }}"><h3>Quero avaliar minha organização</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
-      <a class="card" href="{{ '/setorpublico/governanca/' | relative_url }}"><h3>Quero entender riscos</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
-      <a class="card" href="{{ '/setorpublico/trilhas/' | relative_url }}"><h3>Quero capacitar minha equipe</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
-      <a class="card" href="{{ '/setorpublico/ferramentas/' | relative_url }}"><h3>Quero estruturar uma estratégia</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card pref-card" data-label="Encontrar oportunidades" href="{{ '/setorpublico/oportunidades/' | relative_url }}"><h3>Quero encontrar oportunidades</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card pref-card" data-label="Resolver um problema" href="{{ '/setorpublico/oportunidades/' | relative_url }}"><h3>Quero resolver um problema</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card pref-card" data-label="Avaliar minha organização" href="{{ '/setorpublico/diagnostico/' | relative_url }}"><h3>Quero avaliar minha organização</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card pref-card" data-label="Entender riscos" href="{{ '/setorpublico/governanca/' | relative_url }}"><h3>Quero entender riscos</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card pref-card" data-label="Capacitar minha equipe" href="{{ '/setorpublico/trilhas/' | relative_url }}"><h3>Quero capacitar minha equipe</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
+      <a class="card pref-card" data-label="Estruturar uma estratégia" href="{{ '/setorpublico/ferramentas/' | relative_url }}"><h3>Quero estruturar uma estratégia</h3><span class="go">Ir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span></a>
     </div>
   </div>
 </section>
@@ -122,3 +123,29 @@ title: "Início"
     </div>
   </div>
 </section>
+
+{% raw %}
+<script>
+(function(){
+  var KEY = 'sp_pref';
+  // guardar a escolha ao clicar
+  [].slice.call(document.querySelectorAll('.pref-card')).forEach(function(card){
+    card.addEventListener('click', function(){
+      try{ localStorage.setItem(KEY, JSON.stringify({label:card.getAttribute('data-label'), href:card.getAttribute('href')})); }catch(e){}
+    });
+  });
+  // mostrar "retomar" se já houver escolha
+  var wrap = document.getElementById('sp-resume-wrap');
+  if(!wrap) return;
+  try{
+    var p = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if(p && p.href && p.label){
+      var a = document.createElement('a');
+      a.className = 'sp-resume'; a.href = p.href;
+      a.innerHTML = 'Você começou por <b>'+p.label.replace(/[<>&]/g,'')+'</b> <span class="go">Continuar →</span>';
+      wrap.appendChild(a);
+    }
+  }catch(e){}
+})();
+</script>
+{% endraw %}

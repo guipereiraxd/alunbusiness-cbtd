@@ -83,3 +83,23 @@ title: "Oportunidades"
     <a class="panel-link" href="{{ '/setorpublico/casos/' | relative_url }}?area=Gestão de pessoas"><div><div class="k">Casos</div><h3>Ver casos de gestão de pessoas</h3></div><span class="cta">Abrir →</span></a>
   </section>
 </div>
+
+{% raw %}
+<script>
+(function(){
+  var ids = ['atendimento','processos','compras','controle','politicas','pessoas'];
+  var secs = ids.map(function(id){ return document.getElementById(id); });
+  var navs = [].slice.call(document.querySelectorAll('.area-nav a'));
+  if(secs.some(function(s){ return !s; })) return;
+  function show(id){
+    secs.forEach(function(s){ s.style.display = (s.id === id) ? '' : 'none'; });
+    navs.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#'+id); });
+  }
+  navs.forEach(function(a){
+    a.addEventListener('click', function(ev){ ev.preventDefault(); var id = a.getAttribute('href').slice(1); show(id); history.replaceState(null,'','#'+id); });
+  });
+  var initial = (location.hash || '').slice(1);
+  show(ids.indexOf(initial) > -1 ? initial : ids[0]);
+})();
+</script>
+{% endraw %}

@@ -30,6 +30,19 @@ layout: setorpublico
 
   <div class="note" style="margin-top:30px"><b>Status de qualidade:</b> {{ page.qualidade | default: "[Informações verificadas / fornecidas pela organização / dados públicos / em experimentação / em produção.]" }}</div>
 
+  {% assign relc = site.casos | where: "area", page.area %}
+  {% assign nrel = 0 %}{% for c in relc %}{% if c.url != page.url %}{% assign nrel = nrel | plus: 1 %}{% endif %}{% endfor %}
+  {% if nrel > 0 %}
+  <div class="sk" style="margin-top:46px">Relacionados</div>
+  <h2 style="font-family:var(--disp);font-weight:600;font-size:20px;margin:6px 0 0;color:var(--tx)">Casos da mesma área</h2>
+  <div class="cards c3" style="margin-top:18px">
+    {% assign shown = 0 %}
+    {% for c in relc %}{% if c.url != page.url and shown < 3 %}
+    <a class="card" href="{{ c.url | relative_url }}"><div class="card-k">{{ c.organizacao }}</div><h3>{{ c.title }}</h3><p>{{ c.resumo | strip_html | truncate: 110 }}</p></a>
+    {% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
+  </div>
+  {% endif %}
+
   <a class="panel-link" href="{{ '/setorpublico/casos/' | relative_url }}">
     <div><div class="k">Biblioteca</div><h3>Ver todos os casos de uso</h3></div>
     <span class="cta">Voltar aos casos →</span>

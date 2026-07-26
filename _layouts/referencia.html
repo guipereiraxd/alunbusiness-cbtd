@@ -15,7 +15,19 @@ layout: setorpublico
 {{ content }}
 
 <div class="wrap">
-  <a class="panel-link" href="{{ '/setorpublico/observatorio/' | relative_url }}">
+  {% assign others = site.observatorio | where_exp: "o", "o.url != page.url" %}
+  {% if others.size > 0 %}
+  <div class="sk" style="margin-top:20px">Relacionados</div>
+  <h2 style="font-family:var(--disp);font-weight:600;font-size:20px;margin:6px 0 0;color:var(--tx)">Outras publicações</h2>
+  <div class="cards c3" style="margin-top:18px">
+    {% assign shown = 0 %}
+    {% for o in others %}{% if shown < 3 %}
+    <a class="card" href="{{ o.url | relative_url }}"><div class="card-k">{{ o.tipo }}</div><h3>{{ o.title }}</h3><p>{{ o.resumo | strip_html | truncate: 110 }}</p></a>
+    {% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
+  </div>
+  {% endif %}
+
+  <a class="panel-link" href="{{ '/setorpublico/observatorio/' | relative_url }}" style="margin-top:30px">
     <div><div class="k">Observatório</div><h3>Ver todas as publicações</h3></div>
     <span class="cta">Voltar ao observatório →</span>
   </a>
