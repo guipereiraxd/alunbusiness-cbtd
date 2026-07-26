@@ -25,6 +25,7 @@ include:
   - curso-ia
   - bancodobrasil
   - china
+  - setorpublico
 
 exclude:
   - china/china-repositorio
@@ -45,3 +46,8 @@ defaults:
       type: "pages"
     values:
       layout: "china"
+  - scope:
+      path: "setorpublico"
+      type: "pages"
+    values:
+      layout: "setorpublico"
