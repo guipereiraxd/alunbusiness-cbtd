@@ -61,9 +61,9 @@ title: "Início"
     <div class="sk">Casos em destaque</div>
     <h2>Aplicações reais no setor público</h2>
     <div class="cards c3 rv">
-      <a class="card" href="{{ '/setorpublico/casos/' | relative_url }}"><div class="card-k">[Órgão] · [Área]</div><h3>[Nome do caso]</h3><p>[Problema → aplicação → resultado.]</p><span class="badge ris" style="margin-top:14px"><i></i>Risco: [grau]</span></a>
-      <a class="card" href="{{ '/setorpublico/casos/' | relative_url }}"><div class="card-k">[Órgão] · [Área]</div><h3>[Nome do caso]</h3><p>[Problema → aplicação → resultado.]</p><span class="badge ris" style="margin-top:14px"><i></i>Risco: [grau]</span></a>
-      <a class="card" href="{{ '/setorpublico/casos/' | relative_url }}"><div class="card-k">[Órgão] · [Área]</div><h3>[Nome do caso]</h3><p>[Problema → aplicação → resultado.]</p><span class="badge ris" style="margin-top:14px"><i></i>Risco: [grau]</span></a>
+      <a class="card" href="{{ '/setorpublico/casos/alice-cgu/' | relative_url }}"><div class="card-k">CGU · Controle e auditoria</div><h3>Alice: auditoria contínua de licitações</h3><p>RPA e NLP analisam 100% das compras federais e sinalizam risco em dias — mais de R$ 9,7 bi em licitações suspensas.</p><span class="badge ris" style="margin-top:14px"><i></i>Risco: médio</span></a>
+      <a class="card" href="{{ '/setorpublico/casos/burokratt-estonia/' | relative_url }}"><div class="card-k">Estônia · Atendimento ao cidadão</div><h3>Bürokratt: interface única de serviços</h3><p>Um assistente virtual interoperável para acessar qualquer serviço público por voz ou chat, num só canal.</p><span class="badge ris" style="margin-top:14px"><i></i>Risco: médio</span></a>
+      <a class="card" href="{{ '/setorpublico/casos/' | relative_url }}"><div class="card-k">[Próximo caso]</div><h3>[Nome do caso]</h3><p>[Problema → aplicação → resultado.]</p><span class="badge apr" style="margin-top:14px"><i></i>Em breve</span></a>
     </div>
   </div>
 </section>
