@@ -1,0 +1,19 @@
+---
+title: "Sinapses: plataforma nacional de IA do Judiciário"
+resumo: "Uma plataforma para treinar, hospedar, distribuir e auditar modelos de IA entre tribunais — evitando duplicação e dando continuidade e governança ao reúso."
+organizacao: "Conselho Nacional de Justiça (CNJ)"
+esfera: "Nacional"
+poder: "Judiciário"
+area: "Controle e auditoria"
+localidade: "Brasil"
+ano: "2020 (em operação)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (CNJ e PNUD)"
+tags: ["Judiciário", "Plataforma de IA", "Governança de modelos", "Auditoria", "Reúso"]
+problema: "Dezenas de tribunais passaram a desenvolver soluções de IA de forma isolada. Sem uma base comum, o resultado é duplicação de esforço, risco de descontinuidade quando muda a gestão e falta de auditoria e governança sobre os modelos em uso."
+solucao: "Desenvolvida pelo Tribunal de Justiça de Rondônia (TJRO) em cooperação com o CNJ, sob a Resolução nº 332/2020, a plataforma Sinapses permite treinar, hospedar, distribuir e auditar modelos de IA do Judiciário. Um tribunal pode reaproveitar um modelo criado por outro, com rastreabilidade e controle de versões — em vez de recomeçar do zero."
+impacto: "A plataforma reúne cerca de 150 modelos ativos, produzidos por 29 tribunais e conselhos. Um levantamento em 94 órgãos do Judiciário identificou 140 projetos de IA em desenvolvimento ou em uso — crescimento de 26% em relação ao levantamento anterior."
+governanca: "A Resolução nº 332/2020 fixa diretrizes de ética e governança. As soluções têm caráter não vinculante e são sempre submetidas à análise da autoridade competente; usuários externos devem ser informados sobre o uso de IA. A auditoria dos modelos é parte da própria plataforma."
+aprendizados: "Infraestrutura compartilhada evita duplicação e dá continuidade — o reúso entre órgãos é a dimensão 'escala' da maturidade. Governança e auditoria embutidas na plataforma, e não como camada externa, tornam o controle sustentável à medida que o número de modelos cresce."
+---

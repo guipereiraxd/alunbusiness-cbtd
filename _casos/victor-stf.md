@@ -1,0 +1,19 @@
+---
+title: "Victor: triagem de peças e repercussão geral no STF"
+resumo: "IA que faz OCR, separa e classifica peças processuais e identifica temas de repercussão geral — acelerando uma triagem que consumiria milhares de horas humanas."
+organizacao: "Supremo Tribunal Federal (STF)"
+esfera: "Federal"
+poder: "Judiciário"
+area: "Processos administrativos"
+localidade: "Brasil"
+ano: "2018 (em operação)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (STF e UnB)"
+tags: ["Judiciário", "Classificação de documentos", "NLP", "OCR"]
+problema: "O STF recebe um volume enorme de processos, e a triagem inicial — ler, separar e classificar peças — é repetitiva e cara. Estimou-se que classificar e analisar os cerca de 42 mil processos que chegaram em um único semestre exigiria perto de 22 mil horas de trabalho de servidores e estagiários."
+solucao: "Desenvolvido em parceria com a Universidade de Brasília (UnB), o Victor executa quatro tarefas: converte imagem em texto (OCR), separa o início e o fim de cada documento no acervo, classifica as peças processuais mais usadas (agrupadas em seis categorias, como recursos e decisões) e identifica os temas de repercussão geral de maior incidência. É apoio à triagem, não à decisão."
+impacto: "Nos testes, o sistema identificou corretamente cerca de 60% dos temas de repercussão geral. O ganho principal é de tempo: a IA assume a leitura e a classificação em massa que, feitas à mão, consumiriam as ~22 mil horas de um semestre, liberando servidores para a análise jurídica."
+governanca: "O Victor organiza e classifica, mas a decisão permanece humana. O desenvolvimento em parceria acadêmica (UnB) trouxe rigor metodológico, e o escopo foi deliberadamente limitado a tarefas de apoio, sem interferência no mérito."
+aprendizados: "IA como apoio à triagem, não à decisão judicial. A parceria universidade–tribunal viabilizou o projeto, e os maiores ganhos vieram das tarefas repetitivas de leitura e organização — não da automação do julgamento."
+---

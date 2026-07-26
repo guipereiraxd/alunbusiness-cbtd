@@ -6,24 +6,35 @@ title: "Observatório"
   <div class="page-head">
     <div class="crumb"><a href="{{ '/setorpublico/' | relative_url }}">Início</a> / Observatório</div>
     <h1>Observatório</h1>
-    <p class="lede">[Casos, estudos, notícias, regulamentações, projetos de lei, guias, políticas, eventos e pesquisas — atualizados continuamente.]</p>
+    <p class="lede">Casos, estudos, notícias, regulamentações, projetos de lei, guias, políticas, eventos e pesquisas — atualizados continuamente.</p>
   </div>
 
-  <div class="filterbar" role="search" aria-label="Filtrar conteúdo">
-    <input type="search" placeholder="Buscar no observatório…" disabled>
-    <span class="fchip">Tipo ▾</span>
-    <span class="fchip">Tema ▾</span>
-    <span class="fchip">Área ▾</span>
-    <span class="filternote">Feed e filtros entram na Fase B — abaixo, a classificação prevista.</span>
+  <div class="filterbar" role="search" aria-label="Filtrar o observatório">
+    <input id="o-search" type="search" placeholder="Buscar no observatório…" aria-label="Buscar publicações">
+    <select id="o-tipo" aria-label="Filtrar por tipo">
+      <option value="">Todos os tipos</option>
+      <option>Regulamentação</option>
+      <option>Norma vigente</option>
+      <option>Projeto de norma</option>
+      <option>Orientação</option>
+      <option>Boa prática</option>
+      <option>Caso</option>
+      <option>Pesquisa</option>
+      <option>Opinião</option>
+      <option>Evento</option>
+      <option>Conteúdo educacional</option>
+    </select>
+    <span id="o-count" class="filternote"></span>
   </div>
 
-  <section class="blk" style="border-bottom:0;padding-top:34px">
+  <section class="blk" style="border-bottom:0;padding-top:30px">
     <div class="sk">Publicações · {{ site.observatorio | size }}</div>
     <h2>O que está no radar</h2>
-    <div class="cards c2 rv">
+    <div id="o-list" class="cards c2 rv">
       {% assign itens = site.observatorio | sort: "data" | reverse %}
-      {% for item in itens %}
-      <a class="card" href="{{ item.url | relative_url }}">
+      {% for item in itens %}{% capture otxt %}{{ item.title }} {{ item.resumo }} {{ item.tema }} {{ item.area }} {{ item.fonte }}{% endcapture %}
+      <a class="card obs-card" href="{{ item.url | relative_url }}"
+         data-tipo="{{ item.tipo | escape }}" data-text="{{ otxt | strip_newlines | downcase | escape }}">
         <div class="card-k">{{ item.tipo }}{% if item.escopo %} · {{ item.escopo }}{% endif %}</div>
         <h3>{{ item.title }}</h3>
         <p>{{ item.resumo | strip_html | truncate: 150 }}</p>
@@ -31,6 +42,7 @@ title: "Observatório"
       </a>
       {% endfor %}
     </div>
+    <div id="o-empty" class="empty-state">Nenhuma publicação encontrada. <a href="#" id="o-clear">Limpar filtros</a>.</div>
   </section>
 
   <section class="blk" style="border-bottom:0;padding-top:34px">
@@ -50,3 +62,32 @@ title: "Observatório"
     <div class="note"><b>Metadados de cada item:</b> título · resumo · fonte · data de publicação · atualização · localidade · tema · área · público · grau de relevância · link externo.</div>
   </section>
 </div>
+
+{% raw %}
+<script>
+(function(){
+  var list = document.getElementById('o-list');
+  if(!list) return;
+  var cards = [].slice.call(list.querySelectorAll('.obs-card'));
+  var search = document.getElementById('o-search');
+  var fTipo = document.getElementById('o-tipo');
+  var count = document.getElementById('o-count');
+  var empty = document.getElementById('o-empty');
+  function norm(s){ return (s||'').toLowerCase(); }
+  function apply(){
+    var q = norm(search.value).trim(), t = norm(fTipo.value), shown = 0;
+    cards.forEach(function(card){
+      var ok = (!t || norm(card.getAttribute('data-tipo')).indexOf(t) !== -1) &&
+               (!q || norm(card.getAttribute('data-text')).indexOf(q) !== -1);
+      card.style.display = ok ? '' : 'none'; if(ok) shown++;
+    });
+    count.textContent = shown + (shown === 1 ? ' publicação' : ' publicações');
+    empty.style.display = shown ? 'none' : 'block';
+  }
+  [search, fTipo].forEach(function(el){ el.addEventListener('input', apply); el.addEventListener('change', apply); });
+  var clear = document.getElementById('o-clear');
+  if(clear) clear.addEventListener('click', function(ev){ ev.preventDefault(); search.value=''; fTipo.value=''; apply(); });
+  apply();
+})();
+</script>
+{% endraw %}
