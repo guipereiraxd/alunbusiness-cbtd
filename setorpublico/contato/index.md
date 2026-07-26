@@ -1,22 +1,23 @@
 ---
 title: "Contato"
+description: "Fale com a Alun Business — estruture a jornada de IA da sua organização, do diagnóstico ao plano de ação, com estratégia, capacitação e governança."
 ---
 
 <div class="wrap">
   <div class="page-head">
     <div class="crumb"><a href="{{ '/setorpublico/' | relative_url }}">Início</a> / Contato</div>
     <h1>Fale com a Alun Business</h1>
-    <p class="lede">[Transforme os desafios da sua instituição em uma jornada estruturada de estratégia, capacitação, experimentação e geração de valor público.]</p>
+    <p class="lede">Explorar este portal é o começo. Transformar os desafios da sua instituição em uma agenda concreta de IA — com estratégia, capacitação, experimentação e governança — é o passo seguinte, e é onde a Alun Business pode caminhar junto.</p>
   </div>
 
   <section class="blk" style="border-bottom:0;padding-top:40px">
     <div class="sk">Como podemos ajudar</div>
     <h2>Próximos passos possíveis</h2>
     <div class="cards c4 rv">
-      <div class="card"><h3>Solicitar conversa</h3></div>
-      <div class="card"><h3>Receber diagnóstico</h3></div>
-      <div class="card"><h3>Conhecer soluções</h3></div>
-      <div class="card"><h3>Workshop executivo</h3></div>
+      <div class="card"><h3>Solicitar conversa</h3><p>Uma conversa inicial para entender o momento da sua organização e as oportunidades mais próximas.</p></div>
+      <div class="card"><h3>Receber diagnóstico</h3><p>Um diagnóstico de maturidade aprofundado, além da autoavaliação do portal, com recomendações priorizadas.</p></div>
+      <div class="card"><h3>Workshop executivo</h3><p>Uma imersão com a liderança para alinhar visão, riscos e prioridades de IA.</p></div>
+      <div class="card"><h3>Jornada de capacitação</h3><p>Trilhas de formação por perfil, do letramento à governança, desenhadas para a sua equipe.</p></div>
     </div>
 
     <!--
