@@ -227,6 +227,16 @@ a.card:hover .go{gap:11px;color:var(--accent)}
 .result .rk{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--tx3);margin:22px 0 8px}
 
+/* ---------- lista de chips (módulos, itens) ---------- */
+.taglist{display:flex;gap:6px;flex-wrap:wrap;margin-top:13px}
+.taglist span{font-family:var(--mono);font-size:11px;color:var(--tx2);border:1px solid var(--line2);
+  border-radius:6px;padding:4px 9px}
+.klist.tight li{padding:8px 0}
+.kit-meta{font-family:var(--mono);font-size:11px;color:var(--tx3);letter-spacing:.04em;margin-top:14px}
+.dashlist{list-style:none;display:grid;gap:6px;margin-top:12px}
+.dashlist li{font-size:13px;color:var(--tx2);padding-left:15px;position:relative;line-height:1.42}
+.dashlist li::before{content:"–";position:absolute;left:0;color:var(--tx3)}
+
 /* ---------- trio de colunas (casos de uso / benefícios / riscos) ---------- */
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px}
 .trio h4{font-family:var(--disp);font-weight:600;font-size:14px;color:var(--tx);margin-bottom:11px;

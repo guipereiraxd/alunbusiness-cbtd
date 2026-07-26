@@ -19,21 +19,21 @@ title: "Governança"
     <div class="sk" style="margin-top:44px">Modelo de governança</div>
     <h2>Quinze componentes</h2>
     <ol class="numlist">
-      <li><b>Política institucional</b></li>
-      <li><b>Inventário de sistemas</b></li>
-      <li><b>Papéis e responsabilidades</b></li>
-      <li><b>Classificação de riscos</b></li>
-      <li><b>Avaliação de impacto</b></li>
-      <li><b>Supervisão humana</b></li>
-      <li><b>Proteção de dados</b></li>
-      <li><b>Segurança</b></li>
-      <li><b>Documentação</b></li>
-      <li><b>Transparência</b></li>
-      <li><b>Contestação</b></li>
-      <li><b>Monitoramento</b></li>
-      <li><b>Gestão de incidentes</b></li>
-      <li><b>Auditoria</b></li>
-      <li><b>Encerramento da solução</b></li>
+      <li><b>Política institucional</b> — princípios, escopo e regras de uso de IA no órgão, aprovados pela liderança.</li>
+      <li><b>Inventário de sistemas</b> — registro de toda IA em uso ou desenvolvimento, com finalidade e risco.</li>
+      <li><b>Papéis e responsabilidades</b> — quem decide, opera, revisa e responde por cada sistema.</li>
+      <li><b>Classificação de riscos</b> — enquadrar cada caso por nível de impacto, com práticas proporcionais.</li>
+      <li><b>Avaliação de impacto</b> — analisar efeitos sobre direitos, privacidade e serviços antes de operar.</li>
+      <li><b>Supervisão humana</b> — garantir que uma pessoa revise e possa reverter as decisões relevantes.</li>
+      <li><b>Proteção de dados</b> — base legal, minimização e segurança dos dados, à luz da LGPD.</li>
+      <li><b>Segurança</b> — controles técnicos contra acesso indevido, manipulação e vazamento.</li>
+      <li><b>Documentação</b> — registrar dados, modelo, decisões e limitações de cada sistema.</li>
+      <li><b>Transparência</b> — informar quando há IA e explicar como decide, em linguagem acessível.</li>
+      <li><b>Contestação</b> — canal para a pessoa afetada questionar e pedir revisão.</li>
+      <li><b>Monitoramento</b> — acompanhar desempenho, erros e desvios ao longo do tempo.</li>
+      <li><b>Gestão de incidentes</b> — procedimento para detectar, responder e corrigir falhas.</li>
+      <li><b>Auditoria</b> — verificação independente de conformidade e de resultados.</li>
+      <li><b>Encerramento da solução</b> — plano para descontinuar com segurança quando necessário.</li>
     </ol>
 
     <div class="sk" style="margin-top:44px">Referências internacionais</div>

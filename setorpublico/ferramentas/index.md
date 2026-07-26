@@ -6,26 +6,62 @@ title: "Ferramentas"
   <div class="page-head">
     <div class="crumb"><a href="{{ '/setorpublico/' | relative_url }}">Início</a> / Ferramentas</div>
     <h1>Caixa de ferramentas</h1>
-    <p class="lede">[Kits práticos, modelos editáveis e ferramentas de decisão para cada etapa da jornada de adoção.]</p>
+    <p class="lede">Kits práticos, modelos editáveis e ferramentas de decisão para cada etapa da jornada de adoção.</p>
   </div>
 
   <section class="blk" style="border-bottom:0;padding-top:40px">
+    <div class="sk">Ferramentas de decisão</div>
+    <h2>Avalie antes de agir</h2>
+    <div class="cards c2 rv">
+      <a class="card" href="{{ '/setorpublico/governanca/posso-usar-ia/' | relative_url }}">
+        <div class="card-ic"><svg><use href="#i-shield"></use></svg></div>
+        <h3>Posso usar IA para isso?</h3>
+        <p>Dez perguntas sobre dados, sigilo, impacto e supervisão → uma orientação de uso responsável.</p>
+        <span class="go">Abrir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span>
+      </a>
+      <a class="card" href="{{ '/setorpublico/ferramentas/priorizador/' | relative_url }}">
+        <div class="card-ic"><svg><use href="#i-scale"></use></svg></div>
+        <h3>Priorizador de casos</h3>
+        <p>Valor público × viabilidade × risco → Comece agora, Experimente, Prepare as fundações ou Avaliação reforçada.</p>
+        <span class="go">Abrir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span>
+      </a>
+    </div>
+    <a class="panel-link" href="{{ '/setorpublico/diagnostico/' | relative_url }}">
+      <div><div class="k">Diagnóstico</div><h3>Avalie a maturidade da sua organização</h3></div>
+      <span class="cta">Fazer diagnóstico →</span>
+    </a>
+  </section>
+
+  <section class="blk" style="border-bottom:0;padding-top:20px">
     <div class="sk">Kits</div>
     <h2>Cinco kits reutilizáveis</h2>
-    <div class="cards c3 rv">
-      <div class="card"><div class="card-ic"><svg><use href="#i-shield"></use></svg></div><h3>Kit de uso seguro</h3><p>[Guia de uso responsável, checklist, lista de dados que não devem ser compartilhados, modelo de política.]</p></div>
-      <div class="card"><div class="card-ic"><svg><use href="#i-gauge"></use></svg></div><h3>Kit de experimentação</h3><p>[Canvas de caso de uso, plano de experimento, modelo de hipótese, critérios de sucesso.]</p></div>
-      <div class="card"><div class="card-ic"><svg><use href="#i-inst"></use></svg></div><h3>Kit de governança</h3><p>[Inventário, matriz de riscos, avaliação de impacto, plano de monitoramento e de incidentes.]</p></div>
-      <div class="card"><div class="card-ic"><svg><use href="#i-scale"></use></svg></div><h3>Kit de contratação</h3><p>[Checklist de fornecedor, requisitos de segurança e dados, portabilidade, direito de auditoria.]</p></div>
-      <div class="card"><div class="card-ic"><svg><use href="#i-path"></use></svg></div><h3>Kit de escala</h3><p>[Modelo de centro de competência, governança federada, catálogo de componentes, roadmap.]</p></div>
+    <div class="cards c2 rv">
+      <div class="card">
+        <div class="card-ic"><svg><use href="#i-shield"></use></svg></div>
+        <h3>Kit de uso seguro</h3>
+        <ul class="dashlist"><li>Guia de uso responsável</li><li>Checklist antes de utilizar IA</li><li>Lista de dados que não devem ser compartilhados</li><li>Guia de revisão humana</li><li>Modelo de política institucional</li><li>Perguntas frequentes</li></ul>
+      </div>
+      <div class="card">
+        <div class="card-ic"><svg><use href="#i-gauge"></use></svg></div>
+        <h3>Kit de experimentação</h3>
+        <ul class="dashlist"><li>Canvas de caso de uso</li><li>Plano de experimento</li><li>Modelo de hipótese</li><li>Registro de riscos</li><li>Plano de testes</li><li>Critérios de sucesso</li><li>Relatório de aprendizados</li></ul>
+      </div>
+      <div class="card">
+        <div class="card-ic"><svg><use href="#i-inst"></use></svg></div>
+        <h3>Kit de governança</h3>
+        <ul class="dashlist"><li>Inventário de sistemas</li><li>Matriz de riscos</li><li>Avaliação de impacto</li><li>Registro de responsáveis</li><li>Checklist de transparência</li><li>Plano de monitoramento</li><li>Plano de resposta a incidentes</li></ul>
+      </div>
+      <div class="card">
+        <div class="card-ic"><svg><use href="#i-scale"></use></svg></div>
+        <h3>Kit de contratação</h3>
+        <ul class="dashlist"><li>Checklist de fornecedor</li><li>Requisitos de segurança e de dados</li><li>Propriedade intelectual</li><li>Portabilidade</li><li>Prevenção de dependência</li><li>Direito de auditoria</li><li>Critérios de qualidade</li><li>Plano de continuidade e saída</li></ul>
+      </div>
+      <div class="card">
+        <div class="card-ic"><svg><use href="#i-path"></use></svg></div>
+        <h3>Kit de escala</h3>
+        <ul class="dashlist"><li>Modelo de centro de competência</li><li>Governança federada</li><li>Catálogo de componentes</li><li>Processo de submissão</li><li>Painel de benefícios</li><li>Comunidade de prática</li><li>Roadmap institucional</li></ul>
+      </div>
     </div>
-
-    <div class="toolbox rv" style="margin-top:36px">
-      <div class="ic"><svg><use href="#i-scale"></use></svg></div>
-      <div class="bd"><h3>Priorizador de casos de uso</h3><p>Avalie valor público, viabilidade e risco e receba uma classificação: Comece agora · Experimente com controles · Prepare as fundações · Avaliação reforçada.</p></div>
-      <a class="btn btn-primary" href="{{ '/setorpublico/ferramentas/priorizador/' | relative_url }}">Abrir ferramenta <svg width="16" height="16"><use href="#i-arrow"></use></svg></a>
-    </div>
-
-    <div class="note"><b>Calculadora de valor público</b> e <b>Laboratório de prompts</b> entram em fase posterior (Evolução). Formatos previstos dos kits: PDF, DOCX, XLSX, PPTX e modelos editáveis.</div>
+    <div class="note" style="margin-top:24px"><b>Downloads em breve.</b> Formatos previstos: PDF, DOCX, XLSX, PPTX e modelos editáveis. A <b>Calculadora de valor público</b> e o <b>Laboratório de prompts</b> entram em fase posterior.</div>
   </section>
 </div>
