@@ -10,6 +10,9 @@ collections:
   casos:
     output: true
     permalink: /setorpublico/casos/:name/
+  observatorio:
+    output: true
+    permalink: /setorpublico/observatorio/:name/
 
 plugins:
   - jekyll-relative-links
@@ -61,3 +64,8 @@ defaults:
       type: "casos"
     values:
       layout: "caso"
+  - scope:
+      path: ""
+      type: "observatorio"
+    values:
+      layout: "referencia"
