@@ -12,8 +12,8 @@ title: "Governança"
   <section class="blk" style="border-bottom:0;padding-top:40px">
     <div class="toolbox rv">
       <div class="ic"><svg><use href="#i-shield"></use></svg></div>
-      <div class="bd"><h3>Posso usar IA para isso?</h3><p>[Responda a algumas perguntas sobre dados, sigilo, impacto e supervisão, e receba uma orientação: uso permitido com cuidados, apenas em ambiente institucional, necessidade de avaliação jurídica ou de impacto, uso não recomendado ou proibido.]</p></div>
-      <span class="soon">Ferramenta · Fase B</span>
+      <div class="bd"><h3>Posso usar IA para isso?</h3><p>Responda a dez perguntas sobre dados, sigilo, impacto e supervisão, e receba uma orientação: uso permitido com cuidados, apenas em ambiente institucional, necessidade de avaliação jurídica ou de impacto, uso não recomendado ou dependente de autorização.</p></div>
+      <a class="btn btn-primary" href="{{ '/setorpublico/governanca/posso-usar-ia/' | relative_url }}">Abrir ferramenta <svg width="16" height="16"><use href="#i-arrow"></use></svg></a>
     </div>
 
     <div class="sk" style="margin-top:44px">Modelo de governança</div>
