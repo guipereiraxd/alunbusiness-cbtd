@@ -19,6 +19,17 @@ aprendizados: "O êxito exigiu equilíbrio entre a audácia técnica da base (po
 ---
 
 <div class="case-sec">
+  <h2>Licitações suspensas ou canceladas, por ano</h2>
+  <div class="bars">
+    <div class="bar"><span class="yr">2019</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">R$ 3,74 bi</span></div>
+    <div class="bar"><span class="yr">2020</span><span class="track"><span class="fill" style="width:13.4%"></span></span><span class="v">R$ 0,50 bi</span></div>
+    <div class="bar"><span class="yr">2021</span><span class="track"><span class="fill" style="width:72.2%"></span></span><span class="v">R$ 2,70 bi</span></div>
+    <div class="bar"><span class="yr">2022*</span><span class="track"><span class="fill" style="width:73.8%"></span></span><span class="v">R$ 2,76 bi</span></div>
+  </div>
+  <p class="bars-cap">* 2022 até junho · total acumulado: R$ 9,7 bi · Fonte: Relato Técnico da CGU (Figura 5). O valor de 2019 vem de registros históricos; 2020–2022, do sistema e-Aud.</p>
+</div>
+
+<div class="case-sec">
   <h2>Tradicional × auditoria contínua</h2>
   <ul class="klist" style="margin-top:8px">
     <li><b>Escopo</b> Amostragem e denúncias pontuais → análise de 100% das transações.</li>

@@ -219,6 +219,14 @@ a.card:hover .go{gap:11px;color:var(--accent)}
 .case-sec h2{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--tx)}
 .case-sec p,.case-sec li{color:var(--tx2);font-size:15px;line-height:1.6}
 .case-sec ul{margin:10px 0 0;padding-left:18px}
+/* mini bar chart (acessível: rótulo + barra + valor) */
+.bars{display:grid;gap:11px;margin-top:16px;max-width:560px}
+.bar{display:grid;grid-template-columns:74px 1fr auto;align-items:center;gap:14px}
+.bar .yr{font-family:var(--mono);font-size:12px;color:var(--tx3)}
+.bar .track{height:12px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.bar .fill{height:100%;background:var(--accent);border-radius:6px 0 0 6px}
+.bar .v{font-family:var(--disp);font-weight:600;font-size:14px;color:var(--tx);font-variant-numeric:tabular-nums;min-width:5.5em;text-align:right}
+.bars-cap{font-family:var(--mono);font-size:10.5px;color:var(--tx3);letter-spacing:.03em;margin-top:12px}
 
 /* ---------- footer ---------- */
 footer.bottom{border-top:1px solid var(--line);padding:48px 0 60px;background:var(--bg2)}
