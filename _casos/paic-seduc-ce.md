@@ -1,0 +1,21 @@
+---
+title: "PAIC (SEDUC-CE): monitoramento longitudinal que virou o Ceará em referência nacional de alfabetização"
+resumo: "O Programa de Alfabetização na Idade Certa, articulado pela SEDUC-CE com os 184 municípios cearenses, opera sobre um sistema próprio de avaliação anual dos estudantes com devolutiva escola-a-escola — combinando régua estadual, incentivo financeiro atrelado a resultado e apoio técnico dirigido por dado."
+tecnologia: "Sistema estadual de avaliação censitária (SPAECE-Alfa) + integração com Censo Escolar + analytics de séries longas por município e escola + painéis públicos"
+principal_resultado: "O Ceará subiu, nas duas últimas décadas, do meio para o topo do IDEB nacional dos anos iniciais do ensino fundamental — com municípios do interior figurando entre os melhores do país. O modelo influenciou diretamente o desenho do PNAIC federal (2013)."
+organizacao: "SEDUC-CE · Secretaria de Educação do Estado do Ceará · em parceria com os 184 municípios"
+esfera: "Estadual"
+poder: "Executivo"
+area: "Formulação de políticas"
+localidade: "Ceará"
+ano: "2007 (em operação, com evoluções)"
+grau_risco: "baixo"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (SEDUC-CE, INEP, publicações acadêmicas, Banco Mundial)"
+tags: ["Educação", "Alfabetização", "Regime de colaboração", "Avaliação censitária", "Nordeste"]
+problema: "O Ceará entrou nos anos 2000 com um retrato educacional típico do Brasil: alto índice de analfabetismo funcional aos 8 anos, disparidade enorme entre municípios, políticas de secretaria estadual desconectadas do que acontecia na sala de aula municipal. O sistema tem responsabilidades compartilhadas (estado e município) mas informação fragmentada — e sem informação por escola em tempo útil, nem a secretaria estadual nem o prefeito conseguem agir onde a criança está. O ciclo de baixa aprendizagem se autoperpetua."
+solucao: "O PAIC estruturou uma arquitetura em quatro camadas que combinam analítica, incentivo e apoio: (1) o SPAECE-Alfa aplica avaliação censitária anual aos estudantes do 2º ano do ensino fundamental em todos os 184 municípios; (2) resultados são devolvidos escola-a-escola e integrados a painéis públicos que permitem comparação entre municípios e séries; (3) uma parcela do ICMS distribuído pelo estado aos municípios é vinculada a resultados de aprendizagem (mecanismo pioneiro no país); (4) municípios com pior desempenho recebem apoio técnico dirigido, com material, formação e acompanhamento. Analítica não é resultado — é o insumo que direciona tudo o mais."
+impacto: "O Ceará subiu para o topo do IDEB nacional dos anos iniciais do ensino fundamental, com municípios do interior figurando entre os melhores do país — resultado documentado por Inep, Banco Mundial e estudos independentes. O modelo influenciou o desenho do PNAIC (Programa Nacional pela Alfabetização na Idade Certa) em 2013 e virou referência estudada por outros estados (Piauí, Sobral como caso paradigmático, e mais recentemente Espírito Santo). É provavelmente a política pública brasileira mais bem-sucedida em educação básica desde a redemocratização."
+governanca: "O PAIC opera em regime de colaboração formal entre Estado e municípios, com marcos legais próprios. Metodologia de avaliação é técnica e independente (CAEd/UFJF opera a aplicação em várias edições). Divulgação escola-a-escola respeita padrões de proteção de dados estudantis. Vinculação de ICMS por resultado é feita com base em fórmula pública e auditável. Ajustes no programa passam por instâncias formais de governança estadual-municipal."
+aprendizados: "O PAIC ilustra três lições que atravessam qualquer política pública apoiada em dado: (1) o dado só vale se tem devolutiva escola-a-escola em tempo útil — dado agregado não muda comportamento; (2) o incentivo precisa acompanhar a informação — sem consequência (positiva ou negativa) vinculada a resultado, o dado vira relatório; (3) apoio técnico dirigido a quem tem pior desempenho é o que fecha o ciclo — sem isso, a régua vira instrumento de humilhação, não de melhoria. Para outros estados e para o próprio governo federal, o modelo é diretamente replicável — a arquitetura foi projetada para replicação, não para exclusividade."
+---

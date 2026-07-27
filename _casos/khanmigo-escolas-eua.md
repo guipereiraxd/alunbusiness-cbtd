@@ -1,0 +1,21 @@
+---
+title: "Khanmigo em escolas públicas dos EUA: tutor de IA para alunos, apoiado por distrito escolar"
+resumo: "A Khan Academy desenvolveu, com a OpenAI, o Khanmigo — tutor conversacional baseado em GPT-4 desenhado para não dar a resposta, mas conduzir o aluno ao raciocínio. Está em piloto em distritos escolares como Newark (NJ), Hobart (IN) e outros, com convênios que garantem sigilo, supervisão docente e uso em ambiente escolar."
+tecnologia: "LLM (GPT-4) com prompt engineering especializado para pedagogia socrática + salvaguardas de conteúdo escolar + integração com plataforma Khan Academy + trilha por aluno para o professor"
+principal_resultado: "Dezenas de milhares de alunos em distritos escolares públicos americanos usam Khanmigo em rotina, com relatos consistentes de professores sobre engajamento e sobre a diferença de aprender com um agente que pergunta em vez de responder."
+organizacao: "Khan Academy · em parceria com distritos escolares públicos (Newark Public Schools, School City of Hobart, entre outros)"
+esfera: "Municipal / Distrital"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "Estados Unidos (múltiplos distritos)"
+ano: "2023 (piloto em escolas)"
+grau_risco: "médio"
+status: "Em piloto"
+qualidade: "Informações de fontes públicas (Khan Academy, distritos escolares parceiros, imprensa educacional)"
+tags: ["Educação", "Tutor de IA", "LLM em sala de aula", "Ensino personalizado", "Escola pública"]
+problema: "A pesquisa educacional mostra há décadas que o ensino individualizado (tutor 1-para-1) produz ganhos de aprendizagem que a sala de aula tradicional não replica — o famoso 'problema dos dois desvios-padrão' de Benjamin Bloom. Mas escalar tutor humano por aluno em rede pública é economicamente inviável. Ao mesmo tempo, colocar LLMs comerciais nas mãos de estudantes sem mediação gera três problemas graves: eles dão a resposta em vez de ensinar; podem gerar conteúdo inadequado; expõem dados de menor de idade a fornecedor externo."
+solucao: "O Khanmigo é o tutor de IA da Khan Academy, construído sobre GPT-4 com pesado prompt engineering para pedagogia socrática — o modelo é instruído a nunca dar a resposta diretamente, mas conduzir o aluno por perguntas até que ele encontre. Inclui salvaguardas de conteúdo escolar, filtros de segurança e trilha por aluno acessível ao professor. Distritos escolares como Newark Public Schools (NJ) e School City of Hobart (IN) firmaram convênios que definem responsabilidade, sigilo e uso em ambiente escolar supervisionado."
+impacto: "Dezenas de milhares de alunos em distritos parceiros usam a ferramenta em rotina de aula e para casa. Professores relatam engajamento elevado, especialmente entre estudantes que tinham vergonha de perguntar ao humano. Distritos observam padrão de uso que informa reorganização de aula (o que os alunos travam com mais frequência vira foco de intervenção). Também emergiram desafios: alunos que tentam contornar o modelo, professores que precisam de formação para incorporar a ferramenta, questões de equidade quando nem toda casa tem conectividade adequada."
+governanca: "Convênios entre Khan Academy e distritos escolares definem uso em ambiente escolar, sigilo de dados de menores (FERPA, o equivalente americano à LGPD educacional), supervisão docente obrigatória, canal de reclamação. Khan Academy publica documentação técnica das salvaguardas e mantém equipe de segurança educacional. Escolas mantêm política de uso ético claro com estudantes e famílias. O piloto é acompanhado por pesquisa educacional independente."
+aprendizados: "O caso mostra o horizonte mais provável da IA na educação pública: não substituição do professor, mas amplificação — tutor de IA como camada intermediária entre o material didático e o aluno, com o professor no centro do desenho da aula. As três decisões críticas foram pedagógicas, não técnicas: modelo instruído a não dar a resposta; convênio institucional com distrito, não uso individual clandestino; trilha visível ao professor. Para redes brasileiras que consideram ferramentas semelhantes, o padrão importa mais do que a ferramenta específica — Khanmigo, MEC-BR ou outro. Um tutor de IA que dá a resposta destrói mais do que constrói."
+---

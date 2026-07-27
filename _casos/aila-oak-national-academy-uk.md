@@ -1,0 +1,21 @@
+---
+title: "Aila (Oak National Academy, Reino Unido): assistente de IA para professores da rede pública"
+resumo: "A Oak National Academy — corporação pública britânica criada para produzir e disponibilizar conteúdo curricular aberto a escolas — lançou em 2024 o Aila, assistente de IA que gera planos de aula, atividades, quizzes e adaptações a partir do currículo nacional, alinhado ao padrão da rede pública."
+tecnologia: "LLMs com prompt engineering especializado + integração com o corpus curricular da Oak National + guardrails educacionais + trilha por professor"
+principal_resultado: "Assistente disponibilizado gratuitamente a professores da rede pública inglesa, com adesão inicial expressiva; economia declarada de horas por semana em planejamento e produção de material — tempo devolvido à interação com os alunos."
+organizacao: "Oak National Academy (corporação pública, Reino Unido)"
+esfera: "Nacional (Reino Unido)"
+poder: "Executivo"
+area: "Gestão de pessoas"
+localidade: "Reino Unido"
+ano: "2024 (em operação)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Oak National Academy, Department for Education, imprensa educacional britânica)"
+tags: ["Educação", "Formação continuada", "Assistente do professor", "LLM", "Currículo nacional"]
+problema: "Professores da rede pública gastam parcela grande do tempo — em algumas estimativas, mais de dez horas por semana — em planejamento de aula, adaptação de material e produção de recursos didáticos. Esse tempo é subtraído da preparação pedagógica que interessa, do apoio individual a estudantes e da própria vida do professor. Ao mesmo tempo, ferramentas comerciais de IA generativa disponíveis publicamente colocam três riscos: alinhamento incerto com currículo nacional, dados de alunos em risco e adoção fragmentada e desigual entre escolas."
+solucao: "O Aila é o assistente de IA da Oak National Academy, corporação pública criada durante a pandemia para consolidar conteúdo curricular aberto para toda a rede pública inglesa. Construído sobre LLMs comerciais com prompt engineering especializado, opera ancorado no corpus curricular já produzido pela Oak — o que garante alinhamento com o National Curriculum britânico. Gera planos de aula, quizzes, adaptações para diferentes níveis, atividades e recursos, sempre com o padrão pedagógico definido pela Oak. Uso gratuito para professores da rede pública, com trilha de uso registrada."
+impacto: "Adesão inicial expressiva de professores desde o lançamento em 2024. Estimativas oficiais falam em milhares de horas semanais economizadas em planejamento agregado da rede — tempo que os professores relatam devolver a interação com alunos, formação própria e vida pessoal. Um efeito secundário importante é a padronização crescente: quando muitos professores usam a mesma base curricular, a variação de qualidade de material dentro da rede pública diminui, favorecendo especialmente escolas com menos recursos institucionais próprios."
+governanca: "Uso é regulado por termos que respeitam o padrão britânico de proteção de dados educacionais (equivalente à LGPD). Aila não processa dados de alunos individuais — opera sobre currículo e sobre pedidos genéricos do professor. O Department for Education acompanha o piloto e financia parcialmente o desenvolvimento. Oak National mantém equipe de revisão pedagógica humana que audita saídas amostrais. Ampliações passam por avaliação conjunta com a autoridade educacional nacional."
+aprendizados: "O caso mostra que Estado forte na produção de currículo aberto (a Oak National é literalmente 'currículo público como serviço') combina extraordinariamente bem com IA generativa: o modelo, ancorado em um corpus curricular oficial e curado, produz material alinhado. Sem esse alicerce, IA generativa em educação vira variação de qualidade duvidosa. Para o Brasil, a lição é dupla: (1) o investimento em base curricular pública de qualidade é o que destrava adoção segura de IA educacional; (2) o modelo 'assistente do professor', que preserva o docente no centro do desenho pedagógico, é mais promissor do que 'tutor direto do aluno' — pelo menos como primeira aposta institucional em rede pública."
+---
