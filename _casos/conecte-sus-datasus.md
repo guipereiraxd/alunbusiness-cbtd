@@ -1,0 +1,21 @@
+---
+title: "Meu SUS Digital (Ministério da Saúde/DATASUS): a saúde do cidadão integrada em um único aplicativo"
+resumo: "O antigo Conecte SUS Cidadão, hoje Meu SUS Digital, integra em um único aplicativo o histórico de vacinas, exames, medicamentos, atendimentos e Cartão Nacional de Saúde de mais de 100 milhões de brasileiros — apoiado por camada de analítica que sustenta gestão de saúde pública em escala federal."
+tecnologia: "Integração de bases DATASUS (SI-PNI, GAL, e-SUS APS, SISREG) + identidade digital gov.br + BI federal + APIs para estados e municípios"
+principal_resultado: "Mais de 100 milhões de brasileiros com acesso a seu histórico de saúde em um só canal (web e app); ganho institucional de visibilidade sobre a saúde da população que sustenta desde a resposta a crises até o planejamento de rotina."
+organizacao: "Ministério da Saúde · DATASUS · Governo Federal"
+esfera: "Federal"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "Brasil"
+ano: "2019 (Conecte SUS) — 2024 (Meu SUS Digital)"
+grau_risco: "alto"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Ministério da Saúde, DATASUS, portal gov.br)"
+tags: ["Saúde pública", "SUS", "Prontuário digital", "gov.br", "Interoperabilidade"]
+problema: "O SUS atende centenas de milhões de eventos de saúde por ano em uma rede de 300 mil estabelecimentos e milhões de profissionais. Sem prontuário digital integrado, o próprio cidadão perde o histórico entre um município e outro; a União perde visibilidade agregada para reagir a crises (dengue, covid); e a gestão local perde o cruzamento entre atenção primária, exames, medicamentos e regulação. A fragmentação era regra — sistemas por município, por especialidade, por período histórico distinto."
+solucao: "O Meu SUS Digital (evolução do Conecte SUS Cidadão) é a interface única do cidadão sobre um conjunto de bases integradas pelo DATASUS: vacinação (SI-PNI), exames laboratoriais (GAL), atenção primária (e-SUS APS), regulação de consultas e leitos (SISREG), dispensação de medicamentos, entre outros. O acesso é feito por conta gov.br. Sobre essa infraestrutura, o Ministério da Saúde opera camada de analítica para monitoramento populacional, resposta a eventos e planejamento — visíveis em painéis públicos e alimentando decisões da gestão federal e estadual."
+impacto: "Mais de 100 milhões de brasileiros com histórico de saúde integrado disponível em um só canal. Ganho de mobilidade dentro do SUS — o cidadão que muda de município não perde vacinação, exame ou tratamento. Ganho institucional durante a pandemia — a resposta federal com base de vacinados em tempo real foi possível pelo Conecte SUS. Uso crescente para acesso a exames, prescrição de medicamento e histórico. A integração ainda é incompleta em alguns municípios e é agenda ativa de evolução."
+governanca: "Uso é regulado pela Lei do SUS, LGPD e Lei de Governo Digital. Acesso do cidadão exige conta gov.br verificada. Dados sensíveis de saúde ficam em infraestrutura da União, com controles previstos em lei específica. Cidadão pode consentir com compartilhamento entre unidades de saúde. Ampliações passam por avaliação do Ministério da Saúde e da ANPD. Municípios e estados aderem via convênio e mantêm autonomia sobre sua parte."
+aprendizados: "O caso mostra que 'IA no SUS' começa em interoperabilidade e prontuário digital — sem esse alicerce, algoritmo de saúde não escala. O Brasil, com o Conecte SUS/Meu SUS Digital, construiu a infraestrutura que muitos países ainda buscam. Os próximos passos naturais são analítica preditiva sobre a base já consolidada (risco individual, priorização de fila) e apoio à decisão clínica em atenção primária. Para estados e municípios que buscam iniciativas próprias, a arquitetura correta é conversar com o DATASUS — não construir sistemas paralelos que fragmentem ainda mais."
+---

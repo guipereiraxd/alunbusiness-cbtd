@@ -1,0 +1,21 @@
+---
+title: "DETER e PRODES (INPE): monitoramento por satélite e IA que sustenta a fiscalização ambiental no Brasil"
+resumo: "O Instituto Nacional de Pesquisas Espaciais opera dois sistemas complementares — o PRODES (medida anual precisa) e o DETER (alertas em quase tempo real) — que aplicam análise automatizada de imagens de satélite para identificar desmatamento na Amazônia, Cerrado e outros biomas, alimentando o IBAMA e o próprio debate público."
+tecnologia: "Sensoriamento remoto (satélites LANDSAT, CBERS, Sentinel) + processamento e classificação automatizada de imagens + análise de séries temporais + APIs abertas + integração com IBAMA"
+principal_resultado: "Reconhecidos como padrão-ouro internacional de monitoramento florestal — usados por IBAMA na fiscalização, por pesquisa acadêmica global, pelo governo em cenários de política climática e pela sociedade civil e imprensa no controle público."
+organizacao: "Instituto Nacional de Pesquisas Espaciais (INPE) · Ministério da Ciência, Tecnologia e Inovação"
+esfera: "Federal"
+poder: "Executivo"
+area: "Controle e auditoria"
+localidade: "Brasil"
+ano: "PRODES desde 1988 · DETER desde 2004"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (INPE, MCTI, Observatório do Clima, publicações científicas)"
+tags: ["Meio ambiente", "Sensoriamento remoto", "Amazônia", "Cerrado", "Dados abertos"]
+problema: "A Amazônia tem 5 milhões de km² de área florestal em território brasileiro; o Cerrado tem quase 2 milhões. Fiscalizar essa extensão em campo é impossível — a área é vasta, o acesso é difícil, a logística é cara. Sem monitoramento remoto sistemático, o desmatamento é percebido tarde, quantificado com defasagem e disputado em números. E sem número comum e confiável, política pública ambiental — nacional ou internacional — vira debate de intuição."
+solucao: "O INPE opera dois sistemas complementares desde a década de 1980–2000. O PRODES produz medida anual precisa de desmatamento por bioma, com resolução de 6,25 hectares, servindo de série histórica autoritativa. O DETER emite alertas em quase tempo real (poucos dias após imageamento) para áreas com sinais de desmatamento ou degradação, com resolução de 3 hectares — feitos para acionar fiscalização, não para medir. Ambos combinam processamento automatizado de imagens de múltiplos satélites (LANDSAT, CBERS sino-brasileiro, Sentinel europeu), classificação por aprendizado de máquina em fases mais recentes e revisão técnica humana. Todos os dados são publicados abertamente."
+impacto: "PRODES e DETER são o padrão-ouro internacional de monitoramento florestal — citados em estudos científicos globais, usados por acordos climáticos internacionais como referência sobre o Brasil, e alimento diário do IBAMA em operações de campo. Dados abertos permitem que ONG, imprensa e pesquisa reproduzam e critiquem o número — o que reforça sua legitimidade. A capacidade brasileira de discutir política ambiental com evidência quantitativa é diretamente atribuível ao investimento sustentado no INPE."
+governanca: "O INPE é órgão técnico com tradição de autonomia. Metodologias são publicadas em detalhe que permite reprodução acadêmica. Divulgação de PRODES tem calendário anual regular; DETER é publicado mensalmente. Ao longo dos anos, o Instituto atravessou tentativas de constrangimento político e manteve a publicação — o que virou parte da sua reputação institucional. Ampliações metodológicas (uso de novas fontes de satélite, incorporação de deep learning) passam por revisão técnica interna e por consulta à comunidade científica."
+aprendizados: "O caso mostra que IA aplicada ao setor público brasileiro produz seus resultados mais duradouros quando ancorada em três pilares: (1) autonomia técnica formal do órgão que produz o dado; (2) metodologia pública e reproduzível, não caixa-preta; (3) publicação aberta que permite crítica e reuso. INPE opera nesses três pilares há décadas, o que explica a sobrevivência do padrão a mudanças de governo. Para outras áreas do Estado (segurança, saúde, educação, tributário), o modelo INPE é a referência institucional a copiar — muito mais do que ferramenta técnica específica."
+---
