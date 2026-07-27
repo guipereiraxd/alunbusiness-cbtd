@@ -1,0 +1,21 @@
+---
+title: "Amsterdam Algorithm Register: transparência algorítmica como política pública"
+resumo: "A prefeitura de Amsterdam publica, em portal público, todos os algoritmos que usa em decisões municipais — com finalidade, dados, riscos, modelo de supervisão humana e código-fonte quando aplicável."
+tecnologia: "Portal web (aberto), governança de metadados (padrão coordenado com Helsinki), integração com fluxo de aprovação de sistemas"
+principal_resultado: "Primeiro registro público municipal de algoritmos do mundo (2020), replicado por dezenas de cidades e por governos nacionais — inclusive base para exigências do EU AI Act sobre transparência de sistemas públicos."
+organizacao: "Gemeente Amsterdam (Prefeitura de Amsterdam)"
+esfera: "Municipal"
+poder: "Executivo"
+area: "Formulação de políticas"
+localidade: "Países Baixos (Amsterdam)"
+ano: "2020 (em operação)"
+grau_risco: "baixo"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Gemeente Amsterdam, City of Helsinki, EU Commission)"
+tags: ["Transparência algorítmica", "Governança de IA", "Direitos digitais", "Accountability", "EU AI Act"]
+problema: "Governos usam algoritmos em decisões que afetam direitos — controle de fraude em benefícios, priorização de fiscalização, alocação de vagas em creches — sem que o cidadão saiba que a máquina está no processo, com que dados, com que critério e com que taxa de erro. A opacidade impede contestação, mascara viés e corrói a confiança pública, especialmente quando um caso vira escândalo (como o affaire toeslagen holandês, que derrubou o governo em 2021)."
+solucao: "O Algorithm Register é um portal público (algoritmeregister.amsterdam.nl) onde cada algoritmo municipal é registrado com: descrição em linguagem simples, finalidade, dados de entrada, tipo de modelo, avaliação de risco, medidas de supervisão humana, contato do responsável e — quando aplicável — código-fonte aberto. Os metadados seguem padrão desenvolvido em conjunto com Helsinki (Finlândia), o que permitiu replicação. O registro é obrigatório antes da entrada em produção de qualquer sistema algorítmico municipal."
+impacto: "Amsterdam publica dezenas de algoritmos em uso — de detecção de fraude em estacionamento a priorização de inspeções sanitárias. O modelo foi adotado por cidades como Nantes, Barcelona, Nova Iorque (variante), pelo governo escocês e serviu de referência para o registro público exigido pelo EU AI Act para sistemas de alto risco. Estudos mostram aumento mensurável em confiança institucional e queda em reclamações formais sobre decisões automatizadas."
+governanca: "O registro integra o fluxo obrigatório de aprovação de qualquer novo sistema algorítmico municipal — nenhum sistema entra em produção sem entrada no registro. Um comitê ético revisa fichas antes da publicação. A prefeitura mantém canal de contestação vinculado a cada algoritmo e publica auditorias periódicas. A ferramenta é integrada ao Data Protection Impact Assessment (DPIA) exigido pelo GDPR."
+aprendizados: "Transparência é infraestrutura, não campanha: o registro só funciona porque é obrigatório e integrado ao ciclo de aprovação, não porque é 'bem-vindo'. O padrão de metadados compartilhado com Helsinki foi crítico para replicação — cidades não precisam reinventar a taxonomia. O que sabota o modelo é a resistência interna de áreas que consideram o algoritmo 'segredo operacional'; o remédio é patrocínio político e obrigatoriedade normativa. No Brasil, o modelo é diretamente replicável por meio de decreto municipal ou estadual, ancorado na LGPD e na Lei de Governo Digital."
+---

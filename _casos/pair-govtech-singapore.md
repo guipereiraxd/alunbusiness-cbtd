@@ -1,0 +1,21 @@
+---
+title: "Pair (GovTech Singapore): copiloto de IA para servidores públicos"
+resumo: "Um assistente conversacional baseado em LLMs, hospedado em ambiente do próprio governo, disponibilizado a mais de 90 mil servidores públicos com controles de sigilo e trilha de uso — para escrever, resumir, analisar e programar sem enviar dados a serviços externos."
+tecnologia: "LLMs (com modelos comerciais e open-source), infraestrutura própria em nuvem soberana, integração com identidade única de servidor"
+principal_resultado: "Adoção por mais de 90 mil servidores do serviço público singapurense em menos de 18 meses, com ganho declarado médio de 30 a 90 minutos por dia por servidor em tarefas repetitivas de escrita e análise."
+organizacao: "GovTech Singapore (Government Technology Agency)"
+esfera: "Nacional (Singapura)"
+poder: "Executivo"
+area: "Gestão de pessoas"
+localidade: "Singapura"
+ano: "2024 (em operação)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (GovTech Singapore, IMDA, apresentações oficiais)"
+tags: ["Produtividade do servidor", "LLMs", "Copiloto", "Segurança de dados", "Capacitação"]
+problema: "Servidores públicos gastam uma parcela grande do dia em tarefas cognitivas repetitivas — escrever ofícios, resumir manifestações, comparar normas, analisar planilhas. Ferramentas comerciais de IA generativa poderiam ajudar, mas colocam em risco sigilo, LGPD equivalente e cadeia de custódia da informação pública. Sem uma alternativa institucional, o servidor ou usa a ferramenta comercial por conta própria (violando política), ou fica sem apoio."
+solucao: "Pair é um copiloto de IA generativa desenvolvido e mantido pelo GovTech Singapore, disponibilizado a servidores do governo por meio de login corporativo único. Roda em nuvem soberana com contrato que proíbe uso de dados para treinar modelos externos. Oferece interfaces de chat, sumarização, comparação e geração de código, com bibliotecas de prompts curados por especialistas. Nenhum dado sai do perímetro do governo. Uso é auditável por servidor e por caso."
+impacto: "Mais de 90 mil servidores usam a ferramenta ativamente. Ganho declarado médio de 30 a 90 minutos diários por servidor em tarefas repetitivas — traduzido em milhões de horas por ano liberadas para trabalho de maior valor. Efeito colateral positivo: alfabetização em IA em larga escala no serviço público, reduzindo dependência de consultorias e de fornecedores fechados. GovTech publica métricas de uso e casos exemplares por agência."
+governanca: "Uso é regulado por política nacional de IA no serviço público, com quatro princípios: dados ficam no perímetro; supervisão humana em decisões que afetam cidadão; auditabilidade completa; treinamento obrigatório antes do acesso. Servidores fazem trilha rápida (equivalente a nosso 'Posso usar IA para isso?') antes de habilitação. GovTech monitora uso agregado e desativa contas que violem a política."
+aprendizados: "Uma ferramenta institucional de IA generativa não é substituto para política — é consequência dela. O Pair só escalou porque veio junto com trilha de capacitação obrigatória, catálogo de casos aprovados e canal de suporte. O modelo é replicável por qualquer governo com massa crítica de servidores (Brasil, com 12 milhões de servidores federais/estaduais/municipais, seria elegível): exige nuvem soberana, contrato com fornecedor de modelo alinhado a LGPD, e — sobretudo — decisão política de que o servidor merece esse investimento."
+---

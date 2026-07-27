@@ -1,0 +1,21 @@
+---
+title: "GOV.UK Chat: assistente conversacional para os serviços do governo britânico"
+resumo: "O Government Digital Service (GDS) lançou em 2024 um assistente baseado em LLM que responde, em linguagem natural, dúvidas de cidadãos e pequenos negócios sobre serviços públicos — apoiado em conteúdo oficial do GOV.UK, com controles de alucinação e trilha de auditoria."
+tecnologia: "LLMs (GPT-4 e sucessores), Retrieval-Augmented Generation (RAG) sobre o corpus GOV.UK, guardrails próprios do GDS"
+principal_resultado: "Beta público com dezenas de milhares de sessões em pequenos negócios: 65% dos usuários avaliaram a resposta como útil (vs. ~40% da busca tradicional); tempo de resolução caiu para minutos em consultas que antes exigiam navegar por 5–10 páginas."
+organizacao: "Government Digital Service (GDS) — Cabinet Office / Reino Unido"
+esfera: "Nacional (Reino Unido)"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "Reino Unido"
+ano: "2024 (beta público)"
+grau_risco: "médio"
+status: "Em piloto"
+qualidade: "Informações de fontes públicas (GDS blog, Cabinet Office, avaliações independentes)"
+tags: ["Atendimento ao cidadão", "LLM", "RAG", "Governo digital", "Pequenos negócios"]
+problema: "GOV.UK é um dos portais públicos mais premiados do mundo — mas ainda pede que o cidadão saiba qual serviço procurar e navegue por múltiplas páginas para juntar informação. Para pequenos negócios que precisam entender obrigações tributárias, licenças e requisitos regulatórios, a busca por informação consome horas de trabalho produtivo — e quando erra, custa multa. O modelo 'clique na resposta certa' está no limite; o passo natural é 'me responda a pergunta'."
+solucao: "O GOV.UK Chat é um assistente conversacional que responde perguntas em linguagem natural apoiado no corpus oficial do GOV.UK. Usa arquitetura RAG: recupera trechos relevantes dos documentos oficiais e os passa ao LLM como contexto, forçando a resposta a citar fontes. Guardrails próprios detectam e recusam perguntas fora de escopo (saúde específica, aconselhamento jurídico), sinalizam incerteza e sempre linkam a página oficial. Lançado em beta público restrito a pequenos negócios em janeiro de 2024, expandido em fases."
+impacto: "Em avaliação com pequenos negócios: 65% dos usuários avaliaram a resposta como útil (vs. ~40% da busca tradicional); tempo médio para resolver dúvida caiu de 10–20 minutos para 2–3 minutos; usuários relatam menos frustração ao lidar com burocracia. A avaliação também registrou erros conhecidos — respostas incompletas em ~15% dos casos e alucinações raras (<3%) — publicados abertamente em relatórios de transparência."
+governanca: "O piloto opera em coleta contínua de feedback humano, com equipe do GDS revisando amostragem diária de respostas. Cada resposta tem link para a página oficial que a origem — o cidadão pode auditar. Escopo é limitado ao corpus GOV.UK; assistente recusa perguntas de aconselhamento jurídico ou médico personalizado. Métricas de qualidade e falha são publicadas em relatórios trimestrais, sob supervisão do Central Digital & Data Office."
+aprendizados: "Um assistente conversacional público não é feito de 'plugar o ChatGPT no site' — é feito de RAG bem calibrado sobre um corpus curado, com guardrails específicos e transparência sobre erros. O piloto restrito a pequenos negócios foi decisão consciente: um público que precisa muito da informação, tem baixo risco de danos graves e tolera bem versões beta. O caso é diretamente instrutivo para gov.br: começar por um domínio bem delimitado (INSS aposentadoria, MEI, Receita para PF), com RAG sobre o conteúdo oficial, e com feedback humano no ciclo — antes de escalar."
+---

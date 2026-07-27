@@ -1,0 +1,21 @@
+---
+title: "One Big Thing (Reino Unido): capacitação obrigatória em IA para todo o serviço civil"
+resumo: "O Reino Unido definiu, em 2023 e 2024, edições anuais de treinamento obrigatório em IA para os 500 mil servidores do Civil Service — não como curso opcional, mas como parte do ciclo de desenvolvimento de cada servidor, com métricas de conclusão por departamento."
+tecnologia: "Plataforma de aprendizado (Civil Service Learning) + trilhas assíncronas + oficinas presenciais por departamento"
+principal_resultado: "Mais de 400 mil servidores civis britânicos concluíram trilhas de letramento em IA em 2024, elevando a base mínima de alfabetização técnica do serviço público em escala nacional."
+organizacao: "Cabinet Office / Civil Service Human Resources (Reino Unido)"
+esfera: "Nacional (Reino Unido)"
+poder: "Executivo"
+area: "Gestão de pessoas"
+localidade: "Reino Unido"
+ano: "2023 (edição anual)"
+grau_risco: "baixo"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Cabinet Office, Civil Service Learning, HM Government)"
+tags: ["Capacitação", "Letramento em IA", "Escala nacional", "Serviço público", "Cultura"]
+problema: "Todo governo enfrenta a mesma trava: não adianta contratar ferramenta de IA se a base de servidores não sabe o que ela faz, onde falha, com que dados alimentar e quando questionar. Sem letramento mínimo distribuído, cada iniciativa depende de um núcleo pequeno de entusiastas — e o restante da máquina resiste, subutiliza ou usa mal. Cursos opcionais atraem quem já sabe; deixam quem mais precisa de fora."
+solucao: "O programa 'One Big Thing' obriga todos os servidores civis britânicos a dedicar tempo em um tema institucional a cada ano — a edição 2023 foi 'Data' (letramento em dados) e a de 2024 foi 'AI'. Cada servidor tem trilha assíncrona alinhada ao seu nível (líder, gestor, analista, atendimento) e participa de sessões presenciais por departamento. Trilhas cobrem: o que é IA generativa, casos de uso reais no governo, como escrever prompts, quando não usar, LGPD equivalente (UK Data Protection Act), viés e supervisão humana. A conclusão vira métrica reportada por departamento."
+impacto: "Mais de 400 mil servidores concluíram o módulo de IA em 2024. Departamentos reportam aumento de propostas de uso de IA vindo da base, não só da liderança — inclusive de áreas antes 'não-técnicas' como comunicação e atendimento. A capacitação distribuída sustentou a adoção do gov.uk Chat e de copilotos por servidor sem os erros típicos de baixa maturidade (envio de dados sensíveis, aceitação sem revisão)."
+governanca: "O programa é coordenado pelo Civil Service Human Resources (Cabinet Office), com apoio metodológico do AI Standards Hub. Cada permanent secretary é responsável pela conclusão em seu departamento — a métrica entra no acordo de desempenho da liderança. Conteúdo é revisado por comitê que inclui representantes do ICO (autoridade de proteção de dados) e da NAO (auditoria)."
+aprendizados: "Escala em capacitação não vem de mais cursos — vem de obrigatoriedade e responsabilização. Um dia de trilha, bem desenhado e obrigatório, chega a mais servidores em um ano do que uma década de MBAs opcionais. O modelo é diretamente aplicável no Brasil: ENAP e escolas de governo estaduais têm infraestrutura para trilhas em escala; falta o gatilho normativo que torne a conclusão obrigatória e monitorada. Sem base mínima capacitada, nenhuma ferramenta de IA no serviço público escala com segurança."
+---

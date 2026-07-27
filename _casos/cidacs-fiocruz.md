@@ -1,0 +1,21 @@
+---
+title: "CIDACS/Fiocruz: coorte de 100 milhões para desenhar políticas sociais"
+resumo: "Big data e ML sobre uma coorte de 114 milhões de brasileiros do CadÚnico permitem estimar, com evidência causal, o efeito de programas sociais e de saúde sobre resultados como mortalidade infantil, tuberculose e HIV."
+tecnologia: "Integração de bases (SIM, SINASC, SIA, SIH, SISVAN, CadÚnico) + aprendizado de máquina (linkage probabilístico) + inferência causal"
+principal_resultado: "Evidência causal usada para redesenhar programas: o Bolsa Família reduziu em 19% a mortalidade infantil por causas evitáveis nos beneficiários (estudos publicados em The Lancet Global Health, 2019 e 2023)."
+organizacao: "Centro de Integração de Dados e Conhecimentos para Saúde (CIDACS/Fiocruz Bahia)"
+esfera: "Federal"
+poder: "Executivo"
+area: "Formulação de políticas"
+localidade: "Brasil"
+ano: "2016 (em operação)"
+grau_risco: "alto"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (CIDACS, The Lancet, ANPD)"
+tags: ["Políticas sociais", "Saúde", "Big data", "Aprendizado de máquina", "Inferência causal", "LGPD"]
+problema: "O Brasil investe centenas de bilhões em programas sociais e de saúde a cada ano, mas costuma avaliar seus efeitos apenas por indicadores agregados e com defasagem. Sem microdados integrados entre CadÚnico, SIM, SINASC, SIA/SIH e outros sistemas, é impossível responder com rigor 'este programa mudou a vida de quem?' — e, portanto, calibrar o desenho, o público-alvo e o orçamento com base em evidência causal, não em correlação."
+solucao: "A Coorte de 100 Milhões de Brasileiros do CIDACS/Fiocruz integra, via linkage probabilístico (algoritmos de aprendizado de máquina para pareamento sem CPF), os registros de mais de 114 milhões de pessoas inscritas no CadÚnico entre 2001 e 2018 aos sistemas de saúde do SUS. Com essa coorte, pesquisadores aplicam desenhos quase-experimentais (regressão descontínua, diferenças-em-diferenças) para estimar o efeito causal de programas — Bolsa Família, saneamento, atenção primária — sobre desfechos concretos (mortalidade infantil, tuberculose, hanseníase, HIV, mortalidade materna)."
+impacto: "Evidência publicada em periódicos como The Lancet: o Bolsa Família reduziu em 19% a mortalidade infantil por causas evitáveis nos beneficiários; queda expressiva em incidência e mortalidade por tuberculose e por HIV entre beneficiários; efeito heterogêneo por raça e território, informando políticas de equidade. Os achados subsidiam desenho e defesa orçamentária de programas — deslocando a discussão do 'gasto público' para o 'retorno em vidas e anos de vida ganhos'."
+governanca: "A coorte opera em ambiente pseudonimizado, com base legal na LGPD (art. 7º, IV — pesquisa em saúde pública) e no marco do SUS. Cada projeto passa por Comitê de Ética em Pesquisa. O CIDACS mantém política de acesso a dados por camadas (público, controlado, restrito) e infraestrutura segura de acesso remoto. Parcerias com Ministério da Saúde, MDS, IBGE e universidades garantem uso legítimo e científico."
+aprendizados: "A integração de bases exige investimento pesado em qualidade de dado — o linkage probabilístico funciona porque o CIDACS validou taxas de acerto acima de 90% em coortes-controle. O trabalho científico rigoroso é o que legitima o uso da IA em decisões que afetam direitos: sem publicação em periódico revisado e sem controle ético, big data em saúde vira suspeito. O modelo é replicável para outras políticas públicas (educação, previdência), desde que haja base legal, governança de dados e um centro técnico competente."
+---
