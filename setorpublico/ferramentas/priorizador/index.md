@@ -10,14 +10,14 @@ title: "Priorizador de casos"
   </div>
 
   <section class="blk" style="border-bottom:0;padding-top:32px;padding-bottom:60px">
-    <div class="note"><b>Leitura orientativa:</b> a classificação é uma orientação inicial e <b>não substitui</b> análise técnica, jurídica ou institucional.</div>
+    <div class="note no-print"><b>Leitura orientativa:</b> a classificação é uma orientação inicial e <b>não substitui</b> análise técnica, jurídica ou institucional.</div>
 
-    <label style="display:block;margin-top:26px">
+    <label class="no-print" style="display:block;margin-top:26px">
       <span style="font-family:var(--disp);font-weight:600;font-size:14px;color:var(--tx);display:block;margin-bottom:8px">Nome do caso <span style="color:var(--tx3);font-weight:400">(opcional)</span></span>
       <input id="caso-nome" type="text" placeholder="Ex.: triagem de solicitações do cidadão" style="background:var(--panel);border:1px solid var(--line2);border-radius:8px;color:var(--tx);font-family:var(--sans);font-size:14px;padding:11px 13px;width:100%;max-width:440px">
     </label>
 
-    <form id="prio" class="quiz">
+    <form id="prio" class="quiz no-print">
       <div class="sk" style="margin-top:30px">Valor público</div>
       <div class="quiz-q">
         <div class="qt">1. Quantas pessoas seriam beneficiadas?</div>
@@ -105,7 +105,7 @@ title: "Priorizador de casos"
       </div>
     </form>
 
-    <div class="actions" style="margin-top:24px">
+    <div class="actions no-print" style="margin-top:24px">
       <button id="prio-go" class="btn btn-primary" type="button">Classificar caso <svg width="16" height="16"><use href="#i-arrow"></use></svg></button>
       <button id="prio-reset" class="btn btn-line" type="button">Recomeçar</button>
     </div>
@@ -200,7 +200,8 @@ title: "Priorizador de casos"
         '</div>'+
       '</div>'+
       '<div class="rk">Próximos passos</div><ul class="klist">'+li(o.passos)+'</ul>'+
-      '<div class="note" style="margin-top:20px">Classificação orientativa — não substitui análise técnica, jurídica ou institucional.</div>';
+      '<div class="actions no-print" style="margin-top:22px"><button class="btn btn-line" type="button" onclick="window.print()">Imprimir / salvar PDF</button></div>'+
+      '<div class="note" style="margin-top:16px">Classificação orientativa — não substitui análise técnica, jurídica ou institucional.</div>';
     result.className = 'result show sev-'+o.sev;
     result.innerHTML = html;
     result.scrollIntoView({behavior:'smooth', block:'start'});

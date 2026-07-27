@@ -10,9 +10,9 @@ title: "Posso usar IA para isso?"
   </div>
 
   <section class="blk" style="border-bottom:0;padding-top:32px;padding-bottom:60px">
-    <div class="note"><b>Leitura orientativa:</b> o resultado é uma orientação inicial e <b>não substitui</b> análise jurídica, técnica ou institucional. Na dúvida, trate como o cenário mais protetivo.</div>
+    <div class="note no-print"><b>Leitura orientativa:</b> o resultado é uma orientação inicial e <b>não substitui</b> análise jurídica, técnica ou institucional. Na dúvida, trate como o cenário mais protetivo.</div>
 
-    <form id="quiz" class="quiz">
+    <form id="quiz" class="quiz no-print">
       <div class="quiz-q">
         <div class="qt">1. O uso está autorizado pela sua organização?</div>
         <div class="quiz-opts" role="radiogroup" aria-label="Uso autorizado pela organização">
@@ -95,7 +95,7 @@ title: "Posso usar IA para isso?"
       </div>
     </form>
 
-    <div class="actions" style="margin-top:24px">
+    <div class="actions no-print" style="margin-top:24px">
       <button id="quiz-go" class="btn btn-primary" type="button">Ver resultado <svg width="16" height="16"><use href="#i-arrow"></use></svg></button>
       <button id="quiz-reset" class="btn btn-line" type="button">Recomeçar</button>
     </div>
@@ -200,7 +200,8 @@ title: "Posso usar IA para isso?"
       '</div>'+
       '<div class="rk">Controles recomendados</div><ul class="klist">'+li(o.controls)+'</ul>'+
       (extra.length ? '<div class="rk">Cuidados adicionais</div><ul class="klist">'+li(extra)+'</ul>' : '')+
-      '<div class="note" style="margin-top:20px">Resultado orientativo — não substitui análise jurídica, técnica ou institucional.</div>';
+      '<div class="actions no-print" style="margin-top:22px"><button class="btn btn-line" type="button" onclick="window.print()">Imprimir / salvar PDF</button></div>'+
+      '<div class="note" style="margin-top:16px">Resultado orientativo — não substitui análise jurídica, técnica ou institucional.</div>';
     result.className = 'result show sev-'+o.sev;
     result.innerHTML = html;
     result.scrollIntoView({behavior:'smooth', block:'start'});

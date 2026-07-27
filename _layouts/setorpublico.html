@@ -318,6 +318,18 @@ footer.bottom .flinks a:hover{color:var(--accent)}
 footer.bottom .sig{font-family:var(--mono);font-size:10.5px;color:var(--tx3);letter-spacing:.05em;line-height:1.8;
   margin-top:30px;border-top:1px solid var(--line);padding-top:18px}
 footer.bottom .sig a{color:var(--accent);text-decoration:none}
+
+/* ---------- impressão / relatório em PDF ---------- */
+@media print{
+  :root{ --bg:#fff; --bg2:#fff; --panel:#fff; --panel2:#f2f2f2; --tx:#111; --tx2:#333;
+    --tx3:#666; --line:#ccc; --line2:#bbb; --accent-soft:#eef6f8; }
+  header.top, footer.bottom, .skip, .progress, .no-print, .quiz-msg, .filterbar{ display:none !important; }
+  .page-head .crumb, .page-head .lede{ display:none !important; }
+  .page-head{ border-bottom:1px solid #ccc; }
+  main{ padding:0 !important; }
+  .result{ border:1px solid #ccc !important; box-shadow:none !important; }
+  a{ color:#111 !important; }
+}
 </style>
 </head>
 <body>
