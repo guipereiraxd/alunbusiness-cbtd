@@ -1,0 +1,21 @@
+---
+title: "Sefaz-GO: analítica de ICMS e integração fiscal no coração do agronegócio brasileiro"
+resumo: "A Secretaria da Economia de Goiás aplica cruzamento de bases fiscais e regras de risco para priorizar fiscalização de ICMS num estado onde o agronegócio, a logística e a industrialização geram fluxos de alto valor e alta complexidade — e onde perder um caso significa perder muito imposto."
+tecnologia: "Data warehouse fiscal + NF-e + SPED + regras de risco + integração com Sefaz de outros estados via CONFAZ + BI operacional"
+principal_resultado: "Deslocamento da fiscalização de amostragem manual para priorização por risco, com fiscalização eletrônica cobrindo uma parcela crescente dos contribuintes e permitindo ampliar arrecadação sem expansão proporcional da equipe."
+organizacao: "Secretaria de Estado da Economia de Goiás (Sefaz/Economia GO)"
+esfera: "Estadual"
+poder: "Executivo"
+area: "Controle e auditoria"
+localidade: "Goiás"
+ano: "em operação (evolução contínua)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Sefaz-GO / Secretaria da Economia GO, CONFAZ, apresentações institucionais)"
+tags: ["Tributário estadual", "ICMS", "Agronegócio", "Cross-matching", "Centro-Oeste"]
+problema: "Goiás combina três realidades que sobrecarregam a fiscalização tradicional: um agronegócio de alta escala que movimenta bilhões em ICMS interestadual; corredores logísticos essenciais para o abastecimento nacional; e um polo industrial em crescimento. Sem inteligência sobre os padrões da própria base, a fiscalização por amostragem escapa das operações mais estruturadas — justamente onde está o maior risco fiscal — e desperdiça esforço em contribuinte de baixo risco."
+solucao: "A Sefaz-GO integra as bases nacionais obrigatórias (NF-e, SPED Fiscal e Contábil) com cadastros próprios do estado e informações de barreiras interestaduais. Aplica regras de risco calibradas ao perfil goiano — inconsistências em operações agrícolas de grande porte, uso irregular de benefícios setoriais, triangulação envolvendo estados vizinhos — e mapeamento de relações entre contribuintes. O auditor recebe casos priorizados por escore de risco e decide sobre a abertura de cada procedimento fiscal."
+impacto: "Deslocamento progressivo da fiscalização de modelo por amostragem para modelo por risco, permitindo à Sefaz-GO cobrir parcela crescente da base tributária sem expansão proporcional de equipe. Ganho reportado em recuperação de crédito tributário e efeito dissuasório sobre operações que antes escapavam pela margem estatística. Integração com esforço coordenado no CONFAZ compartilha padrões de risco entre Sefaz estaduais."
+governanca: "Uso é regulado por normas próprias da Sefaz-GO e por convênios do CONFAZ. Acesso a bases fiscais é restrito a servidores autorizados, com trilha por consulta. Cruzamentos e escores são insumos para o auditor humano, que decide sobre abertura de procedimento formal com contraditório e ampla defesa. Sigilo fiscal previsto no Código Tributário Nacional se aplica ao dado e à decisão. Ampliações passam por avaliação técnica e jurídica."
+aprendizados: "O caso reforça o padrão que se repete nas Sefaz estaduais brasileiras: infraestrutura de dados existe (NF-e é federal, obrigatória, homogênea), mas o padrão de risco é regional — o que interessa em GO (agronegócio, corredor Norte-Sul) é diferente do que interessa em PA (fronteira amazônica), em SP (indústria), em RS (comércio interestadual do Sul). A cooperação via CONFAZ compartilha método sem tentar imposição de sistema único. Para os estados do Centro-Oeste (MT, MS, DF) e do MATOPIBA, a experiência goiana é referência regional mais próxima do que as Sefaz do Sudeste."
+---

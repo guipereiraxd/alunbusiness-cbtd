@@ -1,0 +1,21 @@
+---
+title: "Radar (TJ-MG): triagem de recursos por similaridade no Judiciário estadual"
+resumo: "O Tribunal de Justiça de Minas Gerais utiliza o Radar — sistema de aprendizado de máquina que classifica recursos, identifica processos similares e sugere ao magistrado a aplicação de precedentes consolidados — para dar vazão a milhões de processos com equipe fixa."
+tecnologia: "NLP sobre peças processuais + clustering por similaridade + integração com sistema de gestão processual + trilha de decisão por magistrado"
+principal_resultado: "Ganho relevante de produtividade em gabinetes que aderiram ao sistema, com padronização crescente da decisão em temas repetitivos e sugestão de aplicação de precedentes já pacificados — sem substituir o julgamento humano."
+organizacao: "Tribunal de Justiça de Minas Gerais (TJ-MG)"
+esfera: "Estadual"
+poder: "Judiciário"
+area: "Processos administrativos"
+localidade: "Minas Gerais"
+ano: "em operação"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (TJ-MG, CNJ, apresentações institucionais)"
+tags: ["Judiciário estadual", "Triagem processual", "NLP", "Precedentes", "Resolução CNJ 332"]
+problema: "Os tribunais de justiça estaduais brasileiros processam a maior fatia do contencioso do país — dezenas de milhões de casos por ano, muitos deles versando sobre temas repetitivos (energia elétrica, telefonia, planos de saúde, direitos do consumidor). O magistrado precisa localizar precedentes, verificar se o caso em mãos se enquadra em tese já firmada e redigir decisão. Sem apoio tecnológico, boa parte do tempo do gabinete é gasta em trabalho repetitivo — enquanto os casos que exigem julgamento inovador esperam."
+solucao: "O Radar é uma solução do TJ-MG que aplica NLP sobre as peças processuais para classificar recursos por tema e identificar processos similares já julgados. O sistema sugere ao gabinete precedentes aplicáveis e minutas de decisão baseadas em casos análogos. O magistrado analisa, ajusta e assina — nunca é retirado do ciclo de decisão. A ferramenta integra-se ao sistema de gestão processual do Tribunal e mantém trilha de uso por gabinete."
+impacto: "Ganho reportado de produtividade em gabinetes que aderiram ao sistema, com padronização crescente da resposta em temas de massa (casos consumeristas, previdenciários repetitivos) e liberação de tempo do magistrado para casos que exigem julgamento próprio. O Radar entrou no conjunto de referências brasileiras de IA aplicada ao Judiciário — junto de Victor (STF) e Sinapses (CNJ) — e alimenta discussões nacionais sobre boas práticas."
+governanca: "Uso é regulado pela Resolução CNJ 332/2020 (ética e governança de IA no Judiciário) e por normas internas do TJ-MG. Cada sugestão do sistema é registrada por processo e por magistrado; a decisão final e a fundamentação continuam sendo do humano. O Tribunal mantém inventário público do sistema (conforme exigência do CNJ) e participa do Comitê Nacional de IA do Judiciário para compartilhar métodos e vieses observados."
+aprendizados: "O caso mostra que o Judiciário brasileiro tem sido um dos setores mais organizados na adoção de IA — antecipou a discussão de governança (Resolução 332/2020) antes mesmo do PL 2338 nacional e produziu casos concretos em série (Victor no STF, Sinapses no CNJ, Radar no TJ-MG, além de sistemas em TJ-DFT, TJ-RS, TJ-SP e outros). Para outros TJs que consideram trilha semelhante, o Radar é exemplo replicável — a arquitetura (classificação, sugestão de precedente, minuta) é essencialmente a mesma; a calibração é local. E para setores fora do Judiciário, a lição é institucional: um marco setorial de governança destrava a adoção responsável, em vez de estrangular."
+---

@@ -1,0 +1,21 @@
+---
+title: "Piá (Governo do RS): assistente virtual estadual de serviços ao cidadão"
+resumo: "O Governo do Rio Grande do Sul, com a PROCERGS, opera desde 2018 o Piá — assistente virtual que unifica o acesso a dezenas de serviços estaduais (do agendamento em UPA à consulta de IPVA) em canal único, com integração de bases setoriais e escalada para atendente humano quando o pedido pede julgamento."
+tecnologia: "Chatbot em NLP + integração com sistemas estaduais (Detran, SES, Sefaz, Educação) + web + WhatsApp + escalada para atendente humano"
+principal_resultado: "Milhões de atendimentos automatizados ao longo dos anos de operação, com queda expressiva na pressão sobre canais tradicionais e ampliação do horário de atendimento (Piá opera 24/7, os canais humanos não)."
+organizacao: "PROCERGS · Governo do Estado do Rio Grande do Sul"
+esfera: "Estadual"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "Rio Grande do Sul"
+ano: "2018 (em operação)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Governo do RS, PROCERGS, imprensa)"
+tags: ["Atendimento estadual", "Chatbot", "Governo digital", "WhatsApp", "Sul"]
+problema: "Um estado como o Rio Grande do Sul tem 11 milhões de habitantes espalhados por 497 municípios — muitos deles com difícil acesso a atendimento presencial de órgãos estaduais. Concentrar todo atendimento em telefonia é caro e limitado por horário; espalhá-lo em portais setoriais desconexos exige que o cidadão saiba de antemão qual órgão faz o quê. O resultado costuma ser filas, deslocamentos evitáveis e frustração — especialmente em serviços que poderiam ser inteiramente digitais."
+solucao: "O Piá é o assistente virtual do Governo do RS, mantido pela PROCERGS. Disponível na web, no app e no WhatsApp, oferece um único canal de entrada para dezenas de serviços estaduais — agendamento em unidades de saúde, consulta de veículos e IPVA no Detran, informações da Sefaz e da Secretaria da Educação, orientação sobre programas sociais. Usa NLP para entender a demanda em linguagem natural, integra-se aos sistemas setoriais para buscar dados em tempo real, e transfere para atendente humano quando a demanda exige julgamento ou envolve caso sensível."
+impacto: "Milhões de atendimentos automatizados ao longo dos anos, com queda mensurável na pressão sobre a central telefônica e ampliação de fato do horário de atendimento — 24/7 para o cidadão que só tem tempo à noite ou no fim de semana. A operação por WhatsApp aumenta o alcance para populações que não abrem app ou navegador, e a integração em canal único reduz o número de portais que o cidadão precisa aprender a usar."
+governanca: "Uso é regulado por política estadual de governo digital. Dados pessoais do cidadão ficam em infraestrutura da PROCERGS, com base legal LGPD. O Piá é ferramenta de apoio à triagem — decisões e respostas com efeito legal (por exemplo, sobre benefício ou tributo) exigem confirmação em canal formal do órgão responsável. Ampliações de escopo passam por análise conjunta entre PROCERGS e a secretaria envolvida."
+aprendizados: "O caso confirma o padrão que se repete em governos digitais bem-sucedidos: o valor não está no chatbot em si, mas na integração com os sistemas setoriais que estão por trás. Sem essa integração, o Piá seria só um FAQ; com ela, é atendimento real. A operação em WhatsApp foi decisão inteligente: encontrar o cidadão onde ele já está reduz atrito muito mais do que construir aplicativo próprio. Modelo diretamente replicável em outros estados — SC, PR, MS e outros com portes semelhantes ganhariam alavancagem imediata copiando arquitetura."
+---
