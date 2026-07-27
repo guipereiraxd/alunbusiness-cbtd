@@ -83,6 +83,21 @@ description: "IA a serviço público: onde a inteligência artificial gera valor
     <div class="sec-k">Ponto de partida</div>
     <h2>Por onde você deseja começar?</h2>
     <p class="lead">Cada organização chega a este tema de um ponto diferente — algumas ainda mapeiam oportunidades, outras já governam soluções em produção. Escolha o caminho mais curto até o que interessa; sua escolha é lembrada no navegador.</p>
+
+    <div id="wb" class="wb" role="region" aria-label="Continuar de onde parou">
+      <div class="wb-ic"><svg><use href="#i-arrow"></use></svg></div>
+      <div class="wb-body">
+        <div class="wb-k">Continuar de onde parou</div>
+        <div class="wb-t" id="wb-t"></div>
+        <div class="wb-d" id="wb-d"></div>
+      </div>
+      <div class="wb-actions">
+        <a class="btn btn-primary" id="wb-primary" href="#">Continuar</a>
+        <a class="btn btn-line" id="wb-next" href="#">Próximo passo</a>
+      </div>
+      <button class="wb-close" id="wb-close" aria-label="Ocultar sugestão">×</button>
+    </div>
+
     <div class="picker" role="list">
       <a class="pk pref-card" data-label="Encontrar oportunidades" href="{{ '/setorpublico/oportunidades/' | relative_url }}" role="listitem">
         <div class="ic"><svg><use href="#i-map"></use></svg></div>
@@ -328,14 +343,71 @@ description: "IA a serviço público: onde a inteligência artificial gera valor
 {% raw %}
 <script>
 (function(){
-  var KEY = 'sp_pref';
+  var KEY = 'sp_pref', DKEY = 'sp_pref_dismiss';
+  var pref = null;
+  try{ pref = JSON.parse(localStorage.getItem(KEY) || 'null'); }catch(e){}
+
   [].slice.call(document.querySelectorAll('.pref-card')).forEach(function(card){
-    var pref=null;
-    try{ pref = JSON.parse(localStorage.getItem(KEY) || 'null'); }catch(e){}
     if(pref && pref.label === card.getAttribute('data-label')) card.classList.add('on');
     card.addEventListener('click', function(){
-      try{ localStorage.setItem(KEY, JSON.stringify({label:card.getAttribute('data-label'), href:card.getAttribute('href')})); }catch(e){}
+      try{
+        localStorage.setItem(KEY, JSON.stringify({label:card.getAttribute('data-label'), href:card.getAttribute('href')}));
+        localStorage.removeItem(DKEY);
+      }catch(e){}
     });
+  });
+
+  // Personalização adaptativa: banner "continuar de onde parou"
+  var NEXT = {
+    'Encontrar oportunidades': {
+      t: 'Você começou por <b>Encontrar oportunidades</b>',
+      d: 'Depois de mapear onde a IA se aplica, um diagnóstico dimensiona a maturidade da sua organização para agir.',
+      nextLabel: 'Fazer o diagnóstico', nextHref: '/setorpublico/diagnostico/'
+    },
+    'Resolver um problema': {
+      t: 'Você começou por <b>Resolver um problema</b>',
+      d: 'Escolhido um caso semelhante, o priorizador ajuda a decidir se ele deve virar piloto na sua realidade.',
+      nextLabel: 'Priorizar um caso', nextHref: '/setorpublico/ferramentas/priorizador/'
+    },
+    'Avaliar a organização': {
+      t: 'Você começou por <b>Avaliar a organização</b>',
+      d: 'Com o diagnóstico em mãos, o próximo passo natural é fechar as lacunas com trilhas de capacitação por perfil.',
+      nextLabel: 'Ver trilhas', nextHref: '/setorpublico/trilhas/'
+    },
+    'Entender riscos': {
+      t: 'Você começou por <b>Entender riscos</b>',
+      d: 'A ferramenta "Posso usar IA para isso?" traduz os princípios de governança em uma decisão prática por caso.',
+      nextLabel: 'Abrir a ferramenta', nextHref: '/setorpublico/governanca/posso-usar-ia/'
+    },
+    'Capacitar a equipe': {
+      t: 'Você começou por <b>Capacitar a equipe</b>',
+      d: 'Antes de escolher a trilha certa, um diagnóstico rápido mostra onde a organização precisa avançar primeiro.',
+      nextLabel: 'Fazer o diagnóstico', nextHref: '/setorpublico/diagnostico/'
+    },
+    'Estruturar uma estratégia': {
+      t: 'Você começou por <b>Estruturar uma estratégia</b>',
+      d: 'Casos reais mostram o que outros órgãos já resolveram — servem de referência concreta para a sua estratégia.',
+      nextLabel: 'Ver a biblioteca', nextHref: '/setorpublico/casos/'
+    }
+  };
+
+  var wb = document.getElementById('wb');
+  if(!wb || !pref || !pref.label) return;
+  var dismissed = false;
+  try{ dismissed = localStorage.getItem(DKEY) === pref.label; }catch(e){}
+  if(dismissed) return;
+  var cfg = NEXT[pref.label]; if(!cfg) return;
+
+  document.getElementById('wb-t').innerHTML = cfg.t;
+  document.getElementById('wb-d').textContent = cfg.d;
+  var primary = document.getElementById('wb-primary');
+  primary.href = pref.href; primary.textContent = 'Continuar em ' + pref.label.toLowerCase();
+  var next = document.getElementById('wb-next');
+  next.href = cfg.nextHref; next.innerHTML = cfg.nextLabel + ' →';
+  wb.classList.add('show');
+  document.getElementById('wb-close').addEventListener('click', function(){
+    try{ localStorage.setItem(DKEY, pref.label); }catch(e){}
+    wb.classList.remove('show');
   });
 })();
 </script>
