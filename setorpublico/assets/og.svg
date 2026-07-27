@@ -1,28 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter,sans-serif">
   <defs>
-    <radialGradient id="glow" cx="82%" cy="0%" r="70%">
-      <stop offset="0%" stop-color="#3E9FB0" stop-opacity="0.20"/>
-      <stop offset="60%" stop-color="#3E9FB0" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="grid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3E9FB0" stop-opacity="0.10"/>
-      <stop offset="70%" stop-color="#3E9FB0" stop-opacity="0"/>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1E2A78"/>
+      <stop offset=".55" stop-color="#5A2E8A"/>
+      <stop offset="1" stop-color="#C43584"/>
     </linearGradient>
-    <pattern id="g" width="52" height="52" patternUnits="userSpaceOnUse">
-      <path d="M52 0H0V52" fill="none" stroke="url(#grid)" stroke-width="1"/>
+    <radialGradient id="rg" cx="82%" cy="22%" r="60%">
+      <stop offset="0" stop-color="#C43584" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#C43584" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M52 0H0V52" fill="none" stroke="#5A2E8A" stroke-width="1" stroke-opacity=".05"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="#0C0F14"/>
-  <rect width="1200" height="630" fill="url(#g)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <g transform="translate(84,86)">
-    <rect x="0" y="0" width="40" height="40" rx="10" fill="#0C0F14" stroke="#2F3947"/>
-    <circle cx="20" cy="20" r="9" fill="#3E9FB0"/>
-    <text x="58" y="20" font-family="'IBM Plex Mono',monospace" font-size="17" letter-spacing="2" fill="#9AA6B6">IA · SETOR PÚBLICO</text>
-    <text x="58" y="42" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="2" fill="#6C7889">POR ALUN BUSINESS</text>
+
+  <!-- fundo off-white + grid + glow -->
+  <rect width="1200" height="630" fill="#F6F5F1"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#rg)"/>
+
+  <!-- top-left: brand mark do portal -->
+  <g transform="translate(84,74)">
+    <rect x="0" y="0" width="42" height="42" rx="10" fill="url(#g)"/>
+    <text x="21" y="30" text-anchor="middle" fill="#fff" font-family="Instrument Sans,Inter,sans-serif" font-weight="700" font-size="21">A</text>
+    <text x="58" y="18" font-family="Instrument Sans,Inter,sans-serif" font-weight="700" font-size="18" fill="#141428">IA no Setor Público</text>
+    <text x="58" y="36" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7A7E90" letter-spacing="1.4">POR ALUN BUSINESS</text>
   </g>
-  <text x="84" y="330" font-family="'Sora','Segoe UI',sans-serif" font-weight="700" font-size="76" fill="#F2F5FA">Inteligência artificial</text>
-  <text x="84" y="418" font-family="'Sora','Segoe UI',sans-serif" font-weight="700" font-size="76" fill="#3E9FB0">a serviço público</text>
-  <text x="84" y="500" font-family="'Segoe UI',sans-serif" font-size="27" fill="#9AA6B6">Oportunidades · casos reais · governança · ferramentas · trilhas</text>
-  <rect x="84" y="548" width="1032" height="1" fill="#242C38"/>
+
+  <!-- eyebrow pill -->
+  <g transform="translate(84,220)">
+    <rect x="0" y="0" width="220" height="34" rx="17" fill="#FFFFFF" stroke="#5A2E8A" stroke-opacity=".22"/>
+    <circle cx="16" cy="17" r="4" fill="#C43584"/>
+    <text x="28" y="22" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="2.4" fill="#5A2E8A" font-weight="600">IA PARA VALOR PÚBLICO</text>
+  </g>
+
+  <!-- headline -->
+  <text x="84" y="336" font-family="Instrument Sans,Inter,sans-serif" font-weight="700" font-size="72" letter-spacing="-1.7" fill="#141428">Inteligência artificial</text>
+  <text x="84" y="418" font-family="Instrument Sans,Inter,sans-serif" font-weight="700" font-size="72" letter-spacing="-1.7" fill="#141428">para gerar <tspan fill="url(#g)">valor público</tspan></text>
+
+  <!-- subtitle -->
+  <text x="84" y="478" font-family="Inter,sans-serif" font-size="22" fill="#33334A">Oportunidades · casos reais · governança · ferramentas · trilhas</text>
+
+  <!-- rodapé -->
+  <line x1="84" y1="540" x2="1116" y2="540" stroke="#D8D5CB"/>
+  <text x="84" y="574" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.8" fill="#7A7E90">ALUNBUSINESS.MD/SETORPUBLICO</text>
+  <text x="1116" y="574" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.8" fill="#7A7E90">UMA INICIATIVA · ALUN BUSINESS</text>
 </svg>

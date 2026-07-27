@@ -6,20 +6,28 @@
 <title>{% if page.title %}{{ page.title }} · {% endif %}IA no Setor Público · Alun Business</title>
 {% assign sp_desc = page.description | default: page.resumo | default: "Inteligência artificial a serviço público: oportunidades, casos reais, governança, ferramentas e trilhas para quem lidera e para quem executa no setor público." %}
 {% assign sp_url = site.url | append: page.url %}
-{% assign sp_img = site.url | append: '/setorpublico/assets/og.svg' %}
+{% assign sp_img = site.url | append: '/setorpublico/assets/og.png' %}
+{% assign sp_img_alt = "IA no Setor Público — uma iniciativa da Alun Business. Inteligência artificial para gerar valor público." %}
 <meta name="description" content="{{ sp_desc | strip_html | truncate: 200 }}">
 <link rel="canonical" href="{{ sp_url }}">
 <meta name="theme-color" content="#F6F5F1">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="IA no Setor Público · Alun Business">
 <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}IA no Setor Público">
 <meta property="og:description" content="{{ sp_desc | strip_html | truncate: 200 }}">
 <meta property="og:url" content="{{ sp_url }}">
 <meta property="og:image" content="{{ sp_img }}">
+<meta property="og:image:secure_url" content="{{ sp_img }}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ sp_img_alt }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }} · {% endif %}IA no Setor Público">
 <meta name="twitter:description" content="{{ sp_desc | strip_html | truncate: 200 }}">
 <meta name="twitter:image" content="{{ sp_img }}">
+<meta name="twitter:image:alt" content="{{ sp_img_alt }}">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23F6F5F1'/%3E%3Ccircle cx='16' cy='16' r='6' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231E2A78'/%3E%3Cstop offset='.6' stop-color='%235A2E8A'/%3E%3Cstop offset='1' stop-color='%23C43584'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
