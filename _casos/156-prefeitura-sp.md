@@ -1,0 +1,21 @@
+---
+title: "SP156 (Prefeitura de São Paulo): atendimento municipal com apoio de IA generativa"
+resumo: "A Central 156 da Prefeitura de São Paulo — que recebe milhões de pedidos e reclamações do cidadão paulistano por ano — incorporou camada de IA para triagem automática de solicitações, sugestão de resposta a atendentes e sumarização de manifestações repetitivas, integrada ao SP156 (portal e app)."
+tecnologia: "NLP + classificação automática de solicitações + sugestão de resposta a atendente humano + integração com CRM interno (Prodam)"
+principal_resultado: "Redução do tempo médio de triagem de solicitações e ganho de consistência no encaminhamento — permitindo priorizar demandas críticas (buraco na via, poda emergencial, iluminação) sobre demandas repetitivas em janelas estáveis de atendimento."
+organizacao: "Prefeitura de São Paulo · Prodam (Empresa de Tecnologia da Informação e Comunicação do Município)"
+esfera: "Municipal"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "São Paulo (Capital)"
+ano: "em operação (evoluções contínuas)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Prefeitura de São Paulo, Prodam, imprensa)"
+tags: ["Atendimento municipal", "NLP", "Triagem automática", "156", "Gestão urbana"]
+problema: "Uma cidade de 12 milhões de habitantes gera fluxo colossal na Central 156 — milhões de solicitações por ano, entre pedidos de serviço (poda de árvore, tapa-buraco, iluminação), reclamações, informações. Sem triagem inteligente, atendente humano precisa classificar cada demanda manualmente; o encaminhamento é lento; demanda crítica se mistura com demanda repetitiva; e o cidadão espera resposta por muito mais tempo do que o serviço leva para acontecer."
+solucao: "A Prodam desenvolveu, integrada ao SP156 (portal e app), uma camada de NLP que classifica automaticamente solicitações por tema e subsecretaria responsável, sugere ao atendente respostas padrão baseadas em casos análogos e agrupa manifestações repetitivas (por exemplo, todas as reclamações de uma mesma rua no mesmo dia) para envio consolidado ao órgão responsável. A decisão final de resposta permanece do atendente humano, mas com apoio significativo."
+impacto: "Redução mensurável do tempo médio de triagem e ganho de consistência no encaminhamento. Manifestações são agora tratadas em janelas estáveis de tempo, com priorização automática das demandas de risco (buraco em via de tráfego intenso, iluminação em zona sensível, poda emergencial após temporal). A Prefeitura reporta melhoria em indicadores de satisfação em pesquisa própria."
+governanca: "Uso é regulado por política interna da Prodam e da Secretaria de Inovação e Tecnologia. Cada resposta gerada por IA passa por atendente humano antes de ser enviada — o cidadão nunca conversa diretamente com o modelo. Dados sensíveis do cidadão (nome, endereço, telefone) ficam em ambiente da Prefeitura e não são enviados a fornecedor externo de IA. Reclamações que a IA não classifica com confiança suficiente vão para fila de revisão humana especializada."
+aprendizados: "O caso mostra o modelo mais seguro para atendimento público com IA: humano no ciclo, com IA acelerando triagem e sugerindo — nunca respondendo diretamente. Para uma prefeitura, o valor está menos em substituir atendente e mais em multiplicar a capacidade de escutar sinais da cidade: milhões de manifestações viram base analítica que orienta decisão de prefeitura (onde investir em poda? onde tem padrão de iluminação falhando?). Modelo diretamente replicável em municípios médios e grandes — a plataforma 156 é padrão nacional, o que facilita a difusão."
+---

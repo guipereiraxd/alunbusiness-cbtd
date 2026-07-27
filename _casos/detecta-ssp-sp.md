@@ -1,0 +1,21 @@
+---
+title: "Detecta (SSP-SP): reconhecimento automático de placas para investigação criminal"
+resumo: "A Secretaria da Segurança Pública de São Paulo integra câmeras públicas e privadas em uma plataforma que lê placas de veículos em tempo real, cruza com listas de interesse (roubados, procurados, mandados) e gera alertas para viaturas — com trilha registrada e uso vinculado a investigação formal."
+tecnologia: "Visão computacional (OCR de placas — ALPR) + integração de câmeras públicas e privadas + cruzamento com bases policiais + BI operacional"
+principal_resultado: "Milhões de leituras diárias que alimentam investigações de roubo de veículo, tráfico interestadual e cumprimento de mandados — com resultados operacionais reconhecidos e, ao mesmo tempo, uma agenda pública de debate sobre limites de vigilância."
+organizacao: "Secretaria da Segurança Pública do Estado de São Paulo (SSP-SP)"
+esfera: "Estadual"
+poder: "Executivo"
+area: "Processos administrativos"
+localidade: "São Paulo (Estado)"
+ano: "2014 (em operação)"
+grau_risco: "alto"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (SSP-SP, imprensa, ministério público e artigos acadêmicos)"
+tags: ["Segurança pública", "Visão computacional", "ALPR", "Reconhecimento de placas", "Direitos e privacidade"]
+problema: "Investigar crimes que envolvem deslocamento (roubo de carga, tráfico interestadual, homicídio com fuga) depende de reconstituir o rastro de veículos em rotas — um trabalho que a análise manual de câmeras não escala. Sem inteligência sobre a passagem de placas em pontos de fluxo, cada investigação começa do zero e, em muitos casos, não avança. Por outro lado, um sistema com essa capacidade toca direitos fundamentais (privacidade, presunção de inocência) e exige controles à altura."
+solucao: "O Detecta é uma plataforma que integra dezenas de milhares de câmeras — próprias da SSP-SP, de outras secretarias e privadas conveniadas — e aplica reconhecimento automático de placas (ALPR) sobre o vídeo em tempo real. Cada leitura é cruzada com bases: veículos roubados/furtados, mandados em aberto, alertas de investigação. Um alerta relevante vai para a viatura mais próxima. O sistema mantém registro completo de leituras e consultas, e o acesso operacional é limitado a policiais autorizados por trilha de identificação."
+impacto: "Milhões de placas lidas por dia. Aumento reportado em recuperação de veículos e em cumprimento de mandados. O uso operacional evoluiu ao longo de uma década e a plataforma se tornou referência nacional em ALPR aplicado à segurança pública. Ao mesmo tempo, foi objeto de debate público, imprensa investigativa e questionamentos do Ministério Público — o que gerou refinamentos em política de acesso, retenção e transparência."
+governanca: "Uso é regulamentado por normas internas da SSP-SP. Acesso a consultas exige perfil autorizado e é registrado por servidor. Cruzamento com listas de interesse tem base legal em atividade de polícia judiciária. Retenção de dados de câmera segue política interna. Ampliações do sistema (por exemplo, incorporação de reconhecimento facial) foram sistematicamente questionadas — o que forçou avaliação pública das etapas de expansão."
+aprendizados: "O caso mostra que a legitimidade de sistemas de IA em segurança pública depende menos do desempenho técnico e mais do arcabouço de controles — quem pode consultar, com que finalidade, por quanto tempo os dados ficam, quem audita. Sem esse arcabouço explícito, mesmo um sistema útil vira ativo político frágil, sujeito a suspensão judicial e a perda de licença social. Para outros estados que consideram plataformas similares, o Detecta serve tanto de referência técnica quanto de laboratório de discussão sobre limites — e o debate ainda está em curso."
+---

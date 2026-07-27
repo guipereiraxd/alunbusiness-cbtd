@@ -1,0 +1,21 @@
+---
+title: "BHTrans (Prefeitura de BH): semáforos adaptativos e monitoramento com IA"
+resumo: "Belo Horizonte incorporou controle adaptativo em interseções críticas e monitoramento por visão computacional em corredores — ajustando o tempo de semáforo em tempo real e detectando anomalias (acidente, veículo parado, faixa exclusiva descumprida) sem depender de operador o tempo todo."
+tecnologia: "Sensores + controladores adaptativos (SCOOT/SCATS ou equivalentes) + visão computacional em corredores + centro integrado de monitoramento"
+principal_resultado: "Redução mensurável do tempo médio de viagem em corredores adaptados e aumento da velocidade média nos horários de pico — com resposta mais rápida a incidentes."
+organizacao: "BHTrans · Prefeitura de Belo Horizonte"
+esfera: "Municipal"
+poder: "Executivo"
+area: "Processos administrativos"
+localidade: "Belo Horizonte (MG)"
+ano: "em evolução (implementações escalonadas)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (PBH/BHTrans, imprensa, artigos técnicos)"
+tags: ["Mobilidade urbana", "Semáforos adaptativos", "Visão computacional", "Gestão de trânsito", "Cidades inteligentes"]
+problema: "O trânsito de uma capital como Belo Horizonte varia por hora, dia e evento — mas o semáforo tradicional opera em programa fixo. O motorista fica parado em verde vazio, e cruzamento fica engarrafado enquanto outro tem verde sem demanda. Aumentar a equipe de operação para ajustar tempos manualmente não escala. E incidentes (colisão, veículo parado em faixa exclusiva) só chegam à central via ligação do cidadão — atraso de minutos, ou horas."
+solucao: "A BHTrans implementou, em interseções e corredores críticos, controle semafórico adaptativo — sistema que lê contagem de veículos por sensor ou câmera e ajusta em tempo real o tempo de cada fase para maximizar fluxo. Em corredores selecionados, visão computacional monitora faixas exclusivas de ônibus, detecta veículo parado, invasão de faixa e outros eventos, gerando alerta imediato para o centro integrado de operação — que despacha equipe ou reprograma o corredor. O centro concentra alarmes de dezenas de fontes numa única interface operacional."
+impacto: "Redução mensurável no tempo médio de viagem em corredores adaptados e ganho em velocidade média nos horários de pico, segundo relatórios da BHTrans. Resposta mais rápida a incidentes (detecção passou de 'quando alguém ligar' para 'assim que a câmera vê'). Ganhos indiretos em consumo de combustível, emissão e previsibilidade do transporte público."
+governanca: "Uso é regulado por política municipal de mobilidade e por convênios de operação com órgãos vinculados. Imagem de câmera pública urbana tem enquadramento em legislação de segurança pública e proteção de dados — foco em fluxo, não em identificação individual. Reprogramações do sistema passam por revisão da equipe da BHTrans; a IA sugere e ajusta parâmetros dentro de faixas seguras, não substitui a política de mobilidade."
+aprendizados: "O caso ilustra a IA operacional — invisível para o cidadão, mas com efeito diário mensurável. Duas lições: (1) o valor está em integrar dados que já existem (câmeras de trânsito, contagens, GPS de ônibus) num centro único de operação — a infraestrutura é 60% do trabalho, o algoritmo é 40%; (2) sistemas adaptativos precisam de operador experiente para calibrar — automação plena costuma piorar antes de melhorar, sem quem entenda o padrão da cidade. Modelo replicável em qualquer cidade com centro de operação de trânsito e câmeras — Curitiba, Fortaleza, Recife e outras seguem caminhos convergentes."
+---
