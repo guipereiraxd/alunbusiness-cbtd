@@ -1,0 +1,21 @@
+---
+title: "Sapiens (AGU): plataforma de gestão do contencioso da União com camadas de IA"
+resumo: "A Advocacia-Geral da União opera o Sapiens como plataforma nacional de gestão de peças, processos e conhecimento da advocacia pública federal — sustentando decisões sobre acordos, recursos e teses em um contencioso com dezenas de milhões de processos, com camadas crescentes de IA para busca semântica, sumarização e sugestão de peças."
+tecnologia: "Plataforma de gestão processual + NLP + busca semântica sobre a base de peças e teses da AGU + integração com sistemas dos tribunais + auditoria por advogado público"
+principal_resultado: "Ganho institucional expressivo na coordenação da atuação da AGU — mesma tese defendida em qualquer canto do país; economia de tempo do advogado público em pesquisa e redação; base de decisões e teses que virou ativo institucional consultável em segundos, não em dias."
+organizacao: "Advocacia-Geral da União (AGU)"
+esfera: "Federal"
+poder: "Executivo (função essencial à justiça)"
+area: "Processos administrativos"
+localidade: "Brasil"
+ano: "plataforma consolidada nos anos 2010 · camadas de IA em evolução"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (AGU, apresentações institucionais, imprensa jurídica)"
+tags: ["Advocacia pública", "Contencioso", "Gestão de peças", "NLP", "Coordenação nacional"]
+problema: "A União é a maior litigante do país — parte em dezenas de milhões de processos em todas as instâncias, sobre temas que vão de tributário a servidor público, ambiental a benefício previdenciário. Sem plataforma nacional integrada, a atuação da AGU fica fragmentada: mesma tese defendida em teor divergente por regionais diferentes, esforço repetido em pesquisa, dificuldade em identificar oportunidades de acordo ou de recurso estratégico. O custo é fiscal (perda evitável em teses fracas) e institucional (imprevisibilidade e retrabalho)."
+solucao: "O Sapiens é a plataforma nacional da AGU para gestão de peças processuais, teses institucionais e conhecimento jurídico consolidado. Integra os sistemas dos tribunais, organiza peças por processo, mantém base de teses e súmulas da AGU, e — em evolução mais recente — incorpora camadas de IA para busca semântica (encontrar peça análoga mesmo quando o termo exato não coincide), sumarização de processos volumosos e sugestão de minutas baseadas em decisões e teses consolidadas. Advogado público mantém a decisão final e assinatura em toda peça."
+impacto: "Coordenação nacional efetiva da atuação da AGU — a mesma tese defendida em teor consistente por todos os regionais. Economia de tempo do advogado público em pesquisa e redação, permitindo atuação mais estratégica em teses de maior valor. Base de conhecimento institucional consultável em segundos por qualquer advogado da AGU — o repertório tácito, antes preso ao advogado experiente, virou ativo institucional acessível. O Sapiens virou referência para outras instituições de advocacia pública (procuradorias estaduais e municipais)."
+governanca: "Uso é regulado por normativos internos da AGU. Toda peça produzida com apoio do sistema é revisada e assinada por advogado público. Uso de camadas de IA é limitado a apoio à pesquisa e sugestão — decisão jurídica e responsabilidade continuam com o humano. Base de dados jurídicos é institucional; não há envio de conteúdo sigiloso a fornecedor externo de IA. Ampliações passam por avaliação institucional e são apresentadas à Corregedoria."
+aprendizados: "O caso mostra que o valor da IA em advocacia pública está em amplificar o advogado experiente e nivelar acesso a conhecimento institucional — não em substituir o julgamento jurídico. O padrão que emergiu (plataforma consolidada, IA como camada, humano no ciclo, trilha de decisão) é convergente com o de outros órgãos brasileiros de setor jurídico (Sofia no TCU, Radar no TJ-MG, Victor no STF, Sinapses no CNJ). Para procuradorias estaduais e municipais que consideram trilha semelhante, o Sapiens é a referência mais próxima em termos de arquitetura — e a AGU tem publicado apresentações institucionais que descrevem a evolução."
+---

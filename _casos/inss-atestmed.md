@@ -1,0 +1,21 @@
+---
+title: "INSS Atestmed: análise documental de atestados médicos que devolveu prazo à perícia federal"
+resumo: "O INSS implantou o Atestmed — sistema que analisa por vias documental e algorítmica atestados médicos anexados pelo segurado no Meu INSS, para conceder benefícios simples (auxílio por incapacidade temporária de curta duração) sem exigir perícia presencial, e priorizar perícia humana onde ela faz diferença."
+tecnologia: "OCR + regras de risco + integração com Meu INSS e base de segurados + supervisão médica humana em amostras + integração com Perícia Médica Federal"
+principal_resultado: "Redução drástica das filas históricas do INSS para benefícios simples — de meses de espera para dias ou semanas — permitindo à Perícia Médica Federal concentrar equipe humana em casos complexos, revisões e concessões de maior valor."
+organizacao: "Instituto Nacional do Seguro Social (INSS) · Perícia Médica Federal · Ministério da Previdência Social"
+esfera: "Federal"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "Brasil"
+ano: "2023 (em operação)"
+grau_risco: "alto"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (INSS, Ministério da Previdência, imprensa, TCU)"
+tags: ["Previdência", "Perícia médica", "Auxílio-doença", "Análise documental", "Meu INSS"]
+problema: "O INSS enfrentava, ao longo dos anos 2010–2020, filas históricas para benefícios por incapacidade — segurado esperando meses por perícia presencial para casos que, na maioria, se resolveriam por atestado documental simples. A perícia médica federal, com número limitado de peritos concursados e distribuição geográfica desigual, ficava sobrecarregada com casos rotineiros — enquanto casos complexos (revisões, aposentadoria por invalidez, benefícios de longo prazo) esperavam junto. A fila era simétrica em custo humano: o segurado sem renda esperando, o perito sem tempo de olhar caso difícil."
+solucao: "O Atestmed permite que o segurado anexe atestado médico digitalizado ao pedido de auxílio por incapacidade temporária pelo aplicativo Meu INSS. O sistema aplica OCR para leitura do atestado, verifica regras (existência de CID, período de afastamento, dados do médico registrado no CFM) e, quando o caso se enquadra em critérios objetivos previstos, concede o benefício de forma automatizada — com prazo curto (até 180 dias por concessão inicial) e supervisão em amostragem. Casos que não se enquadram nos critérios objetivos vão para fila de perícia humana."
+impacto: "Redução drástica da fila histórica do INSS para benefícios simples — de meses para dias ou semanas em muitos casos. Perícia Médica Federal concentra equipe humana nos casos complexos, onde exame presencial faz diferença. Segurado com condição temporária clara (fratura, pós-operatório curto) tem alívio rápido. O modelo virou marco na reforma operacional recente do INSS e influencia debate sobre outras áreas de atendimento federal em massa."
+governanca: "Uso é regulado por normativos do INSS e da Perícia Médica Federal, ancorados em base legal previdenciária. Auditoria por amostragem verifica qualidade das concessões automatizadas. Segurado tem direito a contestação e a exigir perícia presencial. TCU monitora indicadores agregados. A ferramenta é objeto de debate — corporações médicas questionaram limites, o próprio INSS ajustou regras ao longo do tempo. LGPD se aplica a dados de saúde do segurado com regime específico."
+aprendizados: "O caso mostra o valor de segmentar demanda por complexidade — não substitui o perito, mas libera-o do caso rotineiro. Três lições estruturais: (1) atendimento em massa federal precisa de camada digital robusta para funcionar — o Meu INSS foi o alicerce que tornou o Atestmed possível; (2) aversão a risco no desenho é o que sustenta legitimidade — concessão automatizada é limitada a casos objetivos, com prazo curto e supervisão; (3) canal humano continua disponível como direito — quem quer perícia presencial pede, sem penalidade. Para outros benefícios sociais em massa (BPC, auxílio emergencial futuro), a arquitetura Atestmed é referência: automatiza o simples, prioriza o complexo, preserva o direito ao humano."
+---

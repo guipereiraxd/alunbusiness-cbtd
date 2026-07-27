@@ -1,0 +1,21 @@
+---
+title: "BNDES: analítica e IA na análise de crédito de fomento à economia brasileira"
+resumo: "O Banco Nacional de Desenvolvimento Econômico e Social incorporou aprendizado de máquina em várias etapas do ciclo de crédito — do pré-scoring de operações e classificação de risco à detecção de sinais de deterioração em carteira ativa —, sustentando decisões que envolvem centenas de bilhões de reais em fomento nacional."
+tecnologia: "Data warehouse de operações e carteira + aprendizado de máquina para scoring de risco + análise de dados setoriais (RAIS, Receita, SPED) + BI de gestão de portfolio + auditoria interna e externa (TCU, CGU)"
+principal_resultado: "Análise de crédito mais consistente e rápida, com apoio a decisões que envolvem grandes volumes; monitoramento contínuo de carteira permite intervenção antecipada em operações com sinais de risco; ganho de produtividade da equipe técnica em análise inicial."
+organizacao: "Banco Nacional de Desenvolvimento Econômico e Social (BNDES)"
+esfera: "Federal"
+poder: "Executivo (empresa pública federal)"
+area: "Processos administrativos"
+localidade: "Brasil"
+ano: "iniciativas em evolução, com marcos nos anos 2010–2020"
+grau_risco: "alto"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (BNDES, apresentações institucionais, TCU, imprensa financeira)"
+tags: ["Fomento", "Análise de crédito", "Risco de portfolio", "Aprendizado de máquina", "Empresa pública"]
+problema: "O BNDES analisa e acompanha operações de fomento que somam centenas de bilhões de reais em carteira — de grande infraestrutura a linhas de apoio à indústria e à micro e pequena empresa. Cada operação exige análise técnica em múltiplas dimensões (crédito, técnica, ambiental, jurídica) e o portfolio ativo precisa de monitoramento contínuo. Sem apoio analítico, a análise fica cara, lenta e desigual entre operações; o monitoramento fica reativo — reação a sinais que já viraram problema, em vez de antecipação."
+solucao: "O BNDES incorporou, em ciclos sucessivos, camadas analíticas no ciclo de crédito. Na entrada, modelos de pré-scoring apoiam a triagem de propostas e a classificação inicial de risco, com uso de dados públicos (RAIS, Receita, SPED) e da própria história do Banco com o setor. Durante o acompanhamento, sinais de risco (queda de faturamento, atraso em obrigações fiscais, cadastro em bases de restrição) alimentam alertas para a equipe técnica. Todo o esforço opera com decisão humana no ciclo — o modelo prioriza, sugere; o comitê decide. Auditoria interna e do TCU acompanha a qualidade das decisões apoiadas."
+impacto: "Ganho de consistência na análise inicial de propostas e de velocidade em operações de menor porte. Detecção antecipada de deterioração em operações de portfolio, permitindo negociação preventiva. Alocação da equipe técnica em análises de maior valor agregado. O modelo evoluiu em ciclos, com incorporação progressiva de fontes de dados e refinamento de modelos, sempre em diálogo com áreas de negócio e de controle."
+governanca: "O BNDES tem estatuto que garante autonomia técnica. Uso de analítica em decisão de crédito passa por comitê de risco, que responde por decisões nos moldes de banco comercial (Bacen regula). Auditoria interna e TCU acompanham indicadores. Uso de dados de clientes segue regulação bancária e LGPD. Ampliações passam por avaliação metodológica e institucional. Base histórica do banco é ativo estratégico — não compartilhada com fornecedor externo em condições que exponham posição competitiva de cliente."
+aprendizados: "O caso mostra como a analítica aplicada ao fomento público brasileiro se estruturou em cima de infraestrutura de dados que o próprio Brasil construiu — RAIS, Receita, SPED, cadastros nacionais. Três lições transversais: (1) fomento público moderno exige capacidade analítica interna, não pode terceirizar julgamento de risco; (2) apoio à decisão em crédito preserva o comitê humano — regulação bancária exige, e faz sentido operacional; (3) monitoramento contínuo de carteira é onde a analítica gera valor mais claro — antecipa problema, não substitui análise. Para agências de fomento estaduais e para o próprio BNDES em sua evolução, o horizonte é IA generativa aplicada à análise setorial (relatórios, estudos, comparação internacional) — sempre como apoio ao analista, não substituição."
+---
