@@ -21,17 +21,38 @@ description: "Fale com a Alun Business — estruture a jornada de IA da sua orga
     </div>
 
     <!--
-      FORMULÁRIO PLACEHOLDER — fácil de trocar.
-      Para ativar: troque este <form> por um endpoint (ex.: action="https://formspree.io/f/XXXX" method="POST")
-      ou integração de CRM. Os campos abaixo já seguem os nomes esperados.
+      HubSpot: cole o Portal ID e o Form ID (e a região, se não for na1) nas constantes
+      HS_PORTAL / HS_FORM / HS_REGION no script no fim desta página. Enquanto forem
+      placeholders, mostramos o formulário de exemplo abaixo como fallback.
     -->
-    <form class="form rv" onsubmit="return false" aria-label="Formulário de contato (placeholder)">
+    <div id="hs-form" aria-live="polite"></div>
+    <form id="fallback-form" class="form rv" onsubmit="return false" aria-label="Formulário de contato">
       <label><b>Nome</b><input name="nome" type="text" placeholder="Seu nome"></label>
       <label><b>Organização</b><input name="organizacao" type="text" placeholder="Órgão ou empresa pública"></label>
       <label><b>E-mail institucional</b><input name="email" type="email" placeholder="nome@orgao.gov.br"></label>
       <label><b>Como podemos ajudar?</b><textarea name="mensagem" placeholder="Descreva seu desafio ou interesse"></textarea></label>
       <button class="btn btn-primary" type="submit">Enviar <svg width="16" height="16"><use href="#i-arrow"></use></svg></button>
     </form>
-    <div class="note"><b>Placeholder:</b> o envio ainda não está conectado. É só trocar o destino do formulário (serviço de forms ou CRM) quando definido.</div>
+    <div id="form-note" class="note"><b>Formulário do HubSpot ainda não configurado.</b> Assim que você informar o Portal ID e o Form ID, o lead passa a cair direto no CRM. Ao usar o formulário do HubSpot, ele pode registrar um cookie próprio — coberto na <a href="{{ '/setorpublico/privacidade/' | relative_url }}">política de privacidade</a>.</div>
   </section>
 </div>
+
+{% raw %}
+<script>
+(function(){
+  var HS_REGION = 'na1';         // região do HubSpot (na1, eu1…)
+  var HS_PORTAL = 'PORTAL_ID';   // ← cole aqui o Portal ID do HubSpot
+  var HS_FORM   = 'FORM_ID';     // ← cole aqui o Form ID do HubSpot
+  if(HS_PORTAL === 'PORTAL_ID' || HS_FORM === 'FORM_ID') return; // ainda não configurado → mantém o fallback
+  var s = document.createElement('script');
+  s.src = 'https://js.hsforms.net/forms/embed/v2.js'; s.async = true;
+  s.onload = function(){
+    if(!window.hbspt) return;
+    window.hbspt.forms.create({ region:HS_REGION, portalId:HS_PORTAL, formId:HS_FORM, target:'#hs-form' });
+    var fb=document.getElementById('fallback-form'); if(fb) fb.style.display='none';
+    var nt=document.getElementById('form-note'); if(nt) nt.style.display='none';
+  };
+  document.body.appendChild(s);
+})();
+</script>
+{% endraw %}
