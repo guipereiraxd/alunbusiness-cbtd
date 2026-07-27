@@ -12,94 +12,140 @@ title: "Posso usar IA para isso?"
   <section class="blk" style="border-bottom:0;padding-top:32px;padding-bottom:60px">
     <div class="note no-print"><b>Leitura orientativa:</b> o resultado é uma orientação inicial e <b>não substitui</b> análise jurídica, técnica ou institucional. Na dúvida, trate como o cenário mais protetivo.</div>
 
-    <form id="quiz" class="quiz no-print">
-      <div class="quiz-q">
-        <div class="qt">1. O uso está autorizado pela sua organização?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Uso autorizado pela organização">
-          <label class="quiz-opt"><input type="radio" name="autorizado" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="autorizado" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="autorizado" value="naosei"><span>Não sei</span></label>
+    <div id="quiz-wiz" class="wiz no-print">
+      <div class="wiz-head">
+        <div>
+          <div class="wpos" id="wpos">Etapa 1 de 5</div>
+          <div class="wtitle" id="wtitle">Autorização</div>
         </div>
+        <div class="wiz-dots" id="wdots" role="tablist" aria-label="Etapas do quiz"></div>
       </div>
-      <div class="quiz-q">
-        <div class="qt">2. O documento ou dado é sigiloso ou classificado?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Documento sigiloso">
-          <label class="quiz-opt"><input type="radio" name="sigiloso" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="sigiloso" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="sigiloso" value="naosei"><span>Não sei</span></label>
-        </div>
-      </div>
-      <div class="quiz-q">
-        <div class="qt">3. O conteúdo contém dados pessoais?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Contém dados pessoais">
-          <label class="quiz-opt"><input type="radio" name="pessoais" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="pessoais" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="pessoais" value="naosei"><span>Não sei</span></label>
-        </div>
-      </div>
-      <div class="quiz-q">
-        <div class="qt">4. Há dados sensíveis (saúde, biometria, origem, opinião, etc.)?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Contém dados sensíveis">
-          <label class="quiz-opt"><input type="radio" name="sensiveis" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="sensiveis" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="sensiveis" value="naosei"><span>Não sei</span></label>
-        </div>
-      </div>
-      <div class="quiz-q">
-        <div class="qt">5. A IA vai influenciar uma decisão sobre pessoas (direitos, benefícios, seleção)?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Influencia decisão sobre pessoas">
-          <label class="quiz-opt"><input type="radio" name="decisao" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="decisao" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="decisao" value="naosei"><span>Não sei</span></label>
-        </div>
-      </div>
-      <div class="quiz-q">
-        <div class="qt">6. Uma pessoa vai revisar o resultado antes de ele valer?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Revisão humana">
-          <label class="quiz-opt"><input type="radio" name="revisao" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="revisao" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="revisao" value="naosei"><span>Não sei</span></label>
-        </div>
-      </div>
-      <div class="quiz-q">
-        <div class="qt">7. A decisão pode ser explicada a quem for afetado?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Decisão explicável">
-          <label class="quiz-opt"><input type="radio" name="explicavel" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="explicavel" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="explicavel" value="naosei"><span>Não sei</span></label>
-        </div>
-      </div>
-      <div class="quiz-q">
-        <div class="qt">8. A saída será publicada ou terá efeito externo?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Saída publicada">
-          <label class="quiz-opt"><input type="radio" name="publicada" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="publicada" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="publicada" value="naosei"><span>Não sei</span></label>
-        </div>
-      </div>
-      <div class="quiz-q">
-        <div class="qt">9. O fornecedor pode usar seus dados para treinar o modelo?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Fornecedor usa dados para treinamento">
-          <label class="quiz-opt"><input type="radio" name="treinamento" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="treinamento" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="treinamento" value="naosei"><span>Não sei</span></label>
-        </div>
-      </div>
-      <div class="quiz-q">
-        <div class="qt">10. Existe alternativa sem IA que resolve igual?</div>
-        <div class="quiz-opts" role="radiogroup" aria-label="Existe alternativa sem IA">
-          <label class="quiz-opt"><input type="radio" name="alternativa" value="sim"><span>Sim</span></label>
-          <label class="quiz-opt"><input type="radio" name="alternativa" value="nao"><span>Não</span></label>
-          <label class="quiz-opt"><input type="radio" name="alternativa" value="naosei"><span>Não sei</span></label>
-        </div>
-      </div>
-    </form>
+      <div class="wiz-bar"><div class="wfill" id="wfill" style="width:20%"></div></div>
 
-    <div class="actions no-print" style="margin-top:24px">
-      <button id="quiz-go" class="btn btn-primary" type="button">Ver resultado <svg width="16" height="16"><use href="#i-arrow"></use></svg></button>
-      <button id="quiz-reset" class="btn btn-line" type="button">Recomeçar</button>
+      <form id="quiz">
+        <div class="wiz-step on" data-step="0">
+          <p class="wsub">Antes de tudo — o uso está previsto pela organização?</p>
+          <div class="quiz">
+            <div class="quiz-q">
+              <div class="qt">1. O uso está autorizado pela sua organização?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="autorizado" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="autorizado" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="autorizado" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wiz-step" data-step="1">
+          <p class="wsub">Que tipo de informação está envolvida? Isso determina onde o conteúdo pode ou não ser processado.</p>
+          <div class="quiz">
+            <div class="quiz-q">
+              <div class="qt">2. O documento ou dado é sigiloso ou classificado?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="sigiloso" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="sigiloso" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="sigiloso" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+            <div class="quiz-q">
+              <div class="qt">3. O conteúdo contém dados pessoais?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="pessoais" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="pessoais" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="pessoais" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+            <div class="quiz-q">
+              <div class="qt">4. Há dados sensíveis (saúde, biometria, origem, opinião, etc.)?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="sensiveis" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="sensiveis" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="sensiveis" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wiz-step" data-step="2">
+          <p class="wsub">A IA vai apoiar decisões que afetam pessoas?</p>
+          <div class="quiz">
+            <div class="quiz-q">
+              <div class="qt">5. A IA vai influenciar uma decisão sobre pessoas (direitos, benefícios, seleção)?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="decisao" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="decisao" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="decisao" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wiz-step" data-step="3">
+          <p class="wsub">Existe supervisão humana, explicabilidade e revisão antes da saída valer?</p>
+          <div class="quiz">
+            <div class="quiz-q">
+              <div class="qt">6. Uma pessoa vai revisar o resultado antes de ele valer?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="revisao" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="revisao" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="revisao" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+            <div class="quiz-q">
+              <div class="qt">7. A decisão pode ser explicada a quem for afetado?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="explicavel" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="explicavel" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="explicavel" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+            <div class="quiz-q">
+              <div class="qt">8. A saída será publicada ou terá efeito externo?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="publicada" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="publicada" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="publicada" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wiz-step" data-step="4">
+          <p class="wsub">Duas últimas perguntas sobre ferramenta e alternativas.</p>
+          <div class="quiz">
+            <div class="quiz-q">
+              <div class="qt">9. O fornecedor pode usar seus dados para treinar o modelo?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="treinamento" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="treinamento" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="treinamento" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+            <div class="quiz-q">
+              <div class="qt">10. Existe alternativa sem IA que resolve igual?</div>
+              <div class="quiz-opts" role="radiogroup">
+                <label class="quiz-opt"><input type="radio" name="alternativa" value="sim"><span>Sim</span></label>
+                <label class="quiz-opt"><input type="radio" name="alternativa" value="nao"><span>Não</span></label>
+                <label class="quiz-opt"><input type="radio" name="alternativa" value="naosei"><span>Não sei</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="wiz-nav">
+        <div class="wleft">
+          <button id="wprev" class="btn btn-line" type="button" disabled>Voltar</button>
+        </div>
+        <div class="wright">
+          <button id="wnext" class="btn btn-primary" type="button">Próxima etapa <svg width="16" height="16"><use href="#i-arrow"></use></svg></button>
+          <button id="wgo" class="btn btn-primary" type="button" style="display:none">Ver resultado <svg width="16" height="16"><use href="#i-arrow"></use></svg></button>
+          <button id="wreset" class="btn btn-line" type="button">Recomeçar</button>
+        </div>
+        <div class="step-msg" id="stepmsg">Responda a todas as perguntas desta etapa para continuar.</div>
+      </div>
     </div>
-    <div id="quiz-msg" class="quiz-msg">Responda a todas as dez perguntas para ver o resultado.</div>
 
     <div id="result" class="result" role="region" aria-live="polite" tabindex="-1"></div>
   </section>
@@ -110,15 +156,56 @@ title: "Posso usar IA para isso?"
 (function(){
   var form = document.getElementById('quiz');
   if(!form) return;
-  var go = document.getElementById('quiz-go');
-  var reset = document.getElementById('quiz-reset');
-  var msg = document.getElementById('quiz-msg');
+  var wiz = document.getElementById('quiz-wiz');
+  var steps = wiz.querySelectorAll('.wiz-step');
+  var titles = ['Autorização','Confidencialidade e dados','Impacto sobre pessoas','Supervisão e efeito','Ferramenta e alternativa'];
+  var groups = [['autorizado'],['sigiloso','pessoais','sensiveis'],['decisao'],['revisao','explicavel','publicada'],['treinamento','alternativa']];
+  var wpos = document.getElementById('wpos'), wtitle = document.getElementById('wtitle');
+  var wfill = document.getElementById('wfill'), wdots = document.getElementById('wdots');
+  var wprev = document.getElementById('wprev'), wnext = document.getElementById('wnext'), wgo = document.getElementById('wgo');
+  var wreset = document.getElementById('wreset'), stepmsg = document.getElementById('stepmsg');
   var result = document.getElementById('result');
-  var names = ['autorizado','sigiloso','pessoais','sensiveis','decisao','revisao','explicavel','publicada','treinamento','alternativa'];
+  var cur = 0;
 
   function val(n){ var el = form.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : null; }
-  // risco = responde no sentido de risco OU não sabe
   function risk(n, riskAns){ var v = val(n); return v === riskAns || v === 'naosei'; }
+  function stepDone(i){ return groups[i].every(function(n){ return val(n); }); }
+
+  function renderDots(){
+    wdots.innerHTML = '';
+    titles.forEach(function(t,i){
+      var b = document.createElement('button');
+      b.type = 'button'; b.textContent = String(i+1).padStart(2,'0');
+      b.setAttribute('aria-label','Ir para etapa '+(i+1)+': '+t);
+      if(i === cur) b.className = 'on';
+      else if(stepDone(i)) b.className = 'done';
+      b.addEventListener('click', function(){ go(i); });
+      wdots.appendChild(b);
+    });
+  }
+
+  function paint(){
+    steps.forEach(function(s,i){ s.classList.toggle('on', i === cur); });
+    wpos.textContent = 'Etapa '+(cur+1)+' de '+steps.length;
+    wtitle.textContent = titles[cur];
+    wfill.style.width = ((cur+1)/steps.length*100)+'%';
+    wprev.disabled = cur === 0;
+    var last = cur === steps.length - 1;
+    wnext.style.display = last ? 'none' : '';
+    wgo.style.display = last ? '' : 'none';
+    renderDots();
+    stepmsg.classList.remove('show');
+  }
+
+  function go(i){
+    if(i > cur && !stepDone(cur)){ stepmsg.classList.add('show'); return; }
+    cur = Math.max(0, Math.min(steps.length-1, i));
+    paint();
+    wiz.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  wnext.addEventListener('click', function(){ go(cur+1); });
+  wprev.addEventListener('click', function(){ go(cur-1); });
 
   var outcomes = {
     naoAutorizado: { sev:'alr', icon:'i-shield', label:'Antes de tudo, autorização',
@@ -156,7 +243,6 @@ title: "Posso usar IA para isso?"
     var semRevisao = risk('revisao','nao');
     var naoExplicavel = risk('explicavel','nao');
     var treinamento = risk('treinamento','sim');
-
     if(!autorizadoOK) return 'naoAutorizado';
     if(decisao && semRevisao && naoExplicavel) return 'naoRecomendado';
     if(sigiloso || sensiveis) return 'juridico';
@@ -178,15 +264,9 @@ title: "Posso usar IA para isso?"
   function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
   function li(arr){ return arr.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join(''); }
 
-  go.addEventListener('click', function(){
-    var missing = names.filter(function(n){ return !val(n); });
-    if(missing.length){
-      msg.classList.add('show');
-      var first = form.querySelector('input[name="'+missing[0]+'"]');
-      if(first) first.closest('.quiz-q').scrollIntoView({behavior:'smooth', block:'center'});
-      return;
-    }
-    msg.classList.remove('show');
+  wgo.addEventListener('click', function(){
+    if(!stepDone(cur)){ stepmsg.classList.add('show'); return; }
+    stepmsg.classList.remove('show');
     var o = outcomes[decide()];
     var extra = cautions();
     var html =
@@ -208,13 +288,16 @@ title: "Posso usar IA para isso?"
     result.focus({preventScroll:true});
   });
 
-  reset.addEventListener('click', function(){
+  wreset.addEventListener('click', function(){
     form.reset();
-    result.className = 'result';
-    result.innerHTML = '';
-    msg.classList.remove('show');
-    form.scrollIntoView({behavior:'smooth', block:'start'});
+    result.className = 'result'; result.innerHTML = '';
+    cur = 0; paint();
+    wiz.scrollIntoView({behavior:'smooth', block:'start'});
   });
+
+  form.addEventListener('change', function(){ renderDots(); stepmsg.classList.remove('show'); });
+
+  paint();
 })();
 </script>
 {% endraw %}
