@@ -24,11 +24,27 @@ description: "Uma iniciativa da Alun Business — divisão B2B do Grupo Alun (Al
     <div class="sec-k">Ecossistema Alun</div>
     <h2>Quatro marcas, uma tese de transformação</h2>
     <p class="lead">A Alun Business é a divisão B2B do Grupo Alun — que reúne quatro das principais marcas de educação executiva, técnica e de inovação do país. É essa combinação que nos permite atuar do letramento à liderança, e do técnico ao estratégico, dentro de uma mesma jornada.</p>
-    <div class="cards c4 rv" style="margin-top:30px">
-      <div class="card"><div class="card-k">Alura</div><h3>Tecnologia em escala</h3><p>Formação técnica em tecnologia, dados, cloud e IA — a maior escola de tecnologia do país em cobertura.</p></div>
-      <div class="card"><div class="card-k">FIAP</div><h3>Formação executiva</h3><p>Formação acadêmica, inovação aplicada e preparação de lideranças em alta complexidade.</p></div>
-      <div class="card"><div class="card-k">PM3</div><h3>Produto e gestão</h3><p>Produto digital, growth e gestão — do discovery à execução, com autoridade no mercado.</p></div>
-      <div class="card"><div class="card-k">StartSe</div><h3>Visão global</h3><p>Visão global, inovação e liderança em transformação acelerada, com imersões internacionais.</p></div>
+    <div class="marcas-grid rv" style="margin-top:30px">
+      <div class="marca">
+        <div class="marca-logo"><img src="{{ '/setorpublico/assets/brand/alura-logo.svg' | relative_url }}" alt="Alura"></div>
+        <h3>Tecnologia em escala</h3>
+        <p>Formação técnica em tecnologia, dados, cloud e IA — a maior escola de tecnologia do país em cobertura.</p>
+      </div>
+      <div class="marca">
+        <div class="marca-logo"><img src="{{ '/setorpublico/assets/brand/fiap-logo.svg' | relative_url }}" alt="FIAP"></div>
+        <h3>Formação executiva</h3>
+        <p>Formação acadêmica, inovação aplicada e preparação de lideranças em alta complexidade.</p>
+      </div>
+      <div class="marca">
+        <div class="marca-logo"><img src="{{ '/setorpublico/assets/brand/pm3-logo.svg' | relative_url }}" alt="PM3"></div>
+        <h3>Produto e gestão</h3>
+        <p>Produto digital, growth e gestão — do discovery à execução, com autoridade no mercado.</p>
+      </div>
+      <div class="marca">
+        <div class="marca-logo"><img src="{{ '/setorpublico/assets/brand/startse-logo.svg' | relative_url }}" alt="StartSe"></div>
+        <h3>Visão global</h3>
+        <p>Visão global, inovação e liderança em transformação acelerada, com imersões internacionais.</p>
+      </div>
     </div>
     <div class="note" style="margin-top:24px"><b>Como isso importa para o setor público:</b> o mesmo repertório que ajudou milhares de empresas a atravessar transformações digitais informa este portal — adaptado ao regime jurídico, aos ciclos de contratação e à realidade orçamentária das organizações públicas brasileiras.</div>
   </div>
