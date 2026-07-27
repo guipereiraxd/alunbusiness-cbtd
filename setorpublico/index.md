@@ -208,22 +208,19 @@ description: "IA a serviço público: onde a inteligência artificial gera valor
     <p class="lead">Sete casos documentados, do Poupatempo ao TCU, do STF à União Europeia. Cada um com problema, solução, impacto, governança e aprendizados.</p>
     <div class="cases-feat rv">
       <a class="casef big" href="{{ '/setorpublico/casos/alice-cgu/' | relative_url }}">
-        <span class="badge alr" style="align-self:flex-start"><i></i>Risco: médio</span>
-        <div class="meta" style="margin-top:14px">CGU · Controle e auditoria</div>
+        <div class="meta">CGU · Controle e auditoria</div>
         <h3>Alice: auditoria contínua de licitações</h3>
         <p class="desc">RPA e NLP analisam 100% das compras federais e sinalizam risco em dias — mais de R$ 9,7 bilhões em licitações suspensas ou canceladas entre 2019 e 2022.</p>
         <div class="foot"><span style="font-family:var(--mono);font-size:11px;color:var(--tx3)">Em produção · desde 2014</span><span style="color:var(--brand-p);font-family:var(--disp);font-weight:600;font-size:13px">Ver caso →</span></div>
       </a>
       <a class="casef" href="{{ '/setorpublico/casos/burokratt-estonia/' | relative_url }}">
-        <span class="badge ris" style="align-self:flex-start"><i></i>Risco: médio</span>
-        <div class="meta" style="margin-top:14px">Estônia · Atendimento</div>
+        <div class="meta">Estônia · Atendimento</div>
         <h3>Bürokratt: interface única de serviços</h3>
         <p class="desc">Um assistente virtual interoperável para acessar qualquer serviço público num só canal.</p>
         <div class="foot"><span style="font-family:var(--mono);font-size:11px;color:var(--tx3)">Em desenvolvimento</span><span style="color:var(--brand-p);font-family:var(--disp);font-weight:600;font-size:13px">Ver →</span></div>
       </a>
       <a class="casef" href="{{ '/setorpublico/casos/victor-stf/' | relative_url }}">
-        <span class="badge ris" style="align-self:flex-start"><i></i>Risco: médio</span>
-        <div class="meta" style="margin-top:14px">STF · Processos</div>
+        <div class="meta">STF · Processos</div>
         <h3>Victor: triagem de peças no STF</h3>
         <p class="desc">OCR e classificação de temas de repercussão geral, poupando milhares de horas.</p>
         <div class="foot"><span style="font-family:var(--mono);font-size:11px;color:var(--tx3)">Em produção · desde 2018</span><span style="color:var(--brand-p);font-family:var(--disp);font-weight:600;font-size:13px">Ver →</span></div>
