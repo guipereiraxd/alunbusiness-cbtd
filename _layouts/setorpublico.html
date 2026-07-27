@@ -651,6 +651,36 @@ a.card:hover .go{gap:11px;color:var(--brand-p)}
 .result .rdesc{color:var(--tx2);font-size:15px;line-height:1.55;margin-top:7px;max-width:64ch}
 .result .rk{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);margin:22px 0 8px}
 
+/* ciclo de governança (clicável) */
+.gov-cycle{margin-top:26px}
+.gov-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+@media(max-width:900px){ .gov-track{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:560px){ .gov-track{grid-template-columns:1fr} }
+.gov-phase{position:relative;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  padding:18px 16px 20px;cursor:pointer;transition:all .18s ease;font-family:var(--sans)}
+.gov-phase:hover{border-color:var(--brand-p);transform:translateY(-2px)}
+.gov-phase.on{border-color:transparent;background:var(--grad);color:#fff;box-shadow:0 12px 30px -10px rgba(90,46,138,.45)}
+.gov-phase.on .gp-num,.gov-phase.on .gp-name,.gov-phase.on .gp-hint{color:#fff}
+.gov-phase.on .gp-hint{opacity:.85}
+.gov-phase .gp-num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--brand-p);text-transform:uppercase}
+.gov-phase .gp-name{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);margin-top:6px;letter-spacing:-.005em}
+.gov-phase .gp-hint{font-size:12.5px;color:var(--tx3);margin-top:6px;line-height:1.4}
+.gov-detail{margin-top:22px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px 28px;
+  animation:wizIn .28s ease}
+.gov-detail .gd-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;
+  padding-bottom:16px;border-bottom:1px solid var(--line)}
+.gov-detail .gd-title{font-family:var(--disp);font-weight:600;font-size:22px;color:var(--ink);margin:0;letter-spacing:-.01em}
+.gov-detail .gd-sk{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--brand-p);text-transform:uppercase}
+.gov-detail .gd-purpose{color:var(--tx2);font-size:15px;line-height:1.6;margin-top:14px;max-width:66ch}
+.gov-detail .gd-comps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+@media(max-width:760px){ .gov-detail .gd-comps{grid-template-columns:1fr} }
+.gov-detail .gd-comp{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;position:relative}
+.gov-detail .gd-comp .cn{font-family:var(--mono);font-size:10.5px;color:var(--tx3);letter-spacing:.06em}
+.gov-detail .gd-comp .ct{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--ink);margin:4px 0 6px}
+.gov-detail .gd-comp .cd{color:var(--tx2);font-size:13.5px;line-height:1.5}
+.gov-detail .gd-comp .cm{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-family:var(--mono);font-size:10.5px;color:var(--tx3);letter-spacing:.04em}
+.gov-detail .gd-comp .cm b{color:var(--brand-p);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-right:5px}
+
 /* wizard (multi-step para ferramentas) */
 .wiz{margin-top:26px}
 .wiz-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
