@@ -430,6 +430,12 @@ footer.bottom .sig a{color:var(--accent);text-decoration:none}
   if(!b||!n)return;
   b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);});
 })();
+// acessibilidade: ícones decorativos (svg sem rótulo/role) ocultos p/ leitor de tela
+(function(){
+  [].slice.call(document.querySelectorAll('svg:not([aria-label]):not([role])')).forEach(function(s){
+    s.setAttribute('aria-hidden','true'); s.setAttribute('focusable','false');
+  });
+})();
 // compartilhar (Web Share API + fallback de copiar link)
 document.addEventListener('click',function(ev){
   var b=ev.target.closest('.share-btn'); if(!b) return;
