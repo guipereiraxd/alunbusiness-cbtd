@@ -1,0 +1,19 @@
+---
+title: "Malha fiscal com IA: fiscalização por exceção nas Sefaz"
+resumo: "Mineração de dados e IA cruzam informações fiscais para achar inconsistências — de uma análise que levava meses a resultados diários, com ganhos expressivos de arrecadação."
+organizacao: "Secretarias de Fazenda estaduais (Sefaz)"
+esfera: "Estadual"
+poder: "Executivo"
+area: "Controle e auditoria"
+localidade: "Brasil (vários estados)"
+ano: "desde 2019"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Sefaz de MG, BA, PA e SP; imprensa)"
+tags: ["Fazenda", "Arrecadação", "Gestão de risco", "Mineração de dados", "Controle"]
+problema: "A sonegação e a fraude no ICMS corroem a arrecadação estadual, mas a análise manual das malhas fiscais era lenta — chegava a levar até três meses — e não acompanhava o volume de transações. Fiscalizar por amostragem deixava passar tanto o irregular quanto o tempo de agir sobre ele."
+solucao: "As Secretarias de Fazenda passaram a usar mineração de dados com IA para cruzar informações fiscais, detectar inconsistências e sinalizar empresas com indícios de irregularidade (as chamadas 'noteiras'). A lógica é de fiscalização por exceção: o sistema processa o volume e prioriza os casos de maior risco, com resultados atualizados diariamente em vez de trimestralmente."
+impacto: "Os ganhos aparecem em vários estados. Minas Gerais elevou a recuperação de receita em 32%, de R$ 1,55 bilhão para R$ 2,05 bilhões. A Bahia obteve incremento de R$ 230 milhões no primeiro ano (2019–2020). O Pará identificou 1.657 empresas com indícios de irregularidade desde 2019. Em São Paulo, malhas estruturadas resultaram em créditos tributários da ordem de R$ 10 bilhões. E o tempo de análise caiu de meses para diário."
+governanca: "A IA sinaliza indícios; quem decide é o auditor, e a empresa tem direito ao contraditório no processo administrativo. O foco é priorização e tempestividade — não autuação automática."
+aprendizados: "É o mesmo padrão que aparece na Alice e no SISAM: fiscalização por exceção, em que a IA prioriza e o servidor decide. O ganho vem menos do 'acerto' do modelo e mais da tempestividade — agir em dias, não em meses — e da cobertura, que a análise manual não alcançava."
+---
