@@ -52,28 +52,33 @@ title: "Ferramentas"
         <div class="card-ic"><svg><use href="#i-shield"></use></svg></div>
         <h3>Kit de uso seguro</h3>
         <ul class="dashlist"><li>Guia de uso responsável</li><li>Checklist antes de utilizar IA</li><li>Lista de dados que não devem ser compartilhados</li><li>Guia de revisão humana</li><li>Modelo de política institucional</li><li>Perguntas frequentes</li></ul>
+        <a class="go" style="margin-top:16px;color:var(--accent)" href="{{ '/setorpublico/assets/kits/kit-uso-seguro.docx' | relative_url }}" download>Baixar modelo (DOCX) <svg width="14" height="14"><use href="#i-arrow"></use></svg></a>
       </div>
       <div class="card">
         <div class="card-ic"><svg><use href="#i-gauge"></use></svg></div>
         <h3>Kit de experimentação</h3>
         <ul class="dashlist"><li>Canvas de caso de uso</li><li>Plano de experimento</li><li>Modelo de hipótese</li><li>Registro de riscos</li><li>Plano de testes</li><li>Critérios de sucesso</li><li>Relatório de aprendizados</li></ul>
+        <a class="go" style="margin-top:16px;color:var(--accent)" href="{{ '/setorpublico/assets/kits/kit-experimentacao.docx' | relative_url }}" download>Baixar modelo (DOCX) <svg width="14" height="14"><use href="#i-arrow"></use></svg></a>
       </div>
       <div class="card">
         <div class="card-ic"><svg><use href="#i-inst"></use></svg></div>
         <h3>Kit de governança</h3>
         <ul class="dashlist"><li>Inventário de sistemas</li><li>Matriz de riscos</li><li>Avaliação de impacto</li><li>Registro de responsáveis</li><li>Checklist de transparência</li><li>Plano de monitoramento</li><li>Plano de resposta a incidentes</li></ul>
+        <a class="go" style="margin-top:16px;color:var(--accent)" href="{{ '/setorpublico/assets/kits/kit-governanca.docx' | relative_url }}" download>Baixar modelo (DOCX) <svg width="14" height="14"><use href="#i-arrow"></use></svg></a>
       </div>
       <div class="card">
         <div class="card-ic"><svg><use href="#i-scale"></use></svg></div>
         <h3>Kit de contratação</h3>
         <ul class="dashlist"><li>Checklist de fornecedor</li><li>Requisitos de segurança e de dados</li><li>Propriedade intelectual</li><li>Portabilidade</li><li>Prevenção de dependência</li><li>Direito de auditoria</li><li>Critérios de qualidade</li><li>Plano de continuidade e saída</li></ul>
+        <a class="go" style="margin-top:16px;color:var(--accent)" href="{{ '/setorpublico/assets/kits/kit-contratacao.docx' | relative_url }}" download>Baixar modelo (DOCX) <svg width="14" height="14"><use href="#i-arrow"></use></svg></a>
       </div>
       <div class="card">
         <div class="card-ic"><svg><use href="#i-path"></use></svg></div>
         <h3>Kit de escala</h3>
         <ul class="dashlist"><li>Modelo de centro de competência</li><li>Governança federada</li><li>Catálogo de componentes</li><li>Processo de submissão</li><li>Painel de benefícios</li><li>Comunidade de prática</li><li>Roadmap institucional</li></ul>
+        <a class="go" style="margin-top:16px;color:var(--accent)" href="{{ '/setorpublico/assets/kits/kit-escala.docx' | relative_url }}" download>Baixar modelo (DOCX) <svg width="14" height="14"><use href="#i-arrow"></use></svg></a>
       </div>
     </div>
-    <div class="note" style="margin-top:24px"><b>Downloads em breve.</b> O conteúdo dos kits está descrito acima; os arquivos para baixar (PDF, DOCX, XLSX, PPTX e modelos editáveis) entram em seguida.</div>
+    <div class="note" style="margin-top:24px"><b>Modelos editáveis em DOCX.</b> Cada kit acima traz checklists, canvas e modelos prontos para baixar, adaptar à realidade do seu órgão e preencher. São materiais orientativos — não substituem análise jurídica, técnica ou institucional.</div>
   </section>
 </div>
