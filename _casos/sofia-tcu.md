@@ -1,0 +1,21 @@
+---
+title: "Sofia (TCU): assistente de IA para auditores do Tribunal de Contas da União"
+resumo: "O TCU desenvolveu, no LabContas, um conjunto de assistentes de IA — sob o nome Sofia — que ajudam auditores a buscar precedentes, redigir minutas de acórdão, identificar risco em contratos e analisar bases de dados públicas. Uso institucional, com trilha de auditoria e supervisão humana."
+tecnologia: "NLP + busca semântica sobre a base de jurisprudência do TCU + LLMs (com controles de dados) + integração com sistemas do Tribunal"
+principal_resultado: "Redução significativa do tempo de pesquisa jurisprudencial e de redação de minutas — permitindo que a força de trabalho fixa do TCU acompanhe crescimento de casos sem expansão proporcional."
+organizacao: "Tribunal de Contas da União (TCU)"
+esfera: "Federal"
+poder: "Externo (auxiliar do Legislativo)"
+area: "Controle e auditoria"
+localidade: "Brasil"
+ano: "em operação"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (TCU, LabContas, apresentações institucionais)"
+tags: ["Controle externo", "Jurisprudência", "LLM", "Assistente de auditor", "Governança de IA"]
+problema: "O TCU processa dezenas de milhares de casos por ano — contas de gestores, auditorias operacionais, denúncias, representações — sobre um corpus de jurisprudência com mais de meio milhão de acórdãos acumulados desde 1992. O auditor gasta uma parcela grande do tempo buscando precedentes, comparando decisões e redigindo minutas repetitivas. Sem apoio tecnológico, ou a força de trabalho cresce indefinidamente ou a qualidade do controle degrada."
+solucao: "O LabContas do TCU desenvolveu — sob o nome Sofia — uma suíte de assistentes de IA para auditores. Componentes incluem: busca semântica na jurisprudência do Tribunal (encontra precedentes relevantes mesmo quando o termo exato não coincide), sumarização de processos volumosos, sugestão de minutas de despacho e acórdão baseadas em decisões análogas, análise de risco em contratos e alertas em bases federais. Rodam em infraestrutura do próprio TCU, com dados institucionais preservados. Cada saída é sugestão — o auditor edita, aprova e assina."
+impacto: "Auditores relatam redução expressiva no tempo de pesquisa e redação de minutas rotineiras, liberando tempo para as análises que exigem julgamento — que são justamente aquelas em que a IA não ajuda. O modelo permite o TCU acompanhar volume crescente de casos sem expansão proporcional da equipe. A ferramenta também democratiza o acesso a padrões decisórios do próprio Tribunal — auditor iniciante encontra hoje precedentes que antes exigiam anos de repertório para conhecer."
+governanca: "Uso é regulado por norma interna do TCU. Cada interação com o assistente fica registrada em trilha de auditoria por auditor e por processo. O corpus é próprio do TCU (jurisprudência pública) — não há envio de dados sigilosos a terceiros. Decisão final e responsabilidade permanecem com o auditor humano. Comitê interno revisa periodicamente a qualidade das sugestões e retreina modelos com feedback."
+aprendizados: "O caso mostra que o valor da IA para órgãos de controle está em amplificar o auditor experiente — não em substituí-lo. Auditor iniciante ganha acesso a padrões que antes eram tácitos; auditor sênior ganha tempo para o que só ele pode fazer. Três condições foram críticas: infraestrutura própria (não terceirizar dados sensíveis), integração no fluxo (não é ferramenta paralela, é parte do processo), e regulação interna clara (uso é permitido, mas rastreado e supervisionado). O modelo é replicável em qualquer tribunal de contas — TCE-SP, TCE-MG e outros já iniciaram trilhas semelhantes."
+---

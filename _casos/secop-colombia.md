@@ -1,0 +1,21 @@
+---
+title: "SECOP + Colombia Compra Eficiente: analítica antifraude sobre a compra pública nacional"
+resumo: "A agência colombiana Colombia Compra Eficiente aplica ML e análise de redes sobre o SECOP — o sistema eletrônico de compras públicas do país — para identificar padrões suspeitos: conluio entre fornecedores, sobrepreço sistemático, direcionamento de edital e concentração anômala de contratos."
+tecnologia: "Data warehouse do SECOP + graph analytics + aprendizado de máquina supervisionado + BI (Power BI) publicado ao cidadão"
+principal_resultado: "Dashboards abertos ao cidadão e a órgãos de controle permitem monitorar em tempo real todas as compras públicas colombianas, com alertas automáticos para padrões conhecidos de irregularidade — modelo referência na América Latina."
+organizacao: "Colombia Compra Eficiente"
+esfera: "Nacional (Colômbia)"
+poder: "Executivo"
+area: "Compras e contratos"
+localidade: "Colômbia"
+ano: "2015 (em operação, com evolução contínua)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Colombia Compra Eficiente, OCDE, Banco Interamericano de Desenvolvimento)"
+tags: ["Compras públicas", "Anti-fraude", "Graph analytics", "Transparência", "Dados abertos"]
+problema: "As compras públicas movimentam, em qualquer país, entre 10% e 20% do PIB — a maior porta de entrada de corrupção e ineficiência estatal. O modelo tradicional depende de auditoria posterior, feita por amostragem. Sem inteligência sobre o próprio sistema de compras, padrões de conluio, direcionamento e sobrepreço passam despercebidos até que uma denúncia formal detone investigação — anos depois do dinheiro sair."
+solucao: "A Colombia Compra Eficiente, órgão que administra o SECOP (Sistema Electrónico de Contratación Pública), aplica sobre a base de contratações públicas técnicas de graph analytics para mapear redes entre fornecedores, funcionários e órgãos, aprendizado de máquina para identificar padrões atípicos (concentração excessiva de contratos, editais restritivos, preços destoantes) e regras de negócio para inconsistências óbvias. Dashboards abertos permitem a cidadão, imprensa e órgãos de controle acompanhar todas as compras em tempo real, com filtros por órgão, fornecedor e categoria."
+impacto: "O SECOP tornou-se referência internacional em transparência de compras públicas, recomendado pela OCDE como modelo para países-membros. Alertas automáticos geram investigações por parte da Procuraduría e da Contraloría colombianas. A abertura dos dados também mudou o comportamento — órgãos e fornecedores sabem que estão sob escrutínio permanente. Redução mensurável em concentração de contratos em fornecedores únicos após publicação dos dashboards."
+governanca: "O SECOP é regulamentado por lei nacional. Uso da analítica antifraude é interno da Colombia Compra Eficiente, com resultados escalados para órgãos de controle (Procuraduría, Contraloría, Fiscalía) quando indicativos de crime. Cidadão tem acesso aos dashboards abertos, mas não à análise interna de risco. Modelo respeita proteção de dados pessoais dos beneficiários finais dos contratos."
+aprendizados: "A abertura de dados combinada com analítica antifraude gera efeito duplo: descobre irregularidade e desestimula tentativa. O Brasil, com Compras.gov.br e Painel de Preços, tem infraestrutura equivalente ao SECOP — falta o nível de analítica visível ao cidadão que a Colômbia consolidou. O caso mostra que transparência de compras é política pública com retorno mensurável: cada dashboard aberto reduz a chance de repetição de padrão irregular. Modelo diretamente replicável para SEFAZ estaduais e municípios com sistemas próprios de compras."
+---

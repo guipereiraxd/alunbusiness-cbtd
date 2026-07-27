@@ -1,0 +1,21 @@
+---
+title: "HMRC Connect: análise integrada para detectar fraude tributária em escala"
+resumo: "A autoridade tributária britânica cruza mais de um bilhão de registros de dezenas de bases (bancos, cartórios, cadastros, redes sociais, aduana) para identificar inconsistências em declarações fiscais — e recuperou mais de £4 bilhões em receitas devidas desde 2010."
+tecnologia: "Data warehouse consolidando 30+ fontes + análise de redes (graph analytics) + regras de negócio + aprendizado de máquina supervisionado"
+principal_resultado: "Mais de £4 bilhões em receitas recuperadas desde 2010, com produtividade da equipe de auditoria fiscal multiplicada por 6 (segundo relatórios do National Audit Office)."
+organizacao: "HM Revenue & Customs (HMRC) — Reino Unido"
+esfera: "Nacional (Reino Unido)"
+poder: "Executivo"
+area: "Controle e auditoria"
+localidade: "Reino Unido"
+ano: "2010 (em operação)"
+grau_risco: "alto"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (HMRC, National Audit Office, BEIS)"
+tags: ["Tributário", "Detecção de fraude", "Graph analytics", "Cross-matching", "Auditoria contínua"]
+problema: "Toda administração tributária enfrenta o mesmo dilema: o volume de declarações é enorme e a capacidade de auditoria manual é finita. Selecionar auditorias por amostragem gera dois erros caros — deixa passar fraude estruturada e desperdiça esforço em cidadão que estava certo. Sem cruzar sinais de fontes independentes, a autoridade fiscal vê só o que o contribuinte declara — e um contribuinte disposto a mentir é justamente quem tem menos incentivo para se contradizer."
+solucao: "O Connect é a espinha dorsal analítica da HMRC desde 2010. Consolida em data warehouse mais de 30 fontes: bancos, cartórios de imóveis, cadastros de veículos, aduana, folhas de pagamento, plataformas digitais (Uber, Airbnb), e — em fase mais recente — sinais públicos de redes sociais. Aplica graph analytics para mapear relações entre pessoas físicas e jurídicas, regras de negócio para inconsistências óbvias, e aprendizado de máquina supervisionado (treinado em casos históricos de fraude) para priorizar quem investigar. O auditor recebe uma lista pré-ranqueada — decide se abre o caso — e mantém a decisão final."
+impacto: "Mais de £4 bilhões em receitas adicionais recuperadas desde 2010, segundo relatórios oficiais do National Audit Office. A produtividade da equipe de fraude fiscal multiplicou-se por 6: cada auditor cobre agora uma fração muito maior da base tributária, com taxa de acerto (casos abertos que se confirmam) subindo de menos de 30% para acima de 60%. O sistema custou £180 milhões no desenho inicial e paga-se muitas vezes."
+governanca: "O uso é regulado por marco jurídico específico — o auditor precisa justificar formalmente a abertura de qualquer investigação, e a decisão final é humana. HMRC publica relatórios anuais sobre uso do Connect ao Parlamento e responde à supervisão do National Audit Office. Contribuinte investigado tem direito à explicação e à contestação. Uso de dados de redes sociais tem limites definidos (perfis públicos, sem inferência sobre terceiros)."
+aprendizados: "O caso mostra três lições relevantes para o Brasil, onde Receita, Sefaz estaduais e municípios têm bases riquíssimas mas pouco integradas: (1) o valor está na integração — cada base isolada perde 80% do que pode revelar; (2) a IA prioriza, mas o auditor decide — supervisão humana é o que mantém o modelo legítimo; (3) transparência ao Parlamento e à contestação individual é o que sustenta a licença social para operar com poderes tão amplos. A Alice/CGU segue lógica próxima em licitações; o Connect mostra o horizonte tributário."
+---

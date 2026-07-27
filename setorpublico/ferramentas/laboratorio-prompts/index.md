@@ -84,7 +84,7 @@ description: "Nove atividades práticas para servidores usarem IA de forma crít
 
   <section class="blk" style="border-bottom:0;padding-top:10px;padding-bottom:0">
     <nav class="lab-nav" aria-label="Ir para uma atividade">
-      <span class="lab-navlbl">9 atividades ·</span>
+      <span class="lab-navlbl">12 atividades ·</span>
       <a href="#act-1"><b>01</b> Resumir uma nota técnica</a>
       <a href="#act-2"><b>02</b> Linguagem simples</a>
       <a href="#act-3"><b>03</b> Comparar normas</a>
@@ -94,6 +94,9 @@ description: "Nove atividades práticas para servidores usarem IA de forma crít
       <a href="#act-7"><b>07</b> Consulta pública</a>
       <a href="#act-8"><b>08</b> Analisar planilha</a>
       <a href="#act-9"><b>09</b> Roteiro de capacitação</a>
+      <a href="#act-10"><b>10</b> Resposta à LAI</a>
+      <a href="#act-11"><b>11</b> Cláusulas de risco</a>
+      <a href="#act-12"><b>12</b> FAQ do cidadão</a>
     </nav>
   </section>
 
@@ -394,11 +397,123 @@ Restrições: [ex.: 20 participantes, remoto, sem material impresso]</div>
       </div>
     </article>
 
+    <article class="act" id="act-10" style="scroll-margin-top:96px">
+      <header class="act-head">
+        <div class="act-num">10</div>
+        <div><div class="cat">Transparência</div><h2>Rascunhar uma resposta a pedido de LAI</h2></div>
+      </header>
+      <div class="act-block"><div class="act-block-h ctx">Contexto</div>
+        <p class="act-ctx">Chegou um pedido pela Lei de Acesso à Informação (Lei 12.527/2011). Você tem prazo curto para responder com clareza, cobrindo o que o cidadão pediu e — quando for o caso — recusar com fundamento legal. O risco é responder de forma incompleta (gera recurso) ou expor dado que não deveria (sigilo, dado pessoal).</p>
+      </div>
+      <div class="act-block"><div class="act-block-h weak">Prompt fraco</div>
+        <div class="prompt weak">Escreva uma resposta para este pedido de LAI.</div>
+        <p class="prompt-why">Sem contexto de qual informação existe e qual não existe, sem o texto exato pedido pelo cidadão e sem quadro legal de recusa, o modelo produz resposta genérica — que costuma ser ou vazia ou juridicamente vulnerável.</p>
+      </div>
+      <div class="act-block"><div class="act-block-h good">Prompt melhorado</div>
+        <div class="prompt good">Você é assessor da área de acesso à informação. Redija resposta ao pedido de LAI abaixo, seguindo esta estrutura:
+(1) Cumprimento formal e referência ao protocolo.
+(2) Repita o pedido do cidadão para confirmar entendimento.
+(3) Para cada item pedido, responda usando SOMENTE as informações do bloco “Dados disponíveis” abaixo. Se algum item não estiver contemplado, escreva “esta informação não integra a base de dados desta unidade” e indique órgão competente.
+(4) Se houver recusa de acesso, cite base legal exata (art. da Lei 12.527/2011 e/ou decreto regulamentador aplicável) e explique em linguagem simples o motivo.
+(5) Feche informando prazos e canais para recurso (CGU, autoridade de monitoramento).
+
+Não invente informação nem cite documento que não esteja no bloco. Tom formal, mas claro para cidadão não-especialista.
+
+Pedido do cidadão: [colar]
+Dados disponíveis: [colar planilha, tabela, resumo — nunca com dados pessoais de terceiros]
+Fundamentos de recusa aplicáveis (se houver): [colar]</div>
+      </div>
+      <div class="act-grid">
+        <div class="col review"><div class="act-block-h review">Como revisar</div>
+          <ul><li>Cada afirmação da resposta tem correspondência exata no bloco de dados que você forneceu? Se não tem, é alucinação.</li><li>Se houve recusa, o artigo citado realmente sustenta o que a resposta afirma? Cheque no texto da lei.</li><li>A resposta cobre todos os itens do pedido — mesmo os que resultam em “não temos”? Item ignorado costuma virar recurso.</li></ul>
+        </div>
+        <div class="col risk"><div class="act-block-h risk">Riscos e o que não usar</div>
+          <ul><li>Nunca cole no modelo dados pessoais de terceiros que apareçam nos documentos — anonimize antes.</li><li>Modelo tende a “ser cordial” além do necessário; corte adjetivos e mantenha o tom institucional.</li><li>Decisão de recusa é ato administrativo — precisa de assinatura da autoridade competente, não da IA.</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="act" id="act-11" style="scroll-margin-top:96px">
+      <header class="act-head">
+        <div class="act-num">11</div>
+        <div><div class="cat">Análise jurídica</div><h2>Analisar uma minuta de contrato (cláusulas de risco)</h2></div>
+      </header>
+      <div class="act-block"><div class="act-block-h ctx">Contexto</div>
+        <p class="act-ctx">Você vai receber uma minuta de contrato para revisar antes da assinatura. Precisa identificar rapidamente cláusulas que criam risco desproporcional, obrigações desequilibradas ou lacunas críticas — para levar essas questões ao jurídico com foco, não pedir “dá uma olhada em tudo”.</p>
+      </div>
+      <div class="act-block"><div class="act-block-h weak">Prompt fraco</div>
+        <div class="prompt weak">Encontre problemas neste contrato.</div>
+        <p class="prompt-why">Sem lista de tipos de risco a procurar, sem contexto do que a organização considera aceitável, o modelo devolve lista genérica de “melhores práticas” — muitas irrelevantes para o caso, algumas incorretas.</p>
+      </div>
+      <div class="act-block"><div class="act-block-h good">Prompt melhorado</div>
+        <div class="prompt good">Você é assessor jurídico apoiando a leitura preliminar de um contrato administrativo. Analise a minuta abaixo procurando especificamente cinco categorias de risco. Para cada uma, cite a cláusula (número e trecho literal) e explique o risco em 2 linhas.
+
+Categorias:
+1. Obrigações desproporcionais para a Administração (multa unilateral, indenização ampla, garantia excessiva).
+2. Lacunas em rescisão, prorrogação ou reajuste (situações não previstas que geram disputa).
+3. Cláusulas de foro, lei aplicável ou arbitragem incompatíveis com contrato público brasileiro.
+4. Propriedade intelectual e uso de dados — quem fica com o quê, quem pode reutilizar.
+5. Sigilo e proteção de dados pessoais (LGPD) — obrigações do contratado, prazo, responsabilidade em incidente.
+
+Se algo estiver AUSENTE mas devesse estar (por exemplo, cláusula de LGPD faltando em contrato que envolve dado pessoal), sinalize como lacuna.
+Ao final, priorize os três pontos mais críticos para levar ao jurídico.
+
+Contrato: [colar]
+Contexto do objeto: [ex.: contratação de plataforma SaaS que processará dados pessoais de servidores]</div>
+      </div>
+      <div class="act-grid">
+        <div class="col review"><div class="act-block-h review">Como revisar</div>
+          <ul><li>Cada cláusula citada tem número e trecho literal? Se o modelo parafraseia sem citar, pode estar inventando — cheque no texto.</li><li>O risco apontado depende do contexto do objeto — cláusula “normal” em contrato de bem é problema em contrato de serviço continuado. Confira se o modelo considerou o contexto.</li><li>Se o modelo não sinalizou nada em uma categoria, releia — pode ter passado, especialmente em contratos longos.</li></ul>
+        </div>
+        <div class="col risk"><div class="act-block-h risk">Riscos e o que não usar</div>
+          <ul><li>Este é apoio à triagem, não parecer jurídico — decisão sobre assinar ou negociar exige análise formal pela advocacia pública.</li><li>Nunca cole contrato com informação sigilosa (empresarial ou de terceiros) em ferramenta aberta — use ambiente institucional.</li><li>Modelo tem viés a favor de identificar risco (“algo parece problemático”) — nem toda observação apontada é real. Filtre.</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="act" id="act-12" style="scroll-margin-top:96px">
+      <header class="act-head">
+        <div class="act-num">12</div>
+        <div><div class="cat">Comunicação</div><h2>Redigir um FAQ para o portal do cidadão</h2></div>
+      </header>
+      <div class="act-block"><div class="act-block-h ctx">Contexto</div>
+        <p class="act-ctx">Um serviço público novo (ou atualizado) precisa de FAQ no portal para que o cidadão resolva sozinho — reduzindo pressão sobre atendimento humano. O risco é criar FAQ que responde o que ninguém pergunta e não responde o que todo mundo quer saber.</p>
+      </div>
+      <div class="act-block"><div class="act-block-h weak">Prompt fraco</div>
+        <div class="prompt weak">Faça um FAQ sobre [serviço].</div>
+        <p class="prompt-why">Sem lista das dúvidas reais que chegam à ouvidoria, o modelo inventa perguntas de manual — “o que é X?”, “quais são os benefícios?” — que ninguém digita na barra de busca.</p>
+      </div>
+      <div class="act-block"><div class="act-block-h good">Prompt melhorado</div>
+        <div class="prompt good">Você é redator de conteúdo público. Escreva um FAQ para o portal do cidadão sobre [serviço], seguindo estas regras:
+
+(1) Priorize perguntas que aparecem na lista de dúvidas reais abaixo — se algo é perguntado muitas vezes, é a primeira pergunta.
+(2) Escreva a pergunta como o cidadão a formularia (“Preciso agendar antes de ir?”), não como o servidor a formula (“Da necessidade de agendamento prévio”).
+(3) Resposta em no máximo 5 linhas, começando pelo verbo de ação — “Sim, agende em…” / “Não é preciso, mas…”.
+(4) Se a resposta depender de caso (“depende da renda”), diga o que faz depender e onde a pessoa checa.
+(5) Ao final de cada resposta, se houver serviço vinculado, incluir link — apenas para páginas oficiais listadas em “Fontes autorizadas”.
+
+Não invente prazo, valor ou requisito que não esteja no material. Se a lista de dúvidas cobrir tema que não está no material, marque “verificar” — não responda.
+
+Serviço: [nome + descrição em 3 linhas]
+Dúvidas reais (por frequência): [colar do sistema de atendimento ou ouvidoria]
+Material oficial disponível: [colar cartilha, norma, portaria]
+Fontes autorizadas para link: [lista de URLs gov.br permitidas]</div>
+      </div>
+      <div class="act-grid">
+        <div class="col review"><div class="act-block-h review">Como revisar</div>
+          <ul><li>Cada pergunta é uma pergunta que alguém realmente faz? Se soar como “manual de treinamento”, corte ou reescreva.</li><li>Toda resposta começa com verbo direto? Se começa com “A prestação do serviço é regida por…”, o cidadão desiste.</li><li>Confira valores, prazos e requisitos linha a linha no material oficial — modelo pode aproximar número e inventar exceção.</li></ul>
+        </div>
+        <div class="col risk"><div class="act-block-h risk">Riscos e o que não usar</div>
+          <ul><li>Um FAQ errado no portal do cidadão gera ligações, recursos e — no limite — judicialização. Publique só depois de revisão da área finalística responsável pelo serviço.</li><li>Se o serviço mudar, o FAQ envelhece silenciosamente. Defina responsável e ciclo de revisão antes de publicar.</li><li>Não use este prompt para responder pedido individual — é para material de referência pública. Casos individuais precisam de canal formal.</li></ul>
+        </div>
+      </div>
+    </article>
+
   </section>
 
   <section class="blk" style="border-bottom:0;padding-top:36px;padding-bottom:60px">
     <div class="note">
-      <b>Regra que atravessa tudo.</b> A IA é <b>rascunhista</b>, não decisora. Cada uma das nove atividades acima pressupõe que a decisão final e a responsabilidade continuam com o servidor. Antes de colar qualquer conteúdo num modelo aberto, aplique o <a href="{{ '/setorpublico/governanca/posso-usar-ia/' | relative_url }}">Posso usar IA para isso?</a>.
+      <b>Regra que atravessa tudo.</b> A IA é <b>rascunhista</b>, não decisora. Cada uma das doze atividades acima pressupõe que a decisão final e a responsabilidade continuam com o servidor. Antes de colar qualquer conteúdo num modelo aberto, aplique o <a href="{{ '/setorpublico/governanca/posso-usar-ia/' | relative_url }}">Posso usar IA para isso?</a>.
     </div>
   </section>
 </div>
