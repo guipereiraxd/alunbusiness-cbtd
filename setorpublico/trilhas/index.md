@@ -48,11 +48,11 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <p class="obj">Entender o impacto estratégico da IA no Estado, definir prioridades e liderar a transformação com governança e responsabilidade.</p>
         <div class="trilha-cols">
           <div>
-            <div class="col-h">Módulos essenciais</div>
+            <div class="col-h">Módulos customizáveis</div>
             <div class="mod-tags"><span>Fundamentos de IA</span><span>Estratégia</span><span>Valor público</span><span>Portfólio</span><span>Governança</span><span>Gestão de riscos</span><span>Liderança da transformação</span></div>
           </div>
           <div>
-            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <div class="col-h">Alguns cursos do Grupo Alun</div>
             <ul class="sug">
               <li><span class="bg bg-fiap">FIAP</span>MBA em AI Leadership: Strategy, Governance &amp; Scale</li>
               <li><span class="bg bg-fiap">FIAP</span>MBA em Gestão Estratégica de Negócios na Era da IA</li>
@@ -74,11 +74,11 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <p class="obj">Identificar problemas adequados à IA, redesenhar processos e conduzir experimentos com método — sem depender do técnico para todo o percurso.</p>
         <div class="trilha-cols">
           <div>
-            <div class="col-h">Módulos essenciais</div>
+            <div class="col-h">Módulos customizáveis</div>
             <div class="mod-tags"><span>Identificação de problemas</span><span>Casos de uso</span><span>Redesenho de processos</span><span>Prototipação</span><span>Avaliação</span><span>Gestão da mudança</span></div>
           </div>
           <div>
-            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <div class="col-h">Alguns cursos do Grupo Alun</div>
             <ul class="sug">
               <li><span class="bg bg-pm3">PM3</span>Product Discovery — identificar problemas e oportunidades</li>
               <li><span class="bg bg-pm3">PM3</span>Product Management — do problema ao produto</li>
@@ -100,11 +100,11 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <p class="obj">Arquitetar, integrar e operar soluções de IA com segurança e observabilidade — do modelo à operação em produção.</p>
         <div class="trilha-cols">
           <div>
-            <div class="col-h">Módulos essenciais</div>
+            <div class="col-h">Módulos customizáveis</div>
             <div class="mod-tags"><span>Arquitetura</span><span>Dados</span><span>Modelos</span><span>RAG</span><span>Integrações</span><span>Segurança</span><span>Avaliações</span><span>Observabilidade</span><span>Operação</span></div>
           </div>
           <div>
-            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <div class="col-h">Alguns cursos do Grupo Alun</div>
             <ul class="sug">
               <li><span class="bg bg-alura">Alura</span>Formação Data Science</li>
               <li><span class="bg bg-alura">Alura</span>Formação Machine Learning na prática</li>
@@ -127,11 +127,11 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <p class="obj">Fundamentar o uso de IA em finalidade, bases legais e direitos, com transparência, avaliação de impacto e contestação para o cidadão.</p>
         <div class="trilha-cols">
           <div>
-            <div class="col-h">Módulos essenciais</div>
+            <div class="col-h">Módulos customizáveis</div>
             <div class="mod-tags"><span>Finalidade</span><span>Bases legais</span><span>Dados pessoais</span><span>Direitos</span><span>Transparência</span><span>Contestação</span><span>Avaliação de impacto</span><span>Contratação</span></div>
           </div>
           <div>
-            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <div class="col-h">Alguns cursos do Grupo Alun</div>
             <ul class="sug">
               <li><span class="bg bg-alura">Alura</span>Formação Governança de IA: fundamentos, ética e gestão de riscos</li>
               <li><span class="bg bg-alura">Alura</span>Governança de dados — privacidade e proteção (LGPD)</li>
@@ -152,11 +152,11 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <p class="obj">Contratar IA com bons critérios técnicos, segurança de dados, portabilidade e prevenção de dependência de fornecedor.</p>
         <div class="trilha-cols">
           <div>
-            <div class="col-h">Módulos essenciais</div>
+            <div class="col-h">Módulos customizáveis</div>
             <div class="mod-tags"><span>Termo de referência</span><span>Seleção de fornecedor</span><span>Avaliação técnica</span><span>Dados</span><span>Segurança</span><span>Auditoria</span><span>Portabilidade</span><span>Gestão contratual</span></div>
           </div>
           <div>
-            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <div class="col-h">Alguns cursos do Grupo Alun</div>
             <ul class="sug">
               <li><span class="bg bg-fiap">FIAP</span>MBA em Gestão da Tecnologia da Informação</li>
               <li><span class="bg bg-alura">Alura</span>Escola de IA — categoria IA para Produto &amp; Negócio</li>
@@ -178,11 +178,11 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <p class="obj">Auditar algoritmos, avaliar evidências e vieses, monitorar sistemas e prestar contas sobre o uso de IA no Estado.</p>
         <div class="trilha-cols">
           <div>
-            <div class="col-h">Módulos essenciais</div>
+            <div class="col-h">Módulos customizáveis</div>
             <div class="mod-tags"><span>Auditoria de algoritmos</span><span>Evidências</span><span>Riscos</span><span>Vieses</span><span>Monitoramento</span><span>Prestação de contas</span></div>
           </div>
           <div>
-            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <div class="col-h">Alguns cursos do Grupo Alun</div>
             <ul class="sug">
               <li><span class="bg bg-fiap">FIAP</span>MBA em Business Intelligence &amp; Analytics</li>
               <li><span class="bg bg-alura">Alura</span>Formação Machine Learning — modelos, avaliação e vieses</li>
@@ -204,11 +204,11 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <p class="obj">Desenvolver letramento e competências em IA, formar por função, cuidar da cultura e desenhar os novos papéis profissionais da administração pública.</p>
         <div class="trilha-cols">
           <div>
-            <div class="col-h">Módulos essenciais</div>
+            <div class="col-h">Módulos customizáveis</div>
             <div class="mod-tags"><span>Letramento</span><span>Competências</span><span>Formação por função</span><span>Comunidades</span><span>Cultura</span><span>Novos papéis</span><span>Gestão da mudança</span></div>
           </div>
           <div>
-            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <div class="col-h">Alguns cursos do Grupo Alun</div>
             <ul class="sug">
               <li><span class="bg bg-alura">Alura</span>Escola de Inovação &amp; Gestão — 400+ cursos de liderança e soft skills</li>
               <li><span class="bg bg-alura">Alura</span>Formação Inovação para Líderes</li>
