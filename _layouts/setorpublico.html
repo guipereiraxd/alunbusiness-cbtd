@@ -543,8 +543,31 @@ a.card:hover .go{gap:11px;color:var(--brand-p)}
   font-size:14px;line-height:1;transition:color .15s,border-color .15s}
 .fav-star:hover{color:var(--ink);border-color:var(--tx2)}
 .fav-star.on{color:var(--brand-m);border-color:var(--brand-m);background:var(--tint-m)}
-.empty-state{display:none;text-align:center;color:var(--tx2);font-size:14px;padding:40px 20px;
-  border:1px dashed var(--line2);border-radius:12px;margin-top:18px}
+.empty-state{display:none;text-align:center;padding:44px 24px;
+  border:1px dashed var(--line2);border-radius:14px;margin-top:18px;background:var(--paper)}
+.empty-state.show{display:block}
+.empty-state .es-ic{width:54px;height:54px;border-radius:14px;margin:0 auto 14px;display:grid;place-items:center;
+  background:var(--tint-p);color:var(--brand-p)}
+.empty-state .es-ic svg{width:26px;height:26px}
+.empty-state .es-t{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);margin:0}
+.empty-state .es-d{color:var(--tx2);font-size:14px;line-height:1.55;margin:8px auto 0;max-width:44ch}
+.empty-state .es-actions{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.empty-state .es-actions a,.empty-state .es-actions button{font-family:var(--sans);font-size:13.5px;
+  text-decoration:none;color:var(--brand-p);border:1px solid var(--line2);background:var(--paper);
+  border-radius:8px;padding:9px 15px;cursor:pointer;transition:border-color .15s,color .15s}
+.empty-state .es-actions a:hover,.empty-state .es-actions button:hover{border-color:var(--brand-p)}
+
+/* skeleton loader (para embeds externos como HubSpot) */
+.skel{display:grid;gap:12px}
+.skel-line{height:14px;border-radius:6px;background:linear-gradient(90deg,var(--panel) 0%,var(--tint-p) 50%,var(--panel) 100%);
+  background-size:200% 100%;animation:skelPulse 1.4s ease-in-out infinite}
+.skel-line.sm{height:11px;width:36%}
+.skel-line.md{width:70%}
+.skel-line.lg{width:100%}
+.skel-box{height:44px;border-radius:8px;background:linear-gradient(90deg,var(--panel) 0%,var(--tint-p) 50%,var(--panel) 100%);
+  background-size:200% 100%;animation:skelPulse 1.4s ease-in-out infinite}
+@keyframes skelPulse{ 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+@media (prefers-reduced-motion: reduce){ .skel-line,.skel-box{animation:none} }
 
 /* área nav (tabs) */
 .area-nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}

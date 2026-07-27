@@ -61,7 +61,15 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
     </a>
     {% endfor %}
   </div>
-  <div id="c-empty" class="empty-state" style="margin-top:22px">Nenhum caso encontrado. <a href="#" id="c-clear">Limpar filtros</a>.</div>
+  <div id="c-empty" class="empty-state" style="margin-top:22px" role="status">
+    <div class="es-ic"><svg><use href="#i-search"></use></svg></div>
+    <p class="es-t">Nenhum caso encontrado com esses filtros</p>
+    <p class="es-d">A biblioteca cresce continuamente — se o caso que você procura ainda não está aqui, ajuste os filtros ou nos indique um novo.</p>
+    <div class="es-actions">
+      <a href="#" id="c-clear">Limpar filtros</a>
+      <a href="{{ '/setorpublico/contato/' | relative_url }}">Indicar um caso</a>
+    </div>
+  </div>
 
   <div class="note" style="margin:38px 0 60px"><b>Modelo de conteúdo:</b> cada caso segue Identificação · Problema · Solução · Impacto · Governança · Aprendizados. Um novo caso é só duplicar um arquivo em <span class="mono">_casos</span>.</div>
 </div>

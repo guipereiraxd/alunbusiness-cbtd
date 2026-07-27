@@ -42,7 +42,14 @@ title: "Observatório"
       </a>
       {% endfor %}
     </div>
-    <div id="o-empty" class="empty-state">Nenhuma publicação encontrada. <a href="#" id="o-clear">Limpar filtros</a>.</div>
+    <div id="o-empty" class="empty-state" role="status">
+      <div class="es-ic"><svg><use href="#i-search"></use></svg></div>
+      <p class="es-t">Nenhuma publicação encontrada</p>
+      <p class="es-d">Ajuste os filtros ou tente uma busca mais ampla. O acervo é atualizado continuamente — novas publicações entram semanalmente.</p>
+      <div class="es-actions">
+        <a href="#" id="o-clear">Limpar filtros</a>
+      </div>
+    </div>
   </section>
 
   <section class="blk" style="border-bottom:0;padding-top:34px">
