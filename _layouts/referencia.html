@@ -10,6 +10,7 @@ layout: setorpublico
   </div>
   <h1>{{ page.title }}</h1>
   {% if page.resumo %}<p class="lede">{{ page.resumo }}</p>{% endif %}
+  <div style="margin-top:16px"><button class="share-btn" type="button" data-title="{{ page.title | escape }}" aria-label="Compartilhar esta publicação"><span class="lbl">Compartilhar</span></button></div>
 </div>
 
 {{ content }}

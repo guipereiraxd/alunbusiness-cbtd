@@ -39,6 +39,7 @@ title: "Casos de uso"
       <option>Em experimentação</option>
       <option>Em desenvolvimento</option>
     </select>
+    <button id="c-fav" class="fav-btn" type="button" aria-pressed="false">★ Favoritos</button>
     <span id="c-count" class="filternote"></span>
   </div>
 
@@ -48,6 +49,7 @@ title: "Casos de uso"
        data-area="{{ c.area | escape }}" data-esfera="{{ c.esfera | escape }}"
        data-risco="{{ c.grau_risco | escape }}" data-status="{{ c.status | escape }}"
        data-text="{{ txt | strip_newlines | downcase | escape }}">
+      <button class="fav-star no-print" type="button" data-url="{{ c.url | relative_url }}" aria-label="Salvar nos favoritos" title="Salvar nos favoritos">★</button>
       <div class="card-k">{{ c.organizacao | default: "[Órgão]" }} · {{ c.area | default: "[Área]" }}</div>
       <h3>{{ c.title | default: "[Nome do caso]" }}</h3>
       <p>{{ c.resumo | default: "[Resumo do caso.]" }}</p>
@@ -71,18 +73,38 @@ title: "Casos de uso"
   var fEsfera = document.getElementById('c-esfera');
   var fRisco = document.getElementById('c-risco');
   var fStatus = document.getElementById('c-status');
+  var favBtn = document.getElementById('c-fav');
   var count = document.getElementById('c-count');
   var empty = document.getElementById('c-empty');
+  var FAV = 'sp_fav_casos', favOnly = false;
 
   function norm(s){ return (s||'').toLowerCase(); }
   function has(attr, sel){ return !sel || attr.indexOf(sel) !== -1; }
+  function favs(){ try{ return JSON.parse(localStorage.getItem(FAV) || '[]'); }catch(e){ return []; } }
+  function isFav(url){ return favs().indexOf(url) !== -1; }
+  function toggleFav(url){ var f=favs(), i=f.indexOf(url); if(i===-1) f.push(url); else f.splice(i,1); try{ localStorage.setItem(FAV, JSON.stringify(f)); }catch(e){} }
+
+  cards.forEach(function(card){
+    var star = card.querySelector('.fav-star'); if(!star) return;
+    var url = star.getAttribute('data-url');
+    if(isFav(url)){ star.classList.add('on'); star.setAttribute('aria-pressed','true'); }
+    star.addEventListener('click', function(ev){
+      ev.preventDefault(); ev.stopPropagation();
+      toggleFav(url);
+      var on = isFav(url); star.classList.toggle('on', on); star.setAttribute('aria-pressed', on);
+      if(favOnly) apply();
+    });
+  });
 
   function apply(){
     var q = norm(search.value).trim();
     var a = norm(fArea.value), e = norm(fEsfera.value), r = norm(fRisco.value), s = norm(fStatus.value);
     var shown = 0;
     cards.forEach(function(card){
-      var ok = has(norm(card.getAttribute('data-area')), a) &&
+      var star = card.querySelector('.fav-star');
+      var favok = !favOnly || (star && isFav(star.getAttribute('data-url')));
+      var ok = favok &&
+               has(norm(card.getAttribute('data-area')), a) &&
                has(norm(card.getAttribute('data-esfera')), e) &&
                has(norm(card.getAttribute('data-risco')), r) &&
                has(norm(card.getAttribute('data-status')), s) &&
@@ -97,6 +119,9 @@ title: "Casos de uso"
   [search, fArea, fEsfera, fRisco, fStatus].forEach(function(el){
     el.addEventListener('input', apply); el.addEventListener('change', apply);
   });
+  if(favBtn) favBtn.addEventListener('click', function(){
+    favOnly = !favOnly; favBtn.classList.toggle('on', favOnly); favBtn.setAttribute('aria-pressed', favOnly); apply();
+  });
 
   // pré-seleção via ?area= (vindo do mapa de oportunidades)
   var params = new URLSearchParams(location.search);
@@ -108,7 +133,8 @@ title: "Casos de uso"
   var clear = document.getElementById('c-clear');
   if(clear) clear.addEventListener('click', function(ev){
     ev.preventDefault();
-    search.value=''; fArea.value=''; fEsfera.value=''; fRisco.value=''; fStatus.value=''; apply();
+    search.value=''; fArea.value=''; fEsfera.value=''; fRisco.value=''; fStatus.value='';
+    favOnly=false; if(favBtn){ favBtn.classList.remove('on'); favBtn.setAttribute('aria-pressed','false'); } apply();
   });
 
   apply();

@@ -33,7 +33,7 @@ if('IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefe
 :root{
   --bg:#0C0F14; --bg2:#101520; --panel:#141A24; --panel2:#19202B;
   --line:#232B38; --line2:#2F3947;
-  --tx:#E7EBF1; --tx2:#9AA6B6; --tx3:#6C7889;
+  --tx:#E7EBF1; --tx2:#9AA6B6; --tx3:#828E9F;
   --accent:#3E9FB0;               /* acento único, discreto — sem neon */
   --accent-soft:rgba(62,159,176,.12);
   /* cores semânticas (§23.4) — usadas só em rótulos/badges, nunca sozinhas */
@@ -280,6 +280,18 @@ a.card:hover .go{gap:11px;color:var(--accent)}
 .sp-resume b{color:var(--tx);font-family:var(--disp)}
 .sp-resume .go{color:var(--accent);font-family:var(--mono);font-size:11px;letter-spacing:.06em}
 
+/* ---------- compartilhar / favoritar ---------- */
+.share-btn,.fav-btn{font-family:var(--mono);font-size:11px;color:var(--tx2);background:transparent;
+  border:1px solid var(--line2);border-radius:7px;padding:7px 12px;cursor:pointer;display:inline-flex;
+  align-items:center;gap:7px;transition:border-color .15s,color .15s,background .15s}
+.share-btn:hover,.fav-btn:hover{border-color:var(--accent);color:var(--tx)}
+.fav-btn.on{border-color:var(--ris);color:var(--ris)}
+.fav-star{position:absolute;top:14px;right:14px;z-index:2;width:30px;height:30px;border-radius:8px;
+  border:1px solid var(--line2);background:var(--bg2);color:var(--tx3);cursor:pointer;display:grid;
+  place-items:center;font-size:14px;line-height:1;transition:color .15s,border-color .15s}
+.fav-star:hover{color:var(--tx);border-color:var(--tx3)}
+.fav-star.on{color:var(--ris);border-color:var(--ris)}
+
 /* ---------- panel link ---------- */
 .panel-link{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
   text-decoration:none;color:inherit;margin-top:24px;border:1px solid var(--line);border-radius:14px;
@@ -417,6 +429,15 @@ footer.bottom .sig a{color:var(--accent);text-decoration:none}
   if(!b||!n)return;
   b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);});
 })();
+// compartilhar (Web Share API + fallback de copiar link)
+document.addEventListener('click',function(ev){
+  var b=ev.target.closest('.share-btn'); if(!b) return;
+  var url=b.getAttribute('data-url')||location.href, title=b.getAttribute('data-title')||document.title;
+  if(navigator.share){ navigator.share({title:title,url:url}).catch(function(){}); }
+  else if(navigator.clipboard){ navigator.clipboard.writeText(url).then(function(){
+    var lbl=b.querySelector('.lbl')||b, t=lbl.textContent; lbl.textContent='Link copiado';
+    setTimeout(function(){lbl.textContent=t;},1600); }); }
+});
 // reveal on scroll
 (function(){
   if(!document.documentElement.classList.contains('reveal-on'))return;

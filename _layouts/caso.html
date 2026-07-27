@@ -10,6 +10,8 @@ layout: setorpublico
   <h1>{{ page.title | default: "[Título do caso]" }}</h1>
   <p class="lede">{{ page.resumo | default: "[Resumo do caso em uma ou duas frases.]" }}</p>
 
+  <div class="no-print" style="margin-top:16px"><button class="share-btn" type="button" data-title="{{ page.title | escape }}" aria-label="Compartilhar este caso"><span class="lbl">Compartilhar</span></button></div>
+
   <ul class="klist">
     <li><b>Organização</b> {{ page.organizacao | default: "[—]" }}</li>
     <li><b>Esfera / Poder</b> {{ page.esfera | default: "[—]" }} · {{ page.poder | default: "[—]" }}</li>
