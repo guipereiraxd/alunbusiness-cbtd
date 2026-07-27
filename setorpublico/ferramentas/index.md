@@ -25,6 +25,18 @@ title: "Ferramentas"
         <p>Valor público × viabilidade × risco → Comece agora, Experimente, Prepare as fundações ou Avaliação reforçada.</p>
         <span class="go">Abrir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span>
       </a>
+      <a class="card" href="{{ '/setorpublico/ferramentas/calculadora/' | relative_url }}">
+        <div class="card-ic"><svg><use href="#i-chart"></use></svg></div>
+        <h3>Calculadora de valor público</h3>
+        <p>Estime horas liberadas, capacidade e custo de um caso de uso — como ordem de grandeza para dimensionar a decisão.</p>
+        <span class="go">Abrir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span>
+      </a>
+      <a class="card" href="{{ '/setorpublico/ferramentas/laboratorio-prompts/' | relative_url }}">
+        <div class="card-ic"><svg><use href="#i-cases"></use></svg></div>
+        <h3>Laboratório de prompts</h3>
+        <p>Atividades práticas do prompt fraco ao prompt melhorado, com revisão, riscos e o que nunca colocar num modelo.</p>
+        <span class="go">Abrir <svg width="14" height="14"><use href="#i-arrow"></use></svg></span>
+      </a>
     </div>
     <a class="panel-link" href="{{ '/setorpublico/diagnostico/' | relative_url }}">
       <div><div class="k">Diagnóstico</div><h3>Avalie a maturidade da sua organização</h3></div>
@@ -62,6 +74,6 @@ title: "Ferramentas"
         <ul class="dashlist"><li>Modelo de centro de competência</li><li>Governança federada</li><li>Catálogo de componentes</li><li>Processo de submissão</li><li>Painel de benefícios</li><li>Comunidade de prática</li><li>Roadmap institucional</li></ul>
       </div>
     </div>
-    <div class="note" style="margin-top:24px"><b>Downloads em breve.</b> Formatos previstos: PDF, DOCX, XLSX, PPTX e modelos editáveis. A <b>Calculadora de valor público</b> e o <b>Laboratório de prompts</b> entram em fase posterior.</div>
+    <div class="note" style="margin-top:24px"><b>Downloads em breve.</b> O conteúdo dos kits está descrito acima; os arquivos para baixar (PDF, DOCX, XLSX, PPTX e modelos editáveis) entram em seguida.</div>
   </section>
 </div>
