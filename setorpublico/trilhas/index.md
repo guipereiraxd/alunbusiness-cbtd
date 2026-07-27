@@ -1,60 +1,227 @@
 ---
 title: "Trilhas"
+description: "Trilhas de aprendizagem por perfil, do letramento à liderança da transformação — com sugestões de conteúdos reais do ecossistema Alun (Alura, FIAP, PM3, StartSe)."
 ---
+
+<style>
+  .trilha{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;
+    transition:transform .18s var(--ease),border-color .18s ease,box-shadow .18s ease}
+  .trilha:hover{transform:translateY(-2px);border-color:var(--line2);box-shadow:0 16px 40px -20px rgba(20,20,40,.15)}
+  .trilha-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .trilha-k{font-family:var(--mono);font-size:10.5px;color:var(--brand-p);letter-spacing:.14em;text-transform:uppercase;background:var(--tint-p);padding:4px 9px;border-radius:5px}
+  .trilha h3{font-family:var(--disp);font-weight:600;font-size:22px;color:var(--ink);margin:12px 0 0;line-height:1.2}
+  .trilha .pub{font-family:var(--mono);font-size:11px;color:var(--tx3);letter-spacing:.05em;margin-top:6px}
+  .trilha .obj{color:var(--tx);font-size:14.5px;line-height:1.6;margin-top:14px}
+  .trilha-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+  @media(max-width:720px){ .trilha-cols{grid-template-columns:1fr;gap:18px} }
+  .col-h{font-family:var(--mono);font-size:10px;color:var(--tx3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .col-h::before{content:"";width:14px;height:1px;background:var(--brand-p)}
+  .mod-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .mod-tags span{font-family:var(--mono);font-size:11px;color:var(--tx2);border:1px solid var(--line2);border-radius:6px;padding:4px 9px;background:var(--paper)}
+  .sug{list-style:none;display:grid;gap:8px}
+  .sug li{font-size:13.5px;color:var(--tx);line-height:1.45;padding-left:60px;position:relative;min-height:20px;display:flex;align-items:center}
+  .sug .bg{position:absolute;left:0;top:0;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.2}
+  .bg-alura{background:#0F4FB5;color:#fff}
+  .bg-fiap{background:#ED1846;color:#fff}
+  .bg-pm3{background:#1A1A2E;color:#fff}
+  .bg-startse{background:#F26522;color:#fff}
+</style>
 
 <div class="wrap">
   <div class="page-head">
     <div class="crumb"><a href="{{ '/setorpublico/' | relative_url }}">Início</a> / Trilhas</div>
-    <h1>Trilhas de aprendizagem</h1>
-    <p class="lede">Caminhos de capacitação por perfil, do letramento à liderança da transformação. Cada trilha reúne os módulos essenciais para o papel.</p>
+    <h1>Trilhas de aprendizagem por perfil</h1>
+    <p class="lede">Sete caminhos de capacitação — da alta liderança à execução — com os módulos essenciais para cada papel e sugestões de conteúdos reais do <a href="{{ '/setorpublico/sobre/' | relative_url }}">ecossistema Alun</a>: cursos e formações da Alura, MBAs da FIAP, cursos da PM3 e imersões da StartSe.</p>
   </div>
 
-  <section class="blk" style="border-bottom:0;padding-top:40px">
-    <div class="cards c2 rv">
-      <div class="card">
-        <div class="card-k">Trilha 01 · Liderança</div>
-        <h3>Para a alta liderança</h3>
-        <p>Entender o impacto estratégico da IA, definir prioridades e liderar a transformação com governança.</p>
-        <div class="taglist"><span>Fundamentos de IA</span><span>Estratégia</span><span>Valor público</span><span>Portfólio</span><span>Governança</span><span>Gestão de riscos</span><span>Liderança da transformação</span></div>
+  <section class="blk" style="border-bottom:0;padding-top:40px;padding-bottom:60px">
+    <div class="cards c2 rv" style="grid-template-columns:1fr;gap:16px">
+
+      <div class="trilha card" style="padding:28px">
+        <div class="trilha-head">
+          <div>
+            <span class="trilha-k">Trilha 01</span>
+            <h3>Para a alta liderança</h3>
+            <div class="pub">Secretários · presidentes · diretores · superintendentes</div>
+          </div>
+        </div>
+        <p class="obj">Entender o impacto estratégico da IA no Estado, definir prioridades e liderar a transformação com governança e responsabilidade.</p>
+        <div class="trilha-cols">
+          <div>
+            <div class="col-h">Módulos essenciais</div>
+            <div class="mod-tags"><span>Fundamentos de IA</span><span>Estratégia</span><span>Valor público</span><span>Portfólio</span><span>Governança</span><span>Gestão de riscos</span><span>Liderança da transformação</span></div>
+          </div>
+          <div>
+            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <ul class="sug">
+              <li><span class="bg bg-fiap">FIAP</span>MBA em AI Leadership: Strategy, Governance &amp; Scale</li>
+              <li><span class="bg bg-fiap">FIAP</span>MBA em Gestão Estratégica de Negócios na Era da IA</li>
+              <li><span class="bg bg-startse">StartSe</span>Global MBA + imersões internacionais</li>
+              <li><span class="bg bg-alura">Alura</span>Formação Começando no mundo da IA</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-k">Trilha 02 · Áreas finalísticas</div>
-        <h3>Para gestores de área</h3>
-        <p>Identificar problemas adequados à IA, redesenhar processos e conduzir experimentos com método.</p>
-        <div class="taglist"><span>Identificação de problemas</span><span>Casos de uso</span><span>Redesenho de processos</span><span>Prototipação</span><span>Avaliação</span><span>Gestão da mudança</span></div>
+
+      <div class="trilha card" style="padding:28px">
+        <div class="trilha-head">
+          <div>
+            <span class="trilha-k">Trilha 02</span>
+            <h3>Para gestores de áreas finalísticas</h3>
+            <div class="pub">Saúde · Educação · Justiça · Segurança · Assistência · Fazenda · Atendimento</div>
+          </div>
+        </div>
+        <p class="obj">Identificar problemas adequados à IA, redesenhar processos e conduzir experimentos com método — sem depender do técnico para todo o percurso.</p>
+        <div class="trilha-cols">
+          <div>
+            <div class="col-h">Módulos essenciais</div>
+            <div class="mod-tags"><span>Identificação de problemas</span><span>Casos de uso</span><span>Redesenho de processos</span><span>Prototipação</span><span>Avaliação</span><span>Gestão da mudança</span></div>
+          </div>
+          <div>
+            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <ul class="sug">
+              <li><span class="bg bg-pm3">PM3</span>Product Discovery — identificar problemas e oportunidades</li>
+              <li><span class="bg bg-pm3">PM3</span>Product Management — do problema ao produto</li>
+              <li><span class="bg bg-pm3">PM3</span>Product Analytics — decisão orientada por dados</li>
+              <li><span class="bg bg-alura">Alura</span>Escola de IA — categoria IA para Produto &amp; Negócio</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-k">Trilha 03 · Tecnologia e dados</div>
-        <h3>Para tecnologia, dados e inovação</h3>
-        <p>Arquitetar, integrar e operar soluções de IA com segurança e observabilidade.</p>
-        <div class="taglist"><span>Arquitetura</span><span>Dados</span><span>Modelos</span><span>RAG</span><span>Integrações</span><span>Segurança</span><span>Avaliações</span><span>Observabilidade</span><span>Operação</span></div>
+
+      <div class="trilha card" style="padding:28px">
+        <div class="trilha-head">
+          <div>
+            <span class="trilha-k">Trilha 03</span>
+            <h3>Para tecnologia, dados e inovação</h3>
+            <div class="pub">CIOs · CTOs · analistas · cientistas de dados · arquitetos · governo digital</div>
+          </div>
+        </div>
+        <p class="obj">Arquitetar, integrar e operar soluções de IA com segurança e observabilidade — do modelo à operação em produção.</p>
+        <div class="trilha-cols">
+          <div>
+            <div class="col-h">Módulos essenciais</div>
+            <div class="mod-tags"><span>Arquitetura</span><span>Dados</span><span>Modelos</span><span>RAG</span><span>Integrações</span><span>Segurança</span><span>Avaliações</span><span>Observabilidade</span><span>Operação</span></div>
+          </div>
+          <div>
+            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <ul class="sug">
+              <li><span class="bg bg-alura">Alura</span>Formação Data Science</li>
+              <li><span class="bg bg-alura">Alura</span>Formação Machine Learning na prática</li>
+              <li><span class="bg bg-alura">Alura</span>Formação Machine Learning Avançada (NLP, Visão)</li>
+              <li><span class="bg bg-alura">Alura</span>Escola de IA — LLMs, agentes e IA generativa</li>
+              <li><span class="bg bg-fiap">FIAP</span>MBA em Data Science &amp; Artificial Intelligence</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-k">Trilha 04 · Jurídico</div>
-        <h3>Para jurídico e proteção de dados</h3>
-        <p>Fundamentar o uso de IA em finalidade, bases legais e direitos, com transparência e contestação.</p>
-        <div class="taglist"><span>Finalidade</span><span>Bases legais</span><span>Dados pessoais</span><span>Direitos</span><span>Transparência</span><span>Contestação</span><span>Avaliação de impacto</span><span>Contratação</span></div>
+
+      <div class="trilha card" style="padding:28px">
+        <div class="trilha-head">
+          <div>
+            <span class="trilha-k">Trilha 04</span>
+            <h3>Para jurídico e proteção de dados</h3>
+            <div class="pub">Procuradorias · encarregados de dados · assessorias jurídicas</div>
+          </div>
+        </div>
+        <p class="obj">Fundamentar o uso de IA em finalidade, bases legais e direitos, com transparência, avaliação de impacto e contestação para o cidadão.</p>
+        <div class="trilha-cols">
+          <div>
+            <div class="col-h">Módulos essenciais</div>
+            <div class="mod-tags"><span>Finalidade</span><span>Bases legais</span><span>Dados pessoais</span><span>Direitos</span><span>Transparência</span><span>Contestação</span><span>Avaliação de impacto</span><span>Contratação</span></div>
+          </div>
+          <div>
+            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <ul class="sug">
+              <li><span class="bg bg-alura">Alura</span>Formação Governança de IA: fundamentos, ética e gestão de riscos</li>
+              <li><span class="bg bg-alura">Alura</span>Governança de dados — privacidade e proteção (LGPD)</li>
+              <li><span class="bg bg-alura">Alura</span>Governança de IA: estratégias éticas e compliance (LGPD, GDPR, AI Act)</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-k">Trilha 05 · Compras</div>
-        <h3>Para compras e contratações</h3>
-        <p>Contratar IA com bons critérios técnicos, segurança de dados e prevenção de dependência.</p>
-        <div class="taglist"><span>Termo de referência</span><span>Seleção de fornecedor</span><span>Avaliação técnica</span><span>Dados</span><span>Segurança</span><span>Auditoria</span><span>Portabilidade</span><span>Gestão contratual</span></div>
+
+      <div class="trilha card" style="padding:28px">
+        <div class="trilha-head">
+          <div>
+            <span class="trilha-k">Trilha 05</span>
+            <h3>Para compras e contratações</h3>
+            <div class="pub">Áreas de licitação · gestores de contrato · assessorias técnicas</div>
+          </div>
+        </div>
+        <p class="obj">Contratar IA com bons critérios técnicos, segurança de dados, portabilidade e prevenção de dependência de fornecedor.</p>
+        <div class="trilha-cols">
+          <div>
+            <div class="col-h">Módulos essenciais</div>
+            <div class="mod-tags"><span>Termo de referência</span><span>Seleção de fornecedor</span><span>Avaliação técnica</span><span>Dados</span><span>Segurança</span><span>Auditoria</span><span>Portabilidade</span><span>Gestão contratual</span></div>
+          </div>
+          <div>
+            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <ul class="sug">
+              <li><span class="bg bg-fiap">FIAP</span>MBA em Gestão da Tecnologia da Informação</li>
+              <li><span class="bg bg-alura">Alura</span>Escola de IA — categoria IA para Produto &amp; Negócio</li>
+              <li><span class="bg bg-alura">Alura</span>Governança de IA — compliance na contratação</li>
+              <li><span class="bg bg-pm3">PM3</span>Product Analytics — critérios de avaliação técnica</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-k">Trilha 06 · Controle</div>
-        <h3>Para controle e auditoria</h3>
-        <p>Auditar algoritmos, avaliar evidências e vieses e prestar contas sobre o uso de IA.</p>
-        <div class="taglist"><span>Auditoria de algoritmos</span><span>Evidências</span><span>Riscos</span><span>Vieses</span><span>Monitoramento</span><span>Prestação de contas</span></div>
+
+      <div class="trilha card" style="padding:28px">
+        <div class="trilha-head">
+          <div>
+            <span class="trilha-k">Trilha 06</span>
+            <h3>Para controle e auditoria</h3>
+            <div class="pub">TCU · TCEs · CGU · controladorias · corregedorias · ministério público</div>
+          </div>
+        </div>
+        <p class="obj">Auditar algoritmos, avaliar evidências e vieses, monitorar sistemas e prestar contas sobre o uso de IA no Estado.</p>
+        <div class="trilha-cols">
+          <div>
+            <div class="col-h">Módulos essenciais</div>
+            <div class="mod-tags"><span>Auditoria de algoritmos</span><span>Evidências</span><span>Riscos</span><span>Vieses</span><span>Monitoramento</span><span>Prestação de contas</span></div>
+          </div>
+          <div>
+            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <ul class="sug">
+              <li><span class="bg bg-fiap">FIAP</span>MBA em Business Intelligence &amp; Analytics</li>
+              <li><span class="bg bg-alura">Alura</span>Formação Machine Learning — modelos, avaliação e vieses</li>
+              <li><span class="bg bg-alura">Alura</span>Governança de IA — auditoria e monitoramento</li>
+              <li><span class="bg bg-alura">Alura</span>Escola de Dados — BI, SQL e visualização</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-k">Trilha 07 · Pessoas</div>
-        <h3>Para gestão de pessoas</h3>
-        <p>Desenvolver letramento e competências, formar por função e cuidar da cultura e dos novos papéis.</p>
-        <div class="taglist"><span>Letramento</span><span>Competências</span><span>Formação por função</span><span>Comunidades</span><span>Cultura</span><span>Novos papéis</span><span>Gestão da mudança</span></div>
+
+      <div class="trilha card" style="padding:28px">
+        <div class="trilha-head">
+          <div>
+            <span class="trilha-k">Trilha 07</span>
+            <h3>Para gestão de pessoas e escolas de governo</h3>
+            <div class="pub">RH · gestão da mudança · escolas de governo · comunidades de prática</div>
+          </div>
+        </div>
+        <p class="obj">Desenvolver letramento e competências em IA, formar por função, cuidar da cultura e desenhar os novos papéis profissionais da administração pública.</p>
+        <div class="trilha-cols">
+          <div>
+            <div class="col-h">Módulos essenciais</div>
+            <div class="mod-tags"><span>Letramento</span><span>Competências</span><span>Formação por função</span><span>Comunidades</span><span>Cultura</span><span>Novos papéis</span><span>Gestão da mudança</span></div>
+          </div>
+          <div>
+            <div class="col-h">Sugestões do ecossistema Alun</div>
+            <ul class="sug">
+              <li><span class="bg bg-alura">Alura</span>Escola de Inovação &amp; Gestão — 400+ cursos de liderança e soft skills</li>
+              <li><span class="bg bg-alura">Alura</span>Formação Inovação para Líderes</li>
+              <li><span class="bg bg-alura">Alura</span>Liderança Ágil — aprimoramento de soft skills</li>
+              <li><span class="bg bg-pm3">PM3</span>Product Leadership — liderar times de produto</li>
+              <li><span class="bg bg-fiap">FIAP</span>MBA em Gestão Estratégica de Negócios na Era da IA</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
     </div>
 
-    <div class="note" style="margin-top:24px"><b>Cada trilha</b> reúne público, nível, módulos, resultados esperados e uma chamada para ação. Quer estruturar uma trilha para a sua equipe? <a href="{{ '/setorpublico/contato/' | relative_url }}">Fale com a Alun Business</a>.</div>
+    <div class="note" style="margin-top:32px"><b>Como estruturar para a sua equipe?</b> As sugestões acima são <b>orientativas</b> e apontam para conteúdos reais do ecossistema Alun (Alura, FIAP, PM3, StartSe). Para desenhar uma trilha institucional sob medida — combinando conteúdos, workshops, mentoria e mensuração de impacto —, <a href="{{ '/setorpublico/contato/' | relative_url }}">fale com a Alun Business</a>.</div>
   </section>
 </div>
