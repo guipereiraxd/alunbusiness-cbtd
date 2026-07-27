@@ -222,6 +222,6 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
 
     </div>
 
-    <div class="note" style="margin-top:32px"><b>Como estruturar para a sua equipe?</b> As sugestões acima são <b>orientativas</b> e apontam para conteúdos reais do ecossistema Alun (Alura, FIAP, PM3, StartSe). Para desenhar uma trilha institucional sob medida — combinando conteúdos, workshops, mentoria e mensuração de impacto —, <a href="{{ '/setorpublico/contato/' | relative_url }}">fale com a Alun Business</a>.</div>
+    <div class="note" style="margin-top:32px"><b>Como estruturar para a sua equipe?</b> As sugestões acima são <b>orientativas</b> e podem ser customizadas de acordo com seu objetivo. Para desenhar uma trilha institucional sob medida — combinando conteúdos, workshops, mentoria e mensuração de impacto — <a href="{{ '/setorpublico/contato/' | relative_url }}">entre em contato com a Alun Business</a>.</div>
   </section>
 </div>
