@@ -1,6 +1,8 @@
 ---
 title: "Poupinha: o atendente virtual do Poupatempo"
 resumo: "Um assistente virtual que tira dúvidas, agenda serviços e emite documentos 24 horas por dia — mais de 200 milhões de mensagens trocadas desde 2016."
+tecnologia: "Chatbot em linguagem natural (autenticação integrada aos serviços)"
+principal_resultado: "Mais de 200 milhões de mensagens trocadas e 9 milhões de agendamentos desde 2016, 24 h por dia."
 organizacao: "Poupatempo · Governo de São Paulo (Prodesp)"
 esfera: "Estadual"
 poder: "Executivo"

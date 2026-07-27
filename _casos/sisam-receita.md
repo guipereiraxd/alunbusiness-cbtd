@@ -1,6 +1,8 @@
 ---
 title: "SISAM: seleção aduaneira por aprendizado de máquina"
 resumo: "Um escore de risco calculado por machine learning para cada declaração de importação, concentrando a fiscalização nas operações mais suspeitas."
+tecnologia: "Aprendizado de máquina supervisionado (+ ANIITA, ANJA, BatDoc)"
+principal_resultado: "Escore de risco para cada declaração de importação, com fiscalização por exceção nos casos críticos."
 organizacao: "Receita Federal do Brasil"
 esfera: "Federal"
 poder: "Executivo"

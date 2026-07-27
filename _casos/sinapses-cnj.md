@@ -1,6 +1,8 @@
 ---
 title: "Sinapses: plataforma nacional de IA do Judiciário"
 resumo: "Uma plataforma para treinar, hospedar, distribuir e auditar modelos de IA entre tribunais — evitando duplicação e dando continuidade e governança ao reúso."
+tecnologia: "Plataforma de MLOps (treinamento, hospedagem, auditoria)"
+principal_resultado: "150 modelos de IA de 29 tribunais compartilhados numa plataforma nacional com auditoria e governança."
 organizacao: "Conselho Nacional de Justiça (CNJ)"
 esfera: "Nacional"
 poder: "Judiciário"

@@ -1,6 +1,8 @@
 ---
 title: "Bürokratt: interface única de serviços ao cidadão"
 resumo: "Um assistente virtual interoperável para acessar qualquer serviço público por voz ou chat, num só canal — independentemente de qual agência o presta."
+tecnologia: "NLP (framework RASA) + plataforma BookStack"
+principal_resultado: "Um canal único (voz ou chat) para acessar qualquer serviço público, interoperável entre agências."
 organizacao: "Governo da Estônia"
 esfera: "Nacional (Estônia)"
 poder: "Executivo"

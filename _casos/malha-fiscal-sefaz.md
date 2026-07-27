@@ -1,6 +1,8 @@
 ---
 title: "Malha fiscal com IA: fiscalização por exceção nas Sefaz"
 resumo: "Mineração de dados e IA cruzam informações fiscais para achar inconsistências — de uma análise que levava meses a resultados diários, com ganhos expressivos de arrecadação."
+tecnologia: "Mineração de dados + IA no cruzamento de bases fiscais"
+principal_resultado: "Análise da malha fiscal de meses para diário; MG +32% de recuperação, SP ~R$ 10 bi em créditos."
 organizacao: "Secretarias de Fazenda estaduais (Sefaz)"
 esfera: "Estadual"
 poder: "Executivo"

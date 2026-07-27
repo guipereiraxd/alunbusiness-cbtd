@@ -1,6 +1,8 @@
 ---
 title: "Alice: auditoria contínua de licitações"
 resumo: "RPA e NLP analisam 100% das compras federais e sinalizam risco em dias — mais de R$ 9,7 bilhões em licitações suspensas ou canceladas."
+tecnologia: "RPA + Processamento de Linguagem Natural (Python)"
+principal_resultado: "Mais de R$ 9,7 bilhões em licitações suspensas ou canceladas entre 2019 e 2022 (jun)."
 organizacao: "Controladoria-Geral da União (CGU)"
 esfera: "Federal"
 poder: "Executivo"

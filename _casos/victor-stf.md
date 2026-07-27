@@ -1,6 +1,8 @@
 ---
 title: "Victor: triagem de peças e repercussão geral no STF"
 resumo: "IA que faz OCR, separa e classifica peças processuais e identifica temas de repercussão geral — acelerando uma triagem que consumiria milhares de horas humanas."
+tecnologia: "OCR + classificação por NLP (parceria com a UnB)"
+principal_resultado: "Triagem automatizada de ~42 mil processos por semestre — cerca de 22 mil horas de trabalho poupadas."
 organizacao: "Supremo Tribunal Federal (STF)"
 esfera: "Federal"
 poder: "Judiciário"

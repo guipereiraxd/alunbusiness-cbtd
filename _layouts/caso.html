@@ -1,51 +1,75 @@
 ---
 layout: setorpublico
 ---
-<div class="wrap case">
+<div class="wrap case-v2">
   <div class="crumb"><a href="{{ '/setorpublico/casos/' | relative_url }}">Casos de uso</a> / {{ page.area | default: "—" }}</div>
-  <div class="kicker" style="margin-top:16px">
-    {% if page.status %}<span class="badge apr"><i></i>{{ page.status }}</span>{% endif %}
-    {% if page.grau_risco %}<span class="badge ris"><i></i>Risco: {{ page.grau_risco }}</span>{% endif %}
+
+  <div class="case-hero">
+    <div>
+      <div class="kicker">
+        {% if page.status %}<span class="badge apr"><i></i>{{ page.status }}</span>{% endif %}
+        {% if page.grau_risco %}
+          {% assign risco_class = 'ris' %}
+          {% if page.grau_risco == 'baixo' %}{% assign risco_class = 'val' %}{% endif %}
+          {% if page.grau_risco == 'alto' %}{% assign risco_class = 'alr' %}{% endif %}
+          <span class="badge {{ risco_class }}"><i></i>Risco: {{ page.grau_risco }}</span>
+        {% endif %}
+        {% if page.organizacao %}<span style="font-family:var(--mono);font-size:11px;color:var(--tx3);letter-spacing:.06em;text-transform:uppercase">{{ page.organizacao }}</span>{% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      <p class="exec">{{ page.resumo }}</p>
+      {% if page.principal_resultado %}
+      <div class="result">
+        <div class="k">Principal resultado</div>
+        <div class="v">{{ page.principal_resultado }}</div>
+      </div>
+      {% endif %}
+      <div class="case-actions no-print">
+        <button class="share-btn" type="button" data-title="{{ page.title | escape }}" aria-label="Compartilhar este caso"><span class="lbl">Compartilhar</span></button>
+      </div>
+    </div>
+    <aside class="case-side" aria-label="Metadados do caso">
+      <h4>Ficha do caso</h4>
+      <dl>
+        {% if page.organizacao %}<dt>Órgão</dt><dd>{{ page.organizacao }}</dd>{% endif %}
+        {% if page.esfera %}<dt>Esfera</dt><dd>{{ page.esfera }}</dd>{% endif %}
+        {% if page.poder %}<dt>Poder</dt><dd>{{ page.poder }}</dd>{% endif %}
+        {% if page.area %}<dt>Área</dt><dd>{{ page.area }}</dd>{% endif %}
+        {% if page.localidade %}<dt>Local</dt><dd>{{ page.localidade }}</dd>{% endif %}
+        {% if page.ano %}<dt>Ano</dt><dd>{{ page.ano }}</dd>{% endif %}
+        {% if page.tecnologia %}<dt>Tecnologia</dt><dd>{{ page.tecnologia }}</dd>{% endif %}
+        {% if page.status %}<dt>Status</dt><dd>{{ page.status }}</dd>{% endif %}
+      </dl>
+      {% if page.qualidade %}<div class="qual"><b>Status das evidências</b>{{ page.qualidade }}</div>{% endif %}
+    </aside>
   </div>
-  <h1>{{ page.title | default: "[Título do caso]" }}</h1>
-  <p class="lede">{{ page.resumo | default: "[Resumo do caso em uma ou duas frases.]" }}</p>
 
-  <div class="no-print" style="margin-top:16px"><button class="share-btn" type="button" data-title="{{ page.title | escape }}" aria-label="Compartilhar este caso"><span class="lbl">Compartilhar</span></button></div>
+  <div class="case-body">
+    {% if page.problema %}<section class="sec-block"><div class="sec-k">Problema</div><h2>O que precisava ser resolvido</h2><p>{{ page.problema }}</p></section>{% endif %}
+    {% if page.solucao %}<section class="sec-block"><div class="sec-k">Solução</div><h2>Como a IA entrou</h2><p>{{ page.solucao }}</p></section>{% endif %}
+    {% if page.impacto %}<section class="sec-block"><div class="sec-k">Impacto</div><h2>Resultados observados</h2><p>{{ page.impacto }}</p></section>{% endif %}
+    {% if page.governanca %}<section class="sec-block"><div class="sec-k">Governança</div><h2>Como se protege</h2><p>{{ page.governanca }}</p></section>{% endif %}
+    {% if page.aprendizados %}<section class="sec-block"><div class="sec-k">Aprendizados</div><h2>O que fica para o setor público</h2><p>{{ page.aprendizados }}</p></section>{% endif %}
 
-  <ul class="klist">
-    <li><b>Organização</b> {{ page.organizacao | default: "[—]" }}</li>
-    <li><b>Esfera / Poder</b> {{ page.esfera | default: "[—]" }} · {{ page.poder | default: "[—]" }}</li>
-    <li><b>Área</b> {{ page.area | default: "[—]" }}</li>
-    <li><b>Localidade</b> {{ page.localidade | default: "[—]" }}</li>
-    <li><b>Ano</b> {{ page.ano | default: "[—]" }}</li>
-  </ul>
-
-  <div class="case-grid">
-    <div class="case-sec"><h2>Problema</h2><p>{{ page.problema | default: "[Situação anterior, público afetado, volume e consequências.]" }}</p></div>
-    <div class="case-sec"><h2>Solução</h2><p>{{ page.solucao | default: "[O que a IA faz, tecnologia utilizada, dados, integrações e participação humana.]" }}</p></div>
-    <div class="case-sec"><h2>Impacto</h2><p>{{ page.impacto | default: "[Resultados quantitativos e qualitativos, indicadores, abrangência e beneficiários.]" }}</p></div>
-    <div class="case-sec"><h2>Governança</h2><p>{{ page.governanca | default: "[Principais riscos, salvaguardas, responsáveis, monitoramento, transparência e canal de contestação.]" }}</p></div>
-    <div class="case-sec"><h2>Aprendizados</h2><p>{{ page.aprendizados | default: "[O que funcionou, o que não funcionou, limitações, próximos passos e possibilidade de replicação.]" }}</p></div>
+    {{ content }}
   </div>
-
-  {{ content }}
-
-  <div class="note" style="margin-top:30px"><b>Status de qualidade:</b> {{ page.qualidade | default: "[Informações verificadas / fornecidas pela organização / dados públicos / em experimentação / em produção.]" }}</div>
 
   {% assign relc = site.casos | where: "area", page.area %}
   {% assign nrel = 0 %}{% for c in relc %}{% if c.url != page.url %}{% assign nrel = nrel | plus: 1 %}{% endif %}{% endfor %}
   {% if nrel > 0 %}
-  <div class="sk" style="margin-top:46px">Relacionados</div>
-  <h2 style="font-family:var(--disp);font-weight:600;font-size:20px;margin:6px 0 0;color:var(--tx)">Casos da mesma área</h2>
-  <div class="cards c3" style="margin-top:18px">
-    {% assign shown = 0 %}
-    {% for c in relc %}{% if c.url != page.url and shown < 3 %}
-    <a class="card" href="{{ c.url | relative_url }}"><div class="card-k">{{ c.organizacao }}</div><h3>{{ c.title }}</h3><p>{{ c.resumo | strip_html | truncate: 110 }}</p></a>
-    {% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
+  <div style="padding-top:40px;border-top:1px solid var(--line);margin-top:20px">
+    <div class="sec-k" style="font-family:var(--mono);font-size:11px;color:var(--brand-p);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px"><span style="width:22px;height:1px;background:var(--brand-p)"></span>Casos relacionados</div>
+    <h2 style="font-family:var(--disp);font-weight:600;font-size:24px;margin:10px 0 0;color:var(--ink)">Outros casos em {{ page.area }}</h2>
+    <div class="cards c3" style="margin-top:22px">
+      {% assign shown = 0 %}
+      {% for c in relc %}{% if c.url != page.url and shown < 3 %}
+      <a class="card" href="{{ c.url | relative_url }}"><div class="card-k">{{ c.organizacao }}</div><h3>{{ c.title }}</h3><p>{{ c.resumo | strip_html | truncate: 110 }}</p></a>
+      {% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
+    </div>
   </div>
   {% endif %}
 
-  <a class="panel-link" href="{{ '/setorpublico/casos/' | relative_url }}">
+  <a class="panel-link" href="{{ '/setorpublico/casos/' | relative_url }}" style="margin-top:40px">
     <div><div class="k">Biblioteca</div><h3>Ver todos os casos de uso</h3></div>
     <span class="cta">Voltar aos casos →</span>
   </a>
