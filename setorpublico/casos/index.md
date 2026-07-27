@@ -62,9 +62,9 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
     {% endfor %}
   </div>
   <div id="c-empty" class="empty-state" style="margin-top:22px" role="status">
-    <div class="es-ic"><svg><use href="#i-search"></use></svg></div>
-    <p class="es-t">Nenhum caso encontrado com esses filtros</p>
-    <p class="es-d">A biblioteca cresce continuamente — se o caso que você procura ainda não está aqui, ajuste os filtros ou nos indique um novo.</p>
+    <div class="es-ic" id="c-empty-ic"><svg><use href="#i-search"></use></svg></div>
+    <p class="es-t" id="c-empty-t">Nenhum caso encontrado com esses filtros</p>
+    <p class="es-d" id="c-empty-d">A biblioteca cresce continuamente — se o caso que você procura ainda não está aqui, ajuste os filtros ou nos indique um novo.</p>
     <div class="es-actions">
       <a href="#" id="c-clear">Limpar filtros</a>
       <a href="{{ '/setorpublico/contato/' | relative_url }}">Indicar um caso</a>
@@ -165,6 +165,20 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
       if(ok) shown++;
     });
     count.innerHTML = '<b>'+shown+'</b> de '+total+(shown===1?' caso':' casos');
+    if(!shown){
+      var ic = document.getElementById('c-empty-ic');
+      var t  = document.getElementById('c-empty-t');
+      var d  = document.getElementById('c-empty-d');
+      if(favOnly && favs().length === 0){
+        ic.innerHTML = '<svg><use href="#i-star"></use></svg>';
+        t.textContent = 'Você ainda não favoritou nenhum caso';
+        d.textContent = 'Explore a biblioteca e clique na estrela dos casos que quiser revisitar depois — eles ficam salvos no seu navegador.';
+      } else {
+        ic.innerHTML = '<svg><use href="#i-search"></use></svg>';
+        t.textContent = 'Nenhum caso encontrado com esses filtros';
+        d.textContent = 'A biblioteca cresce continuamente — se o caso que você procura ainda não está aqui, ajuste os filtros ou nos indique um novo.';
+      }
+    }
     empty.style.display = shown ? 'none' : 'block';
     renderActive();
     sortCards();
