@@ -18,7 +18,6 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
     <div class="lib-tools">
       <span class="lib-chip"><select id="c-area" aria-label="Filtrar por área"><option value="">Todas as áreas</option><option>Atendimento ao cidadão</option><option>Processos administrativos</option><option>Compras e contratos</option><option>Controle e auditoria</option><option>Formulação de políticas</option><option>Gestão de pessoas</option></select></span>
       <span class="lib-chip"><select id="c-esfera" aria-label="Filtrar por esfera"><option value="">Esfera</option><option>Federal</option><option>Estadual</option><option>Municipal</option><option>Nacional</option></select></span>
-      <span class="lib-chip"><select id="c-risco" aria-label="Filtrar por risco"><option value="">Risco</option><option>baixo</option><option>médio</option><option>alto</option></select></span>
       <span class="lib-chip"><select id="c-status" aria-label="Filtrar por estágio"><option value="">Estágio</option><option>Em produção</option><option>Em experimentação</option><option>Em desenvolvimento</option></select></span>
       <span class="lib-chip"><select id="c-sort" aria-label="Ordenar"><option value="alpha">A → Z</option><option value="alpha-z">Z → A</option><option value="area">Por área</option></select></span>
       <button id="c-fav" class="lib-chip" type="button" aria-pressed="false">★ Favoritos</button>
@@ -34,19 +33,15 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
 
   <div id="c-list" class="lib-grid">
     {% for c in site.casos %}{% capture txt %}{{ c.title }} {{ c.resumo }} {{ c.tags | join: ' ' }} {{ c.organizacao }} {{ c.tecnologia }}{% endcapture %}
-    {% assign risco_class = 'ris' %}
-    {% if c.grau_risco == 'baixo' %}{% assign risco_class = 'val' %}{% endif %}
-    {% if c.grau_risco == 'alto' %}{% assign risco_class = 'alr' %}{% endif %}
     <a class="lcard caso-card" href="{{ c.url | relative_url }}"
        data-area="{{ c.area | escape }}" data-esfera="{{ c.esfera | escape }}"
-       data-risco="{{ c.grau_risco | escape }}" data-status="{{ c.status | escape }}"
+       data-status="{{ c.status | escape }}"
        data-url="{{ c.url | relative_url }}"
        data-title="{{ c.title | escape }}"
        data-text="{{ txt | strip_newlines | downcase | escape }}">
       <div class="top">
         <div class="badges">
           {% if c.status %}<span class="badge apr"><i></i>{{ c.status }}</span>{% endif %}
-          {% if c.grau_risco %}<span class="badge {{ risco_class }}"><i></i>Risco: {{ c.grau_risco }}</span>{% endif %}
         </div>
         <button class="fav-star no-print" type="button" data-url="{{ c.url | relative_url }}" aria-label="Salvar {{ c.title | escape }} nos favoritos" title="Favoritar">★</button>
       </div>
@@ -80,7 +75,6 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
   var search = document.getElementById('c-search');
   var fArea = document.getElementById('c-area');
   var fEsfera = document.getElementById('c-esfera');
-  var fRisco = document.getElementById('c-risco');
   var fStatus = document.getElementById('c-status');
   var fSort = document.getElementById('c-sort');
   var favBtn = document.getElementById('c-fav');
@@ -113,7 +107,6 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
     var chips = [];
     if(fArea.value) chips.push({k:'area', l:'Área: '+fArea.value});
     if(fEsfera.value) chips.push({k:'esfera', l:'Esfera: '+fEsfera.value});
-    if(fRisco.value) chips.push({k:'risco', l:'Risco: '+fRisco.value});
     if(fStatus.value) chips.push({k:'status', l:'Estágio: '+fStatus.value});
     if(search.value.trim()) chips.push({k:'search', l:'“'+search.value.trim()+'”'});
     if(favOnly) chips.push({k:'fav', l:'Favoritos'});
@@ -132,13 +125,12 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
   function clearOne(k){
     if(k==='area') fArea.value='';
     if(k==='esfera') fEsfera.value='';
-    if(k==='risco') fRisco.value='';
     if(k==='status') fStatus.value='';
     if(k==='search') search.value='';
     if(k==='fav'){ favOnly=false; favBtn.classList.remove('on'); favBtn.setAttribute('aria-pressed','false'); }
   }
   function clearAll(){
-    search.value=''; fArea.value=''; fEsfera.value=''; fRisco.value=''; fStatus.value='';
+    search.value=''; fArea.value=''; fEsfera.value=''; fStatus.value='';
     favOnly=false; favBtn.classList.remove('on'); favBtn.setAttribute('aria-pressed','false');
   }
   function sortCards(){
@@ -151,7 +143,7 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
   }
   function apply(){
     var q = norm(search.value).trim();
-    var a = norm(fArea.value), e = norm(fEsfera.value), r = norm(fRisco.value), s = norm(fStatus.value);
+    var a = norm(fArea.value), e = norm(fEsfera.value), s = norm(fStatus.value);
     var shown = 0, total = cards.length;
     cards.forEach(function(card){
       var star = card.querySelector('.fav-star');
@@ -159,7 +151,6 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
       var ok = favok &&
                has(norm(card.getAttribute('data-area')), a) &&
                has(norm(card.getAttribute('data-esfera')), e) &&
-               has(norm(card.getAttribute('data-risco')), r) &&
                has(norm(card.getAttribute('data-status')), s) &&
                (!q || norm(card.getAttribute('data-text')).indexOf(q) !== -1);
       card.style.display = ok ? '' : 'none';
@@ -171,7 +162,7 @@ description: "Biblioteca de casos reais de IA no setor público brasileiro e int
     sortCards();
   }
 
-  [search, fArea, fEsfera, fRisco, fStatus, fSort].forEach(function(el){
+  [search, fArea, fEsfera, fStatus, fSort].forEach(function(el){
     el.addEventListener('input', apply); el.addEventListener('change', apply);
   });
   if(favBtn) favBtn.addEventListener('click', function(){
