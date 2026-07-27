@@ -22,7 +22,7 @@ description: "Fale com a Alun Business — estruture a jornada de IA da sua orga
 
     <div id="hs-form" aria-live="polite" style="margin-top:26px"></div>
     <div id="hs-fallback" class="note" style="display:none;margin-top:20px">
-      <b>Não conseguiu enviar pelo formulário?</b> Escreva para <a href="mailto:contato@alun.com.br">contato@alun.com.br</a> com sua organização, cargo e uma breve descrição do desafio.
+      <b>Não conseguiu enviar pelo formulário?</b> Escreva para <a href="mailto:corporativo@alura.com.br">corporativo@alura.com.br</a> com sua organização, cargo e uma breve descrição do desafio.
     </div>
     <div class="note" style="margin-top:20px;border-left-color:var(--tx3)">
       Ao enviar o formulário, você consente com o tratamento dos dados fornecidos pela Alun Business para retorno do contato. O formulário é hospedado pelo HubSpot, que pode registrar um cookie próprio — condições cobertas na <a href="{{ '/setorpublico/privacidade/' | relative_url }}">política de privacidade</a>.
