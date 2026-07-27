@@ -38,7 +38,7 @@ description: "Fale com a Alun Business — estruture a jornada de IA da sua orga
       </div>
     </div>
     <div class="note" style="margin-top:20px;border-left-color:var(--tx3)">
-      Ao enviar o formulário, você consente com o tratamento dos dados fornecidos pela Alun Business para retorno do contato. O formulário é hospedado pelo HubSpot, que pode registrar um cookie próprio — condições cobertas na <a href="{{ '/setorpublico/privacidade/' | relative_url }}">política de privacidade</a>.
+      Ao enviar o formulário, você consente com o tratamento dos dados fornecidos pela Alun Business para retorno do contato. O formulário é hospedado pelo HubSpot, que pode registrar um cookie próprio — condições cobertas na <a href="https://alun.com.br/alunbusiness/privacidade/">Política de Privacidade</a>.
     </div>
   </section>
 </div>
