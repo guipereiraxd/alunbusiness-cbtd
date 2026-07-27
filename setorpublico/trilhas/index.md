@@ -49,7 +49,7 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <div class="trilha-cols">
           <div>
             <div class="col-h">Módulos customizáveis</div>
-            <div class="mod-tags"><span>Fundamentos de IA</span><span>Estratégia</span><span>Valor público</span><span>Portfólio</span><span>Governança</span><span>Gestão de riscos</span><span>Liderança da transformação</span></div>
+            <div class="mod-tags"><span>O que a IA muda no Estado</span><span>Estratégia de IA na esfera pública</span><span>Como medir valor público</span><span>Portfólio: onde investir primeiro</span><span>Governança institucional</span><span>Riscos que a liderança precisa ver</span><span>Conduzir a transformação</span></div>
           </div>
           <div>
             <div class="col-h">Alguns cursos do Grupo Alun</div>
@@ -75,7 +75,7 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <div class="trilha-cols">
           <div>
             <div class="col-h">Módulos customizáveis</div>
-            <div class="mod-tags"><span>Identificação de problemas</span><span>Casos de uso</span><span>Redesenho de processos</span><span>Prototipação</span><span>Avaliação</span><span>Gestão da mudança</span></div>
+            <div class="mod-tags"><span>Que problema vale usar IA?</span><span>Casos de uso que funcionam no setor público</span><span>Redesenhar o processo com IA</span><span>Do papel à prototipação</span><span>Como medir se deu certo</span><span>Levar a equipe junto</span></div>
           </div>
           <div>
             <div class="col-h">Alguns cursos do Grupo Alun</div>
@@ -101,7 +101,7 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <div class="trilha-cols">
           <div>
             <div class="col-h">Módulos customizáveis</div>
-            <div class="mod-tags"><span>Arquitetura</span><span>Dados</span><span>Modelos</span><span>RAG</span><span>Integrações</span><span>Segurança</span><span>Avaliações</span><span>Observabilidade</span><span>Operação</span></div>
+            <div class="mod-tags"><span>Arquitetura de soluções de IA</span><span>Dados: qualidade, integração e governança</span><span>Escolher o modelo certo</span><span>RAG e busca aumentada</span><span>Integração com sistemas legados</span><span>Segurança em ambientes públicos</span><span>Como avaliar um modelo</span><span>Observabilidade em produção</span><span>Operar IA em escala</span></div>
           </div>
           <div>
             <div class="col-h">Alguns cursos do Grupo Alun</div>
@@ -128,7 +128,7 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <div class="trilha-cols">
           <div>
             <div class="col-h">Módulos customizáveis</div>
-            <div class="mod-tags"><span>Finalidade</span><span>Bases legais</span><span>Dados pessoais</span><span>Direitos</span><span>Transparência</span><span>Contestação</span><span>Avaliação de impacto</span><span>Contratação</span></div>
+            <div class="mod-tags"><span>Finalidade e legitimidade do uso</span><span>Bases legais da LGPD para IA</span><span>Tratamento de dados pessoais</span><span>Direitos do cidadão</span><span>Transparência algorítmica</span><span>Contestação de decisões automatizadas</span><span>Avaliação de impacto (RIPD/AIPD)</span><span>Cláusulas contratuais essenciais</span></div>
           </div>
           <div>
             <div class="col-h">Alguns cursos do Grupo Alun</div>
@@ -153,7 +153,7 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <div class="trilha-cols">
           <div>
             <div class="col-h">Módulos customizáveis</div>
-            <div class="mod-tags"><span>Termo de referência</span><span>Seleção de fornecedor</span><span>Avaliação técnica</span><span>Dados</span><span>Segurança</span><span>Auditoria</span><span>Portabilidade</span><span>Gestão contratual</span></div>
+            <div class="mod-tags"><span>Escrever o termo de referência</span><span>Como avaliar fornecedores de IA</span><span>Prova de conceito antes de contratar</span><span>Titularidade e uso dos dados</span><span>Requisitos de segurança</span><span>Direito de auditoria</span><span>Portabilidade e prevenção de dependência</span><span>Gestão do contrato ao longo do tempo</span></div>
           </div>
           <div>
             <div class="col-h">Alguns cursos do Grupo Alun</div>
@@ -179,7 +179,7 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <div class="trilha-cols">
           <div>
             <div class="col-h">Módulos customizáveis</div>
-            <div class="mod-tags"><span>Auditoria de algoritmos</span><span>Evidências</span><span>Riscos</span><span>Vieses</span><span>Monitoramento</span><span>Prestação de contas</span></div>
+            <div class="mod-tags"><span>Como auditar um algoritmo</span><span>Evidências e trilhas de decisão</span><span>Riscos em sistemas de IA</span><span>Vieses e discriminação algorítmica</span><span>Monitoramento contínuo</span><span>Prestação de contas ao cidadão</span></div>
           </div>
           <div>
             <div class="col-h">Alguns cursos do Grupo Alun</div>
@@ -205,7 +205,7 @@ description: "Trilhas de aprendizagem por perfil, do letramento à liderança da
         <div class="trilha-cols">
           <div>
             <div class="col-h">Módulos customizáveis</div>
-            <div class="mod-tags"><span>Letramento</span><span>Competências</span><span>Formação por função</span><span>Comunidades</span><span>Cultura</span><span>Novos papéis</span><span>Gestão da mudança</span></div>
+            <div class="mod-tags"><span>Letramento em IA para servidores</span><span>Mapear as competências necessárias</span><span>Formação por função</span><span>Comunidades de prática</span><span>Cultura de experimentação</span><span>Novos papéis profissionais</span><span>Gestão da mudança</span></div>
           </div>
           <div>
             <div class="col-h">Alguns cursos do Grupo Alun</div>
