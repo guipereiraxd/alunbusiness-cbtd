@@ -1,0 +1,21 @@
+---
+title: "Digital Recife (EMPREL): assistente digital do cidadão em uma capital do Nordeste"
+resumo: "A Prefeitura de Recife, por meio da EMPREL — sua empresa municipal de informática —, consolidou serviços digitais em portal e app únicos, com camadas de IA para triagem de solicitações, chatbot de primeira linha e integração de bases setoriais em identidade única do cidadão."
+tecnologia: "Portal e app unificados + chatbot em NLP + identidade única do cidadão + integração com bases setoriais + BI de gestão urbana"
+principal_resultado: "Cidadão recifense passou a acessar dezenas de serviços municipais por um único login e app — com chatbot que responde às dúvidas mais frequentes e roteamento inteligente das solicitações que precisam de atendimento humano."
+organizacao: "EMPREL · Empresa Municipal de Informática · Prefeitura do Recife"
+esfera: "Municipal"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "Recife (PE)"
+ano: "em operação (evoluções contínuas)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Prefeitura do Recife, EMPREL, imprensa)"
+tags: ["Governo digital", "Chatbot", "Identidade única", "Cidade digital", "Nordeste"]
+problema: "Uma capital como Recife oferece dezenas de serviços municipais — de IPTU a agendamento em UBS —, mas historicamente cada serviço vivia em portal, senha e canal próprios. O cidadão precisava saber de antemão qual secretaria fazia o quê, criar múltiplos cadastros e repetir a mesma dor de cabeça em cada solicitação. O custo humano recai sobre quem menos tem folga: idosos, pequenos empresários, moradores de bairros com menos acesso a informação."
+solucao: "A Prefeitura de Recife, através da EMPREL, consolidou os serviços digitais em um portal e um app unificados (Conecta Recife) apoiados em identidade única do cidadão. Sobre essa base foram adicionadas camadas de IA: chatbot de primeira linha que responde às dúvidas mais frequentes com base na documentação oficial dos serviços; classificação automática de solicitações abertas pelo cidadão, com roteamento à secretaria certa; painel gerencial para a Prefeitura acompanhar demanda por bairro e por serviço."
+impacto: "Consolidação de dezenas de serviços num só ponto de entrada, com login único; queda na multiplicação de cadastros; primeira linha de atendimento absorvida pelo chatbot em horas em que a Central 156 tradicional não opera; visibilidade para a Prefeitura de padrões de demanda por bairro — insumo para priorização de investimento. O modelo evoluiu em ciclos, com integrações setoriais sendo adicionadas ao longo do tempo."
+governanca: "Uso é regulado por política municipal de governo digital e por convênios setoriais. Dados pessoais do cidadão ficam em infraestrutura da EMPREL, sob LGPD. Chatbot é ferramenta de apoio à triagem — decisões e respostas com efeito legal continuam sob responsabilidade do servidor competente. Ampliações do escopo passam por avaliação da Secretaria Executiva de Tecnologia."
+aprendizados: "O caso mostra que o desafio de governo digital municipal não é o algoritmo — é a integração. A camada de IA agrega valor porque existe uma identidade única e uma base consolidada por trás; sem esse alicerce, chatbot vira brinquedo. Para prefeituras médias e grandes do Nordeste (Salvador, Fortaleza, Natal, João Pessoa, Teresina) que caminham para o mesmo horizonte, a lição é: comece pela identidade única e pelo cadastro consolidado; a IA vem depois, como camada de conveniência sobre um alicerce que já existe."
+---

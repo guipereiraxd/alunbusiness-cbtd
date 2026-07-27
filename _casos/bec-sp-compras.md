@@ -1,0 +1,21 @@
+---
+title: "BEC-SP: pregão eletrônico e analítica de preços na compra pública paulista"
+resumo: "A Bolsa Eletrônica de Compras do Estado de São Paulo é uma das maiores plataformas de aquisição pública subnacional do mundo — movimenta bilhões de reais por ano em pregões eletrônicos e é sustentada por analítica de preços que dá referência ao comprador e transparência ao cidadão."
+tecnologia: "Plataforma de pregão eletrônico + histórico consolidado de preços praticados + regras de risco + integração com órgãos de controle + BI público"
+principal_resultado: "Bilhões de reais processados por ano em compras estaduais e municipais paulistas, com histórico de preços que serve de referência para todo o país — e que serve de infraestrutura para analítica antifraude e para transparência ao cidadão."
+organizacao: "Prodesp / Secretaria da Fazenda e Planejamento do Estado de São Paulo"
+esfera: "Estadual"
+poder: "Executivo"
+area: "Compras e contratos"
+localidade: "São Paulo (Estado)"
+ano: "2002 (em operação)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Prodesp, Secretaria da Fazenda SP, TCE-SP)"
+tags: ["Compras públicas", "Pregão eletrônico", "Preço de referência", "BI público", "Estadual"]
+problema: "A compra pública tem dois riscos crônicos que se retroalimentam: sobrepreço (o órgão paga acima do mercado por falta de referência) e conluio (fornecedores se coordenam para reduzir competição). O primeiro exige base histórica de preços praticados; o segundo exige capacidade analítica sobre padrões de participação. Sem plataforma consolidada e sem inteligência sobre a própria base, cada compra reinventa a roda — e a auditoria sempre chega depois."
+solucao: "A BEC-SP é a plataforma de pregão eletrônico do Estado de São Paulo, operada pela Prodesp, aberta também a municípios paulistas conveniados. Sobre a plataforma, o Estado mantém histórico consolidado de preços praticados por item, região e período — insumo direto para pesquisa de mercado e para definição de preço de referência em novas compras. Camadas analíticas identificam padrões suspeitos (concentração excessiva em fornecedor, oferta inicial atipicamente alta com queda no lance final, coincidência sistemática entre participantes) e alimentam órgãos de controle."
+impacto: "Bilhões de reais processados por ano em compras estaduais e municipais, com histórico de preços que serve de referência não apenas para SP mas para muitos entes federativos que consultam a base como benchmark. Redução de sobrepreço em compras que passam a usar preço de referência calibrado. Integração com órgãos de controle (TCE-SP, Procuradoria) gera investigações a partir de sinais estatísticos."
+governanca: "Uso é regulado pela Lei de Licitações federal (Lei 14.133/2021) e por normas estaduais próprias. Preços consolidados são públicos, com granularidade que preserva sigilo comercial pontual. Investigações a partir de sinais analíticos seguem o rito legal do controle interno e externo. Contribuinte fornecedor investigado tem direito ao contraditório. Ampliações da analítica passam por avaliação técnica da Prodesp e da Sefaz-SP."
+aprendizados: "A BEC-SP mostra que a plataforma é o dado — sem infraestrutura de compra consolidada, não existe analítica possível. Um estado, ao operar a plataforma por duas décadas, acumula ativo informacional que órgãos que compram pontualmente não têm. A abertura dos dados (com preservação de sigilos legítimos) faz a plataforma virar bem público — outros entes usam a base como referência mesmo sem comprar pela BEC. A lição para o país é dupla: o Comprasnet federal e as plataformas estaduais precisam evoluir para o mesmo padrão de analítica visível, e a interoperabilidade entre elas destravaria a próxima geração de inteligência antifraude nacional."
+---
