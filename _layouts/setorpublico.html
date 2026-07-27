@@ -108,13 +108,37 @@ nav.nav{margin-left:auto;display:flex;gap:2px;align-items:center}
 .navitem .chev{font-size:9px;color:var(--tx3)}
 .dd{position:absolute;top:calc(100% + 6px);left:0;background:var(--paper);border:1px solid var(--line);
   border-radius:12px;padding:8px;min-width:240px;box-shadow:0 20px 40px -20px rgba(20,20,40,.15);
-  opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility .16s}
+  opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility .16s;z-index:12}
 .navitem:hover .dd,.navitem:focus-within .dd{opacity:1;visibility:visible;transform:translateY(0)}
-.dd a{display:flex;flex-direction:column;padding:9px 12px;border-radius:8px;text-decoration:none;color:var(--tx);
+.dd:not(.mega) a{display:flex;flex-direction:column;padding:9px 12px;border-radius:8px;text-decoration:none;color:var(--tx);
   font-size:13.5px;transition:background .12s}
-.dd a:hover{background:var(--panel)}
-.dd a b{font-family:var(--disp);font-weight:600;font-size:14px;color:var(--ink);display:block;line-height:1.25}
-.dd a span{font-size:11.5px;color:var(--tx3);margin-top:1px}
+.dd:not(.mega) a:hover{background:var(--panel)}
+.dd:not(.mega) a b{font-family:var(--disp);font-weight:600;font-size:14px;color:var(--ink);display:block;line-height:1.25}
+.dd:not(.mega) a span{font-size:11.5px;color:var(--tx3);margin-top:1px}
+
+/* ---- mega menu ---- */
+.dd.mega{width:min(720px, 92vw);padding:14px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;
+  left:50%;margin-left:-360px}
+.mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;align-content:start}
+.mega-item{display:grid;grid-template-columns:auto 1fr;gap:11px;padding:11px 12px;border-radius:10px;
+  text-decoration:none;transition:background .14s}
+.mega-item:hover{background:var(--panel)}
+.dd.mega .mega-ic{width:32px;height:32px;border-radius:8px;background:var(--tint-p);color:var(--brand-p);
+  display:grid;place-items:center;flex-shrink:0}
+.mega-ic svg{width:16px;height:16px}
+.mega-item b{font-family:var(--disp);font-weight:600;font-size:13.5px;color:var(--ink);line-height:1.2;display:block}
+.mega-item > span:last-child{display:block}
+.mega-item > span:last-child > span{font-size:11.5px;color:var(--tx3);margin-top:2px;line-height:1.4;display:block}
+.mega-feat{background:linear-gradient(135deg, var(--panel) 0%, var(--tint-p) 100%);
+  border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.mega-feat .mf-k{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--brand-p);text-transform:uppercase}
+.mega-feat .mf-t{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--ink);margin:0;line-height:1.22;letter-spacing:-.005em}
+.mega-feat .mf-d{font-size:12px;color:var(--tx2);line-height:1.5;margin:0}
+.mega-feat .mf-cta{margin-top:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--brand-p);text-decoration:none;padding-top:10px;border-top:1px solid var(--line);
+  display:flex;align-self:flex-start;align-items:center;gap:6px;white-space:nowrap;line-height:1.1}
+.mega-feat .mf-cta:hover{color:var(--brand-m)}
+.mega-feat .mf-cta svg{width:12px;height:12px;flex-shrink:0}
 .cta-nav{margin-left:8px;font-family:var(--disp);font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:8px;
   text-decoration:none;color:#fff;background:var(--grad);display:inline-flex;align-items:center;gap:7px;
   transition:transform .16s ease,box-shadow .16s ease;
@@ -131,6 +155,10 @@ nav.nav{margin-left:auto;display:flex;gap:2px;align-items:center}
   .dd{position:static;box-shadow:none;padding:0 0 4px 18px;background:transparent;border:0;opacity:1;visibility:visible;transform:none;
     display:none;min-width:0}
   .navitem.open .dd{display:block}
+  .dd.mega{width:auto;left:auto;margin-left:0;grid-template-columns:1fr;gap:8px;padding:0 0 4px 18px}
+  .mega-grid{grid-template-columns:1fr;gap:2px}
+  .mega-item{padding:9px 10px}
+  .mega-feat{padding:12px 14px}
   .cta-nav{margin:8px 0 0 0;justify-content:center}
 }
 
@@ -824,24 +852,85 @@ footer.bottom .sig a{color:var(--brand-p);text-decoration:none}
     <nav class="nav" id="nav">
       <div class="navitem"><a href="{{ '/setorpublico/' | relative_url }}"{% if page.url == '/setorpublico/' %} class="on"{% endif %}>Início</a></div>
       <div class="navitem"><button type="button" aria-haspopup="true">Explorar <span class="chev">▾</span></button>
-        <div class="dd">
-          <a href="{{ '/setorpublico/oportunidades/' | relative_url }}"><b>Mapa de oportunidades</b><span>Onde a IA se aplica no seu órgão</span></a>
-          <a href="{{ '/setorpublico/casos/' | relative_url }}"><b>Biblioteca de casos</b><span>Aplicações reais no setor público</span></a>
-          <a href="{{ '/setorpublico/observatorio/' | relative_url }}"><b>Observatório</b><span>Normas, guias e evidências</span></a>
+        <div class="dd mega">
+          <div class="mega-grid">
+            <a class="mega-item" href="{{ '/setorpublico/oportunidades/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-map"></use></svg></span>
+              <span><b>Mapa de oportunidades</b><span>Onde a IA se aplica, por área do seu órgão</span></span>
+            </a>
+            <a class="mega-item" href="{{ '/setorpublico/casos/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-cases"></use></svg></span>
+              <span><b>Biblioteca de casos</b><span>Aplicações reais no setor público</span></span>
+            </a>
+            <a class="mega-item" href="{{ '/setorpublico/observatorio/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-eye"></use></svg></span>
+              <span><b>Observatório</b><span>Normas, guias e evidências recentes</span></span>
+            </a>
+            <a class="mega-item" href="{{ '/setorpublico/sobre/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-info"></use></svg></span>
+              <span><b>Sobre o portal</b><span>Tese, método e quem está por trás</span></span>
+            </a>
+          </div>
+          <div class="mega-feat">
+            <div class="mf-k">Biblioteca</div>
+            <h4 class="mf-t">7 casos reais, do Poupatempo à União Europeia</h4>
+            <p class="mf-d">Alice (CGU), Victor (STF), Bürokratt, Sinapses e outros — cada um com problema, solução, impacto e governança.</p>
+            <a class="mf-cta" href="{{ '/setorpublico/casos/' | relative_url }}">Explorar biblioteca <svg viewBox="0 0 24 24"><use href="#i-arrow"></use></svg></a>
+          </div>
         </div></div>
       <div class="navitem"><button type="button" aria-haspopup="true">Avaliar <span class="chev">▾</span></button>
-        <div class="dd">
-          <a href="{{ '/setorpublico/diagnostico/' | relative_url }}"><b>Diagnóstico de maturidade</b><span>Nota, radar e recomendações</span></a>
-          <a href="{{ '/setorpublico/ferramentas/priorizador/' | relative_url }}"><b>Priorizador de casos</b><span>Valor, viabilidade e risco</span></a>
-          <a href="{{ '/setorpublico/governanca/posso-usar-ia/' | relative_url }}"><b>Posso usar IA para isso?</b><span>Orientação de uso responsável</span></a>
-          <a href="{{ '/setorpublico/ferramentas/calculadora/' | relative_url }}"><b>Calculadora de valor público</b><span>Estimativa de eficiência</span></a>
+        <div class="dd mega">
+          <div class="mega-grid">
+            <a class="mega-item" href="{{ '/setorpublico/diagnostico/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-gauge"></use></svg></span>
+              <span><b>Diagnóstico de maturidade</b><span>Radar em 10 dimensões e 4 estágios</span></span>
+            </a>
+            <a class="mega-item" href="{{ '/setorpublico/ferramentas/priorizador/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-scale"></use></svg></span>
+              <span><b>Priorizador de casos</b><span>Valor público, viabilidade e risco</span></span>
+            </a>
+            <a class="mega-item" href="{{ '/setorpublico/governanca/posso-usar-ia/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-shield"></use></svg></span>
+              <span><b>Posso usar IA para isso?</b><span>Orientação de uso responsável</span></span>
+            </a>
+            <a class="mega-item" href="{{ '/setorpublico/ferramentas/calculadora/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-chart"></use></svg></span>
+              <span><b>Calculadora de valor público</b><span>Estimativa de eficiência e impacto</span></span>
+            </a>
+          </div>
+          <div class="mega-feat">
+            <div class="mf-k">Em 8 minutos</div>
+            <h4 class="mf-t">Diagnóstico de maturidade em IA</h4>
+            <p class="mf-d">Radar em 10 dimensões, estágio de maturidade e recomendações personalizadas por dimensão — sem cadastro.</p>
+            <a class="mf-cta" href="{{ '/setorpublico/diagnostico/' | relative_url }}">Fazer diagnóstico <svg viewBox="0 0 24 24"><use href="#i-arrow"></use></svg></a>
+          </div>
         </div></div>
       <div class="navitem"><button type="button" aria-haspopup="true">Aprender <span class="chev">▾</span></button>
-        <div class="dd">
-          <a href="{{ '/setorpublico/trilhas/' | relative_url }}"><b>Trilhas por perfil</b><span>Capacitação da liderança à execução</span></a>
-          <a href="{{ '/setorpublico/ferramentas/' | relative_url }}"><b>Ferramentas e kits</b><span>Checklists, canvas e modelos</span></a>
-          <a href="{{ '/setorpublico/ferramentas/laboratorio-prompts/' | relative_url }}"><b>Laboratório de prompts</b><span>Atividades práticas</span></a>
-          <a href="{{ '/setorpublico/governanca/' | relative_url }}"><b>Governança</b><span>IA responsável na prática</span></a>
+        <div class="dd mega">
+          <div class="mega-grid">
+            <a class="mega-item" href="{{ '/setorpublico/trilhas/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-path"></use></svg></span>
+              <span><b>Trilhas por perfil</b><span>Capacitação da liderança à execução</span></span>
+            </a>
+            <a class="mega-item" href="{{ '/setorpublico/ferramentas/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-tools"></use></svg></span>
+              <span><b>Ferramentas e kits</b><span>Checklists, canvas e modelos</span></span>
+            </a>
+            <a class="mega-item" href="{{ '/setorpublico/ferramentas/laboratorio-prompts/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-hands"></use></svg></span>
+              <span><b>Laboratório de prompts</b><span>9 atividades práticas para o dia a dia</span></span>
+            </a>
+            <a class="mega-item" href="{{ '/setorpublico/governanca/' | relative_url }}">
+              <span class="mega-ic"><svg viewBox="0 0 24 24"><use href="#i-inst"></use></svg></span>
+              <span><b>Governança</b><span>Ciclo de vida da IA responsável</span></span>
+            </a>
+          </div>
+          <div class="mega-feat">
+            <div class="mf-k">Prática</div>
+            <h4 class="mf-t">9 atividades para dominar prompt engineering no setor público</h4>
+            <p class="mf-d">Contexto, prompt, revisão e riscos — cada atividade destila um caso real do dia a dia público.</p>
+            <a class="mf-cta" href="{{ '/setorpublico/ferramentas/laboratorio-prompts/' | relative_url }}">Abrir laboratório <svg viewBox="0 0 24 24"><use href="#i-arrow"></use></svg></a>
+          </div>
         </div></div>
       <div class="navitem"><a href="{{ '/setorpublico/observatorio/' | relative_url }}"{% if page.url contains '/observatorio' %} class="on"{% endif %}>Observatório</a></div>
       <div class="navitem"><a href="{{ '/setorpublico/sobre/' | relative_url }}"{% if page.url contains '/sobre' %} class="on"{% endif %}>Sobre</a></div>
