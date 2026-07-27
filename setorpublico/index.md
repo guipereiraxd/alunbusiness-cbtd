@@ -14,6 +14,12 @@ description: "IA a serviço público: onde a inteligência artificial gera valor
           <a class="btn btn-primary" href="{{ '/setorpublico/oportunidades/' | relative_url }}">Explorar oportunidades <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
           <a class="btn btn-line" href="{{ '/setorpublico/diagnostico/' | relative_url }}">Avaliar maturidade</a>
         </div>
+        <div class="brand-sig">
+          <span class="brand-sig-lbl">Uma iniciativa</span>
+          <a href="https://alun.com.br/alunbusiness/" target="_blank" rel="noopener" aria-label="Alun Business — abre em nova aba">
+            <img src="{{ '/setorpublico/assets/brand/logo-alun-black.svg' | relative_url }}" alt="Alun Business" class="brand-sig-logo">
+          </a>
+        </div>
       </div>
       <div class="hero-viz" aria-hidden="true">
         <svg viewBox="-60 0 580 520" xmlns="http://www.w3.org/2000/svg">
