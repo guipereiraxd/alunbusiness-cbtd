@@ -1,0 +1,21 @@
+---
+title: "INMET: aprendizado de máquina no aprimoramento da previsão meteorológica nacional"
+resumo: "O Instituto Nacional de Meteorologia opera modelos numéricos de previsão com apoio de aprendizado de máquina — sobre uma rede densa de estações e integração com dados de satélite e radar — sustentando alertas de eventos extremos que orientam Defesa Civil, agricultura, aviação, e políticas de adaptação climática."
+tecnologia: "Modelos numéricos de previsão + ML para pós-processamento e correção de viés + integração com rede de estações + satélites (INPE) + APIs abertas"
+principal_resultado: "Alertas de eventos extremos com precisão crescente, orientando Defesa Civil nas emergências e formulação de políticas de adaptação em setores como agricultura e infraestrutura. Base pública de dados alimenta pesquisa acadêmica e serviços privados."
+organizacao: "Instituto Nacional de Meteorologia (INMET) · Ministério da Agricultura e Pecuária"
+esfera: "Federal"
+poder: "Executivo"
+area: "Formulação de políticas"
+localidade: "Brasil"
+ano: "em operação (evolução contínua com ML nos últimos anos)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (INMET, MAPA, publicações científicas)"
+tags: ["Meteorologia", "Previsão", "Alertas", "Defesa Civil", "Clima"]
+problema: "Previsão meteorológica de alta qualidade é insumo crítico para agricultura, defesa civil, aviação, geração de energia (hidrelétricas, solar, eólica). Modelos numéricos globais têm viés local que compromete acurácia em micro-regiões brasileiras — especialmente em eventos extremos (tempestade severa, chuva torrencial, seca prolongada). Sem correção calibrada localmente, o alerta chega tarde ou impreciso, e a decisão pública sofre."
+solucao: "O INMET opera rede densa de estações meteorológicas automáticas e integra dados de radares e satélites (INPE). Sobre modelos numéricos globais e regionais, aplica pós-processamento com aprendizado de máquina para corrigir viés local e melhorar acurácia de previsão em escalas de horas a dias. Alertas de eventos extremos vão para Defesa Civil e órgãos setoriais. Dados são publicados abertamente em portal do INMET."
+impacto: "Alertas mais precisos em eventos extremos, com efeito direto em decisões de Defesa Civil, agricultura (plantio, colheita, defensivos), aviação e setor elétrico. Base aberta alimenta pesquisa climática nacional e internacional, e serviços privados de meteorologia. Cooperação com CPTEC/INPE e Marinha (para meteorologia marinha) forma um ecossistema nacional."
+governanca: "INMET é órgão técnico com tradição de autonomia. Metodologias são publicadas em nível técnico. Dados são abertos por padrão. Ampliações metodológicas (deep learning para nowcasting, por exemplo) passam por avaliação técnica e por diálogo com a comunidade científica internacional."
+aprendizados: "O caso mostra o padrão brasileiro em ciência aplicada de dado público (INPE, INMET, INEP): autonomia técnica formal + metodologia aberta + publicação reproduzível sustentam durabilidade das políticas. Para adaptação climática — agenda que vai dominar a próxima década — o INMET é infraestrutura de primeira ordem; investimento no órgão é investimento em capacidade de decisão pública em cenário climático crescentemente instável."
+---

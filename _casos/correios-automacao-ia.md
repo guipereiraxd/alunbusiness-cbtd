@@ -1,0 +1,21 @@
+---
+title: "Correios: visão computacional e IA na logística de encomendas em escala nacional"
+resumo: "A Empresa Brasileira de Correios e Telégrafos incorporou visão computacional em triagem de encomendas, OCR para leitura de endereços mal preenchidos, roteirização com ML e detecção de anomalia em fluxo — sustentando entrega em milhares de municípios brasileiros com pressão competitiva crescente."
+tecnologia: "Visão computacional em esteiras de triagem + OCR para endereços + ML em roteirização + detecção de anomalia em fluxo + integração com sistemas logísticos"
+principal_resultado: "Ganho de produtividade em centros de triagem e melhora na leitura de endereços mal preenchidos, com efeito direto em prazo e taxa de entrega — competência crítica em cenário de concorrência com operadores privados."
+organizacao: "Empresa Brasileira de Correios e Telégrafos (ECT)"
+esfera: "Federal"
+poder: "Executivo (empresa pública federal)"
+area: "Processos administrativos"
+localidade: "Brasil"
+ano: "em evolução (implementações escalonadas)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Correios, imprensa logística, apresentações institucionais)"
+tags: ["Logística", "Visão computacional", "OCR", "Roteirização", "Correios"]
+problema: "Os Correios operam com dimensão continental — entrega em quase 100% dos municípios brasileiros, incluindo locais que operadores privados não cobrem. O volume é enorme, o custo por entrega em local remoto é alto, e a competição privada em áreas rentáveis pressiona margens. Sem inteligência sobre triagem, leitura de endereço e roteirização, cada erro (endereço mal lido, encomenda roteirizada de forma subótima) vira custo e insatisfação do cliente."
+solucao: "Os Correios incorporaram, em ciclos, visão computacional em centros de triagem para leitura automatizada de rótulos, OCR para endereços manuscritos ou mal preenchidos, ML em roteirização e detecção de anomalia em fluxo logístico (perda, atraso, desvio). Cada capacidade se integra ao sistema logístico central e apoia operações regionais. A operação humana continua central — ferramentas amplificam capacidade, não substituem operador."
+impacto: "Ganho de produtividade em centros de triagem. Melhora na leitura de endereço mal preenchido — antes exigia intervenção manual, agora resolve em segundos. Roteirização mais eficiente reduz custo por entrega. Detecção de anomalia acelera investigação de perda. Em conjunto, sustentam a competitividade dos Correios em cenário de pressão."
+governanca: "Correios é empresa pública com governança específica. Dados operacionais internos; dado de cliente (endereço, remetente) protegido por LGPD. Ampliações passam por avaliação institucional e por diretoria técnica. Automatização preserva postos operacionais — ganho é distribuído entre organização, cliente e trabalhador."
+aprendizados: "O caso mostra a IA aplicada em logística pública em escala continental. Padrão que se repete em Serpro, Dataprev, Petrobras — empresas públicas federais que operam em setores intensivos em dado e podem adotar IA sob controle público, sem depender exclusivamente de fornecedores privados. Investir em capacidade cognitiva dentro dessas empresas é investir em soberania operacional em setores estratégicos."
+---

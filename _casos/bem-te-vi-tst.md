@@ -1,0 +1,21 @@
+---
+title: "Bem-Te-Vi (TST): triagem inteligente de recursos na Justiça do Trabalho"
+resumo: "O Tribunal Superior do Trabalho opera o Bem-Te-Vi para triagem e classificação automática de recursos, com sugestão de aplicação de precedentes consolidados — apoiando o maior volume de recursos trabalhistas do país sem expansão proporcional de equipe."
+tecnologia: "NLP + classificação automática de recursos por tema + sugestão de aplicação de precedentes + integração com sistema processual do TST + trilha por magistrado"
+principal_resultado: "Triagem de recursos em minutos ao invés de horas de trabalho manual, com identificação automática de casos que se enquadram em teses já consolidadas — liberando tempo do gabinete para casos que exigem julgamento próprio."
+organizacao: "Tribunal Superior do Trabalho (TST)"
+esfera: "Federal"
+poder: "Judiciário (Justiça do Trabalho)"
+area: "Processos administrativos"
+localidade: "Brasil"
+ano: "em operação"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (TST, CNJ, apresentações institucionais)"
+tags: ["Justiça do Trabalho", "Triagem processual", "NLP", "Precedentes", "Recursos"]
+problema: "A Justiça do Trabalho brasileira processa milhões de casos por ano, muitos deles versando sobre teses trabalhistas repetitivas (horas extras, acúmulo de função, verbas rescisórias, adicional de insalubridade). O TST — última instância trabalhista — recebe volume enorme de recursos que exigem identificação de tese e verificação de enquadramento em precedentes já consolidados. Sem apoio analítico, o trabalho vira majoritariamente rotineiro, com gabinete gastando horas em tarefas que a máquina pode acelerar."
+solucao: "Bem-Te-Vi aplica NLP sobre os recursos para classificar tema, identificar precedentes aplicáveis e sugerir minutas quando o caso se enquadra em tese já pacificada. O magistrado recebe o caso pré-analisado, decide sobre a sugestão e assina. O sistema opera com trilha registrada por gabinete e por caso."
+impacto: "Ganho relevante de produtividade em recursos rotineiros. Consistência crescente na aplicação de teses consolidadas — mesma resposta para casos análogos, independentemente do gabinete. Liberação de tempo do magistrado para casos que exigem julgamento inovador. Cobertura do Judiciário Trabalhista completa a família de ferramentas do Judiciário federal (Victor no STF, Athos no STJ, Sinapses no CNJ, Bem-Te-Vi no TST)."
+governanca: "Uso regulado pela Resolução CNJ 332/2020 e por normas internas do TST. Decisão e responsabilidade seguem com o magistrado. Base processual institucional; sem envio externo. Comitê Nacional de IA do Judiciário acompanha uso e boas práticas."
+aprendizados: "O caso mostra que a arquitetura do Judiciário brasileiro para IA convergiu: cada corte desenvolve ferramenta ancorada em sua base, com humano no ciclo, trilha registrada e aderência ao marco setorial. Para TRTs regionais, o Bem-Te-Vi do TST é a referência natural. E para o país como um todo, o Judiciário virou referência de governança de IA institucional coordenada."
+---

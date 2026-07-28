@@ -1,0 +1,21 @@
+---
+title: "1746 (Prefeitura do Rio): central de atendimento municipal e a virada digital do carioca"
+resumo: "A Central 1746 da Prefeitura do Rio de Janeiro, apoiada pela IPLANRIO, integra telefone, portal, app e WhatsApp em canal único para milhões de solicitações anuais — com camadas de classificação automática, chatbot de primeira linha e integração aos sistemas setoriais das secretarias municipais."
+tecnologia: "Central integrada (telefone, portal, app, WhatsApp) + NLP para classificação de solicitações + chatbot + integração com sistemas setoriais + BI de gestão + painéis públicos (Rio + Perto)"
+principal_resultado: "Milhões de solicitações atendidas por ano com integração multicanal; painel público (Rio+Perto) permite ao cidadão e à imprensa acompanhar demanda e resposta por bairro; gestão municipal ganha visibilidade sobre padrões urbanos."
+organizacao: "Prefeitura do Rio de Janeiro · Central 1746 · IPLANRIO"
+esfera: "Municipal"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "Rio de Janeiro (Capital)"
+ano: "1746 desde 2011 · camadas digitais em evolução contínua"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Prefeitura do Rio, IPLANRIO, imprensa)"
+tags: ["Atendimento municipal", "Chatbot", "Central 1746", "WhatsApp", "Gestão urbana"]
+problema: "Uma cidade como o Rio, com mais de 6 milhões de habitantes e complexidade urbana enorme, gera fluxo colossal de solicitações à Prefeitura — pedidos de poda, tapa-buraco, iluminação, limpeza urbana, reclamações sobre serviços. Sem integração multicanal e sem inteligência sobre a base, o atendimento vira reativo e a Prefeitura perde o sinal analítico que a demanda do cidadão carrega: onde está o problema urbano, com que frequência, por qual bairro."
+solucao: "A Central 1746 integra atendimento por telefone, portal, app e WhatsApp num único fluxo, com NLP para classificação automática de solicitações e roteamento à secretaria responsável. Chatbot de primeira linha absorve dúvidas frequentes fora do horário comercial. Sistema alimenta painéis públicos (Rio+Perto) com estatísticas por bairro e por tema — insumo para gestão municipal e para o próprio cidadão."
+impacto: "Milhões de solicitações atendidas por ano em canal único. Consolidação do 1746 como marca de atendimento municipal na cidade — parte do repertório do carioca. Gestão municipal opera com visibilidade sobre padrões urbanos (onde estão os buracos, onde a iluminação falha, quais bairros geram mais demanda de qual tema). Painel público sustenta transparência e pressão social por resposta."
+governanca: "Uso regulado por normas municipais e por convênios com secretarias. Dados pessoais do cidadão em infraestrutura da IPLANRIO, sob LGPD. Chatbot opera como apoio à triagem — decisões seguem para secretaria responsável. Painéis públicos exibem dados agregados."
+aprendizados: "Junto com o SP156 (Prefeitura de SP), o 1746 do Rio consolida o padrão brasileiro de atendimento municipal digital de grande cidade: canal único, WhatsApp como camada popular, NLP para triagem, painel público para transparência. Para prefeituras médias e grandes do país (Salvador, Belo Horizonte, Curitiba, Fortaleza, Recife — muitas já em trilha), o modelo é referência direta em arquitetura."
+---

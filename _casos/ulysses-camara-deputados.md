@@ -1,0 +1,21 @@
+---
+title: "Ulysses (Câmara dos Deputados): IA para apoio ao trabalho legislativo"
+resumo: "A Câmara dos Deputados desenvolveu Ulysses, um conjunto de ferramentas de IA que apoia deputados e assessores em busca semântica de proposições, sumarização de debates, análise de emendas orçamentárias e organização de milhares de manifestações da sociedade em consultas públicas."
+tecnologia: "NLP + busca semântica sobre a base normativa e legislativa da Câmara + LLMs em fase mais recente + integração com sistemas internos (SILEG, SIGA)"
+principal_resultado: "Deputados e assessores conseguem localizar proposições análogas, sumarizar sessões e organizar contribuições da sociedade em minutos — trabalho que antes exigia dias de leitura manual de uma base com milhões de documentos legislativos."
+organizacao: "Câmara dos Deputados · CEDI · Centro de Documentação e Informação"
+esfera: "Federal"
+poder: "Legislativo"
+area: "Processos administrativos"
+localidade: "Brasil"
+ano: "em operação (evoluções contínuas)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Câmara dos Deputados, CEDI, imprensa)"
+tags: ["Legislativo", "Busca semântica", "NLP", "Consulta pública", "Processo legislativo"]
+problema: "O processo legislativo produz volume que nenhum humano lê inteiro: dezenas de milhares de proposições em tramitação, milhões de documentos históricos, centenas de emendas por orçamento, milhares de manifestações em cada consulta pública relevante. Deputados e assessores precisam localizar proposições análogas, saber o que a Casa já discutiu, resumir sessões longas e organizar contribuições da sociedade — tudo em prazos legislativos apertados."
+solucao: "Ulysses é a suíte de IA da Câmara dos Deputados, mantida pelo CEDI. Ferramentas incluem busca semântica sobre a base legislativa (encontra proposição análoga mesmo sem termo exato), sumarização automatizada de debates e sessões, análise agregada de emendas orçamentárias e agrupamento por tema de contribuições em consultas públicas. Opera em infraestrutura da própria Câmara. Cada saída é sugestão para o assessor humano, que edita e assina."
+impacto: "Redução expressiva do tempo de pesquisa em base legislativa. Consultas públicas de grande escala tornam-se navegáveis (organização temática de contribuições que antes ficavam ilhadas em planilhas). Trabalho analítico do assessor migra da coleta para o exame — o que é justamente onde deputado e assessor agregam valor."
+governanca: "Uso é regulado por normas internas da Câmara. Dados legislativos são públicos por natureza. LLMs operam em ambiente institucional sem envio de dado sensível a fornecedor externo. Ferramenta é apoio; toda decisão legislativa continua com o parlamentar."
+aprendizados: "O caso mostra que o Legislativo brasileiro seguiu caminho paralelo ao Judiciário na adoção de IA — construiu suíte própria, ancorada em base institucional, com humano no ciclo. Para Assembleias Legislativas estaduais e Câmaras Municipais grandes, o modelo Ulysses é referência direta em arquitetura — a base normativa pode ser diferente, o padrão de uso é replicável."
+---

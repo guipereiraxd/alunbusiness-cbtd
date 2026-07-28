@@ -1,0 +1,21 @@
+---
+title: "Fiscalização do Trabalho (MTE): analítica de risco na proteção do trabalhador"
+resumo: "A Auditoria-Fiscal do Trabalho, integrada ao Ministério do Trabalho e Emprego, opera modelos de risco sobre bases previdenciárias, tributárias, eSocial e de acidentes para priorizar fiscalização em empresas com maior probabilidade de violação — resgate de trabalho análogo à escravidão, acidente grave, informalidade estrutural, atrasos sistemáticos."
+tecnologia: "Data warehouse fiscal + eSocial + CAT (Comunicação de Acidente de Trabalho) + regras de risco + aprendizado de máquina em detecção de padrão + integração com Ministério Público do Trabalho"
+principal_resultado: "Fiscalização dirigida por risco em vez de amostragem manual, com concentração de esforço em empresas de maior probabilidade de violação — resultado em resgates de trabalho análogo à escravidão, autuações e recuperação de direitos que a amostragem não alcançaria."
+organizacao: "Auditoria-Fiscal do Trabalho · Ministério do Trabalho e Emprego (MTE)"
+esfera: "Federal"
+poder: "Executivo"
+area: "Controle e auditoria"
+localidade: "Brasil"
+ano: "em operação (evolução contínua)"
+grau_risco: "alto"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (MTE, TCU, imprensa, publicações acadêmicas)"
+tags: ["Fiscalização do trabalho", "Trabalho escravo", "Segurança do trabalho", "eSocial", "Aprendizado de máquina"]
+problema: "A Auditoria-Fiscal do Trabalho enfrenta o mesmo dilema estrutural das grandes fiscalizações: universo vasto (milhões de empresas), equipe finita (poucos milhares de auditores), risco heterogêneo. Fiscalização por amostragem cega desperdiça esforço em empresas de baixo risco e deixa passar violações estruturadas nos setores mais críticos (agropecuária remota, construção civil precária, confecção). Sem inteligência sobre padrões, cada operação reinicia."
+solucao: "O MTE integra bases de eSocial (relações trabalhistas em tempo real), acidentes de trabalho (CAT), tributárias e previdenciárias, com informações setoriais e regionais. Aplica regras de risco e modelos de aprendizado de máquina para priorizar empresas por probabilidade de violação — trabalho análogo à escravidão, acidente grave iminente, informalidade estrutural, atrasos sistemáticos em obrigações. O auditor decide sobre a abertura de cada operação, com equipe multidisciplinar em campo. Parceria com Ministério Público do Trabalho amplia efeitos das operações."
+impacto: "Concentração de fiscalização em empresas de maior risco, com resultados operacionais mensurados: resgates de trabalhadores em condições análogas à escravidão, autuações, recuperação de direitos, encaminhamento a MP do Trabalho para responsabilização. O Brasil tornou-se referência internacional em combate ao trabalho análogo à escravidão — a arquitetura de dado sustenta esse trabalho."
+governanca: "Uso regulado por normativos do MTE, com base legal em legislação trabalhista, previdenciária e do eSocial. Auditor humano decide sobre operação, com equipe multidisciplinar em campo. TCU monitora indicadores agregados. Dados pessoais e empresariais têm regime específico. Ampliações passam por avaliação metodológica e institucional."
+aprendizados: "O caso mostra o padrão de fiscalização brasileira baseada em risco (Alice/CGU em compras, HMRC-like em fiscalização, SISAM na aduana, Sefaz estaduais no ICMS): infraestrutura de dado nacional (eSocial + Receita + INSS) permite modelo, e cooperação entre órgãos amplia efeito. Para outras fiscalizações federais e estaduais (Ibama, Anvisa, ANP, procons), a arquitetura MTE é referência natural — a base de dado muda, o padrão de risco-focalizado permanece."
+---

@@ -1,0 +1,21 @@
+---
+title: "MP-SP: IA aplicada à atuação do Ministério Público paulista"
+resumo: "O Ministério Público de São Paulo desenvolveu ferramentas de IA para triagem inicial de denúncias, busca semântica em pareceres, sumarização de inquéritos e apoio à priorização de casos — dentro de uma estratégia institucional coordenada de modernização tecnológica."
+tecnologia: "NLP + busca semântica sobre a base de pareceres e denúncias + integração com sistemas do MP + trilha por promotor + BI de gestão"
+principal_resultado: "Redução do tempo em triagem inicial e em pesquisa jurisprudencial interna, permitindo que promotores concentrem esforço em análise substantiva de casos complexos e em decisões de priorização estratégica."
+organizacao: "Ministério Público do Estado de São Paulo (MP-SP)"
+esfera: "Estadual"
+poder: "Ministério Público"
+area: "Controle e auditoria"
+localidade: "São Paulo (Estado)"
+ano: "em operação"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (MP-SP, CNMP, apresentações institucionais)"
+tags: ["Ministério Público", "Triagem", "Denúncias", "NLP", "Estadual"]
+problema: "O MP-SP recebe volume alto e crescente de denúncias, notícias de fato e demandas de investigação — em áreas que vão de improbidade a proteção à criança, meio ambiente a direito do consumidor. Sem apoio analítico, promotores gastam tempo em triagem inicial que poderia ser automatizada, em pesquisa manual de pareceres análogos e em sumarização de inquéritos volumosos. O gargalo é humano e crônico."
+solucao: "O MP-SP incorporou, em ciclos, camadas analíticas na atuação: triagem inicial de denúncias por tema e prioridade; busca semântica na base institucional de pareceres e decisões; sumarização de inquéritos e processos volumosos; painéis de gestão que apoiam coordenação e priorização entre promotorias. Cada saída é apoio ao promotor humano, que decide sobre abertura formal, arquivamento e linha de investigação."
+impacto: "Ganho de tempo em atividades de triagem e pesquisa jurídica. Consistência crescente na aplicação de teses institucionais entre promotores. Coordenação melhor entre promotorias de temas conexos. Ferramenta serve de referência para outros MPs estaduais e para o Ministério Público Federal em suas próprias trilhas."
+governanca: "Uso regulado por normas internas do MP-SP e pelo marco do CNMP (Conselho Nacional do Ministério Público). Decisão e responsabilidade do promotor humano preservadas. Dados sigilosos de investigação ficam em ambiente institucional. Ampliações passam por avaliação de risco e supervisão da Corregedoria."
+aprendizados: "Ministério Público seguiu o padrão do Judiciário brasileiro na adoção de IA — cada instituição desenvolve suíte ancorada em base institucional, com humano no ciclo. Para outros MPs (MPF, MPs estaduais) e para o CNMP como coordenação nacional, o modelo paulista é referência direta em arquitetura. O padrão nacional em governança de IA em funções essenciais à justiça vai se consolidando por convergência prática."
+---

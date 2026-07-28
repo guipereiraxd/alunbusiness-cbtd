@@ -1,0 +1,21 @@
+---
+title: "DGFiP (França): data mining fiscal e uso de imagem aérea para detectar sonegação"
+resumo: "A Direção-Geral de Finanças Públicas francesa aplica data mining sobre bases fiscais, cadastros e — em iniciativa amplamente discutida — imagens aéreas para identificar piscinas e ampliações não declaradas em imóveis, gerando bilhões de euros em recuperação tributária."
+tecnologia: "Data warehouse fiscal + machine learning sobre declarações + visão computacional em imagens aéreas (IGN) + integração com cadastros imobiliários"
+principal_resultado: "Em iniciativa lançada em 2021 sobre imagens aéreas, mais de 20 mil piscinas não declaradas foram identificadas em um único ano de operação, gerando dezenas de milhões de euros em recuperação de IPTU equivalente. Programa em expansão para outras estruturas (extensões, anexos)."
+organizacao: "Direction Générale des Finances Publiques (DGFiP) · Ministère de l'Économie · França"
+esfera: "Nacional (França)"
+poder: "Executivo"
+area: "Controle e auditoria"
+localidade: "França"
+ano: "programas em evolução; iniciativa de imagem aérea desde 2021"
+grau_risco: "alto"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (DGFiP, Ministère de l'Économie, imprensa francesa e internacional)"
+tags: ["Tributário", "Data mining fiscal", "Visão computacional", "Imagem aérea", "Sonegação"]
+problema: "A França enfrenta o mesmo dilema estrutural que Brasil e Reino Unido: base tributária vasta, capacidade de auditoria finita, sonegação em formas cada vez mais engenhosas. Ao mesmo tempo, informação relevante existe em bases não convencionais — imagens de satélite mostram piscinas e ampliações que o contribuinte não declarou. Sem cruzar essas fontes com o fisco, o dinheiro fica na mesa."
+solucao: "A DGFiP aplica data mining tradicional sobre bases fiscais e cadastrais para priorizar fiscalização por risco. Em iniciativa amplamente discutida a partir de 2021, incorporou visão computacional em imagens aéreas do IGN (instituto de geografia francês) para identificar automaticamente piscinas construídas mas não declaradas ao fisco imobiliário. O modelo compara imagem detectada com cadastro imobiliário; discrepância gera abertura de procedimento com contribuinte, que pode contestar. Em 2023 e 2024, o programa foi ampliado para incluir extensões e outras estruturas."
+impacto: "Recuperação de dezenas de milhões de euros no primeiro ano operacional apenas com piscinas — programa em expansão para outras estruturas. Além do ganho direto, efeito dissuasório: contribuinte sabe que declaração pode ser confrontada com imagem aérea. Iniciativa gerou debate público sobre limites de uso de imagem aérea em fiscalização — típico dos debates franceses e europeus sobre proteção de dados."
+governanca: "Uso regulado pela CNIL (autoridade francesa de proteção de dados). Cada abertura de procedimento contra contribuinte segue rito com contraditório. Imagem aérea é do IGN, órgão público, sob regime específico. Ampliação do programa passa por consulta e por avaliação de impacto em direitos. Discussão pública sobre limites continua ativa."
+aprendizados: "O caso mostra o horizonte da fiscalização moderna — cruzar bases tradicionais (fiscais, cadastrais) com bases não convencionais (imagem aérea, transações, redes sociais). Três lições transversais: (1) o dado que revela sonegação frequentemente vive fora do fisco — a inteligência está em cruzar fontes; (2) uso de imagem aérea em fiscalização precisa de marco jurídico específico e transparência sobre limites; (3) contraditório precisa ser real e barato. Para o Brasil, com IBGE, INPE e cadastros imobiliários municipais heterogêneos, o modelo francês antecipa horizonte próximo — se sanidade jurídica acompanhar."
+---

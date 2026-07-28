@@ -1,0 +1,21 @@
+---
+title: "Serpro: plataforma pública de serviços cognitivos e IA para o Estado brasileiro"
+resumo: "O Serpro — empresa pública de tecnologia federal — consolidou uma plataforma de serviços cognitivos (OCR, NLP, voz, visão) oferecida a órgãos da administração pública, permitindo que ministérios e autarquias adotem IA sem contratar cada solução do zero e sem entregar dados sensíveis a fornecedores privados."
+tecnologia: "Serpro AI + APIs de OCR, NLP, tradução, voz, biometria e visão computacional + integração com sistemas federais + operação em nuvem soberana"
+principal_resultado: "Órgãos federais podem consumir capacidades cognitivas por API sob contrato de empresa pública, com dados preservados em ambiente soberano — reduzindo tempo e custo de adoção e evitando fragmentação em fornecedores privados heterogêneos."
+organizacao: "Serpro · Serviço Federal de Processamento de Dados"
+esfera: "Federal"
+poder: "Executivo (empresa pública federal)"
+area: "Gestão de pessoas"
+localidade: "Brasil"
+ano: "plataforma consolidada nos últimos anos, com evoluções contínuas"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Serpro, gov.br, apresentações institucionais)"
+tags: ["Empresa pública", "Plataforma", "Serviços cognitivos", "APIs de IA", "Nuvem soberana"]
+problema: "Quando cada órgão federal precisa contratar sua própria solução de OCR, chatbot, tradução ou biometria, o resultado é fragmentação — dezenas de fornecedores, dezenas de contratos, dezenas de padrões de segurança, custo unitário alto e dados públicos espalhados por fornecedores privados heterogêneos. O ganho de escala se perde, e a coordenação da política de IA no Estado fica impossível."
+solucao: "O Serpro desenvolveu, ao longo dos últimos anos, uma plataforma de serviços cognitivos oferecida por API a órgãos da administração pública. Inclui OCR (extração de dados de documentos), NLP (análise de texto), tradução, voz, biometria e visão computacional. Órgãos federais consomem sob contrato de empresa pública, o que preserva sigilo, disciplina de segurança e responsabilidade institucional. A infraestrutura opera em nuvem soberana do Serpro."
+impacto: "Órgãos federais adotam capacidades cognitivas sem contratar do zero. Ganho de escala e de padronização. Redução do risco de espalhar dado sensível em nuvem privada de fornecedor externo. Alguns marcos: uso em Receita Federal, INSS, Detran de vários estados, Denatran e outros órgãos que consomem OCR e biometria em larga escala. Plataforma virou base tácita de várias aplicações públicas de IA que o cidadão usa sem saber."
+governanca: "Serpro é empresa pública federal com governança específica em lei. Contratos com órgãos consumidores seguem regime público. Operação em nuvem soberana atende regime brasileiro de proteção de dado público. Ampliações da plataforma passam por avaliação estratégica e por consulta a órgãos consumidores. LGPD e regras específicas de dado sensível são observadas."
+aprendizados: "O caso mostra que Estado forte em capacidade cognitiva não precisa ser Estado que faz tudo — precisa ser Estado que oferece plataforma. Serpro (federal), Dataprev (previdência), Prodesp (SP), Prodam (SP capital), IPLANRIO (Rio), ICI (Curitiba), PROCERGS (RS), EMPREL (Recife), Prodabel (BH) formam a rede pública brasileira de TI que sustenta boa parte do que o cidadão vê como serviço digital. Investir nessas empresas é investir em capacidade cognitiva pública durável — a alternativa é dependência de fornecedor privado sem controle sobre dado nem ritmo de evolução."
+---

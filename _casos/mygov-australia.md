@@ -1,0 +1,21 @@
+---
+title: "myGov (Austrália): plataforma nacional de serviços digitais com camadas de IA"
+resumo: "A Austrália opera o myGov como plataforma nacional de serviços governamentais — de benefícios sociais (Centrelink) a saúde (Medicare) e tributário (ATO) —, com identidade digital única e camadas de IA para chatbot, assistente pessoal e detecção de anomalia em benefícios."
+tecnologia: "Plataforma nacional (myGov + Digital Identity myID) + APIs setoriais + chatbot + assistente pessoal com IA + detecção de anomalia em benefícios"
+principal_resultado: "Dezenas de milhões de australianos usam myGov para acessar serviços do governo federal em canal único, com identidade digital verificada; o esforço de modernização virou referência internacional em governo digital pós-2015."
+organizacao: "Digital Transformation Agency (DTA) · Services Australia · Governo Federal da Austrália"
+esfera: "Nacional (Austrália)"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "Austrália"
+ano: "myGov desde 2013 · evoluções contínuas incluindo IA em anos recentes"
+grau_risco: "alto"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Services Australia, Digital Transformation Agency, imprensa internacional)"
+tags: ["Governo digital", "Identidade digital", "Benefícios sociais", "Chatbot", "Detecção de fraude"]
+problema: "A Austrália é um país continental (7,7 milhões de km², 26 milhões de habitantes espalhados) com serviços federais complexos — benefícios sociais, saúde, tributário, imigração. Sem plataforma unificada, o cidadão vira gestor de portais e senhas, e o Estado perde visibilidade sobre a jornada de serviço público. Ao mesmo tempo, modernizar plataforma federal em escala é notoriamente difícil — o próprio caso robodebt (2016-2020) mostrou como automação de benefícios sem controles adequados pode gerar catástrofe institucional."
+solucao: "myGov integra em canal único os serviços das principais agências federais (Centrelink para benefícios, Medicare para saúde, ATO para tributário, MyHealthRecord para saúde), com identidade digital única (myID). Camadas de IA incluem chatbot para dúvidas frequentes, assistente pessoal que orienta o cidadão sobre próximos passos e detecção de anomalia em benefícios. Aprendizados do caso robodebt (que resultou em pagamento indevido de dívida por algoritmo) informaram redesenho institucional dos controles."
+impacto: "Dezenas de milhões de australianos usam myGov ativamente. Serviços federais em canal único; identidade digital unificada. Modelo estudado por outros países como referência de governo digital consolidado. Ao mesmo tempo, o caso robodebt gerou revisão institucional profunda que virou lição para o mundo sobre o que não fazer em automação de benefícios sociais."
+governanca: "Uso regulado por lei federal específica. Serviços integrados sob supervisão da Services Australia e da DTA. Escândalo robodebt gerou royal commission (comissão de inquérito federal) que apontou falhas graves em automação e resultou em compensação a vítimas e ajustes institucionais. Marco atual exige revisão humana em decisões que afetam benefício, transparência sobre uso de algoritmo e canal de contestação real."
+aprendizados: "myGov concentra as duas faces da IA em serviço público em escala: potencial de integração e conveniência (o que funciona) e risco de automação de decisão sensível sem controle adequado (o que quebra). Robodebt virou aula obrigatória em qualquer curso de política pública sobre IA — mostra como economia superficial em custo de perícia humana em benefício social gera custo muito maior em vida humana, judicialização e legitimidade institucional. Para o Brasil, com CadÚnico e Meu SUS Digital em trilha semelhante à myGov, o padrão australiano é referência dupla: no que buscar e no que evitar."
+---

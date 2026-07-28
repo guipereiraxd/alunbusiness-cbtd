@@ -1,0 +1,21 @@
+---
+title: "Central 156 Curitiba: atendimento municipal integrado no berço do urbanismo brasileiro"
+resumo: "A Prefeitura de Curitiba opera a Central 156 como canal multicanal (telefone, web, app, WhatsApp) para solicitações e reclamações, com camadas de IA para classificação, chatbot e roteamento — integrada aos sistemas setoriais e à cultura de gestão urbana pela qual a capital paranaense é referência histórica."
+tecnologia: "Central integrada + NLP para classificação + chatbot + integração com sistemas setoriais + BI municipal + painéis internos e públicos"
+principal_resultado: "Milhões de atendimentos anuais integrados em canal único; ganho de consistência na resposta; visibilidade para a Prefeitura sobre padrões de demanda urbana em uma cidade referência de planejamento."
+organizacao: "Prefeitura Municipal de Curitiba · Instituto de Pesquisa e Planejamento Urbano de Curitiba (IPPUC) · ICI"
+esfera: "Municipal"
+poder: "Executivo"
+area: "Atendimento ao cidadão"
+localidade: "Curitiba (PR)"
+ano: "em operação (evolução contínua)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (Prefeitura de Curitiba, ICI, imprensa)"
+tags: ["Atendimento municipal", "Chatbot", "Central 156", "Planejamento urbano", "Sul"]
+problema: "Curitiba se construiu, historicamente, como referência brasileira de planejamento urbano — mas o atendimento ao cidadão em uma cidade de quase 2 milhões de habitantes exige mais do que boa arquitetura urbana: exige canais integrados, resposta em tempo útil e capacidade de coletar sinal analítico da demanda. Sem inteligência sobre a base de solicitações, planejamento urbano vira palpite institucional e cidadão vira fila."
+solucao: "A Central 156 de Curitiba integra telefone, web, app e WhatsApp em canal único para solicitações e reclamações municipais. NLP classifica automaticamente a solicitação por tema, roteia à secretaria responsável e sugere resposta padrão quando aplicável. Chatbot de primeira linha absorve dúvidas frequentes. Base alimenta gestão da Prefeitura e conversa com o IPPUC, órgão de planejamento urbano da cidade."
+impacto: "Milhões de atendimentos por ano integrados no canal único. Consistência crescente nas respostas. Alimentação analítica do planejamento urbano — insumo para revisão de rota de ônibus, priorização de manutenção, planejamento de podas e iluminação. Consolidação de uma reputação municipal em governo digital ancorada em cultura histórica de planejamento."
+governanca: "Uso regulado por normas municipais. Dados pessoais em infraestrutura municipal, sob LGPD. Chatbot é apoio à triagem — decisão fica com secretaria responsável. Integração com IPPUC alimenta ciclo de planejamento urbano baseado em dado."
+aprendizados: "Curitiba mostra que atendimento municipal integrado por central + IA + planejamento urbano ancorado em dado formam ciclo virtuoso — cada solicitação vira sinal do território, cada resposta vira aprendizado urbano. Junto com Rio (1746), SP (156), BH (BHTrans) e Recife (Digital Recife), Curitiba consolida o padrão brasileiro de governo municipal digital nas capitais. Cidades médias que buscam trilha semelhante têm agora múltiplos casos de referência regionalmente distribuídos."
+---

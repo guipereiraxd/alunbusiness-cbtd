@@ -1,0 +1,21 @@
+---
+title: "Athos (STJ): identificação de recursos similares no Superior Tribunal de Justiça"
+resumo: "O Superior Tribunal de Justiça desenvolveu Athos, ferramenta de IA que identifica recursos similares em julgamento e monitora temas com potencial de afetação — apoiando a política de julgamento por repercussão geral e recursos repetitivos que estrutura o trabalho da Corte."
+tecnologia: "NLP + clustering por similaridade + monitoramento de temas em tempo real + integração com o sistema processual do STJ"
+principal_resultado: "Identificação de temas com potencial de afetação em tempo útil para a política de julgamento repetitivo, e apoio ao gabinete na localização de recursos análogos entre milhares de casos em tramitação."
+organizacao: "Superior Tribunal de Justiça (STJ)"
+esfera: "Federal"
+poder: "Judiciário"
+area: "Processos administrativos"
+localidade: "Brasil"
+ano: "em operação (evolução contínua)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (STJ, CNJ, apresentações institucionais)"
+tags: ["Judiciário federal", "Recursos repetitivos", "NLP", "Similaridade", "Resolução CNJ 332"]
+problema: "O STJ recebe centenas de milhares de recursos por ano, muitos deles sobre teses jurídicas repetitivas. A política de julgamento por recursos repetitivos exige identificar quais temas estão sendo replicados em volume — para afetá-los e resolvê-los em bloco. Sem apoio analítico, essa identificação depende de leitura manual em massa, com risco de temas maduros para afetação passarem despercebidos por meses."
+solucao: "Athos aplica NLP sobre as peças processuais para agrupar recursos por tema e sinalizar em tempo real conjuntos com potencial de afetação. Também apoia o gabinete na localização de recursos análogos já em tramitação. Integra-se ao sistema processual do STJ e opera com trilha de decisão por magistrado."
+impacto: "Ganho na política de julgamento por recursos repetitivos — temas amadurecem para afetação em prazo mais curto. Redução de tempo no trabalho de localização de precedentes e casos análogos. Integração com o esforço coordenado do Judiciário brasileiro (Victor/STF, Sinapses/CNJ, Radar/TJ-MG, Sofia/TCU) na adoção estruturada de IA."
+governanca: "Uso é regulado pela Resolução CNJ 332/2020 e por normas internas do STJ. Cada sugestão é registrada; decisão final e responsabilidade seguem com o magistrado. O sistema é apresentado ao Comitê Nacional de IA do Judiciário como parte do esforço coordenado. Base processual do STJ é institucional; não há envio a fornecedor externo."
+aprendizados: "O caso reforça o padrão do Judiciário brasileiro: cada tribunal desenvolve ferramenta ancorada em sua base, com humano no ciclo e trilha registrada. Athos + Radar (TJ-MG) + Victor (STF) formam uma família institucional convergente — mesma arquitetura, calibração local. Para outros TJs e TRs, o padrão é o mesmo; a base é diferente."
+---

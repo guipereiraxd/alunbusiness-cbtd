@@ -1,0 +1,21 @@
+---
+title: "ANEEL: analítica sobre distribuidoras e consumidores no setor elétrico"
+resumo: "A Agência Nacional de Energia Elétrica cruza dados de qualidade do fornecimento, atendimento comercial, reclamações e indicadores técnicos de todas as distribuidoras brasileiras — apoiando fiscalização, revisão tarifária e transparência ao consumidor final."
+tecnologia: "Data warehouse regulatório + integração com sistemas das distribuidoras (SGD, ANEEL Focus) + NLP em reclamações + BI público + regras de risco setorial"
+principal_resultado: "Distribuidoras brasileiras têm desempenho monitorado por indicadores técnicos e por reclamações agregadas em painéis públicos; consumidor tem visibilidade comparativa; revisão tarifária apoiada por analítica robusta."
+organizacao: "Agência Nacional de Energia Elétrica (ANEEL)"
+esfera: "Federal"
+poder: "Executivo (agência reguladora autônoma)"
+area: "Controle e auditoria"
+localidade: "Brasil"
+ano: "em operação (evolução contínua)"
+grau_risco: "médio"
+status: "Em produção"
+qualidade: "Informações de fontes públicas (ANEEL, apresentações institucionais)"
+tags: ["Regulação setorial", "Energia elétrica", "Distribuidoras", "Consumidor", "Analítica regulatória"]
+problema: "A ANEEL regula distribuidoras que atendem quase 90 milhões de unidades consumidoras. Sem inteligência sobre dados operacionais (qualidade do fornecimento — DEC, FEC), comerciais (atendimento, tempo de resolução) e de reclamação (volumes e temas por distribuidora), a regulação vira reativa e a revisão tarifária opera com base pobre. O consumidor final, por sua vez, não tem instrumento comparativo para pressionar melhoria."
+solucao: "A ANEEL integra dados operacionais das distribuidoras, reclamações da própria agência e indicadores técnicos em plataforma analítica. Aplica NLP em reclamações para classificação temática. Publica painéis abertos com indicadores comparativos por distribuidora. Alimenta fiscalização por risco e sustenta metodologia de revisão tarifária baseada em desempenho. Tudo com trilha regulatória documentada."
+impacto: "Consumidor tem instrumento público para comparar sua distribuidora com pares. Distribuidoras têm incentivo mensurável para melhorar indicadores (impacto direto em revisão tarifária). ANEEL fiscaliza por risco em vez de amostragem cega. Modelo é referência regulatória citada em fóruns internacionais."
+governanca: "ANEEL tem autonomia por lei setorial. Metodologia é pública, com consulta antes de mudanças relevantes. Distribuidoras têm direito ao contraditório em fiscalização. Dados agregados são públicos; dados de consumidor individual protegidos por LGPD."
+aprendizados: "O padrão da ANEEL (dados operacionais + reclamações + indicadores + painel público) é replicável em toda agência reguladora setorial brasileira (Anatel já opera similar; ANS, ANP, ANAC caminham em direções convergentes). A lição transversal: agência que não tem inteligência analítica sobre seu setor regulado opera às cegas — e regulação às cegas é tão ruim para o setor quanto para o consumidor."
+---
