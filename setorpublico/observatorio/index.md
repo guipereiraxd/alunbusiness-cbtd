@@ -30,7 +30,7 @@ title: "Observatório"
   <section class="blk" style="border-bottom:0;padding-top:30px">
     <div class="sk">Publicações · {{ site.observatorio | size }}</div>
     <h2>O que está no radar</h2>
-    <div id="o-list" class="cards c2 rv">
+    <div id="o-list" class="cards c2">
       {% assign itens = site.observatorio | sort: "data" | reverse %}
       {% for item in itens %}{% capture otxt %}{{ item.title }} {{ item.resumo }} {{ item.tema }} {{ item.area }} {{ item.fonte }}{% endcapture %}
       <a class="card obs-card" href="{{ item.url | relative_url }}"
