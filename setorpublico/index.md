@@ -205,7 +205,7 @@ description: "IA a serviço público: onde a inteligência artificial gera valor
   <div class="wrap">
     <div class="sec-k">Casos em destaque</div>
     <h2>Aplicações reais no setor público</h2>
-    <p class="lead">Sete casos documentados, do Poupatempo ao TCU, do STF à União Europeia. Cada um com problema, solução, impacto, governança e aprendizados.</p>
+    <p class="lead">{{ site.casos | size }} casos documentados, do Poupatempo ao TCU, do STF à União Europeia. Cada um com problema, solução, impacto, governança e aprendizados.</p>
     <div class="cases-feat rv">
       <a class="casef big" href="{{ '/setorpublico/casos/alice-cgu/' | relative_url }}">
         <div class="meta">CGU · Controle e auditoria</div>

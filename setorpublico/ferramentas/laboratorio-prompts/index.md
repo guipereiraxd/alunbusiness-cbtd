@@ -68,7 +68,7 @@ description: "Nove atividades práticas para servidores usarem IA de forma crít
   <div class="page-head">
     <div class="crumb"><a href="{{ '/setorpublico/' | relative_url }}">Início</a> / <a href="{{ '/setorpublico/ferramentas/' | relative_url }}">Ferramentas</a> / Laboratório de prompts</div>
     <h1>Laboratório de prompts</h1>
-    <p class="lede">Usar IA no serviço público é menos sobre <b>saber o comando mágico</b> e mais sobre pensar criticamente: dar contexto, delimitar a tarefa, revisar a saída e saber o que nunca colocar num modelo. Cada uma das <b>nove atividades</b> parte de um prompt fraco, mostra por que ele falha e evolui para um melhor — com como revisar e riscos.</p>
+    <p class="lede">Usar IA no serviço público é menos sobre <b>saber o comando mágico</b> e mais sobre pensar criticamente: dar contexto, delimitar a tarefa, revisar a saída e saber o que nunca colocar num modelo. Cada uma das <b>doze atividades</b> parte de um prompt fraco, mostra por que ele falha e evolui para um melhor — com como revisar e riscos.</p>
   </div>
 
   <section class="blk" style="border-bottom:0;padding-top:24px;padding-bottom:12px">
