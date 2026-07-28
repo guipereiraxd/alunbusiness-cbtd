@@ -533,6 +533,14 @@ a.card:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 1
 .card-ic{width:40px;height:40px;border-radius:10px;background:var(--tint-p);color:var(--brand-p);display:grid;place-items:center;margin-bottom:15px}
 .card-ic svg{width:20px;height:20px}
 .card-k{font-family:var(--mono);font-size:10.5px;color:var(--tx3);letter-spacing:.06em;text-transform:uppercase}
+.obs-card .o-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.obs-card .o-chip{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--tx2);
+  border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 9px;display:inline-flex;
+  align-items:center;gap:5px;line-height:1}
+.obs-card .o-chip::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--brand-p);opacity:.7}
+.obs-card .o-chip.o-tema::before{background:var(--brand-b)}
+.obs-card .o-chip.o-area::before{background:var(--brand-m)}
+.obs-card .o-chip.o-publico::before{background:var(--tx3)}
 .card h3{font-family:var(--disp);font-weight:600;font-size:18px;line-height:1.22;margin:6px 0 0;color:var(--ink)}
 .card p{color:var(--tx2);font-size:14px;line-height:1.55;margin-top:10px;flex:1}
 .card .go{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--tx2);

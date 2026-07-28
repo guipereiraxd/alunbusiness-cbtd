@@ -38,6 +38,13 @@ title: "Observatório"
         <div class="card-k">{{ item.tipo }}{% if item.escopo %} · {{ item.escopo }}{% endif %}</div>
         <h3>{{ item.title }}</h3>
         <p>{{ item.resumo | strip_html | truncate: 150 }}</p>
+        {% if item.tema or item.area or item.publico %}
+        <div class="o-chips">
+          {% if item.tema %}<span class="o-chip o-tema">{{ item.tema }}</span>{% endif %}
+          {% if item.area %}<span class="o-chip o-area">{{ item.area }}</span>{% endif %}
+          {% if item.publico %}<span class="o-chip o-publico">{{ item.publico | truncate: 40 }}</span>{% endif %}
+        </div>
+        {% endif %}
         <span class="go">Ler <svg width="14" height="14"><use href="#i-arrow"></use></svg></span>
       </a>
       {% endfor %}
