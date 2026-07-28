@@ -151,7 +151,7 @@ description: "IA a serviço público: onde a inteligência artificial gera valor
           <div class="im">Impacto operacional</div>
           <h3>Estado mais eficiente</h3>
           <p>Automatizar o repetitivo, reduzir retrabalho e liberar servidores para o que exige julgamento.</p>
-          <span class="ex">Ex.: triagem de peças no STF</span>
+          <span class="ex">Ex.: Victor · STF</span>
           <a class="go" href="{{ '/setorpublico/casos/victor-stf/' | relative_url }}">Ver caso Victor <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
         </div>
       </div>
@@ -171,8 +171,8 @@ description: "IA a serviço público: onde a inteligência artificial gera valor
           <div class="im">Impacto em decisões</div>
           <h3>Decisões mais informadas</h3>
           <p>Sintetizar evidências, simular cenários e apoiar a formulação de políticas — sem substituir o julgamento.</p>
-          <span class="ex">Ex.: análise de políticas</span>
-          <a class="go" href="{{ '/setorpublico/oportunidades/#politicas' | relative_url }}">Ver oportunidades <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          <span class="ex">Ex.: CIDACS · Fiocruz</span>
+          <a class="go" href="{{ '/setorpublico/casos/cidacs-fiocruz/' | relative_url }}">Ver caso CIDACS <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
         </div>
       </div>
       <div class="dim d4">
