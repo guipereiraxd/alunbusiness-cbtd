@@ -5,7 +5,7 @@ title: "Temas"
 <section class="temas-hero">
   <div class="fl">Leitura por tema</div>
   <h1>Onze fios que atravessam os cinco atos</h1>
-  <p>A imersão foi escrita para ser recombinada. Cada descoberta carrega os temas que a atravessam — siga um deles e leia a China por um único ângulo, fora da ordem dos atos. São 55 descobertas cruzando 11 temas.</p>
+  <p>A imersão foi escrita para ser recombinada. Cada descoberta carrega os temas que a atravessam — siga um deles e leia a China por um único ângulo, fora da ordem dos atos. São 57 descobertas cruzando 11 temas.</p>
 </section>
 
 <nav class="temas-jump">
@@ -23,12 +23,13 @@ title: "Temas"
 </nav>
 
 <section class="tema" id="brasil">
-  <div class="tema-head"><h2>Brasil</h2><span class="tema-n">12 descobertas</span></div>
+  <div class="tema-head"><h2>Brasil</h2><span class="tema-n">13 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-2/#v-II-8"><span class="tl-id">II.8</span><span class="tl-body"><span class="tl-t">Quando o dinheiro vira software</span><span class="tl-r">O yuan digital processou 19,5 trilhões de yuans até o fim de 2025 e virou a maior moeda digital de banco central em operação no mundo. A aposta agora é transfronteiriça.</span></span></a></li>
     <li><a href="/china/ato-2/#v-II-10"><span class="tl-id">II.10</span><span class="tl-body"><span class="tl-t">Hongqiao e a importação como infraestrutura</span><span class="tl-r">A China é o segundo maior importador do mundo há 16 anos. E transformou a própria porta de entrada — feira, distrito, hub logístico — em instrumento de política.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-8"><span class="tl-id">III.8</span><span class="tl-body"><span class="tl-t">Governança global: dois arranjos, dois mapas</span><span class="tl-r">WAICO, sediada em Xangai, e Pax Silica, liderada por Washington. As listas de membros quase não se sobrepõem.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-10"><span class="tl-id">III.10</span><span class="tl-body"><span class="tl-t">A energia é o novo silício</span><span class="tl-r">A China instalou mais de 430 GW de eólica e solar em 2025 — mais da metade de tudo que o mundo somou — enquanto trata a energia, não o chip, como o gargalo decisivo da IA.</span></span></a></li>
+    <li><a href="/china/ato-3/#v-III-13"><span class="tl-id">III.13</span><span class="tl-body"><span class="tl-t">A posição de quem é disputado</span><span class="tl-r">Mercado consumidor, energia limpa, base industrial e dado operacional. O Brasil tem os quatro — e é cortejado pelos dois blocos por causa disso.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-3"><span class="tl-id">IV.3</span><span class="tl-body"><span class="tl-t">BYD: verticalização como doutrina</span><span class="tl-r">De fabricante de baterias a maior montadora de elétricos do mundo — e a maior fábrica fora da Ásia é no Brasil.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-6"><span class="tl-id">IV.6</span><span class="tl-body"><span class="tl-t">Pop Mart e a exportação de desejo</span><span class="tl-r">Receita de RMB 37,1 bilhões em 2025 e crescimento de 748% nas Américas. A China descobriu como exportar marca, não só produto.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-9"><span class="tl-id">IV.9</span><span class="tl-body"><span class="tl-t">A chegada ao Brasil: de hidrelétricas a sorvete</span><span class="tl-r">Mais de 200 empresas chinesas operando, intenções de R$ 200 bilhões até 2030 e uma mudança de perfil que muda tudo.</span></span></a></li>
@@ -54,7 +55,7 @@ title: "Temas"
 </section>
 
 <section class="tema" id="economia">
-  <div class="tema-head"><h2>Economia</h2><span class="tema-n">18 descobertas</span></div>
+  <div class="tema-head"><h2>Economia</h2><span class="tema-n">20 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-2/#v-II-1"><span class="tl-id">II.1</span><span class="tl-body"><span class="tl-t">O motor que perdeu força</span><span class="tl-r">Investimento imobiliário caiu 17,2% em 2025 e sobram ~80 milhões de imóveis vazios. O ciclo antigo não volta.</span></span></a></li>
     <li><a href="/china/ato-2/#v-II-2"><span class="tl-id">II.2</span><span class="tl-body"><span class="tl-t">Repressão financeira: de onde vem o dinheiro barato</span><span class="tl-r">165 trilhões de yuans em depósitos das famílias, equivalentes a 122% do PIB, canalizados a juro baixo para setores escolhidos.</span></span></a></li>
@@ -68,6 +69,8 @@ title: "Temas"
     <li><a href="/china/ato-3/#v-III-2"><span class="tl-id">III.2</span><span class="tl-body"><span class="tl-t">Aberto e barato: a estratégia de difusão</span><span class="tl-r">Provedores chineses saíram de menos de 2% para mais de 45% do tráfego de um dos maiores roteadores de modelos do mundo em um ano.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-3"><span class="tl-id">III.3</span><span class="tl-body"><span class="tl-t">A economia do token</span><span class="tl-r">O token virou unidade produtiva, como o quilowatt-hora. E a inferência virou o mercado que define margem.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-10"><span class="tl-id">III.10</span><span class="tl-body"><span class="tl-t">A energia é o novo silício</span><span class="tl-r">A China instalou mais de 430 GW de eólica e solar em 2025 — mais da metade de tudo que o mundo somou — enquanto trata a energia, não o chip, como o gargalo decisivo da IA.</span></span></a></li>
+    <li><a href="/china/ato-3/#v-III-12"><span class="tl-id">III.12</span><span class="tl-body"><span class="tl-t">Grátis para baixar, caro para rodar</span><span class="tl-r">Um modelo aberto de ponta passa de um terabyte e pede servidor com vários aceleradores. O download custa zero; o resto da conta, não.</span></span></a></li>
+    <li><a href="/china/ato-3/#v-III-13"><span class="tl-id">III.13</span><span class="tl-body"><span class="tl-t">A posição de quem é disputado</span><span class="tl-r">Mercado consumidor, energia limpa, base industrial e dado operacional. O Brasil tem os quatro — e é cortejado pelos dois blocos por causa disso.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-4"><span class="tl-id">IV.4</span><span class="tl-body"><span class="tl-t">CATL: quando o mercado interno satura</span><span class="tl-r">Fornece praticamente todas as montadoras chinesas. Por isso precisou sair do país.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-6"><span class="tl-id">IV.6</span><span class="tl-body"><span class="tl-t">Pop Mart e a exportação de desejo</span><span class="tl-r">Receita de RMB 37,1 bilhões em 2025 e crescimento de 748% nas Américas. A China descobriu como exportar marca, não só produto.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-7"><span class="tl-id">IV.7</span><span class="tl-body"><span class="tl-t">Os tigres de IA e o ano dos IPOs</span><span class="tl-r">2026 é o ano em que os laboratórios chineses de IA abriram capital. Dois estrearam em Hong Kong só em janeiro.</span></span></a></li>
@@ -137,24 +140,26 @@ title: "Temas"
 </section>
 
 <section class="tema" id="geopolitica-e-soberania">
-  <div class="tema-head"><h2>Geopolítica e soberania</h2><span class="tema-n">6 descobertas</span></div>
+  <div class="tema-head"><h2>Geopolítica e soberania</h2><span class="tema-n">7 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-1/#v-I-8"><span class="tl-id">I.8</span><span class="tl-body"><span class="tl-t">A Muralha tem duas funções</span><span class="tl-r">Censura, claro. Mas também o protecionismo mais lucrativo da história recente — e o berço das gigantes chinesas.</span></span></a></li>
     <li><a href="/china/ato-2/#v-II-8"><span class="tl-id">II.8</span><span class="tl-body"><span class="tl-t">Quando o dinheiro vira software</span><span class="tl-r">O yuan digital processou 19,5 trilhões de yuans até o fim de 2025 e virou a maior moeda digital de banco central em operação no mundo. A aposta agora é transfronteiriça.</span></span></a></li>
     <li><a href="/china/ato-2/#v-II-10"><span class="tl-id">II.10</span><span class="tl-body"><span class="tl-t">Hongqiao e a importação como infraestrutura</span><span class="tl-r">A China é o segundo maior importador do mundo há 16 anos. E transformou a própria porta de entrada — feira, distrito, hub logístico — em instrumento de política.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-4"><span class="tl-id">III.4</span><span class="tl-body"><span class="tl-t">Chips: a restrição que veio dos dois lados</span><span class="tl-r">Washington restringe para conter. Pequim também restringe — para forçar a maturação da indústria própria.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-8"><span class="tl-id">III.8</span><span class="tl-body"><span class="tl-t">Governança global: dois arranjos, dois mapas</span><span class="tl-r">WAICO, sediada em Xangai, e Pax Silica, liderada por Washington. As listas de membros quase não se sobrepõem.</span></span></a></li>
+    <li><a href="/china/ato-3/#v-III-13"><span class="tl-id">III.13</span><span class="tl-body"><span class="tl-t">A posição de quem é disputado</span><span class="tl-r">Mercado consumidor, energia limpa, base industrial e dado operacional. O Brasil tem os quatro — e é cortejado pelos dois blocos por causa disso.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-7"><span class="tl-id">V.7</span><span class="tl-body"><span class="tl-t">Soberania por camadas</span><span class="tl-r">Ninguém tem autonomia na cadeia inteira. A pergunta prática é: em qual camada queremos ter.</span></span></a></li>
   </ul>
 </section>
 
 <section class="tema" id="gestao-e-adocao">
-  <div class="tema-head"><h2>Gestão e adoção</h2><span class="tema-n">19 descobertas</span></div>
+  <div class="tema-head"><h2>Gestão e adoção</h2><span class="tema-n">20 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-3/#v-III-1"><span class="tl-id">III.1</span><span class="tl-body"><span class="tl-t">A disputa é entre ecossistemas, não entre modelos</span><span class="tl-r">Dois ciclos de retroalimentação: o digital (aberto a todos) e o físico (onde a base industrial vira ativo de IA).</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-3"><span class="tl-id">III.3</span><span class="tl-body"><span class="tl-t">A economia do token</span><span class="tl-r">O token virou unidade produtiva, como o quilowatt-hora. E a inferência virou o mercado que define margem.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-5"><span class="tl-id">III.5</span><span class="tl-body"><span class="tl-t">AI+ : difusão como programa de Estado</span><span class="tl-r">Meta oficial: 70% de penetração de agentes em setores-chave até 2027, mais de 90% até 2030.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-11"><span class="tl-id">III.11</span><span class="tl-body"><span class="tl-t">Tencent: a IA que desaparece dentro do fluxo</span><span class="tl-r">1,4 bilhão de pessoas num aplicativo só, 4,3 milhões de mini programas rodando dentro dele. A aposta de IA da Tencent é sumir no que já existe em vez de virar um destino novo.</span></span></a></li>
+    <li><a href="/china/ato-3/#v-III-12"><span class="tl-id">III.12</span><span class="tl-body"><span class="tl-t">Grátis para baixar, caro para rodar</span><span class="tl-r">Um modelo aberto de ponta passa de um terabyte e pede servidor com vários aceleradores. O download custa zero; o resto da conta, não.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-1"><span class="tl-id">IV.1</span><span class="tl-body"><span class="tl-t">O que é um &#x27;novo dragão&#x27;</span><span class="tl-r">Não é a big tech dos anos 2010. É a empresa que nasce global, verticaliza e exporta o modelo inteiro.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-8"><span class="tl-id">IV.8</span><span class="tl-body"><span class="tl-t">Como um dragão nasce: o mecanismo em cinco tempos</span><span class="tl-r">Mercado protegido → escada estatal → densidade de fornecedores → seleção brutal → saída internacional.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-11"><span class="tl-id">IV.11</span><span class="tl-body"><span class="tl-t">JD.com: achatar o organograma não é dividir o poder</span><span class="tl-r">Mais de 900 mil pessoas no ecossistema e uma logística feita em casa. A hierarquia é curta; a autoridade, concentrada.</span></span></a></li>
@@ -191,7 +196,7 @@ title: "Temas"
 </section>
 
 <section class="tema" id="inteligencia-artificial">
-  <div class="tema-head"><h2>Inteligência artificial</h2><span class="tema-n">15 descobertas</span></div>
+  <div class="tema-head"><h2>Inteligência artificial</h2><span class="tema-n">17 descobertas</span></div>
   <ul class="tema-list">
     <li><a href="/china/ato-1/#v-I-8"><span class="tl-id">I.8</span><span class="tl-body"><span class="tl-t">A Muralha tem duas funções</span><span class="tl-r">Censura, claro. Mas também o protecionismo mais lucrativo da história recente — e o berço das gigantes chinesas.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-1"><span class="tl-id">III.1</span><span class="tl-body"><span class="tl-t">A disputa é entre ecossistemas, não entre modelos</span><span class="tl-r">Dois ciclos de retroalimentação: o digital (aberto a todos) e o físico (onde a base industrial vira ativo de IA).</span></span></a></li>
@@ -205,6 +210,8 @@ title: "Temas"
     <li><a href="/china/ato-3/#v-III-9"><span class="tl-id">III.9</span><span class="tl-body"><span class="tl-t">IA + Educação: o plano que redesenha o sistema educacional</span><span class="tl-r">Um plano de cinco órgãos do governo central, com meta para 2030: toda pessoa aprende sobre IA, e quase todo processo educacional passa a usar IA.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-10"><span class="tl-id">III.10</span><span class="tl-body"><span class="tl-t">A energia é o novo silício</span><span class="tl-r">A China instalou mais de 430 GW de eólica e solar em 2025 — mais da metade de tudo que o mundo somou — enquanto trata a energia, não o chip, como o gargalo decisivo da IA.</span></span></a></li>
     <li><a href="/china/ato-3/#v-III-11"><span class="tl-id">III.11</span><span class="tl-body"><span class="tl-t">Tencent: a IA que desaparece dentro do fluxo</span><span class="tl-r">1,4 bilhão de pessoas num aplicativo só, 4,3 milhões de mini programas rodando dentro dele. A aposta de IA da Tencent é sumir no que já existe em vez de virar um destino novo.</span></span></a></li>
+    <li><a href="/china/ato-3/#v-III-12"><span class="tl-id">III.12</span><span class="tl-body"><span class="tl-t">Grátis para baixar, caro para rodar</span><span class="tl-r">Um modelo aberto de ponta passa de um terabyte e pede servidor com vários aceleradores. O download custa zero; o resto da conta, não.</span></span></a></li>
+    <li><a href="/china/ato-3/#v-III-13"><span class="tl-id">III.13</span><span class="tl-body"><span class="tl-t">A posição de quem é disputado</span><span class="tl-r">Mercado consumidor, energia limpa, base industrial e dado operacional. O Brasil tem os quatro — e é cortejado pelos dois blocos por causa disso.</span></span></a></li>
     <li><a href="/china/ato-4/#v-IV-7"><span class="tl-id">IV.7</span><span class="tl-body"><span class="tl-t">Os tigres de IA e o ano dos IPOs</span><span class="tl-r">2026 é o ano em que os laboratórios chineses de IA abriram capital. Dois estrearam em Hong Kong só em janeiro.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-4"><span class="tl-id">V.4</span><span class="tl-body"><span class="tl-t">Cenário de aplicação, não piloto</span><span class="tl-r">A unidade de trabalho que faz a IA sair do laboratório: problema delimitado, dado disponível, ambiente de validação, referência replicável.</span></span></a></li>
     <li><a href="/china/ato-5/#v-V-5"><span class="tl-id">V.5</span><span class="tl-body"><span class="tl-t">Difusão vence fronteira (para quem não vai ganhar a corrida de capital)</span><span class="tl-r">Modelo virou commodity barata. O que continua caro é dado próprio, processo integrado e gente que saiba operar.</span></span></a></li>

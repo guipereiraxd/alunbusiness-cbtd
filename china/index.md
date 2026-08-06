@@ -131,7 +131,7 @@
       <h3>O impacto da inteligência artificial</h3>
       <p class="ac-sub">A régua mudou de lugar</p>
       <p class="ac-ab">A corrida de IA foi narrada como disputa pelo modelo mais inteligente. Hoje o que conta é custo, alcance e integração com a economia física.</p>
-      <span class="ac-n">11 descobertas →</span>
+      <span class="ac-n">13 descobertas →</span>
     </a>
     <a class="ato-card2" data-c="IV" href="{{ '/china/ato-4/' | relative_url }}">
       <div class="ac-icon"><svg><use href="#i-skyline"></use></svg></div>

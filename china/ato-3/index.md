@@ -4,10 +4,10 @@ cor: "III"
 ---
 
 <div class="ato-head first">
-  <div class="k">Ato III · 11 descobertas</div>
+  <div class="k">Ato III · 13 descobertas</div>
   <h1>O impacto da inteligência artificial</h1>
   <div class="sub">A régua mudou de lugar</div>
-  <p class="ab">A corrida de IA foi contada como uma disputa pelo modelo mais inteligente. Essa régua mudou de lugar. Hoje o que pesa é quanto custa cada resposta, quanta gente consegue usar o sistema e o quanto ele se enfia em fábrica e serviço — e essa virada joga a favor da estratégia chinesa de modelo aberto, barato e colado na economia física. Este ato trata da economia do token, do cerco aos chips vindo dos dois lados, do programa estatal de difusão, da energia que virou gargalo e da disputa pelas regras globais.</p>
+  <p class="ab">A corrida de IA foi contada como uma disputa pelo modelo mais inteligente. Essa régua mudou de lugar. Hoje o que pesa é quanto custa cada resposta, quanta gente consegue usar o sistema e o quanto ele se enfia em fábrica e serviço — e essa virada joga a favor da estratégia chinesa de modelo aberto, barato e colado na economia física. Este ato trata da economia do token, do cerco aos chips vindo dos dois lados, do programa estatal de difusão, da energia que virou gargalo, do custo real de operar um modelo gratuito e da disputa pelas regras globais.</p>
 </div>
 
 <div class="v" id="v-III-1">
@@ -215,5 +215,45 @@ cor: "III"
       <p>Para a empresa brasileira, o padrão vale palavra por palavra e não depende de ter um super app: a IA que gera valor é a que some dentro do sistema que a equipe já usa — o CRM, o ERP, o canal de atendimento — e não a que exige abrir mais uma aba e aprender mais uma ferramenta. Todo projeto que cria um 'destino de IA' apartado do trabalho está competindo com o hábito, e o hábito costuma ganhar.</p>
     </div>
     <div class="tg"><span>Inteligência artificial</span><span>Empresas e mercado</span><span>Gestão e adoção</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-III-12">
+  <div class="v-id">III.12</div>
+  <div class="v-t">Grátis para baixar, caro para rodar</div>
+  <p class="v-r">Um modelo aberto de ponta passa de um terabyte e pede servidor com vários aceleradores. O download custa zero; o resto da conta, não.</p>
+  <div class="v-body">
+    <div class="tese">A distribuição gratuita derrubou o preço do modelo — não o preço de operar o modelo. Confundir os dois é o erro que faz orçamento de IA estourar seis meses depois da decisão.</div>
+    <p>Comece pela pergunta que incomoda: por que uma empresa gastaria bilhões em pesquisa, computação, energia e gente especializada para depois entregar o resultado de graça? Porque o modelo deixou de ser o destino e virou porta de entrada. E porque a conta competitiva fecha por outro caminho.</p>
+    <p>O raciocínio é direto. Uma organização ocidental pode ter restrição a contratar uma empresa chinesa, e nenhuma objeção a baixar e rodar o modelo aberto que essa mesma empresa publicou. Cada adoção dessas é uma assinatura ou uma chamada de API a menos para uma plataforma concorrente. Distribuir de graça não é abrir mão de competir — é competir em <em>outra camada</em>, e por isso a <a class="xref" href="/china/ato-3/#v-III-2">estratégia de difusão<sup>III.2</sup></a> pressiona a receita de quem vive de vender acesso.</p>
+    <p>Só que entre ter o modelo e colocá-lo para funcionar existe uma distância que a palavra 'gratuito' esconde. Os modelos abertos mais capazes passam de um terabyte e exigem servidores com vários chips de alto desempenho. Uma estrutura mínima já entra na casa dos milhões de reais. Em operação profissional, some redundância, segurança, armazenamento, energia, refrigeração, datacenter e equipe técnica — e o custo do peso baixado vira detalhe de rodapé.</p>
+    <p>É por isso que a maioria das empresas segue consumindo IA pela nuvem, mesmo com modelo aberto disponível: comprar capacidade sob demanda continua mais simples do que construir e manter infraestrutura própria. O modelo é grátis; tudo em volta dele, não.</p>
+    <p>E a queda de preço não é uniforme. Pesquisa farmacêutica, engenharia avançada e uso crítico em serviços financeiros ainda justificam pagar pelo melhor desempenho disponível. Onde o preço realmente desaba é na tarefa comum — produzir conteúdo, analisar documento, atender, automatizar rotina, programar, apoiar decisão. Nesse território, cobrar caro apenas pelo acesso ao modelo virou posição indefensável.</p>
+    <div class="dados"><div class="d"><div class="dv">&gt;1 TB</div><div class="dl">tamanho de um modelo aberto de ponta</div></div><div class="d"><div class="dv">R$ milhões</div><div class="dl">ordem de grandeza de uma estrutura mínima para operá-lo</div></div><div class="d"><div class="dv">2</div><div class="dl">preços que se movem em direções diferentes: o do modelo e o da operação</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>A conta que decide não é o preço do modelo — é o custo total de colocá-lo em produção com segurança, escala e confiabilidade. Empresa que trocou API paga por modelo aberto sem refazer essa conta costuma descobrir o tamanho do engano na fatura de infraestrutura, não na de licença. E vale a inversão: se a operação vai para a nuvem de qualquer jeito, a economia do modelo aberto é menor do que parece, e a autonomia que ele promete só existe se houver quem saiba operá-la.</p>
+    </div>
+    <div class="tg"><span>Inteligência artificial</span><span>Economia</span><span>Gestão e adoção</span></div>
+  </div>
+</div>
+
+<div class="v" id="v-III-13">
+  <div class="v-id">III.13</div>
+  <div class="v-t">A posição de quem é disputado</div>
+  <p class="v-r">Mercado consumidor, energia limpa, base industrial e dado operacional. O Brasil tem os quatro — e é cortejado pelos dois blocos por causa disso.</p>
+  <div class="v-body">
+    <div class="tese">Numa disputa em que os dois lados precisam de mercado, energia e dado para escoar tecnologia, ser disputado é uma posição rara de força. Mas ela não se converte sozinha em nada.</div>
+    <p>O Brasil não vai vencer uma disputa decidida por quem treina o maior modelo ou fabrica o chip mais avançado. Pode ocupar posição relevante na camada seguinte: aplicação vertical para agronegócio, serviços financeiros, indústria, educação, saúde, energia e setor público. Enquanto Estados Unidos e China brigam para fornecer modelo, chip, nuvem e datacenter pelo menor preço, sobra a pergunta de quem transforma isso em produto adaptado a uma realidade concreta.</p>
+    <p>Para o Estado, há um cálculo que raramente é feito com números. Operar modelo em infraestrutura própria faz sentido onde há informação sensível, exigência de soberania e serviço público em jogo. As ordens de grandeza ajudam a dimensionar a conversa: um ambiente dedicado a um único ministério ficaria na casa das dezenas de milhões de reais; uma estrutura para todo o funcionalismo federal, nas centenas de milhões no primeiro ano; uma plataforma nacional aberta à população, na casa dos bilhões de implantação, mais operação anual. São valores altos e não são incompatíveis com a escala do Estado brasileiro. O desafio não é treinar o modelo do zero — é construir a infraestrutura, a governança e as aplicações que convertem a tecnologia em valor público.</p>
+    <p>E a disputa está saindo do chatbot. Robôs, veículos, equipamentos industriais, dispositivos médicos e sistemas autônomos vão incorporar IA de forma crescente — o <a class="xref" href="/china/ato-3/#v-III-6">ciclo físico<sup>III.6</sup></a> que a China já trata como prioridade. Quando isso acontecer, o custo do modelo será fração da equação: o peso vai para sensor, dado, integração, segurança e conhecimento do contexto. Justamente as camadas em que estar perto do problema vale mais que estar perto da fronteira.</p>
+    <p>Nesse cenário, país com mercado consumidor relevante, matriz elétrica diversificada, capacidade industrial e abundância de dado vira alvo de cortejo. Os dois blocos terão interesse em oferecer infraestrutura, financiamento e condição especial para ampliar presença — como a <a class="xref" href="/china/ato-3/#v-III-8">oferta ao Sul Global<sup>III.8</sup></a> já demonstra.</p>
+    <p>O risco está no que se faz com o cortejo. Ser disputado só produz resultado se a posição for usada para desenvolver competência própria, negociar condição melhor e ocupar a camada de maior valor. Sem isso, o país deixa de ser parceiro e vira apenas mercado — e a diferença entre as duas coisas aparece no contrato, não no discurso.</p>
+    <div class="dados"><div class="d"><div class="dv">4</div><div class="dl">ativos que fazem o Brasil ser disputado: mercado, energia, indústria, dado</div></div><div class="d"><div class="dv">dezenas de mi</div><div class="dl">ordem de grandeza para um ambiente de um ministério</div></div><div class="d"><div class="dv">centenas de mi</div><div class="dl">para uma estrutura de todo o funcionalismo federal, no primeiro ano</div></div><div class="d"><div class="dv">bilhões</div><div class="dl">para uma plataforma nacional aberta à população</div></div></div>
+    <div class="br">
+      <div class="brt">Implicação para o Brasil</div>
+      <p>Ser cortejado pelos dois lados é situação temporária, e a janela fecha quando um dos blocos consolida presença. A pergunta prática para governo e empresa é a mesma: o que estamos trocando por acesso — e estamos negociando capacidade instalada aqui ou apenas comprando conveniência barata? A IA pode estar ficando gratuita. Decidir quem controla a infraestrutura, quem constrói as aplicações e quem captura o valor continua sendo escolha, não consequência.</p>
+    </div>
+    <div class="tg"><span>Brasil</span><span>Geopolítica e soberania</span><span>Economia</span><span>Inteligência artificial</span></div>
   </div>
 </div>
