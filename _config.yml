@@ -34,9 +34,11 @@ include:
   - bancodobrasil
   - china
   - setorpublico
+  - radardesinais
 
 exclude:
   - china/china-repositorio
+  - radardesinais/radar-repositorio
 
 defaults:
   - scope:
