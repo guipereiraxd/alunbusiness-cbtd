@@ -644,7 +644,7 @@ footer{padding:44px 0 60px;font-family:var(--mono);font-size:12px;color:var(--fa
           "cor": "#D9A82E",
           "nome": "Emprego jovem exposto à IA [BR]",
           "ev": [
-            "✓ FGV Ibre: −5% de chance de emprego"
+            "✓ FGV IBRE · jovens 18–29 · ~−5% chance de emprego em ocupações mais expostas à IA"
           ],
           "x": 124,
           "y": 266,
@@ -1693,6 +1693,16 @@ function quebrar(host,txt,maxw,size,weight,fam){
     if(ln && larg(t)>maxw){out.push(ln);ln=w;} else ln=t;
   }
   if(ln)out.push(ln);
+  /* órfã: última linha com uma palavra solta puxa palavras da linha de cima */
+  while(out.length>1 && larg(out[out.length-1])<maxw*.25){
+    const acima=out[out.length-2].split(' ');
+    if(acima.length<2) break;
+    const cand=acima[acima.length-1]+' '+out[out.length-1];
+    if(larg(cand)>maxw) break;
+    acima.pop();
+    out[out.length-2]=acima.join(' ');
+    out[out.length-1]=cand;
+  }
   probe.remove();
   return out;
 }
