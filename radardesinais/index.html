@@ -11,7 +11,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://alunbusiness.md/radardesinais/">
 <meta property="og:title" content="Radar de Sinais — Alura Signals Experience 2026">
-<meta property="og:description" content="O radar não prevê onde o raio cai — detecta quando condições independentes formam tempestade.">
+<meta property="og:description" content="O radar não prevê onde o raio vai cair. Detecta quando sinais independentes começam a formar uma tempestade.">
 <meta property="og:image" content="https://alunbusiness.md/radardesinais/og-radar.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -175,7 +175,7 @@ footer{padding:44px 0 60px;font-family:var(--mono);font-size:12px;color:var(--fa
   <div class="sys" id="sys"></div>
   <div class="routes" id="routes"></div>
 
-  <footer>Alura Signals Experience 2026 · o radar não prevê onde o raio cai — detecta quando condições independentes formam tempestade.<br>
+  <footer><span id="fecho"></span><br>
     <a href="https://alunbusiness.md" style="color:inherit">alunbusiness.md</a></footer>
 </main>
 
@@ -198,6 +198,7 @@ else fetch('signals.json').then(r=>r.json()).then(d=>{D=d;boot();})
 
 function boot(){
   document.getElementById('lede').textContent=D.meta.sub;
+  document.getElementById('fecho').textContent=D.meta.evento+' · '+D.meta.fecho;
   buildNav(); buildRadar(); buildLegend(); buildForms(); D.celulas.forEach(buildCell); buildSystem();
   let t; window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(()=>{
     document.getElementById('radar').innerHTML=''; buildRadar();

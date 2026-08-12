@@ -1,8 +1,9 @@
 {
   "meta": {
     "titulo": "Radar de Sinais",
-    "sub": "O radar não prevê onde o raio cai — detecta quando condições independentes formam tempestade.",
-    "evento": "Alura Signals Experience 2026"
+    "sub": "Mudanças se formam como tempestades: primeiro surgem sinais dispersos, depois eles começam a convergir. O radar existe para enxergar esse movimento.",
+    "evento": "Alura Signals Experience 2026",
+    "fecho": "O radar não prevê onde o raio vai cair. Detecta quando sinais independentes começam a formar uma tempestade."
   },
   "aneis": [
     {
@@ -110,9 +111,9 @@
       "n": 6,
       "vetor": "SE",
       "status": "CÉLULA MADURA",
-      "mov": "INTENSIFICANDO · APROXIMANDO",
+      "mov": "AVANÇANDO",
       "acel": "↑↑",
-      "real": "O dev deixa de escrever código e passa a operar a fábrica que escreve.",
+      "real": "O dev não desaparece da fábrica de software. Muda de posição: começa a operar as máquinas que escrevem.",
       "puffs": [
         [
           520,
@@ -194,7 +195,7 @@
           "id": "S1",
           "papel": "núcleo",
           "cor": "#C93A2B",
-          "nome": "Código gerado por máquina em escala",
+          "nome": "Código gerado por máquina, em escala",
           "ev": [
             "⚑ Microsoft: 20-30% dos repositórios",
             "⚑ Google: >30% do código novo"
@@ -212,7 +213,7 @@
           "id": "S2",
           "papel": "núcleo",
           "cor": "#C93A2B",
-          "nome": "Agentes autônomos entregando",
+          "nome": "Agentes saem da demo e entram em produção",
           "ev": [
             "⚑ Cursor: 35% dos PRs internos",
             "⚑ Stripe: 1.000 PRs/semana"
@@ -230,7 +231,7 @@
           "id": "S3",
           "papel": "corrente ascendente",
           "cor": "#E07B2A",
-          "nome": "Mercado explosivo de ferramental",
+          "nome": "Capital corre para a nova stack",
           "ev": [
             "⚑ Cursor: ARR US$100M→2B+",
             "⚑ Copilot: 4,7M assinantes pagos"
@@ -265,7 +266,7 @@
           "id": "S5",
           "papel": "bigorna",
           "cor": "#D9A82E",
-          "nome": "Adoção ubíqua, ganho contestado",
+          "nome": "Adoção ubíqua. Ganho contestado.",
           "ev": [
             "✓ DORA: 90% de adoção",
             "✓ Stack Overflow: 84%"
@@ -283,7 +284,7 @@
           "id": "S6",
           "papel": "cisalhamento",
           "cor": "#1D3557",
-          "nome": "Gap percepção-realidade",
+          "nome": "A percepção corre na frente da produtividade",
           "ev": [
             "✓ METR: devs 19% mais lentos"
           ],
@@ -306,7 +307,7 @@
       "n": 6,
       "vetor": "NE",
       "status": "CÉLULA MADURA",
-      "mov": "INTENSIFICANDO · APROXIMANDO",
+      "mov": "AVANÇANDO",
       "acel": "↑↑",
       "real": "O time muda de forma antes de mudar de tamanho.",
       "puffs": [
@@ -500,7 +501,7 @@
       "n": 6,
       "vetor": "E",
       "status": "FORMAÇÃO",
-      "mov": "GANHANDO DENSIDADE · LATERAL",
+      "mov": "GANHANDO FORÇA · LATERAL",
       "acel": "↑",
       "real": "Software deixa de ser ferramenta e vira parte contratante.",
       "puffs": [
@@ -695,7 +696,7 @@
       "n": 6,
       "vetor": "SE",
       "status": "FORMAÇÃO",
-      "mov": "ESPALHANDO · APROXIMANDO",
+      "mov": "SE ESPALHANDO · APROXIMANDO",
       "acel": "↑↑",
       "real": "O custo do software migra de licença fixa para consumo variável.",
       "puffs": [
@@ -883,7 +884,7 @@
       "n": 5,
       "vetor": "NE",
       "status": "FORMAÇÃO EMERGENTE",
-      "mov": "DENSIFICANDO · ALTA INCERTEZA",
+      "mov": "GANHANDO DENSIDADE · ALTA INCERTEZA",
       "acel": "↑↑",
       "real": "A capacidade correu na frente da governança.",
       "puffs": [
@@ -1047,7 +1048,7 @@
       "n": 5,
       "vetor": "O",
       "status": "FORMAÇÃO EMERGENTE",
-      "mov": "ENVOLVENDO O CENTRO",
+      "mov": "TOMANDO FORMA · ENVOLVENDO O CENTRO",
       "acel": "↑",
       "olho": true,
       "real": "A IA baixou o custo de construir; encareceu decidir.",
