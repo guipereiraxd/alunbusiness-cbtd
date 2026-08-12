@@ -49,6 +49,13 @@ h1{font-family:var(--display);font-weight:600;letter-spacing:.06em;font-size:cla
 
 /* ---------- radar ---------- */
 .radarwrap{background:var(--panel);border-radius:16px;padding:8px;margin:22px 0}
+/* só aparece quando a frase sai do disco central — ver buildRadar */
+.centro-nota{display:none}
+@media(max-width:820px){
+  .centro-nota{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);
+    margin:10px 0 0;text-align:center}
+  .centro-nota b{color:var(--ink);font-weight:500}
+}
 .radar-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px 18px;margin:14px 0 4px}
 .rl{display:flex;gap:8px;align-items:flex-start;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
 .rl b{color:var(--ink);font-family:var(--sans);font-size:14px;font-weight:600;display:block}
@@ -71,6 +78,12 @@ h2{font-family:var(--display);font-weight:600;letter-spacing:.05em;font-size:cla
 .real{font-size:clamp(14px,3.2vw,21px);font-weight:500;opacity:.82;margin:0 0 6px;max-width:56ch}
 .stat{font-family:var(--mono);font-size:13px;color:var(--c);margin-bottom:16px}
 .cloudbox{background:var(--panel);border-radius:14px;padding:6px;overflow:hidden}
+/* No estreito a anatomia não cabe: em vez de cortar os rótulos dos sinais,
+   a caixa rola na horizontal. Abaixo de 900px o texto ficaria ilegível. */
+@media(max-width:900px){
+  .cloudbox{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+  .cloudbox svg{min-width:900px}
+}
 
 .grid2{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
 @media(min-width:880px){.grid2{grid-template-columns:1.35fr 1fr}}
@@ -149,6 +162,7 @@ footer{padding:44px 0 60px;font-family:var(--mono);font-size:12px;color:var(--fa
   </section>
 
   <div class="radarwrap"><div id="radar"></div></div>
+  <p class="centro-nota">No centro do radar: <b>engenharia de software hoje</b> — você está aqui.</p>
 
   <div class="radar-legend" id="rlegend"></div>
 
@@ -1435,7 +1449,10 @@ const el=(t,a={})=>{const e=document.createElementNS(NS,t);for(const k in a)e.se
 const T=(x,y,size,weight,fill,txt,anchor,fam)=>{const t=el('text',{x,y,'font-size':size,'font-weight':weight,fill,
   'font-family':fam||'var(--mono)'});if(anchor)t.setAttribute('text-anchor',anchor);t.textContent=txt;return t;};
 const mul=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};
-const isNarrow=()=>window.matchMedia('(max-width:700px)').matches;
+/* Abaixo disto o radar cai para escala ~0,25 e o texto no tamanho do desktop
+   sairia com 4-5px. O radar continua inteiro na tela; o que muda é a
+   tipografia — ver o ramo `estreito` em buildRadar. */
+const isNarrow=()=>window.matchMedia('(max-width:820px)').matches;
 
 let D;
 const inline=document.getElementById('signals-data');
@@ -1460,12 +1477,17 @@ function buildNav(){
 /* ============ RADAR ============ */
 function buildRadar(){
   const host=document.getElementById('radar');
-  const narrow=isNarrow(), S=1280, CX=640, CY=600, R=392;
+  const estreito=isNarrow(), S=1280, CX=640, CY=600, R=392;
   const svg=el('svg',{viewBox:`0 130 ${S} 940`,role:'img','aria-label':'Radar de sinais com seis formações'});
   svg.appendChild(el('circle',{cx:CX,cy:CY,r:R,fill:'#fff'}));
+  /* O rótulo de cada anel fica na borda de cima dele, por dentro. No anel mais
+     interno essa posição cai dentro do disco central, que é pintado depois —
+     era por isso que AGORA nunca aparecia. Esses ficam para o grupo do olho. */
+  const DISCO=104, aneisNoOlho=[];
   D.aneis.forEach((a,i)=>{
     svg.appendChild(el('circle',{cx:CX,cy:CY,r:a.r,fill:'none',stroke:'#1D3557','stroke-width':i?1:1.5,opacity:i?.22:.45}));
-    svg.appendChild(T(CX,CY-a.r+26,14,500,'#8A93A0',a.nome,'middle'));
+    if(a.r-26>DISCO) svg.appendChild(T(CX,CY-a.r+(estreito?34:26),estreito?32:14,500,'#8A93A0',a.nome,'middle'));
+    else aneisNoOlho.push(a);
   });
   const sw=el('g',{class:'sweep',style:`transform-origin:${CX}px ${CY}px`});
   sw.appendChild(el('path',{d:`M${CX} ${CY} L${CX+R} ${CY} A${R} ${R} 0 0 0 ${CX+R*0.866} ${CY-R*0.5} Z`,fill:'#3E7CB1',opacity:.07}));
@@ -1488,9 +1510,34 @@ function buildRadar(){
     'stroke-dasharray':'12 10',opacity:.55,class:'collide'}));
   eg.appendChild(el('circle',{cx:CX,cy:CY,r:104,fill:'#fff'}));
   eg.appendChild(el('circle',{cx:CX,cy:CY,r:104,fill:'none',stroke:'#3E7CB1','stroke-width':2,'stroke-dasharray':'9 7'}));
-  eg.appendChild(T(CX,CY-8,20,600,'#1D3557','ENGENHARIA DE','middle','var(--sans)'));
-  eg.appendChild(T(CX,CY+18,20,600,'#1D3557','SOFTWARE HOJE','middle','var(--sans)'));
-  eg.appendChild(T(CX,CY+44,13,500,'#8A93A0','você aqui','middle'));
+  aneisNoOlho.forEach((a,i)=>eg.appendChild(
+    T(CX,CY-(estreito?52:72)+i*24,estreito?32:14,500,'#8A93A0',a.nome,'middle')));
+  /* O disco tem 208 unidades — 52px de tela no celular. A frase não cabe ali
+     em tamanho legível (medida, "DE SOFTWARE" dá 220 unidades), então no
+     estreito ela sai do disco e vira a legenda logo abaixo do radar. */
+  if(estreito){
+    eg.appendChild(T(CX,CY+10,30,500,'#5F6B7A','você aqui','middle'));
+  } else {
+    eg.appendChild(T(CX,CY-8,20,600,'#1D3557','ENGENHARIA DE','middle','var(--sans)'));
+    eg.appendChild(T(CX,CY+18,20,600,'#1D3557','SOFTWARE HOJE','middle','var(--sans)'));
+    eg.appendChild(T(CX,CY+44,13,500,'#8A93A0','você aqui','middle'));
+  }
+  /* Rótulo da C6. Ela fica de fora do laço das células por ser o olho, e sem
+     isto é a única formação sem identificação no radar. Não cabe centralizada
+     sob o anel (esbarra na C2), então vai deslocada para a direita, com uma
+     guia curta ligando-a ao anel. */
+  if(estreito){
+    eg.appendChild(el('rect',{x:CX-43,y:800,width:86,height:58,rx:6,fill:'#fff',stroke:c6.cor,'stroke-width':4}));
+    eg.appendChild(T(CX,841,42,500,c6.cor,c6.id,'middle'));
+  } else {
+    const w=44+16+c6.nome.length*11.4, lx=596, ly=856;
+    eg.appendChild(el('line',{x1:lx+30,y1:ly-30,x2:CX,y2:CY+176,stroke:c6.cor,'stroke-width':1.5,
+      'stroke-dasharray':'5 6',opacity:.55}));
+    eg.appendChild(el('rect',{x:lx-8,y:ly-24,width:w+16,height:34,rx:5,fill:'#fff',opacity:.93}));
+    eg.appendChild(el('rect',{x:lx,y:ly-20,width:44,height:26,fill:'#fff',stroke:c6.cor,'stroke-width':2}));
+    eg.appendChild(T(lx+22,ly-1,14,500,c6.cor,c6.id,'middle'));
+    eg.appendChild(T(lx+56,ly,21,600,'#1D3557',c6.nome,null,'var(--sans)'));
+  }
   svg.appendChild(eg);
 
   D.celulas.filter(c=>!c.olho).forEach(c=>{
@@ -1512,7 +1559,13 @@ function buildRadar(){
       const ex=sx+nx*L,ey=sy+ny*L,a=Math.atan2(ny,nx);
       g.appendChild(el('path',{d:`M${ex} ${ey} L${ex-Math.cos(a-.5)*15} ${ey-Math.sin(a-.5)*15} L${ex-Math.cos(a+.5)*15} ${ey-Math.sin(a+.5)*15} Z`,fill:'#1D3557',opacity:.8}));
     }
-    if(!narrow){
+    if(estreito){
+      /* só o chip, ampliado para continuar legível a 0,25 de escala; os nomes
+         estão logo abaixo, nos cartões FORMAÇÕES DETECTADAS */
+      const by=c.y>CY+40?(c.y+ry+18):(c.y-ry-76);
+      g.appendChild(el('rect',{x:c.x-43,y:by,width:86,height:58,rx:6,fill:'#fff',stroke:c.cor,'stroke-width':4}));
+      g.appendChild(T(c.x,by+41,42,500,c.cor,c.id,'middle'));
+    } else {
       const w=44+16+c.nome.length*11.4;
       const below=c.y>CY+40;
       let lx=c.x-w/2, ly=below?(c.y+ry+52):(c.y-ry-24);
@@ -1521,15 +1574,12 @@ function buildRadar(){
       g.appendChild(el('rect',{x:lx,y:ly-20,width:44,height:26,fill:'#fff',stroke:c.cor,'stroke-width':2}));
       g.appendChild(T(lx+22,ly-1,14,500,c.cor,c.id,'middle'));
       g.appendChild(T(lx+56,ly,21,600,'#1D3557',c.nome,null,'var(--sans)'));
-    } else {
-      const by=c.y>CY+40?(c.y+ry+16):(c.y-ry-34);
-      g.appendChild(el('rect',{x:c.x-24,y:by,width:48,height:28,rx:5,fill:'#fff',stroke:c.cor,'stroke-width':2}));
-      g.appendChild(T(c.x,by+19,15,500,c.cor,c.id,'middle'));
     }
     svg.appendChild(g);
   });
 
-  if(!narrow){
+  /* no estreito este bloco sairia com 4px; a lista de rotas fica abaixo do radar */
+  if(!estreito){
     svg.appendChild(el('rect',{x:784,y:480,width:216,height:56,rx:5,fill:'#fff',opacity:.93}));
     svg.appendChild(T(794,504,15,500,'#C93A2B','ROTA DE COLISÃO'));
     svg.appendChild(T(794,526,14,500,'#5F6B7A',rt.rota+' → tempestade'));
@@ -1574,16 +1624,16 @@ function buildForms(){
 
 /* ============ CELL ANATOMY ============ */
 function drawCloud(host,c){
-  const narrow=isNarrow();
-  const svg=el('svg',{viewBox:narrow?'150 190 1000 740':'40 180 1220 760',role:'img',
+  /* Composição única, com as duas colunas de rótulo. No estreito ela não cabe
+     na largura da tela — em vez de cortar (o que escondia os sinais), a caixa
+     rola na horizontal, ver `.cloudbox` no CSS. */
+  const svg=el('svg',{viewBox:'40 180 1220 760',role:'img',
     'aria-label':'Anatomia da formação '+c.nome});
   svg.appendChild(el('rect',{x:60,y:180,width:1180,height:740,rx:16,fill:'#fff'}));
   [404,646].forEach(y=>svg.appendChild(el('line',{x1:112,y1:y,x2:1224,y2:y,stroke:'#1D3557','stroke-width':1,'stroke-dasharray':'7 9',opacity:.2})));
-  if(!narrow){
-    svg.appendChild(el('rect',{x:64,y:184,width:46,height:732,fill:'#F5F5F3'}));
-    [[300,'FRONTEIRA'],[528,'ESCALANDO'],[770,'EM PRODUÇÃO']].forEach(([y,t])=>{
-      const n=T(87,y,14,500,'#8A93A0',t,'middle');n.setAttribute('transform',`rotate(-90 87 ${y})`);svg.appendChild(n);});
-  }
+  svg.appendChild(el('rect',{x:64,y:184,width:46,height:732,fill:'#F5F5F3'}));
+  [[300,'FRONTEIRA'],[528,'ESCALANDO'],[770,'EM PRODUÇÃO']].forEach(([y,t])=>{
+    const n=T(87,y,14,500,'#8A93A0',t,'middle');n.setAttribute('transform',`rotate(-90 87 ${y})`);svg.appendChild(n);});
   /* rain */
   const rg=el('g'),rr=mul(97);
   let x0=1e9,x1=-1e9;
@@ -1622,14 +1672,12 @@ function drawCloud(host,c){
   const sr=mul(11);
   for(let x=96;x<1200;x+=34){const h=8+Math.round(sr()*3)*5;
     svg.appendChild(el('rect',{x,y:872-h,width:14,height:h,fill:'#7E9B57',opacity:.55}));}
-  svg.appendChild(narrow?T(170,902,16,500,'#6E7A63','SOLO · ORGANIZAÇÕES'):T(1224,902,14,500,'#6E7A63','SOLO · ORGANIZAÇÕES E OPERAÇÃO HOJE','end'));
+  svg.appendChild(T(1224,902,14,500,'#6E7A63','SOLO · ORGANIZAÇÕES E OPERAÇÃO HOJE','end'));
   host.appendChild(svg);
   /* sinais plotados sobre a anatomia — posição e linha-guia vêm do signals.json.
      Vai depois do appendChild porque a quebra de linha e o fundo dos rótulos
-     dependem de medir o texto já renderizado.
-     No estreito o viewBox corta as duas colunas de rótulo, e os sinais já
-     aparecem no cartão SINAIS DETECTADOS logo abaixo. */
-  if(!narrow) c.sinais.forEach(s=>plotarSinal(svg,s));
+     dependem de medir o texto já renderizado. */
+  c.sinais.forEach(s=>plotarSinal(svg,s));
 }
 
 /* quebra gulosa pela largura real do texto renderizado */
