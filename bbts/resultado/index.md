@@ -199,10 +199,10 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
       <div class="grid g3" style="margin-top:22px">
         <div class="card"><div class="tag b" style="margin-bottom:9px">Você</div><h4>Comentar a proposta</h4><p style="font-size:13.5px;color:var(--tx-2)">Registrar o que não faz sentido no seu contexto antes de enviar ao gestor.</p></div>
         <div class="card"><div class="tag y" style="margin-bottom:9px">Gestor</div><h4>Aprovar, ajustar ou devolver</h4><p style="font-size:13.5px;color:var(--tx-2)">Validar o objetivo e as ações, ou devolver o objetivo para esclarecimento.</p></div>
-        <div class="card"><div class="tag n" style="margin-bottom:9px">DHO</div><h4>Supervisionar o processo</h4><p style="font-size:13.5px;color:var(--tx-2)">Acompanhar necessidades agregadas e manter o catálogo e a metodologia.</p></div>
+        <div class="card"><div class="tag n" style="margin-bottom:9px">GEPES</div><h4>Supervisionar o processo</h4><p style="font-size:13.5px;color:var(--tx-2)">Acompanhar necessidades agregadas e manter o catálogo e a metodologia.</p></div>
       </div>
       <div style="display:flex;gap:11px;flex-wrap:wrap;margin-top:26px">
-        <a class="btn btn-primary" href="{{ '/bbts/painel/' | relative_url }}">Ver painel do DHO →</a>
+        <a class="btn btn-primary" href="{{ '/bbts/painel/' | relative_url }}">Ver painel da GEPES →</a>
         <a class="btn btn-line" href="{{ '/bbts/assessment/' | relative_url }}">Revisar respostas</a>
       </div>
     </div>

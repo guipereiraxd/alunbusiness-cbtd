@@ -1,5 +1,5 @@
 ---
-title: "Painel do DHO"
+title: "Painel da GEPES"
 description: "Visão agregada da prontidão em IA do grupo: participação, distribuição, necessidades de desenvolvimento e fila de PDIs aguardando revisão humana."
 ---
 
@@ -173,7 +173,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   <div class="wrap">
     <div class="pn-h">
       <div>
-        <span class="sk">Visão do DHO</span>
+        <span class="sk">Visão da GEPES</span>
         <h1>Prontidão do grupo e fila de revisão</h1>
       </div>
       <div class="pn-ctl">
@@ -190,10 +190,10 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 <div id="gate" class="gate" style="display:none">
   <h2>Painel restrito</h2>
   <p>Os registros trazem nome, e-mail e respostas de cada pessoa. A leitura exige
-     autenticação — quem responde o assessment não precisa de conta, só o DHO.</p>
+     autenticação — quem responde o assessment não precisa de conta, só a GEPES.</p>
   <div class="err" id="gate-err"></div>
   <label for="g-email">E-mail</label>
-  <input type="email" id="g-email" autocomplete="username" placeholder="dho@bbts.com.br">
+  <input type="email" id="g-email" autocomplete="username" placeholder="gepes@bbts.com.br">
   <label for="g-senha">Senha</label>
   <input type="password" id="g-senha" autocomplete="current-password" placeholder="••••••••">
   <button id="g-ok">Entrar</button>
@@ -615,7 +615,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       var n = cont[k]||0;
       var txt = { rascunho:"Assessment iniciado, sem PDI gerado.",
                   submetido:"PDI gerado pelo fluxo de agentes. Precisa de leitura humana.",
-                  em_revisao:"Em análise com o gestor e o DHO.",
+                  em_revisao:"Em análise com o gestor e a GEPES.",
                   aprovado:"Aprovado e em vigor no ciclo." }[k];
       return '<div'+(k==="submetido"&&n?' class="hot"':'')+'>'
         + '<div class="n">'+n+'</div>'

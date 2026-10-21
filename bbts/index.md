@@ -120,7 +120,7 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
     </div>
 
     <div class="agent" role="img" aria-label="Simulação do fluxo multiagente: validação concluída, objetivo estruturado, diagnóstico em execução, curadoria e governança aguardando, aprovação humana pendente.">
-      <div class="agent-h"><span class="dot"></span>Orquestrador DHO · execução</div>
+      <div class="agent-h"><span class="dot"></span>Orquestrador GEPES · execução</div>
       <ul class="steps">
         <li class="done"><span class="n">01</span><span>Submissão validada e versionada</span><span class="st">ok</span></li>
         <li class="done"><span class="n">02</span><span>Objetivo de 12 meses estruturado</span><span class="st">ok</span></li>
@@ -185,7 +185,7 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
         <h2 style="margin-top:14px">Quatro agentes, papéis separados</h2>
         <p class="lead">Separar os papéis é o que permite auditar o resultado: cada etapa registra suas entradas, versões e saídas.</p>
         <div class="grid" style="margin-top:20px;gap:12px">
-          <div class="ag"><div class="role">Orquestração</div><h3>Orquestrador DHO</h3><p>Organiza o contexto, controla a sequência e apresenta o resultado. Falha de uma pessoa não bloqueia as demais.</p></div>
+          <div class="ag"><div class="role">Orquestração</div><h3>Orquestrador GEPES</h3><p>Organiza o contexto, controla a sequência e apresenta o resultado. Falha de uma pessoa não bloqueia as demais.</p></div>
           <div class="ag"><div class="role">Análise</div><h3>Diagnóstico de Competências</h3><p>Interpreta assessment, evidências e objetivo confirmado. Identifica lacunas e pré-requisitos.</p></div>
           <div class="ag"><div class="role">Seleção</div><h3>Curadoria de Aprendizagem</h3><p>Escolhe ações do catálogo autorizado e propõe a aplicação prática no contexto de trabalho.</p></div>
           <div class="ag"><div class="role">Controle</div><h3>Validação e Governança</h3><p>Confere fontes, aderência, limites e completude. Permite uma única revisão automática.</p></div>
@@ -241,7 +241,7 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
       <p>São cerca de 10 minutos. Você pode salvar e retomar depois — nenhuma resposta se perde. Ao final, descreva onde precisa chegar em 12 meses e receba a proposta de PDI para revisar.</p>
       <div class="row">
         <a class="btn btn-yellow" href="{{ '/bbts/assessment/' | relative_url }}">Iniciar assessment →</a>
-        <a class="btn btn-line" href="{{ '/bbts/painel/' | relative_url }}" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.35)">Ver painel do DHO</a>
+        <a class="btn btn-line" href="{{ '/bbts/painel/' | relative_url }}" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.35)">Ver painel da GEPES</a>
       </div>
     </div>
   </div>

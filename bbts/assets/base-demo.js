@@ -1,4 +1,4 @@
-/* BBTS · Base sintética para demonstração do painel do DHO.
+/* BBTS · Base sintética para demonstração do painel da GEPES.
    Determinística (seed fixo) — os mesmos números a cada carregamento.
    NÃO são pessoas reais. Rótulos genéricos conforme previsto para a demo. */
 window.BBTS_DEMO = (function(){

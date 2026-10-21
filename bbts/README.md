@@ -22,12 +22,12 @@ Cole o arquivo **todo**. Blocos soltos depois do fechamento de
 `match /databases/{database}/documents` não compilam — o console acusa
 `Unexpected 'match'` na linha do bloco órfão.
 
-## 2. Conta do DHO
+## 2. Conta da GEPES
 
 No console do Firebase:
 
 1. **Authentication → Sign-in method** → habilitar **E-mail/senha**.
-2. **Authentication → Users → Add user** → criar a conta do DHO.
+2. **Authentication → Users → Add user** → criar a conta da GEPES.
 
 Só isso. Nenhuma senha passa por este repositório, e quem responde o
 assessment continua sem precisar de conta.

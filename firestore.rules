@@ -55,14 +55,14 @@ service cloud.firestore {
     }
 
     // Assessments de prontidão em IA do /bbts/ — nome, e-mail e respostas.
-    // Quem responde não tem conta; o painel do DHO tem login.
+    // Quem responde não tem conta; o painel da GEPES tem login.
     match /bbts_assessments/{id} {
 
       // Quem responde não precisa de conta, mas só cria registro "submetido".
       allow create: if request.resource.data.status == 'submetido';
 
       // Reenvio só sobrescreve o registro do mesmo e-mail, e sempre volta
-      // para "submetido" — respostas novas exigem revisão nova. O DHO
+      // para "submetido" — respostas novas exigem revisão nova. A GEPES
       // autenticado é quem pode mover o status.
       allow update: if request.auth != null
                     || (request.resource.data.email == resource.data.email
