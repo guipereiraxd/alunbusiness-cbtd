@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Slide · O cone de futuros visto de cima</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Jost:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F0F0EE; --panel:#FFFFFF; --ink:#1D3557; --muted:#5F6B7A; --faint:#8A93A0;
+  --line:#E2E2E0; --olive:#7E9B57; --gold:#D9A82E; --orange:#E07B2A; --red:#C93A2B;
+  --purple:#7B3FA0; --blue:#3E7CB1;
+  --sans:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --display:'Jost',var(--sans); --px:'Press Start 2P',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1920px;height:1080px;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden;position:relative}
+svg{display:block}
+
+.head{position:absolute;left:72px;top:64px;width:1300px}
+h1{font-family:var(--display);font-weight:600;letter-spacing:.06em;font-size:60px;line-height:1}
+.sub{font-family:var(--sans);font-weight:500;font-size:26px;color:var(--muted);margin-top:14px;max-width:1080px}
+.sub b{color:var(--ink);font-weight:600}
+
+.palco{position:absolute;left:72px;top:214px;width:1228px;height:620px;
+  background:var(--panel);border-radius:18px}
+
+.lado{position:absolute;left:1340px;top:214px;width:508px}
+.k{font-family:var(--px);font-size:14px;letter-spacing:.04em;color:var(--ink);margin-bottom:18px}
+.k2{font-family:var(--px);font-size:14px;letter-spacing:.04em;color:var(--ink);margin:34px 0 14px}
+table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:15.5px}
+td{padding:9px 0;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+td.de{color:var(--muted);width:47%;padding-right:14px}
+td.para{color:var(--ink);font-weight:500}
+td.so{color:var(--faint)}
+.dot{color:var(--blue)}
+
+/* A faixa para no x=1300: o canto inferior direito fica livre para o logo da Alun. */
+.fecho{position:absolute;left:72px;top:866px;width:1228px;
+  background:var(--panel);border-radius:14px;padding:22px 30px 24px;border-top:6px solid var(--ink)}
+.fecho .t{font-family:var(--px);font-size:13px;color:var(--faint);margin-bottom:11px}
+.fecho p{font-size:26px;font-weight:600;line-height:1.3}
+.fecho .nao{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:16px;color:var(--muted);line-height:1.45}
+.fecho .nao b{font-family:var(--mono);font-weight:500;color:var(--blue)}
+</style>
+</head>
+<body>
+
+<div class="head">
+  <h1>O CONE DE FUTUROS</h1>
+  <p class="sub">O cone e o radar são <b>o mesmo objeto</b>. O ápice do cone é hoje; ele se abre conforme
+    avança no tempo. Olhando pelo eixo, os cortes viram anéis — e o cone vira o radar.</p>
+</div>
+
+<div class="palco"><div id="arte"></div></div>
+
+<div class="lado">
+  <div class="k">TRADUÇÃO</div>
+  <table>
+    <tr><td class="de">eixo do tempo</td><td class="para">posição radial · FORMANDO → AGORA</td></tr>
+    <tr><td class="de">possible · plausible · probable</td><td class="para">confiança <span class="dot">●○○○ → ●●●●</span></td></tr>
+    <tr><td class="de">ponto de cenário</td><td class="para">uma célula · C1…C6</td></tr>
+    <tr><td class="de">wild card</td><td class="para">intensidade alta, confiança baixa</td></tr>
+    <tr><td class="de so">— não existe no cone</td><td class="para">cor · intensidade da evidência</td></tr>
+    <tr><td class="de so">— não existe no cone</td><td class="para">vetor · velocidade do deslocamento</td></tr>
+  </table>
+
+  <div class="k2">POR QUE NÃO SÃO OS ANÉIS</div>
+  <table>
+    <tr><td class="de">o cone codifica</td><td class="para">quando <i>e</i> quão provável na mesma geometria</td></tr>
+    <tr><td class="de">o radar separa</td><td class="para">anel = quando · confiança = quão provável</td></tr>
+  </table>
+
+</div>
+
+<div class="fecho">
+  <div class="t">O QUE ISSO MUDA</div>
+  <p>Um cone mostra o espectro do que pode acontecer. O radar mostra o que já está se formando,
+    com que força e a que distância — e quanto disso ainda é aposta.</p>
+  <div class="nao"><b>o que o radar não tem:</b> o futuro preferível. O radar detecta;
+    preferir é decidir — e essa parte não é do instrumento.</div>
+</div>
+
+<script>
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a={})=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+const T=(x,y,size,weight,fill,txt,anchor,fam)=>{const t=el('text',{x,y,'font-size':size,'font-weight':weight,fill,
+  'font-family':fam||'var(--mono)'});if(anchor)t.setAttribute('text-anchor',anchor);t.textContent=txt;return t;};
+const mul=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};
+
+/* Geometria do palco. O radar real vive num sistema de 1280 unidades com centro
+   em (640,600) e raio 392; aqui ele é reduzido por K e recentrado em (RCX,RCY),
+   para que as seis células caiam exatamente onde caem no radar de verdade.
+   Vem ANTES do carregamento: com os dados embutidos, desenhar() roda na hora,
+   e estas constantes precisam já existir. */
+const W=1228, H=620, K=190/392, RCX=880, RCY=310, R=190;
+const ax=(x)=>RCX+(x-640)*K, ay=(y)=>RCY+(y-600)*K;
+
+let D;
+const inline=document.getElementById('signals-data');
+if(inline){ D=JSON.parse(inline.textContent); desenhar(); }
+else fetch('../signals.json').then(r=>r.json()).then(d=>{D=d;desenhar();});
+
+function desenhar(){
+  const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,width:W,height:H,role:'img',
+    'aria-label':'O cone de futuros visto de perfil e, ao lado, o mesmo cone visto pelo eixo — o radar'});
+  cone(svg);
+  giro(svg);
+  radar(svg);
+  document.getElementById('arte').appendChild(svg);
+}
+
+/* ---------- o cone, de perfil ---------- */
+function cone(svg){
+  const APX=64, APY=310, BOCA=506, RY=200;
+  const ry=x=>RY*(x-APX)/(BOCA-APX);
+  const g=el('g');
+  /* corpo */
+  g.appendChild(el('path',{d:`M${APX} ${APY} L${BOCA} ${APY-RY} A22 ${RY} 0 0 0 ${BOCA} ${APY+RY} Z`,
+    fill:'#1D3557',opacity:.055}));
+  g.appendChild(el('path',{d:`M${APX} ${APY} L${BOCA} ${APY-RY}`,stroke:'#1D3557','stroke-width':1.5,opacity:.35,fill:'none'}));
+  g.appendChild(el('path',{d:`M${APX} ${APY} L${BOCA} ${APY+RY}`,stroke:'#1D3557','stroke-width':1.5,opacity:.35,fill:'none'}));
+  /* cortes — os quatro anéis, vistos de lado */
+  const cortes=[[APX,'AGORA'],[211,'IMPACTANDO'],[358,'ESCALANDO'],[BOCA,'FORMANDO']];
+  cortes.forEach(([x,nome],i)=>{
+    const r=Math.max(ry(x),3), forte=i===0||i===3;
+    g.appendChild(el('ellipse',{cx:x,cy:APY,rx:Math.max(r*.11,2),ry:r,fill:'none',
+      stroke:'#1D3557','stroke-width':forte?1.6:1,opacity:forte?.5:.28,
+      'stroke-dasharray':i===0?'':'6 6'}));
+    g.appendChild(T(x,APY+RY+34+(i%2?22:0),13.5,500,'#8A93A0',nome,'middle'));
+    g.appendChild(el('line',{x1:x,y1:APY+r,x2:x,y2:APY+RY+18+(i%2?22:0),
+      stroke:'#8A93A0','stroke-width':1,opacity:.45,'stroke-dasharray':'3 4'}));
+  });
+  /* hoje, no ápice */
+  g.appendChild(el('circle',{cx:APX,cy:APY,r:6,fill:'#1D3557'}));
+  g.appendChild(T(APX-6,APY-22,15,600,'#1D3557','HOJE',null,'var(--sans)'));
+  /* eixo do tempo */
+  g.appendChild(el('line',{x1:APX,y1:APY,x2:BOCA+30,y2:APY,stroke:'#1D3557','stroke-width':1,opacity:.3,
+    'stroke-dasharray':'8 7'}));
+  g.appendChild(el('path',{d:`M${BOCA+30} ${APY} L${BOCA+18} ${APY-6} L${BOCA+18} ${APY+6} Z`,fill:'#1D3557',opacity:.4}));
+  g.appendChild(T(BOCA+34,APY-14,13.5,500,'#8A93A0','TEMPO'));
+  svg.appendChild(g);
+  svg.appendChild(T(APX,80,15,500,'#5F6B7A','DE PERFIL'));
+  svg.appendChild(el('line',{x1:APX,y1:92,x2:APX+108,y2:92,stroke:'#5F6B7A','stroke-width':2,opacity:.5}));
+}
+
+/* ---------- a rotação de 90° que liga as duas vistas ---------- */
+function giro(svg){
+  const g=el('g'), x=612, y=310;
+  g.appendChild(el('path',{d:`M${x-26} ${y-52} A 46 46 0 0 1 ${x-26} ${y+52}`,
+    fill:'none',stroke:'#3E7CB1','stroke-width':2.2,'stroke-dasharray':'9 7',opacity:.85}));
+  g.appendChild(el('path',{d:`M${x-26} ${y+52} l 13 -6 l -1 14 Z`,fill:'#3E7CB1'}));
+  g.appendChild(T(x+2,y-66,13.5,500,'#3E7CB1','GIRE 90°','middle'));
+  g.appendChild(T(x+2,y+82,13.5,500,'#3E7CB1','OLHE PELO EIXO','middle'));
+  svg.appendChild(g);
+}
+
+/* ---------- o mesmo cone, visto pelo eixo: o radar ---------- */
+function radar(svg){
+  const g=el('g');
+  g.appendChild(el('circle',{cx:RCX,cy:RCY,r:R,fill:'#fff'}));
+  D.aneis.forEach((a,i)=>{
+    const r=a.r*K;
+    g.appendChild(el('circle',{cx:RCX,cy:RCY,r,fill:'none',stroke:'#1D3557',
+      'stroke-width':i?1:1.6,opacity:i?.22:.5}));
+    if(a.nome!=='AGORA') g.appendChild(T(RCX,RCY-r+15,12.5,500,'#8A93A0',a.nome,'middle'));
+  });
+
+  /* as seis formações, nas posições reais do radar */
+  D.celulas.filter(c=>!c.olho).forEach(c=>{
+    const rnd=mul(c.seed), sc=Math.sqrt(c.n/6), rx=104*sc*K, ry=74*sc*K;
+    const bands=D.rampas[c.rampa], cx=ax(c.x), cy=ay(c.y);
+    for(let x=cx-rx-8;x<=cx+rx+8;x+=8)for(let y=cy-ry-8;y<=cy+ry+8;y+=8){
+      const rc=Math.hypot(x-RCX,y-RCY); if(rc>R-8||rc<R*0.38)continue;
+      const dd=Math.hypot((x-cx)/rx,(y-cy)/ry)+(rnd()-.5)*.15; if(dd>1)continue;
+      if(rnd()<Math.max(0,dd-.66)*1.8)continue;
+      let col=bands[bands.length-1][1];
+      for(const b of bands){if(dd<b[0]){col=b[1];break;}}
+      g.appendChild(el('rect',{x:x-3.2,y:y-3.2,width:6.4,height:6.4,fill:col,
+        opacity:(0.92-dd*.22).toFixed(2)}));
+    }
+    /* chip da célula, jogado para fora da nuvem */
+    const fora=cy>RCY?ry+20:-ry-8;
+    g.appendChild(el('rect',{x:cx-16,y:cy+fora-13,width:32,height:20,rx:3,
+      fill:'#fff',stroke:c.cor,'stroke-width':1.6}));
+    g.appendChild(T(cx,cy+fora+2,12,500,c.cor,c.id,'middle'));
+  });
+
+  /* o olho do julgamento humano envolve o centro, como no radar */
+  const c6=D.celulas.find(c=>c.olho), r6=mul(c6.seed);
+  for(let a=0;a<Math.PI*2;a+=.075)for(let rr=124*K;rr<=168*K;rr+=8){
+    if(r6()<.42)continue;
+    g.appendChild(el('rect',{x:RCX+Math.cos(a)*rr-3.2,y:RCY+Math.sin(a)*rr-3.2,
+      width:6.4,height:6.4,fill:rr<148*K?'#3E7CB1':'#8FB7D6',opacity:.8}));
+  }
+  g.appendChild(el('circle',{cx:RCX,cy:RCY,r:104*K,fill:'#fff'}));
+  g.appendChild(el('circle',{cx:RCX,cy:RCY,r:104*K,fill:'none',stroke:'#3E7CB1',
+    'stroke-width':1.6,'stroke-dasharray':'6 5'}));
+  g.appendChild(T(RCX,RCY-2,14,600,'#1D3557','HOJE','middle','var(--sans)'));
+  g.appendChild(T(RCX,RCY+17,11.5,500,'#8A93A0','AGORA','middle'));
+  /* a C6 é o anel, não uma nuvem: sem chip próprio ela fica sem identificação,
+     como acontecia no radar do site */
+  const cx6=RCX+96, cy6=RCY+126;
+  g.appendChild(el('line',{x1:cx6-6,y1:cy6-12,x2:RCX+Math.cos(-Math.PI/3.4)*0+58,y2:RCY+58,
+    stroke:c6.cor,'stroke-width':1.2,'stroke-dasharray':'4 4',opacity:.6}));
+  g.appendChild(el('rect',{x:cx6-16,y:cy6-13,width:32,height:20,rx:3,fill:'#fff',
+    stroke:c6.cor,'stroke-width':1.6}));
+  g.appendChild(T(cx6,cy6+2,12,500,c6.cor,c6.id,'middle'));
+  svg.appendChild(g);
+
+  svg.appendChild(T(RCX-R,80,15,500,'#5F6B7A','PELO EIXO'));
+  svg.appendChild(el('line',{x1:RCX-R,y1:92,x2:RCX-R+104,y2:92,stroke:'#5F6B7A','stroke-width':2,opacity:.5}));
+}
+</script>
+</body>
+</html>

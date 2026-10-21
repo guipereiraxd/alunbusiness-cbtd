@@ -12,4 +12,9 @@ assets/firebase-config.js
 china/china-repositorio/
 
 # Material-fonte, pesquisa e exports 4K do /radardesinais/ — não publicar
-radardesinais/radar-repositorio/
+radardesinais/radar-repositorio/*
+# ...mas a fonte dos slides e os scripts de build ficam versionados. Eles
+# seguem fora do site: o _config.yml exclui radar-repositorio do build.
+!radardesinais/radar-repositorio/*.html
+!radardesinais/radar-repositorio/*.py
+radardesinais/radar-repositorio/_*.html

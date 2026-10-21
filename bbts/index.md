@@ -1,0 +1,248 @@
+---
+title: "Início"
+description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12 meses e geração assistida de Plano de Desenvolvimento Individual em IA e Dados, com aprovação humana."
+---
+
+<style>
+  .hero{background:var(--paper);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(58% 70% at 88% 8%, rgba(0,51,160,.07) 0%, transparent 62%),
+               radial-gradient(42% 52% at 4% 96%, rgba(255,204,0,.14) 0%, transparent 60%)}
+  .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:52px;
+    align-items:center;padding:64px 0 60px}
+  @media(max-width:980px){ .hero-in{grid-template-columns:1fr;gap:38px;padding:48px 0 44px} }
+  .hero h1{margin-top:16px}
+  .hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--blue) 0%,var(--blue-500) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  .hero .lede{margin-top:18px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+  .hero-meta div{font-size:13px;color:var(--tx-2);line-height:1.45}
+  .hero-meta b{display:block;font-family:var(--disp);font-weight:700;font-size:21px;color:var(--ink);
+    letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+  /* agente — cartão vivo */
+  .agent{background:var(--blue-900);border-radius:18px;padding:24px;color:var(--blue-100);
+    box-shadow:0 30px 60px -32px rgba(0,21,66,.75);position:relative;overflow:hidden}
+  .agent::before{content:"";position:absolute;inset-inline:0;top:0;height:3px;
+    background:linear-gradient(90deg,var(--yellow) 0%,var(--blue-500) 100%)}
+  .agent-h{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--blue-300)}
+  .agent-h .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);
+    box-shadow:0 0 0 0 rgba(255,204,0,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,204,0,.5)}70%{box-shadow:0 0 0 9px rgba(255,204,0,0)}100%{box-shadow:0 0 0 0 rgba(255,204,0,0)}}
+  .steps{list-style:none;display:grid;gap:3px;margin-top:16px}
+  .steps li{display:grid;grid-template-columns:26px 1fr auto;gap:11px;align-items:center;
+    padding:11px 12px;border-radius:9px;background:rgba(255,255,255,.04);font-size:13.5px;color:#fff}
+  .steps li .n{font-family:var(--mono);font-size:10px;color:var(--blue-300);
+    border:1px solid rgba(91,138,230,.35);border-radius:5px;text-align:center;padding:3px 0}
+  .steps li .st{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue-300)}
+  .steps li.done{background:rgba(11,122,84,.16)} .steps li.done .st{color:#6FD8AE}
+  .steps li.now{background:rgba(255,204,0,.14);border:1px solid rgba(255,204,0,.3)}
+  .steps li.now .st{color:var(--yellow)}
+  .steps li.wait{opacity:.55}
+  .agent-f{margin-top:14px;padding-top:13px;border-top:1px solid rgba(91,138,230,.22);
+    font-size:12px;line-height:1.5;color:var(--blue-300)}
+  .agent-f b{color:var(--yellow);font-weight:600}
+
+  /* 3 perguntas */
+  .q{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+  .q .num{font-family:var(--disp);font-weight:800;font-size:34px;line-height:.9;letter-spacing:-.04em;
+    color:var(--blue-100);-webkit-text-stroke:1px var(--blue-300)}
+  .q p{margin-top:7px;font-size:14.5px;color:var(--tx-2);line-height:1.55}
+
+  /* fluxo */
+  .flow{display:grid;grid-template-columns:repeat(7,1fr);gap:0;margin-top:28px;
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
+  @media(max-width:980px){ .flow{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:520px){ .flow{grid-template-columns:1fr} }
+  .fs{padding:17px 15px;border-right:1px solid var(--line);position:relative}
+  .fs:last-child{border-right:0}
+  @media(max-width:980px){ .fs{border-bottom:1px solid var(--line)} }
+  .fs .i{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--tx-3)}
+  .fs h4{margin-top:7px;font-size:14px}
+  .fs p{margin-top:5px;font-size:12.5px;line-height:1.45;color:var(--tx-2)}
+  .fs.human{background:var(--yellow-soft)}
+  .fs.human .i{color:var(--warn)}
+
+  /* dimensões */
+  .dim{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:17px 0;
+    border-bottom:1px solid var(--line)}
+  .dim:last-child{border-bottom:0}
+  .dim .ic{width:38px;height:38px;border-radius:10px;background:var(--blue-100);color:var(--blue-700);
+    display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:600;flex-shrink:0}
+  .dim p{margin-top:4px;font-size:13.5px;color:var(--tx-2);line-height:1.5}
+
+  /* agentes */
+  .ag{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:21px;position:relative;overflow:hidden}
+  .ag::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px}
+  .ag:nth-child(1)::before{background:var(--blue)}
+  .ag:nth-child(2)::before{background:var(--blue-500)}
+  .ag:nth-child(3)::before{background:var(--yellow)}
+  .ag:nth-child(4)::before{background:var(--ok)}
+  .ag .role{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx-3)}
+  .ag h3{margin-top:6px;font-size:16px}
+  .ag p{margin-top:8px;font-size:13.5px;line-height:1.55;color:var(--tx-2)}
+
+  /* limites */
+  .lim{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:13px 0}
+  .lim .x{width:21px;height:21px;border-radius:50%;background:var(--alert-s);color:var(--alert);
+    display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px}
+  .lim.ok .x{background:var(--ok-s);color:var(--ok)}
+  .lim p{margin:0;font-size:14px;line-height:1.5;color:var(--tx)}
+
+  .cta-end{background:var(--grad);border-radius:18px;padding:44px 40px;color:#fff;position:relative;overflow:hidden}
+  .cta-end::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;
+    border-radius:50%;background:rgba(255,204,0,.16)}
+  .cta-end h2{color:#fff;position:relative;z-index:2}
+  .cta-end p{color:#D7E3FA;max-width:56ch;position:relative;z-index:2;font-size:15.5px}
+  .cta-end .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;position:relative;z-index:2}
+</style>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="sk">Agente de IA para desenvolvimento de pessoas</span>
+      <h1>Do diagnóstico ao <em>PDI em IA e Dados</em>, com decisão humana no fim.</h1>
+      <p class="lede">Você responde a um assessment de prontidão em IA e descreve onde precisa chegar em 12 meses. Um fluxo multiagente analisa as lacunas, seleciona ações de aprendizagem e verifica a consistência do plano — e entrega uma proposta de Plano de Desenvolvimento Individual para você e seu gestor revisarem.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="{{ '/bbts/assessment/' | relative_url }}">Iniciar assessment →</a>
+        <a class="btn btn-line" href="{{ '/bbts/metodologia/' | relative_url }}">Como funciona</a>
+      </div>
+      <div class="hero-meta">
+        <div><b>13</b>perguntas no<br>assessment</div>
+        <div><b>48</b>pontos no índice<br>de prontidão</div>
+        <div><b>12</b>meses de<br>horizonte</div>
+        <div><b>4</b>agentes na<br>orquestração</div>
+      </div>
+      </div>
+    </div>
+
+    <div class="agent" role="img" aria-label="Simulação do fluxo multiagente: validação concluída, objetivo estruturado, diagnóstico em execução, curadoria e governança aguardando, aprovação humana pendente.">
+      <div class="agent-h"><span class="dot"></span>Orquestrador DHO · execução</div>
+      <ul class="steps">
+        <li class="done"><span class="n">01</span><span>Submissão validada e versionada</span><span class="st">ok</span></li>
+        <li class="done"><span class="n">02</span><span>Objetivo de 12 meses estruturado</span><span class="st">ok</span></li>
+        <li class="now"><span class="n">03</span><span>Diagnóstico de competências</span><span class="st">rodando</span></li>
+        <li class="wait"><span class="n">04</span><span>Curadoria de aprendizagem</span><span class="st">fila</span></li>
+        <li class="wait"><span class="n">05</span><span>Limites por pessoa</span><span class="st">fila</span></li>
+        <li class="wait"><span class="n">06</span><span>Validação e governança</span><span class="st">fila</span></li>
+        <li class="wait"><span class="n">07</span><span>Revisão humana</span><span class="st">pendente</span></li>
+      </ul>
+      <div class="agent-f">Nenhum PDI é considerado aprovado sem <b>decisão humana explícita</b>. Alterações posteriores exigem nova aprovação.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <span class="sk">O problema</span>
+    <h2 style="margin-top:14px">Recomendação genérica não muda comportamento</h2>
+    <p class="lead">Catálogos de curso sugerem o que é popular, não o que a pessoa precisa para entregar o que se espera dela. A plataforma responde a três perguntas — e o PDI precisa explicar a ligação entre as três.</p>
+    <div class="grid g3" style="margin-top:30px">
+      <div class="q"><div class="num">01</div><div><h3>Onde você está hoje</h3><p>Prontidão atual em IA por dimensão de competência, com as respostas que sustentam cada estimativa.</p></div></div>
+      <div class="q"><div class="num">02</div><div><h3>Onde precisa chegar</h3><p>O objetivo de 12 meses, traduzido em capacidades e resultados observáveis — confirmados por você.</p></div></div>
+      <div class="q"><div class="num">03</div><div><h3>O que fazer agora</h3><p>As ações de desenvolvimento do próximo ciclo de 90 dias, com evidência esperada e prazo de revisão.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec plain">
+  <div class="wrap">
+    <span class="sk">Como funciona</span>
+    <h2 style="margin-top:14px">Sete etapas, duas delas humanas</h2>
+    <p class="lead">O fluxo é determinístico onde precisa ser e assistido por IA onde agrega. As etapas em amarelo dependem de uma pessoa.</p>
+    <div class="flow">
+      <div class="fs"><div class="i">01</div><h4>Assessment</h4><p>Perguntas estruturadas sobre uso de IA no trabalho.</p></div>
+      <div class="fs human"><div class="i">02 · humano</div><h4>Objetivo</h4><p>Você descreve e confirma onde precisa chegar.</p></div>
+      <div class="fs"><div class="i">03</div><h4>Lacunas</h4><p>Comparação entre estado atual e desejado.</p></div>
+      <div class="fs"><div class="i">04</div><h4>Proposta</h4><p>Cursos do catálogo e aplicação prática.</p></div>
+      <div class="fs"><div class="i">05</div><h4>Validação</h4><p>Fontes, limites e completude conferidos.</p></div>
+      <div class="fs human"><div class="i">06 · humano</div><h4>Aprovação</h4><p>Gestor aprova, ajusta ou devolve.</p></div>
+      <div class="fs"><div class="i">07</div><h4>Acompanhamento</h4><p>Evidências e reavaliação por ciclo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="grid g2" style="gap:48px;align-items:start">
+      <div>
+        <span class="sk">O que é avaliado</span>
+        <h2 style="margin-top:14px">Quatro sub-índices, 48 pontos</h2>
+        <p class="lead" style="margin-bottom:10px">Treze perguntas somam o <b>Índice de Prontidão</b>, de 12 a 48 pontos. Cada pergunta usa a mesma escada de quatro degraus, e cada estimativa aparece com a resposta que a sustenta.</p>
+        <div style="margin-top:18px">
+          <div class="dim"><span class="ic">A</span><div><h4>Uso atual <span style="font-family:var(--mono);font-size:11px;color:var(--tx-3);font-weight:400">· 3 a 12 pts</span></h4><p>O hábito. Frequência, para que usa e se vira sozinho.</p></div></div>
+          <div class="dim"><span class="ic">B</span><div><h4>Base técnica <span style="font-family:var(--mono);font-size:11px;color:var(--tx-3);font-weight:400">· 4 a 16 pts</span></h4><p>Automação, dados, ferramentas sem programação e conceitos técnicos.</p></div></div>
+          <div class="dim"><span class="ic">C</span><div><h4>Influência <span style="font-family:var(--mono);font-size:11px;color:var(--tx-3);font-weight:400">· 2 a 8 pts</span></h4><p>Se é procurado por outros e se já ensinou o que aprendeu.</p></div></div>
+          <div class="dim"><span class="ic">D</span><div><h4>Contexto de trabalho <span style="font-family:var(--mono);font-size:11px;color:var(--tx-3);font-weight:400">· 3 a 12 pts</span></h4><p>Ferramenta, ambiente da área e espaço na rotina — o que o ambiente permite.</p></div></div>
+        </div>
+        <div class="note" style="margin-top:20px"><b>Os três primeiros medem o que a pessoa sabe fazer. O quarto mede o que o ambiente deixa fazer.</b> Separar os dois evita cobrar de alguém uma competência que a agenda ou a falta de ferramenta impede de exercer.</div>
+      </div>
+      <div>
+        <span class="sk">Quem executa</span>
+        <h2 style="margin-top:14px">Quatro agentes, papéis separados</h2>
+        <p class="lead">Separar os papéis é o que permite auditar o resultado: cada etapa registra suas entradas, versões e saídas.</p>
+        <div class="grid" style="margin-top:20px;gap:12px">
+          <div class="ag"><div class="role">Orquestração</div><h3>Orquestrador DHO</h3><p>Organiza o contexto, controla a sequência e apresenta o resultado. Falha de uma pessoa não bloqueia as demais.</p></div>
+          <div class="ag"><div class="role">Análise</div><h3>Diagnóstico de Competências</h3><p>Interpreta assessment, evidências e objetivo confirmado. Identifica lacunas e pré-requisitos.</p></div>
+          <div class="ag"><div class="role">Seleção</div><h3>Curadoria de Aprendizagem</h3><p>Escolhe ações do catálogo autorizado e propõe a aplicação prática no contexto de trabalho.</p></div>
+          <div class="ag"><div class="role">Controle</div><h3>Validação e Governança</h3><p>Confere fontes, aderência, limites e completude. Permite uma única revisão automática.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec plain">
+  <div class="wrap">
+    <span class="sk">Como a pessoa é classificada</span>
+    <h2 style="margin-top:14px">Quatro perfis, duas perguntas</h2>
+    <p class="lead">O perfil sai de duas perguntas apenas: <b>para que usa</b> e <b>se vira sozinho</b>. Frequência fica de fora de propósito — usar todos os dias sem autonomia não faz de ninguém um construtor.</p>
+    <div class="grid g4" style="margin-top:28px">
+      <div class="card hov"><div class="tag n" style="margin-bottom:10px">2 a 3 pts</div><h3>Iniciante</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Uso raro ou nenhum, sem autonomia.</p></div>
+      <div class="card hov"><div class="tag b" style="margin-bottom:10px">4 a 5 pts</div><h3>Usuário de tarefa</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Usa para produzir o próprio trabalho, com autonomia parcial.</p></div>
+      <div class="card hov"><div class="tag b" style="margin-bottom:10px">6 pts</div><h3>Aplicador avançado</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Usa sozinho e percebe quando a resposta não serve.</p></div>
+      <div class="card hov" style="border-color:var(--yellow-600)"><div class="tag y" style="margin-bottom:10px">7 a 8 pts</div><h3>Construtor</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Criou algo que outras pessoas usam, ou ensina.</p></div>
+    </div>
+    <div class="note y" style="margin-top:24px"><b>Subir um perfil vale cerca de 1 hora por semana, por pessoa.</b> É a única estimativa de retorno que sai dos números do próprio respondente — e é percepção declarada, não medição.</div>
+  </div>
+</section>
+
+<section class="sec plain">
+  <div class="wrap">
+    <span class="sk">Limites declarados</span>
+    <h2 style="margin-top:14px">O que a plataforma faz — e o que não faz</h2>
+    <div class="grid g2" style="margin-top:26px;gap:40px">
+      <div>
+        <h3 style="margin-bottom:8px">Faz</h3>
+        <div class="lim ok"><span class="x">✓</span><p>Estima prontidão por dimensão, sempre mostrando as respostas que sustentam a estimativa.</p></div>
+        <div class="lim ok"><span class="x">✓</span><p>Separa <b>autoavaliação</b> de <b>evidência validada</b> — os dois estados aparecem distintos no painel.</p></div>
+        <div class="lim ok"><span class="x">✓</span><p>Recomenda apenas cursos existentes no catálogo autorizado, com título, duração e link.</p></div>
+        <div class="lim ok"><span class="x">✓</span><p>Marca como <b>pendente de validação</b> o que não tiver base suficiente, com a próxima ação necessária.</p></div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:8px">Não faz</h3>
+        <div class="lim"><span class="x">×</span><p>Não toma decisão de desempenho, promoção ou movimentação de pessoas.</p></div>
+        <div class="lim"><span class="x">×</span><p>Não matricula ninguém em curso nem dispara comunicação externa sem autorização.</p></div>
+        <div class="lim"><span class="x">×</span><p>Não certifica domínio com base apenas em respostas ao questionário.</p></div>
+        <div class="lim"><span class="x">×</span><p>Não registra nem compartilha PDI sem aprovação explícita de um responsável.</p></div>
+      </div>
+    </div>
+    <div class="note y" style="margin-top:30px"><b>Conclusão de curso não eleva nível automaticamente.</b> A evolução de competência precisa de evidência prática avaliada por um responsável humano — é isso que separa um plano de uma lista de desejos.</div>
+  </div>
+</section>
+
+<section class="sec" style="border-bottom:0">
+  <div class="wrap">
+    <div class="cta-end">
+      <h2>Comece pelo diagnóstico</h2>
+      <p>São cerca de 10 minutos. Você pode salvar e retomar depois — nenhuma resposta se perde. Ao final, descreva onde precisa chegar em 12 meses e receba a proposta de PDI para revisar.</p>
+      <div class="row">
+        <a class="btn btn-yellow" href="{{ '/bbts/assessment/' | relative_url }}">Iniciar assessment →</a>
+        <a class="btn btn-line" href="{{ '/bbts/painel/' | relative_url }}" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.35)">Ver painel do DHO</a>
+      </div>
+    </div>
+  </div>
+</section>
