@@ -673,7 +673,22 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 
   /* Com Firestore, o painel entra pelo login e passa a receber em tempo real.
      Sem Firestore (ambiente local), roda direto sobre o espelho local. */
-  if (S.ligado && S.temAuth){
+  if (S.ligado && !S.temAuth){
+    /* Firestore presente mas SDK de autenticação ausente: oferecer um
+       formulário de login aqui seria enganoso — ele não teria como funcionar. */
+    mostraGate(true);
+    gate.innerHTML = '<h2>Login indisponível</h2>'
+      + '<p>O componente de autenticação do Firebase não carregou nesta página, '
+      + 'então não há como verificar quem você é. Em geral é página em cache: o '
+      + 'GitHub Pages guarda o HTML por 10 minutos.</p>'
+      + '<div class="err on">Recarregue forçando a atualização — <b>Cmd+Shift+R</b> no Mac, '
+      + '<b>Ctrl+F5</b> no Windows. Se persistir, algo está bloqueando '
+      + '<code>gstatic.com</code>.</div>'
+      + '<button id="g-recarrega">Recarregar ignorando o cache</button>';
+    document.getElementById("g-recarrega").addEventListener("click", function(){
+      location.replace(location.pathname + "?r=" + Date.now());
+    });
+  } else if (S.ligado && S.temAuth){
     ligarLogin();
     mostraGate(true);
     S.aoMudarLogin(function(u){
