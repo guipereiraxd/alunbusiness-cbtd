@@ -16,9 +16,6 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
   .hero .lede{margin-top:18px}
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-  .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
-  .hero-meta div{font-size:13px;color:var(--tx-2);line-height:1.45}
-  .hero-meta b{display:block;font-family:var(--disp);font-weight:700;font-size:21px;color:var(--ink);
     letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 
   /* agente — cartão vivo */
@@ -110,13 +107,6 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
         <a class="btn btn-primary" href="{{ '/bbts/assessment/' | relative_url }}">Iniciar assessment →</a>
         <a class="btn btn-line" href="{{ '/bbts/metodologia/' | relative_url }}">Como funciona</a>
       </div>
-      <div class="hero-meta">
-        <div><b>13</b>perguntas no<br>assessment</div>
-        <div><b>48</b>pontos no índice<br>de prontidão</div>
-        <div><b>12</b>meses de<br>horizonte</div>
-        <div><b>4</b>agentes na<br>orquestração</div>
-      </div>
-      </div>
     </div>
 
     <div class="agent" role="img" aria-label="Simulação do fluxo multiagente: validação concluída, objetivo estruturado, diagnóstico em execução, curadoria e governança aguardando, aprovação humana pendente.">
@@ -206,7 +196,6 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
       <div class="card hov"><div class="tag b" style="margin-bottom:10px">6 pts</div><h3>Aplicador avançado</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Usa sozinho e percebe quando a resposta não serve.</p></div>
       <div class="card hov" style="border-color:var(--yellow-600)"><div class="tag y" style="margin-bottom:10px">7 a 8 pts</div><h3>Construtor</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Criou algo que outras pessoas usam, ou ensina.</p></div>
     </div>
-    <div class="note y" style="margin-top:24px"><b>Subir um perfil vale cerca de 1 hora por semana, por pessoa.</b> É a única estimativa de retorno que sai dos números do próprio respondente — e é percepção declarada, não medição.</div>
   </div>
 </section>
 
