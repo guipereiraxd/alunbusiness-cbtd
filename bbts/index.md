@@ -12,6 +12,7 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
     align-items:center;padding:64px 0 60px}
   @media(max-width:980px){ .hero-in{gap:38px;padding:48px 0 44px} }
   .hero h1{margin-top:16px}
+  .lead em{font-style:normal;font-weight:600;color:var(--ink)}
   .hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--blue) 0%,var(--blue-500) 100%);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
   .hero .lede{margin-top:18px}
@@ -91,8 +92,8 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
 <section class="sec">
   <div class="wrap">
     <span class="sk">O problema</span>
-    <h2 style="margin-top:14px">Recomendação genérica não muda comportamento</h2>
-    <p class="lead">Catálogos de curso sugerem o que é popular, não o que a pessoa precisa para entregar o que se espera dela. A plataforma responde a três perguntas — e o PDI precisa explicar a ligação entre as três.</p>
+    <h2 style="margin-top:14px">Conteúdo não falta. Falta o caminho até ele.</h2>
+    <p class="lead">O catálogo de IA e Dados da Alura tem profundidade de sobra para levar alguém do primeiro prompt à construção de agentes. O que costuma faltar é o anterior: saber de onde <em>esta</em> pessoa parte, onde precisa chegar e por qual sequência. Sem isso, a escolha vira palpite — e plano escolhido no palpite não se sustenta até o fim do ciclo. A plataforma responde a três perguntas, e o PDI precisa mostrar a ligação entre elas.</p>
     <div class="grid g3" style="margin-top:30px">
       <div class="q"><div class="num">01</div><div><h3>Onde você está hoje</h3><p>Prontidão atual em IA por dimensão de competência, com as respostas que sustentam cada estimativa.</p></div></div>
       <div class="q"><div class="num">02</div><div><h3>Onde precisa chegar</h3><p>O objetivo de 12 meses, traduzido em capacidades e resultados observáveis — confirmados por você.</p></div></div>
