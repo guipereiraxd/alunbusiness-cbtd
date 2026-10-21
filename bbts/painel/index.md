@@ -44,7 +44,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   /* barra empilhada de perfis */
   .stk{display:flex;height:34px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
   .stk span{display:grid;place-items:center;font-family:var(--mono);font-size:10.5px;font-weight:600;color:#fff;min-width:0}
-  .stk span.lt{color:var(--ink-2)}
+  .stk span.lt{color:var(--ink)}
   .lg{display:grid;gap:8px;margin-top:16px}
   .lg div{display:grid;grid-template-columns:11px 1fr auto;gap:10px;align-items:center;font-size:13px;color:var(--tx)}
   .lg i{width:11px;height:11px;border-radius:3px;display:block}
@@ -292,8 +292,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   var URL_RES = "{{ '/bbts/resultado/' | relative_url }}";
   var URL_ASS = "{{ '/bbts/assessment/' | relative_url }}";
 
-  var CORES = { iniciante:"#8795B0", tarefa:"#5B8AE6", aplicador:"#0033A0", construtor:"#001542" };
-  var CLARO  = { iniciante:true };
+  var CORES = { iniciante:"#8D91B0", tarefa:"#9EABFF", aplicador:"#465EFF", construtor:"#1E2D8A" };
+  var CLARO  = { iniciante:true, tarefa:true };
   var FAIXAS = [ {de:12,ate:20,r:"12–20"}, {de:21,ate:29,r:"21–29"},
                  {de:30,ate:38,r:"30–38"}, {de:39,ate:48,r:"39–48"} ];
   var ST = { rascunho:"Rascunho", submetido:"Aguardando revisão",

@@ -70,7 +70,7 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
   .cta-end::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;
     border-radius:50%;background:rgba(255,204,0,.16)}
   .cta-end h2{color:#fff;position:relative;z-index:2}
-  .cta-end p{color:#D7E3FA;max-width:56ch;position:relative;z-index:2;font-size:15.5px}
+  .cta-end p{color:var(--blue-300);max-width:56ch;position:relative;z-index:2;font-size:15.5px}
   .cta-end .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;position:relative;z-index:2}
 </style>
 

@@ -14,17 +14,21 @@
   <style>
     /* ── BBTS · Plataforma de Prontidão em IA ─────────────────── */
     :root{
-      /* institucional — conglomerado BB */
-      --blue-900:#001542; --blue-800:#00215E; --blue-700:#002E86; --blue:#0033A0;
-      --blue-500:#0A49C4; --blue-300:#5B8AE6; --blue-100:#D7E3FA;
-      --yellow:#FFCC00; --yellow-600:#E6B800; --yellow-soft:#FFF4CC;
-      /* neutros com viés azul — escolhidos, não herdados */
-      --paper:#FFFFFF; --canvas:#F4F7FC; --panel:#EDF2FA; --panel-2:#E3EBF7;
-      --ink:#0A1733; --ink-2:#1B2C52; --tx:#36456A; --tx-2:#5B6B8C; --tx-3:#8795B0;
-      --line:#DCE4F1; --line-2:#C3D0E6;
+      /* Cores oficiais BBTS — Manual da Logomarca.
+         Azul comercial  Pantone 2369 C · CMYK 90 40 0 0 · #465EFF
+         Amarelo instit. Pantone 3945 C · CMYK 0 0 100 0 · #FCFC30
+         A escala preserva o matiz 232 do azul oficial. */
+      --blue:#465EFF;
+      --blue-900:#0F1433; --blue-800:#151D51; --blue-700:#1E2D8A; --blue-600:#1630DA;
+      --blue-500:#7083FF; --blue-300:#9EABFF; --blue-100:#E0E4FF;
+      --yellow:#FCFC30; --yellow-600:#C9C90E; --yellow-soft:#FFFFDB;
+      /* neutros retintados no mesmo matiz */
+      --paper:#FFFFFF; --canvas:#F4F5FB; --panel:#ECEEF8; --panel-2:#E1E4F4;
+      --ink:#12152B; --ink-2:#262B4B; --tx:#3B4163; --tx-2:#5E648D; --tx-3:#8D91B0;
+      --line:#DDDFEE; --line-2:#C6C9E2;
       /* semânticos */
       --ok:#0B7A54; --ok-s:#E3F5EE; --warn:#A66A00; --warn-s:#FFF3DC;
-      --alert:#B3261E; --alert-s:#FCE8E6; --info:#0A49C4; --info-s:#E7EEFC;
+      --alert:#B3261E; --alert-s:#FCE8E6; --info:#1630DA; --info-s:#E7EAFD;
       --grad:linear-gradient(135deg,var(--blue-800) 0%,var(--blue) 55%,var(--blue-500) 100%);
       --disp:'Archivo',system-ui,sans-serif;
       --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
@@ -53,11 +57,11 @@
     .top-in{max-width:var(--max);margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:14px}
     @media(max-width:720px){ .top-in{padding:12px 20px} }
     .brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
-    /* bloqueio oficial completo: símbolo + wordmark BBTS, sobre campo amarelo.
-       Nunca usar o símbolo isolado. */
-    .brand .mk{border-radius:8px;background:var(--yellow);display:grid;place-items:center;
-      flex-shrink:0;padding:6px 9px}
-    .brand .mk img{height:38px;width:auto;display:block}
+    /* Manual: sobre fundo branco a logomarca é azul; horizontal é versão
+       preferencial. Redução máxima 59px de largura — aqui 128px.
+       Área de não interferência = metade da altura: 39/2 ≈ 20px, daí o gap. */
+    .brand{gap:22px}
+    .brand .mk{height:39px;width:auto;display:block;flex-shrink:0}
     .brand .nm{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--ink);
       letter-spacing:-.01em;line-height:1.15}
     .brand .nm i{display:block;font-style:normal;font-family:var(--mono);font-weight:400;font-size:9.5px;
@@ -147,8 +151,9 @@
       gap:26px;flex-wrap:wrap;align-items:flex-start}
     @media(max-width:720px){ .foot-in{padding:0 20px} }
     .foot .fb{display:flex;align-items:center;gap:11px}
-    .foot .fb .mk img{height:36px;width:auto;display:block}
-    .foot .fb .mk{border-radius:8px;background:var(--yellow);display:grid;place-items:center;padding:6px 9px;
+    /* Manual: sobre fundo azul a logomarca é amarela — sem campo de apoio. */
+    .foot .fb{gap:22px}
+    .foot .fb .mk{height:38px;width:auto;display:block;flex-shrink:0;
       font-family:var(--disp);font-weight:800;font-size:12px;color:var(--blue-900);letter-spacing:-.03em}
     .foot .fb .nm{font-family:var(--disp);font-weight:700;font-size:14.5px;color:#fff;line-height:1.2}
     .foot .fb .nm i{display:block;font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
@@ -172,7 +177,8 @@
 <header class="top">
   <div class="top-in">
     <a class="brand" href="{{ '/bbts/' | relative_url }}">
-      <span class="mk"><img src="{{ '/bbts/assets/bbts-logo.png' | relative_url }}" alt="BBTS" width="28" height="38"></span>
+      <img class="mk" src="{{ '/bbts/assets/marca/bbts-horizontal-azul.svg' | relative_url }}"
+           alt="BBTS" width="128" height="39">
       <span class="nm">Prontidão em IA<i>Plataforma de PDI</i></span>
     </a>
     <button class="nav-tog" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
@@ -193,7 +199,8 @@
   <div class="foot-in">
     <div>
       <div class="fb">
-        <span class="mk"><img src="{{ '/bbts/assets/bbts-logo.png' | relative_url }}" alt="BBTS" width="26" height="36"></span>
+        <img class="mk" src="{{ '/bbts/assets/marca/bbts-horizontal-amarelo.svg' | relative_url }}"
+             alt="BBTS" width="126" height="38">
         <span class="nm">BB Tecnologia e Serviços<i>Plataforma de Prontidão em IA</i></span>
       </div>
       <div class="by">Demonstração · Alun Business</div>
