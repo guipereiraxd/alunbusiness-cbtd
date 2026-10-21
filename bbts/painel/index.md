@@ -22,8 +22,25 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   .modo.ok{background:var(--panel);border-color:var(--line-2);color:var(--tx)}
   .modo b{color:var(--ink)}
 
-  .kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--line);
-    border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:24px 0 30px}
+  /* faixa de ação — o único número que pede decisão */
+  .acao{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:20px 0 0;padding:18px 22px;
+    border-radius:14px;background:var(--blue-900);color:#fff}
+  .acao .n{font-family:var(--disp);font-weight:700;font-size:34px;line-height:1;color:var(--yellow)}
+  .acao .t{flex:1;min-width:220px}
+  .acao .t b{display:block;font-family:var(--disp);font-weight:600;font-size:16px;color:#fff}
+  .acao.vazia .t b{color:var(--ink)}
+  .acao .t span{font-size:13.5px;color:var(--blue-300);line-height:1.5;display:block;margin-top:3px}
+  .acao a{background:var(--yellow);color:var(--blue-900);text-decoration:none;font-weight:700;
+    font-size:13.5px;padding:11px 20px;border-radius:999px;white-space:nowrap}
+  .acao a:hover{background:#fff}
+  .acao.vazia{background:var(--panel);color:var(--ink)}
+  .acao.vazia .n{color:var(--ok)}
+  .acao.vazia .t span{color:var(--tx-2)}
+
+  .kp{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:20px 0 30px}
+  @media(min-width:900px){ .kp{grid-template-columns:repeat(6,1fr)} }
+  @media(max-width:620px){ .kp{grid-template-columns:repeat(2,1fr)} }
   .kp>div{background:var(--paper);padding:17px 18px}
   .kp .n{font-family:var(--disp);font-weight:700;font-size:27px;color:var(--ink);letter-spacing:-.025em;line-height:1}
   .kp .n small{font-size:14px;color:var(--tx-3);font-weight:600}
@@ -125,6 +142,25 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   .pg.t{background:var(--panel-2);color:var(--ink-2)}
   .pg.i{background:var(--paper);color:var(--tx-2)}
   .num{font-family:var(--mono);font-size:13px;color:var(--ink);font-weight:600}
+  /* barra do índice, para dar escaneabilidade à coluna */
+  .idx{display:grid;grid-template-columns:1fr 54px;gap:10px;align-items:center}
+  .idx .bar{height:6px;background:var(--panel-2);border-radius:3px;overflow:hidden;min-width:46px}
+  .idx .bar i{display:block;height:100%;background:var(--blue);border-radius:3px}
+  tr.eu .idx .bar i{background:var(--yellow-600)}
+  /* cabeçalho ordenável */
+  table.pp th.ord{cursor:pointer;user-select:none;white-space:nowrap}
+  table.pp th.ord:hover{color:var(--blue)}
+  table.pp th.ord .s{opacity:.35;margin-left:4px;font-size:9px}
+  table.pp th.ord.on{color:var(--blue)}
+  table.pp th.ord.on .s{opacity:1}
+  /* filtros */
+  .filtros{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 16px}
+  .filtros button{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--tx-2);
+    background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer}
+  .filtros button:hover{border-color:var(--blue-300)}
+  .filtros button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+  .filtros button b{font-weight:600}
+  .vazio-t{padding:34px 18px;text-align:center;color:var(--tx-2);font-size:14px}
   .num small{color:var(--tx-3);font-weight:400}
   .lnk{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--blue);text-decoration:none;white-space:nowrap}
   .lnk:hover{text-decoration:underline}
@@ -141,6 +177,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     background:var(--canvas);border:1px solid var(--line);border-left:3px solid var(--blue-300);
     border-radius:0 10px 10px 0;padding:15px 17px;margin-top:24px}
   .nota b{color:var(--ink)}
+  .nota.alerta{border-left-color:var(--warn);background:var(--warn-s)}
 
   .gate{max-width:420px;margin:64px auto;padding:30px 28px;background:var(--paper);
     border:1px solid var(--line);border-radius:16px}
@@ -183,7 +220,9 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       </div>
     </div>
     <div class="modo" id="modo"></div>
+    <div class="acao" id="acao"></div>
     <div class="kp" id="kp"></div>
+    <div class="nota alerta" id="amostra" style="display:none;margin-top:0"></div>
   </div>
 </div>
 
@@ -253,7 +292,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       <div class="nota" id="mt-n"></div>
     </section>
 
-    <section class="sec">
+    <section class="sec" id="fila">
       <h2>Fila de revisão humana</h2>
       <p class="d">Nenhum PDI entra em vigor sem aprovação. O painel mostra onde cada proposta está
          e permite mover o status.</p>
@@ -264,10 +303,15 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       <h2>Colaboradores</h2>
       <p class="d">Cada linha abre o resultado individual com o PDI completo. Com a identificação oculta,
          só o seu próprio registro aparece nomeado.</p>
+      <div class="filtros" id="filtros"></div>
       <div class="tw"><table class="pp">
         <thead><tr>
-          <th>Colaborador</th><th class="r">Índice</th><th>Perfil</th>
-          <th class="r">Contexto</th><th class="r">Dedicação</th><th>Status</th><th></th>
+          <th class="ord" data-k="nome">Colaborador<span class="s">↕</span></th>
+          <th class="ord" data-k="indice">Índice<span class="s">↕</span></th>
+          <th>Perfil</th>
+          <th class="r ord" data-k="contexto">Contexto<span class="s">↕</span></th>
+          <th class="r ord" data-k="ded">Dedicação<span class="s">↕</span></th>
+          <th>Status</th><th></th>
         </tr></thead>
         <tbody id="tb"></tbody>
       </table></div>
@@ -407,7 +451,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     document.getElementById("corpo").style.display = vazio ? "none" : "block";
     document.getElementById("kp").style.display    = vazio ? "none" : "grid";
     if (vazio) return;
-    kpis(); perfis(); hist(); dims(); needs(); macros(); fila(); tabela();
+    kpis(); acao(); amostra(); perfis(); hist(); dims(); needs(); macros(); fila(); tabela();
   }
 
   function modo(res){
@@ -440,7 +484,6 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     var deds = dados.filter(function(d){return d.ded;}).map(function(d){return d.ded;});
     var cont = {}; dados.forEach(function(d){ cont[d.calc.perfil.nome] = (cont[d.calc.perfil.nome]||0)+1; });
     var top = Object.keys(cont).sort(function(a,b){return cont[b]-cont[a];})[0];
-    var fila = dados.filter(function(d){return d.status==="submetido";}).length;
     var horas = dados.reduce(function(a,d){
       var pf = E.perfilCatalogo(d.reg.T||{}, d.alvo);
       var pl = E.planejar(E.candidatos(d.lac, d.reg.R, pf), d.ded);
@@ -459,8 +502,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       ["n", deds.length ? n1(med(deds)) : "—", deds.length?"<small>h/sem</small>":"", "Dedicação média declarada",
        deds.length+" de "+dados.length+(deds.length===1?" informou":" informaram")],
       ["n", horas, "<small>h</small>", "Formação demandada em 12 meses",
-       "soma dos planos individuais"],
-      ["n", fila, "", "PDIs aguardando revisão", fila ? "exigem decisão humana" : "fila vazia"]
+       "soma dos planos individuais"]
     ].map(function(k){
       var v = k[0]==="t"
         ? '<div class="n" style="font-size:19px;line-height:1.2">'+esc(k[1])+'</div>'
@@ -468,6 +510,34 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       return '<div>'+v+'<div class="l">'+esc(k[3])+'</div>'
         + (k[4]?'<div class="s">'+esc(k[4])+'</div>':'')+'</div>';
     }).join("");
+  }
+
+  /* ---------- faixa de ação ---------- */
+  function acao(){
+    var n = dados.filter(function(d){return d.status==="submetido";}).length;
+    var el = document.getElementById("acao");
+    el.className = "acao" + (n ? "" : " vazia");
+    el.innerHTML = '<span class="n">'+n+'</span>'
+      + '<span class="t"><b>'+(n
+          ? (n===1 ? "1 PDI aguarda sua revisão" : n+" PDIs aguardam sua revisão")
+          : "Nenhum PDI aguardando revisão")+'</b>'
+      + '<span>'+(n
+          ? "Propostas geradas pelo fluxo de agentes. Nenhuma entra em vigor sem decisão humana."
+          : "Tudo que foi gerado já passou por leitura humana.")+'</span></span>'
+      + (n ? '<a href="#fila">Ver a fila →</a>' : '');
+  }
+
+  /* Com poucos respondentes, média e distribuição não dizem nada.
+     Melhor avisar do que deixar o painel sugerir solidez que não existe. */
+  function amostra(){
+    var reais = dados.filter(function(d){return !d.reg.seed;}).length;
+    var el = document.getElementById("amostra");
+    if (dados.length >= 8){ el.style.display = "none"; return; }
+    el.style.display = "block";
+    el.innerHTML = "<b>Amostra pequena: "+dados.length+" registro"+(dados.length===1?"":"s")+".</b> "
+      + "Média, distribuição e demanda agregada só começam a dizer algo com algumas dezenas de "
+      + "respostas. Até lá, leia os registros individualmente"
+      + (reais < dados.length ? " — e lembre que parte deles é da coorte fictícia." : ".");
   }
 
   /* ---------- perfis ---------- */
@@ -624,11 +694,53 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   }
 
   /* ---------- tabela ---------- */
-  function tabela(){
-    var lista = dados.slice().sort(function(a,b){
-      if (a.eu !== b.eu) return a.eu ? -1 : 1;
-      return b.calc.indice - a.calc.indice;
+  var ordK = "indice", ordDir = -1, filtro = "";
+
+  function valorDe(d, k){
+    return k === "nome"     ? (d.reg.nome||"").toLowerCase()
+         : k === "indice"   ? d.calc.indice
+         : k === "contexto" ? d.calc.contexto
+         : k === "ded"      ? d.ded : 0;
+  }
+
+  function filtrosUI(){
+    var cont = {}; dados.forEach(function(d){ cont[d.status] = (cont[d.status]||0)+1; });
+    var opts = [["","Todos",dados.length]].concat(
+      ["submetido","em_revisao","aprovado","rascunho"].map(function(k){ return [k, ST[k], cont[k]||0]; })
+    ).filter(function(o){ return o[2] > 0 || o[0] === ""; });
+    var host = document.getElementById("filtros");
+    host.innerHTML = opts.map(function(o){
+      return '<button data-f="'+o[0]+'"'+(filtro===o[0]?' class="on"':'')+'>'
+        + esc(o[1])+' <b>'+o[2]+'</b></button>';
+    }).join("");
+    host.querySelectorAll("button").forEach(function(b){
+      b.addEventListener("click", function(){ filtro = b.dataset.f; tabela(); });
     });
+  }
+
+  function cabecalhos(){
+    document.querySelectorAll("table.pp th.ord").forEach(function(th){
+      th.classList.toggle("on", th.dataset.k === ordK);
+      th.querySelector(".s").textContent = th.dataset.k === ordK ? (ordDir < 0 ? "↓" : "↑") : "↕";
+      if (!th.dataset.bound){
+        th.dataset.bound = "1";
+        th.addEventListener("click", function(){
+          if (ordK === th.dataset.k) ordDir = -ordDir;
+          else { ordK = th.dataset.k; ordDir = th.dataset.k === "nome" ? 1 : -1; }
+          tabela();
+        });
+      }
+    });
+  }
+
+  function tabela(){
+    filtrosUI(); cabecalhos();
+    var lista = dados.filter(function(d){ return !filtro || d.status === filtro; })
+      .sort(function(x,y){
+        if (x.eu !== y.eu) return x.eu ? -1 : 1;   /* o próprio registro sempre no topo */
+        var p = valorDe(x, ordK), q = valorDe(y, ordK);
+        return p < q ? -ordDir : p > q ? ordDir : 0;
+      });
     var i = 0;
     document.getElementById("tb").innerHTML = lista.map(function(d){
       i++;
@@ -641,7 +753,9 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       }).join("");
       return '<tr'+(d.eu?' class="eu"':'')+'>'
         + '<td><span class="who">'+nome+(sub?'<small>'+sub+'</small>':'')+'</span></td>'
-        + '<td class="r"><span class="num">'+d.calc.indice+'<small>/48</small></span></td>'
+        + '<td><div class="idx"><span class="bar"><i style="width:'
+            + Math.round((d.calc.indice-12)/36*100) + '%"></i></span>'
+            + '<span class="num">'+d.calc.indice+'<small>/48</small></span></div></td>'
         + '<td><span class="pg '+cls+'">'+esc(d.calc.perfil.nome)+'</span></td>'
         + '<td class="r"><span class="num">'+d.calc.contexto+'<small>/12</small></span></td>'
         + '<td class="r"><span class="num">'+(d.ded?d.ded+'<small>h/sem</small>':'—')+'</span></td>'
@@ -651,6 +765,11 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         + '<td class="r"><a class="lnk" href="'+URL_RES+'?id='+encodeURIComponent(d.reg.id)+'">ver PDI →</a></td>'
         + '</tr>';
     }).join("");
+
+    if (!lista.length){
+      document.getElementById("tb").innerHTML =
+        '<tr><td colspan="7"><div class="vazio-t">Nenhum colaborador com esse status.</div></td></tr>';
+    }
 
     document.getElementById("tb").querySelectorAll("select.st").forEach(function(sel){
       sel.addEventListener("change", function(){
