@@ -109,6 +109,9 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
   </div>
 </div>
 
+<script src="{{ '/assets/firebase-config.js' | relative_url }}"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
 <script src="{{ '/bbts/assets/store.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/assessment-data.js' | relative_url }}"></script>
 <script>

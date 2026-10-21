@@ -141,6 +141,32 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     background:var(--canvas);border:1px solid var(--line);border-left:3px solid var(--blue-300);
     border-radius:0 10px 10px 0;padding:15px 17px;margin-top:24px}
   .nota b{color:var(--ink)}
+
+  .gate{max-width:420px;margin:64px auto;padding:30px 28px;background:var(--paper);
+    border:1px solid var(--line);border-radius:16px}
+  .gate h2{font-family:var(--disp);font-weight:700;font-size:21px;color:var(--ink);letter-spacing:-.018em}
+  .gate p{color:var(--tx-2);font-size:14px;line-height:1.6;margin:9px 0 22px}
+  .gate label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--tx-3);margin-bottom:6px}
+  .gate input{width:100%;padding:12px 14px;border:1px solid var(--line-2);border-radius:9px;
+    font-family:var(--sans);font-size:14.5px;color:var(--ink);background:var(--paper);margin-bottom:16px}
+  .gate input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-100)}
+  .gate button{width:100%;background:var(--blue);color:#fff;border:0;border-radius:999px;
+    padding:13px;font-family:var(--sans);font-weight:600;font-size:14.5px;cursor:pointer}
+  .gate button:hover{background:var(--blue-700)}
+  .gate button:disabled{background:var(--tx-3);cursor:default}
+  .gate .err{background:var(--yellow-soft);border:1px solid var(--yellow-600);border-radius:9px;
+    padding:11px 13px;font-size:13px;color:var(--ink-2);margin-bottom:16px;display:none;line-height:1.5}
+  .gate .err.on{display:block}
+  .gate .ft{font-family:var(--mono);font-size:10.5px;color:var(--tx-3);line-height:1.6;margin-top:18px;text-align:center}
+  .sess{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;color:var(--tx-2)}
+  .sess button{background:none;border:0;color:var(--blue);font-family:var(--mono);font-size:10.5px;
+    cursor:pointer;text-decoration:underline;padding:0}
+  .live{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--ok)}
+  .live i{width:7px;height:7px;border-radius:50%;background:var(--ok);display:block;
+    animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
 </style>
 
 <div class="pn-top">
@@ -159,6 +185,19 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     <div class="modo" id="modo"></div>
     <div class="kp" id="kp"></div>
   </div>
+</div>
+
+<div id="gate" class="gate" style="display:none">
+  <h2>Painel restrito</h2>
+  <p>Os registros trazem nome, e-mail e respostas de cada pessoa. A leitura exige
+     autenticação — quem responde o assessment não precisa de conta, só o DHO.</p>
+  <div class="err" id="gate-err"></div>
+  <label for="g-email">E-mail</label>
+  <input type="email" id="g-email" autocomplete="username" placeholder="dho@bbts.com.br">
+  <label for="g-senha">Senha</label>
+  <input type="password" id="g-senha" autocomplete="current-password" placeholder="••••••••">
+  <button id="g-ok">Entrar</button>
+  <div class="ft">Conta criada no console do Firebase.<br>Nenhuma senha passa por este repositório.</div>
 </div>
 
 <div id="vazio" class="vazio wrap" style="display:none">
@@ -238,6 +277,10 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   </div>
 </div>
 
+<script src="{{ '/assets/firebase-config.js' | relative_url }}"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="{{ '/bbts/assets/store.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/base-demo.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/assessment-data.js' | relative_url }}"></script>
@@ -273,34 +316,98 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 
   var eu = S.eu();
   var dados = [];
+  var desassinar = null;
+
+  /* ---------- portão de autenticação ---------- */
+  var gate = document.getElementById("gate");
+  var topo = document.querySelector(".pn-top");
+
+  function mostraGate(sim){
+    gate.style.display = sim ? "block" : "none";
+    document.getElementById("corpo").style.display = "none";
+    document.getElementById("vazio").style.display = "none";
+    document.getElementById("kp").style.display = sim ? "none" : "grid";
+    document.querySelector(".pn-ctl").style.display = sim ? "none" : "flex";
+    document.getElementById("modo").style.display = sim ? "none" : "flex";
+  }
+
+  function erroLogin(e){
+    var m = String(e && e.code || e || "");
+    return /wrong-password|invalid-credential|invalid-login/.test(m) ? "E-mail ou senha incorretos."
+         : /user-not-found/.test(m) ? "Não há conta com esse e-mail."
+         : /too-many-requests/.test(m) ? "Tentativas demais. Aguarde alguns minutos."
+         : /network/.test(m) ? "Sem conexão com o servidor de autenticação."
+         : /api-key|configuration-not-found|operation-not-allowed/.test(m)
+           ? "O Firebase não está configurado para login neste ambiente. Isso é problema de "
+             + "configuração, não da sua senha. (" + m + ")"
+         : "Não foi possível entrar. " + m;
+  }
+
+  function ligarLogin(){
+    var btn = document.getElementById("g-ok"), err = document.getElementById("gate-err");
+    function tenta(){
+      var em = document.getElementById("g-email").value.trim();
+      var sn = document.getElementById("g-senha").value;
+      if (!em || !sn){ err.textContent = "Preencha e-mail e senha."; err.classList.add("on"); return; }
+      btn.disabled = true; btn.textContent = "Entrando…"; err.classList.remove("on");
+      S.entrar(em, sn).catch(function(e){
+        err.textContent = erroLogin(e); err.classList.add("on");
+        btn.disabled = false; btn.textContent = "Entrar";
+      });
+    }
+    btn.addEventListener("click", tenta);
+    ["g-email","g-senha"].forEach(function(id){
+      document.getElementById(id).addEventListener("keydown", function(ev){
+        if (ev.key === "Enter") tenta();
+      });
+    });
+  }
+
+  function sessaoNoTopo(u){
+    var alvo = document.querySelector(".pn-ctl");
+    var velho = document.getElementById("sess"); if (velho) velho.remove();
+    if (!u) return;
+    var s = document.createElement("span");
+    s.id = "sess"; s.className = "sess";
+    s.innerHTML = '<span class="live"><i></i>ao vivo</span> · ' + esc(u.email)
+      + ' · <button id="s-out">sair</button>';
+    alvo.appendChild(s);
+    document.getElementById("s-out").addEventListener("click", function(){
+      if (desassinar){ desassinar(); desassinar = null; }
+      S.sairPainel();
+    });
+  }
 
   function carregar(){
     document.getElementById("rec").textContent = "Carregando…";
-    S.listar().then(function(res){
-      var regs = (res.registros||[]).concat(seed.checked ? S.seedRegistros() : []);
-      regs = regs.filter(function(r){ return r && r.R && Object.keys(r.R).length; });
-      dados = regs.map(function(r){
-        var calc = B.calcular(r.R);
-        var alvo = E.alvoDe(r.T||{}, calc);
-        var lac  = E.lacunas(r.R, r.SK||{}, alvo);
-        return { reg:r, calc:calc, alvo:alvo, lac:lac,
-                 eu: !!(eu && eu.id === r.id),
-                 ded: Number((r.T||{}).ded) || 0,
-                 status: r.status || "submetido" };
-      });
-      modo(res);
-      document.getElementById("rec").textContent = "Atualizar";
-      if (!dados.length){
-        document.getElementById("vazio").style.display="block";
-        document.getElementById("corpo").style.display="none";
-        document.getElementById("kp").style.display="none";
-        return;
-      }
-      document.getElementById("vazio").style.display="none";
-      document.getElementById("corpo").style.display="block";
-      document.getElementById("kp").style.display="grid";
-      kpis(); perfis(); hist(); dims(); needs(); macros(); fila(); tabela();
+    S.listar().then(desenhar);
+  }
+
+  /* Recebe tanto de listar() quanto da assinatura em tempo real. */
+  function desenhar(res){
+    document.getElementById("rec").textContent = "Atualizar";
+    if (res.precisaLogin){ mostraGate(true); return; }
+    mostraGate(false);
+
+    var regs = (res.registros||[]).concat(seed.checked ? S.seedRegistros() : []);
+    regs = regs.filter(function(r){ return r && r.R && Object.keys(r.R).length; });
+    dados = regs.map(function(r){
+      var calc = B.calcular(r.R);
+      var alvo = E.alvoDe(r.T||{}, calc);
+      var lac  = E.lacunas(r.R, r.SK||{}, alvo);
+      return { reg:r, calc:calc, alvo:alvo, lac:lac,
+               eu: !!(eu && eu.id === r.id),
+               ded: Number((r.T||{}).ded) || 0,
+               status: r.status || "submetido" };
     });
+    modo(res);
+
+    var vazio = !dados.length;
+    document.getElementById("vazio").style.display = vazio ? "block" : "none";
+    document.getElementById("corpo").style.display = vazio ? "none" : "block";
+    document.getElementById("kp").style.display    = vazio ? "none" : "grid";
+    if (vazio) return;
+    kpis(); perfis(); hist(); dims(); needs(); macros(); fila(); tabela();
   }
 
   function modo(res){
@@ -308,8 +415,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     if (S.ligado && !res.erro){
       el.className = "modo ok";
       el.innerHTML = "<div><b>Base compartilhada ativa.</b> "
-        + reais+" registro"+(reais===1?"":"s")+" recebido"+(reais===1?"":"s")
-        + ". O painel se atualiza a cada 25 segundos.</div>";
+        + reais+" registro"+(reais===1?"":"s")+" na coleção <code>"+S.colecao+"</code>"
+        + ". O painel recebe cada novo assessment em tempo real.</div>";
     } else if (S.ligado){
       el.className = "modo";
       el.innerHTML = "<div><b>A base compartilhada não respondeu.</b> O painel está mostrando apenas "
@@ -320,8 +427,9 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         + (reais===0 ? "Nenhum registro foi feito neste navegador."
            : reais===1 ? "Há 1 registro, feito neste navegador."
            : "Há "+reais+" registros, todos feitos neste navegador.")
-        + " Para montar a base ao vivo com várias pessoas respondendo de aparelhos diferentes, "
-        + "é preciso ligar o modo remoto em <code>bbts/assets/store.js</code>.</div>";
+        + " A base ao vivo depende do <code>assets/firebase-config.js</code>, que é gerado no "
+        + "build a partir dos GitHub Secrets — localmente ele não existe, então cada navegador "
+        + "mantém a própria base. No site publicado, os registros vão para o Firestore.</div>";
     }
   }
 
@@ -560,9 +668,24 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 
   anon.addEventListener("change", function(){ sincTgl(); if (dados.length) tabela(); });
   seed.addEventListener("change", function(){ sincTgl(); S.setSeed(seed.checked); carregar(); });
+  /* mantém o modo() coerente quando a leitura veio da assinatura */
   document.getElementById("rec").addEventListener("click", carregar);
 
-  carregar();
-  if (S.ligado) setInterval(carregar, 25000);
+  /* Com Firestore, o painel entra pelo login e passa a receber em tempo real.
+     Sem Firestore (ambiente local), roda direto sobre o espelho local. */
+  if (S.ligado && S.temAuth){
+    ligarLogin();
+    mostraGate(true);
+    S.aoMudarLogin(function(u){
+      sessaoNoTopo(u);
+      if (!u){ mostraGate(true); return; }
+      mostraGate(false);
+      carregar();
+      if (desassinar) desassinar();
+      desassinar = S.assinar(function(res){ desenhar(res); });
+    });
+  } else {
+    carregar();
+  }
 })();
 </script>

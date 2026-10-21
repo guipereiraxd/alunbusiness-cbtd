@@ -209,6 +209,9 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   </section>
 </div>
 
+<script src="{{ '/assets/firebase-config.js' | relative_url }}"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
 <script src="{{ '/bbts/assets/store.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/base-demo.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/assessment-data.js' | relative_url }}"></script>
