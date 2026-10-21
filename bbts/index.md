@@ -8,9 +8,9 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
   .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
     background:radial-gradient(58% 70% at 88% 8%, rgba(0,51,160,.07) 0%, transparent 62%),
                radial-gradient(42% 52% at 4% 96%, rgba(255,204,0,.14) 0%, transparent 60%)}
-  .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:52px;
+  .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,760px);gap:52px;
     align-items:center;padding:64px 0 60px}
-  @media(max-width:980px){ .hero-in{grid-template-columns:1fr;gap:38px;padding:48px 0 44px} }
+  @media(max-width:980px){ .hero-in{gap:38px;padding:48px 0 44px} }
   .hero h1{margin-top:16px}
   .hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--blue) 0%,var(--blue-500) 100%);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
@@ -18,30 +18,6 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
     letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 
-  /* agente — cartão vivo */
-  .agent{background:var(--blue-900);border-radius:18px;padding:24px;color:var(--blue-100);
-    box-shadow:0 30px 60px -32px rgba(0,21,66,.75);position:relative;overflow:hidden}
-  .agent::before{content:"";position:absolute;inset-inline:0;top:0;height:3px;
-    background:linear-gradient(90deg,var(--yellow) 0%,var(--blue-500) 100%)}
-  .agent-h{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;
-    letter-spacing:.16em;text-transform:uppercase;color:var(--blue-300)}
-  .agent-h .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);
-    box-shadow:0 0 0 0 rgba(255,204,0,.6);animation:pulse 2.4s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,204,0,.5)}70%{box-shadow:0 0 0 9px rgba(255,204,0,0)}100%{box-shadow:0 0 0 0 rgba(255,204,0,0)}}
-  .steps{list-style:none;display:grid;gap:3px;margin-top:16px}
-  .steps li{display:grid;grid-template-columns:26px 1fr auto;gap:11px;align-items:center;
-    padding:11px 12px;border-radius:9px;background:rgba(255,255,255,.04);font-size:13.5px;color:#fff}
-  .steps li .n{font-family:var(--mono);font-size:10px;color:var(--blue-300);
-    border:1px solid rgba(91,138,230,.35);border-radius:5px;text-align:center;padding:3px 0}
-  .steps li .st{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--blue-300)}
-  .steps li.done{background:rgba(11,122,84,.16)} .steps li.done .st{color:#6FD8AE}
-  .steps li.now{background:rgba(255,204,0,.14);border:1px solid rgba(255,204,0,.3)}
-  .steps li.now .st{color:var(--yellow)}
-  .steps li.wait{opacity:.55}
-  .agent-f{margin-top:14px;padding-top:13px;border-top:1px solid rgba(91,138,230,.22);
-    font-size:12px;line-height:1.5;color:var(--blue-300)}
-  .agent-f b{color:var(--yellow);font-weight:600}
 
   /* 3 perguntas */
   .q{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
@@ -109,19 +85,6 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
       </div>
     </div>
 
-    <div class="agent" role="img" aria-label="Simulação do fluxo multiagente: validação concluída, objetivo estruturado, diagnóstico em execução, curadoria e governança aguardando, aprovação humana pendente.">
-      <div class="agent-h"><span class="dot"></span>Orquestrador GEPES · execução</div>
-      <ul class="steps">
-        <li class="done"><span class="n">01</span><span>Submissão validada e versionada</span><span class="st">ok</span></li>
-        <li class="done"><span class="n">02</span><span>Objetivo de 12 meses estruturado</span><span class="st">ok</span></li>
-        <li class="now"><span class="n">03</span><span>Diagnóstico de competências</span><span class="st">rodando</span></li>
-        <li class="wait"><span class="n">04</span><span>Curadoria de aprendizagem</span><span class="st">fila</span></li>
-        <li class="wait"><span class="n">05</span><span>Limites por pessoa</span><span class="st">fila</span></li>
-        <li class="wait"><span class="n">06</span><span>Validação e governança</span><span class="st">fila</span></li>
-        <li class="wait"><span class="n">07</span><span>Revisão humana</span><span class="st">pendente</span></li>
-      </ul>
-      <div class="agent-f">Nenhum PDI é considerado aprovado sem <b>decisão humana explícita</b>. Alterações posteriores exigem nova aprovação.</div>
-    </div>
   </div>
 </section>
 
