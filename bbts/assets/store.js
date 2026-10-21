@@ -25,6 +25,8 @@ window.BBTS_STORE = (function(){
       var app = firebase.apps.length ? firebase.app() : firebase.initializeApp(window.FIREBASE_CONFIG);
       db = firebase.firestore(app);
       if (firebase.auth) fbAuth = firebase.auth(app);
+      else console.warn("[BBTS] firebase-auth-compat.js não foi carregado nesta página. "
+        + "Qualquer leitura da base vai falhar como se ninguém estivesse logado.");
     } catch (e) { console.warn("[BBTS] Firebase init falhou:", e); }
   }
   var ligado = !!db;
@@ -70,6 +72,8 @@ window.BBTS_STORE = (function(){
   /* ---- leitura (exige autenticação quando há Firestore) --------- */
   function listar(){
     if (!ligado) return Promise.resolve({ modo:"local", registros: ler(K_REG, []) });
+    if (!fbAuth) return Promise.resolve({ modo:"remoto", registros: [], precisaLogin:true,
+      erro:"firebase-auth-compat.js ausente nesta página" });
     if (!usuario()) return Promise.resolve({ modo:"remoto", registros: [], precisaLogin:true });
     return db.collection(COL).get()
       .then(function(snap){
