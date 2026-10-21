@@ -53,11 +53,10 @@
     .top-in{max-width:var(--max);margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:14px}
     @media(max-width:720px){ .top-in{padding:12px 20px} }
     .brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
-    .brand .mk{width:34px;height:34px;border-radius:9px;background:var(--grad);display:grid;place-items:center;
-      position:relative;overflow:hidden;flex-shrink:0}
-    .brand .mk span{font-family:var(--disp);font-weight:800;font-size:13px;color:#fff;letter-spacing:-.03em;z-index:2}
-    .brand .mk::after{content:"";position:absolute;right:-5px;bottom:-5px;width:16px;height:16px;
-      background:var(--yellow);border-radius:50%;opacity:.95}
+    /* bloqueio oficial: símbolo azul sobre campo amarelo */
+    .brand .mk{width:36px;height:36px;border-radius:9px;background:var(--yellow);display:grid;place-items:center;
+      flex-shrink:0}
+    .brand .mk img{width:23px;height:23px;display:block}
     .brand .nm{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--ink);
       letter-spacing:-.01em;line-height:1.15}
     .brand .nm i{display:block;font-style:normal;font-family:var(--mono);font-weight:400;font-size:9.5px;
@@ -147,7 +146,8 @@
       gap:26px;flex-wrap:wrap;align-items:flex-start}
     @media(max-width:720px){ .foot-in{padding:0 20px} }
     .foot .fb{display:flex;align-items:center;gap:11px}
-    .foot .fb .mk{width:32px;height:32px;border-radius:8px;background:var(--yellow);display:grid;place-items:center;
+    .foot .fb .mk img{width:22px;height:22px;display:block}
+    .foot .fb .mk{width:34px;height:34px;border-radius:8px;background:var(--yellow);display:grid;place-items:center;
       font-family:var(--disp);font-weight:800;font-size:12px;color:var(--blue-900);letter-spacing:-.03em}
     .foot .fb .nm{font-family:var(--disp);font-weight:700;font-size:14.5px;color:#fff;line-height:1.2}
     .foot .fb .nm i{display:block;font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
@@ -171,7 +171,7 @@
 <header class="top">
   <div class="top-in">
     <a class="brand" href="{{ '/bbts/' | relative_url }}">
-      <span class="mk"><span>BB</span></span>
+      <span class="mk"><img src="{{ '/bbts/assets/bbts-simbolo.png' | relative_url }}" alt="" width="23" height="23"></span>
       <span class="nm">Prontidão em IA<i>BBTS · Plataforma de PDI</i></span>
     </a>
     <button class="nav-tog" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
@@ -192,7 +192,7 @@
   <div class="foot-in">
     <div>
       <div class="fb">
-        <span class="mk">BB</span>
+        <span class="mk"><img src="{{ '/bbts/assets/bbts-simbolo.png' | relative_url }}" alt="" width="22" height="22"></span>
         <span class="nm">BB Tecnologia e Serviços<i>Plataforma de Prontidão em IA</i></span>
       </div>
       <div class="by">Demonstração · Alun Business</div>
