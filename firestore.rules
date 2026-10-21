@@ -1,0 +1,93 @@
+rules_version = '2';
+
+/* Regras do Firestore do projeto. Versionadas aqui para revisão e histórico;
+   a aplicação continua manual, pelo console do Firebase (Firestore → Regras).
+   Ao editar, cole o arquivo INTEIRO — blocos soltos fora de
+   `match /databases/{database}/documents` não compilam. */
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ATENÇÃO: leitura aberta expõe nome e e-mail de todos os cadastrados.
+    // Necessária hoje pelo "Recuperar acesso" de /cadastro/, que busca por
+    // e-mail direto do navegador. Ver nota no fim deste arquivo.
+    match /registrations/{doc} {
+      allow create: if true;
+      allow read: if true;
+      allow update, delete: if false;
+    }
+
+    match /mail/{doc} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+
+    // Enquetes "Depois do Código" — voto anônimo, sem login
+    match /dc_votes/{voteId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(['pollId','option','source','ts'])
+                    && request.resource.data.pollId is string
+                    && request.resource.data.option is int
+                    && request.resource.data.option >= 0
+                    && request.resource.data.option < 20
+                    && request.resource.data.source == 'depois-do-codigo'
+                    && request.resource.data.ts == request.time;
+      allow update, delete: if false;
+    }
+
+    // Comentários da página de cronograma — nome/e-mail/comentário.
+    // Sem leitura pública: contém e-mail, é PII.
+    match /dc_comentarios/{doc} {
+      allow read: if false;
+      allow create: if request.resource.data.keys().hasOnly(['name','email','comment','page','source','ts'])
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() > 0
+                    && request.resource.data.name.size() < 200
+                    && request.resource.data.email is string
+                    && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+[.][^@\\s]+$')
+                    && request.resource.data.comment is string
+                    && request.resource.data.comment.size() > 0
+                    && request.resource.data.comment.size() < 5000
+                    && request.resource.data.page is string
+                    && request.resource.data.source == 'depois-do-codigo'
+                    && request.resource.data.ts == request.time;
+      allow update, delete: if false;
+    }
+
+    // Assessments de prontidão em IA do /bbts/ — nome, e-mail e respostas.
+    // Quem responde não tem conta; o painel do DHO tem login.
+    match /bbts_assessments/{id} {
+
+      // Quem responde não precisa de conta, mas só cria registro "submetido".
+      allow create: if request.resource.data.status == 'submetido';
+
+      // Reenvio só sobrescreve o registro do mesmo e-mail, e sempre volta
+      // para "submetido" — respostas novas exigem revisão nova. O DHO
+      // autenticado é quem pode mover o status.
+      allow update: if request.auth != null
+                    || (request.resource.data.email == resource.data.email
+                        && request.resource.data.status == 'submetido');
+
+      // Leitura fechada: o painel exige autenticação.
+      allow read: if request.auth != null;
+
+      allow delete: if false;
+    }
+  }
+}
+
+/* NOTA — leitura aberta em `registrations`
+
+   Hoje qualquer pessoa pode listar a coleção inteira e extrair nomes e
+   e-mails. A dependência é o "Recuperar acesso" de /cadastro/, que faz
+   `.where('email','==',x).get()` sem autenticação.
+
+   A saída é separar `get` de `list`: passando a identificar o documento
+   pelo hash do e-mail, a regra vira
+
+       allow get:  if true;    // busca um documento, se souber o e-mail
+       allow list: if false;   // mas não dá para varrer a coleção
+
+   Exige mudar registration-core.html para gravar com `.doc(id).set()` e
+   buscar com `.doc(id).get()` — o mesmo padrão já usado em
+   bbts_assessments. Mudança pequena, mas mexe num fluxo em produção. */

@@ -5,7 +5,7 @@ A plataforma grava os assessments no mesmo projeto Firebase que já serve
 `assets/firebase-config.js` é gerado no build pelo `.github/workflows/deploy.yml`
 a partir dos GitHub Secrets.
 
-Coleção: **`bbts_assessments`**. O documento é identificado pelo hash do e-mail,
+
 então a mesma pessoa reentrando atualiza o próprio registro em vez de duplicar.
 
 Sem o config — ambiente local — tudo degrada para `localStorage` e o painel
@@ -14,29 +14,13 @@ há uma guarda de 5 segundos na gravação.
 
 ## 1. Regras do Firestore
 
-As regras moram no console do Firebase, não neste repositório. **Acrescente** o
-bloco abaixo às regras existentes — não substitua o arquivo, ou você derruba
-`registrations` e `dc_votes`.
+As regras estão versionadas em [`firestore.rules`](../firestore.rules) na raiz
+do repositório, mas **a aplicação é manual**: copie o arquivo inteiro e cole em
+Firestore → Regras, no console do Firebase.
 
-```
-match /bbts_assessments/{id} {
-
-  // Quem responde não precisa de conta, mas só cria registro "submetido".
-  allow create: if request.resource.data.status == 'submetido';
-
-  // Reenvio só sobrescreve o registro do mesmo e-mail, e sempre volta para
-  // "submetido" — respostas novas exigem revisão nova. O DHO autenticado
-  // é quem pode mover o status.
-  allow update: if request.auth != null
-                || (request.resource.data.email == resource.data.email
-                    && request.resource.data.status == 'submetido');
-
-  // Leitura fechada: os registros trazem nome, e-mail e respostas.
-  allow read: if request.auth != null;
-
-  allow delete: if false;
-}
-```
+Cole o arquivo **todo**. Blocos soltos depois do fechamento de
+`match /databases/{database}/documents` não compilam — o console acusa
+`Unexpected 'match'` na linha do bloco órfão.
 
 ## 2. Conta do DHO
 

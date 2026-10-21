@@ -38,6 +38,7 @@ include:
   - bbts
 
 exclude:
+  - firestore.rules
   - china/china-repositorio
   - radardesinais/radar-repositorio
 
