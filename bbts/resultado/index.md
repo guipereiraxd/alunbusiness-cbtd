@@ -223,14 +223,36 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   var alvoId = new URLSearchParams(location.search).get("id");
 
   if (alvoId){
-    S.listar().then(function(res){
+    /* espera o Firebase restaurar a sessão antes de ler — senão o registro
+       "some" para quem está logado, só porque a página carregou primeiro */
+    S.pronto().then(function(){
+      return S.listar();
+    }).then(function(res){
+      if (res.precisaLogin){ vazio("restrito"); return; }
       var todos = (res.registros||[]).concat(S.seedOn() ? S.seedRegistros() : []);
       var reg = todos.filter(function(r){ return r.id === alvoId; })[0];
       if (reg && reg.R && Object.keys(reg.R).length) montar(reg.R, reg.T||{}, reg.SK||{}, reg, true);
+      else vazio("naoEncontrado");
     });
   } else {
     var st = {}; try { st = JSON.parse(localStorage.getItem("bbts_assess_v6")||"{}"); } catch(e){}
     if (Object.keys(st.R||{}).length) montar(st.R, st.T||{}, st.SK||{}, S.eu(), false);
+  }
+
+  /* Mensagens distintas: não ter respondido é diferente de não ter acesso. */
+  function vazio(tipo){
+    var e = document.getElementById("empty");
+    if (tipo === "restrito"){
+      e.innerHTML = '<h2>Acesso restrito</h2>'
+        + '<p class="lead" style="margin:0 auto 24px">Este PDI é de outra pessoa. Ler o resultado '
+        + 'de alguém exige estar autenticado no painel da GEPES.</p>'
+        + '<a class="btn btn-primary" href="{{ "/bbts/painel/" | relative_url }}">Ir para o painel →</a>';
+    } else if (tipo === "naoEncontrado"){
+      e.innerHTML = '<h2>Registro não encontrado</h2>'
+        + '<p class="lead" style="margin:0 auto 24px">Não há assessment com esse identificador. '
+        + 'Ele pode ter sido removido, ou o link está incompleto.</p>'
+        + '<a class="btn btn-primary" href="{{ "/bbts/painel/" | relative_url }}">Voltar ao painel →</a>';
+    }
   }
 
   function montar(R, T, SK, pessoa, deOutrem){

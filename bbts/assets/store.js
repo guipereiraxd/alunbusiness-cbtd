@@ -103,6 +103,16 @@ window.BBTS_STORE = (function(){
   }
 
   /* ---- autenticação do painel ----------------------------------- */
+  /* O Firebase restaura a sessão de forma assíncrona: logo após o load,
+     currentUser ainda é null mesmo para quem está logado. Quem precisa ler
+     deve esperar esta promessa antes de chamar listar(). */
+  var authPronta = !fbAuth
+    ? Promise.resolve(null)
+    : new Promise(function(resolve){
+        var un = fbAuth.onAuthStateChanged(function(u){ un(); resolve(u); });
+      });
+  function pronto(){ return authPronta; }
+
   function usuario(){ return fbAuth && fbAuth.currentUser ? fbAuth.currentUser : null; }
   function entrar(email, senha){
     if (!fbAuth) return Promise.reject(new Error("Autenticação indisponível neste ambiente."));
@@ -128,5 +138,6 @@ window.BBTS_STORE = (function(){
            eu:eu, cadastrar:cadastrar, sair:sair, valido:valido,
            salvar:salvar, listar:listar, assinar:assinar, status:status,
            usuario:usuario, entrar:entrar, sairPainel:sairPainel, aoMudarLogin:aoMudarLogin,
+           pronto:pronto,
            seedOn:seedOn, setSeed:setSeed, seedRegistros:seedRegistros };
 })();
