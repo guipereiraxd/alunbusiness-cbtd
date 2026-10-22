@@ -96,7 +96,7 @@ description: "Assessment de prontidão em IA — 20 perguntas fechadas em dois e
         <span class="sk">Assessment de prontidão</span>
         <h1 style="margin-top:10px">Prontidão em IA</h1>
       </div>
-      <div class="as-ver">Instrumento <b>v6</b> · out/2026<br>20 perguntas · ~10 min</div>
+      <div class="as-ver">20 perguntas · ~10 min</div>
     </div>
     <div class="bar" id="bar"></div>
     <div class="as-meta">
