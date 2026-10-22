@@ -13,7 +13,7 @@ sustentar esses dois momentos.
 
 | Item | Estado |
 |---|---|
-| QR code para `alunbusiness.md/bbts/assessment/` | gerar e colar no S2 |
+| QR code | pronto em `bbts-repositorio/qr/` — use o `.svg` |
 | Conta da GEPES criada no Firebase | feito |
 | Painel aberto numa aba já logada | fazer antes de subir ao palco |
 | Coorte de referência | **desligada** — o painel começa vazio de propósito |
@@ -41,7 +41,9 @@ falta de esforço de quem escreveu — é falta de um ponto de partida.
 
 **Título:** Antes de eu explicar, responda
 
-**Na tela:** QR grande, `alunbusiness.md/bbts/assessment/`, e
+**Na tela:** QR grande (`qr/qr-assessment.svg`, no mínimo 25% da altura do
+slide, sobre branco), a URL `alunbusiness.md/bbts/assessment/` escrita por
+extenso embaixo — sempre tem quem prefira digitar — e
 "13 perguntas · ~10 minutos · pode responder enquanto eu falo"
 
 **Falar:** Vou pedir uma coisa pouco comum numa palestra: peguem o celular.
