@@ -224,9 +224,18 @@ window.BBTS_PDI = (function(){
       if (profOk.includes(prof)) score += 6;                       // aderente ao nível
       if (perfil === perfilAlvo || perfil === "Todos os perfis") score += 5;
       if (prof === "Avançado" && nivelMedio <= 2) score -= 12;     // cedo demais
+      /* Peça curta é complemento, não trilha. Com a carga horária real no
+         catálogo surgiram cursos de 1h a 4h (flash skills, checkpoints,
+         cursos-texto): eles cobrem a competência no papel, mas não sustentam
+         um ciclo de 90 dias sozinhos. Entram quando não há nada melhor. */
+      if (c.h < 6) score -= 9;
       return { ...c, macro, prof, perfil, comps:info.comps, score,
                url: CAT.base + c.s };
-    }).filter(Boolean).sort((a,b) => b.score - a.score || a.h - b.h);
+    /* Desempate neutro quanto à duração. Preferir o curso mais curto enchia o
+       plano de peças de 2h; preferir o mais longo inflava as horas de volta.
+       Entre candidatos igualmente aderentes, a ordem é estável pelo slug e a
+       duração sai de quem é mais aderente, não de uma preferência embutida. */
+    }).filter(Boolean).sort((a,b) => b.score - a.score || (a.s < b.s ? -1 : a.s > b.s ? 1 : 0));
   }
 
   /* perfil-alvo do catálogo a partir do contexto declarado */
@@ -244,46 +253,74 @@ window.BBTS_PDI = (function(){
      4 ciclos de 90 dias. Capacidade por ciclo = dedicação semanal × ~12 semanas,
      com fator de folga (0,75) para férias, picos e a atividade prática. */
   const CICLOS = 4, SEMANAS = 12, FOLGA = 0.75;
-  const TETO_CICLO = { cursos:3, horas:32 };   // limite institucional da demo
+  const TETO_CICLO = { cursos:3, horas:32 };   // ritmo máximo dentro de um ciclo
+  const TETO_PLANO = { cursos:8 };             // trava de segurança do ano
+  const PISO_PLANO = { cursos:2 };             // ninguém sai com plano de um curso
 
   function planejar(cands, horasSemana){
     const capBruta  = (horasSemana||0) * SEMANAS * FOLGA;
     const capCiclo  = Math.max(0, Math.min(TETO_CICLO.horas, Math.round(capBruta)));
-    const ciclos = [], usados = new Set(), cobertos = new Set();
-    let semCapacidade = capCiclo < 8;
+    const semCapacidade = capCiclo < 8;
 
-    const apertados = [];
+    /* O que o plano precisa cobrir: toda lacuna que algum curso do catálogo
+       desenvolve. Sai dos próprios candidatos — candidatos() já anexa em
+       .comps as lacunas que cada curso atende. */
+    const aCobrir = new Set();
+    cands.forEach(c => c.comps.forEach(q => aCobrir.add(q)));
+
+    /* Seleção por COBERTURA, não por capacidade.
+       Antes o plano empilhava cursos até encher a agenda da pessoa, e como o
+       pool de candidatos passa de 500, ele sempre enchia: o tamanho do plano
+       era o tamanho da agenda, não o da necessidade. O efeito colateral ficou
+       evidente quando a carga horária real entrou — cursos mais curtos viraram
+       mais cursos, não menos horas. Agora um curso só entra se ainda traz
+       lacuna nova, e o plano termina quando a última é coberta. */
+    const escolhidos = [], cobertos = new Set();
+    for (const cur of cands){
+      if (cobertos.size >= aCobrir.size) break;
+      if (escolhidos.length >= TETO_PLANO.cursos) break;
+      const novas = cur.comps.filter(q => !cobertos.has(q));
+      if (!novas.length) continue;
+      escolhidos.push(cur); novas.forEach(q => cobertos.add(q));
+    }
+
+    /* Piso: coberto tudo com um curso só, o plano fica magro demais para um
+       ano. Completa com o melhor candidato restante, que reforça o que já
+       foi escolhido em vez de abrir frente nova. */
+    const usados = new Set(escolhidos.map(c => c.s));
+    for (const cur of cands){
+      if (escolhidos.length >= PISO_PLANO.cursos) break;
+      if (usados.has(cur.s)) continue;
+      escolhidos.push(cur); usados.add(cur.s);
+    }
+
+    /* Distribui em ritmo parelho entre os ciclos, em vez de carregar o
+       primeiro e esvaziar os últimos. */
+    const porCiclo = Math.max(1, Math.ceil(escolhidos.length / CICLOS));
+    const fila = escolhidos.slice(), ciclos = [], apertados = [];
     for (let c = 0; c < CICLOS; c++){
       const sel = []; let h = 0;
-      for (const cur of cands){
-        if (sel.length >= TETO_CICLO.cursos) break;
-        if (usados.has(cur.s)) continue;
-        if (h + cur.h > capCiclo) continue;
-        // no 1º ciclo prioriza competência ainda descoberta
-        if (c === 0 && sel.length && !cur.comps.some(q => !cobertos.has(q))) continue;
-        sel.push(cur); usados.add(cur.s); h += cur.h;
-        cur.comps.forEach(q => cobertos.add(q));
-      }
-      /* Plano mínimo: havendo lacuna, o ciclo não sai vazio. Se nada coube
-         na capacidade, entra o curso mais curto disponível mesmo excedendo —
-         a capacidade é estimativa de ritmo, não limite rígido, e em 90 dias
-         ele cabe. O ciclo fica marcado como apertado para a tela avisar. */
-      if (!sel.length){
-        const resto = cands.filter(x => !usados.has(x.s));
-        if (resto.length){
-          const curto = resto.reduce((a,b) => b.h < a.h ? b : a);
-          sel.push(curto); usados.add(curto.s); h += curto.h;
-          curto.comps.forEach(q => cobertos.add(q));
-          apertados.push(c+1);
-        }
+      while (fila.length && sel.length < Math.min(porCiclo, TETO_CICLO.cursos)){
+        const cur = fila[0];
+        /* a capacidade volta ao papel de ritmo: segura o segundo curso do
+           ciclo, nunca o primeiro — senão quem declara pouca hora fica sem
+           plano nenhum, que é a falha que a regra de plano mínimo cobre */
+        if (sel.length && h + cur.h > capCiclo) break;
+        if (!sel.length && cur.h > capCiclo) apertados.push(c+1);
+        sel.push(fila.shift()); h += cur.h;
       }
       ciclos.push({ n:c+1, cursos:sel, horas:h, capacidade:capCiclo,
                     apertado: apertados.indexOf(c+1) >= 0 });
     }
+
     const totalH = ciclos.reduce((a,c)=>a+c.horas,0);
     const totalC = ciclos.reduce((a,c)=>a+c.cursos.length,0);
+    /* o que não coube no ano fica visível como próximo ciclo, fora da conta */
+    const adiados = fila.slice();
+    const naoCobertas = [...aCobrir].filter(q => !cobertos.has(q));
     return { ciclos, capCiclo, capBruta, totalH, totalC, semCapacidade, apertados,
-             cobertos:[...cobertos], teto:TETO_CICLO, semanas:SEMANAS, folga:FOLGA };
+             adiados, naoCobertas, cobertos:[...cobertos], aCobrir:[...aCobrir],
+             teto:TETO_CICLO, tetoPlano:TETO_PLANO, semanas:SEMANAS, folga:FOLGA };
   }
 
   function blocoPrioritario(lac){
@@ -292,7 +329,7 @@ window.BBTS_PDI = (function(){
     return Object.keys(soma).sort((a,b)=>soma[b]-soma[a])[0];
   }
 
-  return { MAPA, SEM_CURSO, PRATICAS, ROTULO, ACAO, TETO_CICLO, CICLOS,
+  return { MAPA, SEM_CURSO, PRATICAS, ROTULO, ACAO, TETO_CICLO, TETO_PLANO, CICLOS,
            lacunas, lacunasTecnicas, alvoTecnico, alvoDimensoes, alvoDe, alvoComPiso,
            candidatos, perfilCatalogo, planejar, blocoPrioritario };
 })();

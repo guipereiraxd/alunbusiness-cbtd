@@ -433,9 +433,11 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   var plano = E.planejar(cands.slice(), horasSem);
 
   document.getElementById("pdi-lead").textContent =
-    "Com " + horasSem + "h por semana, cabem cerca de " + plano.capCiclo
-    + "h por ciclo de 90 dias. O plano abaixo distribui " + plano.totalC
-    + " cursos e " + plano.totalH + " horas ao longo dos quatro ciclos.";
+    "O plano cobre as lacunas do diagnóstico com " + plano.totalC + " curso"
+    + (plano.totalC === 1 ? "" : "s") + " e " + plano.totalH
+    + " horas, distribuídos em quatro ciclos de 90 dias. Com " + horasSem
+    + "h por semana você comportaria até " + plano.capCiclo
+    + "h por ciclo — a folga é proposital: o plano tem o tamanho da necessidade, não o da agenda.";
 
   document.getElementById("capacidade").innerHTML =
     '<div class="cap-row">'

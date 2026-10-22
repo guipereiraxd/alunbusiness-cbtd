@@ -463,12 +463,14 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
 <section class="sec">
   <div class="wrap">
     <span class="sk">05 · O plano de 12 meses</span>
-    <h2>A dedicação declarada define o que cabe em cada ciclo</h2>
-    <p class="d">O horizonte é de 12 meses, dividido em quatro ciclos de 90 dias. A capacidade de cada
-      ciclo não é um número fixo: sai do tempo que a própria pessoa declarou ter por semana.</p>
+    <h2>O plano tem o tamanho da lacuna, não o da agenda</h2>
+    <p class="d">O horizonte é de 12 meses, dividido em quatro ciclos de 90 dias. O plano é montado por
+      <b>cobertura</b>: cada lacuna apontada no diagnóstico precisa de um curso que a desenvolva, e o
+      plano termina quando a última é coberta. A dedicação declarada limita o <b>ritmo</b> de cada
+      ciclo — não define o tamanho do plano.</p>
 
     <div class="form">
-      <div class="t">Capacidade por ciclo</div>
+      <div class="t">Ritmo máximo por ciclo</div>
       <div class="eq">
         capacidade &nbsp;=&nbsp; horas por semana &nbsp;×&nbsp; 12 semanas &nbsp;×&nbsp; <em>0,75</em><br>
         teto institucional &nbsp;=&nbsp; <em>32 horas</em> e <em>3 cursos</em> por ciclo
@@ -476,20 +478,23 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
       <div class="n">O fator de <b>0,75</b> é folga deliberada: férias, picos de demanda e o tempo da
         atividade prática, que não é tempo de curso. Sem ele, o plano fica lotado no papel e
         impossível na rotina. O <b>teto</b> existe para que dedicação alta não vire plano irreal —
-        quem declara 10 horas por semana recebe o mesmo volume de quem declara 5.</div>
+        quem declara 10 horas por semana recebe o mesmo volume de quem declara 5. É normal um ciclo
+        usar bem menos que o disponível: o espaço que sobra é onde a prática acontece.</div>
     </div>
 
-    <p class="d" style="margin-top:26px">No primeiro ciclo a prioridade é <b>cobrir competências ainda
-      descobertas</b>, em vez de aprofundar uma só. Depois disso, a ordenação segue o peso da lacuna.
-      Cada ciclo fecha com uma evidência esperada e uma data de revisão — e nenhuma delas é
-      “certificado emitido”.</p>
+    <p class="d" style="margin-top:26px">A seleção percorre os cursos aderentes em ordem de peso da
+      lacuna e <b>só aceita um curso que ainda traga competência descoberta</b>. Um mesmo curso costuma
+      cobrir mais de uma, então o plano fecha com menos cursos do que lacunas. Peças de menos de 6
+      horas — flash skills, checkpoints, cursos-texto — são tratadas como complemento e só entram
+      quando não há nada mais substancial para aquela competência. Os cursos escolhidos se distribuem
+      em ritmo parelho entre os quatro ciclos, e cada ciclo fecha com uma evidência esperada e uma data
+      de revisão — nenhuma delas é “certificado emitido”.</p>
 
     <div class="nota"><b>Quem responde sempre recebe um plano.</b> Duas regras garantem isso.
       Se o objetivo declarado já estiver coberto pelo nível atual, o alvo sobe um degrau nas
       competências onde ainda há espaço, e a pessoa é avisada de que descreveu um objetivo aquém
-      do que já faz. E se a dedicação declarada for baixa a ponto de nenhum curso caber no ciclo,
-      entra o mais curto disponível mesmo assim, marcado como ritmo apertado — a capacidade é
-      estimativa de ritmo, não limite rígido. Plano vazio não ajuda ninguém e devolve para a
+      do que já faz. E o primeiro curso de cada ciclo entra mesmo que estoure a capacidade declarada,
+      marcado como ritmo apertado — a capacidade é estimativa de ritmo, não limite rígido. Plano vazio não ajuda ninguém e devolve para a
       pessoa um problema que é do sistema.</div>
   </div>
 </section>
