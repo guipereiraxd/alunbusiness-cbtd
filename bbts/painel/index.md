@@ -387,6 +387,18 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     </section>
 
     <section class="sec">
+      <h2>Tempo economizado, na percepção de quem responde</h2>
+      <p class="d">A última pergunta do assessment pede uma estimativa de quanto tempo a IA já
+         economiza por semana. É a única leitura de retorno que sai do próprio respondente — e por
+         ser percepção, fica fora do índice de prontidão.</p>
+      <div class="tg">
+        <div class="tg-big" id="tg-big"></div>
+        <div class="tg-d" id="tg-d"></div>
+      </div>
+      <div class="nota" id="tg-n"></div>
+    </section>
+
+    <section class="sec">
       <h2>Médias por dimensão</h2>
       <p class="d">Cada trilha vai de zero ao máximo da dimensão. A faixa clara mostra onde o grupo
          inteiro cai: quanto mais larga, mais desigual. O traço azul é a média e o amarelo é você.</p>
@@ -397,18 +409,6 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         <span><i style="background:var(--yellow-600)"></i>você</span>
       </div>
       <div class="nota" id="dim-n"></div>
-    </section>
-
-    <section class="sec">
-      <h2>Tempo economizado, na percepção de quem responde</h2>
-      <p class="d">A última pergunta do assessment pede uma estimativa de quanto tempo a IA já
-         economiza por semana. É a única leitura de retorno que sai do próprio respondente — e por
-         ser percepção, fica fora do índice de prontidão.</p>
-      <div class="tg">
-        <div class="tg-big" id="tg-big"></div>
-        <div class="tg-d" id="tg-d"></div>
-      </div>
-      <div class="nota" id="tg-n"></div>
     </section>
 
     <section class="sec" id="sec-tec">
@@ -602,7 +602,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     document.getElementById("corpo").style.display = vazio ? "none" : "block";
     document.getElementById("kp").style.display    = vazio ? "none" : "grid";
     if (vazio) return;
-    kpis(); acao(); amostra(); perfis(); hist(); dims(); tempo(); tecnicas(); needs(); macros(); fila(); tabela();
+    kpis(); acao(); amostra(); perfis(); hist(); tempo(); dims(); tecnicas(); needs(); macros(); fila(); tabela();
   }
 
   function modo(res){
