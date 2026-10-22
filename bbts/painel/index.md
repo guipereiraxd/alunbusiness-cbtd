@@ -349,7 +349,6 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       </div>
       <div class="pn-ctl">
         <label class="tgl" id="tg-anon"><input type="checkbox" id="anon" checked> Ocultar identificação</label>
-        <label class="tgl" id="tg-seed"><input type="checkbox" id="seed"> Coorte de referência</label>
         <button class="btn-s" id="exp" style="background:var(--paper);color:var(--tx);border:1px solid var(--line-2)">Exportar</button>
         <button class="btn-s" id="rec">Atualizar</button>
       </div>
@@ -515,7 +514,6 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="{{ '/bbts/assets/store.js' | relative_url }}"></script>
-<script src="{{ '/bbts/assets/base-demo.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/assessment-data.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/catalogo-alura.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/pdi-engine.js' | relative_url }}"></script>
@@ -534,13 +532,10 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
              em_revisao:"Em revisão", aprovado:"Aprovado" };
 
   var anon = document.getElementById("anon");
-  var seed = document.getElementById("seed");
-  seed.checked = S.seedOn();
   sincTgl();
 
   function sincTgl(){
     document.getElementById("tg-anon").classList.toggle("on", anon.checked);
-    document.getElementById("tg-seed").classList.toggle("on", seed.checked);
   }
   function esc(s){ return String(s==null?"":s)
     .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
@@ -623,7 +618,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     if (res.precisaLogin){ mostraGate(true); return; }
     mostraGate(false);
 
-    var regs = (res.registros||[]).concat(seed.checked ? S.seedRegistros() : []);
+    var regs = (res.registros||[]);
     regs = regs.filter(function(r){ return r && r.R && Object.keys(r.R).length; });
     dados = regs.map(function(r){
       var calc = B.calcular(r.R);
@@ -650,16 +645,19 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 
   function modo(res){
     var el = document.getElementById("modo"), reais = (res.registros||[]).length;
+    /* Quando está tudo certo o aviso não acrescenta nada — é infraestrutura
+       funcionando, e dizer isso na tela só rouba atenção do dado. Os outros
+       dois estados ficam, porque avisam que a leitura está incompleta. */
     if (S.ligado && !res.erro){
-      el.className = "modo ok";
-      el.innerHTML = "<div><b>Base compartilhada ativa.</b> "
-        + reais+" registro"+(reais===1?"":"s")+" na coleção <code>"+S.colecao+"</code>"
-        + ". O painel recebe cada novo assessment em tempo real.</div>";
+      el.style.display = "none";
+      return;
     } else if (S.ligado){
+      el.style.display = "";
       el.className = "modo";
       el.innerHTML = "<div><b>A base compartilhada não respondeu.</b> O painel está mostrando apenas "
         + (reais===1 ? "o registro" : "os "+reais+" registros") + " deste navegador.</div>";
     } else {
+      el.style.display = "";
       el.className = "modo";
       el.innerHTML = "<div><b>Base ainda não compartilhada.</b> "
         + (reais===0 ? "Nenhum registro foi feito neste navegador."
@@ -726,14 +724,12 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   /* Com poucos respondentes, média e distribuição não dizem nada.
      Melhor avisar do que deixar o painel sugerir solidez que não existe. */
   function amostra(){
-    var reais = dados.filter(function(d){return !d.reg.seed;}).length;
     var el = document.getElementById("amostra");
     if (dados.length >= 8){ el.style.display = "none"; return; }
     el.style.display = "block";
     el.innerHTML = "<b>Amostra pequena: "+dados.length+" registro"+(dados.length===1?"":"s")+".</b> "
       + "Média, distribuição e demanda agregada só começam a dizer algo com algumas dezenas de "
-      + "respostas. Até lá, leia os registros individualmente"
-      + (reais < dados.length ? " — e lembre que parte deles é da coorte fictícia." : ".");
+      + "respostas. Até lá, leia os registros individualmente.";
   }
 
   /* ---------- perfis ---------- */
@@ -1092,7 +1088,6 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         "#": i+1,
         "Nome": d.reg.nome || "",
         "E-mail": d.reg.email || "",
-        "Registro fictício": d.reg.seed ? "sim" : "não",
         "Status": ROT_STATUS[d.status] || d.status,
         "Índice de prontidão (12-48)": d.calc.indice,
         "Capacidade (9-36)": d.calc.capacidade,
@@ -1170,7 +1165,6 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     var com = dados.filter(function(d){ return d.tec; });
     var linhas = [
       ["Registros no painel", dados.length],
-      ["— dos quais fictícios", dados.filter(function(d){ return d.reg.seed; }).length],
       ["Índice médio de prontidão", +med(idx).toFixed(2)],
       ["Índice mínimo", Math.min.apply(null, idx)],
       ["Índice máximo", Math.max.apply(null, idx)],
@@ -1197,15 +1191,12 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   }
 
   function exportar(){
-    var reais = dados.filter(function(d){ return !d.reg.seed; }).length;
-    var fict  = dados.length - reais;
     dialogo({
       titulo: "Exportar para Excel",
       sub: "Vai gerar um arquivo <b>.xlsx</b> com quatro abas: colaboradores, respostas "
          + "pergunta a pergunta, plano curso a curso e o resumo do grupo.",
       aviso: "O arquivo sai com <b>nome e e-mail</b> de todos — inclusive se a identificação "
            + "estiver oculta na tela, que é só para projeção. "
-           + (fict ? "Os " + fict + " registros da coorte fictícia vão junto, marcados numa coluna própria. " : "")
            + "São dados pessoais: trate o arquivo como tal.",
       confirmar: "Gerar arquivo", fazendo: "Montando…",
       aoConfirmar: function(){
@@ -1573,15 +1564,12 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         + '<td><span class="pg '+cls+'">'+esc(d.calc.perfil.nome)+'</span></td>'
         + '<td class="r"><span class="num">'+d.calc.contexto+'<small>/12</small></span></td>'
         + '<td class="r"><span class="num">'+(d.ded?d.ded+'<small>h/sem</small>':'—')+'</span></td>'
-        + '<td>'+(d.reg.seed
-            ? '<span class="pg">'+ST[d.status]+'</span>'
-            : '<select class="st" data-id="'+esc(d.reg.id)+'">'+op+'</select>')+'</td>'
+        + '<td><select class="st" data-id="'+esc(d.reg.id)+'">'+op+'</select></td>'
         + '<td class="r"><div class="acoes">'
         +   '<a class="lnk" href="'+URL_RES+'?id='+encodeURIComponent(d.reg.id)+'">ver PDI →</a>'
         +   '<button class="pdf" data-pdf="'+esc(d.reg.id)+'">PDF</button>'
-        +   (d.reg.seed ? '' :
-                (d.status==="aprovado" && d.reg.email ? '<button class="env" data-env="'+esc(d.reg.id)+'">enviar</button>' : '')
-              + '<button class="del" data-del="'+esc(d.reg.id)+'">excluir</button>')
+        +   (d.status==="aprovado" && d.reg.email ? '<button class="env" data-env="'+esc(d.reg.id)+'">enviar</button>' : '')
+        +   '<button class="del" data-del="'+esc(d.reg.id)+'">excluir</button>'
         + '</div></td>'
         + '</tr>';
     }).join("");
@@ -1621,16 +1609,12 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       });
     });
 
-    var qs = dados.filter(function(d){return d.reg.seed;}).length;
     document.getElementById("tb-n").innerHTML =
-      (qs ? "<b>"+qs+" registros</b> vêm da coorte de referência, que é fictícia e serve para mostrar o painel cheio. "
-            + "Desligue o seletor no topo para ver só os registros reais. "
-          : "")
-      + "O status é editável apenas nos registros reais — é o ponto onde a decisão humana entra no fluxo.";
+      "O status é o ponto onde a decisão humana entra no fluxo: nenhum PDI vale antes de alguém "
+      + "da GEPES movê-lo para aprovado.";
   }
 
   anon.addEventListener("change", function(){ sincTgl(); if (dados.length) tabela(); });
-  seed.addEventListener("change", function(){ sincTgl(); S.setSeed(seed.checked); carregar(); });
   /* mantém o modo() coerente quando a leitura veio da assinatura */
   document.getElementById("rec").addEventListener("click", carregar);
   document.getElementById("exp").addEventListener("click", function(){

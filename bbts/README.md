@@ -78,8 +78,7 @@ A biblioteca de planilha são cerca de 900 KB e só é baixada quando você
 clica — quem abre o painel para olhar não paga esse custo.
 
 **O arquivo sai com nome e e-mail**, mesmo com a identificação oculta na
-tela: aquele seletor é para projeção, não para exportação. Registros da
-coorte fictícia vão junto, marcados na coluna *Registro fictício*. É dado
+tela: aquele seletor é para projeção, não para exportação. É dado
 pessoal; trate o arquivo como tal.
 
 ## 6. Limite conhecido

@@ -13,7 +13,6 @@ window.BBTS_STORE = (function(){
 
   var K_EU   = "bbts_eu_v1";          // identidade de quem está neste navegador
   var K_REG  = "bbts_registros_v1";   // espelho local dos registros
-  var K_SEED = "bbts_seed_v1";        // coorte de referência ligada/desligada
 
   function ler(k, def){ try { return JSON.parse(localStorage.getItem(k)) || def; } catch(e){ return def; } }
   function grava(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
@@ -148,24 +147,11 @@ window.BBTS_STORE = (function(){
   function sairPainel(){ return fbAuth ? fbAuth.signOut() : Promise.resolve(); }
   function aoMudarLogin(cb){ if (fbAuth) fbAuth.onAuthStateChanged(cb); else cb(null); }
 
-  /* ---- coorte de referência (fictícia), desligada por padrão ---- */
-  function seedOn(){ return ler(K_SEED, false) === true; }
-  function setSeed(v){ grava(K_SEED, v === true); }
-  function seedRegistros(){
-    var D = window.BBTS_DEMO; if (!D) return [];
-    return D.pessoas.map(function(p){
-      return { id:"seed-"+p.id, nome:p.rotulo, email:"",
-               criado:"2026-10-01T12:00:00.000Z", R:p.R, T:p.T || {},
-               SK:{}, status:p.status, seed:true };
-    });
-  }
-
   return { ligado:ligado, modo: ligado ? "remoto" : "local", colecao:COL,
            temAuth: !!fbAuth,
            eu:eu, cadastrar:cadastrar, sair:sair, valido:valido,
            salvar:salvar, listar:listar, assinar:assinar, status:status,
            excluir:excluir, enviarEmail:enviarEmail,
            usuario:usuario, entrar:entrar, sairPainel:sairPainel, aoMudarLogin:aoMudarLogin,
-           pronto:pronto,
-           seedOn:seedOn, setSeed:setSeed, seedRegistros:seedRegistros };
+           pronto:pronto };
 })();

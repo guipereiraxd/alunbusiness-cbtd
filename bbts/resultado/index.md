@@ -247,7 +247,6 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="{{ '/bbts/assets/store.js' | relative_url }}"></script>
-<script src="{{ '/bbts/assets/base-demo.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/assessment-data.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/catalogo-alura.js' | relative_url }}"></script>
 <script src="{{ '/bbts/assets/pdi-engine.js' | relative_url }}"></script>
@@ -263,7 +262,7 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
       return S.listar();
     }).then(function(res){
       if (res.precisaLogin){ vazio("restrito"); return; }
-      var todos = (res.registros||[]).concat(S.seedOn() ? S.seedRegistros() : []);
+      var todos = (res.registros||[]);
       var reg = todos.filter(function(r){ return r.id === alvoId; })[0];
       if (reg && reg.R && Object.keys(reg.R).length) montar(reg.R, reg.T||{}, reg.SK||{}, reg, true);
       else vazio("naoEncontrado");
