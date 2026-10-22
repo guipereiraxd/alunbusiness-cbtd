@@ -349,7 +349,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       </div>
       <div class="pn-ctl">
         <label class="tgl" id="tg-anon"><input type="checkbox" id="anon" checked> Ocultar identificação</label>
-        <button class="btn-s" id="exp" style="background:var(--paper);color:var(--tx);border:1px solid var(--line-2)">Exportar</button>
+        <button class="btn-s" id="exp" style="background:var(--paper);color:var(--tx);border:1px solid var(--line-2)">Exportar Excel</button>
+        <button class="btn-s" id="rel" style="background:var(--paper);color:var(--tx);border:1px solid var(--line-2)">Relatório em PDF</button>
         <button class="btn-s" id="rec">Atualizar</button>
       </div>
     </div>
@@ -1415,6 +1416,108 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     return { assunto: "Seu PDI em IA e Dados foi aprovado", html: html };
   }
 
+  /* ---------- relatório do grupo em PDF ----------
+     Os gráficos do painel já são HTML e CSS puros — barras são divs com
+     largura inline. Então o relatório clona o que está renderizado na tela
+     em vez de redesenhar tudo: o que o cliente recebe é, por construção, o
+     mesmo que a GEPES está vendo, e não uma segunda implementação que pode
+     divergir. As folhas de estilo da página vão junto, inteiras. */
+  function documentoDoPainel(){
+    var estilos = [].map.call(document.querySelectorAll("style"), function(e){
+      return e.textContent; }).join("\n");
+    var fontes = [].map.call(
+      document.querySelectorAll('link[rel="stylesheet"],link[rel="preconnect"]'),
+      function(e){ return e.outerHTML; }).join("");
+
+    var hoje = new Date().toLocaleDateString("pt-BR", {day:"2-digit", month:"long", year:"numeric"});
+
+    /* Fila e tabela de colaboradores ficam de fora: a fila é operação
+       interna, e a tabela carrega nome e e-mail de cada respondente. Um
+       resumo que vai para fora da GEPES não leva dado pessoal junto. */
+    var fora = ["Fila de revisão humana", "Colaboradores"];
+    var corpo = document.getElementById("corpo").cloneNode(true);
+    [].forEach.call(corpo.querySelectorAll("section.sec"), function(sec){
+      var h = sec.querySelector("h2");
+      if (h && fora.indexOf(h.textContent.trim()) >= 0) sec.remove();
+    });
+    /* nada clicável sobrevive em papel */
+    [].forEach.call(corpo.querySelectorAll("button,select,input"), function(e){ e.remove(); });
+    corpo.style.display = "";
+
+    /* Os KPIs e o aviso de amostra pequena vivem fora de #corpo, no cabeçalho
+       da página. São a primeira leitura do grupo e precisam abrir o relatório.
+       A faixa de ação ("N PDIs aguardam revisão") fica de fora: é operação
+       interna da GEPES, não resultado. */
+    var kp = document.getElementById("kp").cloneNode(true);
+    kp.style.margin = "0 0 6px";
+    var amo = document.getElementById("amostra");
+    var aviso = (amo && getComputedStyle(amo).display !== "none")
+      ? '<div class="nota alerta" style="margin:0 0 18px">' + amo.innerHTML + '</div>' : "";
+
+    return '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">'
+      + '<meta name="viewport" content="width=device-width,initial-scale=1">'
+      + '<title>Prontidão em IA · BBTS · ' + esc(hoje) + '</title>'
+      + fontes
+      + '<style>' + estilos + '</style>'
+      + '<style>'
+      +   '@page{size:A4;margin:14mm 12mm}'
+      +   'body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}'
+      +   '.wrap{max-width:none;padding:0}'
+      +   '.sec{padding:22px 0;break-inside:auto}'
+      +   '.sec>h2{break-after:avoid;page-break-after:avoid}'
+      +   '.card,.cmp,.tec,.tg,.kp{break-inside:avoid;page-break-inside:avoid}'
+      +   '.capa{border-bottom:3px solid var(--blue-900);padding-bottom:16px;margin-bottom:6px}'
+      +   '@media print{.so-tela{display:none}}'
+      + '</style></head><body>'
+
+      + '<div class="so-tela" style="background:var(--panel);border-radius:10px;padding:13px 16px;'
+      +   'margin:0 0 20px;font-size:13.5px;color:var(--tx)">'
+      +   'A janela de impressão vai abrir sozinha. Escolha <b>Salvar como PDF</b> no destino. '
+      +   'Esta faixa não sai no arquivo.</div>'
+
+      + '<div class="capa">'
+      +   '<div style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;'
+      +     'text-transform:uppercase;color:var(--blue)">BBTS · Avaliação de Prontidão em IA</div>'
+      +   '<h1 style="font-family:var(--disp);font-weight:700;font-size:28px;color:var(--ink);'
+      +     'letter-spacing:-.02em;margin:10px 0 6px">Retrato do grupo</h1>'
+      +   '<div style="font-size:14.5px;color:var(--tx-2)">'
+      +     dados.length + ' assessment' + (dados.length === 1 ? "" : "s")
+      +     ' respondido' + (dados.length === 1 ? "" : "s") + ' · ' + esc(hoje) + '</div>'
+      + '</div>'
+
+      + kp.outerHTML
+      + aviso
+      + corpo.outerHTML
+
+      + '<div style="border-top:1px solid var(--line);margin-top:24px;padding-top:14px;'
+      +   'font-size:12.5px;line-height:1.55;color:var(--tx-3)">'
+      +   'Leitura agregada do grupo. <b>Não inclui dados individuais</b> — a fila de revisão e a '
+      +   'relação de respondentes ficam restritas ao painel da GEPES. Tudo é autodeclarado: o '
+      +   'instrumento mede o que a pessoa diz sobre a própria prática, e serve para orientar '
+      +   'desenho de plano, não para comparar pessoas. Demonstração · Alun Business para a BBTS.'
+      + '</div></body></html>';
+  }
+
+  function gerarRelatorio(){
+    if (!dados.length) return;
+    var w = window.open("", "_blank");
+    if (!w){
+      dialogo({
+        titulo: "O navegador bloqueou a janela",
+        sub: "O relatório abre numa aba nova, e o bloqueador de pop-up impediu. Libere pop-ups "
+           + "para este site e clique de novo.",
+        confirmar: "Entendi", semCancelar: true, aoConfirmar: function(){ return Promise.resolve(); }
+      });
+      return;
+    }
+    w.document.open();
+    w.document.write(documentoDoPainel());
+    w.document.close();
+    /* as fontes do Google chegam por link; sem a espera, o Safari imprime
+       com a fonte de fallback e o layout se desloca */
+    w.onload = function(){ setTimeout(function(){ w.focus(); w.print(); }, 700); };
+  }
+
   /* ---------- PDI em PDF ----------
      Sem biblioteca: monta o documento e entrega para a impressão do próprio
      navegador, que já salva em PDF. O texto sai selecionável e pesquisável,
@@ -1623,6 +1726,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   anon.addEventListener("change", function(){ sincTgl(); if (dados.length) tabela(); });
   /* mantém o modo() coerente quando a leitura veio da assinatura */
   document.getElementById("rec").addEventListener("click", carregar);
+  document.getElementById("rel").addEventListener("click", gerarRelatorio);
   document.getElementById("exp").addEventListener("click", function(){
     if (!dados.length){
       dialogo({ titulo:"Nada para exportar", sub:"O painel está vazio.",
