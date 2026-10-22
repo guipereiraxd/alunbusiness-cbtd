@@ -387,7 +387,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     </section>
 
     <section class="sec">
-      <h2>Tempo economizado, na percepção de quem responde</h2>
+      <h2>O tempo que a IA já devolve</h2>
       <p class="d">A última pergunta do assessment pede uma estimativa de quanto tempo a IA já
          economiza por semana. É a única leitura de retorno que sai do próprio respondente — e por
          ser percepção, fica fora do índice de prontidão.</p>
