@@ -4,8 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}Prontidão em IA · BBTS</title>
-  {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+  <title>{% if page.title and page.title != 'Início' %}{{ page.title }} · {% endif %}Avaliação de Prontidão em IA · BBTS</title>
+  {% assign bb_desc = page.description | default: "Avaliação de prontidão em IA da BBTS: assessment, objetivo de 12 meses e geração assistida de Plano de Desenvolvimento Individual, com revisão humana obrigatória." %}
+  {% assign bb_url  = site.url | append: page.url %}
+  {% assign bb_img  = site.url | append: '/bbts/assets/og.png' %}
+  {% comment %} Na home o título é "Início", fraco para um cartão compartilhado {% endcomment %}
+  {% if page.url == '/bbts/' or page.title == 'Início' %}
+    {% assign bb_tit = "Avaliação de Prontidão em IA" %}
+  {% else %}
+    {% assign bb_tit = page.title | default: "Avaliação de Prontidão em IA" %}
+  {% endif %}
+  {% assign bb_alt  = "BBTS · Avaliação de Prontidão em IA. Do diagnóstico ao PDI em IA e Dados, com decisão humana no fim." %}
+  <meta name="description" content="{{ bb_desc | strip_html | truncate: 200 }}">
+  <link rel="canonical" href="{{ bb_url }}">
+  <meta name="theme-color" content="#FCFC30">
+
+  <!-- Cartão de pré-visualização ao compartilhar o link.
+       og.png é gerado por bbts/assets/marca/gerar-og.js -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="BBTS · Avaliação de Prontidão em IA">
+  <meta property="og:title" content="{{ bb_tit }} · BBTS">
+  <meta property="og:description" content="{{ bb_desc | strip_html | truncate: 200 }}">
+  <meta property="og:url" content="{{ bb_url }}">
+  <meta property="og:image" content="{{ bb_img }}">
+  <meta property="og:image:secure_url" content="{{ bb_img }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ bb_alt }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ bb_tit }} · BBTS">
+  <meta name="twitter:description" content="{{ bb_desc | strip_html | truncate: 200 }}">
+  <meta name="twitter:image" content="{{ bb_img }}">
+  <meta name="twitter:image:alt" content="{{ bb_alt }}">
+
+  <link rel="icon" type="image/svg+xml" href="{{ '/bbts/assets/favicon.svg' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/bbts/assets/apple-touch-icon.png' | relative_url }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
