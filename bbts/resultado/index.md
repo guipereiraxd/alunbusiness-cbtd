@@ -196,9 +196,9 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   <section class="sec" style="padding:40px 0">
     <div class="wrap" id="sec-dimt" style="display:none">
       <span class="sk">Competências técnicas</span>
-      <h2 style="margin-top:14px">Seis dimensões, a partir de sete perguntas</h2>
-      <p class="lead">Cada dimensão é a média ponderada das perguntas que a alimentam — nenhuma
-        depende de uma pergunta só. A marca escura é o alvo derivado do seu objetivo.</p>
+      <h2 style="margin-top:14px">Domínios de conhecimento técnico</h2>
+      <p class="lead">Cada domínio agrupa competências próximas e mostra o que você já faz nelas.
+        A marca escura é o alvo derivado do seu objetivo.</p>
       <div class="dimt" id="dimt"></div>
     </div>
 

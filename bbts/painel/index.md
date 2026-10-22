@@ -404,11 +404,11 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     </section>
 
     <section class="sec" id="sec-tec">
-      <h2>Competências técnicas do grupo</h2>
-      <p class="d">Sete perguntas sobre o que a pessoa já faz na prática, de 0 a 4 pontos cada,
-         lidas em seis dimensões. Escala própria, somando até 28 — <b>não entram no índice de
-         prontidão</b>, que tem calibração diferente. São elas que mais orientam a escolha de
-         curso, porque descrevem execução e não percepção.</p>
+      <h2>Domínios de conhecimento técnico</h2>
+      <p class="d">O que o grupo já faz na prática, agrupado em seis domínios de competência.
+         Tem escala própria e <b>não entra no índice de prontidão</b>, que é calibrado de outro
+         jeito. É esta leitura que mais orienta a escolha de curso, porque descreve execução e
+         não percepção.</p>
       <div class="tec">
         <div class="tec-big" id="tec-big"></div>
         <div class="tec-d" id="tec-d"></div>
