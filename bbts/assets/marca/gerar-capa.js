@@ -22,28 +22,28 @@ const txt = (x,y,s,{p=500,t=21,f=LILAS,a='start',ls=0}={}) =>
          font-size="${t}" letter-spacing="${ls}" fill="${f}">${esc(s)}</text>`;
 
 /* ── orquestrador ───────────────────────────────────────── */
-const OW=860, OX=(L-OW)/2, OY=330, OH=126;
+const OW=940, OX=(L-OW)/2, OY=388, OH=130;
 const orq = `
   <rect x="${OX}" y="${OY}" width="${OW}" height="${OH}" rx="20" fill="${CARD}"
         stroke="${AZUL}" stroke-width="2"/>
   <circle cx="${OX+34}" cy="${OY+40}" r="6" fill="${AMARELO}"/>
   ${txt(OX+52, OY+46, 'ORQUESTRADOR', {p:700, t:17, f:AZUL, ls:2.6})}
-  ${txt(OX+34, OY+88, 'Controla a sequência, decide se o diagnóstico precisa ser refeito', {t:21, f:'#FFFFFF'})}
-  ${txt(OX+34, OY+114, 'e concede uma única rodada de correção. Não produz conteúdo.', {t:21})}`;
+  ${txt(OX+34, OY+88, 'Encadeia as três etapas, decide o que precisa ser refeito e entrega', {t:21, f:'#FFFFFF'})}
+  ${txt(OX+34, OY+114, 'um plano por pessoa — não um modelo repetido com o nome trocado.', {t:21})}`;
 
 /* ── três especialistas ─────────────────────────────────── */
 const agentes = [
   { papel:'LEITURA', nome:'Diagnóstico',
-    desc:['Lê as respostas e descreve o estado','por dimensão, apontando a evidência','de cada afirmação.'],
-    saida:'Estado atual e pendências' },
+    absorve:['Ler 16 respostas e traduzir em','estado por competência'],
+    entrega:['Diagnóstico com a evidência','por trás de cada afirmação'] },
   { papel:'SELEÇÃO', nome:'Curadoria',
-    desc:['Converte cada lacuna nos temas que a','desenvolvem e busca no catálogo','autorizado, 717 cursos reais.'],
-    saida:'Cursos e prática, em 4 ciclos' },
+    absorve:['Cruzar as lacunas com 717 cursos','e ordenar por aderência'],
+    entrega:['Trilha em 4 ciclos, no tamanho','da agenda real da pessoa'] },
   { papel:'VERIFICAÇÃO', nome:'Governança',
-    desc:['Confere o plano contra as regras antes','de qualquer pessoa ver: carga, teto','e ligação com a lacuna.'],
-    saida:'Aval técnico ou devolução' }
+    absorve:['Conferir carga, teto e se cada ação','responde a uma lacuna'],
+    entrega:['Plano consistente, ou devolução','com o erro nomeado'] }
 ];
-const GAP=38, CW=(W-GAP*2)/3, CY=554, CH=292;
+const GAP=38, CW=(W-GAP*2)/3, CY=574, CH=316;
 
 const cards = agentes.map((a,i)=>{
   const x = MG + i*(CW+GAP), cx = x + CW/2;
@@ -57,19 +57,20 @@ const cards = agentes.map((a,i)=>{
   <rect x="${x+30}" y="${CY+30}" width="${a.papel.length*10.5+26}" height="30" rx="15" fill="rgba(70,94,255,.18)"/>
   ${txt(x+43, CY+50, a.papel, {p:700, t:14, f:AZUL, ls:2.2})}
   ${txt(x+30, CY+105, a.nome, {p:800, t:36, f:'#FFFFFF', ls:-0.8})}
-  ${a.desc.map((l,k)=>txt(x+30, CY+146+k*27, l, {t:19.5})).join('')}
-  <line x1="${x+30}" y1="${CY+CH-74}" x2="${x+CW-30}" y2="${CY+CH-74}" stroke="${BORDA}" stroke-width="1"/>
-  ${txt(x+30, CY+CH-46, 'PRODUZ', {p:700, t:13, f:LILAS, ls:2})}
-  ${txt(x+30, CY+CH-20, a.saida, {p:600, t:19, f:AMARELO})}`;
+  ${txt(x+30, CY+148, 'ABSORVE O TRABALHO DE', {p:700, t:12.5, f:'rgba(158,171,255,.72)', ls:1.8})}
+  ${a.absorve.map((l,k)=>txt(x+30, CY+176+k*25, l, {t:19, f:'#FFFFFF'})).join('')}
+  <line x1="${x+30}" y1="${CY+222}" x2="${x+CW-30}" y2="${CY+222}" stroke="${BORDA}" stroke-width="1"/>
+  ${txt(x+30, CY+250, 'E ENTREGA', {p:700, t:12.5, f:'rgba(252,252,48,.75)', ls:1.8})}
+  ${a.entrega.map((l,k)=>txt(x+30, CY+278+k*25, l, {t:19, f:AMARELO})).join('')}`;
 }).join('');
 
 /* ── porta humana ───────────────────────────────────────── */
-const HY=890, HH=104;
+const HY=916, HH=100;
 const humano = `
   <rect x="${MG}" y="${HY}" width="${W}" height="${HH}" rx="20" fill="${AMARELO}"/>
-  ${txt(MG+38, HY+46, 'NENHUM DELES DECIDE', {p:700, t:16, f:'rgba(15,20,51,.6)', ls:2.6})}
-  ${txt(MG+38, HY+80, 'Toda proposta chega à GEPES como pendência — e só vale depois que uma pessoa aprova.',
-        {p:700, t:27, f:NAVY, ls:-0.4})}`;
+  ${txt(MG+38, HY+44, 'O QUE ISSO DESTRAVA', {p:700, t:15, f:'rgba(15,20,51,.6)', ls:2.6})}
+  ${txt(MG+38, HY+78, 'Plano individual para cada pessoa, com o mesmo critério — em minutos, não em horas de especialista.',
+        {p:700, t:26, f:NAVY, ls:-0.4})}`;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${L}" height="${L}" viewBox="0 0 ${L} ${L}">
   <defs>
@@ -88,8 +89,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${L}" height="${L}" 
       <path d="${dLogo}" fill="${AMARELO}" fill-rule="evenodd"/>
     </g>
     ${txt(L-MG, 112, 'DEMONSTRAÇÃO · ALUN BUSINESS', {p:600, t:17, f:LILAS, ls:2.6, a:'end'})}
-    ${txt(MG, 206, 'O FLUXO MULTIAGENTE POR TRÁS DA AVALIAÇÃO', {p:600, t:19, f:AZUL, ls:3.4})}
-    ${txt(MG, 284, 'Quatro agentes. Nenhum deles decide.', {p:800, t:68, f:'#FFFFFF', ls:-2.2})}
+    ${txt(MG, 196, 'AUTOMAÇÃO AGÊNTICA POR TRÁS DE CADA AVALIAÇÃO', {p:600, t:19, f:AZUL, ls:3.4})}
+    ${txt(MG, 268, 'Montar um PDI de verdade é trabalho especializado.', {p:800, t:56, f:'#FFFFFF', ls:-1.8})}
+    ${txt(MG, 330, 'Três agentes fazem as três partes. Um orquestrador costura.', {p:800, t:56, f:AMARELO, ls:-1.8})}
     ${orq}${cards}${humano}
   </g>
 </svg>`;
