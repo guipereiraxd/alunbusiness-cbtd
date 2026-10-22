@@ -776,22 +776,28 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     var tecM = com[0].tec.max || 28;
     var tec  = med(com.map(function(d){ return d.tec.pontos; }));
     var pi = pctIndice(idx), pt = pctTec(tec, tecM);
-    var dif = pi - pt;
+    /* A diferença sai dos valores JÁ ARREDONDADOS, não dos exatos. Com
+       57,35% e 42,54% a conta exata dá 14,81 e arredondaria para 15,
+       enquanto a tela mostra 57 e 43 — e quem subtrai o que está vendo
+       chega a 14. Entre o número mais exato e o número que fecha com os
+       outros números da tela, o segundo vale mais: o primeiro parece erro. */
+    var pIdx = Math.round(pi), pTec = Math.round(pt);
+    var dif = pIdx - pTec;
 
     document.getElementById("cmp").innerHTML =
       '<div class="lado">'
       + '<div class="q">O grupo se acha pronto?</div>'
       + '<div class="cd">percepção · índice de prontidão</div>'
-      + '<div class="n">'+p0(pi)+'</div>'
+      + '<div class="n">'+pIdx+'%</div>'
       + '<div class="s">Média de <b>'+n1(idx)+' de 48</b>. Como as 13 perguntas começam em 1, '
       +   '12 pontos entram só por responder — por isso a fração é sobre os 36 que dá para conquistar.</div>'
       + '</div>'
-      + '<div class="meio"><div><div class="d">'+(dif>=0?"+":"")+Math.round(dif)+'</div>'
+      + '<div class="meio"><div><div class="d">'+(dif>=0?"+":"")+dif+'</div>'
       +   '<div class="dl">pontos<br>de diferença</div></div></div>'
       + '<div class="lado pra">'
       + '<div class="q">O que o grupo consegue fazer?</div>'
       + '<div class="cd">prática · competência técnica</div>'
-      + '<div class="n">'+p0(pt)+'</div>'
+      + '<div class="n">'+pTec+'%</div>'
       + '<div class="s">Média de <b>'+n1(tec)+' de '+tecM+'</b>. Esta escala tem zero verdadeiro: '
       +   'quem não faz nada marca zero, e a fração é direta.</div>'
       + '</div>';
@@ -802,7 +808,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     var dTec = Math.round(pctTec(Math.max.apply(null,pts),tecM) - pctTec(Math.min.apply(null,pts),tecM));
 
     document.getElementById("cmp-n").innerHTML = (dif > 0
-        ? "<b>O grupo se vê " + Math.round(dif) + " pontos acima do que a prática entrega.</b> "
+        ? "<b>O grupo se vê " + dif + " pontos acima do que a prática entrega.</b> "
         : "<b>A prática está à frente da percepção neste grupo.</b> ")
       + "E a diferença não é só de altura: na percepção o grupo ocupa uma faixa de " + dIdx
       + " pontos percentuais, na prática ocupa " + dTec + ". "
