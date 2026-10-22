@@ -105,6 +105,35 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   .dim-leg i{display:block;width:4px;height:15px;border-radius:2px}
   .dim-leg i.faixa{width:22px;height:11px;border-radius:6px;background:var(--blue-300);opacity:.5}
 
+  /* percepção x prática — a faixa que abre a leitura do grupo */
+  .cmp{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:24px}
+  @media(max-width:760px){.cmp{grid-template-columns:1fr}}
+  .cmp .lado{padding:24px 26px;background:var(--paper)}
+  .cmp .lado.pra{background:var(--blue-900)}
+  .cmp .q{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-.015em}
+  .cmp .pra .q{color:#fff}
+  .cmp .cd{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--tx-3);margin-top:7px}
+  .cmp .pra .cd{color:var(--blue-300)}
+  .cmp .n{font-family:var(--disp);font-weight:800;font-size:52px;line-height:1;letter-spacing:-.03em;
+    color:var(--blue);margin-top:18px}
+  .cmp .pra .n{color:var(--yellow)}
+  .cmp .n small{font-size:19px;font-weight:600;color:var(--tx-3);letter-spacing:0}
+  .cmp .pra .n small{color:var(--blue-300)}
+  .cmp .s{font-size:13px;line-height:1.55;color:var(--tx-2);margin-top:11px}
+  .cmp .s b{color:var(--ink)}
+  .cmp .pra .s{color:var(--blue-100)}
+  /* no cartão escuro o negrito herdava a cor de tinta e sumia no fundo */
+  .cmp .pra .s b{color:#fff}
+  .cmp .meio{display:grid;place-items:center;padding:0 20px;background:var(--canvas);
+    border-left:1px solid var(--line);border-right:1px solid var(--line)}
+  @media(max-width:760px){.cmp .meio{padding:16px;border:0;border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line)}}
+  .cmp .meio .d{font-family:var(--disp);font-weight:800;font-size:30px;color:var(--ink);line-height:1}
+  .cmp .meio .dl{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--tx-3);margin-top:8px;text-align:center;line-height:1.5}
+
   /* tempo economizado */
   .tg{display:grid;grid-template-columns:330px 1fr;gap:26px;margin-top:30px}
   @media(max-width:880px){.tg{grid-template-columns:1fr}}
@@ -368,10 +397,34 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 <div id="corpo" style="display:none">
   <div class="wrap">
 
+    <section class="sec" id="sec-cmp">
+      <h2>Percepção e prática não dizem a mesma coisa</h2>
+      <p class="d">O assessment faz duas perguntas diferentes ao mesmo grupo, em escalas diferentes.
+         Aqui elas aparecem na mesma base — percentual do que cada escala permite conquistar — porque
+         é a diferença entre as duas que orienta a decisão, não cada uma isolada.</p>
+      <div class="cmp" id="cmp"></div>
+      <div class="nota" id="cmp-n"></div>
+    </section>
+
+    <section class="sec" id="sec-tec">
+      <h2>O que o grupo consegue fazer</h2>
+      <p class="d">A <b>prática</b>. Sete perguntas que pedem o nível mais alto que a pessoa
+         executa de forma consistente, agrupadas em seis domínios. Tem escala própria e
+         <b>não entra no índice de prontidão</b>. É esta leitura que mais orienta a escolha de
+         curso, porque descreve execução — e é aqui que o grupo se separa.</p>
+      <div class="tec">
+        <div class="tec-big" id="tec-big"></div>
+        <div class="tec-d" id="tec-d"></div>
+      </div>
+      <div class="nota" id="tec-n"></div>
+    </section>
+
     <section class="sec">
-      <h2>Como o grupo se distribui</h2>
-      <p class="d">O perfil é o degrau que a pessoa sustenta nas duas pontas: para que usa e com quanta
-         autonomia. O índice soma as quatro dimensões de prontidão, de 12 a 48 pontos.</p>
+      <h2>O que o grupo acha que consegue</h2>
+      <p class="d">A <b>percepção</b>. O perfil é o degrau que a pessoa sustenta nas duas pontas —
+         para que usa e com quanta autonomia — e o índice soma as quatro dimensões de prontidão.
+         Repare que aqui o grupo é muito mais homogêneo do que na página anterior: é o que
+         acontece quando se pergunta percepção em vez de execução.</p>
       <div class="cols">
         <div class="card">
           <h3>Perfil de uso</h3>
@@ -381,7 +434,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         </div>
         <div class="card">
           <h3>Índice de prontidão</h3>
-          <div class="cd">Distribuição em quatro faixas · 12 a 48 pontos</div>
+          <div class="cd">Distribuição em quatro faixas · 12 a 48 pontos, com piso em 12</div>
           <div class="hist" id="hist"></div>
           <div class="nota" style="margin-top:17px" id="hist-n"></div>
         </div>
@@ -411,19 +464,6 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         <span><i style="background:var(--yellow-600)"></i>você</span>
       </div>
       <div class="nota" id="dim-n"></div>
-    </section>
-
-    <section class="sec" id="sec-tec">
-      <h2>Domínios de conhecimento técnico</h2>
-      <p class="d">O que o grupo já faz na prática, agrupado em seis domínios de competência.
-         Tem escala própria e <b>não entra no índice de prontidão</b>, que é calibrado de outro
-         jeito. É esta leitura que mais orienta a escolha de curso, porque descreve execução e
-         não percepção.</p>
-      <div class="tec">
-        <div class="tec-big" id="tec-big"></div>
-        <div class="tec-d" id="tec-d"></div>
-      </div>
-      <div class="nota" id="tec-n"></div>
     </section>
 
     <section class="sec">
@@ -604,7 +644,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     document.getElementById("corpo").style.display = vazio ? "none" : "block";
     document.getElementById("kp").style.display    = vazio ? "none" : "grid";
     if (vazio) return;
-    kpis(); acao(); amostra(); perfis(); hist(); tempo(); dims(); tecnicas(); needs(); macros(); fila(); tabela();
+    kpis(); acao(); amostra(); perfis(); hist(); tempo(); dims(); tecnicas();
+    comparacao(); needs(); macros(); fila(); tabela();
   }
 
   function modo(res){
@@ -718,6 +759,61 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   function descP(id){ var o=perfObj(id); return o?o.desc:""; }
 
   /* ---------- histograma ---------- */
+  /* ---------- percepção x prática ----------
+     O índice vai de 12 a 48: 12 pontos são dados só por responder, porque
+     nenhuma das 13 perguntas aceita zero. Ler "32 de 48" como 68% infla —
+     são 57% do que dá para conquistar. O técnico tem zero verdadeiro, então
+     a fração dele é direta. Só depois de normalizar os dois é que a
+     comparação entre o que o grupo acha e o que ele faz tem sentido. */
+  var PISO_IDX = 12, TETO_IDX = 48;
+  function pctIndice(v){ return (v - PISO_IDX) / (TETO_IDX - PISO_IDX) * 100; }
+  function pctTec(v, max){ return v / (max || 28) * 100; }
+  function p0(x){ return Math.round(x) + "%"; }
+
+  function comparacao(){
+    var sec = document.getElementById("sec-cmp");
+    var com = dados.filter(function(d){ return d.tec; });
+    if (!com.length){ sec.style.display = "none"; return; }
+    sec.style.display = "";
+
+    var idx  = med(dados.map(function(d){ return d.calc.indice; }));
+    var tecM = com[0].tec.max || 28;
+    var tec  = med(com.map(function(d){ return d.tec.pontos; }));
+    var pi = pctIndice(idx), pt = pctTec(tec, tecM);
+    var dif = pi - pt;
+
+    document.getElementById("cmp").innerHTML =
+      '<div class="lado">'
+      + '<div class="q">O grupo se acha pronto?</div>'
+      + '<div class="cd">percepção · índice de prontidão</div>'
+      + '<div class="n">'+p0(pi)+'</div>'
+      + '<div class="s">Média de <b>'+n1(idx)+' de 48</b>. Como as 13 perguntas começam em 1, '
+      +   '12 pontos entram só por responder — por isso a fração é sobre os 36 que dá para conquistar.</div>'
+      + '</div>'
+      + '<div class="meio"><div><div class="d">'+(dif>=0?"+":"")+Math.round(dif)+'</div>'
+      +   '<div class="dl">pontos<br>de diferença</div></div></div>'
+      + '<div class="lado pra">'
+      + '<div class="q">O que o grupo consegue fazer?</div>'
+      + '<div class="cd">prática · competência técnica</div>'
+      + '<div class="n">'+p0(pt)+'</div>'
+      + '<div class="s">Média de <b>'+n1(tec)+' de '+tecM+'</b>. Esta escala tem zero verdadeiro: '
+      +   'quem não faz nada marca zero, e a fração é direta.</div>'
+      + '</div>';
+
+    var dIdx = Math.round(pctIndice(Math.max.apply(null, dados.map(function(d){return d.calc.indice;})))
+                        - pctIndice(Math.min.apply(null, dados.map(function(d){return d.calc.indice;}))));
+    var pts = com.map(function(d){ return d.tec.pontos; });
+    var dTec = Math.round(pctTec(Math.max.apply(null,pts),tecM) - pctTec(Math.min.apply(null,pts),tecM));
+
+    document.getElementById("cmp-n").innerHTML = (dif > 0
+        ? "<b>O grupo se vê " + Math.round(dif) + " pontos acima do que a prática entrega.</b> "
+        : "<b>A prática está à frente da percepção neste grupo.</b> ")
+      + "E a diferença não é só de altura: na percepção o grupo ocupa uma faixa de " + dIdx
+      + " pontos percentuais, na prática ocupa " + dTec + ". "
+      + "Percepção homogeneíza; execução separa. É por isso que a escolha de curso sai do bloco "
+      + "técnico, e não do índice.";
+  }
+
   function hist(){
     var bal = FAIXAS.map(function(f){
       var g = dados.filter(function(d){ return d.calc.indice>=f.de && d.calc.indice<=f.ate; });
@@ -733,11 +829,15 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         + '</div><div class="hl">'+b.f.r+'</div></div>';
     }).join("");
     var minha = dados.filter(function(d){return d.eu;})[0];
-    document.getElementById("hist-n").innerHTML = minha
-      ? "<b>Seu índice: "+minha.calc.indice+" de 48.</b> A faixa em amarelo é a sua. "
+    document.getElementById("hist-n").innerHTML = (minha
+      ? "<b>Seu índice: "+minha.calc.indice+" de 48</b> — "+p0(pctIndice(minha.calc.indice))
+        + " do que dá para conquistar. A faixa em amarelo é a sua. "
         + "Metade do grupo está abaixo de "+mediana()+" pontos."
-      : "Metade do grupo está abaixo de <b>"+mediana()+" pontos</b>. "
-        + "Nenhum dos registros é o seu — responda o assessment para se localizar na distribuição.";
+      : "Metade do grupo está abaixo de <b>"+mediana()+" pontos</b> ("
+        + p0(pctIndice(mediana())) + " do alcançável). "
+        + "Nenhum dos registros é o seu — responda o assessment para se localizar na distribuição.")
+      + " A escala começa em 12, não em zero: <b>as 13 perguntas não aceitam resposta nula</b>, "
+      + "então a primeira faixa só alcança quem quase não usa IA nem tem ferramenta.";
   }
   function mediana(){
     var a = dados.map(function(d){return d.calc.indice;}).sort(function(x,y){return x-y;});
@@ -846,7 +946,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 
     document.getElementById("tec-big").innerHTML =
       '<div class="n">'+n1(med(pts))+'<small> / '+(com[0].tec.max || 28)+'</small></div>'
-      + '<div class="l">pontuação média do grupo</div>'
+      + '<div class="l">pontuação média do grupo · '+p0(pctTec(med(pts), com[0].tec.max || 28))+' da escala</div>'
       + '<div class="niveis">'
       +   B.NIVEIS_TEC.map(function(nv){
             var q = distr[nv.nome]||0;
