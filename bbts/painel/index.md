@@ -232,6 +232,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     font-family:var(--mono);font-size:10.5px;letter-spacing:.06em}
   .acoes .env{color:var(--ok)}
   .acoes .del{color:var(--tx-3)}
+  .acoes .pdf{color:var(--blue-700)}
+  .acoes .pdf:hover{text-decoration:underline}
   .acoes .env:hover{text-decoration:underline}
   .acoes .del:hover{color:var(--alert);text-decoration:underline}
   /* diálogo */
@@ -1147,6 +1149,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     sim.textContent = o.confirmar || "Confirmar";
     sim.className = o.perigo ? "per" : "pri";
     sim.disabled = false;
+    nao.style.display = o.semCancelar ? "none" : "";
     bg.classList.add("on");
 
     function fecha(){ bg.classList.remove("on"); prev.srcdoc=""; limpa(); }
@@ -1218,8 +1221,10 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   /* ---------- e-mail do PDI aprovado ----------
      HTML de e-mail: tabelas e estilo embutido, porque cliente de e-mail
      ignora folha de estilo e boa parte de flex/grid. */
-  function emailDoPDI(d){
-    var nome  = (d.reg.nome||"").split(" ")[0] || "Olá";
+  /* O e-mail e o PDF precisam dizer exatamente a mesma coisa: são o mesmo
+     plano, lido em dois suportes. A ficha fica aqui uma vez só — o que muda
+     entre eles é só a moldura em volta. */
+  function fichaDoPDI(d){
     var calc  = d.calc, T = d.reg.T||{};
     var pf    = E.perfilCatalogo(T, d.alvo);
     var plano = d.plano || E.planejar(E.candidatos(d.lac, d.reg.R, pf), d.ded);
@@ -1252,6 +1257,30 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         + '<div style="font:700 20px/1.2 Helvetica,Arial,sans-serif;color:#12152B;margin-top:5px">'+esc(v)+'</div></td>';
     };
 
+    var kpis = '<table width="100%" cellspacing="8" cellpadding="0"><tr>'
+      +   linha("Índice de prontidão", calc.indice+" de 48")
+      +   linha("Perfil", calc.perfil.nome)
+      + '</tr><tr>'
+      +   linha("Dedicação declarada", (d.ded||0)+" h/semana")
+      +   linha("No plano", plano.totalC+" cursos · "+plano.totalH+"h")
+      + '</tr></table>';
+
+    var ressalva = '<div style="background:#FFFFDB;border:1px solid #C9C90E;border-radius:12px;'
+      +   'padding:16px 18px;margin:8px 0 24px">'
+      +   '<div style="font:700 14px/1.4 Helvetica,Arial,sans-serif;color:#12152B">Duas coisas importantes</div>'
+      +   '<div style="font:400 14px/1.55 Helvetica,Arial,sans-serif;color:#3B4163;margin-top:7px">'
+      +     'Concluir curso não eleva nível por si só — a evolução precisa de evidência prática. '
+      +     'E a carga horária é a do curso, não a do seu ritmo — o tempo real depende de quanto '
+      +     'se consegue praticar entre uma aula e outra.</div>'
+      + '</div>';
+
+    return { plano: plano, ciclos: ciclos, kpis: kpis, ressalva: ressalva };
+  }
+
+  function emailDoPDI(d){
+    var nome = (d.reg.nome||"").split(" ")[0] || "Olá";
+    var f = fichaDoPDI(d), plano = f.plano;
+
     var html =
       '<div style="margin:0;padding:26px 14px;background:#F4F5FB">'
     + '<table align="center" width="600" cellspacing="0" cellpadding="0" style="max-width:600px;'
@@ -1270,25 +1299,12 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     +   esc(nome)+', a GEPES revisou e aprovou o plano gerado a partir do seu assessment. '
     +   'Ele vale para os próximos quatro ciclos de 90 dias.</p>'
 
-    + '<table width="100%" cellspacing="8" cellpadding="0"><tr>'
-    +   linha("Índice de prontidão", calc.indice+" de 48")
-    +   linha("Perfil", calc.perfil.nome)
-    + '</tr><tr>'
-    +   linha("Dedicação declarada", (d.ded||0)+" h/semana")
-    +   linha("No plano", plano.totalC+" cursos · "+plano.totalH+"h")
-    + '</tr></table>'
+    + f.kpis
 
     + '<h2 style="font:700 19px/1.3 Helvetica,Arial,sans-serif;color:#12152B;margin:30px 0 16px">'
     +   'O plano, ciclo a ciclo</h2>'
-    + ciclos
-
-    + '<div style="background:#FFFFDB;border:1px solid #C9C90E;border-radius:12px;padding:16px 18px;margin:8px 0 24px">'
-    +   '<div style="font:700 14px/1.4 Helvetica,Arial,sans-serif;color:#12152B">Duas coisas importantes</div>'
-    +   '<div style="font:400 14px/1.55 Helvetica,Arial,sans-serif;color:#3B4163;margin-top:7px">'
-    +     'Concluir curso não eleva nível por si só — a evolução precisa de evidência prática. '
-    +     'E a carga horária é a do curso, não a do seu ritmo — o tempo real depende de quanto '
-    +     'você consegue praticar entre uma aula e outra.</div>'
-    + '</div>'
+    + f.ciclos
+    + f.ressalva
 
     + '<a href="'+URL_ABS+'resultado/?id='+encodeURIComponent(d.reg.id)+'" '
     +   'style="display:inline-block;background:#465EFF;color:#FFFFFF;text-decoration:none;'
@@ -1300,6 +1316,95 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     + '</div></td></tr></table></div>';
 
     return { assunto: "Seu PDI em IA e Dados foi aprovado", html: html };
+  }
+
+  /* ---------- PDI em PDF ----------
+     Sem biblioteca: monta o documento e entrega para a impressão do próprio
+     navegador, que já salva em PDF. O texto sai selecionável e pesquisável,
+     o que um PDF rasterizado (html2canvas) não dá — e o arquivo nasce do
+     mesmo fichaDoPDI() que alimenta o e-mail, então os dois não divergem. */
+  function documentoDoPDI(d){
+    var f = fichaDoPDI(d), plano = f.plano, calc = d.calc;
+    var nome = d.reg.nome || "Colaborador";
+    var hoje = new Date().toLocaleDateString("pt-BR", {day:"2-digit", month:"long", year:"numeric"});
+
+    return '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">'
+      + '<title>PDI · ' + esc(nome) + '</title><style>'
+      +   '@page{size:A4;margin:16mm 14mm}'
+      +   'html,body{margin:0;padding:0;background:#fff;'
+      +     '-webkit-print-color-adjust:exact;print-color-adjust:exact}'
+      +   '.folha{max-width:640px;margin:0 auto}'
+      /* um ciclo não deve começar no fim de uma página e terminar na seguinte */
+      +   '.folha h2{break-after:avoid;page-break-after:avoid}'
+      +   '.folha > div > div[style*="margin:0 0 22px"]{break-inside:avoid;page-break-inside:avoid}'
+      +   '@media print{.aviso{display:none}}'
+      + '</style></head><body><div class="folha">'
+
+      + '<div class="aviso" style="background:#ECEEF8;border-radius:10px;padding:13px 16px;margin:0 0 22px;'
+      +   'font:400 13.5px/1.5 Helvetica,Arial,sans-serif;color:#3B4163">'
+      +   'A janela de impressão vai abrir sozinha. Escolha <b>Salvar como PDF</b> no destino. '
+      +   'Esta faixa não sai no arquivo.</div>'
+
+      + '<div style="border-bottom:3px solid #0F1433;padding-bottom:16px;margin-bottom:22px">'
+      +   '<div style="font:700 12px/1 ui-monospace,monospace;letter-spacing:.16em;color:#465EFF">BBTS</div>'
+      +   '<div style="font:700 25px/1.25 Helvetica,Arial,sans-serif;color:#12152B;margin-top:9px">'
+      +     'Plano de Desenvolvimento Individual</div>'
+      +   '<div style="font:400 14.5px/1.5 Helvetica,Arial,sans-serif;color:#5E648D;margin-top:5px">'
+      +     'Avaliação de Prontidão em IA · 12 meses em quatro ciclos de 90 dias</div>'
+      + '</div>'
+
+      + '<table width="100%" cellspacing="0" cellpadding="0" '
+      +   'style="font:400 14px/1.5 Helvetica,Arial,sans-serif;color:#3B4163;margin:0 0 24px">'
+      +   '<tr><td style="padding:3px 0;width:120px;color:#8D91B0">Colaborador</td>'
+      +     '<td style="padding:3px 0;color:#12152B;font-weight:600">' + esc(nome) + '</td></tr>'
+      +   (d.reg.email ? '<tr><td style="padding:3px 0;color:#8D91B0">E-mail</td>'
+      +     '<td style="padding:3px 0">' + esc(d.reg.email) + '</td></tr>' : '')
+      +   '<tr><td style="padding:3px 0;color:#8D91B0">Situação</td>'
+      +     '<td style="padding:3px 0">' + esc(ST[d.status] || d.status) + '</td></tr>'
+      +   '<tr><td style="padding:3px 0;color:#8D91B0">Emitido em</td>'
+      +     '<td style="padding:3px 0">' + esc(hoje) + '</td></tr>'
+      + '</table>'
+
+      + (d.reg.T && d.reg.T.obj
+          ? '<div style="border-left:3px solid #465EFF;padding:2px 0 2px 15px;margin:0 0 24px">'
+          +   '<div style="font:600 11px/1 ui-monospace,monospace;letter-spacing:.1em;'
+          +     'text-transform:uppercase;color:#5E648D">Objetivo declarado</div>'
+          +   '<div style="font:400 15px/1.55 Helvetica,Arial,sans-serif;color:#3B4163;margin-top:7px">'
+          +     esc(d.reg.T.obj) + '</div></div>'
+          : '')
+
+      + f.kpis
+
+      + '<h2 style="font:700 19px/1.3 Helvetica,Arial,sans-serif;color:#12152B;margin:30px 0 16px">'
+      +   'O plano, ciclo a ciclo</h2>'
+      + f.ciclos
+      + f.ressalva
+
+      + '<div style="border-top:1px solid #DDDFEE;margin-top:26px;padding-top:14px;'
+      +   'font:400 12.5px/1.55 Helvetica,Arial,sans-serif;color:#8D91B0">'
+      +   'Proposta gerada a partir do assessment e <b>revisada por uma pessoa da GEPES</b> antes de valer. '
+      +   'Demonstração · Alun Business para a BBTS.</div>'
+
+      + '</div></body></html>';
+  }
+
+  function gerarPDF(d){
+    var w = window.open("", "_blank");
+    if (!w){
+      dialogo({
+        titulo: "O navegador bloqueou a janela",
+        sub: "O PDF abre numa aba nova, e o bloqueador de pop-up impediu. Libere pop-ups "
+           + "para este site e clique em PDF de novo.",
+        confirmar: "Entendi", semCancelar: true, aoConfirmar: function(){ return Promise.resolve(); }
+      });
+      return;
+    }
+    w.document.open();
+    w.document.write(documentoDoPDI(d));
+    w.document.close();
+    /* o print precisa do documento já montado; sem o timeout o Safari
+       abre a caixa de impressão com a página ainda em branco */
+    w.onload = function(){ setTimeout(function(){ w.focus(); w.print(); }, 350); };
   }
 
   /* ---------- tabela ---------- */
@@ -1373,6 +1478,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
             : '<select class="st" data-id="'+esc(d.reg.id)+'">'+op+'</select>')+'</td>'
         + '<td class="r"><div class="acoes">'
         +   '<a class="lnk" href="'+URL_RES+'?id='+encodeURIComponent(d.reg.id)+'">ver PDI →</a>'
+        +   '<button class="pdf" data-pdf="'+esc(d.reg.id)+'">PDF</button>'
         +   (d.reg.seed ? '' :
                 (d.status==="aprovado" && d.reg.email ? '<button class="env" data-env="'+esc(d.reg.id)+'">enviar</button>' : '')
               + '<button class="del" data-del="'+esc(d.reg.id)+'">excluir</button>')
@@ -1385,6 +1491,12 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         '<tr><td colspan="7"><div class="vazio-t">Nenhum colaborador com esse status.</div></td></tr>';
     }
 
+    document.getElementById("tb").querySelectorAll("button[data-pdf]").forEach(function(b){
+      b.addEventListener("click", function(){
+        var d = dados.filter(function(x){ return x.reg.id === b.dataset.pdf; })[0];
+        if (d) gerarPDF(d);
+      });
+    });
     document.getElementById("tb").querySelectorAll("button[data-del]").forEach(function(b){
       b.addEventListener("click", function(){
         var d = dados.filter(function(x){ return x.reg.id === b.dataset.del; })[0];
