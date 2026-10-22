@@ -255,12 +255,31 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
       A frequência de uso, P1, fica deliberadamente de fora: usar todo dia não diz nada sobre o que
       se faz nem sobre conseguir avaliar a resposta.</p>
 
+    <h3 style="font-family:var(--disp);font-weight:600;font-size:16px;color:var(--ink);margin:26px 0 8px">
+      O degrau 3 precisa de lastro na prática</h3>
+    <p class="d">P2 e P3 são percepção. O degrau 3 afirma duas coisas verificáveis — <i>uso IA para
+      fazer meu trabalho</i> e <i>percebo quando a resposta não está boa</i> — e o bloco técnico
+      pergunta exatamente isso pela prática. Quando as duas leituras discordam, a prática decide:
+      <b>autonomia exige T1 ≥ 2 e T2 ≥ 2</b>, e quem não tem esse lastro fica no degrau 2.</p>
+    <div class="form">
+      <div class="t">Por que esses dois níveis</div>
+      <div class="eq">
+        T1 nível 1 &nbsp;=&nbsp; <em>“pedidos simples e genéricos”</em><br>
+        T2 nível 1 &nbsp;=&nbsp; <em>“avalio se a resposta parece fazer sentido”</em>
+      </div>
+      <div class="n">Pedido genérico não é fazer o próprio trabalho com IA, e achar que a resposta
+        <b>parece</b> fazer sentido é o oposto de reconhecer que ela não serve — é a ilusão de
+        verificação. A porta não inventa um critério novo: cobra o comportamento que o próprio
+        degrau 3 descreve. Quem não respondeu o bloco técnico mantém o degrau declarado, porque sem
+        dado não há o que confirmar, e rebaixar por ausência seria pior que aceitar.</div>
+    </div>
+
     <div class="perf">
       <div class="p"><span class="fx">degrau 1</span><span class="nm">Iniciante</span>
         <span class="ds">Não usa IA no trabalho, ou usa sem conseguir avaliar o resultado.</span></div>
-      <div class="p"><span class="fx">degrau 2</span><span class="nm">Usuário assistido</span>
+      <div class="p"><span class="fx">degrau 2</span><span class="nm">Praticante</span>
         <span class="ds">Usa no próprio trabalho, mas depende de exemplo pronto ou de alguém para destravar.</span></div>
-      <div class="p"><span class="fx">degrau 3</span><span class="nm">Usuário autônomo</span>
+      <div class="p"><span class="fx">degrau 3</span><span class="nm">Autônomo</span>
         <span class="ds">Resolve sozinho e reconhece quando a resposta não serve.</span></div>
       <div class="p"><span class="fx">degrau 4</span><span class="nm">Construtor</span>
         <span class="ds">O que faz com IA serve a outras pessoas: criou algo que o time usa, ou ensina.</span></div>

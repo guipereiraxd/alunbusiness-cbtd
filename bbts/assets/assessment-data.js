@@ -252,12 +252,15 @@ window.BBTS = (function(){
      perfil passa a ser o degrau que a pessoa sustenta nas duas pontas —
      o elo mais fraco é que define, como em qualquer leitura de
      competência. */
+  /* lastro mínimo em T1 e T2 para alguém sustentar o degrau de autonomia */
+  const PORTA_TECNICA = 2;
+
   const PERFIS = [
     { id:"iniciante", nivel:1, nome:"Iniciante",
       desc:"Não usa IA no trabalho, ou usa sem conseguir avaliar o resultado." },
-    { id:"assistido", nivel:2, nome:"Usuário assistido",
+    { id:"assistido", nivel:2, nome:"Praticante",
       desc:"Usa no próprio trabalho, mas depende de exemplo pronto ou de alguém para destravar." },
-    { id:"autonomo",  nivel:3, nome:"Usuário autônomo",
+    { id:"autonomo",  nivel:3, nome:"Autônomo",
       desc:"Resolve sozinho e reconhece quando a resposta não serve — é o que separa usar de depender." },
     { id:"construtor", nivel:4, nome:"Construtor",
       desc:"O que faz com IA serve a outras pessoas: criou algo que o time usa, ou ensina e corrige." }
@@ -275,14 +278,34 @@ window.BBTS = (function(){
     const indice     = sub.uso + sub.base + sub.infl + sub.ctx;  // 12–48
     const capacidade = sub.uso + sub.base + sub.infl;             // 9–36
     const somaPerfil = v("P2") + v("P3");                         // 2–8, só para exibição
-    const elo = Math.min(v("P2") || 1, v("P3") || 1);              // o degrau sustentado
+    const eloDeclarado = Math.min(v("P2") || 1, v("P3") || 1);     // o degrau sustentado
+
+    /* ── porta técnica ────────────────────────────────────────
+       P2 e P3 medem percepção; o degrau 3 promete "uso para fazer meu
+       trabalho" e "percebo quando a resposta não está boa". O bloco
+       técnico pergunta a mesma coisa pela prática, e as duas leituras
+       discordavam: 74% do primeiro grupo real se declarou autônomo,
+       com técnico médio de 12 de 28.
+
+       A promessa do degrau 3 só vale com lastro nas duas perguntas que
+       descrevem exatamente esse comportamento — e o nível 1 de cada uma
+       é justamente a versão que não sustenta a afirmação:
+         T1=1 "pedidos simples e genéricos" não é fazer o trabalho com IA;
+         T2=1 "parece fazer sentido" é o oposto de perceber que não serve.
+       Sem o bloco técnico respondido não há o que corroborar, e o
+       declarado vale — rebaixar por ausência de dado seria pior. */
+    const temTec = ["T1","T2"].every(id => r[id] !== undefined && r[id] !== null && r[id] !== "");
+    const lastro = Math.min(v("T1"), v("T2"));
+    const elo = (temTec && eloDeclarado >= 3 && lastro < PORTA_TECNICA)
+      ? 2 : eloDeclarado;
+    const rebaixado = elo < eloDeclarado;
     const perfil = PERFIS.find(p => p.nivel === elo) || PERFIS[0];
     /* quando a outra ponta está acima, a pessoa está a caminho do degrau seguinte */
-    const aCaminho = Math.max(v("P2"), v("P3")) > elo;
+    const aCaminho = !rebaixado && Math.max(v("P2"), v("P3")) > elo;
     return {
       sub, indice, capacidade,
       contexto: sub.ctx,
-      somaPerfil, elo, aCaminho, perfil,
+      somaPerfil, elo, eloDeclarado, rebaixado, aCaminho, perfil,
       horas: HORAS[v("P13")] ?? null,
       horasFaixa: HORAS_FAIXA[v("P13")] ?? null,
       /* proporção de cada sub-índice em relação ao próprio teto — comparável entre blocos */
@@ -294,6 +317,6 @@ window.BBTS = (function(){
   }
 
   return { versao:"v6 · out/2026", perguntas, abertas, blocos, tecnicas, NIVEIS_TEC, DIMENSOES,
-           PERFIS, HORAS, HORAS_FAIXA, calcular, calcularTecnico, calcularDimensoes,
+           PERFIS, PORTA_TECNICA, HORAS, HORAS_FAIXA, calcular, calcularTecnico, calcularDimensoes,
            ESCADA_P, ESCADA_C, ESCADA_T };
 })();

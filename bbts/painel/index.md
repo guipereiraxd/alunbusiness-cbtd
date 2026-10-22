@@ -372,8 +372,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
          autonomia. O índice soma as quatro dimensões de prontidão, de 12 a 48 pontos.</p>
       <div class="cols">
         <div class="card">
-          <h3>Perfil declarado</h3>
-          <div class="cd">o degrau sustentado em P2 e P3</div>
+          <h3>Perfil de uso</h3>
+          <div class="cd">o degrau sustentado em P2 e P3, confirmado em T1 e T2</div>
           <div class="stk" id="stk"></div>
           <div class="lg" id="lg"></div>
         </div>
@@ -997,6 +997,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         "Contexto (3-12)": d.calc.contexto,
         "Perfil de uso": d.calc.perfil.nome,
         "A caminho do próximo degrau": d.calc.aCaminho ? "sim" : "não",
+        "Perfil declarado": (B.PERFIS.filter(function(p){ return p.nivel === d.calc.eloDeclarado; })[0]||{}).nome || "",
+        "Ajustado pela prática": d.calc.rebaixado ? "sim" : "não",
         "Dedicação (h/semana)": d.ded || "",
         "Tempo economizado (h/semana)": d.calc.horas === null ? "" : d.calc.horas
       };

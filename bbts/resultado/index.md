@@ -319,10 +319,15 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
     + '<div class="v y">'+calc.indice+' <small>/ 48</small></div>'
     + '<div class="f">capacidade '+calc.capacidade+' de 36 · contexto '+calc.contexto+' de 12</div></div>'
     + '<div class="kpi"><div class="k">Perfil de uso</div>'
-    + '<div class="l">degrau sustentado em P2 e P3</div>'
+    + '<div class="l">degrau sustentado em P2 e P3, confirmado na prática</div>'
     + '<div class="v" style="font-size:25px">'+esc(calc.perfil.nome)+'</div>'
     + '<div class="f">'+esc(calc.perfil.desc)
     +   (calc.aCaminho ? ' <b>Em uma das duas pontas você já está acima — a caminho do degrau seguinte.</b>' : '')
+    +   (calc.rebaixado ? ' <b>Você se descreveu como autônomo.</b> O degrau foi ajustado '
+    +     'porque, nas perguntas de prática, a formulação ou a verificação ainda está no primeiro '
+    +     'nível — pedido genérico, ou avaliar se a resposta “parece fazer sentido”. Reconhecer que '
+    +     'uma resposta não serve exige conferir em fonte, não achar que faz sentido. É um ajuste '
+    +     'pequeno de prática, e está endereçado no plano.' : '')
     + '</div></div>'
     + (tec
         ? '<div class="kpi"><div class="k">Competência técnica</div><div class="l">T1 a T7 · escala própria</div>'

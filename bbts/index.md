@@ -156,8 +156,8 @@ description: "Plataforma de avaliação de prontidão em IA da BBTS: assessment,
     <p class="lead">O perfil sai de duas perguntas apenas: <b>para que usa</b> e <b>se vira sozinho</b>. Frequência fica de fora de propósito — usar todos os dias sem autonomia não faz de ninguém um construtor.</p>
     <div class="grid g4" style="margin-top:28px">
       <div class="card hov"><div class="tag n" style="margin-bottom:10px">degrau 1</div><h3>Iniciante</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Não usa IA no trabalho, ou usa sem conseguir avaliar o resultado.</p></div>
-      <div class="card hov"><div class="tag b" style="margin-bottom:10px">degrau 2</div><h3>Usuário assistido</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Usa no próprio trabalho, mas depende de exemplo pronto ou de alguém para destravar.</p></div>
-      <div class="card hov"><div class="tag b" style="margin-bottom:10px">degrau 3</div><h3>Usuário autônomo</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Resolve sozinho e reconhece quando a resposta não serve.</p></div>
+      <div class="card hov"><div class="tag b" style="margin-bottom:10px">degrau 2</div><h3>Praticante</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Usa no próprio trabalho, mas depende de exemplo pronto ou de alguém para destravar.</p></div>
+      <div class="card hov"><div class="tag b" style="margin-bottom:10px">degrau 3</div><h3>Autônomo</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Resolve sozinho e reconhece quando a resposta não serve.</p></div>
       <div class="card hov"><div class="tag y" style="margin-bottom:10px">degrau 4</div><h3>Construtor</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">O que faz com IA serve a outras pessoas: criou algo que o time usa, ou ensina.</p></div>
     </div>
   </div>
