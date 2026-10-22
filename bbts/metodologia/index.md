@@ -524,10 +524,10 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
       </div>
     </div>
 
-    <div class="nota"><b>Carga horária estimada.</b> A base de cursos não traz duração por curso. As
-      horas exibidas vêm da profundidade declarada — Introdutório 8h, Intermediário 12h, Avançado 16h —
-      e devem ser substituídas pela carga real antes de qualquer uso institucional. A estimativa afeta
-      quantos cursos cabem por ciclo, não quais são recomendados.</div>
+    <div class="nota"><b>Carga horária real.</b> As horas de cada curso vêm da própria página dele no
+      catálogo da Alura — 711 dos 717. Seis cursos têm a página restrita a quem já tem matrícula e
+      usam a mediana do catálogo (8h). A carga vai de 1h a 20h e define quantos cursos cabem por
+      ciclo, não quais são recomendados.</div>
 
     <div class="nota"><b>Tudo é autodeclarado.</b> O índice mede o que a pessoa diz sobre si, não o que
       ela demonstrou. Serve para orientar conversa e desenho de plano — não para comparar pessoas nem

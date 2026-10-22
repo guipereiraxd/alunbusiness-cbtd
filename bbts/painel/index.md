@@ -1284,7 +1284,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     +   '<div style="font:700 14px/1.4 Helvetica,Arial,sans-serif;color:#12152B">Duas coisas importantes</div>'
     +   '<div style="font:400 14px/1.55 Helvetica,Arial,sans-serif;color:#3B4163;margin-top:7px">'
     +     'Concluir curso não eleva nível por si só — a evolução precisa de evidência prática. '
-    +     'E as cargas horárias são estimadas pela profundidade do curso, não medidas.</div>'
+    +     'E a carga horária é a do curso, não a do seu ritmo — o tempo real depende de quanto '
+    +     'você consegue praticar entre uma aula e outra.</div>'
     + '</div>'
 
     + '<a href="'+URL_ABS+'resultado/?id='+encodeURIComponent(d.reg.id)+'" '

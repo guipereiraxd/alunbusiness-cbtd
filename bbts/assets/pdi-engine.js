@@ -1,5 +1,6 @@
 /* BBTS · Motor de lacunas, seleção de cursos e planejamento de 12 meses
-   Catálogo: base real Alura (IA & Dados), 717 cursos. Carga horária estimada. */
+   Catálogo: base real Alura (IA & Dados), 717 cursos. Carga horária real,
+   lida da página de cada curso — ver nota em /bbts/metodologia/. */
 window.BBTS_PDI = (function(){
   const CAT = window.BBTS_CATALOGO;
 

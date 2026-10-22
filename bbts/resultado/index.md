@@ -507,7 +507,6 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   if (!tec) res.push("<b>Bloco técnico não respondido.</b> As cinco perguntas de competência "
     + "técnica entraram no instrumento depois deste assessment. Responder de novo refina bastante "
     + "a seleção de cursos, porque elas descrevem prática e não percepção.");
-  if (window.BBTS_CATALOGO.estimativaHoras) res.push("<b>Carga horária estimada.</b> A base de cursos não traz duração; as horas vêm da profundidade (Introdutório 8h · Intermediário 12h · Avançado 16h) e devem ser substituídas pela carga real antes do uso institucional.");
   var pend = lac.filter(function(l){return l.estado==="pendente";});
   if (pend.length) res.push("<b>"+pend.length+" item"+(pend.length>1?"s":"")+" pendente"+(pend.length>1?"s":"")+" de validação</b> — respondido como “não sei” ou “não se aplica”. Requer conversa com o gestor antes do próximo ciclo.");
   if (calc.contexto <= 6) res.push("<b>Contexto de trabalho baixo ("+calc.contexto+" de 12).</b> Formação não compensa falta de ferramenta, permissão ou agenda — o acordo com o gestor é pré-requisito.");
