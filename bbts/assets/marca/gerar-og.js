@@ -15,7 +15,7 @@ const MARCA = path.join(RAIZ, 'bbts/assets/marca/bbts-horizontal-amarelo.svg');
 const SAIDA = path.join(RAIZ, 'bbts/assets/og.png');
 const TMP   = fs.mkdtempSync('/tmp/og-');
 
-const d = (fs.readFileSync(MARCA, 'utf8').match(/<path[^>]*d="([^"]+)"/) || [])[1];
+const d = (fs.readFileSync(MARCA, 'utf8').match(/<path[^>]*?\sd="([^"]+)"/) || [])[1];
 if (!d) { console.error('Não achei o path da logomarca em', MARCA); process.exit(1); }
 
 const ESC = (58 / 36.36).toFixed(4);   /* logomarca a 58px de altura */

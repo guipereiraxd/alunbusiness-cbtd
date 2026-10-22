@@ -10,7 +10,7 @@ const RAIZ  = path.resolve(__dirname, '../../..');
 const MARCA = path.join(RAIZ, 'bbts/assets/marca/bbts-horizontal-amarelo.svg');
 const SAIDA = path.join(RAIZ, 'bbts/bbts-repositorio/capa-sistema.png');
 fs.mkdirSync(path.dirname(SAIDA), {recursive:true});
-const dLogo = (fs.readFileSync(MARCA,'utf8').match(/<path[^>]*d="([^"]+)"/)||[])[1];
+const dLogo = (fs.readFileSync(MARCA,'utf8').match(/<path[^>]*?\sd="([^"]+)"/)||[])[1];
 
 const L=1920, A=1080, OFF=(L-A)/2, MG=104, W=L-2*MG;
 const AZUL='#465EFF', AMARELO='#FCFC30', NAVY='#0F1433', LILAS='#9EABFF',

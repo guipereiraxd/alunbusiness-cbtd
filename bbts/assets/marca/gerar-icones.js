@@ -11,7 +11,7 @@ const RAIZ   = path.resolve(__dirname, '../../..');
 const CENTRAL= path.join(RAIZ, 'bbts/assets/marca/bbts-central-azul.svg');
 const DIR    = path.join(RAIZ, 'bbts/assets');
 
-const d = (fs.readFileSync(CENTRAL,'utf8').match(/<path[^>]*d="([^"]+)"/)||[])[1];
+const d = (fs.readFileSync(CENTRAL,'utf8').match(/<path[^>]*?\sd="([^"]+)"/)||[])[1];
 if (!d) { console.error('path não encontrado'); process.exit(1); }
 
 /* viewBox da central é 0 0 68.14 93.72; o símbolo termina em ~62.3,

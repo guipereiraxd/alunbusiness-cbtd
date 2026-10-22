@@ -64,7 +64,7 @@ def svg():
 def simbolo_png(lado):
     """Símbolo da BBTS em azul sobre branco, recortado antes da wordmark."""
     with open(MARCA, encoding="utf-8") as f:
-        d = re.search(r'<path[^>]*d="([^"]+)"', f.read()).group(1)
+        d = re.search(r'<path[^>]*?\sd="([^"]+)"', f.read()).group(1)
     SW, SH = 68.14, 62.3          # o símbolo termina em ~62.3 do viewBox
     L = 1200
     pad = L * 0.13
