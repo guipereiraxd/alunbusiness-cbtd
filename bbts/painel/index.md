@@ -587,25 +587,27 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     var deds = dados.filter(function(d){return d.ded;}).map(function(d){return d.ded;});
     var cont = {}; dados.forEach(function(d){ cont[d.calc.perfil.nome] = (cont[d.calc.perfil.nome]||0)+1; });
     var top = Object.keys(cont).sort(function(a,b){return cont[b]-cont[a];})[0];
-    var horas = dados.reduce(function(a,d){
+    var porPessoa = dados.map(function(d){
       var pf = E.perfilCatalogo(d.reg.T||{}, d.alvo);
       var pl = E.planejar(E.candidatos(d.lac, d.reg.R, pf), d.ded);
-      d.plano = pl; return a + pl.totalH;
-    },0);
+      d.plano = pl; return pl.totalH;
+    });
+    var mediaH = med(porPessoa);
 
     document.getElementById("kp").innerHTML = [
-      ["n", dados.length, "", "Assessments concluídos",
-       dados.filter(function(d){return d.eu;}).length ? "inclui o seu" : "nenhum é o seu"],
+      ["n", dados.length, "", "Assessments concluídos", ""],
       ["n", n1(med(idx)), "<small>/48</small>", "Índice médio de prontidão",
        "menor "+Math.min.apply(null,idx)+" · maior "+Math.max.apply(null,idx)],
       ["t", top || "—", "", "Perfil predominante",
        top ? cont[top]+" de "+dados.length+(dados.length===1?" pessoa":" pessoas")+" ("+pct(cont[top]/dados.length)+"%)" : ""],
       ["n", n1(med(ctx)), "<small>/12</small>", "Contexto de trabalho médio",
        "ferramenta, permissão e agenda"],
-      ["n", deds.length ? n1(med(deds)) : "—", deds.length?"<small>h/sem</small>":"", "Dedicação média declarada",
+      ["n", deds.length ? n1(med(deds)) : "—", deds.length?"<small>h/sem</small>":"",
+       "Dedicação média de estudo disponível",
        deds.length+" de "+dados.length+(deds.length===1?" informou":" informaram")],
-      ["n", horas, "<small>h</small>", "Formação demandada em 12 meses",
-       "soma dos planos individuais"]
+      ["n", Math.round(mediaH), "<small>h</small>", "Formação por pessoa em 12 meses",
+       "média dos planos · menor "+Math.min.apply(null,porPessoa)
+         +"h · maior "+Math.max.apply(null,porPessoa)+"h"]
     ].map(function(k){
       var v = k[0]==="t"
         ? '<div class="n" style="font-size:19px;line-height:1.2">'+esc(k[1])+'</div>'
