@@ -62,9 +62,23 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
   @media(max-width:720px){ .goal-grid{grid-template-columns:1fr} }
   .fld label{display:block;font-family:var(--disp);font-weight:600;font-size:13.5px;color:var(--ink);margin-bottom:6px}
   .fld .hint{font-size:12px;color:var(--tx-3);margin-bottom:8px;line-height:1.4}
-  .fld select,.fld input[type=text]{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;
-    font-family:var(--sans);font-size:14.5px;color:var(--ink);background:var(--paper)}
+  /* pega qualquer campo de texto, não só type=text — o e-mail ficava sem
+     estilo nenhum e caía no padrão do navegador */
+  .fld select,
+  .fld input:not([type=radio]):not([type=checkbox]){
+    width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+    font-family:var(--sans);font-size:14.5px;color:var(--ink);background:var(--paper);
+    -webkit-appearance:none;appearance:none;margin:0}
   .fld select:focus,.fld input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--info-s)}
+  /* o preenchimento automático pinta o fundo por conta própria; o inset
+     sobrescreve sem perder o valor preenchido */
+  .fld input:-webkit-autofill,
+  .fld input:-webkit-autofill:hover,
+  .fld input:-webkit-autofill:focus{
+    -webkit-text-fill-color:var(--ink);
+    box-shadow:0 0 0 1000px var(--paper) inset;
+    transition:background-color 9999s ease-in-out 0s}
+  .fld input:-webkit-autofill:focus{box-shadow:0 0 0 1000px var(--paper) inset,0 0 0 3px var(--info-s)}
 
   .nav-b{display:flex;gap:11px;justify-content:space-between;align-items:center;flex-wrap:wrap;
     padding:22px 0 60px;border-top:1px solid var(--line);margin-top:26px}

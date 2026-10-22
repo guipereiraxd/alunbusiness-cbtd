@@ -188,6 +188,14 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   .gate input{width:100%;padding:12px 14px;border:1px solid var(--line-2);border-radius:9px;
     font-family:var(--sans);font-size:14.5px;color:var(--ink);background:var(--paper);margin-bottom:16px}
   .gate input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-100)}
+  /* o gerenciador de senhas preenche e pinta o fundo; mantém o desenho */
+  .gate input:-webkit-autofill,
+  .gate input:-webkit-autofill:hover,
+  .gate input:-webkit-autofill:focus{
+    -webkit-text-fill-color:var(--ink);
+    box-shadow:0 0 0 1000px var(--paper) inset;
+    transition:background-color 9999s ease-in-out 0s}
+  .gate input:-webkit-autofill:focus{box-shadow:0 0 0 1000px var(--paper) inset,0 0 0 3px var(--blue-100)}
   .gate button{width:100%;background:var(--blue);color:#fff;border:0;border-radius:999px;
     padding:13px;font-family:var(--sans);font-weight:600;font-size:14.5px;cursor:pointer}
   .gate button:hover{background:var(--blue-700)}
