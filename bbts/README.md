@@ -32,7 +32,38 @@ No console do Firebase:
 Só isso. Nenhuma senha passa por este repositório, e quem responde o
 assessment continua sem precisar de conta.
 
-## 3. Limite conhecido
+## 3. Envio do PDI por e-mail
+
+Ao aprovar um PDI, o painel oferece enviar o plano para quem respondeu. O
+site **não envia nada**: ele escreve um pedido na coleção `mail`, no formato
+`{to, message:{subject, html}}`. Quem entrega é a extensão **Trigger Email
+from Firestore**, do próprio Firebase.
+
+Essa coleção e a regra dela já existiam no projeto antes do /bbts/, o que
+indica que a extensão foi instalada em algum momento. **Confirme** no console:
+Extensions → procure *Trigger Email*. Se não estiver lá, o pedido é gravado e
+nunca sai; instale a extensão e aponte-a para a coleção `mail`.
+
+O envio nunca é automático: a GEPES vê uma prévia do e-mail exato e clica
+para enviar. Para reenviar, o botão continua na linha enquanto o status for
+aprovado.
+
+### Por que e-mail em HTML, e não PDF
+
+PDF exigiria gerar o arquivo em algum lugar — na prática, uma Cloud Function
+com um navegador headless, que é infraestrutura nova para manter. O e-mail em
+HTML abre em qualquer cliente, mantém os links dos cursos clicáveis e leva um
+botão para o plano completo no site. Se o PDF for requisito, o caminho é essa
+função; o conteúdo já está pronto para ser impresso a partir dela.
+
+## 4. Excluir registros
+
+Linhas reais têm o botão **excluir**, para limpar testes antes de uma rodada
+de verdade. Pede confirmação e não dá para desfazer. A regra do Firestore
+permite exclusão apenas para quem está autenticado — quem responde não apaga
+nada, nem o próprio registro.
+
+## 5. Limite conhecido
 
 Quem responde não é autenticado. Então, como em qualquer formulário aberto,
 é possível digitar o e-mail de outra pessoa e enviar um assessment no nome
@@ -44,7 +75,7 @@ Fechar essa brecha exige autenticar também quem responde, o que troca a
 fricção de lugar: some o risco, aparece a tela de login antes do assessment.
 Para a demonstração, a escolha foi manter a entrada livre.
 
-## 4. Teste local do painel com login
+## 6. Teste local do painel com login
 
 O portão de login só aparece quando há `FIREBASE_CONFIG`. Para exercitá-lo na
 sua máquina, copie o config real do projeto para `assets/firebase-config.js`

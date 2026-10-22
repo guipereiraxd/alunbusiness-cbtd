@@ -96,6 +96,29 @@ window.BBTS_STORE = (function(){
     }, function(err){ console.warn("[BBTS] snapshot:", err); });
   }
 
+  /* Remove um registro. Só faz sentido para quem está autenticado —
+     serve para limpar testes antes de uma rodada real. */
+  function excluir(id){
+    grava(K_REG, ler(K_REG, []).filter(function(r){ return r.id !== id; }));
+    if (!ligado || !usuario()) return Promise.resolve({ok:true, modo:"local"});
+    return db.collection(COL).doc(id).delete()
+      .then(function(){ return {ok:true, modo:"remoto"}; })
+      .catch(function(err){ return {ok:false, erro:String(err)}; });
+  }
+
+  /* Enfileira um e-mail na coleção que a extensão Trigger Email observa.
+     O envio em si é da extensão; aqui só se escreve o pedido. */
+  function enviarEmail(para, assunto, html){
+    if (!ligado) return Promise.reject(new Error("Sem conexão com a base."));
+    if (!usuario()) return Promise.reject(new Error("Só com sessão autenticada."));
+    return db.collection("mail").add({
+      to: [para],
+      message: { subject: assunto, html: html },
+      origem: "bbts_pdi",
+      pedidoEm: new Date().toISOString()
+    });
+  }
+
   function status(id, novo){
     var lista = ler(K_REG, []);
     lista.forEach(function(r){ if (r.id===id){ r.status=novo; r.statusTs=new Date().toISOString(); } });
@@ -141,6 +164,7 @@ window.BBTS_STORE = (function(){
            temAuth: !!fbAuth,
            eu:eu, cadastrar:cadastrar, sair:sair, valido:valido,
            salvar:salvar, listar:listar, assinar:assinar, status:status,
+           excluir:excluir, enviarEmail:enviarEmail,
            usuario:usuario, entrar:entrar, sairPainel:sairPainel, aoMudarLogin:aoMudarLogin,
            pronto:pronto,
            seedOn:seedOn, setSeed:setSeed, seedRegistros:seedRegistros };

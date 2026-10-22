@@ -17,8 +17,12 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    // Fila da extensão Trigger Email. O /bbts/ escreve aqui quando a GEPES
+    // aprova um PDI e manda o plano para quem respondeu; a extensão entrega.
+    // Create exige autenticação: e-mail é ação externa, não pode partir de
+    // visitante anônimo.
     match /mail/{doc} {
-      allow create: if true;
+      allow create: if request.auth != null;
       allow read, update, delete: if false;
     }
 
@@ -71,7 +75,9 @@ service cloud.firestore {
       // Leitura fechada: o painel exige autenticação.
       allow read: if request.auth != null;
 
-      allow delete: if false;
+      // Exclusão só pela GEPES autenticada — serve para limpar testes
+      // antes de uma rodada real. Quem responde não apaga nada.
+      allow delete: if request.auth != null;
     }
   }
 }

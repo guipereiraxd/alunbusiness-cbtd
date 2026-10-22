@@ -161,6 +161,36 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   .filtros button.on{background:var(--blue);border-color:var(--blue);color:#fff}
   .filtros button b{font-weight:600}
   .vazio-t{padding:34px 18px;text-align:center;color:var(--tx-2);font-size:14px}
+  /* ações por linha */
+  .acoes{display:flex;gap:12px;align-items:center;justify-content:flex-end;white-space:nowrap}
+  .acoes button{background:none;border:0;cursor:pointer;padding:0;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.06em}
+  .acoes .env{color:var(--ok)}
+  .acoes .del{color:var(--tx-3)}
+  .acoes .env:hover{text-decoration:underline}
+  .acoes .del:hover{color:var(--alert);text-decoration:underline}
+  /* diálogo */
+  .dlg-bg{position:fixed;inset:0;background:rgba(15,20,51,.62);z-index:90;
+    display:none;align-items:center;justify-content:center;padding:24px}
+  .dlg-bg.on{display:flex}
+  .dlg{background:var(--paper);border-radius:18px;max-width:680px;width:100%;
+    max-height:86vh;display:flex;flex-direction:column;overflow:hidden}
+  .dlg h3{font-family:var(--disp);font-weight:700;font-size:20px;color:var(--ink);
+    padding:24px 26px 0}
+  .dlg .sub{color:var(--tx-2);font-size:14px;line-height:1.55;padding:9px 26px 0}
+  .dlg .sub b{color:var(--ink)}
+  .dlg .corpo{overflow:auto;margin:18px 26px 0;border:1px solid var(--line);border-radius:12px;
+    background:var(--canvas)}
+  .dlg .corpo iframe{width:100%;height:340px;border:0;display:block;background:#fff}
+  .dlg .pe{display:flex;gap:10px;justify-content:flex-end;padding:20px 26px;flex-wrap:wrap}
+  .dlg .pe button{font-family:var(--sans);font-size:14px;font-weight:600;
+    border-radius:999px;padding:11px 22px;cursor:pointer;border:1px solid var(--line-2);
+    background:var(--paper);color:var(--tx)}
+  .dlg .pe button.pri{background:var(--blue);border-color:var(--blue);color:#fff}
+  .dlg .pe button.per{background:var(--alert);border-color:var(--alert);color:#fff}
+  .dlg .pe button:disabled{opacity:.55;cursor:default}
+  .dlg .av{margin:16px 26px 0;padding:12px 15px;border-radius:10px;font-size:13.5px;line-height:1.5;
+    background:var(--warn-s);border:1px solid var(--warn);color:var(--ink-2)}
   .num small{color:var(--tx-3);font-weight:400}
   .lnk{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--blue);text-decoration:none;white-space:nowrap}
   .lnk:hover{text-decoration:underline}
@@ -231,6 +261,19 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     <div class="acao" id="acao"></div>
     <div class="kp" id="kp"></div>
     <div class="nota alerta" id="amostra" style="display:none;margin-top:0"></div>
+  </div>
+</div>
+
+<div class="dlg-bg" id="dlg-bg">
+  <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dlg-t">
+    <h3 id="dlg-t"></h3>
+    <div class="sub" id="dlg-sub"></div>
+    <div class="av" id="dlg-av" style="display:none"></div>
+    <div class="corpo" id="dlg-corpo" style="display:none"><iframe id="dlg-prev" title="Prévia do e-mail"></iframe></div>
+    <div class="pe">
+      <button id="dlg-nao">Cancelar</button>
+      <button id="dlg-sim" class="pri">Confirmar</button>
+    </div>
   </div>
 </div>
 
@@ -342,6 +385,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 (function(){
   var B = window.BBTS, E = window.BBTS_PDI, S = window.BBTS_STORE;
   var URL_RES = "{{ '/bbts/resultado/' | relative_url }}";
+  var URL_ABS = location.origin + "{{ '/bbts/' | relative_url }}";
   var URL_ASS = "{{ '/bbts/assessment/' | relative_url }}";
 
   var CORES = { iniciante:"#8D91B0", tarefa:"#9EABFF", aplicador:"#465EFF", construtor:"#1E2D8A" };
@@ -701,6 +745,176 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     }).join("");
   }
 
+  /* ---------- diálogo de confirmação ----------
+     Excluir e enviar e-mail são ações que não dão para desfazer.
+     Nenhuma das duas acontece sem passar por aqui. */
+  function dialogo(o){
+    var bg=document.getElementById("dlg-bg"), sim=document.getElementById("dlg-sim"),
+        nao=document.getElementById("dlg-nao"), av=document.getElementById("dlg-av"),
+        corpo=document.getElementById("dlg-corpo"), prev=document.getElementById("dlg-prev");
+    document.getElementById("dlg-t").textContent = o.titulo;
+    document.getElementById("dlg-sub").innerHTML = o.sub;
+    av.style.display = o.aviso ? "block" : "none";
+    if (o.aviso) av.innerHTML = o.aviso;
+    corpo.style.display = o.previa ? "block" : "none";
+    if (o.previa) prev.srcdoc = o.previa;
+    sim.textContent = o.confirmar || "Confirmar";
+    sim.className = o.perigo ? "per" : "pri";
+    sim.disabled = false;
+    bg.classList.add("on");
+
+    function fecha(){ bg.classList.remove("on"); prev.srcdoc=""; limpa(); }
+    function limpa(){
+      sim.replaceWith(sim.cloneNode(true)); nao.replaceWith(nao.cloneNode(true));
+      document.removeEventListener("keydown", esc);
+    }
+    function esc(e){ if (e.key === "Escape") fecha(); }
+    document.addEventListener("keydown", esc);
+
+    document.getElementById("dlg-nao").onclick = fecha;
+    document.getElementById("dlg-sim").onclick = function(){
+      var b = document.getElementById("dlg-sim");
+      b.disabled = true; b.textContent = o.fazendo || "Aguarde…";
+      Promise.resolve(o.aoConfirmar()).then(function(){ fecha(); })
+        .catch(function(e){
+          b.disabled = false; b.textContent = o.confirmar || "Confirmar";
+          av.style.display="block";
+          av.innerHTML = "<b>Não deu certo.</b> " + esc(String(e && e.message || e));
+        });
+    };
+    bg.onclick = function(e){ if (e.target === bg) fecha(); };
+  }
+
+  /* ---------- ações ---------- */
+  function excluirRegistro(d){
+    dialogo({
+      titulo: "Excluir este registro?",
+      sub: "Vai sair da base o assessment e o PDI de <b>" + esc(d.reg.nome || "registro sem nome")
+         + "</b>" + (d.reg.email ? " (" + esc(d.reg.email) + ")" : "") + ".",
+      aviso: "Não dá para desfazer. Se a pessoa responder de novo com o mesmo e-mail, "
+           + "um registro novo é criado.",
+      confirmar: "Excluir", fazendo: "Excluindo…", perigo: true,
+      aoConfirmar: function(){
+        return S.excluir(d.reg.id).then(function(r){
+          if (!r.ok) throw new Error(r.erro || "falha ao excluir");
+          return carregar();
+        });
+      }
+    });
+  }
+
+  function enviarPDI(d){
+    if (!d.reg.email){
+      dialogo({ titulo:"Sem e-mail no registro",
+        sub:"Este registro não tem e-mail, então não há para onde enviar.",
+        confirmar:"Entendi", aoConfirmar:function(){} });
+      return;
+    }
+    var m = emailDoPDI(d);
+    dialogo({
+      titulo: "Enviar o PDI por e-mail?",
+      sub: "Vai para <b>" + esc(d.reg.email) + "</b>, com o assunto “" + esc(m.assunto) + "”. "
+         + "Abaixo, exatamente o que a pessoa vai receber.",
+      previa: m.html,
+      confirmar: "Enviar agora", fazendo: "Enfileirando…",
+      aoConfirmar: function(){
+        return S.enviarEmail(d.reg.email, m.assunto, m.html).then(function(){
+          var el = document.getElementById("modo");
+          el.className = "modo ok";
+          el.innerHTML = "<div><b>E-mail enfileirado para " + esc(d.reg.email) + ".</b> "
+            + "A entrega é feita pela extensão do Firebase; se não chegar em alguns minutos, "
+            + "confira se a extensão Trigger Email está instalada e configurada.</div>";
+        });
+      }
+    });
+  }
+
+  /* ---------- e-mail do PDI aprovado ----------
+     HTML de e-mail: tabelas e estilo embutido, porque cliente de e-mail
+     ignora folha de estilo e boa parte de flex/grid. */
+  function emailDoPDI(d){
+    var nome  = (d.reg.nome||"").split(" ")[0] || "Olá";
+    var calc  = d.calc, T = d.reg.T||{};
+    var pf    = E.perfilCatalogo(T, d.alvo);
+    var plano = d.plano || E.planejar(E.candidatos(d.lac, d.reg.R, pf), d.ded);
+    var hoje  = new Date();
+
+    var ciclos = plano.ciclos.map(function(c, i){
+      var ini = new Date(hoje.getTime()); ini.setMonth(ini.getMonth() + i*3);
+      var mes = ini.toLocaleDateString("pt-BR", {month:"long", year:"numeric"});
+      var itens = c.cursos.length
+        ? c.cursos.map(function(cu){
+            return '<tr><td style="padding:7px 0;border-bottom:1px solid #E1E4F4">'
+              + '<a href="'+cu.url+'" style="color:#1630DA;text-decoration:none;font-weight:600">'+esc(cu.t)+'</a>'
+              + '<div style="color:#5E648D;font-size:13px;margin-top:2px">'+esc(cu.prof)+' · '+cu.h+'h</div>'
+              + '</td></tr>';
+          }).join("")
+        : '<tr><td style="padding:7px 0;color:#5E648D">Sem curso neste ciclo — use o tempo na atividade prática.</td></tr>';
+      return '<div style="margin:0 0 22px">'
+        + '<div style="font:600 12px/1 ui-monospace,monospace;letter-spacing:.12em;'
+        +   'text-transform:uppercase;color:#465EFF">Ciclo '+c.n+' · '+esc(mes)+'</div>'
+        + '<div style="font:700 17px/1.3 Helvetica,Arial,sans-serif;color:#12152B;margin:6px 0 8px">'
+        +   c.cursos.length+' curso'+(c.cursos.length===1?"":"s")+' · '+c.horas+'h de '+c.capacidade+'h</div>'
+        + '<table width="100%" cellspacing="0" cellpadding="0" style="font:400 15px/1.45 Helvetica,Arial,sans-serif">'
+        +   itens + '</table></div>';
+    }).join("");
+
+    var linha = function(r, v){
+      return '<td style="padding:12px 16px;background:#ECEEF8;border-radius:10px">'
+        + '<div style="font:600 11px/1 ui-monospace,monospace;letter-spacing:.1em;'
+        +   'text-transform:uppercase;color:#5E648D">'+esc(r)+'</div>'
+        + '<div style="font:700 20px/1.2 Helvetica,Arial,sans-serif;color:#12152B;margin-top:5px">'+esc(v)+'</div></td>';
+    };
+
+    var html =
+      '<div style="margin:0;padding:26px 14px;background:#F4F5FB">'
+    + '<table align="center" width="600" cellspacing="0" cellpadding="0" style="max-width:600px;'
+    +   'background:#FFFFFF;border-radius:18px;overflow:hidden"><tr><td>'
+
+    + '<div style="background:#0F1433;padding:26px 30px">'
+    +   '<div style="font:700 13px/1 ui-monospace,monospace;letter-spacing:.16em;color:#FCFC30">BBTS</div>'
+    +   '<div style="font:700 24px/1.25 Helvetica,Arial,sans-serif;color:#FFFFFF;margin-top:10px">'
+    +     'Seu PDI foi aprovado</div>'
+    +   '<div style="font:400 15px/1.5 Helvetica,Arial,sans-serif;color:#9EABFF;margin-top:7px">'
+    +     'Avaliação de Prontidão em IA · plano para os próximos 12 meses</div>'
+    + '</div>'
+
+    + '<div style="padding:30px">'
+    + '<p style="font:400 16px/1.6 Helvetica,Arial,sans-serif;color:#3B4163;margin:0 0 20px">'
+    +   esc(nome)+', a GEPES revisou e aprovou o plano gerado a partir do seu assessment. '
+    +   'Ele vale para os próximos quatro ciclos de 90 dias.</p>'
+
+    + '<table width="100%" cellspacing="8" cellpadding="0"><tr>'
+    +   linha("Índice de prontidão", calc.indice+" de 48")
+    +   linha("Perfil", calc.perfil.nome)
+    + '</tr><tr>'
+    +   linha("Dedicação declarada", (d.ded||0)+" h/semana")
+    +   linha("No plano", plano.totalC+" cursos · "+plano.totalH+"h")
+    + '</tr></table>'
+
+    + '<h2 style="font:700 19px/1.3 Helvetica,Arial,sans-serif;color:#12152B;margin:30px 0 16px">'
+    +   'O plano, ciclo a ciclo</h2>'
+    + ciclos
+
+    + '<div style="background:#FFFFDB;border:1px solid #C9C90E;border-radius:12px;padding:16px 18px;margin:8px 0 24px">'
+    +   '<div style="font:700 14px/1.4 Helvetica,Arial,sans-serif;color:#12152B">Duas coisas importantes</div>'
+    +   '<div style="font:400 14px/1.55 Helvetica,Arial,sans-serif;color:#3B4163;margin-top:7px">'
+    +     'Concluir curso não eleva nível por si só — a evolução precisa de evidência prática. '
+    +     'E as cargas horárias são estimadas pela profundidade do curso, não medidas.</div>'
+    + '</div>'
+
+    + '<a href="'+URL_ABS+'resultado/?id='+encodeURIComponent(d.reg.id)+'" '
+    +   'style="display:inline-block;background:#465EFF;color:#FFFFFF;text-decoration:none;'
+    +   'font:700 15px/1 Helvetica,Arial,sans-serif;padding:15px 26px;border-radius:999px">'
+    +   'Ver o plano completo</a>'
+
+    + '<p style="font:400 13px/1.55 Helvetica,Arial,sans-serif;color:#8D91B0;margin:26px 0 0">'
+    +   'Demonstração · Alun Business para a BBTS. Dados fictícios, não representa avaliação real.</p>'
+    + '</div></td></tr></table></div>';
+
+    return { assunto: "Seu PDI em IA e Dados foi aprovado", html: html };
+  }
+
   /* ---------- tabela ---------- */
   var ordK = "indice", ordDir = -1, filtro = "";
 
@@ -770,7 +984,12 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         + '<td>'+(d.reg.seed
             ? '<span class="pg">'+ST[d.status]+'</span>'
             : '<select class="st" data-id="'+esc(d.reg.id)+'">'+op+'</select>')+'</td>'
-        + '<td class="r"><a class="lnk" href="'+URL_RES+'?id='+encodeURIComponent(d.reg.id)+'">ver PDI →</a></td>'
+        + '<td class="r"><div class="acoes">'
+        +   '<a class="lnk" href="'+URL_RES+'?id='+encodeURIComponent(d.reg.id)+'">ver PDI →</a>'
+        +   (d.reg.seed ? '' :
+                (d.status==="aprovado" && d.reg.email ? '<button class="env" data-env="'+esc(d.reg.id)+'">enviar</button>' : '')
+              + '<button class="del" data-del="'+esc(d.reg.id)+'">excluir</button>')
+        + '</div></td>'
         + '</tr>';
     }).join("");
 
@@ -779,9 +998,27 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
         '<tr><td colspan="7"><div class="vazio-t">Nenhum colaborador com esse status.</div></td></tr>';
     }
 
+    document.getElementById("tb").querySelectorAll("button[data-del]").forEach(function(b){
+      b.addEventListener("click", function(){
+        var d = dados.filter(function(x){ return x.reg.id === b.dataset.del; })[0];
+        if (d) excluirRegistro(d);
+      });
+    });
+    document.getElementById("tb").querySelectorAll("button[data-env]").forEach(function(b){
+      b.addEventListener("click", function(){
+        var d = dados.filter(function(x){ return x.reg.id === b.dataset.env; })[0];
+        if (d) enviarPDI(d);
+      });
+    });
+
     document.getElementById("tb").querySelectorAll("select.st").forEach(function(sel){
       sel.addEventListener("change", function(){
-        S.status(sel.dataset.id, sel.value).then(carregar);
+        var id = sel.dataset.id, novo = sel.value;
+        S.status(id, novo).then(carregar).then(function(){
+          if (novo !== "aprovado") return;
+          var d = dados.filter(function(x){ return x.reg.id === id; })[0];
+          if (d && d.reg.email) enviarPDI(d);   /* aprovou: oferece mandar */
+        });
       });
     });
 
