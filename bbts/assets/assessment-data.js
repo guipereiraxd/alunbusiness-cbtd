@@ -231,11 +231,25 @@ window.BBTS = (function(){
              dims: calcularDimensoes(R) };
   }
 
+  /* Perfil de uso. Vem de P2 (para que usa) e P3 (autonomia), que
+     compartilham a mesma escada do instrumento: Desconhece, Depende,
+     Executa, Transfere.
+
+     A regra é o MENOR dos dois, não a soma. Somar achatava informação:
+     quem criou algo que o time usa mas ainda depende de exemplo (4 e 2)
+     recebia o mesmo rótulo de quem é consistente nos dois (3 e 3). O
+     perfil passa a ser o degrau que a pessoa sustenta nas duas pontas —
+     o elo mais fraco é que define, como em qualquer leitura de
+     competência. */
   const PERFIS = [
-    { id:"iniciante",  nome:"Iniciante",            faixa:[2,3], desc:"Uso raro ou nenhum, sem autonomia." },
-    { id:"tarefa",     nome:"Usuário de tarefa",    faixa:[4,5], desc:"Usa para produzir o próprio trabalho, com autonomia parcial." },
-    { id:"aplicador",  nome:"Aplicador avançado",   faixa:[6,6], desc:"Usa sozinho e percebe quando a resposta não serve." },
-    { id:"construtor", nome:"Construtor",           faixa:[7,8], desc:"Criou algo que outras pessoas usam, ou ensina." }
+    { id:"iniciante", nivel:1, nome:"Iniciante",
+      desc:"Não usa IA no trabalho, ou usa sem conseguir avaliar o resultado." },
+    { id:"assistido", nivel:2, nome:"Usuário assistido",
+      desc:"Usa no próprio trabalho, mas depende de exemplo pronto ou de alguém para destravar." },
+    { id:"autonomo",  nivel:3, nome:"Usuário autônomo",
+      desc:"Resolve sozinho e reconhece quando a resposta não serve — é o que separa usar de depender." },
+    { id:"construtor", nivel:4, nome:"Construtor",
+      desc:"O que faz com IA serve a outras pessoas: criou algo que o time usa, ou ensina e corrige." }
   ];
 
   function calcular(r){
@@ -249,12 +263,15 @@ window.BBTS = (function(){
     };
     const indice     = sub.uso + sub.base + sub.infl + sub.ctx;  // 12–48
     const capacidade = sub.uso + sub.base + sub.infl;             // 9–36
-    const somaPerfil = v("P2") + v("P3");                         // 2–8
-    const perfil = PERFIS.find(p => somaPerfil >= p.faixa[0] && somaPerfil <= p.faixa[1]) || PERFIS[0];
+    const somaPerfil = v("P2") + v("P3");                         // 2–8, só para exibição
+    const elo = Math.min(v("P2") || 1, v("P3") || 1);              // o degrau sustentado
+    const perfil = PERFIS.find(p => p.nivel === elo) || PERFIS[0];
+    /* quando a outra ponta está acima, a pessoa está a caminho do degrau seguinte */
+    const aCaminho = Math.max(v("P2"), v("P3")) > elo;
     return {
       sub, indice, capacidade,
       contexto: sub.ctx,
-      somaPerfil, perfil,
+      somaPerfil, elo, aCaminho, perfil,
       horas: HORAS[v("P13")] ?? null,
       /* proporção de cada sub-índice em relação ao próprio teto — comparável entre blocos */
       prop: {

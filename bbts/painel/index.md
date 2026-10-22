@@ -476,8 +476,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   var URL_ABS = location.origin + "{{ '/bbts/' | relative_url }}";
   var URL_ASS = "{{ '/bbts/assessment/' | relative_url }}";
 
-  var CORES = { iniciante:"#8D91B0", tarefa:"#9EABFF", aplicador:"#465EFF", construtor:"#1E2D8A" };
-  var CLARO  = { iniciante:true, tarefa:true };
+  var CORES = { iniciante:"#8D91B0", assistido:"#9EABFF", autonomo:"#465EFF", construtor:"#1E2D8A" };
+  var CLARO  = { iniciante:true, assistido:true };
   var FAIXAS = [ {de:12,ate:20,r:"12–20"}, {de:21,ate:29,r:"21–29"},
                  {de:30,ate:38,r:"30–38"}, {de:39,ate:48,r:"39–48"} ];
   var ST = { rascunho:"Rascunho", submetido:"Aguardando revisão",
@@ -687,7 +687,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 
   /* ---------- perfis ---------- */
   function perfis(){
-    var ordem = ["iniciante","tarefa","aplicador","construtor"];
+    var ordem = ["iniciante","assistido","autonomo","construtor"];
     var cont = {}; dados.forEach(function(d){ cont[d.calc.perfil.id] = (cont[d.calc.perfil.id]||0)+1; });
     var tot = dados.length;
     document.getElementById("stk").innerHTML = ordem.map(function(id){
@@ -1167,7 +1167,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       var mostra = d.eu || !anon.checked;
       var nome = mostra ? esc(d.reg.nome || "Colaborador "+i) : "Colaborador "+i;
       var sub  = d.eu ? "você" : (mostra && d.reg.email ? esc(d.reg.email) : "");
-      var cls  = { iniciante:"i", tarefa:"t", aplicador:"a", construtor:"c" }[d.calc.perfil.id];
+      var cls  = { iniciante:"i", assistido:"t", autonomo:"a", construtor:"c" }[d.calc.perfil.id];
       var op   = ["rascunho","submetido","em_revisao","aprovado"].map(function(k){
         return '<option value="'+k+'"'+(d.status===k?" selected":"")+'>'+ST[k]+'</option>';
       }).join("");

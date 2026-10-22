@@ -318,11 +318,14 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
     '<div class="kpi hi"><div class="k">Índice de prontidão</div><div class="l">Soma dos quatro sub-índices</div>'
     + '<div class="v y">'+calc.indice+' <small>/ 48</small></div>'
     + '<div class="f">capacidade '+calc.capacidade+' de 36 · contexto '+calc.contexto+' de 12</div></div>'
-    + '<div class="kpi"><div class="k">Perfil de uso</div><div class="l">P2 + P3 · '+calc.somaPerfil+' de 8 pontos</div>'
+    + '<div class="kpi"><div class="k">Perfil de uso</div>'
+    + '<div class="l">degrau sustentado em P2 e P3</div>'
     + '<div class="v" style="font-size:25px">'+esc(calc.perfil.nome)+'</div>'
-    + '<div class="f">'+esc(calc.perfil.desc)+'</div></div>'
+    + '<div class="f">'+esc(calc.perfil.desc)
+    +   (calc.aCaminho ? ' <b>Em uma das duas pontas você já está acima — a caminho do degrau seguinte.</b>' : '')
+    + '</div></div>'
     + (tec
-        ? '<div class="kpi"><div class="k">Competência técnica</div><div class="l">T1 a T5 · escala própria</div>'
+        ? '<div class="kpi"><div class="k">Competência técnica</div><div class="l">T1 a T7 · escala própria</div>'
           + '<div class="v">'+tec.pontos+' <small>/ '+tec.max+'</small></div>'
           + '<div class="f"><b>'+esc(tec.nivel.nome)+'</b> · '+esc(tec.nivel.desc)+'</div></div>'
         : '')

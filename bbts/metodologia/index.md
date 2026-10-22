@@ -247,19 +247,23 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
     <h2>O perfil vem de duas perguntas, não do índice</h2>
     <p class="d">O perfil descreve <b>como</b> a pessoa usa IA, e isso não é a mesma coisa que o quanto
       ela pontua no total. Alguém pode ter base técnica alta e ainda usar IA de forma dependente.
-      Por isso o perfil sai apenas da soma de P2 (para que usa) e P3 (autonomia) — de 2 a 8 pontos.
+      Ele sai de P2 (para que usa) e P3 (autonomia), e a regra é o <b>menor dos dois</b>,
+      não a soma. Somar achatava informação: quem criou algo que o time usa mas ainda depende de
+      exemplo recebia o mesmo rótulo de quem é consistente nas duas pontas. O elo mais fraco define
+      o degrau, e quando a outra ponta está acima a tela avisa que a pessoa está a caminho do
+      degrau seguinte.
       A frequência de uso, P1, fica deliberadamente de fora: usar todo dia não diz nada sobre o que
       se faz nem sobre conseguir avaliar a resposta.</p>
 
     <div class="perf">
-      <div class="p"><span class="fx">2 – 3 pts</span><span class="nm">Iniciante</span>
-        <span class="ds">Uso raro ou nenhum, sem autonomia.</span></div>
-      <div class="p"><span class="fx">4 – 5 pts</span><span class="nm">Usuário de tarefa</span>
-        <span class="ds">Usa para produzir o próprio trabalho, com autonomia parcial.</span></div>
-      <div class="p"><span class="fx">6 pts</span><span class="nm">Aplicador avançado</span>
-        <span class="ds">Usa sozinho e percebe quando a resposta não serve.</span></div>
-      <div class="p"><span class="fx">7 – 8 pts</span><span class="nm">Construtor</span>
-        <span class="ds">Criou algo que outras pessoas usam, ou ensina.</span></div>
+      <div class="p"><span class="fx">degrau 1</span><span class="nm">Iniciante</span>
+        <span class="ds">Não usa IA no trabalho, ou usa sem conseguir avaliar o resultado.</span></div>
+      <div class="p"><span class="fx">degrau 2</span><span class="nm">Usuário assistido</span>
+        <span class="ds">Usa no próprio trabalho, mas depende de exemplo pronto ou de alguém para destravar.</span></div>
+      <div class="p"><span class="fx">degrau 3</span><span class="nm">Usuário autônomo</span>
+        <span class="ds">Resolve sozinho e reconhece quando a resposta não serve.</span></div>
+      <div class="p"><span class="fx">degrau 4</span><span class="nm">Construtor</span>
+        <span class="ds">O que faz com IA serve a outras pessoas: criou algo que o time usa, ou ensina.</span></div>
     </div>
   </div>
 </section>

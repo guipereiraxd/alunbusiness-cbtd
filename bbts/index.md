@@ -155,10 +155,10 @@ description: "Plataforma de avaliação de prontidão em IA da BBTS: assessment,
     <h2 style="margin-top:14px">Quatro perfis, duas perguntas</h2>
     <p class="lead">O perfil sai de duas perguntas apenas: <b>para que usa</b> e <b>se vira sozinho</b>. Frequência fica de fora de propósito — usar todos os dias sem autonomia não faz de ninguém um construtor.</p>
     <div class="grid g4" style="margin-top:28px">
-      <div class="card hov"><div class="tag n" style="margin-bottom:10px">2 a 3 pts</div><h3>Iniciante</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Uso raro ou nenhum, sem autonomia.</p></div>
-      <div class="card hov"><div class="tag b" style="margin-bottom:10px">4 a 5 pts</div><h3>Usuário de tarefa</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Usa para produzir o próprio trabalho, com autonomia parcial.</p></div>
-      <div class="card hov"><div class="tag b" style="margin-bottom:10px">6 pts</div><h3>Aplicador avançado</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Usa sozinho e percebe quando a resposta não serve.</p></div>
-      <div class="card hov" style="border-color:var(--yellow-600)"><div class="tag y" style="margin-bottom:10px">7 a 8 pts</div><h3>Construtor</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Criou algo que outras pessoas usam, ou ensina.</p></div>
+      <div class="card hov"><div class="tag n" style="margin-bottom:10px">degrau 1</div><h3>Iniciante</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Não usa IA no trabalho, ou usa sem conseguir avaliar o resultado.</p></div>
+      <div class="card hov"><div class="tag b" style="margin-bottom:10px">degrau 2</div><h3>Usuário assistido</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Usa no próprio trabalho, mas depende de exemplo pronto ou de alguém para destravar.</p></div>
+      <div class="card hov"><div class="tag b" style="margin-bottom:10px">degrau 3</div><h3>Usuário autônomo</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">Resolve sozinho e reconhece quando a resposta não serve.</p></div>
+      <div class="card hov"><div class="tag y" style="margin-bottom:10px">degrau 4</div><h3>Construtor</h3><p style="font-size:13.5px;color:var(--tx-2);margin-top:8px">O que faz com IA serve a outras pessoas: criou algo que o time usa, ou ensina.</p></div>
     </div>
   </div>
 </section>
