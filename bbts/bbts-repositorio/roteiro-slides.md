@@ -119,7 +119,8 @@ ter — quem tem duas horas por semana não recebe o plano de quem tem seis.
 
 **Título:** Quatro agentes, e nenhum deles decide
 
-**Na tela:** o diagrama de `/bbts/metodologia/`.
+**Na tela:** `fluxo-agentes.png` — o diagrama completo, em três faixas.
+Aponte o laço no meio: é a única rodada de correção.
 
 **Falar:** Diagnóstico lê e descreve. Curadoria escolhe no catálogo
 autorizado. Governança confere antes de qualquer pessoa ver: se os cursos
