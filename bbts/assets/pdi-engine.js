@@ -16,6 +16,24 @@ window.BBTS_PDI = (function(){
     P8: ["Governança & Ética de IA","IA para Produto & Negócio"],
     P9: ["Governança & Ética de IA","IA para Produto & Negócio"]
   };
+  /* O comportamento que fecha cada lacuna. É o que a pessoa lê junto do gap,
+     para saber o que fazer na segunda-feira — curso sozinho não diz isso.
+     Em P10–P12 o verbo muda de propósito: não é esforço individual, é acordo. */
+  const ACAO = {
+    P1:  "Crie disciplina de uso: escolha uma tarefa recorrente e faça-a com IA todo dia, até virar hábito.",
+    P2:  "Saia do uso avulso: defina um caso de uso do seu processo e construa um protótipo que resolva ele.",
+    P3:  "Reduza a dependência: antes de pedir ajuda, teste, compare resultados e aprenda a reconhecer quando a resposta não serve.",
+    P4:  "Escolha uma etapa manual e repetitiva do seu processo e faça-a acontecer sem alguém repetir o passo a passo.",
+    P5:  "Pare de consolidar planilha à mão: monte uma análise sobre a base real e leve o resultado para alguém decidir.",
+    P6:  "Experimente uma ferramenta de automação sem código no seu próprio fluxo — comece por algo pequeno que você faz toda semana.",
+    P7:  "Aprenda o vocabulário para conversar de igual com quem constrói: prompt, modelo, contexto e integração.",
+    P8:  "Torne seu trabalho visível: compartilhe o que deu certo e o que não deu, até virarem referência de consulta na área.",
+    P9:  "Ensine o que você já sabe: prepare uma sessão curta para o time, com um caso real seu.",
+    P10: "Mapeie qual ferramenta falta e peça formalmente ao gestor — acesso não se conquista com estudo.",
+    P11: "Leve um resultado concreto ao seu gestor e combine como o uso de IA passa a ser acompanhado na área.",
+    P12: "Negocie uma janela protegida na agenda. Sem tempo reservado, nenhum plano de desenvolvimento acontece."
+  };
+
   /* P10–P12 (contexto) não têm curso: dependem do ambiente, não da pessoa. */
   const SEM_CURSO = ["P10","P11","P12"];
 
@@ -203,6 +221,6 @@ window.BBTS_PDI = (function(){
     return Object.keys(soma).sort((a,b)=>soma[b]-soma[a])[0];
   }
 
-  return { MAPA, SEM_CURSO, PRATICAS, ROTULO, TETO_CICLO, CICLOS,
+  return { MAPA, SEM_CURSO, PRATICAS, ROTULO, ACAO, TETO_CICLO, CICLOS,
            lacunas, alvoDe, alvoComPiso, candidatos, perfilCatalogo, planejar, blocoPrioritario };
 })();

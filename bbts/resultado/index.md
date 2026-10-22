@@ -76,6 +76,16 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   .gap.pend .pr{background:var(--panel);color:var(--tx-2)}
   .gap .nm{font-family:var(--disp);font-weight:600;font-size:14.5px;color:var(--ink)}
   .gap .bl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-3);margin-top:2px}
+  /* o que fazer para fechar a lacuna — é o que a pessoa leva da tela */
+  .gap .ac{font-size:13.5px;line-height:1.5;color:var(--tx);margin-top:7px;
+    padding-left:11px;border-left:2px solid var(--blue-300)}
+  .gap.ctx .ac{border-left-color:var(--yellow-600)}
+  .gap .ac em{font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--warn);display:block;margin-bottom:3px}
+  @media(max-width:620px){
+    .gap{grid-template-columns:44px 1fr;row-gap:6px}
+    .gap .mv{grid-column:2;text-align:left}
+  }
   .gap .mv{font-family:var(--mono);font-size:12px;color:var(--tx-2);white-space:nowrap}
   .gap .mv b{color:var(--blue);font-weight:600}
 
@@ -172,7 +182,7 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
     <div class="wrap">
       <span class="sk">Análise de lacunas</span>
       <h2 style="margin-top:12px">Distância entre onde está e onde quer chegar</h2>
-      <p class="lead">Ordenado por tamanho da lacuna. O que não teve base suficiente aparece como pendente, com a próxima ação necessária.</p>
+      <p class="lead">Ordenado por tamanho da lacuna. Cada linha traz o comportamento que a fecha — o que fazer, não só o que estudar. O que não teve base suficiente aparece como pendente.</p>
       <div class="card" style="margin-top:20px;padding:6px 22px" id="gaps"></div>
     </div>
   </section>
@@ -343,11 +353,21 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   document.getElementById("gaps").innerHTML = vis.length ? vis.map(function(l,i){
     if (l.estado==="pendente")
       return '<div class="gap pend"><span class="pr">—</span><div><div class="nm">'+esc(l.titulo)+'</div>'
-        + '<div class="bl">'+esc(E.ROTULO[l.bloco])+' · '+l.id+'</div></div>'
+        + '<div class="bl">'+esc(E.ROTULO[l.bloco])+' · '+l.id+'</div>'
+        + '<div class="ac"><em>pendente de validação</em>'
+        +   'Converse com seu gestor para esclarecer este ponto antes do próximo ciclo. '
+        +   'Enquanto estiver em aberto, ele não entra no plano.</div></div>'
         + '<span class="mv">'+esc(l.motivo)+' · <b>validar</b></span></div>';
     var cls = l.delta>=2 ? "p1" : "p2";
-    return '<div class="gap '+cls+'"><span class="pr">+'+l.delta+'</span>'
-      + '<div><div class="nm">'+esc(l.titulo)+'</div><div class="bl">'+esc(E.ROTULO[l.bloco])+' · '+l.id+'</div></div>'
+    var ctx = E.SEM_CURSO.indexOf(l.id) >= 0;
+    var acao = E.ACAO[l.id]
+      ? '<div class="ac">' + (ctx ? '<em>acordo com o gestor, não curso</em>' : '')
+          + esc(E.ACAO[l.id]) + '</div>'
+      : '';
+    return '<div class="gap '+cls+(ctx?" ctx":"")+'"><span class="pr">+'+l.delta+'</span>'
+      + '<div><div class="nm">'+esc(l.titulo)+'</div>'
+      +   '<div class="bl">'+esc(E.ROTULO[l.bloco])+' · '+l.id+'</div>'
+      +   acao + '</div>'
       + '<span class="mv">nível '+l.atual+' → <b>'+l.meta+'</b></span></div>';
   }).join("") : '<div style="padding:18px 0;color:var(--tx-2)">Nenhuma lacuna identificada para o alvo declarado. Vale revisar se o objetivo está ambicioso o suficiente.</div>';
 
