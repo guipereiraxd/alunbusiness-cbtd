@@ -41,6 +41,7 @@ exclude:
   - firestore.rules
   - china/china-repositorio
   - radardesinais/radar-repositorio
+  - bbts/bbts-repositorio
 
 defaults:
   - scope:
