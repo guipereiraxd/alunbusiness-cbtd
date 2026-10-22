@@ -66,6 +66,15 @@
       letter-spacing:-.01em;line-height:1.15}
     .brand .nm i{display:block;font-style:normal;font-family:var(--mono);font-weight:400;font-size:9.5px;
       letter-spacing:.14em;text-transform:uppercase;color:var(--tx-3);margin-top:2px}
+    /* Telas estreitas: reduz a logomarca e corta o subtítulo para o cabeçalho
+       caber. A 32px de altura ela tem ~106px de largura, bem acima da redução
+       máxima de 59px do manual, e o gap acompanha a área de não interferência. */
+    @media(max-width:400px){
+      .brand{gap:16px}
+      .brand .mk{height:32px}
+      .brand .nm{font-size:13.5px}
+      .brand .nm i{display:none}
+    }
 
     .nav{margin-left:auto;display:flex;align-items:center;gap:3px}
     .nav a{font-size:13.5px;font-weight:500;color:var(--tx);text-decoration:none;padding:8px 13px;

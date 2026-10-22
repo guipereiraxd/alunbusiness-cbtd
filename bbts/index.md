@@ -9,8 +9,8 @@ description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12
     background:radial-gradient(58% 70% at 88% 8%, rgba(0,51,160,.07) 0%, transparent 62%),
                radial-gradient(42% 52% at 4% 96%, rgba(255,204,0,.14) 0%, transparent 60%)}
   .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,760px);gap:52px;
-    align-items:center;padding:64px 0 60px}
-  @media(max-width:980px){ .hero-in{gap:38px;padding:48px 0 44px} }
+    align-items:center;padding-block:64px 60px}
+  @media(max-width:980px){ .hero-in{gap:38px;padding-block:48px 44px} }
   .hero h1{margin-top:16px}
   .lead em{font-style:normal;font-weight:600;color:var(--ink)}
   .hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--blue) 0%,var(--blue-500) 100%);
