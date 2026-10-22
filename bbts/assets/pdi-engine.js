@@ -14,7 +14,15 @@ window.BBTS_PDI = (function(){
     P6: ["Automação & Produtividade","Business Intelligence & Visualização","IA para Análise de Dados & BI"],
     P7: ["Engenharia de LLMs & Agentes","IA Generativa & Prompt Engineering","Machine Learning & Deep Learning","Engenharia de Modelos & Fine-Tuning"],
     P8: ["Governança & Ética de IA","IA para Produto & Negócio"],
-    P9: ["Governança & Ética de IA","IA para Produto & Negócio"]
+    P9: ["Governança & Ética de IA","IA para Produto & Negócio"],
+
+    /* As cinco técnicas descrevem prática, não percepção — por isso
+       apontam para temas mais estreitos que as perguntas de prontidão. */
+    T1: ["IA Generativa & Prompt Engineering"],
+    T2: ["Governança & Ética de IA","IA Generativa & Prompt Engineering"],
+    T3: ["Fundamentos de Dados","Exploração de Dados","Bancos de Dados & SQL"],
+    T4: ["Engenharia de LLMs & Agentes","IA Generativa & Prompt Engineering"],
+    T5: ["Engenharia de LLMs & Agentes","Automação & Produtividade","MLOps e Operacionalização"]
   };
   /* O comportamento que fecha cada lacuna. É o que a pessoa lê junto do gap,
      para saber o que fazer na segunda-feira — curso sozinho não diz isso.
@@ -31,7 +39,13 @@ window.BBTS_PDI = (function(){
     P9:  "Ensine o que você já sabe: prepare uma sessão curta para o time, com um caso real seu.",
     P10: "Mapeie qual ferramenta falta e peça formalmente ao gestor — acesso não se conquista com estudo.",
     P11: "Leve um resultado concreto ao seu gestor e combine como o uso de IA passa a ser acompanhado na área.",
-    P12: "Negocie uma janela protegida na agenda. Sem tempo reservado, nenhum plano de desenvolvimento acontece."
+    P12: "Negocie uma janela protegida na agenda. Sem tempo reservado, nenhum plano de desenvolvimento acontece.",
+
+    T1: "Pare de pedir solto: escreva o objetivo, o contexto, o formato esperado e o que não pode acontecer — e guarde o que funcionou para reusar.",
+    T2: "Defina antes como vai saber se a resposta serve. Confira número contra fonte e teste a IA justamente onde ela tende a errar.",
+    T3: "Antes de enviar, selecione o que importa, limpe duplicidade e ausência, e confirme que pode usar aquele dado.",
+    T4: "Em vez de colar trecho na conversa, monte uma base de documentos e teste se a resposta recupera a informação certa — inclusive quando ela não existe.",
+    T5: "Saia do copiar e colar entre ferramentas: conecte as etapas com gatilho, validação e tratamento de falha, e deixe a aprovação humana onde a decisão pesa."
   };
 
   /* P10–P12 (contexto) não têm curso: dependem do ambiente, não da pessoa. */
@@ -55,7 +69,8 @@ window.BBTS_PDI = (function(){
             desc:"Combine com seu gestor uma janela protegida na agenda e o acesso à ferramenta necessária.",
             evidencia:"Registro do acordo: janela na agenda, ferramenta liberada e data de revisão." }
   };
-  const ROTULO = { uso:"Uso atual", base:"Base técnica", infl:"Influência", ctx:"Contexto de trabalho" };
+  const ROTULO = { uso:"Uso atual", base:"Base técnica", infl:"Influência", ctx:"Contexto de trabalho",
+                   tec:"Competência técnica" };
 
   function lacunas(R, SK, alvo){
     const B = window.BBTS, out = [];
@@ -73,6 +88,37 @@ window.BBTS_PDI = (function(){
       if (b.estado==="pendente" && a.estado!=="pendente") return 1;
       return (b.delta||0) - (a.delta||0);
     });
+    return out;
+  }
+
+  /* Alvo das técnicas. Escala 0–4 e natureza diferente das de prontidão:
+     T1 e T2 todo mundo precisa; T3 sobe com sinal de dado; T4 e T5 com
+     sinal de agente. Teto em 4, piso em 2 — abaixo disso não é prática. */
+  function alvoTecnico(alvo){
+    const base = Math.max(2, Math.min(4, alvo.nivelBase || 2));
+    const s = alvo.sinais || {};
+    const cap = n => Math.max(2, Math.min(4, n));
+    return {
+      T1: cap(base),
+      T2: cap(base),
+      T3: cap(s.dado   ? base + 1 : base),
+      T4: cap(s.agente ? base + 1 : base - 1),
+      T5: cap(s.agente ? base + 1 : base)
+    };
+  }
+
+  /* Lista de lacunas do bloco técnico, no mesmo formato das outras,
+     para a tela e o motor de curso tratarem igual. */
+  function lacunasTecnicas(R, alvo){
+    const B = window.BBTS, meta = alvoTecnico(alvo), out = [];
+    B.tecnicas.forEach(function(t){
+      const bruto = R[t.id];
+      if (bruto === undefined || bruto === null || bruto === "") return;
+      const atual = Number(bruto), m = meta[t.id];
+      out.push({ id:t.id, titulo:t.titulo, bloco:"tec", atual, meta:m,
+                 delta:m-atual, estado: m>atual ? "lacuna" : "atendido", tecnica:true });
+    });
+    out.sort((a,b) => b.delta - a.delta);
     return out;
   }
 
@@ -222,5 +268,6 @@ window.BBTS_PDI = (function(){
   }
 
   return { MAPA, SEM_CURSO, PRATICAS, ROTULO, ACAO, TETO_CICLO, CICLOS,
-           lacunas, alvoDe, alvoComPiso, candidatos, perfilCatalogo, planejar, blocoPrioritario };
+           lacunas, lacunasTecnicas, alvoTecnico, alvoDe, alvoComPiso,
+           candidatos, perfilCatalogo, planejar, blocoPrioritario };
 })();

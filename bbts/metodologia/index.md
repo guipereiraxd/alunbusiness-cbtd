@@ -189,6 +189,35 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
       </div>
     </div>
 
+    <div class="grupo" style="margin-top:22px">
+      <div class="grupo-h">
+        <span class="gl">Bloco técnico — um segundo eixo, não parte do índice</span>
+        <span class="gp">0 a 20 pontos</span>
+      </div>
+      <p class="d" style="margin:0 0 16px">Cinco perguntas sobre o que a pessoa já faz na prática,
+        de 0 a 4 pontos cada. A escala é própria e <b>não soma no índice de prontidão</b>: o
+        instrumento v6 é calibrado em 12–48 com perguntas de 1 a 4, e misturar escalas quebraria
+        a comparação. O zero existe porque “ainda não sei fazer” é resposta legítima, diferente
+        de fazer de forma rudimentar.</p>
+      <div class="dims" style="grid-template-columns:repeat(5,1fr)">
+        <div class="dim"><div class="l"><span class="L">T1</span><h3 style="font-size:14.5px">Solicitações</h3></div>
+          <p>Do pedido genérico à instrução reutilizável e testada.</p></div>
+        <div class="dim"><div class="l"><span class="L">T2</span><h3 style="font-size:14.5px">Verificação</h3></div>
+          <p>De “parece certo” a testar onde a IA tende a falhar.</p></div>
+        <div class="dim"><div class="l"><span class="L">T3</span><h3 style="font-size:14.5px">Dados</h3></div>
+          <p>De enviar como está a um processo de preparo reutilizável.</p></div>
+        <div class="dim"><div class="l"><span class="L">T4</span><h3 style="font-size:14.5px">Documentos</h3></div>
+          <p>De colar trecho a base de conhecimento com permissão.</p></div>
+        <div class="dim"><div class="l"><span class="L">T5</span><h3 style="font-size:14.5px">Automação</h3></div>
+          <p>Do passo manual ao fluxo com agentes e aprovação.</p></div>
+      </div>
+      <div class="nota" style="margin-top:16px"><b>É este eixo que mais orienta a escolha de curso.</b>
+        As perguntas de prontidão descrevem percepção e hábito; estas descrevem execução verificável,
+        e por isso apontam para temas mais estreitos do catálogo. A orientação de resposta é
+        deliberada: <b>o nível mais alto que se realiza de forma consistente</b>, não o que já se
+        tentou uma vez.</div>
+    </div>
+
     <div class="apart">
       <div class="lado"><span class="L">E</span><h3>Retorno percebido</h3></div>
       <div class="corpo">

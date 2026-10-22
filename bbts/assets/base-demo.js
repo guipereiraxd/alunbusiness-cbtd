@@ -71,6 +71,19 @@ window.BBTS_DEMO = (function(){
         const somaPerfil = R.P2 + R.P3;
         R.P13 = nivel(1.4 + (somaPerfil-2)/6*2.6, 1.0);
 
+        /* bloco técnico (0 a 4). Ancorado na base técnica da pessoa, que é o
+           que mais se aproxima de prática — com ruído por competência, porque
+           ninguém é parelho nas cinco. T4 e T5 puxam para baixo: montar base
+           de conhecimento e orquestrar agente são as menos difundidas. */
+        const baseTec = (R.P4 + R.P6 + R.P7) / 3;
+        const tec = (centro, espalha) => Math.max(0, Math.min(4,
+          Math.round(centro + (norm()-0.5)*espalha*2)));
+        R.T1 = tec(baseTec + 0.3, 1.0);
+        R.T2 = tec(baseTec - 0.2, 1.0);
+        R.T3 = tec(baseTec - 0.1 + (R.P5-2)*0.4, 1.0);
+        R.T4 = tec(baseTec - 1.1, 0.9);
+        R.T5 = tec(baseTec - 0.7, 1.0);
+
         /* status do PDI — a maioria já submeteu */
         const r = rnd();
         const status = r < 0.12 ? "rascunho" : r < 0.46 ? "submetido" : r < 0.78 ? "em_revisao" : "aprovado";

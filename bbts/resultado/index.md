@@ -282,6 +282,9 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   var calc = B.calcular(R);
   var piso = E.alvoComPiso(R, SK, E.alvoDe(T, calc));
   var alvo = piso.alvo;
+  /* eixo técnico: escala própria, lido em paralelo ao índice */
+  var tec    = B.calcularTecnico(R);
+  var lacTec = tec ? E.lacunasTecnicas(R, alvo) : [];
   var lac  = E.lacunas(R, SK, alvo);
   var blocoTop = E.blocoPrioritario(lac);
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -295,6 +298,11 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
     + '<div class="kpi"><div class="k">Perfil de uso</div><div class="l">P2 + P3 · '+calc.somaPerfil+' de 8 pontos</div>'
     + '<div class="v" style="font-size:25px">'+esc(calc.perfil.nome)+'</div>'
     + '<div class="f">'+esc(calc.perfil.desc)+'</div></div>'
+    + (tec
+        ? '<div class="kpi"><div class="k">Competência técnica</div><div class="l">T1 a T5 · escala própria</div>'
+          + '<div class="v">'+tec.pontos+' <small>/ 20</small></div>'
+          + '<div class="f"><b>'+esc(tec.nivel.nome)+'</b> · '+esc(tec.nivel.desc)+'</div></div>'
+        : '')
     + '<div class="kpi"><div class="k">Tempo percebido</div><div class="l">Autodeclarado em P13</div>'
     + '<div class="v">'+(calc.horas===null?"—":nf(calc.horas))+' <small>h/semana</small></div>'
     + '<div class="f">percepção declarada, não medição</div></div>'
@@ -349,7 +357,7 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   });
 
   /* lacunas */
-  var vis = lac.filter(function(l){ return l.estado!=="atendido"; });
+  var vis = lac.concat(lacTec).filter(function(l){ return l.estado!=="atendido"; });
   document.getElementById("gaps").innerHTML = vis.length ? vis.map(function(l,i){
     if (l.estado==="pendente")
       return '<div class="gap pend"><span class="pr">—</span><div><div class="nm">'+esc(l.titulo)+'</div>'
@@ -373,7 +381,7 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
 
   /* ── plano de 12 meses ───────────────────────────────── */
   var perfilCat = E.perfilCatalogo(T, alvo);
-  var cands = E.candidatos(lac, R, perfilCat);
+  var cands = E.candidatos(lac.concat(lacTec), R, perfilCat);
   var horasSem = Number(T.ded) || 0;
   var plano = E.planejar(cands.slice(), horasSem);
 
@@ -449,6 +457,9 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
     + "imprevisto. Ele entrou mesmo assim porque plano vazio não ajuda ninguém — mas é o primeiro "
     + "item a renegociar se a agenda apertar.");
   if (semCurso.length) res.push("<b>"+semCurso.length+" lacuna"+(semCurso.length>1?"s":"")+" de contexto</b> ("+semCurso.map(function(d){return d.id;}).join(", ")+") — ferramenta, ambiente ou agenda não se resolvem com curso. Requer acordo com o gestor.");
+  if (!tec) res.push("<b>Bloco técnico não respondido.</b> As cinco perguntas de competência "
+    + "técnica entraram no instrumento depois deste assessment. Responder de novo refina bastante "
+    + "a seleção de cursos, porque elas descrevem prática e não percepção.");
   if (window.BBTS_CATALOGO.estimativaHoras) res.push("<b>Carga horária estimada.</b> A base de cursos não traz duração; as horas vêm da profundidade (Introdutório 8h · Intermediário 12h · Avançado 16h) e devem ser substituídas pela carga real antes do uso institucional.");
   var pend = lac.filter(function(l){return l.estado==="pendente";});
   if (pend.length) res.push("<b>"+pend.length+" item"+(pend.length>1?"s":"")+" pendente"+(pend.length>1?"s":"")+" de validação</b> — respondido como “não sei” ou “não se aplica”. Requer conversa com o gestor antes do próximo ciclo.");

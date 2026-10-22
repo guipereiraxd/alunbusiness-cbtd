@@ -121,6 +121,30 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   .tg-d .vv b{color:var(--ink);font-weight:600;font-size:14px}
   @media(max-width:560px){.tg-d .i{grid-template-columns:92px 1fr 70px;gap:9px}}
 
+  /* competências técnicas */
+  .tec{display:grid;grid-template-columns:300px 1fr;gap:26px;margin-top:30px}
+  @media(max-width:880px){.tec{grid-template-columns:1fr}}
+  .tec-big{background:var(--panel);border:1px solid var(--line-2);border-radius:16px;padding:24px;
+    display:flex;flex-direction:column;justify-content:center}
+  .tec-big .n{font-family:var(--disp);font-weight:800;font-size:54px;line-height:1;color:var(--ink);
+    letter-spacing:-.03em}
+  .tec-big .n small{font-size:21px;color:var(--tx-3);font-weight:600}
+  .tec-big .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--tx-3);margin-top:13px}
+  .tec-big .niveis{display:grid;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line-2)}
+  .tec-big .niveis div{display:grid;grid-template-columns:1fr auto;gap:10px;font-size:12.5px;color:var(--tx-2)}
+  .tec-big .niveis b{color:var(--ink);font-family:var(--mono);font-size:12px}
+  .tec-d{display:grid;gap:10px;align-content:center}
+  .tec-d .i{display:grid;grid-template-columns:230px 1fr 56px;gap:14px;align-items:center}
+  .tec-d .nm{font-size:13.5px;color:var(--ink)}
+  .tec-d .nm small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+    color:var(--tx-3);margin-top:2px}
+  .tec-d .bw{height:22px;background:var(--panel-2);border-radius:6px;overflow:hidden}
+  .tec-d .bw i{display:block;height:100%;border-radius:6px;background:var(--blue)}
+  .tec-d .i.baixa .bw i{background:var(--warn)}
+  .tec-d .vv{font-family:var(--mono);font-size:13px;color:var(--ink);font-weight:600;text-align:right}
+  @media(max-width:620px){.tec-d .i{grid-template-columns:1fr 56px}.tec-d .bw{display:none}}
+
   /* necessidades */
   .nd{display:grid;gap:3px}
   .nd .i{display:grid;grid-template-columns:38px 1fr 120px 62px;gap:13px;align-items:center;
@@ -379,6 +403,19 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       <div class="nota" id="tg-n"></div>
     </section>
 
+    <section class="sec" id="sec-tec">
+      <h2>Competências técnicas do grupo</h2>
+      <p class="d">Cinco perguntas sobre o que a pessoa já faz na prática, de 0 a 4 pontos cada.
+         Escala própria, somando até 20 — <b>não entram no índice de prontidão</b>, que tem
+         calibração diferente. São elas que mais orientam a escolha de curso, porque descrevem
+         execução e não percepção.</p>
+      <div class="tec">
+        <div class="tec-big" id="tec-big"></div>
+        <div class="tec-d" id="tec-d"></div>
+      </div>
+      <div class="nota" id="tec-n"></div>
+    </section>
+
     <section class="sec">
       <h2>Necessidades de desenvolvimento agregadas</h2>
       <p class="d">Média do grupo em cada competência, da mais baixa para a mais alta. As três de contexto
@@ -543,7 +580,9 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       var piso = E.alvoComPiso(r.R, r.SK||{}, E.alvoDe(r.T||{}, calc));
       var alvo = piso.alvo;
       var lac  = E.lacunas(r.R, r.SK||{}, alvo);
-      return { reg:r, calc:calc, alvo:alvo, lac:lac, piso:piso,
+      var tec  = B.calcularTecnico(r.R);
+      if (tec) lac = lac.concat(E.lacunasTecnicas(r.R, alvo));
+      return { reg:r, calc:calc, alvo:alvo, lac:lac, piso:piso, tec:tec,
                eu: !!(eu && eu.id === r.id),
                ded: Number((r.T||{}).ded) || 0,
                status: r.status || "submetido" };
@@ -555,7 +594,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     document.getElementById("corpo").style.display = vazio ? "none" : "block";
     document.getElementById("kp").style.display    = vazio ? "none" : "grid";
     if (vazio) return;
-    kpis(); acao(); amostra(); perfis(); hist(); dims(); tempo(); needs(); macros(); fila(); tabela();
+    kpis(); acao(); amostra(); perfis(); hist(); dims(); tempo(); tecnicas(); needs(); macros(); fila(); tabela();
   }
 
   function modo(res){
@@ -771,6 +810,56 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
           : "")
       + "A pergunta mede percepção, não relógio. Serve para dimensionar conversa e expectativa, "
       + "nunca para justificar meta de produtividade.";
+  }
+
+  /* ---------- competências técnicas ---------- */
+  function tecnicas(){
+    var sec = document.getElementById("sec-tec");
+    var com = dados.filter(function(d){ return d.tec; });
+    if (!com.length){ sec.style.display = "none"; return; }
+    sec.style.display = "";
+
+    var pts = com.map(function(d){ return d.tec.pontos; });
+    var distr = {};
+    com.forEach(function(d){ distr[d.tec.nivel.nome] = (distr[d.tec.nivel.nome]||0)+1; });
+
+    document.getElementById("tec-big").innerHTML =
+      '<div class="n">'+n1(med(pts))+'<small> / 20</small></div>'
+      + '<div class="l">pontuação média do grupo</div>'
+      + '<div class="niveis">'
+      +   B.NIVEIS_TEC.map(function(nv){
+            var q = distr[nv.nome]||0;
+            return '<div><span>'+esc(nv.nome)+'</span><b>'+q+'</b></div>';
+          }).join("")
+      + '</div>';
+
+    document.getElementById("tec-d").innerHTML = B.tecnicas.map(function(t){
+      var vs = com.map(function(d){ return d.tec.porId[t.id]; })
+                  .filter(function(v){ return v !== null && v !== undefined; });
+      var m = med(vs);
+      return '<div class="i'+(m < 1.5 ? " baixa" : "")+'">'
+        + '<span class="nm">'+esc(t.titulo)+'<small>'+t.id+'</small></span>'
+        + '<div class="bw"><i style="width:'+(m/4*100)+'%"></i></div>'
+        + '<div class="vv">'+n1(m)+'<small style="color:var(--tx-3);font-weight:400">/4</small></div></div>';
+    }).join("");
+
+    var pior = B.tecnicas.map(function(t){
+      return { t:t, m: med(com.map(function(d){ return d.tec.porId[t.id]; })
+                            .filter(function(v){ return v!==null && v!==undefined; })) };
+    }).sort(function(x,y){ return x.m-y.m; })[0];
+    var semZero = com.filter(function(d){ return d.tec.pontos === 0; }).length;
+
+    document.getElementById("tec-n").innerHTML =
+      (com.length < dados.length
+        ? "<b>"+com.length+" de "+dados.length+" responderam o bloco técnico</b>, que entrou no "
+          + "instrumento depois. Os demais ficam fora desta leitura. "
+        : "")
+      + "A competência mais frágil do grupo é <b>" + esc(pior.t.titulo) + "</b> ("
+      + n1(pior.m) + " de 4). "
+      + (semZero ? "<b>"+semZero+" "+(semZero===1?"pessoa":"pessoas")+" marcou 0 em tudo</b> — "
+                 + "ponto de partida, não problema. " : "")
+      + "Diferente das perguntas de prontidão, aqui cada nível descreve uma prática verificável, "
+      + "o que torna este eixo o melhor candidato a virar avaliação de competência de verdade.";
   }
 
   /* ---------- necessidades por competência ---------- */

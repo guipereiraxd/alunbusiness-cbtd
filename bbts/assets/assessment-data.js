@@ -74,6 +74,92 @@ window.BBTS = (function(){
   /* P13 → horas por semana. Faixa 4 é aberta; 4h é piso deliberado. */
   const HORAS = {1:0, 2:0.5, 3:2.0, 4:4.0};
 
+
+  /* ── Bloco técnico ────────────────────────────────────────────
+     Cinco competências de prática, de 0 a 4 pontos. Escala própria:
+     o zero existe porque "ainda não sei fazer" é resposta legítima e
+     diferente de "faço de forma rudimentar".
+
+     NÃO entram no índice de prontidão. O v6 é calibrado em 12–48 com
+     perguntas de 1 a 4; somar aqui quebraria a escala e a comparação.
+     Formam um segundo eixo, de 0 a 20, lido em paralelo. */
+  const tecnicas = [
+    { id:"T1", titulo:"Formulação de solicitações", tema:"prompt",
+      enunciado:"Como você prepara uma solicitação para uma IA realizar uma tarefa do seu trabalho?",
+      opcoes:[
+        "Ainda não sei como formular uma solicitação.",
+        "Faço pedidos simples e genéricos.",
+        "Explico o objetivo e forneço contexto sobre a tarefa.",
+        "Também defino o formato da resposta, os critérios de qualidade e as restrições.",
+        "Estruturo solicitações reutilizáveis, testo diferentes versões e ajusto com base nos resultados."
+      ],
+      escada:["Não formula","Pedido genérico","Objetivo e contexto","Formato e critérios","Reutilizável e testado"] },
+
+    { id:"T2", titulo:"Verificação de respostas", tema:"avaliacao",
+      enunciado:"Como você verifica a qualidade e a confiabilidade de uma resposta produzida por IA?",
+      opcoes:[
+        "Ainda não sei como verificar.",
+        "Leio a resposta e avalio se ela parece fazer sentido.",
+        "Confiro as principais informações em fontes confiáveis.",
+        "Também verifico cálculos, inconsistências e se as conclusões são sustentadas pelos dados.",
+        "Defino critérios de avaliação e testo a IA em diferentes situações, incluindo casos em que ela pode falhar."
+      ],
+      escada:["Não verifica","Parece fazer sentido","Confere em fonte","Checa dados e lógica","Testa com critério"] },
+
+    { id:"T3", titulo:"Preparação de dados", tema:"dados",
+      enunciado:"Como você prepara dados ou documentos para trabalhar com IA?",
+      opcoes:[
+        "Ainda não sei preparar esses materiais.",
+        "Copio textos ou envio arquivos como estão.",
+        "Seleciono as informações relevantes e organizo o material antes de enviar.",
+        "Também trato duplicidades, inconsistências e dados ausentes, respeitando as regras de uso das informações.",
+        "Estruturo um processo reutilizável de preparação e verificação da qualidade dos dados."
+      ],
+      escada:["Não prepara","Envia como está","Seleciona e organiza","Trata e respeita regra","Processo reutilizável"] },
+
+    { id:"T4", titulo:"Respostas sobre documentos internos", tema:"rag",
+      enunciado:"Como você faria uma IA responder com base em documentos internos da organização?",
+      opcoes:[
+        "Ainda não sei como fazer.",
+        "Incluo trechos dos documentos na conversa.",
+        "Forneço os documentos e instruo a IA a responder com base neles, indicando as fontes.",
+        "Configuro uma base de conhecimento e verifico se as respostas recuperam as informações corretas.",
+        "Também configuro atualização das fontes e permissões de acesso, e testo respostas para informações ausentes ou conflitantes."
+      ],
+      escada:["Não sabe","Cola trechos","Documento com fonte","Base de conhecimento","Fonte viva e permissão"] },
+
+    { id:"T5", titulo:"Automação com IA", tema:"agente",
+      enunciado:"Qual é sua capacidade de automatizar uma tarefa com IA?",
+      opcoes:[
+        "Ainda não sei como automatizar uma tarefa.",
+        "Uso IA em uma etapa, mas transfiro manualmente as informações entre as ferramentas.",
+        "Configuro uma automação simples com IA, com um gatilho e uma saída definidos.",
+        "Conecto etapas e ferramentas, incluindo validações e tratamento de falhas.",
+        "Configuro um fluxo com agentes, ações permitidas, registros de execução e aprovação humana quando necessária."
+      ],
+      escada:["Não automatiza","Passo manual","Gatilho e saída","Etapas com validação","Agentes com governança"] }
+  ];
+
+  const NIVEIS_TEC = [
+    { id:"nenhum",   nome:"Sem prática",    faixa:[0,3],   desc:"Ainda não executa essas tarefas de forma autônoma." },
+    { id:"inicial",  nome:"Inicial",        faixa:[4,8],   desc:"Executa o básico, sem método definido." },
+    { id:"aplicado", nome:"Aplicado",       faixa:[9,13],  desc:"Trabalha com contexto, critério e fonte." },
+    { id:"solido",   nome:"Sólido",         faixa:[14,17], desc:"Trata dado, valida resultado e encadeia etapas." },
+    { id:"avancado", nome:"Avançado",       faixa:[18,20], desc:"Constrói processo reutilizável, com governança." }
+  ];
+
+  /* Pontuação do bloco técnico. Devolve null quando não foi respondido,
+     para a tela saber que o eixo não existe em vez de mostrar zero. */
+  function calcularTecnico(R){
+    const dadas = tecnicas.filter(t => R[t.id] !== undefined && R[t.id] !== null && R[t.id] !== "");
+    if (!dadas.length) return null;
+    const pontos = dadas.reduce((a,t) => a + (Number(R[t.id]) || 0), 0);
+    const nivel = NIVEIS_TEC.find(n => pontos >= n.faixa[0] && pontos <= n.faixa[1]) || NIVEIS_TEC[0];
+    const porId = {};
+    tecnicas.forEach(t => { porId[t.id] = R[t.id] === undefined ? null : Number(R[t.id]); });
+    return { pontos, max:20, nivel, respondidas:dadas.length, total:tecnicas.length, porId };
+  }
+
   const PERFIS = [
     { id:"iniciante",  nome:"Iniciante",            faixa:[2,3], desc:"Uso raro ou nenhum, sem autonomia." },
     { id:"tarefa",     nome:"Usuário de tarefa",    faixa:[4,5], desc:"Usa para produzir o próprio trabalho, com autonomia parcial." },
@@ -107,6 +193,7 @@ window.BBTS = (function(){
     };
   }
 
-  return { versao:"v6 · out/2026", perguntas, abertas, blocos, PERFIS, HORAS, calcular,
+  return { versao:"v6 · out/2026", perguntas, abertas, blocos, tecnicas, NIVEIS_TEC,
+           PERFIS, HORAS, calcular, calcularTecnico,
            ESCADA_P, ESCADA_C, ESCADA_T };
 })();

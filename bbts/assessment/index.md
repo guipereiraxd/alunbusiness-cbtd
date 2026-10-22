@@ -142,6 +142,7 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
   var stages = [{ tipo:"cadastro" }].concat(ordem.map(function(k){
     return { tipo:"bloco", key:k, perguntas: B.perguntas.filter(function(p){return p.bloco===k;}) };
   }));
+  stages.push({ tipo:"tecnico" });
   stages.push({ tipo:"objetivo" });
   var cur = 0;
 
@@ -157,6 +158,7 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
     var host = document.getElementById("stages");
     host.innerHTML = stages.map(function(st, i){
       if (st.tipo === "cadastro") return stageCadastro(i);
+      if (st.tipo === "tecnico") return stageTecnico(i);
       if (st.tipo === "objetivo") return stageObjetivo(i);
       return stageBloco(st, i);
     }).join("");
@@ -214,6 +216,32 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
       + '<p class="bl-d">'+esc(b.desc)+'</p>'+qs+'</section>';
   }
 
+  function stageTecnico(i){
+    var qs = B.tecnicas.map(function(t){
+      var marcado = R[t.id] !== undefined && R[t.id] !== null && R[t.id] !== "";
+      var opts = t.opcoes.map(function(txt, k){
+        var ck = marcado && Number(R[t.id]) === k ? " checked" : "";
+        return '<label class="opt"><input type="radio" name="'+t.id+'" value="'+k+'"'+ck+'>'
+          + '<span class="rd"></span><span class="tx">'+esc(txt)+'</span>'
+          + '<span class="lv">'+k+' pt'+(k===1?"":"s")+'</span></label>';
+      }).join("");
+      return '<div class="q'+(marcado?" done":"")+'" data-q="'+t.id+'">'
+        + '<div class="q-h"><span class="q-id">'+t.id+'</span><div>'
+        + '<div class="q-t">'+esc(t.enunciado)+'</div>'
+        + '<div class="q-sub">'+esc(t.titulo)+' · 0 a 4 pontos</div>'
+        + '</div></div><div class="opts">'+opts+'</div></div>';
+    }).join("");
+    return '<section class="stage" data-i="'+i+'">'
+      + '<div class="bl-h"><span class="L">T</span><span class="t">Competências técnicas</span>'
+      + '<span class="r">5 perguntas · 0 a 20 pts</span></div>'
+      + '<p class="bl-d">O que você já consegue fazer na prática. Este bloco tem escala própria e '
+      + '<b>não entra no índice de prontidão</b> — ele é lido em separado.</p>'
+      + '<div class="note" style="margin:-8px 0 20px"><b>Como responder:</b> considere suas '
+      + 'experiências recentes e marque o nível mais alto que você consegue realizar '
+      + '<b>de forma consistente</b> — não o que já tentou uma vez.</div>'
+      + qs + '</section>';
+  }
+
   function stageObjetivo(i){
     return '<section class="stage" data-i="'+i+'">'
       + '<div class="bl-h"><span class="L" style="background:var(--yellow-soft);color:var(--warn)">F</span>'
@@ -257,7 +285,7 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
   function bind(){
     document.querySelectorAll('.opt input[type=radio]').forEach(function(el){
       el.addEventListener("change", function(){
-        R[el.name] = Number(el.value);
+        R[el.name] = Number(el.value);   /* 0 é resposta válida nas técnicas */
         SK[el.name] = "";
         var box = el.closest('.q');
         box.classList.add("done");
@@ -298,13 +326,19 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
     if(e&&c) c.textContent=(e.value||"").trim().length; }
 
   function bar(){
-    var tot = B.perguntas.length, feitas = 0;
+    var respT = function(t){ return R[t.id] !== undefined && R[t.id] !== null && R[t.id] !== ""; };
+    var tot = B.perguntas.length + B.tecnicas.length, feitas = 0;
     B.perguntas.forEach(function(p){ if (R[p.id] || SK[p.id]) feitas++; });
+    B.tecnicas.forEach(function(t){ if (respT(t)) feitas++; });
     var objOk = (T.obj||"").trim().length >= 40;
     var el = document.getElementById("bar");
     el.innerHTML = B.perguntas.map(function(p){
       return '<div class="'+(R[p.id]?"f":(SK[p.id]?"c":""))+'" title="'+p.id+'"></div>';
-    }).join("") + '<div class="'+(objOk?"f":"")+'" title="Objetivo"></div>';
+    }).join("")
+    + B.tecnicas.map(function(t){
+      return '<div class="'+(respT(t)?"f":"")+'" title="'+t.id+'"></div>';
+    }).join("")
+    + '<div class="'+(objOk?"f":"")+'" title="Objetivo"></div>';
     document.getElementById("pos").textContent =
       "Etapa "+(cur+1)+" de "+stages.length+" · "+feitas+" de "+tot+" perguntas respondidas";
   }
@@ -325,6 +359,9 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
   function completo(i){
     var st = stages[i];
     if (st.tipo === "cadastro") return (C.nome||"").trim().length >= 3 && S.valido(C.email);
+    if (st.tipo === "tecnico") return B.tecnicas.every(function(t){
+      return R[t.id] !== undefined && R[t.id] !== null && R[t.id] !== "";
+    });
     if (st.tipo === "objetivo") return (T.obj||"").trim().length >= 40 && !!T.ded;
     return st.perguntas.every(function(p){ return R[p.id] || SK[p.id]; });
   }
@@ -334,6 +371,13 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
     if (!completo(cur)){
       var w = document.getElementById("warn");
       var t = stages[cur].tipo;
+      if (t === "tecnico"){
+        w.textContent = "Responda as cinco perguntas técnicas — “ainda não sei” vale 0 e é uma resposta.";
+        w.classList.add("on");
+        var alvoT = document.querySelector('.stage.on .q:not(.done)');
+        if (alvoT) alvoT.scrollIntoView({behavior:"smooth",block:"center"});
+        return;
+      }
       w.textContent = t==="cadastro"
         ? (((C.nome||"").trim().length < 3) ? "Informe seu nome."
            : "Informe um e-mail válido.")
