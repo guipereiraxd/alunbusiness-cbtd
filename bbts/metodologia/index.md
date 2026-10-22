@@ -532,7 +532,7 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
 
     <div class="cta-m">
       <h2>Responder leva cerca de 10 minutos</h2>
-      <p>Treze perguntas fechadas, três abertas e o seu objetivo de 12 meses. No fim, o diagnóstico e
+      <p>Vinte perguntas fechadas, três abertas e o seu objetivo de 12 meses. No fim, o diagnóstico e
          a proposta de PDI aparecem na hora.</p>
       <a href="{{ '/bbts/assessment/' | relative_url }}">Iniciar assessment →</a>
     </div>

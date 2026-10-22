@@ -1,6 +1,6 @@
 ---
 title: "Assessment"
-description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, mais o objetivo de maturidade em 12 meses."
+description: "Assessment de prontidão em IA — 20 perguntas fechadas em dois eixos, três abertas e o objetivo de maturidade em 12 meses."
 ---
 
 <style>
@@ -96,7 +96,7 @@ description: "Assessment de prontidão em IA — 13 perguntas em quatro blocos, 
         <span class="sk">Assessment de prontidão</span>
         <h1 style="margin-top:10px">Prontidão em IA</h1>
       </div>
-      <div class="as-ver">Instrumento <b>v6</b> · out/2026<br>13 perguntas · ~10 min</div>
+      <div class="as-ver">Instrumento <b>v6</b> · out/2026<br>20 perguntas · ~10 min</div>
     </div>
     <div class="bar" id="bar"></div>
     <div class="as-meta">
