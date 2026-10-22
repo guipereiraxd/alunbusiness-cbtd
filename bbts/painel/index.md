@@ -319,6 +319,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       <div class="pn-ctl">
         <label class="tgl" id="tg-anon"><input type="checkbox" id="anon" checked> Ocultar identificação</label>
         <label class="tgl" id="tg-seed"><input type="checkbox" id="seed"> Coorte de referência</label>
+        <button class="btn-s" id="exp" style="background:var(--paper);color:var(--tx);border:1px solid var(--line-2)">Exportar</button>
         <button class="btn-s" id="rec">Atualizar</button>
       </div>
     </div>
@@ -952,6 +953,173 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     }).join("");
   }
 
+  /* ---------- exportação para Excel ----------
+     .xlsx de verdade, com quatro abas. A biblioteca é carregada só no
+     clique: são ~900 KB que não fazem falta a quem só vem olhar o painel. */
+  var XLSX_URL = "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js";
+  var xlsxCarregando = null;
+
+  function carregarXLSX(){
+    if (window.XLSX) return Promise.resolve(window.XLSX);
+    if (xlsxCarregando) return xlsxCarregando;
+    xlsxCarregando = new Promise(function(ok, erro){
+      var s = document.createElement("script");
+      s.src = XLSX_URL;
+      s.onload = function(){ window.XLSX ? ok(window.XLSX) : erro(new Error("biblioteca não inicializou")); };
+      s.onerror = function(){ xlsxCarregando = null; erro(new Error("não foi possível baixar a biblioteca de planilha")); };
+      document.head.appendChild(s);
+    });
+    return xlsxCarregando;
+  }
+
+  var ROT_STATUS = { rascunho:"Rascunho", submetido:"Aguardando revisão",
+                     em_revisao:"Em revisão", aprovado:"Aprovado" };
+
+  function linhasColaboradores(){
+    return dados.map(function(d, i){
+      var l = {
+        "#": i+1,
+        "Nome": d.reg.nome || "",
+        "E-mail": d.reg.email || "",
+        "Registro fictício": d.reg.seed ? "sim" : "não",
+        "Status": ROT_STATUS[d.status] || d.status,
+        "Índice de prontidão (12-48)": d.calc.indice,
+        "Capacidade (9-36)": d.calc.capacidade,
+        "Contexto (3-12)": d.calc.contexto,
+        "Perfil de uso": d.calc.perfil.nome,
+        "A caminho do próximo degrau": d.calc.aCaminho ? "sim" : "não",
+        "Dedicação (h/semana)": d.ded || "",
+        "Tempo economizado (h/semana)": d.calc.horas === null ? "" : d.calc.horas
+      };
+      ["uso","base","infl","ctx"].forEach(function(k){
+        l["Sub-índice " + E.ROTULO[k]] = d.calc.sub[k];
+      });
+      if (d.tec){
+        l["Competência técnica (0-" + d.tec.max + ")"] = d.tec.pontos;
+        l["Nível técnico"] = d.tec.nivel.nome;
+        B.DIMENSOES.forEach(function(dim){
+          var v = d.tec.dims[dim.id];
+          l["Dim · " + dim.nome] = v ? Math.round(v.valor*100)/100 : "";
+        });
+      }
+      if (d.plano){
+        l["Plano · cursos"] = d.plano.totalC;
+        l["Plano · horas"] = d.plano.totalH;
+      }
+      l["Objetivo declarado"] = (d.reg.T && d.reg.T.obj) || "";
+      l["Respondido em"] = d.reg.enviado || d.reg.criado || "";
+      return l;
+    });
+  }
+
+  function linhasRespostas(){
+    return dados.map(function(d, i){
+      var l = { "#": i+1, "Nome": d.reg.nome || "", "E-mail": d.reg.email || "" };
+      B.perguntas.forEach(function(p){
+        var sk = (d.reg.SK || {})[p.id];
+        l[p.id + " · " + p.titulo] = sk ? (sk === "nao_sei" ? "não sei" : "não se aplica")
+                                        : (d.reg.R[p.id] !== undefined ? Number(d.reg.R[p.id]) : "");
+      });
+      B.tecnicas.forEach(function(t){
+        var v = d.reg.R[t.id];
+        l[t.id + " · " + t.titulo] = (v === undefined || v === null || v === "") ? "" : Number(v);
+      });
+      (B.abertas || []).forEach(function(a){
+        l[a.id + " · " + a.titulo] = (d.reg.T && d.reg.T[a.id]) || "";
+      });
+      return l;
+    });
+  }
+
+  function linhasPlano(){
+    var out = [];
+    dados.forEach(function(d, i){
+      if (!d.plano) return;
+      d.plano.ciclos.forEach(function(c){
+        if (!c.cursos.length){
+          out.push({ "#": i+1, "Nome": d.reg.nome || "", "Ciclo": c.n,
+                     "Curso": "(sem curso neste ciclo)", "Profundidade":"", "Horas":"",
+                     "Competências": "", "Link": "" });
+          return;
+        }
+        c.cursos.forEach(function(cu){
+          out.push({ "#": i+1, "Nome": d.reg.nome || "", "Ciclo": c.n,
+                     "Curso": cu.t, "Profundidade": cu.prof, "Horas": cu.h,
+                     "Competências": (cu.comps || []).join(", "), "Link": cu.url });
+        });
+      });
+    });
+    return out;
+  }
+
+  function linhasResumo(){
+    var idx = dados.map(function(d){ return d.calc.indice; });
+    var com = dados.filter(function(d){ return d.tec; });
+    var linhas = [
+      ["Registros no painel", dados.length],
+      ["— dos quais fictícios", dados.filter(function(d){ return d.reg.seed; }).length],
+      ["Índice médio de prontidão", +med(idx).toFixed(2)],
+      ["Índice mínimo", Math.min.apply(null, idx)],
+      ["Índice máximo", Math.max.apply(null, idx)],
+      ["Contexto médio", +med(dados.map(function(d){ return d.calc.contexto; })).toFixed(2)],
+      ["Dedicação média (h/semana)", +med(dados.filter(function(d){return d.ded;}).map(function(d){return d.ded;})).toFixed(2)],
+      ["Tempo economizado somado (h/semana)", +dados.reduce(function(a,d){ return a + (d.calc.horas||0); },0).toFixed(1)],
+      ["Formação média por pessoa (h)", Math.round(med(dados.map(function(d){ return d.plano ? d.plano.totalH : 0; })))]
+    ];
+    B.PERFIS.forEach(function(p){
+      linhas.push(["Perfil · " + p.nome, dados.filter(function(d){ return d.calc.perfil.id === p.id; }).length]);
+    });
+    if (com.length){
+      linhas.push(["Competência técnica média", +med(com.map(function(d){ return d.tec.pontos; })).toFixed(2)]);
+      B.DIMENSOES.forEach(function(dim){
+        var vs = com.map(function(d){ return d.tec.dims[dim.id]; }).filter(Boolean)
+                    .map(function(v){ return v.valor; });
+        linhas.push(["Dimensão · " + dim.nome, +med(vs).toFixed(2)]);
+      });
+    }
+    ["submetido","em_revisao","aprovado","rascunho"].forEach(function(k){
+      linhas.push(["Status · " + ROT_STATUS[k], dados.filter(function(d){ return d.status === k; }).length]);
+    });
+    return linhas.map(function(l){ return { "Indicador": l[0], "Valor": l[1] }; });
+  }
+
+  function exportar(){
+    var reais = dados.filter(function(d){ return !d.reg.seed; }).length;
+    var fict  = dados.length - reais;
+    dialogo({
+      titulo: "Exportar para Excel",
+      sub: "Vai gerar um arquivo <b>.xlsx</b> com quatro abas: colaboradores, respostas "
+         + "pergunta a pergunta, plano curso a curso e o resumo do grupo.",
+      aviso: "O arquivo sai com <b>nome e e-mail</b> de todos — inclusive se a identificação "
+           + "estiver oculta na tela, que é só para projeção. "
+           + (fict ? "Os " + fict + " registros da coorte fictícia vão junto, marcados numa coluna própria. " : "")
+           + "São dados pessoais: trate o arquivo como tal.",
+      confirmar: "Gerar arquivo", fazendo: "Montando…",
+      aoConfirmar: function(){
+        return carregarXLSX().then(function(XLSX){
+          var wb = XLSX.utils.book_new();
+          var abas = [
+            ["Colaboradores", linhasColaboradores()],
+            ["Respostas",     linhasRespostas()],
+            ["Plano",         linhasPlano()],
+            ["Resumo",        linhasResumo()]
+          ];
+          abas.forEach(function(a){
+            if (!a[1].length) return;
+            var ws = XLSX.utils.json_to_sheet(a[1]);
+            ws["!cols"] = Object.keys(a[1][0]).map(function(k){
+              return { wch: Math.min(46, Math.max(10, k.length + 2)) };
+            });
+            XLSX.utils.book_append_sheet(wb, ws, a[0]);
+          });
+          var d = new Date(), p = function(n){ return String(n).padStart(2,"0"); };
+          XLSX.writeFile(wb, "bbts-prontidao-ia_" + d.getFullYear() + p(d.getMonth()+1) + p(d.getDate())
+                             + "-" + p(d.getHours()) + p(d.getMinutes()) + ".xlsx");
+        });
+      }
+    });
+  }
+
   /* ---------- diálogo de confirmação ----------
      Excluir e enviar e-mail são ações que não dão para desfazer.
      Nenhuma das duas acontece sem passar por aqui. */
@@ -1241,6 +1409,14 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   seed.addEventListener("change", function(){ sincTgl(); S.setSeed(seed.checked); carregar(); });
   /* mantém o modo() coerente quando a leitura veio da assinatura */
   document.getElementById("rec").addEventListener("click", carregar);
+  document.getElementById("exp").addEventListener("click", function(){
+    if (!dados.length){
+      dialogo({ titulo:"Nada para exportar", sub:"O painel está vazio.",
+                confirmar:"Entendi", aoConfirmar:function(){} });
+      return;
+    }
+    exportar();
+  });
 
   /* Com Firestore, o painel entra pelo login e passa a receber em tempo real.
      Sem Firestore (ambiente local), roda direto sobre o espelho local. */

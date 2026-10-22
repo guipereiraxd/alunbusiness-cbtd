@@ -63,7 +63,26 @@ de verdade. Pede confirmação e não dá para desfazer. A regra do Firestore
 permite exclusão apenas para quem está autenticado — quem responde não apaga
 nada, nem o próprio registro.
 
-## 5. Limite conhecido
+## 5. Exportar para Excel
+
+O botão **Exportar**, no topo do painel, gera um `.xlsx` com quatro abas:
+
+| Aba | Uma linha por | Serve para |
+|---|---|---|
+| Colaboradores | pessoa | visão geral, com índice, perfil, dimensões e plano |
+| Respostas | pessoa | auditar pergunta a pergunta, inclusive "não sei" |
+| Plano | curso recomendado | montar turma, estimar matrícula, conferir trilha |
+| Resumo | indicador | números do grupo, prontos para colar num relatório |
+
+A biblioteca de planilha são cerca de 900 KB e só é baixada quando você
+clica — quem abre o painel para olhar não paga esse custo.
+
+**O arquivo sai com nome e e-mail**, mesmo com a identificação oculta na
+tela: aquele seletor é para projeção, não para exportação. Registros da
+coorte fictícia vão junto, marcados na coluna *Registro fictício*. É dado
+pessoal; trate o arquivo como tal.
+
+## 6. Limite conhecido
 
 Quem responde não é autenticado. Então, como em qualquer formulário aberto,
 é possível digitar o e-mail de outra pessoa e enviar um assessment no nome
@@ -75,7 +94,7 @@ Fechar essa brecha exige autenticar também quem responde, o que troca a
 fricção de lugar: some o risco, aparece a tela de login antes do assessment.
 Para a demonstração, a escolha foi manter a entrada livre.
 
-## 6. Teste local do painel com login
+## 7. Teste local do painel com login
 
 O portão de login só aparece quando há `FIREBASE_CONFIG`. Para exercitá-lo na
 sua máquina, copie o config real do projeto para `assets/firebase-config.js`
