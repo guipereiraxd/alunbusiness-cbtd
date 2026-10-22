@@ -1,15 +1,12 @@
 ---
 title: "Metodologia"
-description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo e como o fluxo de agentes monta o PDI — com os limites declarados de cada etapa."
+description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo e como o fluxo de agentes monta o PDI, com os limites declarados de cada etapa."
 ---
 
 <style>
   .mt-top{background:var(--paper);border-bottom:1px solid var(--line);padding:38px 0 0}
   .mt-top h1{font-size:clamp(28px,4vw,40px);letter-spacing:-.025em;margin-top:12px;max-width:21ch}
-  .mt-top .lede{margin-top:18px;max-width:68ch}
-  .mt-ver{display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 0;padding:16px 0 22px;border-top:1px solid var(--line)}
-  .mt-ver div{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--tx-3);line-height:1.6}
-  .mt-ver b{display:block;font-family:var(--sans);font-size:14px;color:var(--ink);letter-spacing:0;font-weight:600}
+  .mt-top .lede{margin-top:18px;max-width:68ch;padding-bottom:38px}
 
   .sec{padding:46px 0}
   .sec+.sec{border-top:1px solid var(--line)}
@@ -18,15 +15,38 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
     letter-spacing:-.02em;margin-top:12px}
   .sec>.wrap>p.d{color:var(--tx);font-size:15.5px;line-height:1.65;margin-top:12px;max-width:74ch}
 
-  /* dimensões do instrumento */
-  .dims{display:grid;grid-template-columns:repeat(auto-fit,minmax(224px,1fr));gap:14px;margin-top:30px}
+  /* dimensões do instrumento — as quatro que somam o índice vêm num
+     painel próprio; a de percepção fica visivelmente apartada */
+  .grupo{margin-top:30px;background:var(--panel);border:1px solid var(--line-2);
+    border-radius:18px;padding:20px}
+  .grupo-h{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+    flex-wrap:wrap;padding:2px 4px 16px}
+  .grupo-h .gl{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--ink)}
+  .grupo-h .gp{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--blue-700);
+    background:var(--blue-100);border-radius:999px;padding:5px 12px}
+  .dims{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:1000px){ .dims{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:560px){ .dims{grid-template-columns:1fr} }
+
+  .apart{margin-top:14px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;
+    background:var(--paper);border:1px dashed var(--line-2);border-radius:14px;padding:20px 22px}
+  @media(max-width:620px){ .apart{grid-template-columns:1fr;gap:12px} }
+  .apart .lado{display:flex;align-items:center;gap:10px}
+  .apart .L{width:28px;height:28px;border-radius:8px;background:var(--panel-2);color:var(--tx-2);
+    display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:13px}
+  .apart h3{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--ink-2);white-space:nowrap}
+  .apart .corpo p{font-size:13.5px;color:var(--tx-2);line-height:1.55}
+  .apart .fora-tag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--warn);background:var(--warn-s);border-radius:999px;
+    padding:4px 10px;margin-bottom:9px}
+  .apart .q{font-family:var(--mono);font-size:11.5px;color:var(--tx-3);margin-top:11px;
+    padding-top:10px;border-top:1px solid var(--line)}
+  .apart .q b{color:var(--blue);font-weight:600}
   .dim{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;position:relative;overflow:hidden}
   .dim::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
-  .dim.fora::before{background:var(--tx-3)}
   .dim .l{display:flex;align-items:center;gap:10px}
   .dim .L{width:28px;height:28px;border-radius:8px;background:var(--blue-100);color:var(--blue-700);
     display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:13px}
-  .dim.fora .L{background:var(--panel-2);color:var(--tx-2)}
   .dim h3{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--ink)}
   .dim .pts{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;color:var(--tx-3);margin-top:9px}
   .dim p{font-size:13.5px;color:var(--tx-2);line-height:1.5;margin-top:10px}
@@ -104,16 +124,10 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
 <div class="mt-top">
   <div class="wrap">
     <span class="sk">Metodologia</span>
-    <h1>O que é medido, como é calculado e onde a decisão é humana</h1>
-    <p class="lede">Esta página descreve o instrumento, a regra de cálculo, o fluxo de agentes e os limites
-      declarados de cada etapa. A intenção é que qualquer número apresentado no diagnóstico possa ser
-      rastreado até a resposta que o originou.</p>
-    <div class="mt-ver">
-      <div><b>v6 · out/2026</b>versão do instrumento</div>
-      <div><b>13 fechadas + 3 abertas</b>perguntas por respondente</div>
-      <div><b>12 a 48</b>faixa do índice</div>
-      <div><b>717 cursos</b>catálogo de IA e Dados da Alura</div>
-    </div>
+    <h1>O que é medido, como o plano é montado e onde a decisão é humana</h1>
+    <p class="lede">Esta página descreve o instrumento, o fluxo de agentes por trás da avaliação e os
+      limites declarados de cada etapa. A intenção é que qualquer coisa apresentada no diagnóstico
+      possa ser rastreada até a resposta que a originou.</p>
   </div>
 </div>
 
@@ -126,7 +140,12 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
       Quem não sabe responder marca <b>“não sei”</b> ou <b>“não se aplica”</b> — e essas respostas
       <b>não viram zero</b>. Ficam registradas como pendência, para serem conversadas com o gestor.</p>
 
-    <div class="dims">
+    <div class="grupo">
+      <div class="grupo-h">
+        <span class="gl">As quatro dimensões somam o índice de prontidão</span>
+        <span class="gp">12 a 48 pontos</span>
+      </div>
+      <div class="dims">
       <div class="dim">
         <div class="l"><span class="L">A</span><h3>Uso atual</h3></div>
         <div class="pts">3 perguntas · 3 a 12 pontos</div>
@@ -167,30 +186,20 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
           <li><b>P12</b>Espaço na rotina</li>
         </ul>
       </div>
-      <div class="dim fora">
-        <div class="l"><span class="L">E</span><h3>Retorno percebido</h3></div>
-        <div class="pts">1 pergunta · fora do índice</div>
-        <p>Percepção declarada de tempo economizado. Fica de fora do índice justamente por ser
-           percepção, não medição.</p>
-        <ul>
-          <li><b>P13</b>Tempo economizado</li>
-        </ul>
       </div>
     </div>
 
-    <div class="form">
-      <div class="t">Regra de cálculo</div>
-      <div class="eq">
-        índice de prontidão &nbsp;=&nbsp; A + B + C + D &nbsp;&nbsp;<em>(12 a 48)</em><br>
-        capacidade da pessoa &nbsp;=&nbsp; A + B + C &nbsp;&nbsp;<em>(9 a 36)</em><br>
-        contexto de trabalho &nbsp;=&nbsp; D &nbsp;&nbsp;<em>(3 a 12)</em>
+    <div class="apart">
+      <div class="lado"><span class="L">E</span><h3>Retorno percebido</h3></div>
+      <div class="corpo">
+        <span class="fora-tag">não entra no índice</span>
+        <p>Uma pergunta sobre quanto tempo a pessoa acha que economiza usando IA. É a única
+           estimativa de ganho que sai do próprio respondente — e por ser percepção, não medição,
+           fica deliberadamente fora da pontuação. Serve para conversa, não para cálculo.</p>
+        <div class="q"><b>P13</b> · Tempo economizado</div>
       </div>
-      <div class="n"><b>Capacidade e contexto são lidos separadamente de propósito.</b> Os dois somam no
-        índice, mas respondem a intervenções diferentes: capacidade sobe com formação e prática
-        dirigida; contexto depende de ferramenta liberada, permissão da área e espaço na agenda.
-        Um plano de estudo não resolve contexto baixo — por isso as três perguntas da dimensão D
-        nunca geram recomendação de curso.</div>
     </div>
+
   </div>
 </section>
 
