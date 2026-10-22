@@ -68,12 +68,19 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   .lg b{font-family:var(--mono);font-size:12px;color:var(--ink);font-weight:600}
 
   /* histograma */
-  .hist{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end;height:150px}
-  .hist>div{display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:7px;text-align:center}
-  .hist .bb{background:var(--blue);border-radius:6px 6px 0 0;min-height:3px;position:relative}
+  /* A barra precisa de pista própria. Como item de flex em coluna, ela
+     era encolhida pelo flex-shrink quando pedia mais espaço do que
+     sobrava — e o encolhimento proporcional achatava justo as maiores,
+     fazendo 33 e 25 ficarem do mesmo tamanho. */
+  .hist{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;height:168px}
+  .hist>div{display:grid;grid-template-rows:1fr auto;gap:8px;height:100%;min-width:0}
+  .hist .pista{position:relative;display:flex;align-items:flex-end}
+  .hist .bb{display:block;width:100%;background:var(--blue);border-radius:6px 6px 0 0;min-height:3px}
   .hist .bb.me{background:var(--yellow);border:1px solid var(--yellow-600)}
-  .hist .hv{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)}
-  .hist .hl{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--tx-3);line-height:1.4}
+  .hist .hv{position:absolute;left:0;right:0;text-align:center;
+    font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)}
+  .hist .hl{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--tx-3);
+    line-height:1.4;text-align:center}
 
   /* dimensões */
   .dim{display:grid;gap:17px}
@@ -360,12 +367,12 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 
     <section class="sec">
       <h2>Como o grupo se distribui</h2>
-      <p class="d">O perfil vem de duas perguntas — autonomia de uso e capacidade de avaliar a resposta.
-         O índice soma as quatro dimensões, de 12 a 48 pontos.</p>
+      <p class="d">O perfil é o degrau que a pessoa sustenta nas duas pontas: para que usa e com quanta
+         autonomia. O índice soma as quatro dimensões de prontidão, de 12 a 48 pontos.</p>
       <div class="cols">
         <div class="card">
           <h3>Perfil declarado</h3>
-          <div class="cd">P2 + P3 · quatro faixas</div>
+          <div class="cd">o degrau sustentado em P2 e P3</div>
           <div class="stk" id="stk"></div>
           <div class="lg" id="lg"></div>
         </div>
@@ -715,10 +722,12 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     });
     var max = Math.max.apply(null, bal.map(function(b){return b.n;})) || 1;
     document.getElementById("hist").innerHTML = bal.map(function(b){
-      var h = b.n ? Math.max(4, b.n/max*100) : 0;
-      return '<div><div class="hv">'+b.n+'</div>'
-        + '<div class="bb'+(b.eu?" me":"")+'" style="height:'+h+'%"></div>'
-        + '<div class="hl">'+b.f.r+'</div></div>';
+      /* teto em 88% para o número caber acima da barra mais alta */
+      var h = b.n ? Math.max(2.5, b.n/max*88) : 0;
+      return '<div><div class="pista">'
+        + '<span class="hv" style="bottom:calc('+h+'% + 7px)">'+b.n+'</span>'
+        + '<span class="bb'+(b.eu?" me":"")+'" style="height:'+h+'%"></span>'
+        + '</div><div class="hl">'+b.f.r+'</div></div>';
     }).join("");
     var minha = dados.filter(function(d){return d.eu;})[0];
     document.getElementById("hist-n").innerHTML = minha
