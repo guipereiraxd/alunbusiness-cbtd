@@ -1,6 +1,6 @@
 ---
 title: "Início"
-description: "Plataforma de prontidão em IA da BBTS: assessment, objetivo de 12 meses e geração assistida de Plano de Desenvolvimento Individual em IA e Dados, com aprovação humana."
+description: "Plataforma de avaliação de prontidão em IA da BBTS: assessment, objetivo de 12 meses e geração assistida de Plano de Desenvolvimento Individual em IA e Dados, com aprovação humana."
 ---
 
 <style>
