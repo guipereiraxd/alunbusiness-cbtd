@@ -194,12 +194,17 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
         <span class="gl">Bloco técnico — um segundo eixo, não parte do índice</span>
         <span class="gp">0 a 20 pontos</span>
       </div>
-      <p class="d" style="margin:0 0 16px">Cinco perguntas sobre o que a pessoa já faz na prática,
-        de 0 a 4 pontos cada. A escala é própria e <b>não soma no índice de prontidão</b>: o
-        instrumento v6 é calibrado em 12–48 com perguntas de 1 a 4, e misturar escalas quebraria
-        a comparação. O zero existe porque “ainda não sei fazer” é resposta legítima, diferente
-        de fazer de forma rudimentar.</p>
-      <div class="dims" style="grid-template-columns:repeat(5,1fr)">
+      <p class="d" style="margin:0 0 16px">Sete perguntas sobre o que a pessoa já faz na prática,
+        de 0 a 4 pontos cada, lidas em <b>seis dimensões</b>. A escala é própria e <b>não soma no
+        índice de prontidão</b>: o v6 é calibrado em 12–48 com perguntas de 1 a 4, e misturar
+        escalas quebraria a comparação. O zero existe porque “ainda não sei fazer” é resposta
+        legítima, diferente de fazer de forma rudimentar.</p>
+      <p class="d" style="margin:0 0 16px">Cada dimensão é a <b>média ponderada</b> das perguntas
+        que a alimentam, então nenhuma depende de uma pergunta só. Programação e MLOps não são
+        dimensão: a pergunta de construção técnica funciona como multiplicador, porque quem
+        constrói aprofunda dados, ancoragem e automação. E o alvo de cada dimensão vem do
+        objetivo declarado — quem é de negócio não carrega dívida por não programar.</p>
+      <div class="dims" style="grid-template-columns:repeat(4,1fr)">
         <div class="dim"><div class="l"><span class="L">T1</span><h3 style="font-size:14.5px">Solicitações</h3></div>
           <p>Do pedido genérico à instrução reutilizável e testada.</p></div>
         <div class="dim"><div class="l"><span class="L">T2</span><h3 style="font-size:14.5px">Verificação</h3></div>
@@ -210,6 +215,10 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
           <p>De colar trecho a base de conhecimento com permissão.</p></div>
         <div class="dim"><div class="l"><span class="L">T5</span><h3 style="font-size:14.5px">Automação</h3></div>
           <p>Do passo manual ao fluxo com agentes e aprovação.</p></div>
+        <div class="dim"><div class="l"><span class="L">T6</span><h3 style="font-size:14.5px">Construção</h3></div>
+          <p>De não programar a entregar componente mantido por outros.</p></div>
+        <div class="dim"><div class="l"><span class="L">T7</span><h3 style="font-size:14.5px">Segurança</h3></div>
+          <p>De não saber o que pode a definir critério para a área.</p></div>
       </div>
       <div class="nota" style="margin-top:16px"><b>É este eixo que mais orienta a escolha de curso.</b>
         As perguntas de prontidão descrevem percepção e hábito; estas descrevem execução verificável,

@@ -83,6 +83,11 @@ window.BBTS_DEMO = (function(){
         R.T3 = tec(baseTec - 0.1 + (R.P5-2)*0.4, 1.0);
         R.T4 = tec(baseTec - 1.1, 0.9);
         R.T5 = tec(baseTec - 0.7, 1.0);
+        /* T6 não segue a base técnica: programar é trilha, não degrau. A
+           maioria fica em 0–1, com uma minoria que escreve código. */
+        R.T6 = rnd() < 0.72 ? tec(0.5, 1.0) : tec(2.6, 1.1);
+        /* T7 puxa um pouco para cima: é banco, política de dado existe */
+        R.T7 = tec(baseTec + 0.5, 1.0);
 
         /* status do PDI — a maioria já submeteu */
         const r = rnd();

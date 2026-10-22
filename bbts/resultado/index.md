@@ -4,6 +4,21 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
 ---
 
 <style>
+  .dimt{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:12px;margin-top:22px}
+  .dimt .d{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:17px 18px}
+  .dimt .d.falta{border-color:var(--yellow-600);background:var(--yellow-soft)}
+  .dimt .dh{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .dimt .dn{font-family:var(--disp);font-weight:600;font-size:14.5px;color:var(--ink)}
+  .dimt .dv{font-family:var(--mono);font-size:13px;color:var(--ink);font-weight:600;white-space:nowrap}
+  .dimt .dv small{color:var(--tx-3);font-weight:400}
+  .dimt .trilha{height:9px;background:var(--panel-2);border-radius:5px;position:relative;margin-top:11px}
+  .dimt .trilha i{display:block;height:100%;background:var(--blue);border-radius:5px}
+  .dimt .d.falta .trilha i{background:var(--warn)}
+  .dimt .trilha .alvo{position:absolute;top:-4px;width:3px;height:17px;background:var(--ink);
+    border-radius:2px;transform:translateX(-1.5px)}
+  .dimt .dd{font-size:12.5px;color:var(--tx-2);line-height:1.45;margin-top:10px}
+  .dimt .df{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--warn);margin-top:8px}
   #quem{margin-top:11px;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--tx-2)}
   #quem b{color:var(--ink);font-weight:600;letter-spacing:0;font-family:var(--sans);font-size:13.5px}
   #quem .sep{color:var(--line-2);margin:0 8px}
@@ -179,6 +194,14 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   </section>
 
   <section class="sec" style="padding:40px 0">
+    <div class="wrap" id="sec-dimt" style="display:none">
+      <span class="sk">Competências técnicas</span>
+      <h2 style="margin-top:14px">Seis dimensões, a partir de sete perguntas</h2>
+      <p class="lead">Cada dimensão é a média ponderada das perguntas que a alimentam — nenhuma
+        depende de uma pergunta só. A marca escura é o alvo derivado do seu objetivo.</p>
+      <div class="dimt" id="dimt"></div>
+    </div>
+
     <div class="wrap">
       <span class="sk">Análise de lacunas</span>
       <h2 style="margin-top:12px">Distância entre onde está e onde quer chegar</h2>
@@ -300,7 +323,7 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
     + '<div class="f">'+esc(calc.perfil.desc)+'</div></div>'
     + (tec
         ? '<div class="kpi"><div class="k">Competência técnica</div><div class="l">T1 a T5 · escala própria</div>'
-          + '<div class="v">'+tec.pontos+' <small>/ 20</small></div>'
+          + '<div class="v">'+tec.pontos+' <small>/ '+tec.max+'</small></div>'
           + '<div class="f"><b>'+esc(tec.nivel.nome)+'</b> · '+esc(tec.nivel.desc)+'</div></div>'
         : '')
     + '<div class="kpi"><div class="k">Tempo percebido</div><div class="l">Autodeclarado em P13</div>'
@@ -355,6 +378,25 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
     this.textContent = "Interpretação confirmada ✓"; this.disabled = true;
     this.style.background = "var(--ok)";
   });
+
+  /* leitura por dimensão técnica */
+  var d1 = function(v){ return (Math.round(v*10)/10).toLocaleString("pt-BR",{minimumFractionDigits:1}); };
+  if (tec && tec.dims){
+    var alvoD = E.alvoDimensoes(alvo);
+    document.getElementById("sec-dimt").style.display = "";
+    document.getElementById("dimt").innerHTML = B.DIMENSOES.map(function(d){
+      var v = tec.dims[d.id]; if (!v) return "";
+      var meta = alvoD[d.id] || 0, temGap = v.valor < meta - 0.15;
+      return '<div class="d'+(temGap?" falta":"")+'">'
+        + '<div class="dh"><span class="dn">'+esc(d.nome)+'</span>'
+        +   '<span class="dv">'+d1(v.valor)+'<small> / 4</small></span></div>'
+        + '<div class="trilha"><i style="width:'+(v.valor/4*100)+'%"></i>'
+        +   '<span class="alvo" style="left:'+(meta/4*100)+'%" title="Alvo: '+d1(meta)+'"></span></div>'
+        + '<div class="dd">'+esc(d.desc)+'</div>'
+        + (temGap ? '<div class="df">alvo '+d1(meta)+' · faltam '+d1(meta-v.valor)+'</div>' : '')
+        + '</div>';
+    }).join("");
+  }
 
   /* lacunas */
   var vis = lac.concat(lacTec).filter(function(l){ return l.estado!=="atendido"; });

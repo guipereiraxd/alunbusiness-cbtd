@@ -135,7 +135,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   .tec-big .niveis div{display:grid;grid-template-columns:1fr auto;gap:10px;font-size:12.5px;color:var(--tx-2)}
   .tec-big .niveis b{color:var(--ink);font-family:var(--mono);font-size:12px}
   .tec-d{display:grid;gap:10px;align-content:center}
-  .tec-d .i{display:grid;grid-template-columns:230px 1fr 56px;gap:14px;align-items:center}
+  .tec-d .i{display:grid;grid-template-columns:260px 1fr 56px;gap:14px;align-items:center}
   .tec-d .nm{font-size:13.5px;color:var(--ink)}
   .tec-d .nm small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
     color:var(--tx-3);margin-top:2px}
@@ -405,10 +405,10 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 
     <section class="sec" id="sec-tec">
       <h2>Competências técnicas do grupo</h2>
-      <p class="d">Cinco perguntas sobre o que a pessoa já faz na prática, de 0 a 4 pontos cada.
-         Escala própria, somando até 20 — <b>não entram no índice de prontidão</b>, que tem
-         calibração diferente. São elas que mais orientam a escolha de curso, porque descrevem
-         execução e não percepção.</p>
+      <p class="d">Sete perguntas sobre o que a pessoa já faz na prática, de 0 a 4 pontos cada,
+         lidas em seis dimensões. Escala própria, somando até 28 — <b>não entram no índice de
+         prontidão</b>, que tem calibração diferente. São elas que mais orientam a escolha de
+         curso, porque descrevem execução e não percepção.</p>
       <div class="tec">
         <div class="tec-big" id="tec-big"></div>
         <div class="tec-d" id="tec-d"></div>
@@ -824,7 +824,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     com.forEach(function(d){ distr[d.tec.nivel.nome] = (distr[d.tec.nivel.nome]||0)+1; });
 
     document.getElementById("tec-big").innerHTML =
-      '<div class="n">'+n1(med(pts))+'<small> / 20</small></div>'
+      '<div class="n">'+n1(med(pts))+'<small> / '+(com[0].tec.max || 28)+'</small></div>'
       + '<div class="l">pontuação média do grupo</div>'
       + '<div class="niveis">'
       +   B.NIVEIS_TEC.map(function(nv){
@@ -833,20 +833,22 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
           }).join("")
       + '</div>';
 
-    document.getElementById("tec-d").innerHTML = B.tecnicas.map(function(t){
-      var vs = com.map(function(d){ return d.tec.porId[t.id]; })
-                  .filter(function(v){ return v !== null && v !== undefined; });
-      var m = med(vs);
-      return '<div class="i'+(m < 1.5 ? " baixa" : "")+'">'
-        + '<span class="nm">'+esc(t.titulo)+'<small>'+t.id+'</small></span>'
-        + '<div class="bw"><i style="width:'+(m/4*100)+'%"></i></div>'
-        + '<div class="vv">'+n1(m)+'<small style="color:var(--tx-3);font-weight:400">/4</small></div></div>';
+    /* leitura por dimensão: sete perguntas, seis dimensões */
+    var porDim = B.DIMENSOES.map(function(d){
+      var vs = com.map(function(x){ return x.tec.dims && x.tec.dims[d.id]; })
+                  .filter(Boolean).map(function(v){ return v.valor; });
+      return { d:d, m: med(vs), n: vs.length };
+    });
+
+    document.getElementById("tec-d").innerHTML = porDim.map(function(x){
+      return '<div class="i'+(x.m < 1.6 ? " baixa" : "")+'">'
+        + '<span class="nm">'+esc(x.d.nome)+'<small>'+esc(Object.keys(x.d.pesos).join(" "))+'</small></span>'
+        + '<div class="bw"><i style="width:'+(x.m/4*100)+'%"></i></div>'
+        + '<div class="vv">'+n1(x.m)+'<small style="color:var(--tx-3);font-weight:400">/4</small></div></div>';
     }).join("");
 
-    var pior = B.tecnicas.map(function(t){
-      return { t:t, m: med(com.map(function(d){ return d.tec.porId[t.id]; })
-                            .filter(function(v){ return v!==null && v!==undefined; })) };
-    }).sort(function(x,y){ return x.m-y.m; })[0];
+    var pior = porDim.slice().sort(function(x,y){ return x.m-y.m; })[0];
+    pior = { t:{ titulo: pior.d.nome }, m: pior.m };
     var semZero = com.filter(function(d){ return d.tec.pontos === 0; }).length;
 
     document.getElementById("tec-n").innerHTML =
@@ -858,7 +860,8 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       + n1(pior.m) + " de 4). "
       + (semZero ? "<b>"+semZero+" "+(semZero===1?"pessoa":"pessoas")+" marcou 0 em tudo</b> — "
                  + "ponto de partida, não problema. " : "")
-      + "Diferente das perguntas de prontidão, aqui cada nível descreve uma prática verificável, "
+      + "Cada dimensão é a média ponderada das perguntas que a alimentam — nenhuma depende de uma "
+      + "pergunta só. Diferente das de prontidão, aqui cada nível descreve prática verificável, "
       + "o que torna este eixo o melhor candidato a virar avaliação de competência de verdade.";
   }
 

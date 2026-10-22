@@ -22,7 +22,9 @@ window.BBTS_PDI = (function(){
     T2: ["Governança & Ética de IA","IA Generativa & Prompt Engineering"],
     T3: ["Fundamentos de Dados","Exploração de Dados","Bancos de Dados & SQL"],
     T4: ["Engenharia de LLMs & Agentes","IA Generativa & Prompt Engineering"],
-    T5: ["Engenharia de LLMs & Agentes","Automação & Produtividade","MLOps e Operacionalização"]
+    T5: ["Engenharia de LLMs & Agentes","Automação & Produtividade","MLOps e Operacionalização"],
+    T6: ["Engenharia de LLMs & Agentes","MLOps e Operacionalização","Machine Learning & Deep Learning"],
+    T7: ["Governança & Ética de IA"]
   };
   /* O comportamento que fecha cada lacuna. É o que a pessoa lê junto do gap,
      para saber o que fazer na segunda-feira — curso sozinho não diz isso.
@@ -45,7 +47,9 @@ window.BBTS_PDI = (function(){
     T2: "Defina antes como vai saber se a resposta serve. Confira número contra fonte e teste a IA justamente onde ela tende a errar.",
     T3: "Antes de enviar, selecione o que importa, limpe duplicidade e ausência, e confirme que pode usar aquele dado.",
     T4: "Em vez de colar trecho na conversa, monte uma base de documentos e teste se a resposta recupera a informação certa — inclusive quando ela não existe.",
-    T5: "Saia do copiar e colar entre ferramentas: conecte as etapas com gatilho, validação e tratamento de falha, e deixe a aprovação humana onde a decisão pesa."
+    T5: "Saia do copiar e colar entre ferramentas: conecte as etapas com gatilho, validação e tratamento de falha, e deixe a aprovação humana onde a decisão pesa.",
+    T6: "Comece adaptando um exemplo de chamada de API no seu próprio contexto — e evolua até o que você entrega ter versionamento e alguém conseguir manter depois de você.",
+    T7: "Descubra a política da casa e classifique o que você pode usar. Antes de colar algo numa IA, pergunte-se de quem é aquele dado e se a ferramenta é homologada."
   };
 
   /* P10–P12 (contexto) não têm curso: dependem do ambiente, não da pessoa. */
@@ -103,8 +107,28 @@ window.BBTS_PDI = (function(){
       T2: cap(base),
       T3: cap(s.dado   ? base + 1 : base),
       T4: cap(s.agente ? base + 1 : base - 1),
-      T5: cap(s.agente ? base + 1 : base)
+      T5: cap(s.agente ? base + 1 : base),
+      /* Construção técnica é de trilha, e tem piso próprio em 0: para quem
+         é de negócio, não programar não é dívida. Só vira alvo quando o
+         objetivo declarado aponta para construir. */
+      T6: Math.max(0, Math.min(4, s.agente ? base : base - 2)),
+      /* segurança não tem trilha: todo mundo precisa do mesmo patamar */
+      T7: cap(Math.max(3, base))
     };
+  }
+
+  /* Alvo por dimensão: aplica a mesma matriz sobre os alvos por pergunta,
+     para o alvo e o resultado serem lidos na mesma régua. */
+  function alvoDimensoes(alvo){
+    const meta = alvoTecnico(alvo), out = {};
+    window.BBTS.DIMENSOES.forEach(function(d){
+      let soma = 0, peso = 0;
+      Object.keys(d.pesos).forEach(function(id){
+        soma += (meta[id] || 0) * d.pesos[id]; peso += d.pesos[id];
+      });
+      out[d.id] = peso ? soma/peso : 0;
+    });
+    return out;
   }
 
   /* Lista de lacunas do bloco técnico, no mesmo formato das outras,
@@ -268,6 +292,6 @@ window.BBTS_PDI = (function(){
   }
 
   return { MAPA, SEM_CURSO, PRATICAS, ROTULO, ACAO, TETO_CICLO, CICLOS,
-           lacunas, lacunasTecnicas, alvoTecnico, alvoDe, alvoComPiso,
+           lacunas, lacunasTecnicas, alvoTecnico, alvoDimensoes, alvoDe, alvoComPiso,
            candidatos, perfilCatalogo, planejar, blocoPrioritario };
 })();

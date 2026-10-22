@@ -101,10 +101,10 @@ window.BBTS = (function(){
         "Ainda não sei como verificar.",
         "Leio a resposta e avalio se ela parece fazer sentido.",
         "Confiro as principais informações em fontes confiáveis.",
-        "Também verifico cálculos, inconsistências e se as conclusões são sustentadas pelos dados.",
-        "Defino critérios de avaliação e testo a IA em diferentes situações, incluindo casos em que ela pode falhar."
+        "Também verifico cálculos, inconsistências, possíveis vieses e se as conclusões são sustentadas pelos dados.",
+        "Defino critérios de avaliação e testo a IA em diferentes situações, incluindo casos em que ela pode falhar ou embutir viés."
       ],
-      escada:["Não verifica","Parece fazer sentido","Confere em fonte","Checa dados e lógica","Testa com critério"] },
+      escada:["Não verifica","Parece fazer sentido","Confere em fonte","Checa dados e viés","Testa com critério"] },
 
     { id:"T3", titulo:"Preparação de dados", tema:"dados",
       enunciado:"Como você prepara dados ou documentos para trabalhar com IA?",
@@ -137,16 +137,86 @@ window.BBTS = (function(){
         "Conecto etapas e ferramentas, incluindo validações e tratamento de falhas.",
         "Configuro um fluxo com agentes, ações permitidas, registros de execução e aprovação humana quando necessária."
       ],
-      escada:["Não automatiza","Passo manual","Gatilho e saída","Etapas com validação","Agentes com governança"] }
+      escada:["Não automatiza","Passo manual","Gatilho e saída","Etapas com validação","Agentes com governança"] },
+
+    { id:"T6", titulo:"Construção e integração técnica", tema:"codigo",
+      enunciado:"Como você constrói ou integra tecnicamente com IA?",
+      opcoes:[
+        "Não programo nem integro sistemas.",
+        "Leio código e entendo o que um script faz, mas não escrevo.",
+        "Adapto exemplos e chamo uma API de IA seguindo a documentação.",
+        "Escrevo scripts que integram IA a sistemas e bases que já usamos.",
+        "Entrego componente em uso por outras pessoas, com versionamento, testes e monitoramento."
+      ],
+      escada:["Não programa","Lê código","Adapta exemplo","Integra com script","Componente em uso"] },
+
+    { id:"T7", titulo:"Segurança e conformidade", tema:"governanca",
+      enunciado:"Como você lida com dado sensível e conformidade ao usar IA?",
+      opcoes:[
+        "Não sei o que pode ou não pode ser usado com IA.",
+        "Evito colocar o que me parece sensível.",
+        "Conheço a política da empresa e classifico o que posso usar.",
+        "Avalio risco antes de usar, registro a decisão e escolho ferramenta homologada.",
+        "Defino critério para a área e reviso o uso de outras pessoas."
+      ],
+      escada:["Não sabe","Evita o óbvio","Classifica","Avalia e registra","Define critério"] }
+
   ];
 
   const NIVEIS_TEC = [
-    { id:"nenhum",   nome:"Sem prática",    faixa:[0,3],   desc:"Ainda não executa essas tarefas de forma autônoma." },
-    { id:"inicial",  nome:"Inicial",        faixa:[4,8],   desc:"Executa o básico, sem método definido." },
-    { id:"aplicado", nome:"Aplicado",       faixa:[9,13],  desc:"Trabalha com contexto, critério e fonte." },
-    { id:"solido",   nome:"Sólido",         faixa:[14,17], desc:"Trata dado, valida resultado e encadeia etapas." },
-    { id:"avancado", nome:"Avançado",       faixa:[18,20], desc:"Constrói processo reutilizável, com governança." }
+    { id:"nenhum",   nome:"Sem prática", faixa:[0,4],   desc:"Ainda não executa essas tarefas de forma autônoma." },
+    { id:"inicial",  nome:"Inicial",     faixa:[5,11],  desc:"Executa o básico, sem método definido." },
+    { id:"aplicado", nome:"Aplicado",    faixa:[12,18], desc:"Trabalha com contexto, critério e fonte." },
+    { id:"solido",   nome:"Sólido",      faixa:[19,24], desc:"Trata dado, valida resultado e encadeia etapas." },
+    { id:"avancado", nome:"Avançado",    faixa:[25,28], desc:"Constrói processo reutilizável, com governança." }
   ];
+  /* ── Dimensões técnicas ───────────────────────────────────────
+     Sete perguntas produzem seis leituras. Cada dimensão é a média
+     ponderada das perguntas que a alimentam, de 0 a 4 — assim nenhuma
+     depende de uma pergunta só, e entender mal um enunciado pesa menos.
+
+     Programação e MLOps não são dimensão: T6 é multiplicador, porque
+     quem constrói aprofunda dados, ancoragem e automação. */
+  const DIMENSOES = [
+    { id:"instr", nome:"Instrução e orquestração",
+      desc:"Estruturar o pedido: objetivo, contexto, formato, restrição e encadeamento.",
+      pesos:{ T1:1.0, T2:0.3, T4:0.3 } },
+    { id:"julg",  nome:"Julgamento crítico",
+      desc:"Reconhecer alucinação e viés, e exigir que a conclusão se sustente.",
+      pesos:{ T2:1.0, T7:0.3 } },
+    { id:"dados", nome:"Dados",
+      desc:"Selecionar, limpar e tratar o material, respeitando a regra de uso.",
+      pesos:{ T3:1.0, T4:0.3, T6:0.4 } },
+    { id:"ancor", nome:"Ancoragem em fontes",
+      desc:"Fazer a IA responder a partir de fonte confiável e verificar o que ela recuperou.",
+      pesos:{ T4:1.0, T3:0.3, T5:0.3, T6:0.4 } },
+    { id:"autom", nome:"Automação e agentes",
+      desc:"Encadear etapas e ferramentas, com validação, falha tratada e aprovação.",
+      pesos:{ T5:1.0, T6:0.6 } },
+    { id:"seg",   nome:"Segurança e conformidade",
+      desc:"Dado sensível, política, ferramenta homologada e decisão registrada.",
+      pesos:{ T7:1.0, T2:0.3, T3:0.3, T4:0.3 } }
+  ];
+
+  /* Média ponderada por dimensão, ignorando pergunta não respondida.
+     Devolve null quando nenhuma pergunta da dimensão foi respondida. */
+  function calcularDimensoes(R){
+    const out = {};
+    DIMENSOES.forEach(function(d){
+      let soma = 0, peso = 0, faltam = [];
+      Object.keys(d.pesos).forEach(function(id){
+        const v = R[id];
+        if (v === undefined || v === null || v === "") { faltam.push(id); return; }
+        soma += Number(v) * d.pesos[id];
+        peso += d.pesos[id];
+      });
+      out[d.id] = peso
+        ? { valor: soma/peso, cobertura: peso/Object.values(d.pesos).reduce((a,b)=>a+b,0), faltam }
+        : null;
+    });
+    return out;
+  }
+
 
   /* Pontuação do bloco técnico. Devolve null quando não foi respondido,
      para a tela saber que o eixo não existe em vez de mostrar zero. */
@@ -157,7 +227,8 @@ window.BBTS = (function(){
     const nivel = NIVEIS_TEC.find(n => pontos >= n.faixa[0] && pontos <= n.faixa[1]) || NIVEIS_TEC[0];
     const porId = {};
     tecnicas.forEach(t => { porId[t.id] = R[t.id] === undefined ? null : Number(R[t.id]); });
-    return { pontos, max:20, nivel, respondidas:dadas.length, total:tecnicas.length, porId };
+    return { pontos, max:28, nivel, respondidas:dadas.length, total:tecnicas.length, porId,
+             dims: calcularDimensoes(R) };
   }
 
   const PERFIS = [
@@ -193,7 +264,7 @@ window.BBTS = (function(){
     };
   }
 
-  return { versao:"v6 · out/2026", perguntas, abertas, blocos, tecnicas, NIVEIS_TEC,
-           PERFIS, HORAS, calcular, calcularTecnico,
+  return { versao:"v6 · out/2026", perguntas, abertas, blocos, tecnicas, NIVEIS_TEC, DIMENSOES,
+           PERFIS, HORAS, calcular, calcularTecnico, calcularDimensoes,
            ESCADA_P, ESCADA_C, ESCADA_T };
 })();
