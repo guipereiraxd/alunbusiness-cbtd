@@ -82,10 +82,44 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
   .dim .rn{font-size:14px;color:var(--ink);font-weight:500}
   .dim .rv{font-family:var(--mono);font-size:12px;color:var(--tx-2)}
   .dim .rv b{color:var(--blue);font-weight:600;font-size:13.5px}
-  .trk{height:9px;background:var(--panel-2);border-radius:5px;position:relative;overflow:visible}
-  .trk .fi{height:100%;background:var(--blue);border-radius:5px}
-  .trk .rg{position:absolute;top:-3px;height:15px;border-left:1px solid var(--line-2);border-right:1px solid var(--line-2)}
-  .trk .mk{position:absolute;top:-4px;width:2px;height:17px;background:var(--yellow-600);border-radius:1px}
+  /* Leitura: a faixa clara é onde o grupo inteiro cai; o traço azul é a
+     média; o amarelo é você. A trilha vai de zero ao máximo da dimensão. */
+  .trk{height:14px;background:var(--panel-2);border-radius:7px;position:relative;margin-top:4px}
+  .trk .rg{position:absolute;top:0;height:14px;background:var(--blue-300);border-radius:7px;opacity:.5}
+  .trk .md{position:absolute;top:-4px;width:4px;height:22px;background:var(--blue);
+    border-radius:2px;transform:translateX(-2px)}
+  .trk .mk{position:absolute;top:-7px;width:4px;height:28px;background:var(--yellow-600);
+    border-radius:2px;transform:translateX(-2px);box-shadow:0 0 0 2px var(--canvas)}
+  .dim .esc{display:flex;justify-content:space-between;margin-top:7px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--tx-3)}
+  .dim-leg{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--tx-2)}
+  .dim-leg span{display:inline-flex;align-items:center;gap:7px}
+  .dim-leg i{display:block;width:4px;height:15px;border-radius:2px}
+  .dim-leg i.faixa{width:22px;height:11px;border-radius:6px;background:var(--blue-300);opacity:.5}
+
+  /* tempo economizado */
+  .tg{display:grid;grid-template-columns:330px 1fr;gap:26px;margin-top:30px}
+  @media(max-width:880px){.tg{grid-template-columns:1fr}}
+  .tg-big{background:var(--blue-900);border-radius:16px;padding:26px;color:#fff;
+    display:flex;flex-direction:column;justify-content:center}
+  .tg-big .n{font-family:var(--disp);font-weight:800;font-size:58px;line-height:1;
+    color:var(--yellow);letter-spacing:-.03em}
+  .tg-big .n small{font-size:22px;color:var(--blue-300);font-weight:600;letter-spacing:0}
+  .tg-big .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue-300);margin-top:14px}
+  .tg-big .s{font-size:13.5px;line-height:1.55;color:var(--blue-100);margin-top:12px;
+    padding-top:13px;border-top:1px solid rgba(158,171,255,.25)}
+  .tg-big .s b{color:#fff}
+  .tg-d{display:grid;gap:11px;align-content:center}
+  .tg-d .i{display:grid;grid-template-columns:116px 1fr 92px;gap:14px;align-items:center}
+  .tg-d .fx{font-size:13.5px;color:var(--ink);font-weight:500}
+  .tg-d .bw{height:26px;background:var(--panel-2);border-radius:7px;overflow:hidden}
+  .tg-d .bw i{display:block;height:100%;border-radius:7px;background:var(--blue)}
+  .tg-d .i.zero .bw i{background:var(--tx-3)}
+  .tg-d .vv{font-family:var(--mono);font-size:12px;color:var(--tx-2);text-align:right}
+  .tg-d .vv b{color:var(--ink);font-weight:600;font-size:14px}
+  @media(max-width:560px){.tg-d .i{grid-template-columns:92px 1fr 70px;gap:9px}}
 
   /* necessidades */
   .nd{display:grid;gap:3px}
@@ -322,10 +356,27 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
 
     <section class="sec">
       <h2>Médias por dimensão</h2>
-      <p class="d">A barra azul é a média do grupo. As marcas laterais mostram o intervalo entre a pessoa
-         mais baixa e a mais alta — quanto mais largo, mais desigual está o grupo nessa dimensão.</p>
+      <p class="d">Cada trilha vai de zero ao máximo da dimensão. A faixa clara mostra onde o grupo
+         inteiro cai: quanto mais larga, mais desigual. O traço azul é a média e o amarelo é você.</p>
       <div class="dim" id="dim"></div>
+      <div class="dim-leg">
+        <span><i class="faixa"></i>onde o grupo inteiro cai</span>
+        <span><i style="background:var(--blue)"></i>média do grupo</span>
+        <span><i style="background:var(--yellow-600)"></i>você</span>
+      </div>
       <div class="nota" id="dim-n"></div>
+    </section>
+
+    <section class="sec">
+      <h2>Tempo economizado, na percepção de quem responde</h2>
+      <p class="d">A última pergunta do assessment pede uma estimativa de quanto tempo a IA já
+         economiza por semana. É a única leitura de retorno que sai do próprio respondente — e por
+         ser percepção, fica fora do índice de prontidão.</p>
+      <div class="tg">
+        <div class="tg-big" id="tg-big"></div>
+        <div class="tg-d" id="tg-d"></div>
+      </div>
+      <div class="nota" id="tg-n"></div>
     </section>
 
     <section class="sec">
@@ -503,7 +554,7 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     document.getElementById("corpo").style.display = vazio ? "none" : "block";
     document.getElementById("kp").style.display    = vazio ? "none" : "grid";
     if (vazio) return;
-    kpis(); acao(); amostra(); perfis(); hist(); dims(); needs(); macros(); fila(); tabela();
+    kpis(); acao(); amostra(); perfis(); hist(); dims(); tempo(); needs(); macros(); fila(); tabela();
   }
 
   function modo(res){
@@ -649,12 +700,17 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       var m = med(vs), lo = Math.min.apply(null,vs), hi = Math.max.apply(null,vs), max = d[2];
       var minha = dados.filter(function(x){return x.eu;})[0];
       var mk = minha ? '<span class="mk" style="left:'+(minha.calc.sub[d[0]]/max*100)+'%" '
-        + 'title="Você: '+minha.calc.sub[d[0]]+'"></span>' : "";
+        + 'title="Você: '+minha.calc.sub[d[0]]+' de '+max+'"></span>' : "";
+      var larg = Math.max(1.2, (hi-lo)/max*100);   /* visível mesmo com grupo homogêneo */
       return '<div class="r"><div class="rh"><span class="rn">'+esc(d[1])+'</span>'
-        + '<span class="rv">intervalo '+lo+'–'+hi+' · média <b>'+n1(m)+'</b> de '+max+'</span></div>'
+        + '<span class="rv">média <b>'+n1(m)+'</b> de '+max+'</span></div>'
         + '<div class="trk">'
-        + '<span class="rg" style="left:'+(lo/max*100)+'%;width:'+((hi-lo)/max*100)+'%"></span>'
-        + '<span class="fi" style="width:'+(m/max*100)+'%"></span>'+mk+'</div></div>';
+        + '<span class="rg" style="left:'+(lo/max*100)+'%;width:'+larg+'%" '
+        +   'title="O grupo vai de '+lo+' a '+hi+'"></span>'
+        + '<span class="md" style="left:'+(m/max*100)+'%" title="Média: '+n1(m)+'"></span>'
+        + mk + '</div>'
+        + '<div class="esc"><span>0</span><span>mais baixo '+lo+' · mais alto '+hi+'</span>'
+        +   '<span>'+max+'</span></div></div>';
     }).join("");
     var props = defs.map(function(d){
       return { nome:d[1], p: med(dados.map(function(x){return x.calc.sub[d[0]];}))/d[2] };
@@ -665,6 +721,53 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       + (props[0].nome === "Contexto de trabalho"
           ? "Sendo contexto, o gargalo é de ambiente: ferramenta, permissão e agenda. Formação não resolve."
           : "Sendo uma dimensão de capacidade, responde a formação e prática dirigida.");
+  }
+
+  /* ---------- tempo economizado (P13) ---------- */
+  function tempo(){
+    var FAIXAS = [
+      {n:1, r:"Sem ganho",   h:0},
+      {n:2, r:"Até 1h",      h:0.5},
+      {n:3, r:"De 1 a 3h",   h:2},
+      {n:4, r:"Mais de 3h",  h:4}
+    ];
+    var cont = {}, total = 0, comResposta = 0;
+    dados.forEach(function(d){
+      var v = Number(d.reg.R.P13) || 0;
+      if (!v) return;
+      comResposta++;
+      cont[v] = (cont[v]||0) + 1;
+      total += (B.HORAS[v] || 0);
+    });
+    var max = Math.max.apply(null, FAIXAS.map(function(f){ return cont[f.n]||0; })) || 1;
+    var media = comResposta ? total/comResposta : 0;
+
+    document.getElementById("tg-big").innerHTML =
+      '<div class="n">'+n1(total)+'<small> h/semana</small></div>'
+      + '<div class="l">somadas no grupo</div>'
+      + '<div class="s">Dá <b>'+n1(media)+' h por pessoa</b>, ou cerca de <b>'
+      +   Math.round(total*4)+' h por mês</b> no grupo inteiro. '
+      +   'São horas <b>percebidas</b>, não medidas.</div>';
+
+    document.getElementById("tg-d").innerHTML = FAIXAS.map(function(f){
+      var q = cont[f.n]||0;
+      return '<div class="i'+(f.h===0?" zero":"")+'">'
+        + '<span class="fx">'+esc(f.r)+'</span>'
+        + '<div class="bw"><i style="width:'+(q/max*100)+'%"></i></div>'
+        + '<div class="vv"><b>'+q+'</b> '+(q===1?"pessoa":"pessoas")+'</div></div>';
+    }).join("");
+
+    var semGanho = cont[1]||0;
+    document.getElementById("tg-n").innerHTML =
+      (comResposta < dados.length
+        ? "<b>"+(dados.length-comResposta)+" de "+dados.length+" não responderam esta pergunta</b> e ficam fora da conta. "
+        : "")
+      + (semGanho
+          ? "<b>"+semGanho+" "+(semGanho===1?"pessoa não percebe":"pessoas não percebem")+" ganho algum</b> — "
+            + "vale olhar se é falta de uso ou falta de ferramenta, porque a saída é diferente em cada caso. "
+          : "")
+      + "A pergunta mede percepção, não relógio. Serve para dimensionar conversa e expectativa, "
+      + "nunca para justificar meta de produtividade.";
   }
 
   /* ---------- necessidades por competência ---------- */
