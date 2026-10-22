@@ -783,22 +783,27 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
       {n:3, r:"De 1 a 3h",   h:2},
       {n:4, r:"Mais de 3h",  h:4}
     ];
-    var cont = {}, total = 0, comResposta = 0;
+    var cont = {}, total = 0, piso = 0, comResposta = 0, semTeto = 0;
     dados.forEach(function(d){
       var v = Number(d.reg.R.P13) || 0;
       if (!v) return;
       comResposta++;
       cont[v] = (cont[v]||0) + 1;
-      total += (B.HORAS[v] || 0);
+      var fx = B.HORAS_FAIXA[v];
+      total += fx.meio;                 /* ponto médio da faixa */
+      piso  += fx.min;                  /* piso: só o que está garantido */
+      if (fx.max === null) semTeto++;   /* "mais de 3h" não tem teto */
     });
     var max = Math.max.apply(null, FAIXAS.map(function(f){ return cont[f.n]||0; })) || 1;
     var media = comResposta ? total/comResposta : 0;
 
     document.getElementById("tg-big").innerHTML =
       '<div class="n">'+n1(total)+'<small> h/semana</small></div>'
-      + '<div class="l">somadas no grupo</div>'
+      + '<div class="l">estimativa somada no grupo</div>'
       + '<div class="s">Dá <b>'+n1(media)+' h por pessoa</b>, ou cerca de <b>'
       +   Math.round(total*4)+' h por mês</b> no grupo inteiro. '
+      +   'Pelo piso de cada faixa, são <b>pelo menos '+n1(piso)+' h/semana</b>'
+      +   (semTeto ? ' — e a faixa mais alta não tem teto' : '') + '. '
       +   'São horas <b>percebidas</b>, não medidas.</div>';
 
     document.getElementById("tg-d").innerHTML = FAIXAS.map(function(f){
@@ -818,7 +823,11 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
           ? "<b>"+semGanho+" "+(semGanho===1?"pessoa não percebe":"pessoas não percebem")+" ganho algum</b> — "
             + "vale olhar se é falta de uso ou falta de ferramenta, porque a saída é diferente em cada caso. "
           : "")
-      + "A pergunta mede percepção, não relógio. Serve para dimensionar conversa e expectativa, "
+      + "<b>A pergunta é em faixas, não em número.</b> Para somar, cada faixa entra pelo ponto "
+      + "médio dela: “até 1h” conta como 0,5h, “de 1 a 3h” como 2h, e “mais de 3h” como 4h, que "
+      + "é estimativa conservadora porque essa faixa não tem teto. Por isso quem marcou uma faixa "
+      + "vê aqui um número que não digitou. "
+      + "E a pergunta mede percepção, não relógio: serve para dimensionar conversa e expectativa, "
       + "nunca para justificar meta de produtividade.";
   }
 

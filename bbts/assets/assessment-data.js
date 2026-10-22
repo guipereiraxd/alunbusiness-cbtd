@@ -72,7 +72,18 @@ window.BBTS = (function(){
   };
 
   /* P13 → horas por semana. Faixa 4 é aberta; 4h é piso deliberado. */
-  const HORAS = {1:0, 2:0.5, 3:2.0, 4:4.0};
+  /* A P13 pergunta em faixas, não em número. Para somar e tirar média,
+     cada faixa entra pelo seu PONTO MÉDIO — "até 1h" conta como 0,5.
+     O piso e o teto ficam guardados para a tela poder mostrar a faixa
+     em vez de um número que a pessoa não digitou. A última faixa não
+     tem teto; o meio dela é estimativa conservadora. */
+  const HORAS_FAIXA = {
+    1: { rotulo:"Sem ganho percebido", min:0, max:0,    meio:0   },
+    2: { rotulo:"Até 1 h",             min:0, max:1,    meio:0.5 },
+    3: { rotulo:"De 1 a 3 h",          min:1, max:3,    meio:2   },
+    4: { rotulo:"Mais de 3 h",         min:3, max:null, meio:4   }
+  };
+  const HORAS = {1:0, 2:0.5, 3:2.0, 4:4.0};   /* atalho para o ponto médio */
 
 
   /* ── Bloco técnico ────────────────────────────────────────────
@@ -273,6 +284,7 @@ window.BBTS = (function(){
       contexto: sub.ctx,
       somaPerfil, elo, aCaminho, perfil,
       horas: HORAS[v("P13")] ?? null,
+      horasFaixa: HORAS_FAIXA[v("P13")] ?? null,
       /* proporção de cada sub-índice em relação ao próprio teto — comparável entre blocos */
       prop: {
         uso:  sub.uso  / 12, base: sub.base / 16,
@@ -282,6 +294,6 @@ window.BBTS = (function(){
   }
 
   return { versao:"v6 · out/2026", perguntas, abertas, blocos, tecnicas, NIVEIS_TEC, DIMENSOES,
-           PERFIS, HORAS, calcular, calcularTecnico, calcularDimensoes,
+           PERFIS, HORAS, HORAS_FAIXA, calcular, calcularTecnico, calcularDimensoes,
            ESCADA_P, ESCADA_C, ESCADA_T };
 })();

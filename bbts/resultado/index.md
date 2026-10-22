@@ -330,7 +330,9 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
           + '<div class="f"><b>'+esc(tec.nivel.nome)+'</b> · '+esc(tec.nivel.desc)+'</div></div>'
         : '')
     + '<div class="kpi"><div class="k">Tempo percebido</div><div class="l">Autodeclarado em P13</div>'
-    + '<div class="v">'+(calc.horas===null?"—":nf(calc.horas))+' <small>h/semana</small></div>'
+    + '<div class="v" style="font-size:25px">'
+    +   (calc.horasFaixa ? esc(calc.horasFaixa.rotulo) + ' <small>por semana</small>' : '—')
+    + '</div>'
     + '<div class="f">percepção declarada, não medição</div></div>'
     + '<div class="kpi"><div class="k">Bloco prioritário</div><div class="l">Maior soma de lacunas</div>'
     + '<div class="v" style="font-size:22px">'+esc(E.ROTULO[blocoTop])+'</div>'
