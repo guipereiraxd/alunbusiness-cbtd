@@ -83,6 +83,35 @@ window.BBTS_PDI = (function(){
     return alvo;
   }
 
+  /* ── piso do alvo ───────────────────────────────────────────
+     Quando o objetivo declarado já está coberto pelo nível atual, não há
+     lacuna e o plano sairia vazio. Isso é falha de produto: a pessoa
+     respondeu e não recebe nada. A regra é subir um degrau onde ainda há
+     espaço, nas competências que formação desenvolve — contexto fica de
+     fora, porque não se resolve com curso. */
+  function alvoComPiso(R, SK, alvo){
+    /* só conta lacuna que formação resolve: quem tem gap apenas em contexto
+       continuaria sem plano, e contexto é acordo com o gestor, não curso */
+    const temLacuna = lacunas(R, SK, alvo)
+      .some(l => l.estado === "lacuna" && SEM_CURSO.indexOf(l.id) < 0);
+    if (temLacuna) return { alvo, elevado:false, noTopo:false };
+
+    const novo = Object.assign({}, alvo, { porPergunta: Object.assign({}, alvo.porPergunta) });
+    let subiu = false, comEspaco = false;
+    window.BBTS.perguntas.forEach(function(p){
+      if (p.foraDoIndice || SEM_CURSO.indexOf(p.id) >= 0) return;
+      const atual = Number(R[p.id]) || 0;
+      if (!atual) return;
+      if (atual < 4) comEspaco = true;
+      if (atual < 4 && novo.porPergunta[p.id] <= atual){
+        novo.porPergunta[p.id] = atual + 1; subiu = true;
+      }
+    });
+    /* sem espaço em competência nenhuma: a pessoa está no topo da escada
+       naquilo que curso cobre — o passo seguinte é praticar e ensinar */
+    return { alvo: subiu ? novo : alvo, elevado: subiu, noTopo: !comEspaco };
+  }
+
   /* ── seleção no catálogo real ─────────────────────────────── */
   function candidatos(lac, R, perfilAlvo){
     const gaps = lac.filter(l => l.estado==="lacuna" && !SEM_CURSO.includes(l.id));
@@ -134,6 +163,7 @@ window.BBTS_PDI = (function(){
     const ciclos = [], usados = new Set(), cobertos = new Set();
     let semCapacidade = capCiclo < 8;
 
+    const apertados = [];
     for (let c = 0; c < CICLOS; c++){
       const sel = []; let h = 0;
       for (const cur of cands){
@@ -145,11 +175,25 @@ window.BBTS_PDI = (function(){
         sel.push(cur); usados.add(cur.s); h += cur.h;
         cur.comps.forEach(q => cobertos.add(q));
       }
-      ciclos.push({ n:c+1, cursos:sel, horas:h, capacidade:capCiclo });
+      /* Plano mínimo: havendo lacuna, o ciclo não sai vazio. Se nada coube
+         na capacidade, entra o curso mais curto disponível mesmo excedendo —
+         a capacidade é estimativa de ritmo, não limite rígido, e em 90 dias
+         ele cabe. O ciclo fica marcado como apertado para a tela avisar. */
+      if (!sel.length){
+        const resto = cands.filter(x => !usados.has(x.s));
+        if (resto.length){
+          const curto = resto.reduce((a,b) => b.h < a.h ? b : a);
+          sel.push(curto); usados.add(curto.s); h += curto.h;
+          curto.comps.forEach(q => cobertos.add(q));
+          apertados.push(c+1);
+        }
+      }
+      ciclos.push({ n:c+1, cursos:sel, horas:h, capacidade:capCiclo,
+                    apertado: apertados.indexOf(c+1) >= 0 });
     }
     const totalH = ciclos.reduce((a,c)=>a+c.horas,0);
     const totalC = ciclos.reduce((a,c)=>a+c.cursos.length,0);
-    return { ciclos, capCiclo, capBruta, totalH, totalC, semCapacidade,
+    return { ciclos, capCiclo, capBruta, totalH, totalC, semCapacidade, apertados,
              cobertos:[...cobertos], teto:TETO_CICLO, semanas:SEMANAS, folga:FOLGA };
   }
 
@@ -160,5 +204,5 @@ window.BBTS_PDI = (function(){
   }
 
   return { MAPA, SEM_CURSO, PRATICAS, ROTULO, TETO_CICLO, CICLOS,
-           lacunas, alvoDe, candidatos, perfilCatalogo, planejar, blocoPrioritario };
+           lacunas, alvoDe, alvoComPiso, candidatos, perfilCatalogo, planejar, blocoPrioritario };
 })();

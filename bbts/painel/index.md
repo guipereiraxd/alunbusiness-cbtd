@@ -540,9 +540,10 @@ description: "Visão agregada da prontidão em IA do grupo: participação, dist
     regs = regs.filter(function(r){ return r && r.R && Object.keys(r.R).length; });
     dados = regs.map(function(r){
       var calc = B.calcular(r.R);
-      var alvo = E.alvoDe(r.T||{}, calc);
+      var piso = E.alvoComPiso(r.R, r.SK||{}, E.alvoDe(r.T||{}, calc));
+      var alvo = piso.alvo;
       var lac  = E.lacunas(r.R, r.SK||{}, alvo);
-      return { reg:r, calc:calc, alvo:alvo, lac:lac,
+      return { reg:r, calc:calc, alvo:alvo, lac:lac, piso:piso,
                eu: !!(eu && eu.id === r.id),
                ded: Number((r.T||{}).ded) || 0,
                status: r.status || "submetido" };

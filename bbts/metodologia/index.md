@@ -441,6 +441,14 @@ description: "Como a prontidão é medida, como o objetivo vira capacidades-alvo
       descobertas</b>, em vez de aprofundar uma só. Depois disso, a ordenação segue o peso da lacuna.
       Cada ciclo fecha com uma evidência esperada e uma data de revisão — e nenhuma delas é
       “certificado emitido”.</p>
+
+    <div class="nota"><b>Quem responde sempre recebe um plano.</b> Duas regras garantem isso.
+      Se o objetivo declarado já estiver coberto pelo nível atual, o alvo sobe um degrau nas
+      competências onde ainda há espaço, e a pessoa é avisada de que descreveu um objetivo aquém
+      do que já faz. E se a dedicação declarada for baixa a ponto de nenhum curso caber no ciclo,
+      entra o mais curto disponível mesmo assim, marcado como ritmo apertado — a capacidade é
+      estimativa de ritmo, não limite rígido. Plano vazio não ajuda ninguém e devolve para a
+      pessoa um problema que é do sistema.</div>
   </div>
 </section>
 

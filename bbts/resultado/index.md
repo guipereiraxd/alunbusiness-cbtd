@@ -270,7 +270,8 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   }
 
   var calc = B.calcular(R);
-  var alvo = E.alvoDe(T, calc);
+  var piso = E.alvoComPiso(R, SK, E.alvoDe(T, calc));
+  var alvo = piso.alvo;
   var lac  = E.lacunas(R, SK, alvo);
   var blocoTop = E.blocoPrioritario(lac);
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -415,6 +416,18 @@ description: "Resultado do assessment de prontidão, interpretação do objetivo
   /* ressalvas */
   var res = ["<b>Conclusão de curso não eleva nível.</b> A evolução depende da evidência prática avaliada por um responsável humano."];
   var semCurso = lac.filter(function(l){ return l.estado==="lacuna" && E.SEM_CURSO.includes(l.id); });
+  if (piso.elevado) res.push("<b>Seu objetivo de 12 meses já está coberto pelo seu nível atual.</b> "
+    + "Em vez de devolver um plano vazio, o sistema subiu um degrau nas competências onde ainda "
+    + "há espaço e montou o passo seguinte. Se o objetivo era mesmo esse, vale revisá-lo para cima "
+    + "com o gestor — ou tratar este plano como consolidação.");
+  if (piso.noTopo) res.push("<b>Você está no topo da escada em tudo que formação cobre.</b> "
+    + "Não há curso a propor: o passo seguinte é construir algo que outras pessoas usem e ensinar "
+    + "quem está atrás. A atividade prática de cada ciclo vale mais que qualquer trilha aqui.");
+  if (plano.apertados && plano.apertados.length) res.push("<b>Ritmo apertado em "
+    + (plano.apertados.length === 1 ? "um ciclo" : plano.apertados.length + " ciclos") + ".</b> "
+    + "Com " + (T.ded||0) + "h por semana, o curso ocupa o ciclo inteiro e não sobra folga para "
+    + "imprevisto. Ele entrou mesmo assim porque plano vazio não ajuda ninguém — mas é o primeiro "
+    + "item a renegociar se a agenda apertar.");
   if (semCurso.length) res.push("<b>"+semCurso.length+" lacuna"+(semCurso.length>1?"s":"")+" de contexto</b> ("+semCurso.map(function(d){return d.id;}).join(", ")+") — ferramenta, ambiente ou agenda não se resolvem com curso. Requer acordo com o gestor.");
   if (window.BBTS_CATALOGO.estimativaHoras) res.push("<b>Carga horária estimada.</b> A base de cursos não traz duração; as horas vêm da profundidade (Introdutório 8h · Intermediário 12h · Avançado 16h) e devem ser substituídas pela carga real antes do uso institucional.");
   var pend = lac.filter(function(l){return l.estado==="pendente";});
