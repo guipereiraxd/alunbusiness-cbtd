@@ -41,10 +41,10 @@ falta de esforço de quem escreveu — é falta de um ponto de partida.
 
 **Título:** Antes de eu explicar, responda
 
-**Na tela:** QR grande (`qr/qr-assessment.svg`, no mínimo 25% da altura do
-slide, sobre branco), a URL `alunbusiness.md/bbts/assessment/` escrita por
-extenso embaixo — sempre tem quem prefira digitar — e
-"13 perguntas · ~10 minutos · pode responder enquanto eu falo"
+**Na tela:** `convite-assessment.png` — slide pronto. QR a 40% da altura
+sobre cartão branco, URL por extenso para quem prefere digitar, e os três
+passos. Testado com leitor real: decodifica mesmo com o slide inteiro
+reduzido a 380px de altura, bem abaixo de qualquer projeção.
 
 **Falar:** Vou pedir uma coisa pouco comum numa palestra: peguem o celular.
 Esse QR abre um assessment de prontidão em IA. Respondam no seu ritmo, nos
