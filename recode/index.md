@@ -40,18 +40,6 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
   .hero .botoes{margin-top:38px}
   .hero .bt-1{font-size:17px;padding:18px 32px}
 
-  /* Faixa de prova: fatos verificáveis do instrumento, não promessa.
-     É o que dá concretude sem inventar benchmark. */
-  .prova{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin-top:40px;
-    padding-top:26px;border-top:1px solid rgba(143,186,255,.2)}
-  .prova span{display:inline-flex;align-items:baseline;gap:8px;font-family:var(--mono);
-    font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8FA6CF}
-  .prova span b{font-family:var(--disp);font-weight:700;font-size:19px;color:#fff;
-    letter-spacing:-.02em}
-  .prova i{width:4px;height:4px;border-radius:50%;background:var(--violeta-300);
-    opacity:.6;flex:none}
-  @media(max-width:560px){ .prova i{display:none} .prova{gap:14px 18px} }
-
   .hero .assin{display:inline-flex;align-items:center;gap:11px;font-family:var(--mono);
     font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:#7389B4;margin-top:30px}
   .hero .assin::before{content:"";width:22px;height:1px;background:#45598C}
@@ -205,20 +193,13 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
     <div>
       <div class="olho">Consultoria em harness organizacional</div>
       <h1>A IA acelerou.<span class="realce">Sua operação não.</span></h1>
-      <p class="sub">O ganho da IA some nas filas, nas aprovações e nos repasses entre áreas.
-         Diagnosticamos e redesenhamos o <b style="color:#CFE0FF;font-weight:600">harness
+      <p class="sub">O ganho da IA some nos processos, nas ineficiências e nos alinhamentos
+         entre áreas. Diagnosticamos e redesenhamos o <b style="color:#CFE0FF;font-weight:600">harness
          organizacional</b> — o sistema que conecta trabalho, dados, agentes, decisões e
-         controles — para que capacidade vire resultado.</p>
+         controles — para que potencial vire resultado.</p>
       <div class="botoes">
         <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Diagnosticar meu harness →</a>
         <a class="bt bt-2" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
-      </div>
-
-      <div class="prova">
-        <span><b>8</b> componentes</span><i></i>
-        <span><b>32</b> questões</span><i></i>
-        <span><b>10–15</b> min por pessoa</span><i></i>
-        <span><b>0</b> avaliação individual</span>
       </div>
 
       <div class="assin">Reprograme o trabalho. Reinvente o negócio.</div>
