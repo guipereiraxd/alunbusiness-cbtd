@@ -1,6 +1,6 @@
 ---
 title: "Metodologia"
-description: "Como o AI Business ReCode mede: 32 questões em 8 componentes, escala de 0 a 4 com não sei e não se aplica, cálculo determinístico com cobertura mínima e supressão, e três trilhas separadas — percepção, evidência e performance."
+description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálculo determinístico com cobertura mínima e supressão — e os limites declarados do instrumento."
 ---
 
 <style>
@@ -261,10 +261,12 @@ description: "Como o AI Business ReCode mede: 32 questões em 8 componentes, esc
 
     <div class="grade g2" style="margin-top:30px">
       <div class="cartao">
-        <h3>O que já é feito</h3>
-        <p>Testes cognitivos das questões, acompanhamento de não-resposta por item, tempo por
-           bloco, detecção de padrões de resposta uniforme, validade aparente com especialistas e
-           versionamento imutável: campanhas antigas nunca são recalculadas em silêncio.</p>
+        <h3>O que já está no método</h3>
+        <p>Versionamento imutável do instrumento — campanhas antigas nunca são recalculadas em
+           silêncio — e as regras de cobertura, supressão e separação entre percepção e evidência
+           descritas acima. <b>Teste cognitivo das 32 questões, validade aparente com especialistas
+           e acompanhamento de não-resposta estão previstos para a fase de discovery</b>, antes do
+           primeiro piloto: são parte do plano, não resultado já obtido.</p>
       </div>
       <div class="cartao">
         <h3>O que ainda não existe</h3>

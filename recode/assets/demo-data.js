@@ -75,7 +75,17 @@ window.RECODE_DEMO = (function(){
 
   /* Leitura da demo: duas restrições prováveis e uma pergunta executiva.
      Sem índice, sem percentual, sem rótulo de prontidão — a demo descreve
-     um ponto de vista, e um ponto de vista não tem nota. */
+     um ponto de vista, e um ponto de vista não tem nota.
+
+     O PISO existe porque pegar as duas menores sem condição produzia uma
+     afirmação falsa: quem marcava 4 ("prática monitorada e revista com
+     evidências") nos oito componentes lia na tela que não tinha resultado
+     econômico definido. As duas menores continuam sendo mostradas — o PRD
+     pede duas —, mas só são narradas como restrição quando a própria
+     resposta indica fragilidade. Acima do piso, o cartão diz o que é:
+     o ponto relativamente menos forte de uma leitura que não acusa nada. */
+  var PISO = 2;   /* 0 ausente, 1 pontual, 2 parcial → cabe hipótese de gargalo */
+
   function ler(respostas){
     var dadas = PERGUNTAS.map(function(p){
       return { p:p, v: respostas[p.id] };
@@ -87,10 +97,15 @@ window.RECODE_DEMO = (function(){
        que vai do econômico ao humano — começar pelo H mais estrutural */
     var ordenadas = numericas.slice().sort(function(a,b){ return a.v - b.v; });
     var restricoes = ordenadas.slice(0,2).map(function(x){
-      return { h:x.p.h, nome:x.p.nome, valor:x.v, leitura:LEITURA[x.p.h] };
+      return { h:x.p.h, nome:x.p.nome, valor:x.v,
+               forte: x.v <= PISO,          /* narrar como gargalo provável */
+               leitura:LEITURA[x.p.h] };
     });
 
-    /* a pergunta executiva sai da restrição mais forte */
+    var comGargalo = restricoes.filter(function(r){ return r.forte; });
+
+    /* a pergunta executiva sai da restrição mais forte; sem gargalo
+       provável ela ainda vale, porque é pergunta de verificação */
     var exec = restricoes.length ? restricoes[0].leitura.exec : null;
 
     return {
@@ -99,6 +114,8 @@ window.RECODE_DEMO = (function(){
       naoSei: naoSei.length,
       naoSeiComponentes: naoSei.map(function(x){ return x.p.h; }),
       restricoes: restricoes,
+      temGargalo: comGargalo.length > 0,
+      semCobertura: numericas.length < 2,   /* NS demais para dizer qualquer coisa */
       perguntaExecutiva: exec,
       dadas: dadas
     };

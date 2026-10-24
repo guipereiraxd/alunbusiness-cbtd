@@ -1,6 +1,6 @@
 ---
 title: "Início"
-description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, diagnostica e redesenha o harness organizacional — trabalho, dados, agentes, decisões, competências e controles — para transformar capacidade de IA em performance de negócio."
+description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamentos entre áreas. Diagnosticamos e redesenhamos o harness organizacional da sua empresa."
 ---
 
 <style>
@@ -68,19 +68,21 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
     border-left:3px solid var(--c);
     transition:background .2s var(--ease),transform .2s var(--ease)}
   .cam div:hover{background:rgba(255,255,255,.1);transform:translateX(3px)}
-  .cam div b{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--c)}
+  /* o filete fica com a cor saturada; o código usa a versão clara dela,
+     porque #885CF6 sobre o vidro dá 3,04:1 e aqui é texto */
+  .cam div b{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--ct)}
 
   .hns .flui{display:grid;place-items:center;height:26px;margin-top:4px}
   .hns .flui i{width:2px;height:26px;border-radius:2px;
     background:linear-gradient(180deg,rgba(136,92,246,.25),#885CF6)}
-  .hns .alvo{position:relative;background:var(--grad);border-radius:14px;
+  .hns .alvo{position:relative;background:var(--grad-cta);border-radius:14px;
     padding:16px 18px;text-align:center;box-shadow:0 14px 38px rgba(45,135,255,.36);
     overflow:hidden}
   .hns .alvo::after{content:"";position:absolute;inset:0;
     background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 58%);pointer-events:none}
   .hns .alvo b{position:relative;display:block;font-family:var(--disp);font-weight:700;
     font-size:17.5px;color:#fff;letter-spacing:-.018em}
-  .hns .alvo span{position:relative;font-size:12.5px;color:rgba(255,255,255,.84)}
+  .hns .alvo span{position:relative;font-size:12.5px;color:#EAF0FF}
 
   @media(max-width:1040px){ .hns .simb{width:150px;top:-44px;right:-24px} }
   @media(max-width:460px){ .cam div{font-size:13px;padding:9px 12px} .hns{padding:20px} }
@@ -213,16 +215,20 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
         <span>H1 → H8</span>
       </div>
       <div class="cam" aria-hidden="true">
-        <div style="--c:#2D87FF"><b>H1</b><span>Modelo de negócio e economia do valor</span></div>
-        <div style="--c:#3F82FD"><b>H2</b><span>Arquitetura do trabalho e fluxo</span></div>
-        <div style="--c:#5180FB"><b>H3</b><span>Modelo operacional humano–agente</span></div>
-        <div style="--c:#6379F9"><b>H4</b><span>Contexto, conhecimento e dados</span></div>
-        <div style="--c:#7373F7"><b>H5</b><span>Execução e orquestração</span></div>
-        <div style="--c:#8068F7"><b>H6</b><span>Avaliação, observabilidade e confiabilidade</span></div>
-        <div style="--c:#8761F6"><b>H7</b><span>Governança e direitos de decisão</span></div>
-        <div style="--c:#885CF6"><b>H8</b><span>Liderança, competências e mudança</span></div>
+        <div style="--c:#2D87FF;--ct:#9DC2FF"><b>H1</b><span>Modelo de negócio e economia do valor</span></div>
+        <div style="--c:#3F82FD;--ct:#A3C0FF"><b>H2</b><span>Arquitetura do trabalho e fluxo</span></div>
+        <div style="--c:#5180FB;--ct:#AABEFE"><b>H3</b><span>Modelo operacional humano–agente</span></div>
+        <div style="--c:#6379F9;--ct:#B2BCFE"><b>H4</b><span>Contexto, conhecimento e dados</span></div>
+        <div style="--c:#7373F7;--ct:#B9B8FD"><b>H5</b><span>Execução e orquestração</span></div>
+        <div style="--c:#8068F7;--ct:#BFB3FD"><b>H6</b><span>Avaliação, observabilidade e confiabilidade</span></div>
+        <div style="--c:#8761F6;--ct:#C5B0FC"><b>H7</b><span>Governança e direitos de decisão</span></div>
+        <div style="--c:#885CF6;--ct:#CBB4FC"><b>H8</b><span>Liderança, competências e mudança</span></div>
       </div>
       <div class="flui" aria-hidden="true"><i></i></div>
+      <p class="pular">Os oito componentes do harness organizacional sustentam o desempenho de
+         negócio: custo, qualidade, velocidade, receita e risco. A lista completa, com a pergunta
+         diagnóstica de cada componente, está em
+         <a href="{{ '/recode/harness-organizacional/' | relative_url }}">O harness organizacional</a>.</p>
       <div class="alvo" aria-hidden="true">
         <b>Desempenho de negócio</b>
         <span>custo, qualidade, velocidade, receita e risco</span>

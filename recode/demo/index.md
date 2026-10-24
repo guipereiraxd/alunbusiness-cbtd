@@ -63,7 +63,12 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   .rest .cod{font-family:var(--mono);font-size:11px;color:var(--eletrico);letter-spacing:.06em}
   .rest .tit{font-family:var(--mono);font-size:11px;color:var(--tx-3);letter-spacing:.06em;
     text-transform:uppercase}
-  .rest .cab{display:flex;align-items:baseline;gap:9px;margin-bottom:9px}
+  .rest .cab{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .rest .hip{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--atencao);background:var(--atencao-s);
+    padding:3px 9px;border-radius:999px}
+  .rest > div.rel{border-left-color:var(--linha-2)}
+  .rest > div.rel .hip{color:var(--tx-2);background:var(--painel)}
   .rest .nm{display:block;font-family:var(--disp);font-weight:700;font-size:20px;
     color:var(--tinta);line-height:1.3;letter-spacing:-.015em}
   .rest p{font-size:15px;color:var(--tx);margin-top:11px;line-height:1.65}
@@ -96,7 +101,10 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     text-transform:uppercase;color:var(--tx-3);margin-bottom:7px}
   .campo input{width:100%;font-family:var(--sans);font-size:15.5px;color:var(--tinta);
     background:var(--papel);border:1px solid var(--linha-2);border-radius:11px;padding:13px 15px}
-  .campo input:focus{outline:none;border-color:var(--eletrico);box-shadow:0 0 0 3px var(--azul-100)}
+  /* o :focus-visible do sistema estava sendo cancelado e substituído por um
+     halo de 1,18:1 — invisível para quem navega por teclado */
+  .campo input:focus-visible{outline:3px solid var(--eletrico);outline-offset:2px;
+    border-color:var(--eletrico)}
   .campo input::placeholder{color:var(--tx-3)}
   .optin{display:flex;gap:11px;align-items:flex-start;margin-top:20px;font-size:14px;
     color:var(--tx-2);line-height:1.55;cursor:pointer}
@@ -146,9 +154,14 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
         <div class="pct"><i id="pct-i" style="width:0%"></i></div>
         <div class="n" id="pct-n">1 de 8</div>
       </div>
-      <div class="qcomp" id="q-comp"></div>
-      <div class="qtexto" id="q-texto"></div>
-      <div class="ops" id="q-ops"></div>
+      <fieldset style="border:0;padding:0;margin:0">
+        <legend style="padding:0;width:100%">
+          <span class="qcomp" id="q-comp"></span>
+          <span class="qtexto" id="q-texto" style="display:block"></span>
+        </legend>
+        <div class="ops" id="q-ops" role="group" aria-labelledby="q-texto"></div>
+      </fieldset>
+      <p aria-live="polite" class="pular" id="q-vivo"></p>
       <div class="nav">
         <button id="voltar">← Voltar</button>
         <span></span>
@@ -158,7 +171,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     <!-- ── resultado ────────────────────────────────────────── -->
     <div id="et-res" class="res" style="display:none">
       <div class="selo">⚠ Prévia educacional — não substitui diagnóstico corporativo</div>
-      <h2 style="margin-top:20px">O seu ponto de vista sugere atenção em:</h2>
+      <h2 id="res-titulo" style="margin-top:20px">O seu ponto de vista sugere atenção em:</h2>
 
       <div class="rest" id="res-rest"></div>
       <div class="pe" id="res-pe"></div>
@@ -192,17 +205,24 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
               com IA. Este consentimento é separado do contato sobre o diagnóstico e pode ser
               retirado a qualquer momento.</span>
           </label>
-          <div class="erro" id="lead-erro"></div>
+          <p style="font-size:13px;color:var(--tx-2);margin-top:16px;line-height:1.55">
+            Usamos estes dados para retornar o seu contato sobre o diagnóstico. O consentimento de
+            marketing acima é separado e pode ser retirado a qualquer momento — basta responder
+            qualquer mensagem nossa pedindo a exclusão. Leia a
+            <a href="{{ '/privacy/' | relative_url }}" target="_blank" rel="noopener">política de
+            privacidade</a>.</p>
+          <div class="erro" id="lead-erro" role="alert"></div>
           <div class="botoes" style="margin-top:22px">
             <button class="bt bt-1" id="lead-enviar">Quero conversar</button>
           </div>
         </div>
-        <div class="ok" id="lead-ok"></div>
+        <div class="ok" id="lead-ok" role="status" tabindex="-1"></div>
       </div>
 
       <div class="refaz">
-        <button id="refazer">Responder de novo</button> · suas respostas não são enviadas a
-        lugar nenhum enquanto você não preencher o formulário acima.
+        <button id="refazer">Responder de novo</button> · as suas respostas da prévia ficam
+        só neste navegador: elas não são enviadas nem quando você preenche o formulário acima,
+        que transmite apenas os dados de contato.
       </div>
     </div>
 
@@ -238,12 +258,14 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
 
     var atual = resp[p.id];
     var html = D.ESCALA.map(function(e){
-      return '<button data-v="'+e.v+'"'+(atual===e.v?' class="sel"':'')+'>'
+      return '<button type="button" data-v="'+e.v+'"'+(atual===e.v?' class="sel"':'')
+        + ' aria-pressed="'+(atual===e.v?'true':'false')+'">'
         + '<span class="v">'+e.v+'</span>'
         + '<span><span class="r">'+esc(e.r)+'</span>'
         + '<span class="d">'+esc(e.d)+'</span></span></button>';
     }).join("");
-    html += '<button class="ns'+(atual==="NS"?' sel':'')+'" data-v="NS">'
+    html += '<button type="button" class="ns'+(atual==="NS"?' sel':'')+'" data-v="NS"'
+          + ' aria-pressed="'+(atual==="NS"?'true':'false')+'">'
           + '<span class="v">NS</span>'
           + '<span><span class="r">Não sei responder</span>'
           + '<span class="d">Não penaliza. Entra na leitura como desconhecimento, que também é um sinal.</span>'
@@ -256,7 +278,15 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
         resp[p.id] = (v === "NS") ? "NS" : Number(v);
         /* avanço automático: oito perguntas com um clique cada mantém a
            prévia dentro dos 3 a 5 minutos prometidos */
-        if (i < P.length - 1){ i++; render(); } else { resultado(); }
+        if (i < P.length - 1){
+          i++; render();
+          /* o avanço automático jogava o foco de volta para o <body>: quem usa
+             teclado tinha de tabular pelo cabeçalho inteiro a cada pergunta */
+          var primeira = document.querySelector("#q-ops button");
+          if (primeira) primeira.focus();
+          document.getElementById("q-vivo").textContent =
+            "Pergunta " + (i+1) + " de " + P.length + ". " + P[i].texto;
+        } else { resultado(); }
       });
     });
     document.getElementById("voltar").disabled = (i === 0);
@@ -270,9 +300,18 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   });
   document.getElementById("refazer").addEventListener("click", function(){
     i = 0; resp = {};
+    /* devolver o formulário sem devolver o BOTÃO deixava o único ponto de
+       conversão travado em "Enviando…" e desabilitado para sempre; o erro
+       antigo também sobrevivia, em vermelho, num formulário intocado */
+    var b = document.getElementById("lead-enviar");
+    b.disabled = false; b.textContent = "Quero conversar";
+    var err = document.getElementById("lead-erro");
+    err.style.display = "none"; err.textContent = "";
     document.getElementById("lead-form").style.display = "block";
     document.getElementById("lead-ok").style.display = "none";
     mostra("et-q"); render();
+    var primeira = document.querySelector("#q-ops button");
+    if (primeira) primeira.focus();
   });
 
   /* ── resultado ───────────────────────────────────────────── */
@@ -280,13 +319,29 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     var r = D.ler(resp);
 
     document.getElementById("res-rest").innerHTML = r.restricoes.map(function(x){
-      return '<div><div class="cab"><span class="cod">'+x.h+'</span>'
-        + '<span class="tit">'+esc(x.nome)+'</span></div>'
-        + '<span class="nm">'+esc(x.leitura.restricao)+'</span>'
-        + '<p>'+esc(x.leitura.hip)+'</p></div>';
-    }).join("") || '<div><p>Você marcou “não sei” em todas as perguntas. Isso é, por si, a leitura '
-                 + 'mais útil desta prévia: a visibilidade sobre o sistema de trabalho é baixa, e '
-                 + 'é por aí que um diagnóstico começa.</p></div>';
+      /* Acima do piso não há gargalo para narrar: afirmar "o valor não tem
+         para onde ir" a quem marcou 4 seria falso. O cartão então diz o que
+         de fato é — o ponto relativamente menos forte da leitura. */
+      var corpo = x.forte
+        ? '<span class="nm">'+esc(x.leitura.restricao)+'</span><p>'+esc(x.leitura.hip)+'</p>'
+        : '<span class="nm">O seu ponto menos forte, ainda assim sólido</span>'
+          + '<p>Você marcou <b>'+x.valor+' de 4</b> aqui — não é fragilidade declarada, é só o '
+          + 'componente em que a sua leitura foi menos alta. A pergunta de verificação abaixo '
+          + 'serve justamente para testar se a prática sustenta a nota.</p>';
+      return '<div'+(x.forte?'':' class="rel"')+'><div class="cab"><span class="cod">'+x.h+'</span>'
+        + '<span class="tit">'+esc(x.nome)+'</span>'
+        + '<span class="hip">'+(x.forte ? 'hipótese a testar' : 'leitura relativa')+'</span></div>'
+        + corpo + '</div>';
+    }).join("") || '<div><span class="nm">Sem base para uma leitura</span>'
+                 + '<p>Você marcou “não sei” em todas as perguntas. Isso é, por si, o achado mais '
+                 + 'útil desta prévia: a visibilidade sobre o sistema de trabalho é baixa, e é por '
+                 + 'aí que um diagnóstico começa.</p></div>';
+
+    var tit = document.getElementById("res-titulo");
+    tit.textContent = r.semCobertura
+      ? "Não dá para ler o seu ponto de vista com estas respostas:"
+      : (r.temGargalo ? "O seu ponto de vista sugere atenção em:"
+                      : "Nada no seu ponto de vista aponta fragilidade. O que mais vale verificar:");
 
     var pe = document.getElementById("res-pe");
     if (r.perguntaExecutiva){
@@ -295,7 +350,9 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
                    + esc(r.perguntaExecutiva) + '</p>';
     } else { pe.style.display = "none"; }
 
-    var baixas = r.restricoes.map(function(x){ return x.h; });
+    /* o destaque marcava como baixo qualquer um dos dois menores, inclusive 4 */
+    var baixas = r.restricoes.filter(function(x){ return x.forte; })
+                             .map(function(x){ return x.h; });
     document.getElementById("res-mapa").innerHTML = r.dadas.map(function(x){
       var ns = (x.v === "NS");
       var larg = ns ? 0 : (x.v/4*100);
@@ -306,7 +363,13 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     }).join("");
 
     var ns = document.getElementById("res-ns");
-    if (r.naoSei >= 3){
+    if (r.semCobertura && r.naoSei){
+      ns.style.display = "block";
+      ns.innerHTML = '<b>Com ' + r.naoSei + ' respostas “não sei”, não há cobertura para uma '
+        + 'leitura.</b> No diagnóstico corporativo isso tem nome e tratamento: um componente só é '
+        + 'agregado com no mínimo três das quatro questões respondidas, e um grupo só aparece no '
+        + 'painel com sete respostas válidas. Valor suprimido nunca vira zero.';
+    } else if (r.naoSei >= 3){
       ns.style.display = "block";
       ns.innerHTML = '<b>Você respondeu “não sei” em ' + r.naoSei + ' dos 8 componentes.</b> '
         + 'Num diagnóstico corporativo isso não é falha do respondente: é cobertura baixa, e '
@@ -336,12 +399,20 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
       var ok = document.getElementById("lead-ok");
       document.getElementById("lead-form").style.display = "none";
       ok.style.display = "block";
-      ok.innerHTML = res.modo === "remoto"
+      ok.focus();   /* sem isto o foco ficava num botão que acabou de sumir */
+      ok.innerHTML =
+        res.modo === "remoto"
         ? '<b>Recebemos o seu contato.</b><br>A gente retorna para entender qual jornada está '
-          + 'incomodando a sua operação. Suas respostas da prévia não foram enviadas — elas são '
-          + 'exploratórias e não compõem o diagnóstico.'
-        : '<b>O envio não chegou ao servidor.</b><br>O registro ficou neste navegador. '
-          + 'Se o contato for urgente, fale direto com a Alun Business.';
+          + 'incomodando a sua operação. As suas respostas da prévia não foram enviadas — elas '
+          + 'são exploratórias e não compõem o diagnóstico.'
+        : res.modo === "indefinido"
+        ? '<b>O envio demorou mais do que o esperado.</b><br>Ele pode ter chegado — não dá para '
+          + 'confirmar daqui. Se não tivermos retornado em alguns dias, envie de novo.'
+        : res.modo === "sem-backend"
+        ? '<b>Este ambiente não tem onde gravar o contato.</b><br>É a versão local do site; '
+          + 'em produção o envio funciona normalmente.'
+        : '<b>Não conseguimos registrar o seu contato.</b><br>Houve uma falha de conexão com o '
+          + 'servidor. Tente de novo em instantes.';
     });
   });
 })();

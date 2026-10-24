@@ -13,8 +13,11 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
   .ofs .corpo{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:22px;
     padding-top:22px;border-top:1px solid var(--linha)}
   @media(max-width:760px){ .ofs .corpo{grid-template-columns:1fr;gap:18px} }
-  .ofs h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
-    color:var(--tx-3);margin:0 0 11px;font-weight:400}
+  /* eram h4 soltos sob um h1: salto de nível, e as ofertas nem eram headings */
+  .ofs h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--tx-3);margin:0 0 11px;font-weight:400;letter-spacing:.11em}
+  .ofs .entreg h3{color:var(--tinta);font-family:var(--sans);font-size:14.5px;
+    text-transform:none;letter-spacing:0;font-weight:600;margin-bottom:4px}
   .ofs ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--tx-2);line-height:1.75}
   .ofs .entreg{background:var(--canvas);border-radius:12px;padding:17px 19px}
   .ofs .entreg b{display:block;font-size:14.5px;color:var(--tinta);margin-bottom:4px}
@@ -67,11 +70,11 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
     <div class="ofs">
 
       <div>
-        <div class="top"><div class="nm">Discover</div><div class="en">Diagnose your harness</div></div>
+        <div class="top"><h2 class="nm">Discover</h2><div class="en">Diagnose your harness</div></div>
         <p class="desc">Diagnóstico multiárea com entrevistas, levantamento de evidências, análise
            de performance de jornadas e identificação do principal limitador da captura de valor.</p>
         <div class="corpo">
-          <div><h4>O trabalho</h4>
+          <div><h3>O trabalho</h3>
             <ul>
               <li>Campanha de percepção nos oito componentes</li>
               <li>Entrevistas e observação de rotina</li>
@@ -79,19 +82,19 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
               <li>Leitura de divergência entre áreas e níveis</li>
             </ul></div>
           <div class="entreg">
-            <b>Entrega</b>
+            <h3 style="display:block">Entrega</h3>
             <span>Organizational Harness Diagnostic e mapa de restrições, com cobertura,
               limitações e grau de confiança por afirmação.</span></div>
         </div>
       </div>
 
       <div>
-        <div class="top"><div class="nm">Redesign</div><div class="en">Recode how work creates value</div></div>
+        <div class="top"><h2 class="nm">Redesign</h2><div class="en">Recode how work creates value</div></div>
         <p class="desc">Workshops de redesenho, análise do modelo econômico, decomposição do
            trabalho, desenho da coordenação humano–agente, direitos de decisão e mecanismos de
            verificação.</p>
         <div class="corpo">
-          <div><h4>O trabalho</h4>
+          <div><h3>O trabalho</h3>
             <ul>
               <li>Hipótese econômica e destino da capacidade liberada</li>
               <li>Fluxo atual e futuro, com filas e exceções</li>
@@ -99,19 +102,19 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
               <li>Gates humanos e critérios de qualidade</li>
             </ul></div>
           <div class="entreg">
-            <b>Entrega</b>
+            <h3 style="display:block">Entrega</h3>
             <span>Target Operating Model, Business Model Recode e Harness Blueprint —
               contexto, ferramentas, estados, verificações e handoffs.</span></div>
         </div>
       </div>
 
       <div>
-        <div class="top"><div class="nm">Activate</div><div class="en">Make the new model real</div></div>
+        <div class="top"><h2 class="nm">Activate</h2><div class="en">Make the new model real</div></div>
         <p class="desc">Pilotos conduzidos sobre missões reais, preparação de equipes e lideranças,
            coordenação da implantação com a TI do cliente, instrumentação de avaliações e revisão
            de rituais e incentivos.</p>
         <div class="corpo">
-          <div><h4>O trabalho</h4>
+          <div><h3>O trabalho</h3>
             <ul>
               <li>Piloto supervisionado com prontidão de rollback</li>
               <li>Trilhas aplicadas por papel, com prova de aplicação</li>
@@ -119,18 +122,18 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
               <li>Revisão de rotinas, reconhecimento e incentivos</li>
             </ul></div>
           <div class="entreg">
-            <b>Entrega</b>
+            <h3 style="display:block">Entrega</h3>
             <span>Mission Playbook, Capability Plan e Go-live Controls, com responsáveis
               e critérios de parada definidos.</span></div>
         </div>
       </div>
 
       <div>
-        <div class="top"><div class="nm">Impact</div><div class="en">Prove and compound value</div></div>
+        <div class="top"><h2 class="nm">Impact</h2><div class="en">Prove and compound value</div></div>
         <p class="desc">Baseline, acompanhamento de processo e de resultado econômico, assurance,
            governança do ciclo de revisão e decisão de expansão.</p>
         <div class="corpo">
-          <div><h4>O trabalho</h4>
+          <div><h3>O trabalho</h3>
             <ul>
               <li>Baseline e medição com janela e comparadores</li>
               <li>Avaliação explícita de fatores externos</li>
@@ -138,7 +141,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
               <li>Decisão formal de escalar, corrigir ou interromper</li>
             </ul></div>
           <div class="entreg">
-            <b>Entrega</b>
+            <h3 style="display:block">Entrega</h3>
             <span>Value Realization Ledger, Scale Decision e Reuse Kit, com origem,
               confiança e destino registrado de cada ganho.</span></div>
         </div>

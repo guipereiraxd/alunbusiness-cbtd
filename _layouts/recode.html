@@ -7,14 +7,20 @@
 
   {% assign rc_desc = page.description | default: "Diagnostique e redesenhe o harness organizacional — o sistema que conecta trabalho, dados, agentes, decisões, competências e controles para transformar capacidade de IA em performance de negócio." %}
   {% assign rc_url  = site.url | append: page.url %}
-  {% assign rc_img  = site.url | append: '/recode/assets/marca/recode-horizontal-3d.png' %}
+  {% comment %} O master do logotipo é 3,2:1 e 85% transparente: anunciado
+     como summary_large_image (2:1) ele era cortado nas pontas e achatado
+     contra o fundo do cliente. og.png é 1200x630 opaco, gerado para isto. {% endcomment %}
+  {% assign rc_img  = site.url | append: '/recode/assets/marca/og.png' %}
   {% if page.url == '/recode/' or page.title == 'Início' %}
     {% assign rc_tit = "AI Business ReCode" %}
   {% else %}
     {% assign rc_tit = page.title | default: "AI Business ReCode" %}
   {% endif %}
 
-  <meta name="description" content="{{ rc_desc | strip_html | truncate: 200 }}">
+  {% comment %} truncate: 200 cortava no meio da palavra em 3 das 6 páginas;
+     truncatewords corta em fronteira de palavra. {% endcomment %}
+  {% assign rc_desc_curta = rc_desc | strip_html | truncatewords: 30 %}
+  <meta name="description" content="{{ rc_desc_curta }}">
   <link rel="canonical" href="{{ rc_url }}">
   <meta name="theme-color" content="#0A1F44">
 
@@ -25,14 +31,18 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="AI Business ReCode · Alun Business">
-  <meta property="og:title" content="{{ rc_tit }} · Alun Business">
-  <meta property="og:description" content="{{ rc_desc | strip_html | truncate: 200 }}">
+  <meta property="og:title" content="{{ rc_tit }} · AI Business ReCode">
+  <meta property="og:description" content="{{ rc_desc_curta }}">
   <meta property="og:url" content="{{ rc_url }}">
   <meta property="og:image" content="{{ rc_img }}">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="420">
+  <meta property="og:image:alt" content="AI Business ReCode · Alun Business — consultoria em harness organizacional">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ rc_tit }} · Alun Business">
-  <meta name="twitter:description" content="{{ rc_desc | strip_html | truncate: 200 }}">
+  <meta name="twitter:title" content="{{ rc_tit }} · AI Business ReCode">
+  <meta name="twitter:description" content="{{ rc_desc_curta }}">
   <meta name="twitter:image" content="{{ rc_img }}">
+  <meta name="twitter:image:alt" content="AI Business ReCode · Alun Business — consultoria em harness organizacional">
 
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/recode/assets/marca/favicon-32.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/recode/assets/marca/apple-touch-icon.png' | relative_url }}">
@@ -40,6 +50,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Structured Data: o PRD (§4.3) pede junto com OG. Organization para a
+       marca-mãe e Service para a oferta, sem qualquer alegação de resultado. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#alun-business",
+        "name": "Alun Business",
+        "url": "{{ site.url }}",
+        "slogan": "Reprograme o trabalho. Reinvente o negócio."
+      },
+      {
+        "@type": "Service",
+        "name": "AI Business ReCode",
+        "serviceType": "Consultoria em harness organizacional",
+        "provider": { "@id": "{{ site.url }}/#alun-business" },
+        "areaServed": "BR",
+        "url": "{{ site.url }}/recode/",
+        "description": "Diagnóstico e redesenho do harness organizacional — o sistema de trabalho, dados, agentes, decisões, competências e controles que transforma capacidade de IA em desempenho de negócio."
+      },
+      {
+        "@type": "WebPage",
+        "@id": "{{ rc_url }}",
+        "name": "{{ rc_tit }}",
+        "description": "{{ rc_desc_curta }}",
+        "inLanguage": "pt-BR",
+        "isPartOf": { "@id": "{{ site.url }}/recode/" }
+      }
+    ]
+  }
+  </script>
 
   <style>
     /* ═══ Tokens ═══════════════════════════════════════════════════
@@ -56,6 +100,10 @@
          e tokens de superfície podem ser tematizados, ao contrário dos
          arquivos mestres, que nunca são recoloridos. */
       --grad:linear-gradient(118deg,#2D87FF 0%,#5B6FFA 48%,#885CF6 100%);
+      /* O gradiente vivo não sustenta texto branco: 3,49:1 na ponta azul.
+         Esta é a variante para superfícies que levam texto — mesma fita,
+         mais funda, com branco entre 5,8:1 e 6,3:1 em toda a extensão. */
+      --grad-cta:linear-gradient(118deg,#1A5FD0 0%,#434FD8 48%,#6D3FE0 100%);
       --grad-r:linear-gradient(90deg,#2D87FF,#885CF6);
       --grad-sutil:linear-gradient(118deg,rgba(45,135,255,.14),rgba(136,92,246,.14));
 
@@ -65,7 +113,10 @@
 
       --papel:#FFFFFF; --canvas:#F6F8FC; --painel:#EAEFF9; --painel-2:#DEE6F5;
       --tinta:#0A1F44; --tinta-2:#1B3360;
-      --tx:#334B75; --tx-2:#55688F; --tx-3:#7D8DAE;
+      --tx:#334B75; --tx-2:#55688F;
+      /* #7D8DAE dava 3,14:1 sobre o canvas e carrega rótulo de campo;
+         o PRD exige WCAG 2.2 AA (NFR-06). Escurecido para 4,60:1. */
+      --tx-3:#63718F;
       --linha:#DFE6F3; --linha-2:#C2CEE6;
 
       --ok:#0B7A54; --ok-s:#E4F5EE;
@@ -123,7 +174,7 @@
     .rc-nav a.on{color:#fff}
     .rc-nav a.on::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;
       height:2px;border-radius:2px;background:var(--grad-r)}
-    .rc-nav a.cta{background:var(--grad);color:#fff;font-weight:600;padding:11px 20px;
+    .rc-nav a.cta{background:var(--grad-cta);color:#fff;font-weight:600;padding:11px 20px;
       box-shadow:0 6px 18px rgba(45,135,255,.3);transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
     .rc-nav a.cta:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(45,135,255,.42)}
     .rc-nav a.cta::after{display:none}
@@ -161,8 +212,9 @@
     @media(max-width:700px){ .sec{padding:64px 0} }
 
     /* ═══ Rótulos e títulos ═══════════════════════════════════════ */
+    /* o azul elétrico é cor de ênfase, não de texto: 3,28:1 sobre o canvas */
     .olho{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;
-      text-transform:uppercase;color:var(--eletrico);display:flex;align-items:center;gap:13px}
+      text-transform:uppercase;color:var(--azul-700);display:flex;align-items:center;gap:13px}
     .olho::before{content:"";width:30px;height:3px;border-radius:3px;
       background:var(--grad-r);flex:none}
     .sec.escura .olho{color:var(--azul-300)}
@@ -183,7 +235,7 @@
       font-size:16.5px;font-weight:600;text-decoration:none;border:0;cursor:pointer;
       padding:16px 28px;border-radius:999px;line-height:1.2;
       transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease)}
-    .bt-1{background:var(--grad);color:#fff;box-shadow:var(--brilho)}
+    .bt-1{background:var(--grad-cta);color:#fff;box-shadow:var(--brilho)}
     .bt-1:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(45,135,255,.42)}
     .bt-2{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--linha-2)}
     .bt-2:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1.5px var(--tinta)}
@@ -210,7 +262,7 @@
     .cartao h3{font-size:18px;font-weight:600;letter-spacing:-.016em}
     .cartao p{font-size:15px;color:var(--tx-2);margin-top:10px;line-height:1.6}
     .cartao .cod{font-family:var(--mono);font-size:11.5px;letter-spacing:.11em;
-      text-transform:uppercase;color:var(--eletrico);margin-bottom:12px}
+      text-transform:uppercase;color:var(--azul-700);margin-bottom:12px}
     .sec.escura .cartao{background:rgba(255,255,255,.045);border-color:rgba(143,186,255,.2);
       backdrop-filter:blur(6px)}
     .sec.escura .cartao:hover{background:rgba(255,255,255,.075);border-color:rgba(143,186,255,.36);
@@ -305,10 +357,10 @@
     <button class="rc-menu" id="rc-menu" aria-expanded="false" aria-controls="rc-nav">Menu</button>
     <nav class="rc-nav" id="rc-nav">
       {% assign u = page.url %}
-      <a href="{{ '/recode/harness-organizacional/' | relative_url }}" {% if u contains 'harness' %}class="on"{% endif %}>O harness</a>
-      <a href="{{ '/recode/metodologia/' | relative_url }}" {% if u contains 'metodologia' %}class="on"{% endif %}>Metodologia</a>
-      <a href="{{ '/recode/diagnostico/' | relative_url }}" {% if u contains 'diagnostico' %}class="on"{% endif %}>Diagnóstico</a>
-      <a href="{{ '/recode/consultoria/' | relative_url }}" {% if u contains 'consultoria' %}class="on"{% endif %}>Consultoria</a>
+      <a href="{{ '/recode/harness-organizacional/' | relative_url }}" {% if u contains 'harness' %}class="on" aria-current="page"{% endif %}>O harness</a>
+      <a href="{{ '/recode/metodologia/' | relative_url }}" {% if u contains 'metodologia' %}class="on" aria-current="page"{% endif %}>Metodologia</a>
+      <a href="{{ '/recode/diagnostico/' | relative_url }}" {% if u contains 'diagnostico' %}class="on" aria-current="page"{% endif %}>Diagnóstico</a>
+      <a href="{{ '/recode/consultoria/' | relative_url }}" {% if u contains 'consultoria' %}class="on" aria-current="page"{% endif %}>Consultoria</a>
       <a href="{{ '/recode/demo/' | relative_url }}" class="cta">Experimentar a demo</a>
     </nav>
   </div>
@@ -336,6 +388,7 @@
         <a href="{{ '/recode/diagnostico/' | relative_url }}">O diagnóstico</a>
         <a href="{{ '/recode/consultoria/' | relative_url }}">Consultoria</a>
         <a href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
+        <a href="{{ '/privacy/' | relative_url }}">Política de privacidade</a>
       </div>
     </div>
     <div class="fim">
@@ -355,8 +408,10 @@
       var aberto = n.classList.toggle("aberto");
       b.setAttribute("aria-expanded", aberto ? "true" : "false");
     });
-    /* fecha ao navegar pelo teclado para fora do menu aberto */
-    n.addEventListener("keydown", function(e){
+    /* O listener vivia no <nav>: ao abrir o menu o foco ainda está no
+       botão, então Escape não chegava ao nav e nada acontecia. No documento
+       funciona em qualquer ponto do fluxo. */
+    document.addEventListener("keydown", function(e){
       if (e.key === "Escape" && n.classList.contains("aberto")){
         n.classList.remove("aberto"); b.setAttribute("aria-expanded","false"); b.focus();
       }

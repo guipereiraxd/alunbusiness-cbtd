@@ -24,8 +24,30 @@ service cloud.firestore {
     // Leads do AI Business ReCode. Quem preenche é visitante do site e não
     // tem conta, então a criação é aberta — mas a leitura não: a lista de
     // contatos é dado comercial e pessoal, e sai só pelo console.
+    //
+    // O nome da coleção está em texto aberto no JS público e o config do
+    // Firebase é publicado no build. Create aberto sem validação aceitaria
+    // documento de qualquer forma e tamanho, de qualquer origem. As regras
+    // abaixo limitam o payload ao formato exato do formulário.
     match /recode_leads/{doc} {
-      allow create: if true;
+      allow create: if request.resource.data.keys().hasOnly(
+                         ['id','nome','email','empresa','cargo','origem',
+                          'marketing_opt_in','criado'])
+                    && request.resource.data.keys().hasAll(
+                         ['nome','email','marketing_opt_in','criado'])
+                    && request.resource.data.nome is string
+                    && request.resource.data.nome.size() > 0
+                    && request.resource.data.nome.size() <= 120
+                    && request.resource.data.email is string
+                    && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$')
+                    && request.resource.data.email.size() <= 180
+                    && request.resource.data.marketing_opt_in is bool
+                    && (!request.resource.data.keys().hasAny(['empresa'])
+                        || request.resource.data.empresa.size() <= 160)
+                    && (!request.resource.data.keys().hasAny(['cargo'])
+                        || request.resource.data.cargo.size() <= 160)
+                    && (!request.resource.data.keys().hasAny(['origem'])
+                        || request.resource.data.origem.size() <= 60);
       allow read, update, delete: if false;
     }
 

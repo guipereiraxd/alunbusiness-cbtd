@@ -1,6 +1,6 @@
 ---
 title: "O harness organizacional"
-description: "Harness organizacional é o sistema integrado de estratégia, trabalho, contexto, orquestração, decisões, verificações, competências e captura de valor que transforma capacidade de IA em desempenho de negócio."
+description: "O sistema de estratégia, trabalho, contexto, orquestração, decisões, verificações e competências que transforma capacidade de IA em desempenho de negócio."
 ---
 
 <style>
