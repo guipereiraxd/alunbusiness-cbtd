@@ -6,34 +6,55 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
 <style>
   /* ── hero ───────────────────────────────────────────────────── */
   .hero{position:relative;background:var(--deep);color:var(--azul-100);
-    padding:104px 0 112px;overflow:hidden;isolation:isolate}
-  /* duas auréolas nas cores do símbolo, como luz e não como forma */
+    padding:96px 0 104px;overflow:hidden;isolation:isolate;
+    min-height:calc(100svh - 86px);display:flex;align-items:center}
   .hero::before{content:"";position:absolute;inset:0;z-index:-2;
     background:
-      radial-gradient(860px 520px at 82% -14%, rgba(45,135,255,.34), transparent 62%),
-      radial-gradient(680px 460px at -6% 112%, rgba(136,92,246,.28), transparent 64%),
-      linear-gradient(180deg,#0A1F44 0%,#061531 100%)}
-  /* malha fina: dá matéria ao fundo sem virar desenho */
+      radial-gradient(900px 560px at 84% -16%, rgba(45,135,255,.36), transparent 62%),
+      radial-gradient(720px 500px at -8% 114%, rgba(136,92,246,.3), transparent 64%),
+      linear-gradient(180deg,#0A1F44 0%,#05112A 100%)}
   .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
     background-image:linear-gradient(rgba(143,186,255,.055) 1px,transparent 1px),
                      linear-gradient(90deg,rgba(143,186,255,.055) 1px,transparent 1px);
-    background-size:64px 64px;
-    mask-image:radial-gradient(760px 520px at 24% 34%,#000,transparent 72%);
-    -webkit-mask-image:radial-gradient(760px 520px at 24% 34%,#000,transparent 72%)}
-  .hero-in{display:grid;grid-template-columns:1.02fr .98fr;gap:62px;align-items:center;
-    position:relative;z-index:1}
-  @media(max-width:1000px){ .hero-in{grid-template-columns:1fr;gap:48px} .hero{padding:66px 0 76px} }
+    background-size:68px 68px;
+    mask-image:radial-gradient(820px 560px at 22% 32%,#000,transparent 72%);
+    -webkit-mask-image:radial-gradient(820px 560px at 22% 32%,#000,transparent 72%)}
+  .hero-in{width:100%;display:grid;grid-template-columns:1.16fr .84fr;gap:58px;
+    align-items:center;position:relative;z-index:1}
+  @media(max-width:1040px){ .hero-in{grid-template-columns:1fr;gap:46px}
+    .hero{padding:58px 0 70px;min-height:0;display:block} }
 
-  .hero h1{font-size:clamp(34px,5.4vw,58px);color:#fff;letter-spacing:-.035em;
-    line-height:1.06;margin-top:22px;font-weight:700}
-  /* fundo escuro pede a fita clara: #885CF6 sobre o navy não chega a AA */
-  .hero .realce{background:linear-gradient(112deg,#9CC4FF 0%,#B8ADFD 58%,#CBB4FC 100%);
+  /* A pancada é tipográfica: corpo grande, entrelinha curta, peso alto.
+     Não há número de impacto porque o manual proíbe prometer resultado —
+     o que sobra é dizer a verdade incômoda em tamanho grande. */
+  /* O corpo é calibrado para a frase caber em duas linhas inteiras na
+     largura da coluna: acima de 70px "Sua operação não." quebra e deixa
+     "não." órfão. Quem limita não é o max-width, é a coluna. */
+  .hero h1{font-size:clamp(38px,4.9vw,70px);color:#fff;letter-spacing:-.042em;
+    line-height:1;margin-top:24px;font-weight:800}
+  .hero .realce{display:block;
+    background:linear-gradient(112deg,#9CC4FF 0%,#B8ADFD 54%,#CBB4FC 100%);
     -webkit-background-clip:text;background-clip:text}
-  .hero .sub{font-size:clamp(17px,2vw,20.5px);color:var(--azul-300);margin-top:24px;
-    max-width:52ch;line-height:1.58}
+  .hero .sub{font-size:clamp(17px,1.9vw,20px);color:var(--azul-300);margin-top:28px;
+    max-width:50ch;line-height:1.55}
+  .hero .botoes{margin-top:38px}
+  .hero .bt-1{font-size:17px;padding:18px 32px}
+
+  /* Faixa de prova: fatos verificáveis do instrumento, não promessa.
+     É o que dá concretude sem inventar benchmark. */
+  .prova{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin-top:40px;
+    padding-top:26px;border-top:1px solid rgba(143,186,255,.2)}
+  .prova span{display:inline-flex;align-items:baseline;gap:8px;font-family:var(--mono);
+    font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8FA6CF}
+  .prova span b{font-family:var(--disp);font-weight:700;font-size:19px;color:#fff;
+    letter-spacing:-.02em}
+  .prova i{width:4px;height:4px;border-radius:50%;background:var(--violeta-300);
+    opacity:.6;flex:none}
+  @media(max-width:560px){ .prova i{display:none} .prova{gap:14px 18px} }
+
   .hero .assin{display:inline-flex;align-items:center;gap:11px;font-family:var(--mono);
-    font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#8095BE;margin-top:38px}
-  .hero .assin::before{content:"";width:22px;height:1px;background:#4C639A}
+    font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:#7389B4;margin-top:30px}
+  .hero .assin::before{content:"";width:22px;height:1px;background:#45598C}
 
   /* ── o harness, como estrutura que sustenta ──────────────────
      Oito camadas empilhadas, cada uma com um filete que caminha do
@@ -41,42 +62,40 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
      Elas convergem para a placa de resultado: é o argumento do
      produto dito em forma, não em texto. */
   .hns{position:relative;overflow:hidden;background:rgba(255,255,255,.05);
-    border:1px solid rgba(143,186,255,.2);border-radius:26px;padding:28px;
+    border:1px solid rgba(143,186,255,.2);border-radius:26px;padding:26px;
     backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    box-shadow:0 30px 80px rgba(3,10,26,.46)}
-  /* o símbolo 3D da marca, usado como luz atrás da estrutura */
+    box-shadow:0 34px 90px rgba(3,10,26,.5)}
   .hns .simb{position:absolute;top:-54px;right:-58px;width:208px;opacity:.17;
     pointer-events:none;z-index:0}
   .hns > *{position:relative;z-index:1}
   .hns .cab{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--azul-300);margin-bottom:18px;line-height:1.5}
+    font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--azul-300);margin-bottom:16px;line-height:1.5}
   .hns .cab span:last-child{color:#6F86B6;white-space:nowrap;flex:none}
 
-  .cam{display:grid;gap:6px}
-  .cam div{display:grid;grid-template-columns:28px 1fr;align-items:center;gap:13px;
-    background:rgba(255,255,255,.055);border-radius:11px;padding:11px 14px 11px 13px;
-    font-size:14px;color:#DEE8FB;line-height:1.35;position:relative;
+  .cam{display:grid;gap:5px}
+  .cam div{display:grid;grid-template-columns:26px 1fr;align-items:center;gap:12px;
+    background:rgba(255,255,255,.055);border-radius:10px;padding:10px 13px 10px 12px;
+    font-size:13.5px;color:#DEE8FB;line-height:1.3;position:relative;
     border-left:3px solid var(--c);
     transition:background .2s var(--ease),transform .2s var(--ease)}
   .cam div:hover{background:rgba(255,255,255,.1);transform:translateX(3px)}
-  .cam div b{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--c)}
+  .cam div b{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--c)}
 
-  /* convergência: um fio de gradiente desce da pilha para a placa */
-  .hns .flui{display:grid;place-items:center;height:30px;margin-top:4px}
-  .hns .flui i{width:2px;height:30px;border-radius:2px;
+  .hns .flui{display:grid;place-items:center;height:26px;margin-top:4px}
+  .hns .flui i{width:2px;height:26px;border-radius:2px;
     background:linear-gradient(180deg,rgba(136,92,246,.25),#885CF6)}
-  .hns .alvo{position:relative;background:var(--grad);border-radius:15px;
-    padding:17px 18px;text-align:center;box-shadow:0 14px 38px rgba(45,135,255,.36);
+  .hns .alvo{position:relative;background:var(--grad);border-radius:14px;
+    padding:16px 18px;text-align:center;box-shadow:0 14px 38px rgba(45,135,255,.36);
     overflow:hidden}
   .hns .alvo::after{content:"";position:absolute;inset:0;
     background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 58%);pointer-events:none}
   .hns .alvo b{position:relative;display:block;font-family:var(--disp);font-weight:700;
-    font-size:18.5px;color:#fff;letter-spacing:-.018em}
-  .hns .alvo span{position:relative;font-size:13px;color:rgba(255,255,255,.84)}
+    font-size:17.5px;color:#fff;letter-spacing:-.018em}
+  .hns .alvo span{position:relative;font-size:12.5px;color:rgba(255,255,255,.84)}
 
-  @media(max-width:1000px){ .hns .simb{width:150px;top:-44px;right:-24px} }
-  @media(max-width:460px){ .cam div{font-size:13px;padding:10px 12px} .hns{padding:22px} }
+  @media(max-width:1040px){ .hns .simb{width:150px;top:-44px;right:-24px} }
+  @media(max-width:460px){ .cam div{font-size:13px;padding:9px 12px} .hns{padding:20px} }
 
   /* ── gargalos ───────────────────────────────────────────────── */
   .garg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
@@ -184,14 +203,24 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
 <section class="hero escuro">
   <div class="wrap hero-in">
     <div>
-      <div class="olho">AI Business ReCode · Alun Business</div>
-      <h1>A IA já acelera tarefas.<br><span class="realce">Sua organização está preparada para multiplicar resultados?</span></h1>
-      <p class="sub">Diagnostique e redesenhe o harness organizacional — o sistema que conecta
-         trabalho, dados, agentes, decisões, competências e controles para gerar performance real.</p>
+      <div class="olho">Consultoria em harness organizacional</div>
+      <h1>A IA acelerou.<span class="realce">Sua operação não.</span></h1>
+      <p class="sub">O ganho da IA some nas filas, nas aprovações e nos repasses entre áreas.
+         Diagnosticamos e redesenhamos o <b style="color:#CFE0FF;font-weight:600">harness
+         organizacional</b> — o sistema que conecta trabalho, dados, agentes, decisões e
+         controles — para que capacidade vire resultado.</p>
       <div class="botoes">
-        <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Diagnosticar meu harness</a>
+        <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Diagnosticar meu harness →</a>
         <a class="bt bt-2" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
       </div>
+
+      <div class="prova">
+        <span><b>8</b> componentes</span><i></i>
+        <span><b>32</b> questões</span><i></i>
+        <span><b>10–15</b> min por pessoa</span><i></i>
+        <span><b>0</b> avaliação individual</span>
+      </div>
+
       <div class="assin">Reprograme o trabalho. Reinvente o negócio.</div>
     </div>
 
