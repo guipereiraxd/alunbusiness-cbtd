@@ -21,6 +21,14 @@ service cloud.firestore {
     // aprova um PDI e manda o plano para quem respondeu; a extensão entrega.
     // Create exige autenticação: e-mail é ação externa, não pode partir de
     // visitante anônimo.
+    // Leads do AI Business ReCode. Quem preenche é visitante do site e não
+    // tem conta, então a criação é aberta — mas a leitura não: a lista de
+    // contatos é dado comercial e pessoal, e sai só pelo console.
+    match /recode_leads/{doc} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+
     match /mail/{doc} {
       allow create: if request.auth != null;
       allow read, update, delete: if false;

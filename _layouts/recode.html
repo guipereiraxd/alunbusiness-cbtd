@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.title != 'Início' %}{{ page.title }} · {% endif %}AI Business ReCode · Alun Business</title>
+
+  {% assign rc_desc = page.description | default: "Diagnostique e redesenhe o harness organizacional — o sistema que conecta trabalho, dados, agentes, decisões, competências e controles para transformar capacidade de IA em performance de negócio." %}
+  {% assign rc_url  = site.url | append: page.url %}
+  {% assign rc_img  = site.url | append: '/recode/assets/marca/recode-horizontal-3d.png' %}
+  {% if page.url == '/recode/' or page.title == 'Início' %}
+    {% assign rc_tit = "AI Business ReCode" %}
+  {% else %}
+    {% assign rc_tit = page.title | default: "AI Business ReCode" %}
+  {% endif %}
+
+  <meta name="description" content="{{ rc_desc | strip_html | truncate: 200 }}">
+  <link rel="canonical" href="{{ rc_url }}">
+  <meta name="theme-color" content="#0A1F44">
+
+  <!-- Páginas públicas indexáveis: é material de autoridade, diferente
+       do /bbts/, que é demonstração fechada para um cliente. -->
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="AI Business ReCode · Alun Business">
+  <meta property="og:title" content="{{ rc_tit }} · Alun Business">
+  <meta property="og:description" content="{{ rc_desc | strip_html | truncate: 200 }}">
+  <meta property="og:url" content="{{ rc_url }}">
+  <meta property="og:image" content="{{ rc_img }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ rc_tit }} · Alun Business">
+  <meta name="twitter:description" content="{{ rc_desc | strip_html | truncate: 200 }}">
+  <meta name="twitter:image" content="{{ rc_img }}">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/recode/assets/marca/favicon-32.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/recode/assets/marca/apple-touch-icon.png' | relative_url }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══ Tokens ═══════════════════════════════════════════════════
+       Os três primeiros são da marca e não se negociam (manual v2.0,
+       seção 5). O restante é derivado deles para formar superfícies,
+       linhas e níveis de texto com contraste AA. */
+    :root{
+      --deep:#0A1F44;           /* azul profundo — fundo executivo */
+      --eletrico:#2D87FF;       /* azul elétrico — CTA e ênfase */
+      --violeta:#885CF6;        /* violeta — transformação */
+
+      --deep-2:#122C5C; --deep-3:#1C3D78;
+      --azul-700:#1A5FD0; --azul-300:#8FBAFF; --azul-100:#E2EDFF;
+      --violeta-300:#C3AAFB; --violeta-100:#F0E9FE;
+
+      --papel:#FFFFFF; --canvas:#F5F7FC; --painel:#EAEFF9; --painel-2:#DEE6F5;
+      --tinta:#0A1F44; --tinta-2:#1B3360;
+      --tx:#334B75; --tx-2:#5A6E95; --tx-3:#8A99B8;
+      --linha:#DBE3F2; --linha-2:#C2CEE6;
+
+      --ok:#0B7A54; --ok-s:#E4F5EE;
+      --atencao:#9A6400; --atencao-s:#FFF4DE;
+      --alerta:#B3261E; --alerta-s:#FCE9E7;
+
+      --disp:'Geist',system-ui,-apple-system,sans-serif;
+      --sans:'Geist',system-ui,-apple-system,sans-serif;
+      --mono:'Geist Mono',ui-monospace,Menlo,monospace;
+      --max:1140px;
+      --ease:cubic-bezier(.2,.7,.2,1);
+    }
+
+    *,*::before,*::after{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+    @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto}
+      *{animation-duration:.01ms !important;transition-duration:.01ms !important} }
+    body{margin:0;background:var(--papel);color:var(--tx);
+      font-family:var(--sans);font-size:16.5px;line-height:1.65;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    img{max-width:100%;height:auto;display:block}
+    a{color:var(--azul-700)}
+    h1,h2,h3,h4{font-family:var(--disp);color:var(--tinta);margin:0;
+      letter-spacing:-.022em;line-height:1.18;font-weight:700}
+    p{margin:0}
+    :focus-visible{outline:3px solid var(--eletrico);outline-offset:3px;border-radius:4px}
+
+    .wrap{max-width:var(--max);margin:0 auto;padding-inline:26px}
+    @media(max-width:560px){ .wrap{padding-inline:20px} }
+
+    /* ═══ Cabeçalho ═══════════════════════════════════════════════ */
+    .rc-top{position:sticky;top:0;z-index:60;background:var(--deep);
+      border-bottom:1px solid rgba(143,186,255,.18)}
+    .rc-top-in{display:flex;align-items:center;justify-content:space-between;
+      gap:20px;height:86px}
+    .rc-marca{display:flex;align-items:center;gap:0;flex:none}
+    /* O master nunca é recolorido: a variante monocromática branca é a
+       peça certa para fundo escuro em tamanho pequeno. O 3D fica para
+       aplicações grandes, onde o relevo se lê. */
+    .rc-marca img{height:42px;width:auto}
+    .rc-nav{display:flex;align-items:center;gap:7px}
+    .rc-nav a{font-size:14.5px;color:var(--azul-300);text-decoration:none;
+      padding:9px 13px;border-radius:999px;transition:background .18s var(--ease),color .18s var(--ease)}
+    .rc-nav a:hover{background:rgba(143,186,255,.13);color:#fff}
+    .rc-nav a.on{color:#fff;background:rgba(143,186,255,.16)}
+    .rc-nav a.cta{background:var(--eletrico);color:#fff;font-weight:600;padding:10px 18px}
+    .rc-nav a.cta:hover{background:#4F9BFF}
+    .rc-menu{display:none;background:none;border:1px solid rgba(143,186,255,.3);
+      color:#fff;border-radius:10px;padding:8px 12px;font:500 14px var(--sans);cursor:pointer}
+    @media(max-width:900px){
+      .rc-nav{position:absolute;top:86px;left:0;right:0;background:var(--deep);
+        flex-direction:column;align-items:stretch;gap:2px;padding:12px 26px 20px;
+        border-bottom:1px solid rgba(143,186,255,.18);display:none}
+      .rc-nav.aberto{display:flex}
+      .rc-nav a{padding:13px 14px;border-radius:10px}
+      .rc-nav a.cta{text-align:center;margin-top:6px}
+      .rc-menu{display:block}
+    }
+    @media(max-width:420px){ .rc-marca img{height:34px} }
+
+    /* ═══ Blocos de seção ═════════════════════════════════════════ */
+    .sec{padding:72px 0}
+    .sec.ap{padding:56px 0}
+    .sec.escura{background:var(--deep);color:var(--azul-100)}
+    .sec.escura h1,.sec.escura h2,.sec.escura h3{color:#fff}
+    .sec.canvas{background:var(--canvas)}
+    .sec + .sec.canvas, .sec.canvas + .sec{border-top:1px solid var(--linha)}
+    @media(max-width:700px){ .sec{padding:52px 0} }
+
+    .olho{font-family:var(--mono);font-size:11.5px;letter-spacing:.15em;
+      text-transform:uppercase;color:var(--eletrico);display:flex;align-items:center;gap:11px}
+    .olho::before{content:"";width:26px;height:2px;background:var(--eletrico);flex:none}
+    .sec.escura .olho{color:var(--azul-300)}
+    .sec.escura .olho::before{background:var(--azul-300)}
+
+    .tit{font-size:clamp(27px,4vw,40px);margin:17px 0 0;max-width:19ch}
+    .tit.larga{max-width:26ch}
+    .lead{font-size:clamp(16.5px,1.9vw,19px);line-height:1.6;color:var(--tx-2);
+      margin-top:16px;max-width:66ch}
+    .sec.escura .lead{color:var(--azul-300)}
+
+    /* ═══ Botões ══════════════════════════════════════════════════ */
+    .bt{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);
+      font-size:16px;font-weight:600;text-decoration:none;border:0;cursor:pointer;
+      padding:15px 26px;border-radius:999px;transition:transform .16s var(--ease),background .16s var(--ease)}
+    .bt:hover{transform:translateY(-1px)}
+    .bt-1{background:var(--eletrico);color:#fff}
+    .bt-1:hover{background:#4F9BFF}
+    .bt-2{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--linha-2)}
+    .bt-2:hover{box-shadow:inset 0 0 0 1.5px var(--tinta);background:var(--papel)}
+    .sec.escura .bt-2,.escuro .bt-2{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(143,186,255,.42)}
+    .sec.escura .bt-2:hover,.escuro .bt-2:hover{box-shadow:inset 0 0 0 1.5px #fff;background:rgba(255,255,255,.06)}
+    .botoes{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+
+    /* ═══ Cartões e grades ════════════════════════════════════════ */
+    .grade{display:grid;gap:18px}
+    .g2{grid-template-columns:repeat(2,1fr)}
+    .g3{grid-template-columns:repeat(3,1fr)}
+    .g4{grid-template-columns:repeat(4,1fr)}
+    @media(max-width:980px){ .g3,.g4{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:660px){ .g2,.g3,.g4{grid-template-columns:1fr} }
+
+    .cartao{background:var(--papel);border:1px solid var(--linha);
+      border-radius:16px;padding:24px}
+    .cartao h3{font-size:17.5px;font-weight:600;letter-spacing:-.012em}
+    .cartao p{font-size:14.5px;color:var(--tx-2);margin-top:9px;line-height:1.6}
+    .cartao .cod{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+      text-transform:uppercase;color:var(--eletrico);margin-bottom:11px}
+    .sec.escura .cartao{background:var(--deep-2);border-color:rgba(143,186,255,.2)}
+    .sec.escura .cartao p{color:var(--azul-300)}
+
+    /* ═══ Nota metodológica — o produto inteiro depende dela ══════
+       O manual proíbe promessa sem base. Toda ressalva do site usa
+       este componente, para que o limite seja visível e consistente. */
+    .nota{background:var(--canvas);border-left:3px solid var(--linha-2);
+      border-radius:0 12px 12px 0;padding:17px 20px;font-size:14px;line-height:1.6;
+      color:var(--tx-2);margin-top:26px}
+    .nota b{color:var(--tinta-2)}
+    .nota.aviso{background:var(--atencao-s);border-left-color:var(--atencao)}
+    .sec.escura .nota{background:rgba(143,186,255,.09);border-left-color:var(--azul-300);color:var(--azul-300)}
+    .sec.escura .nota b{color:#fff}
+
+    /* ═══ Rodapé ══════════════════════════════════════════════════ */
+    .rc-foot{background:var(--deep);color:var(--azul-300);padding:54px 0 40px}
+    .rc-foot-in{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start}
+    @media(max-width:760px){ .rc-foot-in{grid-template-columns:1fr;gap:30px} }
+    .rc-foot .alun img{height:26px;width:auto}
+    .rc-foot .assin{font-family:var(--disp);font-weight:600;font-size:16px;color:#fff;margin-top:16px}
+    .rc-foot p{font-size:13.5px;line-height:1.6;margin-top:12px;max-width:52ch}
+    .rc-foot .links{display:flex;flex-direction:column;gap:9px}
+    .rc-foot .links a{color:var(--azul-300);text-decoration:none;font-size:14.5px;width:fit-content}
+    .rc-foot .links a:hover{color:#fff;text-decoration:underline}
+    .rc-foot .fim{margin-top:34px;padding-top:20px;border-top:1px solid rgba(143,186,255,.2);
+      font-size:12.5px;color:#7E93BD;line-height:1.6}
+
+    .pular{position:absolute;left:-9999px}
+    .pular:focus{left:26px;top:12px;z-index:90;background:#fff;color:var(--deep);
+      padding:11px 18px;border-radius:10px;font-weight:600}
+  </style>
+</head>
+<body>
+
+<a href="#conteudo" class="pular">Pular para o conteúdo</a>
+
+<header class="rc-top">
+  <div class="wrap rc-top-in">
+    <a href="{{ '/recode/' | relative_url }}" class="rc-marca" aria-label="AI Business ReCode, da Alun Business — início">
+      <img src="{{ '/recode/assets/marca/recode-horizontal-branco.png' | relative_url }}"
+           alt="AI Business ReCode · Alun Business">
+    </a>
+    <button class="rc-menu" id="rc-menu" aria-expanded="false" aria-controls="rc-nav">Menu</button>
+    <nav class="rc-nav" id="rc-nav">
+      {% assign u = page.url %}
+      <a href="{{ '/recode/harness-organizacional/' | relative_url }}" {% if u contains 'harness' %}class="on"{% endif %}>O harness</a>
+      <a href="{{ '/recode/metodologia/' | relative_url }}" {% if u contains 'metodologia' %}class="on"{% endif %}>Metodologia</a>
+      <a href="{{ '/recode/diagnostico/' | relative_url }}" {% if u contains 'diagnostico' %}class="on"{% endif %}>Diagnóstico</a>
+      <a href="{{ '/recode/consultoria/' | relative_url }}" {% if u contains 'consultoria' %}class="on"{% endif %}>Consultoria</a>
+      <a href="{{ '/recode/demo/' | relative_url }}" class="cta">Experimentar a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  {{ content }}
+</main>
+
+<footer class="rc-foot">
+  <div class="wrap">
+    <div class="rc-foot-in">
+      <div>
+        <div class="alun">
+          <img src="{{ '/recode/assets/marca/alun-business-branco.png' | relative_url }}" alt="Alun Business">
+        </div>
+        <div class="assin">Reprograme o trabalho. Reinvente o negócio.</div>
+        <p>O AI Business ReCode é a consultoria e a plataforma da Alun Business para
+           diagnosticar e redesenhar o harness organizacional — o sistema que transforma
+           capacidade de IA em desempenho de negócio.</p>
+      </div>
+      <div class="links">
+        <a href="{{ '/recode/harness-organizacional/' | relative_url }}">O harness organizacional</a>
+        <a href="{{ '/recode/metodologia/' | relative_url }}">Metodologia e instrumento</a>
+        <a href="{{ '/recode/diagnostico/' | relative_url }}">O diagnóstico</a>
+        <a href="{{ '/recode/consultoria/' | relative_url }}">Consultoria</a>
+        <a href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
+      </div>
+    </div>
+    <div class="fim">
+      <b style="color:#B9CBEC">Harness organizacional</b> e a taxonomia H1–H8 são uma proposta
+      interpretativa da Alun Business, em validação. Não constituem padrão técnico, certificação
+      ou método validado empiricamente, e nenhuma das organizações citadas nas referências
+      endossa a metodologia. O instrumento mede prontidão percebida e não substitui avaliação
+      de evidências. © Alun Business.
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var b = document.getElementById("rc-menu"), n = document.getElementById("rc-nav");
+    b.addEventListener("click", function(){
+      var aberto = n.classList.toggle("aberto");
+      b.setAttribute("aria-expanded", aberto ? "true" : "false");
+    });
+  })();
+</script>
+
+</body>
+</html>
