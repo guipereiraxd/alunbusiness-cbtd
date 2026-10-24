@@ -4,10 +4,6 @@ description: "Harness organizacional é o sistema integrado de estratégia, trab
 ---
 
 <style>
-  .cap{background:var(--deep);color:var(--azul-100);padding:64px 0 70px}
-  .cap h1{color:#fff;font-size:clamp(29px,4.2vw,44px);max-width:17ch;margin-top:19px}
-  .cap .sub{font-size:clamp(16.5px,1.9vw,19px);color:var(--azul-300);margin-top:19px;max-width:62ch;line-height:1.6}
-
   .defi{background:var(--canvas);border:1px solid var(--linha);border-left:4px solid var(--eletrico);
     border-radius:0 16px 16px 0;padding:28px 30px;margin-top:34px}
   .defi .r{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--eletrico)}

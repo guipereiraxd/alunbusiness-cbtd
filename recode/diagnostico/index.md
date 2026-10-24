@@ -4,9 +4,6 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
 ---
 
 <style>
-  .cap{background:var(--deep);color:var(--azul-100);padding:64px 0 70px}
-  .cap h1{color:#fff;font-size:clamp(29px,4.2vw,44px);max-width:18ch;margin-top:19px}
-  .cap .sub{font-size:clamp(16.5px,1.9vw,19px);color:var(--azul-300);margin-top:19px;max-width:62ch;line-height:1.6}
   .cap .fatos{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:26px;
     border-top:1px solid rgba(143,186,255,.22)}
   .cap .fatos div{min-width:112px}
@@ -48,7 +45,7 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
 <section class="cap">
   <div class="wrap">
     <div class="olho">Organizational Harness Diagnostic</div>
-    <h1>Onde a sua organização está perdendo o ganho da IA</h1>
+    <h1>Onde a sua organização está perdendo o ganho da&nbsp;IA</h1>
     <p class="sub">Um diagnóstico corporativo que mapeia percepção, levanta evidências e devolve
        o principal limitador da captura de valor — com a decisão que ele exige, não com um escore.</p>
     <div class="fatos">

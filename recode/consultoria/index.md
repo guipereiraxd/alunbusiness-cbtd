@@ -4,10 +4,6 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
 ---
 
 <style>
-  .cap{background:var(--deep);color:var(--azul-100);padding:64px 0 70px}
-  .cap h1{color:#fff;font-size:clamp(29px,4.2vw,44px);max-width:19ch;margin-top:19px}
-  .cap .sub{font-size:clamp(16.5px,1.9vw,19px);color:var(--azul-300);margin-top:19px;max-width:62ch;line-height:1.6}
-
   .ofs{display:grid;gap:18px;margin-top:34px}
   .ofs > div{background:var(--papel);border:1px solid var(--linha);border-radius:18px;padding:30px}
   .ofs .top{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
@@ -188,7 +184,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
       <div><div class="d">Dias 1–15</div>
         <p>Missão, baseline, instrumentos, entrevistas, assessment e levantamento de evidências.</p></div>
       <div><div class="d">Dias 16–30</div>
-        <p>Restrições, cenário futuro, business case, harness blueprint e patrocínio formal.</p></div>
+        <p>Restrições, cenário futuro, business case, blueprint do harness organizacional e patrocínio formal.</p></div>
       <div><div class="d">Dias 31–60</div>
         <p>Piloto supervisionado, testes e avaliações, desenvolvimento por papéis, prontidão de incidente e rollback.</p></div>
       <div><div class="d">Dias 61–90</div>
@@ -211,7 +207,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
     <div class="lim">
       <div>
         <h3>Desenho e coordenação</h3>
-        <p>O movimento <i>Orchestrate</i> significa desenhar a arquitetura do harness e coordenar
+        <p>O movimento <i>Orchestrate</i> significa desenhar a arquitetura do harness organizacional e coordenar
            a execução junto a parceiros ou à TI do cliente. Não assumimos automaticamente a
            implementação técnica das integrações: ela é contratada à parte, quando houver escopo
            e capacidade específicos.</p>

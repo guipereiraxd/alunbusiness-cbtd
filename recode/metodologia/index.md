@@ -4,10 +4,6 @@ description: "Como o AI Business ReCode mede: 32 questões em 8 componentes, esc
 ---
 
 <style>
-  .cap{background:var(--deep);color:var(--azul-100);padding:64px 0 70px}
-  .cap h1{color:#fff;font-size:clamp(29px,4.2vw,44px);max-width:18ch;margin-top:19px}
-  .cap .sub{font-size:clamp(16.5px,1.9vw,19px);color:var(--azul-300);margin-top:19px;max-width:62ch;line-height:1.6}
-
   .trilhas{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
   @media(max-width:900px){ .trilhas{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:540px){ .trilhas{grid-template-columns:1fr} }
@@ -212,7 +208,7 @@ description: "Como o AI Business ReCode mede: 32 questões em 8 componentes, esc
         <div class="inst">Business outcome canvas, hipótese de valor e decisões de reinvestimento.</div></div>
       <div><div class="l">E</div>
         <h3>Explore<small>Missões e restrições</small></h3>
-        <div class="inst">Matriz oportunidade × restrição do harness e mapa de fricções.</div></div>
+        <div class="inst">Matriz oportunidade × restrição do harness organizacional e mapa de fricções.</div></div>
       <div><div class="l">C</div>
         <h3>Co-design<small>Novo trabalho e modelo operacional</small></h3>
         <div class="inst">Blueprint humano–agente, antes e depois, sistema de filas e exceções.</div></div>

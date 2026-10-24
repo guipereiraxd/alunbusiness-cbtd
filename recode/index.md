@@ -5,93 +5,187 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
 
 <style>
   /* ── hero ───────────────────────────────────────────────────── */
-  .hero{background:var(--deep);color:var(--azul-100);padding:84px 0 92px;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;top:-180px;right:-160px;width:560px;height:560px;
-    background:radial-gradient(circle,rgba(45,135,255,.22),transparent 65%);pointer-events:none}
-  .hero-in{display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center;position:relative;z-index:1}
-  @media(max-width:980px){ .hero-in{grid-template-columns:1fr;gap:44px} .hero{padding:60px 0 66px} }
-  .hero h1{font-size:clamp(31px,4.6vw,50px);color:#fff;letter-spacing:-.028em;line-height:1.1}
-  .hero h1 em{font-style:normal;color:var(--azul-300)}
-  .hero .sub{font-size:clamp(16.5px,1.9vw,19.5px);color:var(--azul-300);margin-top:22px;
-    max-width:54ch;line-height:1.6}
-  .hero .assin{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;
-    color:#7E93BD;margin-top:34px}
+  .hero{position:relative;background:var(--deep);color:var(--azul-100);
+    padding:104px 0 112px;overflow:hidden;isolation:isolate}
+  /* duas auréolas nas cores do símbolo, como luz e não como forma */
+  .hero::before{content:"";position:absolute;inset:0;z-index:-2;
+    background:
+      radial-gradient(860px 520px at 82% -14%, rgba(45,135,255,.34), transparent 62%),
+      radial-gradient(680px 460px at -6% 112%, rgba(136,92,246,.28), transparent 64%),
+      linear-gradient(180deg,#0A1F44 0%,#061531 100%)}
+  /* malha fina: dá matéria ao fundo sem virar desenho */
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(rgba(143,186,255,.055) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(143,186,255,.055) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(760px 520px at 24% 34%,#000,transparent 72%);
+    -webkit-mask-image:radial-gradient(760px 520px at 24% 34%,#000,transparent 72%)}
+  .hero-in{display:grid;grid-template-columns:1.02fr .98fr;gap:62px;align-items:center;
+    position:relative;z-index:1}
+  @media(max-width:1000px){ .hero-in{grid-template-columns:1fr;gap:48px} .hero{padding:66px 0 76px} }
 
-  /* ── diagrama das oito camadas ──────────────────────────────── */
-  .camadas{background:var(--deep-2);border:1px solid rgba(143,186,255,.22);
-    border-radius:20px;padding:24px}
-  .camadas .cab{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--azul-300);margin-bottom:16px}
-  .cam{display:grid;gap:5px}
-  .cam div{display:grid;grid-template-columns:34px 1fr;align-items:center;gap:12px;
-    background:rgba(143,186,255,.09);border-radius:8px;padding:9px 12px;
-    font-size:13.5px;color:#DCE7FB;line-height:1.35}
-  .cam div b{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--azul-300)}
-  .camadas .seta{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-    gap:12px;margin-top:16px}
-  .camadas .seta i{height:1px;background:rgba(143,186,255,.35);display:block}
-  .camadas .seta span{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
-    text-transform:uppercase;color:var(--azul-300)}
-  .camadas .alvo{margin-top:14px;background:var(--eletrico);border-radius:11px;
-    padding:14px 16px;text-align:center}
-  .camadas .alvo b{display:block;font-family:var(--disp);font-weight:700;font-size:17px;color:#fff}
-  .camadas .alvo span{font-size:12.5px;color:#DCE9FF}
+  .hero h1{font-size:clamp(34px,5.4vw,58px);color:#fff;letter-spacing:-.035em;
+    line-height:1.06;margin-top:22px;font-weight:700}
+  /* fundo escuro pede a fita clara: #885CF6 sobre o navy não chega a AA */
+  .hero .realce{background:linear-gradient(112deg,#9CC4FF 0%,#B8ADFD 58%,#CBB4FC 100%);
+    -webkit-background-clip:text;background-clip:text}
+  .hero .sub{font-size:clamp(17px,2vw,20.5px);color:var(--azul-300);margin-top:24px;
+    max-width:52ch;line-height:1.58}
+  .hero .assin{display:inline-flex;align-items:center;gap:11px;font-family:var(--mono);
+    font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#8095BE;margin-top:38px}
+  .hero .assin::before{content:"";width:22px;height:1px;background:#4C639A}
+
+  /* ── o harness, como estrutura que sustenta ──────────────────
+     Oito camadas empilhadas, cada uma com um filete que caminha do
+     azul ao violeta — a mesma fita do símbolo, agora como escala.
+     Elas convergem para a placa de resultado: é o argumento do
+     produto dito em forma, não em texto. */
+  .hns{position:relative;overflow:hidden;background:rgba(255,255,255,.05);
+    border:1px solid rgba(143,186,255,.2);border-radius:26px;padding:28px;
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    box-shadow:0 30px 80px rgba(3,10,26,.46)}
+  /* o símbolo 3D da marca, usado como luz atrás da estrutura */
+  .hns .simb{position:absolute;top:-54px;right:-58px;width:208px;opacity:.17;
+    pointer-events:none;z-index:0}
+  .hns > *{position:relative;z-index:1}
+  .hns .cab{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--azul-300);margin-bottom:18px;line-height:1.5}
+  .hns .cab span:last-child{color:#6F86B6;white-space:nowrap;flex:none}
+
+  .cam{display:grid;gap:6px}
+  .cam div{display:grid;grid-template-columns:28px 1fr;align-items:center;gap:13px;
+    background:rgba(255,255,255,.055);border-radius:11px;padding:11px 14px 11px 13px;
+    font-size:14px;color:#DEE8FB;line-height:1.35;position:relative;
+    border-left:3px solid var(--c);
+    transition:background .2s var(--ease),transform .2s var(--ease)}
+  .cam div:hover{background:rgba(255,255,255,.1);transform:translateX(3px)}
+  .cam div b{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--c)}
+
+  /* convergência: um fio de gradiente desce da pilha para a placa */
+  .hns .flui{display:grid;place-items:center;height:30px;margin-top:4px}
+  .hns .flui i{width:2px;height:30px;border-radius:2px;
+    background:linear-gradient(180deg,rgba(136,92,246,.25),#885CF6)}
+  .hns .alvo{position:relative;background:var(--grad);border-radius:15px;
+    padding:17px 18px;text-align:center;box-shadow:0 14px 38px rgba(45,135,255,.36);
+    overflow:hidden}
+  .hns .alvo::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 58%);pointer-events:none}
+  .hns .alvo b{position:relative;display:block;font-family:var(--disp);font-weight:700;
+    font-size:18.5px;color:#fff;letter-spacing:-.018em}
+  .hns .alvo span{position:relative;font-size:13px;color:rgba(255,255,255,.84)}
+
+  @media(max-width:1000px){ .hns .simb{width:150px;top:-44px;right:-24px} }
+  @media(max-width:460px){ .cam div{font-size:13px;padding:10px 12px} .hns{padding:22px} }
 
   /* ── gargalos ───────────────────────────────────────────────── */
-  .garg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha);
-    border:1px solid var(--linha);border-radius:16px;overflow:hidden;margin-top:34px}
+  .garg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
   @media(max-width:880px){ .garg{grid-template-columns:1fr} }
-  .garg > div{background:var(--papel);padding:22px}
-  .garg h3{font-size:16.5px;font-weight:600}
-  .garg p{font-size:14px;color:var(--tx-2);margin-top:8px;line-height:1.6}
+  .garg > div{position:relative;background:var(--papel);border:1px solid var(--linha);
+    border-radius:18px;padding:30px 26px 26px;overflow:hidden;
+    transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+  .garg > div:hover{transform:translateY(-3px);box-shadow:var(--elev-2)}
+  /* numeral fantasma: dá ordem de leitura sem gritar */
+  .garg > div::before{content:attr(data-n);position:absolute;top:-16px;right:6px;
+    font-family:var(--disp);font-weight:800;font-size:92px;line-height:1;
+    color:var(--painel);z-index:0;letter-spacing:-.05em}
+  .garg > div > *{position:relative;z-index:1}
+  .garg h3{font-size:18.5px;font-weight:600}
+  .garg p{font-size:15px;color:var(--tx-2);margin-top:11px;line-height:1.62}
 
   /* ── dois patamares ─────────────────────────────────────────── */
-  .pat{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
-  @media(max-width:760px){ .pat{grid-template-columns:1fr} }
-  .pat > div{border-radius:16px;padding:26px}
-  .pat .um{background:var(--canvas);border:1px solid var(--linha)}
-  .pat .dois{background:var(--deep);color:var(--azul-100)}
-  .pat .rot{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx-3)}
+  .pat{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;align-items:stretch}
+  @media(max-width:800px){ .pat{grid-template-columns:1fr} }
+  .pat > div{position:relative;border-radius:20px;padding:32px;overflow:hidden}
+  .pat .um{background:var(--papel);border:1px solid var(--linha)}
+  .pat .dois{color:var(--azul-100);background:var(--deep);isolation:isolate;
+    box-shadow:0 26px 64px rgba(10,31,68,.3)}
+  .pat .dois::before{content:"";position:absolute;inset:0;z-index:-1;
+    background:radial-gradient(520px 320px at 110% -20%, rgba(45,135,255,.42), transparent 62%),
+               radial-gradient(420px 300px at -10% 120%, rgba(136,92,246,.38), transparent 64%),
+               linear-gradient(180deg,#0A1F44,#071A3A)}
+  .pat .rot{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
+    letter-spacing:.13em;text-transform:uppercase;color:var(--tx-3)}
+  .pat .rot::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--linha-2)}
   .pat .dois .rot{color:var(--azul-300)}
-  .pat h3{font-size:21px;margin:11px 0 10px}
+  .pat .dois .rot::before{background:var(--grad-r)}
+  .pat h3{font-size:23px;margin:14px 0 12px;letter-spacing:-.022em}
   .pat .dois h3{color:#fff}
-  .pat p{font-size:14.5px;line-height:1.6;color:var(--tx-2)}
+  .pat p{font-size:15.5px;line-height:1.65;color:var(--tx-2)}
   .pat .dois p{color:var(--azul-300)}
 
+  /* ── componentes H1–H8 ──────────────────────────────────────── */
+  .hs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+  @media(max-width:1040px){ .hs{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:620px){ .hs{grid-template-columns:1fr} }
+  .hs > div{position:relative;background:var(--papel);border:1px solid var(--linha);
+    border-radius:18px;padding:24px;overflow:hidden;
+    transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease)}
+  .hs > div::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:var(--c);opacity:0;transition:opacity .22s var(--ease)}
+  .hs > div:hover{transform:translateY(-3px);box-shadow:var(--elev-2);border-color:var(--painel-2)}
+  .hs > div:hover::before{opacity:1}
+  .hs .cod{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--c);
+    letter-spacing:.08em}
+  .hs h3{font-size:17px;font-weight:600;margin-top:12px;letter-spacing:-.014em;line-height:1.28}
+  .hs p{font-size:14.5px;color:var(--tx-2);margin-top:10px;line-height:1.58}
+
   /* ── movimentos RECODE ──────────────────────────────────────── */
-  .mov{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:34px}
-  @media(max-width:1000px){ .mov{grid-template-columns:repeat(3,1fr)} }
+  .mov{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:40px}
+  @media(max-width:1040px){ .mov{grid-template-columns:repeat(3,1fr)} }
   @media(max-width:620px){ .mov{grid-template-columns:repeat(2,1fr)} }
-  .mov > div{background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:19px 17px}
-  .mov .l{font-family:var(--disp);font-weight:800;font-size:30px;color:var(--eletrico);line-height:1}
-  .mov .n{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--tinta);margin-top:9px}
-  .mov p{font-size:13px;color:var(--tx-2);margin-top:6px;line-height:1.5}
+  .mov > div{background:var(--papel);border:1px solid var(--linha);border-radius:16px;
+    padding:22px 19px;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+  .mov > div:hover{transform:translateY(-3px);box-shadow:var(--elev-2)}
+  .mov .l{font-family:var(--disp);font-weight:800;font-size:40px;line-height:1;
+    letter-spacing:-.04em;background:var(--grad);-webkit-background-clip:text;
+    background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+  .mov .n{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--tinta);margin-top:11px}
+  .mov p{font-size:13.5px;color:var(--tx-2);margin-top:7px;line-height:1.52}
 
   /* ── ofertas ────────────────────────────────────────────────── */
-  .of{display:grid;gap:14px;margin-top:34px}
-  .of > div{display:grid;grid-template-columns:168px 1fr auto;gap:24px;align-items:center;
-    background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:22px 24px}
-  @media(max-width:820px){ .of > div{grid-template-columns:1fr;gap:10px} }
-  .of .nm{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--tinta)}
-  .of .nm span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--eletrico);font-weight:400;margin-top:4px}
-  .of p{font-size:14.5px;color:var(--tx-2);line-height:1.6}
-  .of .ent{font-family:var(--mono);font-size:11.5px;color:var(--tx-3);text-align:right;line-height:1.6}
-  @media(max-width:820px){ .of .ent{text-align:left} }
+  .of{display:grid;gap:16px;margin-top:40px}
+  .of > div{display:grid;grid-template-columns:200px 1fr auto;gap:28px;align-items:center;
+    position:relative;background:var(--papel);border:1px solid var(--linha);border-radius:18px;
+    padding:26px 28px;overflow:hidden;
+    transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+  .of > div::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:var(--grad);opacity:.55;transition:opacity .22s var(--ease)}
+  .of > div:hover{transform:translateX(3px);box-shadow:var(--elev-2)}
+  .of > div:hover::before{opacity:1}
+  @media(max-width:860px){ .of > div{grid-template-columns:1fr;gap:12px} }
+  .of .nm{font-family:var(--disp);font-weight:700;font-size:22px;color:var(--tinta);
+    letter-spacing:-.024em}
+  .of .nm span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--eletrico);font-weight:400;margin-top:6px}
+  .of p{font-size:15px;color:var(--tx-2);line-height:1.62}
+  .of .ent{font-family:var(--mono);font-size:12px;color:var(--tx-3);text-align:right;
+    line-height:1.7;white-space:nowrap}
+  @media(max-width:860px){ .of .ent{text-align:left;white-space:normal} }
 
   /* ── conversão ──────────────────────────────────────────────── */
-  .conv{background:var(--deep);border-radius:22px;padding:52px 46px;text-align:center}
-  @media(max-width:620px){ .conv{padding:38px 24px;border-radius:18px} }
-  .conv h2{color:#fff;font-size:clamp(24px,3.4vw,34px);max-width:22ch;margin:0 auto}
-  .conv p{color:var(--azul-300);font-size:16.5px;margin:16px auto 0;max-width:56ch;line-height:1.6}
-  .conv .botoes{justify-content:center}
+  .conv{position:relative;border-radius:28px;padding:62px 48px;text-align:center;
+    overflow:hidden;isolation:isolate;background:var(--deep);
+    box-shadow:0 30px 80px rgba(10,31,68,.3)}
+  .conv::before{content:"";position:absolute;inset:0;z-index:-2;
+    background:radial-gradient(640px 400px at 18% -24%, rgba(45,135,255,.42), transparent 62%),
+               radial-gradient(600px 380px at 86% 122%, rgba(136,92,246,.4), transparent 64%),
+               linear-gradient(160deg,#0A1F44,#071531)}
+  .conv .simb{position:absolute;bottom:-78px;right:-58px;width:242px;opacity:.14;z-index:-1;
+    pointer-events:none}
+  @media(max-width:620px){ .conv{padding:42px 24px;border-radius:20px}
+    .conv .simb{width:160px;bottom:-50px;right:-40px} }
+  .conv h2{color:#fff;font-size:clamp(25px,3.6vw,38px);max-width:21ch;margin:0 auto;
+    letter-spacing:-.03em}
+  .conv p{color:var(--azul-300);font-size:17px;margin:18px auto 0;max-width:56ch;line-height:1.6}
+  .conv .botoes{justify-content:center;margin-top:36px}
 </style>
 
 <section class="hero escuro">
   <div class="wrap hero-in">
     <div>
       <div class="olho">AI Business ReCode · Alun Business</div>
-      <h1 style="margin-top:20px">A IA já acelera tarefas.<br><em>Sua organização está preparada para multiplicar resultados?</em></h1>
+      <h1>A IA já acelera tarefas.<br><span class="realce">Sua organização está preparada para multiplicar resultados?</span></h1>
       <p class="sub">Diagnostique e redesenhe o harness organizacional — o sistema que conecta
          trabalho, dados, agentes, decisões, competências e controles para gerar performance real.</p>
       <div class="botoes">
@@ -101,20 +195,24 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
       <div class="assin">Reprograme o trabalho. Reinvente o negócio.</div>
     </div>
 
-    <div class="camadas" role="img"
-         aria-label="Os oito componentes do harness organizacional — H1 modelo de negócio e economia do valor, H2 arquitetura do trabalho e fluxo, H3 modelo operacional humano–agente, H4 contexto, conhecimento e dados, H5 execução e orquestração, H6 avaliação, observabilidade e confiabilidade, H7 governança e direitos de decisão, H8 liderança, competências e mudança — convergindo para desempenho de negócio.">
-      <div class="cab">Os oito componentes do harness</div>
-      <div class="cam" aria-hidden="true">
-        <div><b>H1</b><span>Modelo de negócio e economia do valor</span></div>
-        <div><b>H2</b><span>Arquitetura do trabalho e fluxo</span></div>
-        <div><b>H3</b><span>Modelo operacional humano–agente</span></div>
-        <div><b>H4</b><span>Contexto, conhecimento e dados</span></div>
-        <div><b>H5</b><span>Execução e orquestração</span></div>
-        <div><b>H6</b><span>Avaliação, observabilidade e confiabilidade</span></div>
-        <div><b>H7</b><span>Governança e direitos de decisão</span></div>
-        <div><b>H8</b><span>Liderança, competências e mudança</span></div>
+    <div class="hns" role="img"
+         aria-label="Diagrama dos oito componentes do harness organizacional — H1 modelo de negócio e economia do valor, H2 arquitetura do trabalho e fluxo, H3 modelo operacional humano–agente, H4 contexto, conhecimento e dados, H5 execução e orquestração, H6 avaliação, observabilidade e confiabilidade, H7 governança e direitos de decisão, H8 liderança, competências e mudança — empilhados e convergindo para o desempenho de negócio: custo, qualidade, velocidade, receita e risco.">
+      <img class="simb" src="{{ '/recode/assets/marca/recode-simbolo-3d.png' | relative_url }}" alt="" aria-hidden="true">
+      <div class="cab" aria-hidden="true">
+        <span>Os oito componentes do harness organizacional</span>
+        <span>H1 → H8</span>
       </div>
-      <div class="seta" aria-hidden="true"><i></i><span>sustentam</span><i></i></div>
+      <div class="cam" aria-hidden="true">
+        <div style="--c:#2D87FF"><b>H1</b><span>Modelo de negócio e economia do valor</span></div>
+        <div style="--c:#3F82FD"><b>H2</b><span>Arquitetura do trabalho e fluxo</span></div>
+        <div style="--c:#5180FB"><b>H3</b><span>Modelo operacional humano–agente</span></div>
+        <div style="--c:#6379F9"><b>H4</b><span>Contexto, conhecimento e dados</span></div>
+        <div style="--c:#7373F7"><b>H5</b><span>Execução e orquestração</span></div>
+        <div style="--c:#8068F7"><b>H6</b><span>Avaliação, observabilidade e confiabilidade</span></div>
+        <div style="--c:#8761F6"><b>H7</b><span>Governança e direitos de decisão</span></div>
+        <div style="--c:#885CF6"><b>H8</b><span>Liderança, competências e mudança</span></div>
+      </div>
+      <div class="flui" aria-hidden="true"><i></i></div>
       <div class="alvo" aria-hidden="true">
         <b>Desempenho de negócio</b>
         <span>custo, qualidade, velocidade, receita e risco</span>
@@ -130,18 +228,18 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
     <p class="lead">A IA amplia a capacidade de produzir, analisar, decidir e executar. Mas o ganho
        costuma se perder nos pontos de passagem — e o resultado de ponta a ponta não se move.</p>
 
-    <div class="garg">
-      <div>
+    <div class="garg rv">
+      <div data-n="01">
         <h3>Onde o ganho evapora</h3>
         <p>Filas, aprovações em série, handoffs entre áreas, regras desatualizadas e retrabalho.
            A tarefa ficou mais rápida; o ciclo continua igual.</p>
       </div>
-      <div>
+      <div data-n="02">
         <h3>Por que o diagnóstico falha</h3>
         <p>Contar ferramentas adotadas não diz o que a empresa consegue entregar. A pergunta útil
            é outra: que trabalho ela realiza de forma confiável, econômica e melhor com IA — e o que a impede.</p>
       </div>
-      <div>
+      <div data-n="03">
         <h3>O custo de automatizar antes</h3>
         <p>Aumentar autonomia sem verificação, estado e coordenação eleva custo e falhas.
            Automatizar um processo ruim entrega um processo ruim mais rápido.</p>
@@ -163,7 +261,7 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
     <p class="lead">São dois patamares diferentes de ganho, e a passagem de um para o outro não
        acontece por adoção — acontece por desenho.</p>
 
-    <div class="pat">
+    <div class="pat rv">
       <div class="um">
         <div class="rot">Patamar 1 · a IA como ferramenta</div>
         <h3>A pessoa acelera a própria tarefa</h3>
@@ -189,23 +287,15 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
        sustentam trabalho humano–IA em escala. Eles não se compensam: média alta não autoriza
        escalar quando um controle crítico está ausente.</p>
 
-    <div class="grade g4" style="margin-top:34px">
-      <div class="cartao"><div class="cod">H1</div><h3>Modelo de negócio e economia do valor</h3>
-        <p>Mudamos proposta de valor, custo de servir, preço ou margem — ou apenas adotamos IA?</p></div>
-      <div class="cartao"><div class="cod">H2</div><h3>Arquitetura do trabalho e fluxo</h3>
-        <p>O trabalho foi decomposto, simplificado e redesenhado de ponta a ponta?</p></div>
-      <div class="cartao"><div class="cod">H3</div><h3>Modelo operacional humano–agente</h3>
-        <p>Quem faz, decide, verifica, aprova e responde pelo resultado?</p></div>
-      <div class="cartao"><div class="cod">H4</div><h3>Contexto, conhecimento e dados</h3>
-        <p>Pessoas e agentes acessam o contexto correto, autorizado e confiável no momento certo?</p></div>
-      <div class="cartao"><div class="cod">H5</div><h3>Execução e orquestração</h3>
-        <p>A empresa sustenta execução de agente com estado, ferramentas, permissões e recuperação?</p></div>
-      <div class="cartao"><div class="cod">H6</div><h3>Avaliação, observabilidade e confiabilidade</h3>
-        <p>Consegue verificar qualidade, custo e efeito de cada execução?</p></div>
-      <div class="cartao"><div class="cod">H7</div><h3>Governança e direitos de decisão</h3>
-        <p>A autonomia é proporcional ao risco e existe responsável pelo efeito?</p></div>
-      <div class="cartao"><div class="cod">H8</div><h3>Liderança, competências e mudança</h3>
-        <p>Líderes e equipes operam o novo modelo e mudam hábitos, incentivos e decisões?</p></div>
+    <div class="hs rv">
+      <div style="--c:#2D87FF"><div class="cod">H1</div><h3>Modelo de negócio e economia do valor</h3><p>Mudamos proposta de valor, custo de servir, preço ou margem — ou apenas adotamos IA?</p></div>
+      <div style="--c:#3F82FD"><div class="cod">H2</div><h3>Arquitetura do trabalho e fluxo</h3><p>O trabalho foi decomposto, simplificado e redesenhado de ponta a ponta?</p></div>
+      <div style="--c:#5180FB"><div class="cod">H3</div><h3>Modelo operacional humano–agente</h3><p>Quem faz, decide, verifica, aprova e responde pelo resultado?</p></div>
+      <div style="--c:#6379F9"><div class="cod">H4</div><h3>Contexto, conhecimento e dados</h3><p>Pessoas e agentes acessam o contexto correto, autorizado e confiável no momento certo?</p></div>
+      <div style="--c:#7373F7"><div class="cod">H5</div><h3>Execução e orquestração</h3><p>A empresa sustenta execução de agente com estado, ferramentas, permissões e recuperação?</p></div>
+      <div style="--c:#8068F7"><div class="cod">H6</div><h3>Avaliação, observabilidade e confiabilidade</h3><p>Consegue verificar qualidade, custo e efeito de cada execução?</p></div>
+      <div style="--c:#8761F6"><div class="cod">H7</div><h3>Governança e direitos de decisão</h3><p>A autonomia é proporcional ao risco e existe responsável pelo efeito?</p></div>
+      <div style="--c:#885CF6"><div class="cod">H8</div><h3>Liderança, competências e mudança</h3><p>Líderes e equipes operam o novo modelo e mudam hábitos, incentivos e decisões?</p></div>
     </div>
 
     <div class="nota">
@@ -229,13 +319,13 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
     <p class="lead">Os oito componentes são o diagnóstico. Os seis movimentos são o trabalho de
        consultoria que muda o sistema. Governança atravessa todos.</p>
 
-    <div class="mov">
+    <div class="mov rv">
       <div><div class="l">R</div><div class="n">Reframe</div><p>Redefinir a ambição de negócio e o mecanismo de captura.</p></div>
       <div><div class="l">E</div><div class="n">Explore</div><p>Escolher as jornadas pelas quais vale redesenhar.</p></div>
       <div><div class="l">C</div><div class="n">Co-design</div><p>Reprojetar jornada, trabalho, equipes e decisões.</p></div>
       <div><div class="l">O</div><div class="n">Orchestrate</div><p>Instalar contexto, agentes, verificações e gates.</p></div>
       <div><div class="l">D</div><div class="n">Develop</div><p>Preparar liderança e times para novos papéis.</p></div>
-      <div><div class="l">E</div><div class="n">Evaluate</div><p>Medir processo e resultado, e ajustar o harness.</p></div>
+      <div><div class="l">E</div><div class="n">Evaluate</div><p>Medir processo e resultado, e ajustar o harness organizacional.</p></div>
     </div>
   </div>
 </section>
@@ -247,7 +337,7 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
     <p class="lead">São modulares: dá para contratar só o diagnóstico. Mas detectar a restrição
        e transformar a organização são coisas diferentes, e o artefato deixa isso claro.</p>
 
-    <div class="of">
+    <div class="of rv">
       <div>
         <div class="nm">Discover<span>Diagnose your harness</span></div>
         <p>Diagnóstico multiárea, entrevistas, levantamento de evidências e identificação do
@@ -286,6 +376,7 @@ description: "A IA já acelera tarefas. O AI Business ReCode, da Alun Business, 
 <section class="sec ap">
   <div class="wrap">
     <div class="conv escuro">
+      <img class="simb" src="{{ '/recode/assets/marca/recode-simbolo-3d.png' | relative_url }}" alt="" aria-hidden="true">
       <h2>Onde a sua organização está perdendo o ganho da IA?</h2>
       <p>Comece pela demo de oito perguntas — leva de três a cinco minutos, não pede cadastro e
          devolve uma leitura exploratória do seu ponto de vista. Para a empresa, o diagnóstico

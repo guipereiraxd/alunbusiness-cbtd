@@ -118,7 +118,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     <div id="et-ab" class="ab">
       <div class="olho">Prévia do harness organizacional</div>
       <h1>Oito perguntas sobre o sistema em que o trabalho acontece</h1>
-      <p class="sub">Uma por componente do harness. Você marca o nível que descreve a sua
+      <p class="sub">Uma por componente do harness organizacional. Você marca o nível que descreve a sua
          organização — não você mesmo. Não há resposta certa, e “não sei” é uma resposta
          legítima que a leitura leva em conta.</p>
 
