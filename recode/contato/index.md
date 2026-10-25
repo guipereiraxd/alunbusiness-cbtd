@@ -26,7 +26,7 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
     text-transform:uppercase;color:var(--tx-3);margin-bottom:7px}
   .campo label .op{text-transform:none;letter-spacing:0;color:var(--tx-3);font-family:var(--sans)}
   .campo input,.campo textarea{width:100%;font-family:var(--sans);font-size:15.5px;
-    color:var(--tinta);background:var(--papel);border:1px solid var(--linha-2);
+    color:var(--tinta);background:var(--papel);border:1px solid var(--borda-campo);
     border-radius:11px;padding:13px 15px}
   .campo textarea{min-height:108px;resize:vertical;line-height:1.55}
   .campo input:focus-visible,.campo textarea:focus-visible{outline:3px solid var(--ouro);
@@ -92,7 +92,7 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
     </div>
 
     <div class="ct-form">
-      <div id="ct-form">
+      <form id="ct-form" novalidate>
         <h2>Deixe o seu contato</h2>
         <p>Retornamos em até dois dias úteis. Os campos de empresa e cargo ajudam a preparar a
            conversa, mas são opcionais.</p>
@@ -125,9 +125,9 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
         <div class="erro" id="ct-erro" role="alert"></div>
 
         <div class="botoes" style="margin-top:22px">
-          <button class="bt bt-1" id="ct-enviar">Quero conversar</button>
+          <button type="submit" class="bt bt-1" id="ct-enviar">Quero conversar</button>
         </div>
-      </div>
+      </form>
       <div class="ok" id="ct-ok" role="status" tabindex="-1"></div>
     </div>
 
@@ -144,6 +144,7 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
     forma:"ct-form", botao:"ct-enviar", erro:"ct-erro", ok:"ct-ok",
     nome:"c-nome", email:"c-email", empresa:"c-empresa", cargo:"c-cargo",
     assunto:"c-assunto", optin:"c-optin",
+    origem:"pagina_contato",
     rotulo:"Quero conversar",
     sucessoExtra:"Se quiser adiantar, responda a demo de oito perguntas — a leitura dela ajuda a "
       + "orientar a conversa."

@@ -9,14 +9,29 @@ window.RECODE_LEADS = (function(){
 
   var COL = "recode_leads";
 
+  /* As duas ausências têm causas e consequências diferentes, e tratá-las
+     como uma só fazia a tela mentir: sem FIREBASE_CONFIG é mesmo o ambiente
+     local (o arquivo só existe no build); sem window.firebase é o SDK do
+     gstatic que não carregou — e isso acontece EM PRODUÇÃO, em rede
+     corporativa com proxy ou com bloqueador de conteúdo. Dizer a essa
+     pessoa que "é a versão local do site" é falso, e ela some sem rastro. */
+  var temConfig = !!window.FIREBASE_CONFIG;
+  var temSDK    = !!window.firebase;
+
   var db = null;
-  if (window.FIREBASE_CONFIG && window.firebase) {
+  if (temConfig && temSDK) {
     try {
       var app = firebase.apps.length ? firebase.app() : firebase.initializeApp(window.FIREBASE_CONFIG);
       db = firebase.firestore(app);
     } catch (e) { console.warn("[ReCode] Firebase init falhou:", e); }
   }
   var ligado = !!db;
+
+  function motivoDesligado(){
+    if (!temConfig) return "sem-backend";   /* ambiente local, sem chave */
+    if (!temSDK)    return "sdk-bloqueado"; /* produção: gstatic não chegou */
+    return "falhou";                        /* config e SDK presentes, init quebrou */
+  }
 
   function valido(email){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email||"").trim()); }
 
@@ -43,11 +58,13 @@ window.RECODE_LEADS = (function(){
       /* texto livre, só a página de contato envia; limitado aqui e na
          regra do Firestore para não virar canal de payload arbitrário */
       assunto: String(d.assunto||"").trim().slice(0, 1200),
-      origem:  "demo_harness_v" + (window.RECODE_DEMO ? window.RECODE_DEMO.VERSAO : "2.0"),
+      /* quem chama diz de onde veio; antes todo lead da página de contato
+         era gravado como se tivesse saído da demo */
+      origem:  String(d.origem || "desconhecida").trim().slice(0, 60),
       marketing_opt_in: !!d.optin,
       criado:  new Date().toISOString()
     };
-    if (!ligado) return Promise.resolve({ modo:"sem-backend", reg:reg });
+    if (!ligado) return Promise.resolve({ modo: motivoDesligado(), reg:reg });
     return new Promise(function(resolve){
       var respondido = false;
       function fim(r){ if (!respondido){ respondido = true; clearTimeout(guarda); resolve(r); } }

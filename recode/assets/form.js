@@ -37,13 +37,26 @@ window.RECODE_FORM = (function(){
       ok.style.display = "none"; ok.innerHTML = ""; ok.className = "ok";
     }
 
-    botao.addEventListener("click", function(){
+    /* Quando o container é um <form>, o Enter num campo dispara submit e
+       recarregaria a página. Interceptar o submit faz o Enter funcionar
+       como o clique — que é como a maior parte das pessoas termina de
+       preencher um campo de e-mail. */
+    if (forma.tagName === "FORM"){
+      forma.addEventListener("submit", function(e){ e.preventDefault(); enviar(); });
+    }
+    botao.addEventListener("click", function(e){
+      if (forma.tagName === "FORM") return;   /* o submit já cuida */
+      enviar();
+    });
+
+    function enviar(){
       var d = {
         nome:    val(cfg.nome),
         email:   val(cfg.email),
         empresa: val(cfg.empresa),
         cargo:   val(cfg.cargo),
         assunto: cfg.assunto ? val(cfg.assunto) : "",
+        origem:  cfg.origem || "desconhecida",
         optin:   marcado(cfg.optin)
       };
       erro.style.display = "none";
@@ -71,7 +84,7 @@ window.RECODE_FORM = (function(){
           ok.appendChild(retry);
         }
       });
-    });
+    }
 
     return { reiniciar: reiniciar };
   }
@@ -90,6 +103,10 @@ window.RECODE_FORM = (function(){
       : modo === "sem-backend"
       ? '<b>Este ambiente não tem onde gravar o contato.</b><br>É a versão local do site; '
         + 'em produção o envio funciona normalmente.'
+      : modo === "sdk-bloqueado"
+      ? '<b>Não conseguimos carregar o componente de envio.</b><br>Costuma ser proxy, VPN ou '
+        + 'bloqueador de conteúdo barrando um recurso externo. Tentar de novo pode resolver; '
+        + 'se não resolver, use outra rede — o seu contato não chegou até nós.'
       : '<b>Não conseguimos registrar o seu contato.</b><br>Houve uma falha de conexão com o '
         + 'servidor. Tente de novo em instantes.';
     return base + (modo === "remoto" && extra ? "<br>" + extra : "");

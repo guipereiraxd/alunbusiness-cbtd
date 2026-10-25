@@ -100,7 +100,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   .campo label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
     text-transform:uppercase;color:var(--tx-3);margin-bottom:7px}
   .campo input{width:100%;font-family:var(--sans);font-size:15.5px;color:var(--tinta);
-    background:var(--papel);border:1px solid var(--linha-2);border-radius:11px;padding:13px 15px}
+    background:var(--papel);border:1px solid var(--borda-campo);border-radius:11px;padding:13px 15px}
   /* o :focus-visible do sistema estava sendo cancelado e substituído por um
      halo de 1,18:1 — invisível para quem navega por teclado */
   .campo input:focus-visible{outline:3px solid var(--ouro);outline-offset:2px;
@@ -303,6 +303,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   });
   document.getElementById("refazer").addEventListener("click", function(){
     i = 0; resp = {};
+    document.getElementById("q-vivo").textContent = "";   /* não repetir a rodada anterior */
     /* devolver o formulário sem devolver o BOTÃO deixava o único ponto de
        conversão travado em "Enviando…" e desabilitado para sempre; o erro
        antigo também sobrevivia, em vermelho, num formulário intocado */
@@ -316,24 +317,32 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   function resultado(){
     var r = D.ler(resp);
 
-    document.getElementById("res-rest").innerHTML = r.restricoes.map(function(x){
+    /* Sem cobertura a tela dizia "não dá para ler" e logo abaixo narrava um
+       gargalo construído sobre uma resposta de oito. A leitura é suprimida
+       inteira — é a mesma regra do diagnóstico corporativo, onde valor
+       suprimido não vira estimativa. */
+    var exibidas = r.semCobertura ? [] : r.restricoes;
+
+    document.getElementById("res-rest").innerHTML = exibidas.map(function(x){
       /* Acima do piso não há gargalo para narrar: afirmar "o valor não tem
          para onde ir" a quem marcou 4 seria falso. O cartão então diz o que
          de fato é — o ponto relativamente menos forte da leitura. */
       var corpo = x.forte
         ? '<span class="nm">'+esc(x.leitura.restricao)+'</span><p>'+esc(x.leitura.hip)+'</p>'
-        : '<span class="nm">O seu ponto menos forte, ainda assim sólido</span>'
-          + '<p>Você marcou <b>'+x.valor+' de 4</b> aqui — não é fragilidade declarada, é só o '
-          + 'componente em que a sua leitura foi menos alta. A pergunta de verificação abaixo '
-          + 'serve justamente para testar se a prática sustenta a nota.</p>';
+        : '<span class="nm">Entre os seus pontos menos altos, ainda assim sólido</span>'
+          + '<p>Você marcou <b>'+x.valor+' de 4</b> aqui — não é fragilidade declarada, é um dos '
+          + 'componentes em que a sua leitura ficou menos alta. Vale verificar se a prática '
+          + 'sustenta a nota.</p>';
       return '<div'+(x.forte?'':' class="rel"')+'><div class="cab"><span class="cod">'+x.h+'</span>'
         + '<span class="tit">'+esc(x.nome)+'</span>'
         + '<span class="hip">'+(x.forte ? 'hipótese a testar' : 'leitura relativa')+'</span></div>'
         + corpo + '</div>';
-    }).join("") || '<div><span class="nm">Sem base para uma leitura</span>'
-                 + '<p>Você marcou “não sei” em todas as perguntas. Isso é, por si, o achado mais '
-                 + 'útil desta prévia: a visibilidade sobre o sistema de trabalho é baixa, e é por '
-                 + 'aí que um diagnóstico começa.</p></div>';
+    }).join("") || '<div class="rel"><div class="cab"><span class="tit">cobertura insuficiente</span></div>'
+                 + '<span class="nm">Sem base para uma leitura</span>'
+                 + '<p>Com ' + r.respondidas + ' de 8 componentes respondidos, não há como apontar '
+                 + 'restrição provável sem inventar. Isso é, por si, o achado mais útil desta '
+                 + 'prévia: a visibilidade sobre o próprio sistema de trabalho é baixa, e é por aí '
+                 + 'que um diagnóstico começa.</p></div>';
 
     var tit = document.getElementById("res-titulo");
     tit.textContent = r.semCobertura
@@ -342,9 +351,10 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
                       : "Nada no seu ponto de vista aponta fragilidade. O que mais vale verificar:");
 
     var pe = document.getElementById("res-pe");
-    if (r.perguntaExecutiva){
+    if (r.perguntaExecutiva && !r.semCobertura){
       pe.style.display = "block";
-      pe.innerHTML = '<div class="r">Leve esta pergunta para a mesa</div><p>'
+      pe.innerHTML = '<div class="r">Leve esta pergunta para a mesa · '
+                   + esc(r.restricoes[0].h) + ' ' + esc(r.restricoes[0].nome) + '</div><p>'
                    + esc(r.perguntaExecutiva) + '</p>';
     } else { pe.style.display = "none"; }
 
@@ -372,7 +382,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
       ns.innerHTML = '<b>Você respondeu “não sei” em ' + r.naoSei + ' dos 8 componentes.</b> '
         + 'Num diagnóstico corporativo isso não é falha do respondente: é cobertura baixa, e '
         + 'costuma indicar que o sistema de trabalho não está visível para quem opera dentro dele.';
-    } else { ns.style.display = "none"; }
+    } else { ns.style.display = "none"; ns.innerHTML = ""; }   /* não guardar a rodada anterior */
 
     document.getElementById("pct-i").style.width = "100%";
     mostra("et-res");
@@ -385,6 +395,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     forma:"lead-form", botao:"lead-enviar", erro:"lead-erro", ok:"lead-ok",
     nome:"f-nome", email:"f-email", empresa:"f-empresa", cargo:"f-cargo",
     optin:"f-optin",
+    origem:"demo_harness_v2.0",
     rotulo:"Quero conversar",
     sucessoExtra:"As suas respostas da prévia não foram enviadas — elas são exploratórias e "
       + "não compõem o diagnóstico."

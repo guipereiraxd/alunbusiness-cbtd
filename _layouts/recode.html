@@ -99,6 +99,7 @@
          para passar em todas as superfícies (5,25 / 5,47 / 4,90). */
       --ouro:#8C6033;
       --ouro-claro:#A9793F;
+      --ouro-hover:#7D5529;      /* branco em cima: 6,56:1 */
       --ouro-fundo:rgba(140,96,51,.09);
       --ouro-borda:rgba(140,96,51,.26);
       --sobre-ouro:#FFFFFF;        /* branco no dourado: 5,47:1 */
@@ -117,6 +118,9 @@
       --tinta:#1A1815; --tinta-2:#3A3833;
       --tx:#3A3833; --tx-2:#57534B; --tx-3:#6B6862;
       --linha:#E7E1D6; --linha-2:#DDD6CA;
+      /* limite de campo é componente de interface: WCAG 1.4.11 pede 3:1,
+         e a linha decorativa (#DDD6CA) dava 1,44:1 sobre o branco */
+      --borda-campo:#9C8F77;
 
       --ok:#0A6B4A;      --ok-s:#E8F4EE;
       --atencao:#8A5A00; --atencao-s:#FBF1DE;
@@ -146,6 +150,7 @@
     .rc-foot{
       --ouro:#D1A476;
       --ouro-claro:#E3C19C;
+      --ouro-hover:#E3C19C;      /* no preto o texto é escuro: clarear ajuda */
       --ouro-fundo:rgba(209,164,118,.10);
       --ouro-borda:rgba(209,164,118,.26);
       --sobre-ouro:#0F0F0F;
@@ -156,6 +161,7 @@
       --tinta:#FFFFFF; --tinta-2:#E8E9EC;
       --tx:#CFD2D8; --tx-2:#A9ADB7; --tx-3:#8B8F9A;
       --linha:#2A2C33; --linha-2:#3C3F48;
+      --borda-campo:#686D7A;   /* 3,22:1 sobre a superfície escura */
 
       --ok:#7BD3A8;      --ok-s:rgba(123,211,168,.11);
       --atencao:#E8B96A; --atencao-s:rgba(232,185,106,.11);
@@ -211,7 +217,7 @@
       height:2px;border-radius:2px;background:var(--grad-ouro-r)}
     .rc-nav a.cta{background:var(--ouro);color:var(--sobre-ouro);font-weight:600;padding:11px 20px;
       box-shadow:0 6px 18px rgba(209,164,118,.22);transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
-    .rc-nav a.cta:hover{transform:translateY(-1px);background:var(--ouro-claro);
+    .rc-nav a.cta:hover{transform:translateY(-1px);background:var(--ouro-hover);
       box-shadow:0 10px 26px rgba(209,164,118,.34)}
     .rc-nav a.cta::after{display:none}
     .rc-menu{display:none;background:var(--ouro-fundo);border:1px solid var(--ouro-borda);
@@ -271,8 +277,10 @@
       transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease)}
     /* o padrão da Alun: dourado cheio com texto preto, 8,47:1 */
     .bt-1{background:var(--ouro);color:var(--sobre-ouro);box-shadow:var(--brilho)}
-    .bt-1:hover{transform:translateY(-2px);background:var(--ouro-claro);
-      box-shadow:0 16px 36px rgba(209,164,118,.3)}
+    /* o hover clareava o dourado e levava o branco a 3,82:1; no claro ele
+       escurece, no escuro ele clareia — em ambos o texto ganha contraste */
+    .bt-1:hover{transform:translateY(-2px);background:var(--ouro-hover);
+      box-shadow:0 16px 36px rgba(140,96,51,.26)}
     .bt-2{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--linha-2)}
     .bt-2:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1.5px var(--ouro);
       background:var(--ouro-fundo)}

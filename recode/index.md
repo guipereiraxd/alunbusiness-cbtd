@@ -136,7 +136,10 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     background:var(--c);opacity:0;transition:opacity .22s var(--ease)}
   .hs > div:hover{transform:translateY(-3px);box-shadow:var(--elev-2);border-color:var(--painel-2)}
   .hs > div:hover::before{opacity:1}
-  .hs .cod{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--c);
+  /* o filete do topo fica com a cor viva da fita; o código é texto de
+     13px sobre cartão branco e precisa da versão escura — a viva dá
+     entre 3,49:1 e 4,28:1, abaixo de AA em todos os oito */
+  .hs .cod{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ctxt);
     letter-spacing:.08em}
   .hs h3{font-size:17px;font-weight:600;margin-top:12px;letter-spacing:-.014em;line-height:1.28}
   .hs p{font-size:14.5px;color:var(--tx-2);margin-top:10px;line-height:1.58}
@@ -324,14 +327,14 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
        escalar quando um controle crítico está ausente.</p>
 
     <div class="hs rv">
-      <div style="--c:#2D87FF"><div class="cod">H1</div><h3>Modelo de negócio e economia do valor</h3><p>Mudamos proposta de valor, custo de servir, preço ou margem — ou apenas adotamos IA?</p></div>
-      <div style="--c:#3F82FD"><div class="cod">H2</div><h3>Arquitetura do trabalho e fluxo</h3><p>O trabalho foi decomposto, simplificado e redesenhado de ponta a ponta?</p></div>
-      <div style="--c:#5180FB"><div class="cod">H3</div><h3>Modelo operacional humano–agente</h3><p>Quem faz, decide, verifica, aprova e responde pelo resultado?</p></div>
-      <div style="--c:#6379F9"><div class="cod">H4</div><h3>Contexto, conhecimento e dados</h3><p>Pessoas e agentes acessam o contexto correto, autorizado e confiável no momento certo?</p></div>
-      <div style="--c:#7373F7"><div class="cod">H5</div><h3>Execução e orquestração</h3><p>A empresa sustenta execução de agente com estado, ferramentas, permissões e recuperação?</p></div>
-      <div style="--c:#8068F7"><div class="cod">H6</div><h3>Avaliação, observabilidade e confiabilidade</h3><p>Consegue verificar qualidade, custo e efeito de cada execução?</p></div>
-      <div style="--c:#8761F6"><div class="cod">H7</div><h3>Governança e direitos de decisão</h3><p>A autonomia é proporcional ao risco e existe responsável pelo efeito?</p></div>
-      <div style="--c:#885CF6"><div class="cod">H8</div><h3>Liderança, competências e mudança</h3><p>Líderes e equipes operam o novo modelo e mudam hábitos, incentivos e decisões?</p></div>
+      <div style="--c:#2D87FF;--ctxt:#1B5FC4"><div class="cod">H1</div><h3>Modelo de negócio e economia do valor</h3><p>Mudamos proposta de valor, custo de servir, preço ou margem — ou apenas adotamos IA?</p></div>
+      <div style="--c:#3F82FD;--ctxt:#2456C6"><div class="cod">H2</div><h3>Arquitetura do trabalho e fluxo</h3><p>O trabalho foi decomposto, simplificado e redesenhado de ponta a ponta?</p></div>
+      <div style="--c:#5180FB;--ctxt:#2D4EC8"><div class="cod">H3</div><h3>Modelo operacional humano–agente</h3><p>Quem faz, decide, verifica, aprova e responde pelo resultado?</p></div>
+      <div style="--c:#6379F9;--ctxt:#3645CA"><div class="cod">H4</div><h3>Contexto, conhecimento e dados</h3><p>Pessoas e agentes acessam o contexto correto, autorizado e confiável no momento certo?</p></div>
+      <div style="--c:#7373F7;--ctxt:#3F3DCC"><div class="cod">H5</div><h3>Execução e orquestração</h3><p>A empresa sustenta execução de agente com estado, ferramentas, permissões e recuperação?</p></div>
+      <div style="--c:#8068F7;--ctxt:#4834CE"><div class="cod">H6</div><h3>Avaliação, observabilidade e confiabilidade</h3><p>Consegue verificar qualidade, custo e efeito de cada execução?</p></div>
+      <div style="--c:#8761F6;--ctxt:#512CD0"><div class="cod">H7</div><h3>Governança e direitos de decisão</h3><p>A autonomia é proporcional ao risco e existe responsável pelo efeito?</p></div>
+      <div style="--c:#885CF6;--ctxt:#5A23D2"><div class="cod">H8</div><h3>Liderança, competências e mudança</h3><p>Líderes e equipes operam o novo modelo e mudam hábitos, incentivos e decisões?</p></div>
     </div>
 
     <div class="nota">

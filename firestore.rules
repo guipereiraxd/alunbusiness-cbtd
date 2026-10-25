@@ -47,14 +47,25 @@ service cloud.firestore {
                     && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$')
                     && request.resource.data.email.size() <= 180
                     && request.resource.data.marketing_opt_in is bool
+                    && request.resource.data.criado is string
+                    && request.resource.data.criado.size() <= 40
+                    && (!request.resource.data.keys().hasAny(['id'])
+                        || (request.resource.data.id is string
+                            && request.resource.data.id.size() <= 40))
+                    // sem o "is string" o size() aceitava List e Map: um
+                    // documento com empresa em lista de 160 itens passava
                     && (!request.resource.data.keys().hasAny(['empresa'])
-                        || request.resource.data.empresa.size() <= 160)
+                        || (request.resource.data.empresa is string
+                            && request.resource.data.empresa.size() <= 160))
                     && (!request.resource.data.keys().hasAny(['cargo'])
-                        || request.resource.data.cargo.size() <= 160)
+                        || (request.resource.data.cargo is string
+                            && request.resource.data.cargo.size() <= 160))
                     && (!request.resource.data.keys().hasAny(['assunto'])
-                        || request.resource.data.assunto.size() <= 1200)
+                        || (request.resource.data.assunto is string
+                            && request.resource.data.assunto.size() <= 1200))
                     && (!request.resource.data.keys().hasAny(['origem'])
-                        || request.resource.data.origem.size() <= 60);
+                        || (request.resource.data.origem is string
+                            && request.resource.data.origem.size() <= 60));
       allow read, update, delete: if false;
     }
 
