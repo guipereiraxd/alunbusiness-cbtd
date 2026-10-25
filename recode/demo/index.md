@@ -1,5 +1,6 @@
 ---
 title: "Demo"
+noindex: true
 description: "Prévia do harness organizacional: oito perguntas, de três a cinco minutos, sem cadastro. Devolve duas restrições prováveis e uma pergunta para levar à mesa executiva."
 ---
 
@@ -123,6 +124,12 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
 
 <section class="dm">
   <div class="dm-wrap">
+
+    <div class="nota aviso" style="margin:0 0 30px">
+      <b>Esta prévia está fora do ar.</b> A página continua acessível por link direto para uso
+      interno, mas não aparece na navegação do site e não é indexada. Para aplicar o diagnóstico
+      na sua empresa, <a href="{{ '/recode/contato/' | relative_url }}">fale com a Alun Business</a>.
+    </div>
 
     <!-- ── abertura ─────────────────────────────────────────── -->
     <div id="et-ab" class="ab">

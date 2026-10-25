@@ -224,7 +224,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
          controles — para que potencial vire resultado.</p>
       <div class="botoes">
         <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Diagnosticar meu harness →</a>
-        <a class="bt bt-2" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
+        <a class="bt bt-2" href="{{ '/recode/harness-organizacional/' | relative_url }}">Entender o harness</a>
       </div>
 
       <div class="assin">Reprograme o trabalho. Reinvente o negócio.</div>
@@ -337,13 +337,6 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
       <div style="--c:#885CF6;--ctxt:#5A23D2"><div class="cod">H8</div><h3>Liderança, competências e mudança</h3><p>Líderes e equipes operam o novo modelo e mudam hábitos, incentivos e decisões?</p></div>
     </div>
 
-    <div class="nota">
-      <b>Percepção, evidência e performance são coisas distintas.</b> O questionário mede prontidão
-      percebida. A evidência é classificada à parte por um consultor, com origem e nível de confiança.
-      A performance observada exige baseline e janela. O relatório mantém as três trilhas separadas —
-      e nunca converte uma na outra.
-    </div>
-
     <div class="botoes">
       <a class="bt bt-1" href="{{ '/recode/metodologia/' | relative_url }}">Ver a metodologia</a>
       <a class="bt bt-2" href="{{ '/recode/harness-organizacional/' | relative_url }}">Entender o harness</a>
@@ -439,19 +432,12 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     </div>
 
     <div class="nota">
-      <b>São exemplos de formato, não casos de cliente.</b> O que torna qualquer um deles pronto
-      para redesenho é sempre o mesmo: patrocinador capaz de alterar processo e investimento,
-      indicador com baseline, mapa do fluxo atual, limites de risco declarados e hipótese
-      explícita de onde o valor será capturado.
+      <b>São exemplos de formato, não casos de cliente.</b> O que torna uma missão pronta para
+      redesenho é sempre o mesmo: patrocinador com poder de decidir, indicador com baseline e
+      limites de risco declarados.
     </div>
 
-    <div class="nota">
-      <b>O que a Alun Business faz e o que não faz.</b> O movimento <i>Orchestrate</i> é desenho e
-      coordenação junto a parceiros ou à TI do cliente. A implementação técnica é contratada à
-      parte, quando houver escopo específico. O diagnóstico não é certificação, e nenhum relatório
-      sai sem revisão humana.
     </div>
-  </div>
 </section>
 
 <section class="sec ap">
@@ -463,8 +449,8 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
          devolve uma leitura exploratória do seu ponto de vista. Para a empresa, o diagnóstico
          corporativo é outro instrumento.</p>
       <div class="botoes">
-        <a class="bt bt-1" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
-        <a class="bt bt-2" href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>
+        <a class="bt bt-1" href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>
+        <a class="bt bt-2" href="{{ '/recode/diagnostico/' | relative_url }}">Conhecer o diagnóstico</a>
       </div>
     </div>
   </div>

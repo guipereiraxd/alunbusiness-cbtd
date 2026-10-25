@@ -25,8 +25,9 @@
   <meta name="theme-color" content="#0F0F0F">
 
   <!-- Páginas públicas indexáveis: é material de autoridade, diferente
-       do /bbts/, que é demonstração fechada para um cliente. -->
-  <meta name="robots" content="index, follow">
+       do /bbts/, que é demonstração fechada para um cliente. Uma página
+       pode se declarar fora disso com `noindex: true` no front matter. -->
+  <meta name="robots" content="{% if page.noindex %}noindex, nofollow{% else %}index, follow{% endif %}">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
@@ -410,7 +411,7 @@
       <a href="{{ '/recode/metodologia/' | relative_url }}" {% if u contains 'metodologia' %}class="on" aria-current="page"{% endif %}>Metodologia</a>
       <a href="{{ '/recode/diagnostico/' | relative_url }}" {% if u contains 'diagnostico' %}class="on" aria-current="page"{% endif %}>Diagnóstico</a>
       <a href="{{ '/recode/consultoria/' | relative_url }}" {% if u contains 'consultoria' %}class="on" aria-current="page"{% endif %}>Consultoria</a>
-      <a href="{{ '/recode/demo/' | relative_url }}" class="cta">Experimentar a demo</a>
+      <a href="{{ '/recode/contato/' | relative_url }}" class="cta">Falar com a gente</a>
     </nav>
   </div>
 </header>
@@ -436,7 +437,6 @@
         <a href="{{ '/recode/metodologia/' | relative_url }}">Metodologia e instrumento</a>
         <a href="{{ '/recode/diagnostico/' | relative_url }}">O diagnóstico</a>
         <a href="{{ '/recode/consultoria/' | relative_url }}">Consultoria</a>
-        <a href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
         <a href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>
         <a href="{{ '/privacy/' | relative_url }}">Política de privacidade</a>
       </div>

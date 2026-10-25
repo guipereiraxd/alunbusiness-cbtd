@@ -153,10 +153,9 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
     </div>
 
     <div class="nota">
-      <b>Não prometemos anonimato absoluto.</b> Convites são identificados para poder ser enviados,
-      então a palavra correta é pseudonimização, não anonimato. Dizer o contrário seria mais
-      confortável e menos verdadeiro. PII de convite e respostas vivem em domínios separados,
-      com retenção contratada.
+      <b>Não prometemos anonimato absoluto.</b> O convite é identificado para poder ser enviado,
+      então a palavra certa é pseudonimização. Dizer o contrário seria mais confortável e menos
+      verdadeiro.
     </div>
   </div>
 </section>
@@ -222,9 +221,8 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
     </div>
 
     <div class="nota">
-      <b>O que pode esticar o prazo.</b> Grupo acima de algumas centenas de pessoas, necessidade
-      de aprovação interna para o convite, ou evidências que dependem de sistemas cujo acesso
-      precisa ser liberado. Nada disso é raro, e preferimos dizer antes.
+      <b>O que pode esticar o prazo.</b> Grupo muito grande, aprovação interna do convite, ou
+      evidência presa em sistema sem acesso liberado. Nada disso é raro, e preferimos dizer antes.
     </div>
   </div>
 </section>

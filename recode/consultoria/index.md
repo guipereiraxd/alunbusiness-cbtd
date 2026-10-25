@@ -169,13 +169,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
       </div>
     </div>
 
-    <div class="nota">
-      <b>Uma missão só está pronta para redesenho</b> quando tem patrocinador capaz de alterar
-      processo, decisão e investimento; indicador de processo e de resultado com baseline; mapa
-      do fluxo atual e dos gargalos; dados e tecnologia acessíveis; supervisor responsável
-      definido; e hipótese explícita de onde o valor será capturado.
     </div>
-  </div>
 </section>
 
 <section class="sec">
@@ -224,12 +218,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
       </div>
     </div>
 
-    <div class="nota">
-      <b>A métrica que nos interessa</b> não é número de agentes implantados nem de pessoas
-      treinadas. É quantas missões de negócio chegaram ao fim com baseline, blueprint aprovado,
-      dono, melhoria observada e decisão registrada. O resto é funil.
     </div>
-  </div>
 </section>
 
 <section class="sec ap">

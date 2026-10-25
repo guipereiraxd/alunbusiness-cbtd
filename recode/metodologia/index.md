@@ -109,9 +109,9 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
 
     <div class="nota aviso">
       <b>Tempo liberado não é economia realizada.</b> Só atribuímos redução de custo quando há
-      alteração efetiva e documentada em estrutura, contratação, realocação ou mix de entregas.
-      Capacidade que cresce pode ser reinvestida em qualidade, receita ou oferta nova — e forçar
-      a tradução para headcount é um erro de leitura, não uma conta conservadora.
+      mudança documentada em estrutura, contratação ou mix de entregas. Capacidade que cresce
+      pode virar qualidade, receita ou oferta nova — traduzir tudo em headcount é erro de
+      leitura, não conservadorismo.
     </div>
   </div>
 </section>
@@ -131,12 +131,6 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
       <div><div class="v">4</div><div class="r">Monitorada</div></div>
       <div class="ns"><div class="v">NS</div><div class="r">Não sei</div></div>
       <div class="ns"><div class="v">NA</div><div class="r">Não se aplica</div></div>
-    </div>
-
-    <div class="nota">
-      <b>NS e NA não pontuam e não são penalizados.</b> Eles viram cobertura: a frequência com que
-      aparecem é lida como incerteza do grupo, que é informação — e não ruído a ser preenchido
-      com zero.
     </div>
 
     <h3 style="font-size:21px;margin-top:46px">As regras de cálculo, por extenso</h3>
@@ -164,11 +158,7 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
            alerta próprio, mesmo quando a média geral está alta. Média não autoriza escalar.</p></div>
     </div>
 
-    <div class="nota">
-      <b>O limiar de 7 é um padrão inicial de privacidade</b>, adotado para os pilotos e sujeito a
-      confirmação por avaliação de risco e pelo desenho da população de cada cliente.
     </div>
-  </div>
 </section>
 
 <section class="sec escura ctx-escuro">
@@ -244,10 +234,9 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
     </div>
 
     <div class="nota">
-      <b>IA generativa pode rascunhar texto; não pode decidir nada.</b> Ela não determina pontuação,
-      não publica relatório e não substitui revisão humana. Todo insight percorre estados
-      explícitos — hipótese, aguardando evidência, revisado, aprovado, publicado — com autor e
-      revisor registrados.
+      <b>IA generativa pode rascunhar texto; não pode decidir nada.</b> Não determina pontuação,
+      não publica relatório e não substitui revisão humana — todo insight tem autor e revisor
+      registrados.
     </div>
   </div>
 </section>
@@ -308,7 +297,6 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
 
     <div class="botoes">
       <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Aplicar o diagnóstico</a>
-      <a class="bt bt-2" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
       <a class="bt bt-2" href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>
     </div>
   </div>

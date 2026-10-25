@@ -84,12 +84,7 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
         tamanho do grupo a ouvir.
       </div>
 
-      <div class="nota aviso">
-        <b>Prefere experimentar antes?</b> A <a href="{{ '/recode/demo/' | relative_url }}">demo de
-        oito perguntas</a> leva de três a cinco minutos, não pede cadastro e devolve uma leitura
-        exploratória do seu ponto de vista.
       </div>
-    </div>
 
     <div class="ct-form">
       <form id="ct-form" novalidate>

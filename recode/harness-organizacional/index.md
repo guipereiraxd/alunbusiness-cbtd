@@ -71,13 +71,6 @@ description: "O sistema de estratégia, trabalho, contexto, orquestração, deci
          governada e mensurável.</p>
     </div>
 
-    <div class="nota aviso">
-      <b>O que esta definição não é.</b> É uma extensão conceitual proposta pela Alun Business ao
-      campo da engenharia de harnesses de agentes, apresentada para teste em pilotos. Não é
-      terminologia regulatória, padrão técnico universal nem método validado empiricamente.
-      Nenhuma das organizações citadas nas nossas referências endossa ou certifica esta metodologia.
-    </div>
-
     <div class="vs">
       <div>
         <div class="r">Harness técnico</div>
@@ -167,12 +160,7 @@ description: "O sistema de estratégia, trabalho, contexto, orquestração, deci
       </div>
     </div>
 
-    <div class="nota">
-      <b>Os oito formam um sistema, e sistemas não se compensam.</b> Uma média alta não cobre a
-      ausência de um controle crítico em operação de risco. Por isso o diagnóstico produz notas
-      descritivas <i>e</i> travas de segurança em paralelo — nunca um escore único.
     </div>
-  </div>
 </section>
 
 <section class="sec escura ctx-escuro">
@@ -203,12 +191,7 @@ description: "O sistema de estratégia, trabalho, contexto, orquestração, deci
       </div>
     </div>
 
-    <div class="nota">
-      <b>Tão simples quanto possível, tão complexo quanto necessário.</b> Aumentar autonomia sem
-      verificadores, estado e coordenação costuma elevar custo e falhas. Nem todo problema pede
-      um grafo de agentes; muitos pedem uma chamada só, bem colocada.
     </div>
-  </div>
 </section>
 
 <section class="sec">
@@ -239,17 +222,9 @@ description: "O sistema de estratégia, trabalho, contexto, orquestração, deci
       </div>
     </div>
 
-    <div class="nota">
-      <b>“AI-enabled” aqui tem definição operacional.</b> É a organização capaz de reconfigurar
-      produtos, processos e decisões combinando trabalho humano e capacidades de IA — com contexto
-      disponível, autonomia proporcional ao risco, verificação, responsáveis identificáveis e
-      captura mensurável de valor. Não significa automação total, substituição de pessoas nem usar
-      o máximo possível de agentes.
-    </div>
-
     <div class="botoes">
       <a class="bt bt-1" href="{{ '/recode/metodologia/' | relative_url }}">Como medimos isso</a>
-      <a class="bt bt-2" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
+      <a class="bt bt-2" href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>
     </div>
   </div>
 </section>
