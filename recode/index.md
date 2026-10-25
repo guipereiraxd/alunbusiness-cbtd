@@ -144,18 +144,41 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   .hs h3{font-size:17px;font-weight:600;margin-top:12px;letter-spacing:-.014em;line-height:1.28}
   .hs p{font-size:14.5px;color:var(--tx-2);margin-top:10px;line-height:1.58}
 
-  /* ── movimentos RECODE ──────────────────────────────────────── */
-  .mov{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:40px}
+  /* ── movimentos RECODE ───────────────────────────────────────
+     As seis iniciais são o nome do produto, então a seção vira o
+     momento de marca da página: preta, com o símbolo 3D ao fundo e
+     o lockup assinando embaixo das letras. */
+  .recode{position:relative}
+  .recode .simb{position:absolute;top:-120px;right:-90px;width:380px;opacity:.1;
+    pointer-events:none;z-index:0}
+  .recode > *{position:relative;z-index:1}
+
+  .mov{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:44px}
   @media(max-width:1040px){ .mov{grid-template-columns:repeat(3,1fr)} }
   @media(max-width:620px){ .mov{grid-template-columns:repeat(2,1fr)} }
-  .mov > div{background:var(--papel);border:1px solid var(--linha);border-radius:16px;
-    padding:22px 19px;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
-  .mov > div:hover{transform:translateY(-3px);box-shadow:var(--elev-2)}
-  .mov .l{font-family:var(--disp);font-weight:800;font-size:40px;line-height:1;
-    letter-spacing:-.04em;background:var(--grad-ouro);-webkit-background-clip:text;
+  .mov > div{position:relative;background:rgba(255,255,255,.04);
+    border:1px solid var(--linha-2);border-radius:16px;padding:24px 19px 22px;overflow:hidden;
+    transition:transform .24s var(--ease),background .24s var(--ease),border-color .24s var(--ease)}
+  .mov > div::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:var(--grad-ouro-r);opacity:0;transition:opacity .24s var(--ease)}
+  .mov > div:hover{transform:translateY(-4px);background:rgba(255,255,255,.07);
+    border-color:var(--ouro-borda)}
+  .mov > div:hover::before{opacity:1}
+  /* a letra ocupa o cartão: lidas em sequência, as seis soletram RECODE */
+  .mov .l{font-family:var(--disp);font-weight:800;font-size:clamp(44px,5vw,58px);line-height:.9;
+    letter-spacing:-.05em;background:var(--grad-ouro);-webkit-background-clip:text;
     background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-  .mov .n{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--tinta);margin-top:11px}
-  .mov p{font-size:13.5px;color:var(--tx-2);margin-top:7px;line-height:1.52}
+  .mov .n{font-family:var(--disp);font-weight:600;font-size:16px;color:#fff;margin-top:14px;
+    letter-spacing:-.01em}
+  .mov p{font-size:13.5px;color:var(--tx-2);margin-top:8px;line-height:1.52}
+
+  /* assinatura: o lockup fecha a seção, ligando o método ao produto */
+  .assina{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;
+    margin-top:46px;padding-top:30px;border-top:1px solid var(--linha-2)}
+  .assina img{height:46px;width:auto}
+  .assina span{font-size:14.5px;color:var(--tx-2);max-width:40ch;line-height:1.55}
+  @media(max-width:620px){ .assina{gap:16px} .assina img{height:38px}
+    .recode .simb{width:230px;top:-70px;right:-60px} }
 
   /* ── ofertas ────────────────────────────────────────────────── */
   .of{display:grid;gap:16px;margin-top:40px}
@@ -344,8 +367,10 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   </div>
 </section>
 
-<section class="sec canvas">
-  <div class="wrap">
+<section class="sec escura ctx-escuro">
+  <div class="wrap recode">
+    <img class="simb" src="{{ '/recode/assets/marca/recode-simbolo-3d.png' | relative_url }}"
+         alt="" aria-hidden="true">
     <div class="olho">A intervenção</div>
     <h2 class="tit larga">RECODE: seis movimentos de redesenho</h2>
     <p class="lead">Os oito componentes são o diagnóstico. Os seis movimentos são o trabalho de
@@ -358,6 +383,13 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
       <div><div class="l">O</div><div class="n">Orchestrate</div><p>Instalar contexto, agentes, verificações e gates.</p></div>
       <div><div class="l">D</div><div class="n">Develop</div><p>Preparar liderança e times para novos papéis.</p></div>
       <div><div class="l">E</div><div class="n">Evaluate</div><p>Medir processo e resultado, e ajustar o harness organizacional.</p></div>
+    </div>
+
+    <div class="assina rv">
+      <img src="{{ '/recode/assets/marca/recode-horizontal-3d.png' | relative_url }}"
+           alt="AI Business ReCode · Alun Business">
+      <span>Os seis movimentos dão nome ao produto — e são o que a consultoria
+        efetivamente executa.</span>
     </div>
   </div>
 </section>
