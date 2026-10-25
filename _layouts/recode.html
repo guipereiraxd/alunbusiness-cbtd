@@ -194,12 +194,22 @@
     @media(max-width:560px){ .wrap{padding-inline:20px} }
 
     /* ═══ Cabeçalho ═══════════════════════════════════════════════ */
-    /* o cabeçalho segue escuro: o lockup só existe em branco ou em
-       preto, e o branco sobre a faixa preta é a aplicação da Alun */
+    /* A barra é onde o logotipo vive, então é onde a fita do produto faz
+       mais sentido: um gradiente fundo que vai do azul ao violeta do
+       símbolo. Escuro o bastante para o lockup branco e o dourado da
+       Alun lerem em cima — navegação a 10,5:1 no pior ponto, e o botão
+       a 7,96:1 contra o fundo. O filete inferior traz a fita viva. */
     .rc-top{position:sticky;top:0;z-index:60;
-      background:rgba(15,15,15,.88);backdrop-filter:saturate(170%) blur(16px);
-      -webkit-backdrop-filter:saturate(170%) blur(16px);
-      border-bottom:1px solid rgba(209,164,118,.18)}
+      background:linear-gradient(100deg,
+        rgba(10,16,56,.93) 0%, rgba(20,15,60,.93) 52%, rgba(27,14,56,.93) 100%);
+      backdrop-filter:saturate(180%) blur(18px);
+      -webkit-backdrop-filter:saturate(180%) blur(18px);
+      border-bottom:0;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+    /* o filete usa a fita viva, esmaecendo nas pontas para não virar régua */
+    .rc-top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+      background:linear-gradient(90deg,
+        rgba(45,135,255,0) 0%, rgba(45,135,255,.65) 18%,
+        rgba(136,92,246,.65) 82%, rgba(136,92,246,0) 100%)}
     .rc-top-in{display:flex;align-items:center;justify-content:space-between;
       gap:20px;height:86px}
     .rc-marca{display:flex;align-items:center;flex:none;transition:opacity .18s var(--ease)}
@@ -209,23 +219,25 @@
        aplicações grandes, onde o relevo se lê. */
     .rc-marca img{height:42px;width:auto}
     .rc-nav{display:flex;align-items:center;gap:4px}
-    .rc-nav a{position:relative;font-size:15px;color:var(--tx-2);text-decoration:none;
+    .rc-nav a{position:relative;font-size:15px;color:#B9C4F5;text-decoration:none;
       padding:10px 14px;border-radius:999px;transition:color .18s var(--ease)}
     .rc-nav a:hover{color:#fff}
     .rc-nav a.on{color:#fff}
     .rc-nav a.on::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;
-      height:2px;border-radius:2px;background:var(--grad-ouro-r)}
+      height:2px;border-radius:2px;background:var(--grad-r)}
     .rc-nav a.cta{background:var(--ouro);color:var(--sobre-ouro);font-weight:600;padding:11px 20px;
       box-shadow:0 6px 18px rgba(209,164,118,.22);transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
     .rc-nav a.cta:hover{transform:translateY(-1px);background:var(--ouro-hover);
       box-shadow:0 10px 26px rgba(209,164,118,.34)}
     .rc-nav a.cta::after{display:none}
-    .rc-menu{display:none;background:var(--ouro-fundo);border:1px solid var(--ouro-borda);
+    .rc-menu{display:none;background:rgba(143,186,255,.1);border:1px solid rgba(143,186,255,.28);
       color:#fff;border-radius:11px;padding:9px 14px;font:500 14.5px var(--sans);cursor:pointer}
     @media(max-width:900px){
-      .rc-nav{position:absolute;top:86px;left:0;right:0;background:rgba(15,15,15,.98);
-        backdrop-filter:blur(16px);flex-direction:column;align-items:stretch;gap:2px;
-        padding:12px 28px 22px;border-bottom:1px solid var(--linha);display:none}
+      .rc-nav{position:absolute;top:86px;left:0;right:0;
+        background:linear-gradient(170deg,rgba(14,17,58,.985),rgba(24,13,52,.985));
+        backdrop-filter:blur(18px);flex-direction:column;align-items:stretch;gap:2px;
+        padding:12px 28px 22px;display:none;
+        box-shadow:0 18px 40px rgba(0,0,0,.45)}
       .rc-nav.aberto{display:flex}
       .rc-nav a{padding:14px}
       .rc-nav a.on::after{left:14px;right:auto;width:16px;bottom:9px}
