@@ -35,9 +35,9 @@ description: "O sistema de estratégia, trabalho, contexto, orquestração, deci
   .pr{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
   @media(max-width:900px){ .pr{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:560px){ .pr{grid-template-columns:1fr} }
-  .pr > div{background:var(--deep-2);border:1px solid rgba(143,186,255,.2);border-radius:14px;padding:22px}
+  .pr > div{background:var(--painel);border:1px solid var(--linha-2);border-radius:14px;padding:22px}
   .pr h3{color:#fff;font-size:16.5px;font-weight:600}
-  .pr p{font-size:13.5px;color:var(--azul-300);margin-top:9px;line-height:1.6}
+  .pr p{font-size:13.5px;color:var(--tx-2);margin-top:9px;line-height:1.6}
 
   .esc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
   @media(max-width:800px){ .esc{grid-template-columns:1fr} }

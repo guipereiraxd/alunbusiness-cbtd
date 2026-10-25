@@ -5,11 +5,11 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
 
 <style>
   .cap .fatos{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:26px;
-    border-top:1px solid rgba(143,186,255,.22)}
+    border-top:1px solid var(--linha-2)}
   .cap .fatos div{min-width:112px}
   .cap .fatos b{display:block;font-family:var(--disp);font-weight:700;font-size:26px;color:#fff;line-height:1}
   .cap .fatos span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--azul-300);display:block;margin-top:8px}
+    text-transform:uppercase;color:var(--tx-2);display:block;margin-top:8px}
 
   .passos{display:grid;gap:13px;margin-top:34px}
   .passos > div{display:grid;grid-template-columns:46px 1fr;gap:20px;
@@ -20,9 +20,9 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
 
   .priv{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
   @media(max-width:880px){ .priv{grid-template-columns:1fr} }
-  .priv > div{background:var(--deep-2);border:1px solid rgba(143,186,255,.2);border-radius:14px;padding:22px}
+  .priv > div{background:var(--painel);border:1px solid var(--linha-2);border-radius:14px;padding:22px}
   .priv h3{color:#fff;font-size:16.5px;font-weight:600}
-  .priv p{font-size:13.5px;color:var(--azul-300);margin-top:9px;line-height:1.6}
+  .priv p{font-size:13.5px;color:var(--tx-2);margin-top:9px;line-height:1.6}
 
   .ent{display:grid;gap:12px;margin-top:32px}
   .ent > div{display:grid;grid-template-columns:1fr 1.4fr;gap:24px;align-items:center;
@@ -47,7 +47,7 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
   @media(max-width:520px){ .tl{grid-template-columns:1fr} }
   .tl > div{background:var(--papel);padding:24px 22px;position:relative}
   .tl .s{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;
-    color:var(--azul-700)}
+    color:var(--ouro)}
   .tl h3{font-size:17px;font-weight:600;margin:11px 0 9px;letter-spacing:-.012em}
   .tl p{font-size:14.5px;color:var(--tx-2);line-height:1.6}
   .tl .quem{font-family:var(--mono);font-size:11px;color:var(--tx-3);margin-top:13px;
@@ -56,8 +56,9 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
   /* excerto da devolutiva */
   .dev{background:var(--canvas);border:1px solid var(--linha);border-radius:18px;
     padding:0;overflow:hidden;margin-top:34px}
+  /* #6E4800 era cor de aviso para fundo claro; no escuro dá 2,36:1 */
   .dev .faixa{background:var(--atencao-s);padding:12px 26px;font-size:13.5px;
-    color:#6E4800;font-weight:600;border-bottom:1px solid var(--atencao)}
+    color:var(--atencao);font-weight:600;border-bottom:1px solid var(--atencao)}
   .dev .corpo{padding:30px 32px}
   @media(max-width:560px){ .dev .corpo{padding:24px 20px} }
   .dev .cab{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
@@ -66,7 +67,7 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
   .dev .item{padding:20px 0;border-bottom:1px solid var(--linha)}
   .dev .item:last-child{border-bottom:0;padding-bottom:0}
   .dev .rot{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
-    color:var(--azul-700)}
+    color:var(--ouro)}
   .dev .val{font-family:var(--disp);font-weight:600;font-size:18px;color:var(--tinta);margin-top:8px;
     line-height:1.4}
   .dev p{font-size:15px;color:var(--tx-2);line-height:1.65;margin-top:9px}

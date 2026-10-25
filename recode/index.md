@@ -5,17 +5,17 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 
 <style>
   /* ── hero ───────────────────────────────────────────────────── */
-  .hero{position:relative;background:var(--deep);color:var(--azul-100);
+  .hero{position:relative;background:#0A0A0B;color:var(--tx);
     padding:96px 0 104px;overflow:hidden;isolation:isolate;
     min-height:calc(100svh - 86px);display:flex;align-items:center}
   .hero::before{content:"";position:absolute;inset:0;z-index:-2;
     background:
-      radial-gradient(900px 560px at 84% -16%, rgba(45,135,255,.36), transparent 62%),
-      radial-gradient(720px 500px at -8% 114%, rgba(136,92,246,.3), transparent 64%),
-      linear-gradient(180deg,#0A1F44 0%,#05112A 100%)}
+      radial-gradient(900px 560px at 84% -16%, rgba(209,164,118,.17), transparent 62%),
+      radial-gradient(720px 500px at -8% 114%, rgba(209,164,118,.09), transparent 64%),
+      linear-gradient(180deg,#0A0A0B 0%,#141416 100%)}
   .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-    background-image:linear-gradient(rgba(143,186,255,.055) 1px,transparent 1px),
-                     linear-gradient(90deg,rgba(143,186,255,.055) 1px,transparent 1px);
+    background-image:linear-gradient(rgba(209,164,118,.06) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(209,164,118,.06) 1px,transparent 1px);
     background-size:68px 68px;
     mask-image:radial-gradient(820px 560px at 22% 32%,#000,transparent 72%);
     -webkit-mask-image:radial-gradient(820px 560px at 22% 32%,#000,transparent 72%)}
@@ -33,16 +33,16 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   .hero h1{font-size:clamp(38px,4.9vw,70px);color:#fff;letter-spacing:-.042em;
     line-height:1;margin-top:24px;font-weight:800}
   .hero .realce{display:block;
-    background:linear-gradient(112deg,#9CC4FF 0%,#B8ADFD 54%,#CBB4FC 100%);
+    background:linear-gradient(112deg,#D1A476 0%,#E8CCA6 54%,#C68F58 100%);
     -webkit-background-clip:text;background-clip:text}
-  .hero .sub{font-size:clamp(17px,1.9vw,20px);color:var(--azul-300);margin-top:28px;
+  .hero .sub{font-size:clamp(17px,1.9vw,20px);color:var(--tx-2);margin-top:28px;
     max-width:50ch;line-height:1.55}
   .hero .botoes{margin-top:38px}
   .hero .bt-1{font-size:17px;padding:18px 32px}
 
   .hero .assin{display:inline-flex;align-items:center;gap:11px;font-family:var(--mono);
-    font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:#7389B4;margin-top:30px}
-  .hero .assin::before{content:"";width:22px;height:1px;background:#45598C}
+    font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--tx-3);margin-top:30px}
+  .hero .assin::before{content:"";width:22px;height:1px;background:var(--ouro-borda)}
 
   /* ── o harness, como estrutura que sustenta ──────────────────
      Oito camadas empilhadas, cada uma com um filete que caminha do
@@ -50,21 +50,21 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
      Elas convergem para a placa de resultado: é o argumento do
      produto dito em forma, não em texto. */
   .hns{position:relative;overflow:hidden;background:rgba(255,255,255,.05);
-    border:1px solid rgba(143,186,255,.2);border-radius:26px;padding:26px;
+    border:1px solid var(--ouro-borda);border-radius:26px;padding:26px;
     backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    box-shadow:0 34px 90px rgba(3,10,26,.5)}
+    box-shadow:0 34px 90px rgba(0,0,0,.6)}
   .hns .simb{position:absolute;top:-54px;right:-58px;width:208px;opacity:.17;
     pointer-events:none;z-index:0}
   .hns > *{position:relative;z-index:1}
   .hns .cab{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
     font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--azul-300);margin-bottom:16px;line-height:1.5}
-  .hns .cab span:last-child{color:#6F86B6;white-space:nowrap;flex:none}
+    color:var(--tx-2);margin-bottom:16px;line-height:1.5}
+  .hns .cab span:last-child{color:var(--tx-3);white-space:nowrap;flex:none}
 
   .cam{display:grid;gap:5px}
   .cam div{display:grid;grid-template-columns:26px 1fr;align-items:center;gap:12px;
     background:rgba(255,255,255,.055);border-radius:10px;padding:10px 13px 10px 12px;
-    font-size:13.5px;color:#DEE8FB;line-height:1.3;position:relative;
+    font-size:13.5px;color:#E6E7EA;line-height:1.3;position:relative;
     border-left:3px solid var(--c);
     transition:background .2s var(--ease),transform .2s var(--ease)}
   .cam div:hover{background:rgba(255,255,255,.1);transform:translateX(3px)}
@@ -74,15 +74,17 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 
   .hns .flui{display:grid;place-items:center;height:26px;margin-top:4px}
   .hns .flui i{width:2px;height:26px;border-radius:2px;
-    background:linear-gradient(180deg,rgba(136,92,246,.25),#885CF6)}
-  .hns .alvo{position:relative;background:var(--grad-cta);border-radius:14px;
-    padding:16px 18px;text-align:center;box-shadow:0 14px 38px rgba(45,135,255,.36);
+    background:linear-gradient(180deg,rgba(209,164,118,.2),var(--ouro))}
+  /* placa dourada pede texto preto, como no site da Alun: branco sobre
+     dourado dá 2,26:1 e o preto dá 8,47:1 */
+  .hns .alvo{position:relative;background:var(--ouro);border-radius:14px;
+    padding:16px 18px;text-align:center;box-shadow:0 14px 38px rgba(209,164,118,.26);
     overflow:hidden}
   .hns .alvo::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 58%);pointer-events:none}
+    background:linear-gradient(180deg,rgba(255,255,255,.22),transparent 58%);pointer-events:none}
   .hns .alvo b{position:relative;display:block;font-family:var(--disp);font-weight:700;
-    font-size:17.5px;color:#fff;letter-spacing:-.018em}
-  .hns .alvo span{position:relative;font-size:12.5px;color:#EAF0FF}
+    font-size:17.5px;color:var(--sobre-ouro);letter-spacing:-.018em}
+  .hns .alvo span{position:relative;font-size:12.5px;color:#2A2118}
 
   @media(max-width:1040px){ .hns .simb{width:150px;top:-44px;right:-24px} }
   @media(max-width:460px){ .cam div{font-size:13px;padding:9px 12px} .hns{padding:20px} }
@@ -107,21 +109,21 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   @media(max-width:800px){ .pat{grid-template-columns:1fr} }
   .pat > div{position:relative;border-radius:20px;padding:32px;overflow:hidden}
   .pat .um{background:var(--papel);border:1px solid var(--linha)}
-  .pat .dois{color:var(--azul-100);background:var(--deep);isolation:isolate;
+  .pat .dois{color:var(--tx);background:#0A0A0B;isolation:isolate;
     box-shadow:0 26px 64px rgba(10,31,68,.3)}
   .pat .dois::before{content:"";position:absolute;inset:0;z-index:-1;
-    background:radial-gradient(520px 320px at 110% -20%, rgba(45,135,255,.42), transparent 62%),
-               radial-gradient(420px 300px at -10% 120%, rgba(136,92,246,.38), transparent 64%),
-               linear-gradient(180deg,#0A1F44,#071A3A)}
+    background:radial-gradient(520px 320px at 110% -20%, rgba(209,164,118,.22), transparent 62%),
+               radial-gradient(420px 300px at -10% 120%, rgba(209,164,118,.12), transparent 64%),
+               linear-gradient(180deg,#0A0A0B,#151517)}
   .pat .rot{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
     letter-spacing:.13em;text-transform:uppercase;color:var(--tx-3)}
   .pat .rot::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--linha-2)}
-  .pat .dois .rot{color:var(--azul-300)}
-  .pat .dois .rot::before{background:var(--grad-r)}
+  .pat .dois .rot{color:var(--tx-2)}
+  .pat .dois .rot::before{background:var(--grad-ouro-r)}
   .pat h3{font-size:23px;margin:14px 0 12px;letter-spacing:-.022em}
   .pat .dois h3{color:#fff}
   .pat p{font-size:15.5px;line-height:1.65;color:var(--tx-2)}
-  .pat .dois p{color:var(--azul-300)}
+  .pat .dois p{color:var(--tx-2)}
 
   /* ── componentes H1–H8 ──────────────────────────────────────── */
   .hs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
@@ -147,7 +149,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     padding:22px 19px;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
   .mov > div:hover{transform:translateY(-3px);box-shadow:var(--elev-2)}
   .mov .l{font-family:var(--disp);font-weight:800;font-size:40px;line-height:1;
-    letter-spacing:-.04em;background:var(--grad);-webkit-background-clip:text;
+    letter-spacing:-.04em;background:var(--grad-ouro);-webkit-background-clip:text;
     background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
   .mov .n{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--tinta);margin-top:11px}
   .mov p{font-size:13.5px;color:var(--tx-2);margin-top:7px;line-height:1.52}
@@ -159,7 +161,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     padding:26px 28px;overflow:hidden;
     transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
   .of > div::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
-    background:var(--grad);opacity:.55;transition:opacity .22s var(--ease)}
+    background:var(--grad-ouro);opacity:.55;transition:opacity .22s var(--ease)}
   .of > div:hover{transform:translateX(3px);box-shadow:var(--elev-2)}
   .of > div:hover::before{opacity:1}
   @media(max-width:860px){ .of > div{grid-template-columns:1fr;gap:12px} }
@@ -180,7 +182,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
   .mis > div:hover{transform:translateY(-3px);box-shadow:var(--elev-2)}
   .mis .setor{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
-    text-transform:uppercase;color:var(--azul-700)}
+    text-transform:uppercase;color:var(--ouro)}
   .mis .obj{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--tinta);
     margin:12px 0 0;line-height:1.32;letter-spacing:-.018em}
   .mis .campos{display:grid;gap:10px;margin-top:18px;padding-top:16px;
@@ -192,19 +194,19 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 
   /* ── conversão ──────────────────────────────────────────────── */
   .conv{position:relative;border-radius:28px;padding:62px 48px;text-align:center;
-    overflow:hidden;isolation:isolate;background:var(--deep);
+    overflow:hidden;isolation:isolate;background:#0A0A0B;
     box-shadow:0 30px 80px rgba(10,31,68,.3)}
   .conv::before{content:"";position:absolute;inset:0;z-index:-2;
-    background:radial-gradient(640px 400px at 18% -24%, rgba(45,135,255,.42), transparent 62%),
-               radial-gradient(600px 380px at 86% 122%, rgba(136,92,246,.4), transparent 64%),
-               linear-gradient(160deg,#0A1F44,#071531)}
+    background:radial-gradient(640px 400px at 18% -24%, rgba(209,164,118,.2), transparent 62%),
+               radial-gradient(600px 380px at 86% 122%, rgba(209,164,118,.11), transparent 64%),
+               linear-gradient(160deg,#0A0A0B,#151517)}
   .conv .simb{position:absolute;bottom:-78px;right:-58px;width:242px;opacity:.14;z-index:-1;
     pointer-events:none}
   @media(max-width:620px){ .conv{padding:42px 24px;border-radius:20px}
     .conv .simb{width:160px;bottom:-50px;right:-40px} }
   .conv h2{color:#fff;font-size:clamp(25px,3.6vw,38px);max-width:21ch;margin:0 auto;
     letter-spacing:-.03em}
-  .conv p{color:var(--azul-300);font-size:17px;margin:18px auto 0;max-width:56ch;line-height:1.6}
+  .conv p{color:var(--tx-2);font-size:17px;margin:18px auto 0;max-width:56ch;line-height:1.6}
   .conv .botoes{justify-content:center;margin-top:36px}
 </style>
 

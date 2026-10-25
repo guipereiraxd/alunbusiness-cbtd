@@ -23,16 +23,16 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
   .ofs .entreg b{display:block;font-size:14.5px;color:var(--tinta);margin-bottom:4px}
   .ofs .entreg span{font-size:13.5px;color:var(--tx-2);line-height:1.6}
 
-  .missao{background:var(--deep-2);border:1px solid rgba(143,186,255,.22);
+  .missao{background:var(--painel);border:1px solid var(--linha-2);
     border-radius:18px;padding:30px;margin-top:32px}
   .missao .ex{font-family:var(--disp);font-weight:600;font-size:clamp(18px,2.4vw,23px);
     color:#fff;line-height:1.4;max-width:34ch}
   .missao .pr{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:26px;
-    padding-top:22px;border-top:1px solid rgba(143,186,255,.2)}
+    padding-top:22px;border-top:1px solid var(--linha-2)}
   @media(max-width:900px){ .missao .pr{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:520px){ .missao .pr{grid-template-columns:1fr} }
   .missao .pr div b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--azul-300);font-weight:400}
+    text-transform:uppercase;color:var(--tx-2);font-weight:400}
   .missao .pr div span{display:block;font-size:13.5px;color:#DCE7FB;margin-top:6px;line-height:1.5}
 
   .noventa{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);
@@ -49,10 +49,10 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
   .lim h3{font-size:17.5px;font-weight:600;margin-bottom:11px}
   .lim p{font-size:14.5px;color:var(--tx-2);line-height:1.65}
 
-  .conv{background:var(--deep);border-radius:22px;padding:50px 44px;text-align:center}
+  .conv{background:#0A0A0B;border-radius:22px;padding:50px 44px;text-align:center}
   @media(max-width:620px){ .conv{padding:36px 24px;border-radius:18px} }
   .conv h2{color:#fff;font-size:clamp(23px,3.2vw,32px);max-width:24ch;margin:0 auto}
-  .conv p{color:var(--azul-300);font-size:16.5px;margin:15px auto 0;max-width:56ch;line-height:1.6}
+  .conv p{color:var(--tx-2);font-size:16.5px;margin:15px auto 0;max-width:56ch;line-height:1.6}
   .conv .botoes{justify-content:center}
 </style>
 

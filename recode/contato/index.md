@@ -11,7 +11,7 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
   .ct-lado p{font-size:15.5px;color:var(--tx-2);line-height:1.65}
   .passos{display:grid;gap:16px;margin-top:26px}
   .passos > div{display:grid;grid-template-columns:30px 1fr;gap:15px;align-items:start}
-  .passos .n{font-family:var(--mono);font-size:12px;color:var(--azul-700);padding-top:3px}
+  .passos .n{font-family:var(--mono);font-size:12px;color:var(--ouro);padding-top:3px}
   .passos b{display:block;font-family:var(--disp);font-weight:600;font-size:16px;color:var(--tinta)}
   .passos span{display:block;font-size:14.5px;color:var(--tx-2);margin-top:5px;line-height:1.6}
 
@@ -39,7 +39,7 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
   .lgpd{font-size:13px;color:var(--tx-2);margin-top:16px;line-height:1.55}
   .erro{color:var(--alerta);font-size:14.5px;margin-top:14px;display:none}
   .ok.falhou{background:var(--atencao-s)}
-  .ok.falhou b{color:#6E4800}
+  .ok.falhou b{color:var(--atencao)}
   .ok{display:none;background:var(--ok-s);border-radius:14px;padding:24px;
     font-size:15.5px;color:var(--tinta-2);line-height:1.6}
   .ok b{color:var(--ok)}

@@ -35,7 +35,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     border-radius:13px;padding:16px 18px;cursor:pointer;font-family:var(--sans);
     transition:border-color .16s var(--ease),background .16s var(--ease),transform .12s var(--ease)}
   .ops button:hover{border-color:var(--eletrico);background:var(--canvas);transform:translateX(2px)}
-  .ops button.sel{border-color:var(--eletrico);background:var(--azul-100);box-shadow:inset 0 0 0 1px var(--eletrico)}
+  .ops button.sel{border-color:var(--eletrico);background:var(--ouro-fundo);box-shadow:inset 0 0 0 1px var(--eletrico)}
   .ops .v{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--eletrico);text-align:center}
   .ops .r{display:block;font-size:16px;font-weight:600;color:var(--tinta)}
   .ops .d{display:block;font-size:13.5px;color:var(--tx-2);margin-top:2px;line-height:1.45}
@@ -73,9 +73,9 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     color:var(--tinta);line-height:1.3;letter-spacing:-.015em}
   .rest p{font-size:15px;color:var(--tx);margin-top:11px;line-height:1.65}
 
-  .pe{background:var(--deep);border-radius:17px;padding:30px 32px;margin-top:26px}
+  .pe{background:#0A0A0B;border-radius:17px;padding:30px 32px;margin-top:26px}
   .pe .r{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--azul-300)}
+    color:var(--tx-2)}
   .pe p{font-family:var(--disp);font-weight:600;font-size:clamp(18px,2.4vw,23px);color:#fff;
     line-height:1.45;margin-top:13px}
 
@@ -84,7 +84,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     font-size:14px;color:var(--tx)}
   .mapa .c{font-family:var(--mono);font-size:11.5px;color:var(--tx-3)}
   .mapa .t{height:7px;background:var(--painel);border-radius:999px;overflow:hidden}
-  .mapa .t i{display:block;height:7px;background:var(--azul-300);border-radius:999px}
+  .mapa .t i{display:block;height:7px;background:var(--tx-2);border-radius:999px}
   .mapa .baixa .t i{background:var(--eletrico)}
   .mapa .rot{font-size:12.5px;color:var(--tx-2);text-align:right;font-family:var(--mono)}
   .mapa .ns .rot{color:var(--tx-3)}
@@ -111,13 +111,13 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   .optin input{width:17px;height:17px;margin:2px 0 0;accent-color:var(--eletrico);flex:none}
   .lead .erro{color:var(--alerta);font-size:14px;margin-top:14px;display:none}
   .ok.falhou{background:var(--atencao-s)}
-  .ok.falhou b{color:#6E4800}
+  .ok.falhou b{color:var(--atencao)}
   .lead .ok{display:none;background:var(--ok-s);border-radius:12px;padding:20px 22px;
     font-size:15px;color:var(--tinta-2);line-height:1.6}
   .lead .ok b{color:var(--ok)}
 
   .refaz{margin-top:30px;font-size:14px;color:var(--tx-3)}
-  .refaz button{background:none;border:0;color:var(--azul-700);font:inherit;cursor:pointer;
+  .refaz button{background:none;border:0;color:var(--ouro);font:inherit;cursor:pointer;
     text-decoration:underline;padding:0}
 </style>
 

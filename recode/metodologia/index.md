@@ -42,9 +42,9 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
   .ev{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:30px}
   @media(max-width:860px){ .ev{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:480px){ .ev{grid-template-columns:1fr} }
-  .ev > div{background:var(--deep-2);border:1px solid rgba(143,186,255,.2);border-radius:12px;padding:18px}
-  .ev .c{font-family:var(--mono);font-size:15px;color:var(--azul-300);font-weight:500}
-  .ev p{font-size:13.5px;color:var(--azul-100);margin-top:8px;line-height:1.55}
+  .ev > div{background:var(--painel);border:1px solid var(--linha-2);border-radius:12px;padding:18px}
+  .ev .c{font-family:var(--mono);font-size:15px;color:var(--tx-2);font-weight:500}
+  .ev p{font-size:13.5px;color:var(--tx);margin-top:8px;line-height:1.55}
 
   .saida{background:var(--canvas);border:1px solid var(--linha);border-radius:16px;
     padding:26px 28px;margin-top:30px}
