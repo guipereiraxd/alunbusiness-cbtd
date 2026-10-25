@@ -172,12 +172,17 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     letter-spacing:-.01em}
   .mov p{font-size:13.5px;color:var(--tx-2);margin-top:8px;line-height:1.52}
 
-  /* assinatura: o lockup fecha a seção, ligando o método ao produto */
-  .assina{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;
-    margin-top:46px;padding-top:30px;border-top:1px solid var(--linha-2)}
-  .assina img{height:46px;width:auto}
-  .assina span{font-size:14.5px;color:var(--tx-2);max-width:40ch;line-height:1.55}
-  @media(max-width:620px){ .assina{gap:16px} .assina img{height:38px}
+  /* Assinatura: o lockup fecha a seção. Empilhado e centrado, com ar em
+     volta — ao lado do texto ele competia por espaço e saía pequeno. */
+  .assina{display:flex;flex-direction:column;align-items:center;text-align:center;
+    gap:20px;margin-top:54px;padding-top:44px;border-top:1px solid var(--linha-2)}
+  .assina img{height:104px;width:auto;max-width:100%;
+    filter:drop-shadow(0 18px 42px rgba(0,0,0,.55))}
+  .assina span{font-size:15.5px;color:var(--tx-2);max-width:46ch;line-height:1.6}
+  @media(max-width:860px){ .assina img{height:84px} }
+  @media(max-width:620px){ .assina{margin-top:40px;padding-top:34px;gap:16px}
+    .assina img{height:62px}
+    .assina span{font-size:14.5px}
     .recode .simb{width:230px;top:-70px;right:-60px} }
 
   /* ── ofertas ────────────────────────────────────────────────── */
