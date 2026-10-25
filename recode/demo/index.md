@@ -20,12 +20,12 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   /* ── questionário ─────────────────────────────────────────── */
   .barra{display:flex;align-items:center;gap:16px;margin-bottom:30px}
   .barra .pct{flex:1;height:5px;background:var(--painel);border-radius:999px;overflow:hidden}
-  .barra .pct i{display:block;height:5px;background:var(--eletrico);border-radius:999px;
+  .barra .pct i{display:block;height:5px;background:var(--ouro);border-radius:999px;
     transition:width .3s var(--ease)}
   .barra .n{font-family:var(--mono);font-size:12px;color:var(--tx-2);white-space:nowrap}
 
   .qcomp{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;
-    color:var(--eletrico)}
+    color:var(--ouro)}
   .qtexto{font-family:var(--disp);font-weight:600;font-size:clamp(20px,2.8vw,27px);
     color:var(--tinta);line-height:1.35;margin-top:14px;letter-spacing:-.018em}
 
@@ -34,9 +34,9 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     width:100%;text-align:left;background:var(--papel);border:1px solid var(--linha);
     border-radius:13px;padding:16px 18px;cursor:pointer;font-family:var(--sans);
     transition:border-color .16s var(--ease),background .16s var(--ease),transform .12s var(--ease)}
-  .ops button:hover{border-color:var(--eletrico);background:var(--canvas);transform:translateX(2px)}
-  .ops button.sel{border-color:var(--eletrico);background:var(--ouro-fundo);box-shadow:inset 0 0 0 1px var(--eletrico)}
-  .ops .v{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--eletrico);text-align:center}
+  .ops button:hover{border-color:var(--ouro);background:var(--canvas);transform:translateX(2px)}
+  .ops button.sel{border-color:var(--ouro);background:var(--ouro-fundo);box-shadow:inset 0 0 0 1px var(--ouro)}
+  .ops .v{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--ouro);text-align:center}
   .ops .r{display:block;font-size:16px;font-weight:600;color:var(--tinta)}
   .ops .d{display:block;font-size:13.5px;color:var(--tx-2);margin-top:2px;line-height:1.45}
   .ops button.ns{border-style:dashed}
@@ -56,11 +56,11 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     line-height:1.4}
 
   .rest{display:grid;gap:14px;margin-top:28px}
-  .rest > div{background:var(--papel);border:1px solid var(--linha);border-left:4px solid var(--eletrico);
+  .rest > div{background:var(--papel);border:1px solid var(--linha);border-left:4px solid var(--ouro);
     border-radius:0 15px 15px 0;padding:23px 25px}
   /* o nome do componente em mono quebrava em três linhas ao lado do
      título; vai para a linha de cima, onde é rótulo e não concorrente */
-  .rest .cod{font-family:var(--mono);font-size:11px;color:var(--eletrico);letter-spacing:.06em}
+  .rest .cod{font-family:var(--mono);font-size:11px;color:var(--ouro);letter-spacing:.06em}
   .rest .tit{font-family:var(--mono);font-size:11px;color:var(--tx-3);letter-spacing:.06em;
     text-transform:uppercase}
   .rest .cab{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
@@ -73,7 +73,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     color:var(--tinta);line-height:1.3;letter-spacing:-.015em}
   .rest p{font-size:15px;color:var(--tx);margin-top:11px;line-height:1.65}
 
-  .pe{background:#0A0A0B;border-radius:17px;padding:30px 32px;margin-top:26px}
+  .pe{background:#0F0F0F;border-radius:17px;padding:30px 32px;margin-top:26px}
   .pe .r{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
     color:var(--tx-2)}
   .pe p{font-family:var(--disp);font-weight:600;font-size:clamp(18px,2.4vw,23px);color:#fff;
@@ -85,7 +85,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   .mapa .c{font-family:var(--mono);font-size:11.5px;color:var(--tx-3)}
   .mapa .t{height:7px;background:var(--painel);border-radius:999px;overflow:hidden}
   .mapa .t i{display:block;height:7px;background:var(--tx-2);border-radius:999px}
-  .mapa .baixa .t i{background:var(--eletrico)}
+  .mapa .baixa .t i{background:var(--ouro)}
   .mapa .rot{font-size:12.5px;color:var(--tx-2);text-align:right;font-family:var(--mono)}
   .mapa .ns .rot{color:var(--tx-3)}
 
@@ -103,12 +103,12 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     background:var(--papel);border:1px solid var(--linha-2);border-radius:11px;padding:13px 15px}
   /* o :focus-visible do sistema estava sendo cancelado e substituído por um
      halo de 1,18:1 — invisível para quem navega por teclado */
-  .campo input:focus-visible{outline:3px solid var(--eletrico);outline-offset:2px;
-    border-color:var(--eletrico)}
+  .campo input:focus-visible{outline:3px solid var(--ouro);outline-offset:2px;
+    border-color:var(--ouro)}
   .campo input::placeholder{color:var(--tx-3)}
   .optin{display:flex;gap:11px;align-items:flex-start;margin-top:20px;font-size:14px;
     color:var(--tx-2);line-height:1.55;cursor:pointer}
-  .optin input{width:17px;height:17px;margin:2px 0 0;accent-color:var(--eletrico);flex:none}
+  .optin input{width:17px;height:17px;margin:2px 0 0;accent-color:var(--ouro);flex:none}
   .lead .erro{color:var(--alerta);font-size:14px;margin-top:14px;display:none}
   .ok.falhou{background:var(--atencao-s)}
   .ok.falhou b{color:var(--atencao)}
@@ -176,7 +176,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
       <h2 id="res-titulo" style="margin-top:20px">O seu ponto de vista sugere atenção em:</h2>
 
       <div class="rest" id="res-rest"></div>
-      <div class="pe" id="res-pe"></div>
+      <div class="pe ctx-escuro" id="res-pe"></div>
 
       <h3 style="font-size:19px;margin-top:38px">Como você respondeu, componente a componente</h3>
       <p style="font-size:14.5px;color:var(--tx-2);margin-top:8px;line-height:1.6">

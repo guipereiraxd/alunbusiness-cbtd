@@ -4,9 +4,9 @@ description: "O sistema de estratégia, trabalho, contexto, orquestração, deci
 ---
 
 <style>
-  .defi{background:var(--canvas);border:1px solid var(--linha);border-left:4px solid var(--eletrico);
+  .defi{background:var(--canvas);border:1px solid var(--linha);border-left:4px solid var(--ouro);
     border-radius:0 16px 16px 0;padding:28px 30px;margin-top:34px}
-  .defi .r{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--eletrico)}
+  .defi .r{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ouro)}
   .defi p{font-size:clamp(16px,1.8vw,18.5px);line-height:1.6;color:var(--tinta-2);margin-top:13px}
   .defi p b{color:var(--tinta)}
 
@@ -25,7 +25,7 @@ description: "O sistema de estratégia, trabalho, contexto, orquestração, deci
     background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:22px 24px}
   @media(max-width:860px){ .hh > div{grid-template-columns:52px 1fr;gap:14px}
     .hh .ev{grid-column:2} }
-  .hh .cod{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--eletrico)}
+  .hh .cod{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--ouro)}
   .hh h3{font-size:17px;font-weight:600}
   .hh .q{font-size:14.5px;color:var(--tx-2);margin-top:7px;line-height:1.6}
   .hh .ev{font-size:13.5px;color:var(--tx-3);line-height:1.6;align-self:center}
@@ -42,7 +42,7 @@ description: "O sistema de estratégia, trabalho, contexto, orquestração, deci
   .esc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
   @media(max-width:800px){ .esc{grid-template-columns:1fr} }
   .esc > div{border:1px solid var(--linha);border-radius:14px;padding:22px;background:var(--papel)}
-  .esc .n{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--eletrico)}
+  .esc .n{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--ouro)}
   .esc h3{font-size:17px;margin:10px 0 9px;font-weight:600}
   .esc p{font-size:14px;color:var(--tx-2);line-height:1.6}
   .esc .lim{font-size:13px;color:var(--tx-3);margin-top:12px;padding-top:11px;border-top:1px dashed var(--linha-2)}
@@ -175,7 +175,7 @@ description: "O sistema de estratégia, trabalho, contexto, orquestração, deci
   </div>
 </section>
 
-<section class="sec escura">
+<section class="sec escura ctx-escuro">
   <div class="wrap">
     <div class="olho">Princípios de projeto</div>
     <h2 class="tit larga">Quatro decisões que separam acelerar de multiplicar</h2>

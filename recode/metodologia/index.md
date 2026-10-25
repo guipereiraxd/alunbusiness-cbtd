@@ -8,7 +8,7 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
   @media(max-width:900px){ .trilhas{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:540px){ .trilhas{grid-template-columns:1fr} }
   .trilhas > div{border-radius:14px;padding:22px;border:1px solid var(--linha);background:var(--papel)}
-  .trilhas .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--eletrico)}
+  .trilhas .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ouro)}
   .trilhas h3{font-size:17px;margin:10px 0 8px;font-weight:600}
   .trilhas p{font-size:13.5px;color:var(--tx-2);line-height:1.6}
   .trilhas .fonte{font-size:12.5px;color:var(--tx-3);margin-top:11px;padding-top:10px;border-top:1px dashed var(--linha-2)}
@@ -17,7 +17,7 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
   .mov > div{display:grid;grid-template-columns:54px 1fr 1.1fr;gap:22px;align-items:center;
     background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:20px 24px}
   @media(max-width:820px){ .mov > div{grid-template-columns:44px 1fr;gap:12px} .mov .inst{grid-column:2} }
-  .mov .l{font-family:var(--disp);font-weight:800;font-size:28px;color:var(--eletrico);line-height:1}
+  .mov .l{font-family:var(--disp);font-weight:800;font-size:28px;color:var(--ouro);line-height:1}
   .mov h3{font-size:17px;font-weight:600}
   .mov h3 small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
     text-transform:uppercase;color:var(--tx-3);font-weight:400;margin-top:4px}
@@ -35,7 +35,7 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
   .regra{display:grid;gap:11px;margin-top:28px}
   .regra > div{display:grid;grid-template-columns:30px 1fr;gap:15px;align-items:start;
     background:var(--canvas);border:1px solid var(--linha);border-radius:12px;padding:17px 19px}
-  .regra .i{font-family:var(--mono);font-size:12px;color:var(--eletrico);padding-top:2px}
+  .regra .i{font-family:var(--mono);font-size:12px;color:var(--ouro);padding-top:2px}
   .regra p{font-size:14.5px;color:var(--tx);line-height:1.6}
   .regra p b{color:var(--tinta)}
 
@@ -57,7 +57,7 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
   .refs{display:grid;gap:9px;margin-top:26px}
   .refs a{font-size:14.5px;color:var(--tx);text-decoration:none;line-height:1.55;
     border-left:2px solid var(--linha-2);padding-left:14px;transition:border-color .18s,color .18s}
-  .refs a:hover{border-left-color:var(--eletrico);color:var(--tinta)}
+  .refs a:hover{border-left-color:var(--ouro);color:var(--tinta)}
   .refs a span{display:block;font-size:12.5px;color:var(--tx-3);margin-top:2px}
 </style>
 
@@ -171,7 +171,7 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
   </div>
 </section>
 
-<section class="sec escura">
+<section class="sec escura ctx-escuro">
   <div class="wrap">
     <div class="olho">Evidências</div>
     <h2 class="tit larga">Cinco níveis, avaliados fora do questionário</h2>

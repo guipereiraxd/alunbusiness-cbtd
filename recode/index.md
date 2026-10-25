@@ -5,14 +5,14 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 
 <style>
   /* ── hero ───────────────────────────────────────────────────── */
-  .hero{position:relative;background:#0A0A0B;color:var(--tx);
+  .hero{position:relative;background:#0F0F0F;
     padding:96px 0 104px;overflow:hidden;isolation:isolate;
     min-height:calc(100svh - 86px);display:flex;align-items:center}
   .hero::before{content:"";position:absolute;inset:0;z-index:-2;
     background:
       radial-gradient(900px 560px at 84% -16%, rgba(209,164,118,.17), transparent 62%),
       radial-gradient(720px 500px at -8% 114%, rgba(209,164,118,.09), transparent 64%),
-      linear-gradient(180deg,#0A0A0B 0%,#141416 100%)}
+      linear-gradient(180deg,#0F0F0F 0%,#19191C 100%)}
   .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
     background-image:linear-gradient(rgba(209,164,118,.06) 1px,transparent 1px),
                      linear-gradient(90deg,rgba(209,164,118,.06) 1px,transparent 1px);
@@ -109,12 +109,12 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   @media(max-width:800px){ .pat{grid-template-columns:1fr} }
   .pat > div{position:relative;border-radius:20px;padding:32px;overflow:hidden}
   .pat .um{background:var(--papel);border:1px solid var(--linha)}
-  .pat .dois{color:var(--tx);background:#0A0A0B;isolation:isolate;
+  .pat .dois{color:var(--tx);background:#0F0F0F;isolation:isolate;
     box-shadow:0 26px 64px rgba(10,31,68,.3)}
   .pat .dois::before{content:"";position:absolute;inset:0;z-index:-1;
     background:radial-gradient(520px 320px at 110% -20%, rgba(209,164,118,.22), transparent 62%),
                radial-gradient(420px 300px at -10% 120%, rgba(209,164,118,.12), transparent 64%),
-               linear-gradient(180deg,#0A0A0B,#151517)}
+               linear-gradient(180deg,#0F0F0F,#1A1A1D)}
   .pat .rot{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
     letter-spacing:.13em;text-transform:uppercase;color:var(--tx-3)}
   .pat .rot::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--linha-2)}
@@ -168,7 +168,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   .of .nm{font-family:var(--disp);font-weight:700;font-size:22px;color:var(--tinta);
     letter-spacing:-.024em}
   .of .nm span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
-    text-transform:uppercase;color:var(--eletrico);font-weight:400;margin-top:6px}
+    text-transform:uppercase;color:var(--ouro);font-weight:400;margin-top:6px}
   .of p{font-size:15px;color:var(--tx-2);line-height:1.62}
   .of .ent{font-family:var(--mono);font-size:12px;color:var(--tx-3);text-align:right;
     line-height:1.7;white-space:nowrap}
@@ -194,12 +194,12 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 
   /* ── conversão ──────────────────────────────────────────────── */
   .conv{position:relative;border-radius:28px;padding:62px 48px;text-align:center;
-    overflow:hidden;isolation:isolate;background:#0A0A0B;
+    overflow:hidden;isolation:isolate;background:#0F0F0F;
     box-shadow:0 30px 80px rgba(10,31,68,.3)}
   .conv::before{content:"";position:absolute;inset:0;z-index:-2;
     background:radial-gradient(640px 400px at 18% -24%, rgba(209,164,118,.2), transparent 62%),
                radial-gradient(600px 380px at 86% 122%, rgba(209,164,118,.11), transparent 64%),
-               linear-gradient(160deg,#0A0A0B,#151517)}
+               linear-gradient(160deg,#0F0F0F,#1A1A1D)}
   .conv .simb{position:absolute;bottom:-78px;right:-58px;width:242px;opacity:.14;z-index:-1;
     pointer-events:none}
   @media(max-width:620px){ .conv{padding:42px 24px;border-radius:20px}
@@ -210,7 +210,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   .conv .botoes{justify-content:center;margin-top:36px}
 </style>
 
-<section class="hero escuro">
+<section class="hero escuro ctx-escuro">
   <div class="wrap hero-in">
     <div>
       <div class="olho">Consultoria em harness organizacional</div>
@@ -227,7 +227,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
       <div class="assin">Reprograme o trabalho. Reinvente o negócio.</div>
     </div>
 
-    <div class="hns" role="img"
+    <div class="hns ctx-escuro" role="img"
          aria-label="Diagrama dos oito componentes do harness organizacional — H1 modelo de negócio e economia do valor, H2 arquitetura do trabalho e fluxo, H3 modelo operacional humano–agente, H4 contexto, conhecimento e dados, H5 execução e orquestração, H6 avaliação, observabilidade e confiabilidade, H7 governança e direitos de decisão, H8 liderança, competências e mudança — empilhados e convergindo para o desempenho de negócio: custo, qualidade, velocidade, receita e risco.">
       <img class="simb" src="{{ '/recode/assets/marca/recode-simbolo-3d.png' | relative_url }}" alt="" aria-hidden="true">
       <div class="cab" aria-hidden="true">
@@ -304,7 +304,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
         <p>O profissional usa assistentes dentro do fluxo que já existe. O ganho é real, mas local:
            fica contido pela etapa seguinte, que não mudou. A vantagem é individual e não se acumula.</p>
       </div>
-      <div class="dois">
+      <div class="dois ctx-escuro">
         <div class="rot">Patamar 2 · o trabalho redesenhado</div>
         <h3>A organização amplia a capacidade do processo</h3>
         <p>O trabalho é decomposto, a verificação é proporcional ao risco, os agentes são sustentados
@@ -453,7 +453,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 
 <section class="sec ap">
   <div class="wrap">
-    <div class="conv escuro">
+    <div class="conv escuro ctx-escuro">
       <img class="simb" src="{{ '/recode/assets/marca/recode-simbolo-3d.png' | relative_url }}" alt="" aria-hidden="true">
       <h2>Onde a sua organização está perdendo o ganho da IA?</h2>
       <p>Comece pela demo de oito perguntas — leva de três a cinco minutos, não pede cadastro e

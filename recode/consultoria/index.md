@@ -8,7 +8,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
   .ofs > div{background:var(--papel);border:1px solid var(--linha);border-radius:18px;padding:30px}
   .ofs .top{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
   .ofs .nm{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--tinta);letter-spacing:-.02em}
-  .ofs .en{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--eletrico)}
+  .ofs .en{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ouro)}
   .ofs .desc{font-size:15.5px;color:var(--tx-2);margin-top:14px;line-height:1.65;max-width:70ch}
   .ofs .corpo{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:22px;
     padding-top:22px;border-top:1px solid var(--linha)}
@@ -40,7 +40,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
   @media(max-width:860px){ .noventa{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:520px){ .noventa{grid-template-columns:1fr} }
   .noventa > div{background:var(--papel);padding:22px}
-  .noventa .d{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--eletrico)}
+  .noventa .d{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ouro)}
   .noventa p{font-size:14px;color:var(--tx-2);margin-top:10px;line-height:1.6}
 
   .lim{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
@@ -49,7 +49,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
   .lim h3{font-size:17.5px;font-weight:600;margin-bottom:11px}
   .lim p{font-size:14.5px;color:var(--tx-2);line-height:1.65}
 
-  .conv{background:#0A0A0B;border-radius:22px;padding:50px 44px;text-align:center}
+  .conv{background:#0F0F0F;border-radius:22px;padding:50px 44px;text-align:center}
   @media(max-width:620px){ .conv{padding:36px 24px;border-radius:18px} }
   .conv h2{color:#fff;font-size:clamp(23px,3.2vw,32px);max-width:24ch;margin:0 auto}
   .conv p{color:var(--tx-2);font-size:16.5px;margin:15px auto 0;max-width:56ch;line-height:1.6}
@@ -158,7 +158,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
     <p class="lead">Não é um chatbot, uma ferramenta nem uma trilha de treinamento. É uma jornada
        delimitada, com resultado mensurável e alguém que responde por ela.</p>
 
-    <div class="missao">
+    <div class="missao ctx-escuro">
       <div class="ex">“Reduzir o tempo de cotação mantendo a taxa de erro e a conformidade.”</div>
       <div class="pr">
         <div><b>Outcome</b><span>o resultado de negócio, com indicador</span></div>
@@ -234,7 +234,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
 
 <section class="sec ap">
   <div class="wrap">
-    <div class="conv escuro">
+    <div class="conv escuro ctx-escuro">
       <h2>Vamos começar pela sua restrição, não pelo nosso método</h2>
       <p>A conversa de descoberta parte de uma jornada que já incomoda a sua operação. Se o
          diagnóstico não fizer sentido para ela, a gente diz isso.</p>

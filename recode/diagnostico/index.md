@@ -14,7 +14,7 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
   .passos{display:grid;gap:13px;margin-top:34px}
   .passos > div{display:grid;grid-template-columns:46px 1fr;gap:20px;
     background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:22px 24px}
-  .passos .n{font-family:var(--mono);font-size:13px;color:var(--eletrico);padding-top:3px}
+  .passos .n{font-family:var(--mono);font-size:13px;color:var(--ouro);padding-top:3px}
   .passos h3{font-size:17.5px;font-weight:600}
   .passos p{font-size:14.5px;color:var(--tx-2);margin-top:8px;line-height:1.6}
 
@@ -75,7 +75,7 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
   .dev .met{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-family:var(--mono);
     font-size:11.5px;color:var(--tx-3)}
   .dev .met span b{color:var(--tx);font-weight:500}
-  .comp .dest .r{color:var(--eletrico)}
+  .comp .dest .r{color:var(--ouro)}
 </style>
 
 <section class="cap">
@@ -125,7 +125,7 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
   </div>
 </section>
 
-<section class="sec escura">
+<section class="sec escura ctx-escuro">
   <div class="wrap">
     <div class="olho">Privacidade</div>
     <h2 class="tit larga">O questionário não avalia pessoas — e o desenho garante isso</h2>

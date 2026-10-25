@@ -29,13 +29,13 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
     color:var(--tinta);background:var(--papel);border:1px solid var(--linha-2);
     border-radius:11px;padding:13px 15px}
   .campo textarea{min-height:108px;resize:vertical;line-height:1.55}
-  .campo input:focus-visible,.campo textarea:focus-visible{outline:3px solid var(--eletrico);
-    outline-offset:2px;border-color:var(--eletrico)}
+  .campo input:focus-visible,.campo textarea:focus-visible{outline:3px solid var(--ouro);
+    outline-offset:2px;border-color:var(--ouro)}
   .campo input::placeholder,.campo textarea::placeholder{color:var(--tx-3)}
 
   .optin{display:flex;gap:11px;align-items:flex-start;margin-top:20px;font-size:14px;
     color:var(--tx-2);line-height:1.55;cursor:pointer}
-  .optin input{width:17px;height:17px;margin:2px 0 0;accent-color:var(--eletrico);flex:none}
+  .optin input{width:17px;height:17px;margin:2px 0 0;accent-color:var(--ouro);flex:none}
   .lgpd{font-size:13px;color:var(--tx-2);margin-top:16px;line-height:1.55}
   .erro{color:var(--alerta);font-size:14.5px;margin-top:14px;display:none}
   .ok.falhou{background:var(--atencao-s)}
