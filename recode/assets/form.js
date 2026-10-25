@@ -33,7 +33,8 @@ window.RECODE_FORM = (function(){
     function reiniciar(){
       botao.disabled = false; botao.textContent = cfg.rotulo || "Enviar";
       erro.style.display = "none"; erro.textContent = "";
-      forma.style.display = "block"; ok.style.display = "none";
+      forma.style.display = "block";
+      ok.style.display = "none"; ok.innerHTML = ""; ok.className = "ok";
     }
 
     botao.addEventListener("click", function(){
@@ -55,6 +56,20 @@ window.RECODE_FORM = (function(){
         ok.style.display = "block";
         ok.focus();   /* sem isto o foco fica num botão que acabou de sumir */
         ok.innerHTML = mensagem(res.modo, cfg.sucessoExtra);
+        ok.className = (res.modo === "remoto") ? "ok" : "ok falhou";
+
+        /* Quem não conseguiu enviar ficava sem saída: a mensagem dizia que
+           houve falha e a tela não oferecia como repetir. O botão devolve o
+           formulário preenchido, porque os campos não foram limpos. */
+        if (res.modo !== "remoto"){
+          var retry = document.createElement("button");
+          retry.type = "button";
+          retry.className = "bt bt-2";
+          retry.style.marginTop = "18px";
+          retry.textContent = "Tentar enviar de novo";
+          retry.addEventListener("click", function(){ reiniciar(); botao.focus(); });
+          ok.appendChild(retry);
+        }
       });
     });
 

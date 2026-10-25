@@ -38,6 +38,8 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
   .optin input{width:17px;height:17px;margin:2px 0 0;accent-color:var(--eletrico);flex:none}
   .lgpd{font-size:13px;color:var(--tx-2);margin-top:16px;line-height:1.55}
   .erro{color:var(--alerta);font-size:14.5px;margin-top:14px;display:none}
+  .ok.falhou{background:var(--atencao-s)}
+  .ok.falhou b{color:#6E4800}
   .ok{display:none;background:var(--ok-s);border-radius:14px;padding:24px;
     font-size:15.5px;color:var(--tinta-2);line-height:1.6}
   .ok b{color:var(--ok)}
