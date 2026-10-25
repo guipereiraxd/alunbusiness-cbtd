@@ -172,6 +172,24 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     line-height:1.7;white-space:nowrap}
   @media(max-width:860px){ .of .ent{text-align:left;white-space:normal} }
 
+  /* ── exemplos de missão ─────────────────────────────────────── */
+  .mis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+  @media(max-width:940px){ .mis{grid-template-columns:1fr} }
+  .mis > div{position:relative;background:var(--papel);border:1px solid var(--linha);
+    border-radius:18px;padding:26px;overflow:hidden;
+    transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+  .mis > div:hover{transform:translateY(-3px);box-shadow:var(--elev-2)}
+  .mis .setor{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--azul-700)}
+  .mis .obj{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--tinta);
+    margin:12px 0 0;line-height:1.32;letter-spacing:-.018em}
+  .mis .campos{display:grid;gap:10px;margin-top:18px;padding-top:16px;
+    border-top:1px solid var(--linha)}
+  .mis .campos div{display:grid;grid-template-columns:82px 1fr;gap:12px;font-size:13.5px;
+    color:var(--tx-2);line-height:1.5}
+  .mis .campos b{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--tx-3);font-weight:400;padding-top:2px}
+
   /* ── conversão ──────────────────────────────────────────────── */
   .conv{position:relative;border-radius:28px;padding:62px 48px;text-align:center;
     overflow:hidden;isolation:isolate;background:var(--deep);
@@ -380,6 +398,48 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
       </div>
     </div>
 
+    <h3 style="font-size:21px;margin-top:52px">Sobre o que o trabalho morde</h3>
+    <p class="lead" style="margin-top:10px">A unidade de intervenção não é um chatbot nem uma
+       trilha de treinamento: é uma <b>missão de negócio</b> — uma jornada delimitada, com
+       resultado mensurável e alguém que responde por ela.</p>
+
+    <div class="mis rv">
+      <div>
+        <div class="setor">Comercial</div>
+        <div class="obj">Reduzir o tempo de cotação mantendo a taxa de erro e a conformidade</div>
+        <div class="campos">
+          <div><b>Indicador</b><span>tempo de ciclo por faixa de valor, com taxa de retrabalho</span></div>
+          <div><b>Owner</b><span>diretoria comercial, com poder de mudar a alçada de aprovação</span></div>
+          <div><b>Risco</b><span>proposta errada chega ao cliente — exige gate humano</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="setor">Operações</div>
+        <div class="obj">Encurtar o atendimento de segunda linha sem perder a qualidade da resolução</div>
+        <div class="campos">
+          <div><b>Indicador</b><span>tempo até resolução e reabertura em 30 dias</span></div>
+          <div><b>Owner</b><span>gerência de operações, com acesso ao histórico de chamados</span></div>
+          <div><b>Risco</b><span>resposta plausível e errada ao cliente final</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="setor">Suporte ao negócio</div>
+        <div class="obj">Fechar o ciclo de relatórios gerenciais na primeira semana do mês</div>
+        <div class="campos">
+          <div><b>Indicador</b><span>dia útil de fechamento e número de correções após publicar</span></div>
+          <div><b>Owner</b><span>controladoria, com autoridade sobre a fonte dos dados</span></div>
+          <div><b>Risco</b><span>número publicado que orienta decisão e depois muda</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nota">
+      <b>São exemplos de formato, não casos de cliente.</b> O que torna qualquer um deles pronto
+      para redesenho é sempre o mesmo: patrocinador capaz de alterar processo e investimento,
+      indicador com baseline, mapa do fluxo atual, limites de risco declarados e hipótese
+      explícita de onde o valor será capturado.
+    </div>
+
     <div class="nota">
       <b>O que a Alun Business faz e o que não faz.</b> O movimento <i>Orchestrate</i> é desenho e
       coordenação junto a parceiros ou à TI do cliente. A implementação técnica é contratada à
@@ -399,7 +459,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
          corporativo é outro instrumento.</p>
       <div class="botoes">
         <a class="bt bt-1" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
-        <a class="bt bt-2" href="{{ '/recode/diagnostico/' | relative_url }}">Aplicar na minha empresa</a>
+        <a class="bt bt-2" href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>
       </div>
     </div>
   </div>

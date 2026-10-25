@@ -234,6 +234,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
 <script src="{{ '/recode/assets/demo-data.js' | relative_url }}"></script>
 <script src="{{ '/recode/assets/leads.js' | relative_url }}"></script>
+<script src="{{ '/recode/assets/form.js' | relative_url }}"></script>
 <script>
 (function(){
   var D = window.RECODE_DEMO, L = window.RECODE_LEADS;
@@ -303,12 +304,7 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     /* devolver o formulário sem devolver o BOTÃO deixava o único ponto de
        conversão travado em "Enviando…" e desabilitado para sempre; o erro
        antigo também sobrevivia, em vermelho, num formulário intocado */
-    var b = document.getElementById("lead-enviar");
-    b.disabled = false; b.textContent = "Quero conversar";
-    var err = document.getElementById("lead-erro");
-    err.style.display = "none"; err.textContent = "";
-    document.getElementById("lead-form").style.display = "block";
-    document.getElementById("lead-ok").style.display = "none";
+    if (formulario) formulario.reiniciar();
     mostra("et-q"); render();
     var primeira = document.querySelector("#q-ops button");
     if (primeira) primeira.focus();
@@ -381,39 +377,16 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   }
 
   /* ── interesse ───────────────────────────────────────────── */
-  document.getElementById("lead-enviar").addEventListener("click", function(){
-    var b = this, err = document.getElementById("lead-erro");
-    var d = {
-      nome:    document.getElementById("f-nome").value,
-      email:   document.getElementById("f-email").value,
-      empresa: document.getElementById("f-empresa").value,
-      cargo:   document.getElementById("f-cargo").value,
-      optin:   document.getElementById("f-optin").checked
-    };
-    err.style.display = "none";
-    if (!d.nome.trim()){ err.textContent = "Informe o seu nome."; err.style.display="block"; return; }
-    if (!L.valido(d.email)){ err.textContent = "Informe um e-mail válido."; err.style.display="block"; return; }
-
-    b.disabled = true; b.textContent = "Enviando…";
-    L.registrar(d).then(function(res){
-      var ok = document.getElementById("lead-ok");
-      document.getElementById("lead-form").style.display = "none";
-      ok.style.display = "block";
-      ok.focus();   /* sem isto o foco ficava num botão que acabou de sumir */
-      ok.innerHTML =
-        res.modo === "remoto"
-        ? '<b>Recebemos o seu contato.</b><br>A gente retorna para entender qual jornada está '
-          + 'incomodando a sua operação. As suas respostas da prévia não foram enviadas — elas '
-          + 'são exploratórias e não compõem o diagnóstico.'
-        : res.modo === "indefinido"
-        ? '<b>O envio demorou mais do que o esperado.</b><br>Ele pode ter chegado — não dá para '
-          + 'confirmar daqui. Se não tivermos retornado em alguns dias, envie de novo.'
-        : res.modo === "sem-backend"
-        ? '<b>Este ambiente não tem onde gravar o contato.</b><br>É a versão local do site; '
-          + 'em produção o envio funciona normalmente.'
-        : '<b>Não conseguimos registrar o seu contato.</b><br>Houve uma falha de conexão com o '
-          + 'servidor. Tente de novo em instantes.';
-    });
+  /* o comportamento do formulário vive em form.js, usado também pela
+     página de contato — duas cópias divergiriam nas mensagens de estado */
+  var formulario = window.RECODE_FORM.ligar({
+    forma:"lead-form", botao:"lead-enviar", erro:"lead-erro", ok:"lead-ok",
+    nome:"f-nome", email:"f-email", empresa:"f-empresa", cargo:"f-cargo",
+    optin:"f-optin",
+    rotulo:"Quero conversar",
+    sucessoExtra:"As suas respostas da prévia não foram enviadas — elas são exploratórias e "
+      + "não compõem o diagnóstico."
   });
+
 })();
 </script>

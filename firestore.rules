@@ -31,8 +31,8 @@ service cloud.firestore {
     // abaixo limitam o payload ao formato exato do formulário.
     match /recode_leads/{doc} {
       allow create: if request.resource.data.keys().hasOnly(
-                         ['id','nome','email','empresa','cargo','origem',
-                          'marketing_opt_in','criado'])
+                         ['id','nome','email','empresa','cargo','assunto',
+                          'origem','marketing_opt_in','criado'])
                     && request.resource.data.keys().hasAll(
                          ['nome','email','marketing_opt_in','criado'])
                     && request.resource.data.nome is string
@@ -46,6 +46,8 @@ service cloud.firestore {
                         || request.resource.data.empresa.size() <= 160)
                     && (!request.resource.data.keys().hasAny(['cargo'])
                         || request.resource.data.cargo.size() <= 160)
+                    && (!request.resource.data.keys().hasAny(['assunto'])
+                        || request.resource.data.assunto.size() <= 1200)
                     && (!request.resource.data.keys().hasAny(['origem'])
                         || request.resource.data.origem.size() <= 60);
       allow read, update, delete: if false;

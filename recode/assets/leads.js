@@ -40,6 +40,9 @@ window.RECODE_LEADS = (function(){
       email:   String(d.email||"").trim(),
       empresa: String(d.empresa||"").trim(),
       cargo:   String(d.cargo||"").trim(),
+      /* texto livre, só a página de contato envia; limitado aqui e na
+         regra do Firestore para não virar canal de payload arbitrário */
+      assunto: String(d.assunto||"").trim().slice(0, 1200),
       origem:  "demo_harness_v" + (window.RECODE_DEMO ? window.RECODE_DEMO.VERSAO : "2.0"),
       marketing_opt_in: !!d.optin,
       criado:  new Date().toISOString()

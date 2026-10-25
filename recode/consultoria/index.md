@@ -239,8 +239,8 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
       <p>A conversa de descoberta parte de uma jornada que já incomoda a sua operação. Se o
          diagnóstico não fizer sentido para ela, a gente diz isso.</p>
       <div class="botoes">
-        <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Conhecer o diagnóstico</a>
-        <a class="bt bt-2" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
+        <a class="bt bt-1" href="{{ '/recode/contato/' | relative_url }}">Conversar sobre uma transformação</a>
+        <a class="bt bt-2" href="{{ '/recode/diagnostico/' | relative_url }}">Conhecer o diagnóstico</a>
       </div>
     </div>
   </div>

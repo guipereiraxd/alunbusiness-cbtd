@@ -309,6 +309,7 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
     <div class="botoes">
       <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Aplicar o diagnóstico</a>
       <a class="bt bt-2" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
+      <a class="bt bt-2" href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>
     </div>
   </div>
 </section>

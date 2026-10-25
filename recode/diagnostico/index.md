@@ -39,6 +39,41 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
   .comp h3{font-size:18.5px;margin:10px 0 12px}
   .comp ul{margin:0;padding-left:19px;font-size:14.5px;color:var(--tx-2);line-height:1.75}
   .comp .dest{background:var(--canvas)}
+
+  /* linha do tempo */
+  .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);
+    border:1px solid var(--linha);border-radius:16px;overflow:hidden;margin-top:34px}
+  @media(max-width:880px){ .tl{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:520px){ .tl{grid-template-columns:1fr} }
+  .tl > div{background:var(--papel);padding:24px 22px;position:relative}
+  .tl .s{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--azul-700)}
+  .tl h3{font-size:17px;font-weight:600;margin:11px 0 9px;letter-spacing:-.012em}
+  .tl p{font-size:14.5px;color:var(--tx-2);line-height:1.6}
+  .tl .quem{font-family:var(--mono);font-size:11px;color:var(--tx-3);margin-top:13px;
+    padding-top:11px;border-top:1px dashed var(--linha-2)}
+
+  /* excerto da devolutiva */
+  .dev{background:var(--canvas);border:1px solid var(--linha);border-radius:18px;
+    padding:0;overflow:hidden;margin-top:34px}
+  .dev .faixa{background:var(--atencao-s);padding:12px 26px;font-size:13.5px;
+    color:#6E4800;font-weight:600;border-bottom:1px solid var(--atencao)}
+  .dev .corpo{padding:30px 32px}
+  @media(max-width:560px){ .dev .corpo{padding:24px 20px} }
+  .dev .cab{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--tx-3);padding-bottom:16px;border-bottom:1px solid var(--linha);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .dev .item{padding:20px 0;border-bottom:1px solid var(--linha)}
+  .dev .item:last-child{border-bottom:0;padding-bottom:0}
+  .dev .rot{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--azul-700)}
+  .dev .val{font-family:var(--disp);font-weight:600;font-size:18px;color:var(--tinta);margin-top:8px;
+    line-height:1.4}
+  .dev p{font-size:15px;color:var(--tx-2);line-height:1.65;margin-top:9px}
+  .dev p b{color:var(--tinta-2)}
+  .dev .met{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-family:var(--mono);
+    font-size:11.5px;color:var(--tx-3)}
+  .dev .met span b{color:var(--tx);font-weight:500}
   .comp .dest .r{color:var(--eletrico)}
 </style>
 
@@ -157,6 +192,102 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
 
 <section class="sec canvas">
   <div class="wrap">
+    <div class="olho">Quanto tempo leva</div>
+    <h2 class="tit larga">Quatro semanas até a devolutiva</h2>
+    <p class="lead">O prazo depende do tamanho do grupo a ouvir e da disponibilidade de quem
+       guarda as evidências. Esta é a janela típica de um Discover sobre uma missão.</p>
+
+    <div class="tl rv">
+      <div><div class="s">Semana 1</div>
+        <h3>Enquadramento</h3>
+        <p>Definição da missão, do patrocinador e do indicador com baseline. Sem isso o resto
+           não tem foco.</p>
+        <div class="quem">com o patrocinador</div></div>
+      <div><div class="s">Semana 2</div>
+        <h3>Campanha aberta</h3>
+        <p>As 32 questões vão para os grupos definidos, com dois lembretes. Em paralelo começam
+           as entrevistas.</p>
+        <div class="quem">com o grupo e a liderança</div></div>
+      <div><div class="s">Semana 3</div>
+        <h3>Evidências</h3>
+        <p>Levantamento e classificação de artefatos por componente, de E0 a E4, e fechamento
+           do cálculo com cobertura.</p>
+        <div class="quem">com quem opera o processo</div></div>
+      <div><div class="s">Semana 4</div>
+        <h3>Leitura e decisão</h3>
+        <p>Devolutiva ao patrocinador: restrição provável, controle crítico, próxima decisão
+           e o que ficou sem evidência.</p>
+        <div class="quem">com o patrocinador e a liderança</div></div>
+    </div>
+
+    <div class="nota">
+      <b>O que pode esticar o prazo.</b> Grupo acima de algumas centenas de pessoas, necessidade
+      de aprovação interna para o convite, ou evidências que dependem de sistemas cujo acesso
+      precisa ser liberado. Nada disso é raro, e preferimos dizer antes.
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="olho">Como é a conclusão</div>
+    <h2 class="tit larga">Um trecho de devolutiva, com dados fictícios</h2>
+    <p class="lead">A devolutiva não começa por escore. Começa pela restrição que retém valor e
+       pela decisão que ela exige — e declara o que ainda não tem evidência.</p>
+
+    <div class="dev rv">
+      <div class="faixa">⚠ Exemplo ilustrativo. Dados fictícios, empresa inexistente — não é
+        resultado de nenhum cliente.</div>
+      <div class="corpo">
+        <div class="cab">
+          <span>Missão: reduzir o tempo de cotação mantendo taxa de erro</span>
+          <span>instrumento v2.0 · 58 submissões</span>
+        </div>
+
+        <div class="item">
+          <div class="rot">Restrição provável</div>
+          <div class="val">H2 — o trabalho não foi redesenhado, só acelerado</div>
+          <p>Média percebida <b>2,1 de 4</b> em 46 respostas válidas de 58 submissões.
+             Evidência revisada: <b>E1</b> — há relato de redesenho, não há blueprint operacional.
+             A automação da redação de propostas convive com as mesmas três aprovações em série.</p>
+          <div class="met">
+            <span>cobertura <b>79%</b></span>
+            <span>confiança <b>média</b></span>
+            <span>divergência comercial × operações <b>0,8</b></span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="rot">Controle crítico</div>
+          <div class="val">H7 — autonomia sem gate definido em ação irreversível</div>
+          <p>Três fluxos enviam ao cliente sem aprovação humana, e não há responsável nomeado
+             para interromper. <b>Isto não é compensado pela média geral</b>: enquanto existir,
+             nenhuma recomendação de escalar é emitida.</p>
+          <div class="met"><span>origem <b>entrevista + runbook</b></span><span>evidência <b>E2</b></span></div>
+        </div>
+
+        <div class="item">
+          <div class="rot">Próxima decisão</div>
+          <div class="val">Mapear o fluxo de propostas e levantar baseline de tempo de ciclo</div>
+          <p>Owner: diretoria comercial. Prazo: 30 dias. Indicador: tempo de ciclo por faixa de
+             valor, segmentado. <b>É uma hipótese a testar, não uma conclusão causal</b> — o
+             diagnóstico aponta onde olhar, a medição é que confirma.</p>
+        </div>
+
+        <div class="item">
+          <div class="rot">O que ficou sem evidência</div>
+          <div class="val">H5 e H6 — não publicados</div>
+          <p>Cobertura abaixo do mínimo: 5 e 6 respostas válidas, contra as 7 exigidas. Aparecem
+             como <b>evidência insuficiente para agregar</b>, nunca como zero, e não entram no
+             índice descritivo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec canvas">
+  <div class="wrap">
     <div class="olho">Antes de contratar</div>
     <h2 class="tit larga">O que o diagnóstico faz, e o que não faz</h2>
 
@@ -194,8 +325,8 @@ description: "O Organizational Harness Diagnostic: o que mede, como se aplica na
     </div>
 
     <div class="botoes">
-      <a class="bt bt-1" href="{{ '/recode/consultoria/' | relative_url }}">Ver as quatro ofertas</a>
-      <a class="bt bt-2" href="{{ '/recode/demo/' | relative_url }}">Experimentar a demo</a>
+      <a class="bt bt-1" href="{{ '/recode/contato/' | relative_url }}">Aplicar na minha empresa</a>
+      <a class="bt bt-2" href="{{ '/recode/consultoria/' | relative_url }}">Ver as quatro ofertas</a>
     </div>
   </div>
 </section>
