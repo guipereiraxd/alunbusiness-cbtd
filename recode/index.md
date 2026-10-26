@@ -55,7 +55,11 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     box-shadow:0 34px 90px rgba(0,0,0,.6)}
   .hns .simb{position:absolute;top:-54px;right:-58px;width:208px;opacity:.17;
     pointer-events:none;z-index:0}
-  .hns > *{position:relative;z-index:1}
+  /* Os dois :not() existem porque esta regra devolvia ao fluxo o que
+     precisa ficar fora dele: a alternativa textual do diagrama (que
+     ocupava 140px entre o fio e a placa) e o próprio símbolo, que
+     empatava em especificidade com .hns .simb e vencia por vir depois. */
+  .hns > *:not(.pular):not(.simb){position:relative;z-index:1}
   .hns .cab{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
     font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
     color:var(--tx-2);margin-bottom:16px;line-height:1.5}
