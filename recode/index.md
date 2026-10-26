@@ -488,12 +488,14 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
       </div>
 
       <div>
-        <h3>O time escreve muito mais código. A empresa não entrega muito mais software.</h3>
+        <h3>Empresas relatam de 10x a 20x mais código. A entrega de software não anda
+          nessa proporção.</h3>
         <div class="tr">
           <div class="tr-c tr-a">
             <div class="rot">Antes · a IA como ferramenta</div>
-            <p>A escrita acelera e o trabalho se acumula adiante: revisão, fila de testes, integração
-               e janela de implantação continuam do mesmo tamanho.</p>
+            <p>A geração de código acelera de verdade, e o trabalho se acumula adiante:
+               revisão, fila de testes, integração e janela de implantação continuam do
+               mesmo tamanho.</p>
           </div>
           <div class="tr-s" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -509,10 +511,13 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
       </div>
     </div>
 
-    <p class="medir" style="margin-top:34px;border-left-color:var(--ouro-borda)">Em nenhum dos
-       dois há ganho comprovado: são o que um piloto precisa demonstrar na sua operação. A
-       vazão de uma etapa subir não move a entrega — é por isso que o diagnóstico começa pelo
-       fluxo de ponta a ponta, e não pela ferramenta.</p>
+    <p class="medir" style="margin-top:34px;border-left-color:var(--ouro-borda)">Os
+       multiplicadores de geração de código são <b>relatos do mercado</b>, não medidas nossas —
+       e medições independentes em bases maduras já encontraram o contrário, com
+       desenvolvedores experientes levando mais tempo com IA do que sem.
+       <a href="{{ '/recode/fundamentos/' | relative_url }}#referencias">As duas leituras estão
+       nas referências</a>, e elas não se anulam: é exatamente essa distância entre o que se
+       relata e o que se mede que o diagnóstico existe para resolver.</p>
   </div>
 </section>
 
