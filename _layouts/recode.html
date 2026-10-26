@@ -227,18 +227,55 @@
        puro sobre azul-escuro) e sim tamanho e posição. Cortar o vazio não
        recolore nem redesenha nada — nenhum pixel do desenho muda. */
     .rc-marca img{height:38px;width:auto}
-    .rc-nav{display:flex;align-items:center;gap:4px}
-    .rc-nav a{position:relative;font-size:15px;color:#B9C4F5;text-decoration:none;
-      padding:10px 14px;border-radius:999px;transition:color .18s var(--ease)}
-    .rc-nav a:hover{color:#fff}
-    .rc-nav a.on{color:#fff}
-    .rc-nav a.on::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;
-      height:2px;border-radius:2px;background:var(--grad-r)}
-    .rc-nav a.cta{background:var(--ouro);color:var(--sobre-ouro);font-weight:600;padding:11px 20px;
-      box-shadow:0 6px 18px rgba(209,164,118,.22);transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
-    .rc-nav a.cta:hover{transform:translateY(-1px);background:var(--ouro-hover);
-      box-shadow:0 10px 26px rgba(209,164,118,.34)}
-    .rc-nav a.cta::after{display:none}
+    /* O menu era link de texto com troca de cor: o cabeçalho padrão de
+       qualquer site, e sem relação com o que o resto da página faz. A
+       assinatura daqui é a fita viva usada como ESCALA — as oito camadas
+       do diagrama da hero a percorrem, e cada cartão H1–H8 carrega a sua
+       cor. Os quatro itens do menu passam a percorrer a mesma fita, do
+       azul ao violeta, cada um com o seu ponto. O ponto é o componente;
+       aceso, é onde você está. */
+    .rc-nav{display:flex;align-items:center}
+
+    /* A primeira tentativa pôs a fita num ponto de 5px antes de cada item.
+       Não funcionou: a 40% de opacidade e nesse tamanho, as quatro paradas
+       da rampa viram uma cor só, e o que sobra lê como marcador de lista.
+       A fita precisa de LARGURA para existir — então ela virou o anel da
+       cápsula que agrupa os quatro itens, onde percorre uns 450px e se vê.
+       De quebra, a cápsula separa navegação de ação sem precisar de fio. */
+    .rc-grupo{position:relative;display:flex;align-items:center;gap:2px;padding:4px;
+      border-radius:999px;background:rgba(255,255,255,.045)}
+    /* O anel vem por máscara, não pelo truque de background duplo com
+       border-box: com interior translúcido, a camada da borda vazava por
+       baixo e a cápsula inteira virava uma pílula colorida. */
+    .rc-grupo::before{content:"";position:absolute;inset:0;border-radius:inherit;
+      padding:1px;pointer-events:none;
+      background:linear-gradient(94deg, rgba(45,135,255,.8) 0%, rgba(91,111,250,.46) 52%,
+                                        rgba(136,92,246,.8) 100%);
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude}
+    .rc-nav a{position:relative;display:inline-flex;align-items:center;
+      font-size:14px;font-weight:500;letter-spacing:.015em;color:#AEBAEE;
+      text-decoration:none;padding:9px 15px;border-radius:999px;white-space:nowrap;
+      transition:color .2s var(--ease),background .2s var(--ease)}
+    .rc-nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+    .rc-nav a.on{color:#fff;background:rgba(255,255,255,.12);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
+
+    /* O dourado continua sendo a cor de conversão do site inteiro. O que
+       muda é o acabamento: o mesmo brilho de topo da placa do diagrama,
+       que dá volume à peça, e a seta que anda no hover. */
+    .rc-nav a.cta{gap:8px;margin-left:14px;font-weight:600;padding:11px 19px;
+      border-radius:999px;color:var(--sobre-ouro);
+      background:linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,0) 58%),var(--ouro);
+      box-shadow:0 6px 18px rgba(209,164,118,.22);
+      transition:transform .18s var(--ease),box-shadow .18s var(--ease),filter .18s var(--ease)}
+    .rc-nav a.cta::after{content:"\2192";font-size:15px;line-height:1;
+      transition:transform .18s var(--ease)}
+    .rc-nav a.cta:hover{transform:translateY(-1px);filter:brightness(1.07);
+      box-shadow:0 10px 26px rgba(209,164,118,.34);background:
+        linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,0) 58%),var(--ouro-hover)}
+    .rc-nav a.cta:hover::after{transform:translateX(3px)}
     .rc-menu{display:none;background:rgba(143,186,255,.1);border:1px solid rgba(143,186,255,.28);
       color:#fff;border-radius:11px;padding:9px 14px;font:500 14.5px var(--sans);cursor:pointer}
     @media(max-width:900px){
@@ -248,9 +285,15 @@
         padding:12px 28px 22px;display:none;
         box-shadow:0 18px 40px rgba(0,0,0,.45)}
       .rc-nav.aberto{display:flex}
-      .rc-nav a{padding:14px}
-      .rc-nav a.on::after{left:14px;right:auto;width:16px;bottom:9px}
-      .rc-nav a.cta{text-align:center;margin-top:8px}
+      /* no painel do celular a cápsula se desfaz: os itens viram lista.
+         O anel é pseudo-elemento, então tirar o fundo do grupo não bastava:
+         ele seguia desenhando um retângulo em degradê de 210px em volta
+         da coluna, dentro de um painel que já tem fundo próprio. */
+      .rc-grupo{flex-direction:column;align-items:stretch;gap:2px;padding:0;
+        border:0;border-radius:0;background:none}
+      .rc-grupo::before{display:none}
+      .rc-nav a{padding:14px;border-radius:12px}
+      .rc-nav a.cta{justify-content:center;margin:12px 0 0}
       .rc-menu{display:block}
     }
     @media(max-width:420px){ .rc-marca img{height:30px} .rc-top-in{height:74px} .rc-nav{top:74px} }
@@ -415,10 +458,12 @@
     <button class="rc-menu" id="rc-menu" aria-expanded="false" aria-controls="rc-nav">Menu</button>
     <nav class="rc-nav" id="rc-nav">
       {% assign u = page.url %}
-      <a href="{{ '/recode/harness-organizacional/' | relative_url }}" {% if u contains 'harness' %}class="on" aria-current="page"{% endif %}>O harness</a>
-      <a href="{{ '/recode/metodologia/' | relative_url }}" {% if u contains 'metodologia' %}class="on" aria-current="page"{% endif %}>Metodologia</a>
-      <a href="{{ '/recode/diagnostico/' | relative_url }}" {% if u contains 'diagnostico' %}class="on" aria-current="page"{% endif %}>Diagnóstico</a>
-      <a href="{{ '/recode/consultoria/' | relative_url }}" {% if u contains 'consultoria' %}class="on" aria-current="page"{% endif %}>Consultoria</a>
+      <span class="rc-grupo">
+        <a href="{{ '/recode/harness-organizacional/' | relative_url }}" {% if u contains 'harness' %}class="on" aria-current="page"{% endif %}>O harness</a>
+        <a href="{{ '/recode/metodologia/' | relative_url }}" {% if u contains 'metodologia' %}class="on" aria-current="page"{% endif %}>Metodologia</a>
+        <a href="{{ '/recode/diagnostico/' | relative_url }}" {% if u contains 'diagnostico' %}class="on" aria-current="page"{% endif %}>Diagnóstico</a>
+        <a href="{{ '/recode/consultoria/' | relative_url }}" {% if u contains 'consultoria' %}class="on" aria-current="page"{% endif %}>Consultoria</a>
+      </span>
       <a href="{{ '/recode/contato/' | relative_url }}" class="cta">Falar com a gente</a>
     </nav>
   </div>
