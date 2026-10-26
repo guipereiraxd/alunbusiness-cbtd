@@ -9,7 +9,11 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
   .ofs .top{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
   .ofs .nm{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--tinta);letter-spacing:-.02em}
   .ofs .en{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ouro)}
-  .ofs .desc{font-size:15.5px;color:var(--tx-2);margin-top:14px;line-height:1.65;max-width:70ch}
+  /* os nomes dos artefatos continuam em inglês — são os entregáveis —
+     mas quem chega precisa entender o benefício antes do método */
+  .ofs .benef{font-family:var(--disp);font-weight:600;font-size:clamp(17px,2vw,19.5px);
+    color:var(--tinta);line-height:1.42;margin-top:14px;max-width:54ch;letter-spacing:-.014em}
+  .ofs .desc{font-size:15px;color:var(--tx-2);margin-top:11px;line-height:1.65;max-width:70ch}
   .ofs .corpo{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:22px;
     padding-top:22px;border-top:1px solid var(--linha)}
   @media(max-width:760px){ .ofs .corpo{grid-template-columns:1fr;gap:18px} }
@@ -71,6 +75,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
 
       <div>
         <div class="top"><h2 class="nm">Discover</h2><div class="en">Diagnose your harness</div></div>
+        <p class="benef">Descubra por que os investimentos em IA ainda não geram o resultado esperado.</p>
         <p class="desc">Diagnóstico multiárea com entrevistas, levantamento de evidências, análise
            de performance de jornadas e identificação do principal limitador da captura de valor.</p>
         <div class="corpo">
@@ -90,6 +95,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
 
       <div>
         <div class="top"><h2 class="nm">Redesign</h2><div class="en">Recode how work creates value</div></div>
+        <p class="benef">Receba o desenho de como a sua operação deveria funcionar com IA.</p>
         <p class="desc">Workshops de redesenho, análise do modelo econômico, decomposição do
            trabalho, desenho da coordenação humano–agente, direitos de decisão e mecanismos de
            verificação.</p>
@@ -110,6 +116,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
 
       <div>
         <div class="top"><h2 class="nm">Activate</h2><div class="en">Make the new model real</div></div>
+        <p class="benef">Coloque o novo modelo para funcionar, preparando pessoas, processos e controles.</p>
         <p class="desc">Pilotos conduzidos sobre missões reais, preparação de equipes e lideranças,
            coordenação da implantação com a TI do cliente, instrumentação de avaliações e revisão
            de rituais e incentivos.</p>
@@ -130,6 +137,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
 
       <div>
         <div class="top"><h2 class="nm">Impact</h2><div class="en">Prove and compound value</div></div>
+        <p class="benef">Comprove o que mudou e decida onde expandir.</p>
         <p class="desc">Baseline, acompanhamento de processo e de resultado econômico, assurance,
            governança do ciclo de revisão e decisão de expansão.</p>
         <div class="corpo">

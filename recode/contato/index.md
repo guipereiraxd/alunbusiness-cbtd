@@ -141,7 +141,7 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
     assunto:"c-assunto", optin:"c-optin",
     origem:"pagina_contato",
     rotulo:"Quero conversar",
-    sucessoExtra:"Se quiser adiantar, responda a demo de oito perguntas — a leitura dela ajuda a "
-      + "orientar a conversa."
+    sucessoExtra:"Se tiver um indicador dessa jornada em mãos — tempo de ciclo, retrabalho ou "
+      + "reabertura — leve para a conversa: é por ele que o diagnóstico começa."
   });
 </script>
