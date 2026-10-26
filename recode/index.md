@@ -258,9 +258,17 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   .tr-s svg{width:26px;height:26px}
   @media(max-width:860px){ .tr-s{padding:14px 0}
     .tr-s svg{transform:rotate(90deg)} }
-  .medir{font-size:14.5px;color:var(--tx-2);margin-top:22px;line-height:1.6;
+  .medir{font-size:14.5px;color:var(--tx-2);margin-top:20px;line-height:1.6;
     padding-left:15px;border-left:3px solid var(--linha-2);max-width:72ch}
   .medir b{color:var(--tinta);font-weight:600}
+  /* dois exemplos, não um: o primeiro é comercial e o segundo é de
+     engenharia, porque o gargalo de cada área mora em lugar diferente
+     e quem lê precisa se reconhecer em um dos dois */
+  .exs{display:grid;gap:54px;margin-top:38px}
+  .exs > div + div{padding-top:52px;border-top:1px solid var(--linha)}
+  .exs h3{font-family:var(--disp);font-weight:700;font-size:clamp(20px,2.7vw,27px);
+    color:var(--tinta);letter-spacing:-.024em;line-height:1.3;max-width:30ch}
+  .exs .tr{margin-top:26px}
 
   /* ── devolutiva executiva, como mockup ──────────────────
      O site dizia o que o diagnóstico entrega sem nunca mostrar a cara
@@ -392,35 +400,6 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   </div>
 </section>
 
-<section class="sec canvas">
-  <div class="wrap">
-    <div class="olho">Exemplo ilustrativo de transformação</div>
-    <h2 class="tit larga">Uma proposta comercial ficou pronta em minutos. O cliente ainda
-       espera dias.</h2>
-
-    <div class="tr rv">
-      <div class="tr-c tr-a">
-        <div class="rot">Antes · a IA como ferramenta</div>
-        <p>O vendedor prepara a proposta em minutos, mas ela aguarda as mesmas aprovações e
-           conferências de sempre.</p>
-      </div>
-      <div class="tr-s" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
-      <div class="tr-c tr-d ctx-escuro">
-        <div class="rot">Depois · o trabalho redesenhado</div>
-        <p>Agentes preparam e verificam as informações, e as pessoas aprovam apenas os casos
-           que exigem julgamento.</p>
-      </div>
-    </div>
-
-    <p class="medir"><b>Resultado a medir:</b> tempo de ciclo, retrabalho, qualidade e conversão.
-       Não são ganhos já comprovados — são o que o piloto precisa demonstrar na sua
-       operação.</p>
-  </div>
-</section>
-
 <section class="sec">
   <div class="wrap">
     <div class="olho">O problema</div>
@@ -480,6 +459,64 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 </section>
 
 <section class="sec">
+  <div class="wrap">
+    <div class="olho">Dois exemplos</div>
+    <h2 class="tit larga">O ganho aparece na tarefa. O resultado não aparece no negócio.</h2>
+    <p class="lead">A mesma história acontece em áreas diferentes, e o gargalo muda de lugar em
+       cada uma. São exemplos de formação de hipótese, não casos de cliente.</p>
+
+    <div class="exs rv">
+      <div>
+        <h3>Uma proposta comercial ficou pronta em minutos. O cliente ainda espera dias.</h3>
+        <div class="tr">
+          <div class="tr-c tr-a">
+            <div class="rot">Antes · a IA como ferramenta</div>
+            <p>O vendedor prepara a proposta em minutos, mas ela aguarda as mesmas aprovações e
+               conferências de sempre.</p>
+          </div>
+          <div class="tr-s" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+          <div class="tr-c tr-d ctx-escuro">
+            <div class="rot">Depois · o trabalho redesenhado</div>
+            <p>Agentes preparam e verificam as informações, e as pessoas aprovam apenas os casos
+               que exigem julgamento.</p>
+          </div>
+        </div>
+        <p class="medir"><b>Resultado a medir:</b> tempo de ciclo, retrabalho, qualidade e conversão.</p>
+      </div>
+
+      <div>
+        <h3>O time escreve muito mais código. A empresa não entrega muito mais software.</h3>
+        <div class="tr">
+          <div class="tr-c tr-a">
+            <div class="rot">Antes · a IA como ferramenta</div>
+            <p>A escrita acelera e o trabalho se acumula adiante: revisão, fila de testes, integração
+               e janela de implantação continuam do mesmo tamanho.</p>
+          </div>
+          <div class="tr-s" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+          <div class="tr-c tr-d ctx-escuro">
+            <div class="rot">Depois · o trabalho redesenhado</div>
+            <p>A verificação fica proporcional ao risco, a revisão humana se concentra no que é
+               irreversível, e o caminho até produção é redesenhado inteiro.</p>
+          </div>
+        </div>
+        <p class="medir"><b>Resultado a medir:</b> tempo até produção, retrabalho, incidentes depois da entrega e quanto do ciclo é espera.</p>
+      </div>
+    </div>
+
+    <p class="medir" style="margin-top:34px;border-left-color:var(--ouro-borda)">Em nenhum dos
+       dois há ganho comprovado: são o que um piloto precisa demonstrar na sua operação. A
+       vazão de uma etapa subir não move a entrega — é por isso que o diagnóstico começa pelo
+       fluxo de ponta a ponta, e não pela ferramenta.</p>
+  </div>
+</section>
+
+<section class="sec canvas">
   <div class="wrap">
     <div class="olho">O que o diagnóstico revela</div>
     <h2 class="tit larga">Oito componentes, lidos como sistema</h2>
