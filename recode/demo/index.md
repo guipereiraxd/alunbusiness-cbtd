@@ -68,8 +68,20 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
   .rest .hip{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
     text-transform:uppercase;color:var(--atencao);background:var(--atencao-s);
     padding:3px 9px;border-radius:999px}
+  /* hierarquia entre as duas: a principal fica dourada e larga, a
+     segunda recua. "brando" é outra coisa — marca a leitura que não
+     acusa fragilidade, e vale para qualquer das duas posições. */
+  .rest > div.pri{border-left-width:5px}
   .rest > div.rel{border-left-color:var(--linha-2)}
-  .rest > div.rel .hip{color:var(--tx-2);background:var(--painel)}
+  .rest > div.brando{border-left-color:var(--linha-2)}
+  .rest > div.brando .hip{color:var(--tx-2);background:var(--painel)}
+  /* a prévia dizia a restrição e o mecanismo, e parava aí. O terceiro
+     tempo — o que fazer amanhã para testar — é o que separa sair com
+     uma nota de sair com uma perspectiva sobre o próprio negócio. */
+  .rest .passo{margin-top:17px;padding-top:15px;border-top:1px solid var(--linha)}
+  .rest .passo .rot{font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--tx-3)}
+  .rest .passo p{margin-top:7px}
   .rest .nm{display:block;font-family:var(--disp);font-weight:700;font-size:20px;
     color:var(--tinta);line-height:1.3;letter-spacing:-.015em}
   .rest p{font-size:15px;color:var(--tx);margin-top:11px;line-height:1.65}
@@ -330,19 +342,44 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
        suprimido não vira estimativa. */
     var exibidas = r.semCobertura ? [] : r.restricoes;
 
-    document.getElementById("res-rest").innerHTML = exibidas.map(function(x){
-      /* Acima do piso não há gargalo para narrar: afirmar "o valor não tem
+    document.getElementById("res-rest").innerHTML = exibidas.map(function(x, idx){
+      var ehPrincipal = (idx === 0);
+
+      /* 1 · a restrição provável, numa frase.
+         Acima do piso não há gargalo para narrar: afirmar "o valor não tem
          para onde ir" a quem marcou 4 seria falso. O cartão então diz o que
          de fato é — o ponto relativamente menos forte da leitura. */
-      var corpo = x.forte
-        ? '<span class="nm">'+esc(x.leitura.restricao)+'</span><p>'+esc(x.leitura.hip)+'</p>'
-        : '<span class="nm">Entre os seus pontos menos altos, ainda assim sólido</span>'
-          + '<p>Você marcou <b>'+x.valor+' de 4</b> aqui — não é fragilidade declarada, é um dos '
+      var corpo = '<span class="nm">'
+        + (x.forte ? esc(x.leitura.restricao)
+                   : 'Entre os seus pontos menos altos, ainda assim sólido')
+        + '</span>';
+
+      /* 2 · o mecanismo: por onde o valor escapa */
+      var porque = x.forte
+        ? esc(x.leitura.hip)
+        : 'Você marcou <b>'+x.valor+' de 4</b> aqui — não é fragilidade declarada, é um dos '
           + 'componentes em que a sua leitura ficou menos alta. Vale verificar se a prática '
-          + 'sustenta a nota.</p>';
-      return '<div'+(x.forte?'':' class="rel"')+'><div class="cab"><span class="cod">'+x.h+'</span>'
+          + 'sustenta a nota.';
+
+      /* A principal sai com os três tempos; a segunda fica compacta, para
+         não disputar atenção com ela. A investigação serve aos dois casos:
+         onde há gargalo ela testa a hipótese, e onde não há ela confirma
+         que a prática sustenta a nota declarada. */
+      if (ehPrincipal){
+        corpo += '<div class="passo"><div class="rot">Por que isso importa</div><p>'
+               + porque + '</p></div>'
+               + '<div class="passo"><div class="rot">Próxima investigação</div><p>'
+               + esc(x.leitura.prox) + '</p></div>';
+      } else {
+        corpo += '<p>' + porque + '</p>';
+      }
+
+      var selo = ehPrincipal ? (x.forte ? 'restrição principal' : 'ponto a verificar')
+                             : (x.forte ? 'hipótese a testar'   : 'leitura relativa');
+      return '<div class="'+(ehPrincipal ? 'pri' : 'rel')+(x.forte ? '' : ' brando')+'">'
+        + '<div class="cab"><span class="cod">'+x.h+'</span>'
         + '<span class="tit">'+esc(x.nome)+'</span>'
-        + '<span class="hip">'+(x.forte ? 'hipótese a testar' : 'leitura relativa')+'</span></div>'
+        + '<span class="hip">'+selo+'</span></div>'
         + corpo + '</div>';
     }).join("") || '<div class="rel"><div class="cab"><span class="tit">cobertura insuficiente</span></div>'
                  + '<span class="nm">Sem base para uma leitura</span>'

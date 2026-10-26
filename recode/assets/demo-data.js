@@ -42,28 +42,36 @@ window.RECODE_DEMO = (function(){
   var LEITURA = {
     H1:{ restricao:"O valor não tem para onde ir",
          hip:"Sem resultado econômico definido e sem decisão sobre o destino da capacidade liberada, o ganho de IA se dissolve na rotina — ninguém o recolhe.",
-         exec:"Quando uma equipe passa a entregar o mesmo em menos tempo, para onde vai esse tempo: mais volume, mais qualidade, oferta nova ou redução de custo?" },
+         exec:"Quando uma equipe passa a entregar o mesmo em menos tempo, para onde vai esse tempo: mais volume, mais qualidade, oferta nova ou redução de custo?",
+         prox:"Escolha uma equipe que já usa IA e registre, por um mês, o que aconteceu com o tempo que sobrou: virou volume, qualidade, oferta nova — ou nada." },
     H2:{ restricao:"O gargalo não foi tocado",
          hip:"Automatizar uma etapa de um fluxo que não foi redesenhado acelera a etapa e preserva a fila seguinte. O ciclo de ponta a ponta fica igual.",
-         exec:"No processo que mais importa, qual é hoje o tempo total de ciclo — e quanto dele é espera, e não trabalho?" },
+         exec:"No processo que mais importa, qual é hoje o tempo total de ciclo — e quanto dele é espera, e não trabalho?",
+         prox:"Mapeie uma jornada de ponta a ponta e separe, dentro do tempo total de ciclo, o que é trabalho do que é espera." },
     H3:{ restricao:"A responsabilidade ficou ambígua",
          hip:"Quando não está claro quem decide, verifica e responde, o trabalho híbrido gera retrabalho e decisões que ninguém assume.",
-         exec:"Se um agente produzir um resultado errado que chegue ao cliente, quem responde por ele — e essa pessoa sabe disso?" },
+         exec:"Se um agente produzir um resultado errado que chegue ao cliente, quem responde por ele — e essa pessoa sabe disso?",
+         prox:"Pegue as três últimas entregas feitas com apoio de IA e identifique, em cada uma, quem verificou e quem assinou." },
     H4:{ restricao:"O contexto não chega na hora",
          hip:"Pessoas e agentes com acesso incompleto ou desatualizado produzem respostas plausíveis e erradas. O limite não é o modelo; é o que ele enxerga.",
-         exec:"As informações necessárias para a decisão estão acessíveis, atualizadas e autorizadas — ou dependem de alguém lembrar onde ficam?" },
+         exec:"As informações necessárias para a decisão estão acessíveis, atualizadas e autorizadas — ou dependem de alguém lembrar onde ficam?",
+         prox:"Liste as fontes que uma decisão recorrente consulta e verifique, uma por uma, data de atualização e permissão de acesso." },
     H5:{ restricao:"A execução para na borda",
          hip:"Sem integração autorizada, estado e recuperação, o agente recomenda mas não executa — e o ganho fica preso na demonstração.",
-         exec:"O que acontece hoje quando uma automação falha no meio: existe retomada, ou alguém refaz tudo à mão?" },
+         exec:"O que acontece hoje quando uma automação falha no meio: existe retomada, ou alguém refaz tudo à mão?",
+         prox:"Escolha uma automação em uso e observe o que acontece quando ela falha no meio: existe retomada do ponto de parada, ou alguém refaz tudo?" },
     H6:{ restricao:"Não há como saber se está funcionando",
          hip:"Sem critério de qualidade definido antes e sem rastro depois, não se distingue um sistema que funciona de um que ainda não falhou de forma visível.",
-         exec:"Qual é a taxa de erro aceitável nesta aplicação — e como ela é medida hoje?" },
+         exec:"Qual é a taxa de erro aceitável nesta aplicação — e como ela é medida hoje?",
+         prox:"Defina a taxa de erro aceitável de uma aplicação que já está em produção e verifique se existe alguma medição acompanhando-a hoje." },
     H7:{ restricao:"A autonomia não é proporcional ao risco",
          hip:"Dar a mesma liberdade a ações reversíveis e irreversíveis é o caminho mais curto para um incidente caro. Escalar sem gate é apostar.",
-         exec:"Quais ações com IA podem acontecer sem aprovação humana hoje — e quem decidiu que podiam?" },
+         exec:"Quais ações com IA podem acontecer sem aprovação humana hoje — e quem decidiu que podiam?",
+         prox:"Liste as ações com IA que já acontecem sem aprovação humana e identifique quem autorizou cada uma." },
     H8:{ restricao:"O modelo mudou; os hábitos não",
          hip:"Processo redesenhado com liderança, rituais e incentivos antigos volta ao formato anterior em poucos meses.",
-         exec:"O que mudou nas metas e nos incentivos da liderança depois que a IA entrou na operação?" }
+         exec:"O que mudou nas metas e nos incentivos da liderança depois que a IA entrou na operação?",
+         prox:"Compare as metas e os incentivos da liderança antes e depois da entrada da IA na operação." }
   };
 
   /* Textos que o produto não pode deixar de dizer na prévia. */
@@ -104,6 +112,12 @@ window.RECODE_DEMO = (function(){
 
     var comGargalo = restricoes.filter(function(r){ return r.forte; });
 
+    /* A prévia devolvia duas restrições lado a lado, sem dizer qual
+       pesa mais. A principal é a primeira — menor nota, desempate pela
+       ordem do instrumento — e é ela que recebe a leitura em três
+       tempos: restrição, mecanismo e investigação. */
+    var principal = restricoes.length ? restricoes[0] : null;
+
     /* a pergunta executiva sai da restrição mais forte; sem gargalo
        provável ela ainda vale, porque é pergunta de verificação */
     var exec = restricoes.length ? restricoes[0].leitura.exec : null;
@@ -114,6 +128,8 @@ window.RECODE_DEMO = (function(){
       naoSei: naoSei.length,
       naoSeiComponentes: naoSei.map(function(x){ return x.p.h; }),
       restricoes: restricoes,
+      principal: principal,
+      secundaria: restricoes.length > 1 ? restricoes[1] : null,
       temGargalo: comGargalo.length > 0,
       semCobertura: numericas.length < 2,   /* NS demais para dizer qualquer coisa */
       perguntaExecutiva: exec,
