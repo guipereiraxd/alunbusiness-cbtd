@@ -741,7 +741,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     <div class="conv escuro ctx-escuro">
       <img class="simb" src="{{ '/recode/assets/marca/recode-simbolo-3d.png' | relative_url }}" alt="" aria-hidden="true">
       <h2>Onde a sua organização está perdendo o ganho da IA?</h2>
-      <p>Comece pela jornada que já incomoda a sua operação. A conversa de descoberta leva 45
+      <p>Comece pela jornada que mais trava o valor do seu negócio. A conversa de descoberta leva 45
          minutos e, se o diagnóstico não fizer sentido para o seu caso, a gente diz isso.</p>
       <div class="botoes">
         <a class="bt bt-1" href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>

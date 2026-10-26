@@ -209,8 +209,8 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
       <div class="lead">
         <div id="lead-form">
           <h3>Quer aplicar o diagnóstico na sua empresa?</h3>
-          <p>Deixe um contato e a gente retorna para entender a jornada que está incomodando a
-             sua operação. Se o diagnóstico não fizer sentido para ela, a gente diz isso.</p>
+          <p>Deixe um contato e a gente retorna para entender a jornada que mais trava o valor
+             do seu negócio. Se o diagnóstico não fizer sentido para ela, a gente diz isso.</p>
           <div class="campos">
             <div class="campo"><label for="f-nome">Nome</label>
               <input id="f-nome" type="text" autocomplete="name" placeholder="Seu nome"></div>

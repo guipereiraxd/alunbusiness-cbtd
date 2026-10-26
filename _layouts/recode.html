@@ -352,9 +352,23 @@
 
     .tit{font-size:clamp(29px,4.3vw,46px);margin:19px 0 0;max-width:18ch;font-weight:700}
     .tit.larga{max-width:25ch}
-    /* ênfase com a fita da marca: o gradiente preenche o próprio tipo */
+    /* ênfase com a fita da marca: o gradiente preenche o próprio tipo.
+
+       O par padding/margin existe por causa do ç de "operação" na hero.
+       Com background-clip:text o tipo não tem cor própria — ele é pintado
+       pelo gradiente recortado na CAIXA DE FUNDO do elemento. Com
+       line-height:1 essa caixa tem exatamente 1em, e como a métrica da
+       Geist soma mais que isso entre ascendente e descendente, a linha
+       de base sobe: sobram cerca de 0,13em abaixo dela, contra 0,24em
+       que o descendente precisa. O que passa disso simplesmente não é
+       pintado, e o ç aparece cortado.
+
+       O padding estende a caixa de pintura; a margem negativa devolve a
+       altura ao layout. Em uso inline a margem vertical é ignorada e o
+       padding não afasta as linhas, então a regra serve aos dois casos. */
     .realce{background:var(--grad-ouro);-webkit-background-clip:text;background-clip:text;
-      color:transparent;-webkit-text-fill-color:transparent}
+      color:transparent;-webkit-text-fill-color:transparent;
+      padding-bottom:.16em;margin-bottom:-.16em}
     .lead{font-size:clamp(17px,2vw,20px);line-height:1.6;color:var(--tx-2);
       margin-top:18px;max-width:64ch}
 

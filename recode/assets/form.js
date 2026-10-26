@@ -96,7 +96,7 @@ window.RECODE_FORM = (function(){
     var base =
       modo === "remoto"
       ? '<b>Recebemos o seu contato.</b><br>A gente retorna para entender qual jornada está '
-        + 'incomodando a sua operação.'
+        + 'travando mais valor no seu negócio.'
       : modo === "indefinido"
       ? '<b>O envio demorou mais do que o esperado.</b><br>Ele pode ter chegado — não dá para '
         + 'confirmar daqui. Se não tivermos retornado em alguns dias, envie de novo.'

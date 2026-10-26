@@ -234,7 +234,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
   <div class="wrap">
     <div class="conv escuro ctx-escuro">
       <h2>Vamos começar pela sua restrição, não pelo nosso método</h2>
-      <p>A conversa de descoberta parte de uma jornada que já incomoda a sua operação. Se o
+      <p>A conversa de descoberta parte da jornada que mais trava o valor do seu negócio. Se o
          diagnóstico não fizer sentido para ela, a gente diz isso.</p>
       <div class="botoes">
         <a class="bt bt-1" href="{{ '/recode/contato/' | relative_url }}">Conversar sobre uma transformação</a>
