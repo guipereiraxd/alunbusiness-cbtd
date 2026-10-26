@@ -217,8 +217,16 @@
     .rc-marca:hover{opacity:.82}
     /* O master nunca é recolorido: a variante monocromática branca é a
        peça certa para fundo escuro em tamanho pequeno. O 3D fica para
-       aplicações grandes, onde o relevo se lê. */
-    .rc-marca img{height:42px;width:auto}
+       aplicações grandes, onde o relevo se lê.
+
+       O arquivo usado aqui é o master com a margem transparente cortada.
+       O master traz 32% da altura em vazio, e assimétrico — 56px de ar
+       em cima contra 19px embaixo, de 237. A 42px de CSS isso rendia 28,7px
+       de marca, pousada 10px abaixo do centro óptico da barra: dali vinha a
+       impressão de marca apagada, que não era contraste (o traço é branco
+       puro sobre azul-escuro) e sim tamanho e posição. Cortar o vazio não
+       recolore nem redesenha nada — nenhum pixel do desenho muda. */
+    .rc-marca img{height:38px;width:auto}
     .rc-nav{display:flex;align-items:center;gap:4px}
     .rc-nav a{position:relative;font-size:15px;color:#B9C4F5;text-decoration:none;
       padding:10px 14px;border-radius:999px;transition:color .18s var(--ease)}
@@ -245,7 +253,7 @@
       .rc-nav a.cta{text-align:center;margin-top:8px}
       .rc-menu{display:block}
     }
-    @media(max-width:420px){ .rc-marca img{height:34px} .rc-top-in{height:74px} .rc-nav{top:74px} }
+    @media(max-width:420px){ .rc-marca img{height:30px} .rc-top-in{height:74px} .rc-nav{top:74px} }
 
     /* ═══ Superfícies de seção ════════════════════════════════════
        A seção escura deixa de ser um retângulo chapado: recebe duas
@@ -401,7 +409,7 @@
 <header class="rc-top ctx-escuro">
   <div class="wrap rc-top-in">
     <a href="{{ '/recode/' | relative_url }}" class="rc-marca" aria-label="AI Business ReCode, da Alun Business — início">
-      <img src="{{ '/recode/assets/marca/recode-horizontal-branco.png' | relative_url }}"
+      <img src="{{ '/recode/assets/marca/recode-horizontal-branco-sem-margem.png' | relative_url }}"
            alt="AI Business ReCode · Alun Business">
     </a>
     <button class="rc-menu" id="rc-menu" aria-expanded="false" aria-controls="rc-nav">Menu</button>

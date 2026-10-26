@@ -180,12 +180,15 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
      volta — ao lado do texto ele competia por espaço e saía pequeno. */
   .assina{display:flex;flex-direction:column;align-items:center;text-align:center;
     gap:20px;margin-top:54px;padding-top:44px;border-top:1px solid var(--linha-2)}
-  .assina img{height:104px;width:auto;max-width:100%;
+  /* mesmo master com margem do cabeçalho: os 104px de antes rendiam 71px
+     de marca, e o vazio lateral assimétrico (37px à esquerda contra 104 à
+     direita) deslocava o lockup para a esquerda do centro óptico */
+  .assina img{height:88px;width:auto;max-width:100%;
     filter:drop-shadow(0 18px 42px rgba(0,0,0,.55))}
   .assina span{font-size:15.5px;color:var(--tx-2);max-width:46ch;line-height:1.6}
-  @media(max-width:860px){ .assina img{height:84px} }
+  @media(max-width:860px){ .assina img{height:72px} }
   @media(max-width:620px){ .assina{margin-top:40px;padding-top:34px;gap:16px}
-    .assina img{height:62px}
+    .assina img{height:54px}
     .assina span{font-size:14.5px}
     .recode .simb{width:230px;top:-70px;right:-60px} }
 
@@ -521,7 +524,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     </div>
 
     <div class="assina rv">
-      <img src="{{ '/recode/assets/marca/recode-horizontal-3d.png' | relative_url }}"
+      <img src="{{ '/recode/assets/marca/recode-horizontal-3d-sem-margem.png' | relative_url }}"
            alt="AI Business ReCode · Alun Business">
       <span>Os seis movimentos dão nome ao produto — e são o que a consultoria
         efetivamente executa.</span>
