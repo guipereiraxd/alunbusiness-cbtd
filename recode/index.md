@@ -4,15 +4,33 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 ---
 
 <style>
+  /* ── os dois escuros, e o trabalho de cada um ─────────────
+     O preto fazia cinco trabalhos nesta página — hero, cartões "depois",
+     patamar 2, seção RECODE e conversão — e um recurso que aparece cinco
+     vezes deixa de ser destaque. Pior: a barra do topo passou a falar
+     azul→violeta e o corpo continuou falando preto, duas linguagens de
+     escuro na mesma página.
+
+     Azul profundo é a única cor da paleta com função declarada no manual
+     — "fundos de alto contraste e contexto executivo" — e estava sem uso.
+     Ela passa a marcar O ARGUMENTO: hero, o "depois" dos exemplos, o
+     patamar 2 e a conversão. Todos conversam com a barra.
+
+     O preto fica reservado à seção RECODE, que é QUEM FALA: virando
+     exceção, ela volta a ser momento de marca em vez de mais uma faixa
+     escura, e o rodapé preto fecha a página com ela.
+
+     O dourado perde pouco sobre azul: 8,47:1 no preto, 7,18:1 aqui. */
+  :root{--exec:#0A1F44;--exec-2:#16133E}
   /* ── hero ───────────────────────────────────────────────────── */
-  .hero{position:relative;background:#0F0F0F;
+  .hero{position:relative;background:var(--exec);
     padding:96px 0 104px;overflow:hidden;isolation:isolate;
     min-height:calc(100svh - 86px);display:flex;align-items:center}
   .hero::before{content:"";position:absolute;inset:0;z-index:-2;
     background:
       radial-gradient(900px 560px at 84% -16%, rgba(209,164,118,.17), transparent 62%),
-      radial-gradient(720px 500px at -8% 114%, rgba(209,164,118,.09), transparent 64%),
-      linear-gradient(180deg,#0F0F0F 0%,#19191C 100%)}
+      radial-gradient(720px 500px at -8% 114%, rgba(136,92,246,.17), transparent 64%),
+      linear-gradient(180deg,var(--exec) 0%,var(--exec-2) 100%)}
   .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
     background-image:linear-gradient(rgba(209,164,118,.06) 1px,transparent 1px),
                      linear-gradient(90deg,rgba(209,164,118,.06) 1px,transparent 1px);
@@ -63,7 +81,9 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   .hns .cab{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
     font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
     color:var(--tx-2);margin-bottom:16px;line-height:1.5}
-  .hns .cab span:last-child{color:var(--tx-3);white-space:nowrap;flex:none}
+  /* era --tx-3: dava 4,5:1 sobre o vidro em cima do preto e caiu para
+     4,4:1 sobre o azul. A hierarquia aqui vem da posição, não do tom */
+  .hns .cab span:last-child{color:var(--tx-2);white-space:nowrap;flex:none}
 
   .cam{display:grid;gap:5px}
   .cam div{display:grid;grid-template-columns:26px 1fr;align-items:center;gap:12px;
@@ -113,12 +133,12 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   @media(max-width:800px){ .pat{grid-template-columns:1fr} }
   .pat > div{position:relative;border-radius:20px;padding:32px;overflow:hidden}
   .pat .um{background:var(--papel);border:1px solid var(--linha)}
-  .pat .dois{color:var(--tx);background:#0F0F0F;isolation:isolate;
+  .pat .dois{color:var(--tx);background:var(--exec);isolation:isolate;
     box-shadow:0 26px 64px rgba(10,31,68,.3)}
   .pat .dois::before{content:"";position:absolute;inset:0;z-index:-1;
     background:radial-gradient(520px 320px at 110% -20%, rgba(209,164,118,.22), transparent 62%),
-               radial-gradient(420px 300px at -10% 120%, rgba(209,164,118,.12), transparent 64%),
-               linear-gradient(180deg,#0F0F0F,#1A1A1D)}
+               radial-gradient(420px 300px at -10% 120%, rgba(136,92,246,.18), transparent 64%),
+               linear-gradient(180deg,var(--exec),var(--exec-2))}
   .pat .rot{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
     letter-spacing:.13em;text-transform:uppercase;color:var(--tx-3)}
   .pat .rot::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--linha-2)}
@@ -249,10 +269,10 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     background:var(--linha-2);flex:none}
   .tr-c p{font-size:16px;color:var(--tx);margin-top:14px;line-height:1.62}
   .tr-a{background:var(--papel);border:1px solid var(--linha)}
-  .tr-d{background:#0F0F0F;isolation:isolate;box-shadow:0 22px 56px rgba(10,31,68,.26)}
+  .tr-d{background:var(--exec);isolation:isolate;box-shadow:0 22px 56px rgba(10,31,68,.26)}
   .tr-d::before{content:"";position:absolute;inset:0;z-index:-1;
     background:radial-gradient(420px 260px at 108% -24%, rgba(209,164,118,.2), transparent 62%),
-               linear-gradient(170deg,#0F0F0F,#1A1A1D)}
+               linear-gradient(170deg,var(--exec),var(--exec-2))}
   .tr-d .rot::before{background:var(--grad-ouro-r)}
   .tr-s{display:grid;place-items:center;color:var(--ouro)}
   .tr-s svg{width:26px;height:26px}
@@ -337,12 +357,12 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 
   /* ── conversão ──────────────────────────────────────────────── */
   .conv{position:relative;border-radius:28px;padding:62px 48px;text-align:center;
-    overflow:hidden;isolation:isolate;background:#0F0F0F;
+    overflow:hidden;isolation:isolate;background:var(--exec);
     box-shadow:0 30px 80px rgba(10,31,68,.3)}
   .conv::before{content:"";position:absolute;inset:0;z-index:-2;
     background:radial-gradient(640px 400px at 18% -24%, rgba(209,164,118,.2), transparent 62%),
-               radial-gradient(600px 380px at 86% 122%, rgba(209,164,118,.11), transparent 64%),
-               linear-gradient(160deg,#0F0F0F,#1A1A1D)}
+               radial-gradient(600px 380px at 86% 122%, rgba(136,92,246,.2), transparent 64%),
+               linear-gradient(160deg,var(--exec),var(--exec-2))}
   .conv .simb{position:absolute;bottom:-78px;right:-58px;width:242px;opacity:.14;z-index:-1;
     pointer-events:none}
   @media(max-width:620px){ .conv{padding:42px 24px;border-radius:20px}
