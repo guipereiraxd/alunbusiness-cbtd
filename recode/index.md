@@ -204,7 +204,10 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     letter-spacing:-.024em}
   .of .nm span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
     text-transform:uppercase;color:var(--ouro);font-weight:400;margin-top:6px}
-  .of p{font-size:15px;color:var(--tx-2);line-height:1.62}
+  .of .benef{font-family:var(--disp);font-weight:600;font-size:16.5px;color:var(--tinta);
+    line-height:1.42;letter-spacing:-.012em}
+  .of p{font-size:14.5px;color:var(--tx-2);line-height:1.6}
+  .of .mid p + p{margin-top:9px}
   .of .ent{font-family:var(--mono);font-size:12px;color:var(--tx-3);text-align:right;
     line-height:1.7;white-space:nowrap}
   @media(max-width:860px){ .of .ent{text-align:left;white-space:normal} }
@@ -226,6 +229,100 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     color:var(--tx-2);line-height:1.5}
   .mis .campos b{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
     text-transform:uppercase;color:var(--tx-3);font-weight:400;padding-top:2px}
+
+  /* ── a transformação, numa missão concreta ───────────────
+     A primeira situação concreta da página aparecia só na metade dela,
+     em "sobre o que o trabalho morde". Esta faixa antecipa uma delas:
+     antes e depois de uma única jornada, com o ganho declarado como
+     algo a medir — o manual proíbe apresentá-lo como comprovado.
+     A seta existe porque o argumento não é a comparação de dois
+     estados; é a passagem de um para o outro. */
+  .tr{display:grid;grid-template-columns:1fr 56px 1fr;align-items:stretch;margin-top:36px}
+  @media(max-width:860px){ .tr{grid-template-columns:1fr} }
+  .tr-c{position:relative;border-radius:18px;padding:28px 26px;overflow:hidden}
+  .tr-c .rot{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--tx-3);line-height:1.4}
+  .tr-c .rot::before{content:"";width:16px;height:2px;border-radius:2px;
+    background:var(--linha-2);flex:none}
+  .tr-c p{font-size:16px;color:var(--tx);margin-top:14px;line-height:1.62}
+  .tr-a{background:var(--papel);border:1px solid var(--linha)}
+  .tr-d{background:#0F0F0F;isolation:isolate;box-shadow:0 22px 56px rgba(10,31,68,.26)}
+  .tr-d::before{content:"";position:absolute;inset:0;z-index:-1;
+    background:radial-gradient(420px 260px at 108% -24%, rgba(209,164,118,.2), transparent 62%),
+               linear-gradient(170deg,#0F0F0F,#1A1A1D)}
+  .tr-d .rot::before{background:var(--grad-ouro-r)}
+  .tr-s{display:grid;place-items:center;color:var(--ouro)}
+  .tr-s svg{width:26px;height:26px}
+  @media(max-width:860px){ .tr-s{padding:14px 0}
+    .tr-s svg{transform:rotate(90deg)} }
+  .medir{font-size:14.5px;color:var(--tx-2);margin-top:22px;line-height:1.6;
+    padding-left:15px;border-left:3px solid var(--linha-2);max-width:72ch}
+  .medir b{color:var(--tinta);font-weight:600}
+
+  /* ── devolutiva executiva, como mockup ──────────────────
+     O site dizia o que o diagnóstico entrega sem nunca mostrar a cara
+     da entrega. Este painel resolve isso, e o manual de marca exige o
+     contrapeso: "sem dashboard fictício parecendo resultado real". Daí
+     a condição de mockup aparecer em três lugares — selo no cabeçalho,
+     nota de rodapé e o título da seção — e não haver índice geral em
+     destaque: é o escore único que convida ao erro de leitura. */
+  .pan{background:var(--papel);border:1px solid var(--linha);border-radius:22px;
+    overflow:hidden;margin-top:38px;box-shadow:var(--elev-1)}
+  .pan-top{display:flex;align-items:center;justify-content:space-between;gap:18px;
+    flex-wrap:wrap;padding:21px 26px;border-bottom:1px solid var(--linha);background:var(--canvas)}
+  .pan-top b{display:block;font-family:var(--disp);font-weight:700;font-size:17px;
+    color:var(--tinta);letter-spacing:-.016em}
+  .pan-top .sb{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--tx-3);margin-top:6px}
+  .falso{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;background:var(--atencao-s);color:var(--atencao);
+    padding:7px 13px;border-radius:999px;flex:none}
+  .falso::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--atencao);
+    flex:none}
+
+  .pan-corpo{display:grid;grid-template-columns:1.04fr .96fr}
+  @media(max-width:900px){ .pan-corpo{grid-template-columns:1fr} }
+  .pan-esq{padding:26px;display:grid;gap:24px;align-content:start;
+    border-right:1px solid var(--linha)}
+  @media(max-width:900px){ .pan-esq{border-right:0;border-bottom:1px solid var(--linha)} }
+  .pan-dir{padding:26px}
+  @media(max-width:560px){ .pan-esq,.pan-dir{padding:22px 20px} }
+  .pan h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--tx-3);font-weight:400;margin:0 0 12px;line-height:1.5}
+  .pan .rp{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .pan .rp .cod{font-family:var(--mono);font-size:12px;color:var(--sobre-ouro);
+    background:var(--ouro);padding:3px 8px;border-radius:6px;flex:none}
+  .pan .rp .nm{font-family:var(--disp);font-weight:700;font-size:18.5px;color:var(--tinta);
+    letter-spacing:-.018em;line-height:1.3}
+  .pan .bl p{font-size:14.5px;color:var(--tx-2);margin-top:11px;line-height:1.62}
+  .pan .ev{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--tx-2);
+    background:var(--painel);border-radius:9px;padding:9px 13px;line-height:1.5}
+  .pan .ev b{font-family:var(--mono);font-size:12px;color:var(--tinta);flex:none}
+
+  .perf{display:grid;gap:8px}
+  .perf > div{display:grid;grid-template-columns:30px 1fr 34px;gap:12px;align-items:center}
+  .perf .c{font-family:var(--mono);font-size:11.5px;color:var(--tx-3)}
+  .perf .t{height:8px;background:var(--painel);border-radius:999px;overflow:hidden}
+  .perf .t i{display:block;height:8px;border-radius:999px;background:var(--linha-2)}
+  .perf .v{font-family:var(--mono);font-size:12px;color:var(--tx-2);text-align:right}
+  .perf .foco .t i{background:var(--ouro)}
+  .perf .foco .c,.perf .foco .v{color:var(--tinta)}
+  /* H2 (restrição prioritária) e H6 (controle crítico) são sinais
+     diferentes, e --ouro e --atencao são marrons quase iguais: lado a
+     lado as duas barras liam como a mesma coisa. A hachura separa por
+     padrão, não por matiz — que é o que sobrevive a daltonismo e à
+     impressão em preto e branco do relatório. */
+  .perf .crt .t i{background:repeating-linear-gradient(118deg,
+    var(--atencao) 0 4px, var(--painel) 4px 8px)}
+  .perf .crt .c::after{content:"\00a0\25B3";font-size:9px;vertical-align:1px}
+  .perf .crt .c,.perf .crt .v{color:var(--atencao)}
+  .perf-esc{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;
+    letter-spacing:.08em;color:var(--tx-3);margin-top:11px;padding:0 46px 0 42px}
+  .crit-n{font-size:13.5px;color:var(--tx-2);margin-top:18px;line-height:1.58;
+    padding-left:13px;border-left:2px solid var(--atencao)}
+  .crit-n b{color:var(--tinta);font-weight:600}
+  .pan-pe{padding:15px 26px;border-top:1px solid var(--linha);background:var(--canvas);
+    font-size:13px;color:var(--tx-2);line-height:1.55}
 
   /* ── conversão ──────────────────────────────────────────────── */
   .conv{position:relative;border-radius:28px;padding:62px 48px;text-align:center;
@@ -255,8 +352,8 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
          organizacional</b> — o sistema que conecta trabalho, dados, agentes, decisões e
          controles — para que potencial vire resultado.</p>
       <div class="botoes">
-        <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Diagnosticar meu harness →</a>
-        <a class="bt bt-2" href="{{ '/recode/harness-organizacional/' | relative_url }}">Entender o harness</a>
+        <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Descobrir onde minha empresa perde valor com IA</a>
+        <a class="bt bt-2" href="{{ '/recode/harness-organizacional/' | relative_url }}">Entender o harness organizacional</a>
       </div>
 
       <div class="assin">Reprograme o trabalho. Reinvente o negócio.</div>
@@ -289,6 +386,35 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
         <span>custo, qualidade, velocidade, receita e risco</span>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="sec canvas">
+  <div class="wrap">
+    <div class="olho">Exemplo ilustrativo de transformação</div>
+    <h2 class="tit larga">Uma proposta comercial ficou pronta em minutos. O cliente ainda
+       espera dias.</h2>
+
+    <div class="tr rv">
+      <div class="tr-c tr-a">
+        <div class="rot">Antes · a IA como ferramenta</div>
+        <p>O vendedor prepara a proposta em minutos, mas ela aguarda as mesmas aprovações e
+           conferências de sempre.</p>
+      </div>
+      <div class="tr-s" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="tr-c tr-d ctx-escuro">
+        <div class="rot">Depois · o trabalho redesenhado</div>
+        <p>Agentes preparam e verificam as informações, e as pessoas aprovam apenas os casos
+           que exigem julgamento.</p>
+      </div>
+    </div>
+
+    <p class="medir"><b>Resultado a medir:</b> tempo de ciclo, retrabalho, qualidade e conversão.
+       Não são ganhos já comprovados — são o que o piloto precisa demonstrar na sua
+       operação.</p>
   </div>
 </section>
 
@@ -371,7 +497,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 
     <div class="botoes">
       <a class="bt bt-1" href="{{ '/recode/metodologia/' | relative_url }}">Ver a metodologia</a>
-      <a class="bt bt-2" href="{{ '/recode/harness-organizacional/' | relative_url }}">Entender o harness</a>
+      <a class="bt bt-2" href="{{ '/recode/harness-organizacional/' | relative_url }}">Entender o harness organizacional</a>
     </div>
   </div>
 </section>
@@ -413,26 +539,40 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     <div class="of rv">
       <div>
         <div class="nm">Discover<span>Diagnose your harness</span></div>
-        <p>Diagnóstico multiárea, entrevistas, levantamento de evidências e identificação do
-           principal limitador da captura de valor.</p>
+        <div class="mid">
+          <p class="benef">Descubra por que os investimentos em IA ainda não geram o resultado
+             esperado.</p>
+          <p>Diagnóstico multiárea, entrevistas, levantamento de evidências e identificação do
+             principal limitador da captura de valor.</p>
+        </div>
         <div class="ent">Organizational Harness<br>Diagnostic + mapa de restrições</div>
       </div>
       <div>
         <div class="nm">Redesign<span>Recode how work creates value</span></div>
-        <p>Modelo econômico, decomposição do trabalho, desenho humano–agente, direitos de decisão
-           e mecanismos de verificação.</p>
+        <div class="mid">
+          <p class="benef">Receba o desenho de como a sua operação deveria funcionar com IA.</p>
+          <p>Modelo econômico, decomposição do trabalho, desenho humano–agente, direitos de
+             decisão e mecanismos de verificação.</p>
+        </div>
         <div class="ent">Target Operating Model<br>Business Model Recode · Blueprint</div>
       </div>
       <div>
         <div class="nm">Activate<span>Make the new model real</span></div>
-        <p>Pilotos em missões, preparação de equipes, coordenação de implantação com TI,
-           instrumentação de avaliações e rotinas.</p>
+        <div class="mid">
+          <p class="benef">Coloque o novo modelo para funcionar, preparando pessoas, processos e
+             controles.</p>
+          <p>Pilotos em missões, preparação de equipes, coordenação de implantação com TI,
+             instrumentação de avaliações e rotinas.</p>
+        </div>
         <div class="ent">Mission Playbook<br>Capability Plan · Go-live Controls</div>
       </div>
       <div>
         <div class="nm">Impact<span>Prove and compound value</span></div>
-        <p>Baseline, acompanhamento de processo e de resultado econômico, governança e decisão
-           de escala.</p>
+        <div class="mid">
+          <p class="benef">Comprove o que mudou e decida onde expandir.</p>
+          <p>Baseline, acompanhamento de processo e de resultado econômico, governança e decisão
+             de escala.</p>
+        </div>
         <div class="ent">Value Realization Ledger<br>Scale Decision · Reuse Kit</div>
       </div>
     </div>
@@ -472,13 +612,73 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
       </div>
     </div>
 
-    <div class="nota">
-      <b>São exemplos de formato, não casos de cliente.</b> O que torna uma missão pronta para
-      redesenho é sempre o mesmo: patrocinador com poder de decidir, indicador com baseline e
-      limites de risco declarados.
+    </div>
+</section>
+
+<section class="sec canvas">
+  <div class="wrap">
+    <div class="olho">A devolutiva</div>
+    <h2 class="tit larga">O painel abre pelo gargalo, não por uma nota</h2>
+    <p class="lead">O diagnóstico corporativo devolve a restrição que está retendo valor, a
+       evidência que a sustenta e a próxima decisão — nesta ordem. Abaixo, o formato da
+       devolutiva executiva, com números inventados para mostrar a estrutura.</p>
+
+    <div class="pan rv">
+      <div class="pan-top">
+        <div><b>Organizational Harness Assessment</b>
+          <span class="sb">Devolutiva executiva · visão da empresa</span></div>
+        <div class="falso">Dados fictícios</div>
+      </div>
+
+      <div class="pan-corpo">
+        <div class="pan-esq">
+          <div class="bl">
+            <h3>Restrição prioritária · hipótese a validar</h3>
+            <div class="rp"><span class="cod">H2</span>
+              <span class="nm">Arquitetura do trabalho e fluxo</span></div>
+            <p>O fluxo atual pode estar preservando filas e aprovações que impedem a conversão
+               dos ganhos individuais em desempenho do processo.</p>
+          </div>
+          <div class="bl">
+            <h3>Evidência revisada para H2</h3>
+            <div class="ev"><b>E1</b> relato de prática, sem blueprint operacional</div>
+          </div>
+          <div class="bl">
+            <h3>Próxima decisão sugerida</h3>
+            <p>Mapear uma jornada comercial de ponta a ponta, registrar o tempo de ciclo e
+               identificar onde as aprovações acumulam espera.</p>
+          </div>
+        </div>
+
+        <div class="pan-dir">
+          <h3>Perfil de percepção por componente · escala 0 a 4</h3>
+          <div class="perf">
+            <div><span class="c">H1</span><span class="t" aria-hidden="true"><i style="width:65%"></i></span><span class="v">2,6</span></div>
+            <div class="foco"><span class="c">H2</span><span class="t" aria-hidden="true"><i style="width:45%"></i></span><span class="v">1,8</span></div>
+            <div><span class="c">H3</span><span class="t" aria-hidden="true"><i style="width:60%"></i></span><span class="v">2,4</span></div>
+            <div><span class="c">H4</span><span class="t" aria-hidden="true"><i style="width:73%"></i></span><span class="v">2,9</span></div>
+            <div><span class="c">H5</span><span class="t" aria-hidden="true"><i style="width:55%"></i></span><span class="v">2,2</span></div>
+            <div class="crt"><span class="c">H6</span><span class="t" aria-hidden="true"><i style="width:48%"></i></span><span class="v">1,9</span></div>
+            <div><span class="c">H7</span><span class="t" aria-hidden="true"><i style="width:58%"></i></span><span class="v">2,3</span></div>
+            <div><span class="c">H8</span><span class="t" aria-hidden="true"><i style="width:68%"></i></span><span class="v">2,7</span></div>
+          </div>
+          <div class="perf-esc" aria-hidden="true"><span>0 ausente</span><span>4 monitorada</span></div>
+
+          <p class="crit-n"><b>H6 é controle crítico.</b> Fragilidade em avaliação e
+             confiabilidade aparece como alerta próprio e não é compensada por notas altas nos
+             outros componentes. Média não autoriza escalar.</p>
+        </div>
+      </div>
+
+      <div class="pan-pe">Mockup conceitual, não resultado de cliente. As notas são inventadas
+        apenas para demonstrar o formato da devolutiva.</div>
     </div>
 
+    <div class="botoes">
+      <a class="bt bt-1" href="{{ '/recode/diagnostico/' | relative_url }}">Conhecer o diagnóstico corporativo</a>
+      <a class="bt bt-2" href="{{ '/recode/metodologia/' | relative_url }}">Ver as regras de cálculo</a>
     </div>
+  </div>
 </section>
 
 <section class="sec ap">
@@ -486,9 +686,8 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
     <div class="conv escuro ctx-escuro">
       <img class="simb" src="{{ '/recode/assets/marca/recode-simbolo-3d.png' | relative_url }}" alt="" aria-hidden="true">
       <h2>Onde a sua organização está perdendo o ganho da IA?</h2>
-      <p>Comece pela demo de oito perguntas — leva de três a cinco minutos, não pede cadastro e
-         devolve uma leitura exploratória do seu ponto de vista. Para a empresa, o diagnóstico
-         corporativo é outro instrumento.</p>
+      <p>Comece pela jornada que já incomoda a sua operação. A conversa de descoberta leva 45
+         minutos e, se o diagnóstico não fizer sentido para o seu caso, a gente diz isso.</p>
       <div class="botoes">
         <a class="bt bt-1" href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>
         <a class="bt bt-2" href="{{ '/recode/diagnostico/' | relative_url }}">Conhecer o diagnóstico</a>
