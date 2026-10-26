@@ -299,9 +299,14 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
       <a href="https://www.weforum.org/publications/organizational-transformation-in-the-age-of-ai-how-organizations-maximize-ais-potential" target="_blank" rel="noopener">
         World Economic Forum &amp; Accenture · Organizational Transformation in the Age of AI
         <span>weforum.org · 2026</span></a>
+      <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">
+        METR · Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity
+        <span>metr.org · 2025 — mediu 19% a mais de tempo onde os próprios desenvolvedores
+          perceberam cerca de 20% de ganho</span></a>
       <a href="https://metr.org/blog/2026-02-24-uplift-update/" target="_blank" rel="noopener">
-        METR · Estudo de produtividade em desenvolvimento e atualização metodológica
-        <span>metr.org · 2025–2026</span></a>
+        METR · We are Changing our Developer Productivity Experiment Design
+        <span>metr.org · 2026 — a própria equipe revisando o desenho do estudo acima; com agentes
+          mais novos, o ganho medido é pequeno</span></a>
       <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/" target="_blank" rel="noopener">
         NIST · AI Risk Management Framework
         <span>nist.gov</span></a>
