@@ -53,7 +53,8 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
   .lim h3{font-size:17.5px;font-weight:600;margin-bottom:11px}
   .lim p{font-size:14.5px;color:var(--tx-2);line-height:1.65}
 
-  .conv{background:#0F0F0F;border-radius:22px;padding:50px 44px;text-align:center}
+  .conv{background:linear-gradient(160deg,var(--exec),var(--exec-2));
+    border-radius:22px;padding:50px 44px;text-align:center}
   @media(max-width:620px){ .conv{padding:36px 24px;border-radius:18px} }
   .conv h2{color:#fff;font-size:clamp(23px,3.2vw,32px);max-width:24ch;margin:0 auto}
   .conv p{color:var(--tx-2);font-size:16.5px;margin:15px auto 0;max-width:56ch;line-height:1.6}

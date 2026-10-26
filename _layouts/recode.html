@@ -22,7 +22,7 @@
   {% assign rc_desc_curta = rc_desc | strip_html | truncatewords: 30 %}
   <meta name="description" content="{{ rc_desc_curta }}">
   <link rel="canonical" href="{{ rc_url }}">
-  <meta name="theme-color" content="#0F0F0F">
+  <meta name="theme-color" content="#0A1F44">
 
   <!-- Páginas públicas indexáveis: é material de autoridade, diferente
        do /bbts/, que é demonstração fechada para um cliente. Uma página
@@ -114,6 +114,13 @@
 
       --preto:#0F0F0F;
 
+      /* Azul profundo é a única cor da paleta com função declarada no
+         manual: "fundos de alto contraste e contexto executivo". Ele
+         marca O ARGUMENTO — hero, capas, seções escuras, conversão — e
+         conversa com a fita da barra. O preto fica para QUEM FALA: a
+         seção RECODE (.sec.escura.marca) e o rodapé. */
+      --exec:#0A1F44; --exec-2:#16133E;
+
       /* superfícies claras e quentes */
       --papel:#FFFFFF; --canvas:#FBFAF8; --painel:#F4F2EE; --painel-2:#ECE7DE;
       --tinta:#1A1815; --tinta-2:#3A3833;
@@ -158,11 +165,14 @@
       --grad-ouro:linear-gradient(118deg,#D1A476 0%,#E3C19C 52%,#C08E5C 100%);
       --grad-ouro-r:linear-gradient(90deg,#D1A476,#E3C19C);
 
-      --papel:#161618; --canvas:#0F0F0F; --painel:#1C1C1F; --painel-2:#242428;
+      /* as superfícies acompanham o fundo: cinza-neutro sobre azul vira
+         remendo. Os blocos que seguem pretos devolvem a família neutra
+         logo abaixo, em .sec.escura.marca e .rc-foot. */
+      --papel:#0F2650; --canvas:#0A1F44; --painel:#14305C; --painel-2:#1B3B6E;
       --tinta:#FFFFFF; --tinta-2:#E8E9EC;
       --tx:#CFD2D8; --tx-2:#A9ADB7; --tx-3:#8B8F9A;
-      --linha:#2A2C33; --linha-2:#3C3F48;
-      --borda-campo:#686D7A;   /* 3,22:1 sobre a superfície escura */
+      --linha:#1E3560; --linha-2:#2C4878;
+      --borda-campo:#6E8CBC;
 
       --ok:#7BD3A8;      --ok-s:rgba(123,211,168,.11);
       --atencao:#E8B96A; --atencao-s:rgba(232,185,106,.11);
@@ -172,6 +182,13 @@
       --brilho:0 10px 30px rgba(209,164,118,.22);
 
       color:var(--tx);
+    }
+    /* preto é exceção, e exceção se declara: a seção de marca e o
+       rodapé voltam às superfícies neutras */
+    .sec.escura.marca,
+    .rc-foot{
+      --papel:#161618; --canvas:#0F0F0F; --painel:#1C1C1F; --painel-2:#242428;
+      --linha:#2A2C33; --linha-2:#3C3F48; --borda-campo:#686D7A;
     }
     .ctx-escuro h1,.ctx-escuro h2,.ctx-escuro h3,.ctx-escuro h4{color:var(--tinta)}
 
@@ -305,9 +322,17 @@
        símbolo, agora como luz em vez de forma. */
     .sec{padding:92px 0;position:relative}
     .sec.ap{padding:60px 0}
-    /* bloco de destaque: preto no meio de uma página clara */
-    .sec.escura{background:#0F0F0F;overflow:hidden;isolation:isolate}
+    /* bloco de destaque no meio de uma página clara. Azul por padrão,
+       porque quase sempre ele carrega argumento; .marca devolve o preto
+       às seções que são momento de marca. */
+    .sec.escura{background:var(--exec);overflow:hidden;isolation:isolate}
     .sec.escura::before{content:"";position:absolute;inset:0;z-index:-1;
+      background:
+        radial-gradient(760px 420px at 88% -8%, rgba(209,164,118,.15), transparent 62%),
+        radial-gradient(620px 420px at 4% 108%, rgba(136,92,246,.16), transparent 64%),
+        linear-gradient(180deg,var(--exec) 0%,var(--exec-2) 100%)}
+    .sec.escura.marca{background:#0F0F0F}
+    .sec.escura.marca::before{
       background:
         radial-gradient(760px 420px at 88% -8%, rgba(209,164,118,.14), transparent 62%),
         radial-gradient(620px 420px at 4% 108%, rgba(209,164,118,.07), transparent 64%),
@@ -390,13 +415,13 @@
        Era um retângulo chapado repetido em quatro páginas. Vira um
        componente só, com as mesmas auréolas da hero — a área inteira
        passa a ter uma abertura reconhecível. */
-    .cap{position:relative;background:#0F0F0F;
+    .cap{position:relative;background:var(--exec);
       padding:78px 0 86px;overflow:hidden;isolation:isolate}
     .cap::before{content:"";position:absolute;inset:0;z-index:-2;
       background:
-        radial-gradient(720px 420px at 86% -16%, rgba(209,164,118,.15), transparent 62%),
-        radial-gradient(560px 400px at -4% 116%, rgba(209,164,118,.08), transparent 64%),
-        linear-gradient(180deg,#0F0F0F 0%,#19191C 100%)}
+        radial-gradient(720px 420px at 86% -16%, rgba(209,164,118,.16), transparent 62%),
+        radial-gradient(560px 400px at -4% 116%, rgba(136,92,246,.17), transparent 64%),
+        linear-gradient(180deg,var(--exec) 0%,var(--exec-2) 100%)}
     .cap::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
       background-image:linear-gradient(rgba(209,164,118,.055) 1px,transparent 1px),
                        linear-gradient(90deg,rgba(209,164,118,.055) 1px,transparent 1px);

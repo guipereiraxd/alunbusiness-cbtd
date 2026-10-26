@@ -1,6 +1,6 @@
 ---
 title: "Falar com a Alun Business"
-description: "Comece pela jornada que já incomoda a sua operação. A conversa de descoberta é gratuita e, se o diagnóstico não fizer sentido para o seu caso, a gente diz isso."
+description: "Comece pela jornada que mais trava o valor do seu negócio. A conversa de descoberta é gratuita e, se o diagnóstico não fizer sentido para o seu caso, a gente diz isso."
 ---
 
 <style>
@@ -48,7 +48,7 @@ description: "Comece pela jornada que já incomoda a sua operação. A conversa 
 <section class="cap">
   <div class="wrap">
     <div class="olho">Conversa de descoberta</div>
-    <h1>Comece pela jornada que já incomoda a sua operação</h1>
+    <h1>Comece pela jornada que mais trava o valor do seu negócio</h1>
     <p class="sub">Não começamos pelo método. Começamos pelo processo que está travando valor
        na sua empresa — e, se o diagnóstico não fizer sentido para ele, a gente diz isso.</p>
   </div>

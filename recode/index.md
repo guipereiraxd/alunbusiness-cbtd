@@ -21,7 +21,6 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
      escura, e o rodapé preto fecha a página com ela.
 
      O dourado perde pouco sobre azul: 8,47:1 no preto, 7,18:1 aqui. */
-  :root{--exec:#0A1F44;--exec-2:#16133E}
   /* ── hero ───────────────────────────────────────────────────── */
   .hero{position:relative;background:var(--exec);
     padding:96px 0 104px;overflow:hidden;isolation:isolate;
@@ -558,7 +557,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
   </div>
 </section>
 
-<section class="sec escura ctx-escuro">
+<section class="sec escura marca ctx-escuro">
   <div class="wrap recode">
     <img class="simb" src="{{ '/recode/assets/marca/recode-simbolo-3d.png' | relative_url }}"
          alt="" aria-hidden="true">

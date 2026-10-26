@@ -18,10 +18,10 @@ description: "Como a Alun Business transforma o potencial da IA em performance o
     background:var(--linha-2);flex:none}
   .od-c ul{margin:16px 0 0;padding-left:19px;font-size:15px;color:var(--tx);line-height:1.85}
   .od-h{background:var(--papel);border:1px solid var(--linha)}
-  .od-f{background:#0F0F0F;isolation:isolate;box-shadow:0 22px 56px rgba(10,31,68,.26)}
+  .od-f{background:var(--exec);isolation:isolate;box-shadow:0 22px 56px rgba(10,31,68,.26)}
   .od-f::before{content:"";position:absolute;inset:0;z-index:-1;
     background:radial-gradient(420px 260px at 108% -24%, rgba(209,164,118,.2), transparent 62%),
-               linear-gradient(170deg,#0F0F0F,#1A1A1D)}
+               linear-gradient(170deg,var(--exec),var(--exec-2))}
   .od-f .rot::before{background:var(--grad-ouro-r)}
   .od-s{display:grid;place-items:center;gap:8px;color:var(--ouro);text-align:center}
   .od-s svg{width:26px;height:26px}

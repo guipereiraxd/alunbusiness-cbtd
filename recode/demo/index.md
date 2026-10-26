@@ -86,7 +86,8 @@ description: "Prévia do harness organizacional: oito perguntas, de três a cinc
     color:var(--tinta);line-height:1.3;letter-spacing:-.015em}
   .rest p{font-size:15px;color:var(--tx);margin-top:11px;line-height:1.65}
 
-  .pe{background:#0F0F0F;border-radius:17px;padding:30px 32px;margin-top:26px}
+  .pe{background:linear-gradient(160deg,var(--exec),var(--exec-2));
+    border-radius:17px;padding:30px 32px;margin-top:26px}
   .pe .r{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
     color:var(--tx-2)}
   .pe p{font-family:var(--disp);font-weight:600;font-size:clamp(18px,2.4vw,23px);color:#fff;
