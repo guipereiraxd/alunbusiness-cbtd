@@ -507,17 +507,8 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
                irreversível, e o caminho até produção é redesenhado inteiro.</p>
           </div>
         </div>
-        <p class="medir"><b>Resultado a medir:</b> tempo até produção, retrabalho, incidentes depois da entrega e quanto do ciclo é espera.</p>
       </div>
     </div>
-
-    <p class="medir" style="margin-top:34px;border-left-color:var(--ouro-borda)">Os
-       multiplicadores de geração de código são <b>relatos do mercado</b>, não medidas nossas —
-       e medições independentes em bases maduras já encontraram o contrário, com
-       desenvolvedores experientes levando mais tempo com IA do que sem.
-       <a href="{{ '/recode/fundamentos/' | relative_url }}#referencias">As duas leituras estão
-       nas referências</a>, e elas não se anulam: é exatamente essa distância entre o que se
-       relata e o que se mede que o diagnóstico existe para resolver.</p>
   </div>
 </section>
 
