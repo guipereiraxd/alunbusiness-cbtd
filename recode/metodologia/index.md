@@ -144,9 +144,12 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
            houver <b>pelo menos 7 respostas válidas</b> e cobertura de <b>50% ou mais</b> das
            submissões. Abaixo disso, o painel mostra “evidência insuficiente para agregar”.</p></div>
       <div><div class="i">03</div>
-        <p><b>Índice geral:</b> média simples dos oito componentes, e só quando todos os oito forem
-           publicáveis. O rótulo é sempre <b>índice descritivo de prontidão percebida</b> — não
-           é nota de maturidade.</p></div>
+        <p><b>Índice geral, como medida secundária:</b> média simples dos oito componentes, e
+           só quando todos os oito forem publicáveis. O rótulo é sempre <b>índice descritivo de
+           prontidão percebida</b> — não é nota de maturidade e não autoriza decisão alguma por
+           si. Ele resume a leitura para efeito de registro e comparação interna; a decisão
+           executiva se apoia no perfil dos componentes, nas evidências revisadas e nas
+           restrições críticas.</p></div>
       <div><div class="i">04</div>
         <p><b>Segmentações:</b> mínimo de 7 pessoas por célula e por interseção, com supressão
            complementar. Filtros sucessivos que permitiriam deduzir um indivíduo são bloqueados.</p></div>
@@ -156,6 +159,15 @@ description: "32 questões em 8 componentes, escala de 0 a 4 com NS e NA, cálcu
       <div><div class="i">06</div>
         <p><b>Controles críticos não se compensam:</b> fragilidades em H6 e H7 aparecem como
            alerta próprio, mesmo quando a média geral está alta. Média não autoriza escalar.</p></div>
+    </div>
+
+    <div class="nota aviso">
+      <b>A hierarquia entre as duas leituras é fixa, e o índice vem por último.</b> Um
+      “3,2 de 4” não diz que a empresa está pronta para operar agentes com autonomia — uma
+      média alta convive com um controle crítico ausente, e é exatamente isso que a regra 06
+      trata. Primeiro o perfil dos oito componentes e as restrições críticas; depois as
+      evidências revisadas; o índice agregado entra só no fim, como resumo descritivo de
+      percepção. Nenhum número único substitui essa leitura.
     </div>
 
     </div>
