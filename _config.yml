@@ -39,6 +39,7 @@ include:
 
 exclude:
   - firestore.rules
+  - CRIAR-NOVA-AREA.md
   - china/china-repositorio
   - radardesinais/radar-repositorio
   - bbts/bbts-repositorio
