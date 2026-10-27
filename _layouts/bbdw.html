@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.title != 'Início' %}{{ page.title }} · {% endif %}Hybrid Skills · Alun Business na BB Digital Week 2026</title>
+
+  {% assign bw_desc = page.description | default: "Descubra quais habilidades você pode combinar para resolver melhor seus desafios. A palestra Hybrid Skills, de Guilherme Pereira na BB Digital Week 2026, continua aqui: um diagnóstico curto, uma prática para a semana e um conteúdo da Alura." %}
+  {% assign bw_url  = site.url | append: page.url %}
+  {% assign bw_img  = site.url | append: '/bbdw/assets/marca/og.jpg' %}
+  {% if page.url == '/bbdw/' or page.title == 'Início' %}
+    {% assign bw_tit = "Hybrid Skills" %}
+  {% else %}
+    {% assign bw_tit = page.title | default: "Hybrid Skills" %}
+  {% endif %}
+  {% assign bw_desc_curta = bw_desc | strip_html | truncatewords: 30 %}
+  <meta name="description" content="{{ bw_desc_curta }}">
+  <link rel="canonical" href="{{ bw_url }}">
+  <meta name="theme-color" content="#070D2B">
+  <meta name="robots" content="{% if page.noindex %}noindex, nofollow{% else %}index, follow{% endif %}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Hybrid Skills · Alun Business">
+  <meta property="og:title" content="{{ bw_tit }} · Hybrid Skills">
+  <meta property="og:description" content="{{ bw_desc_curta }}">
+  <meta property="og:url" content="{{ bw_url }}">
+  <meta property="og:image" content="{{ bw_img }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Hybrid Skills — as competências que diferenciam profissionais na era da IA. Guilherme Pereira, Alun Business.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ bw_tit }} · Hybrid Skills">
+  <meta name="twitter:description" content="{{ bw_desc_curta }}">
+  <meta name="twitter:image" content="{{ bw_img }}">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/bbdw/assets/marca/favicon-32.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/bbdw/assets/marca/apple-touch-icon.png' | relative_url }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#alun-business",
+        "name": "Alun Business",
+        "url": "{{ site.url }}"
+      },
+      {
+        "@type": "Event",
+        "name": "Hybrid Skills: as competências que diferenciam profissionais na era da IA",
+        "startDate": "2026-10-28",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": { "@type": "Place", "name": "BB Digital Week 2026" },
+        "performer": { "@type": "Person", "name": "Guilherme Luiz Pereira", "jobTitle": "Diretor de Inovação, Alun Business" },
+        "organizer": { "@id": "{{ site.url }}/#alun-business" },
+        "url": "{{ site.url }}/bbdw/"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "{{ bw_url }}",
+        "name": "{{ bw_tit }}",
+        "description": "{{ bw_desc_curta }}",
+        "inLanguage": "pt-BR",
+        "isPartOf": { "@id": "{{ site.url }}/bbdw/" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ═══ Tokens ═══════════════════════════════════════════════════
+       Mesma arquitetura do /recode/: a marca-mãe no claro, e um
+       contexto escuro que redefine os MESMOS nomes. O que muda aqui é
+       o escuro: a palestra fala em preto-azulado profundo com azul
+       elétrico e dourado, e o BB Digital Week traz o azul vivo
+       (#465EFF) que vira a fita desta área. */
+    :root{
+      --ouro:#8C6033;
+      --ouro-claro:#A9793F;
+      --ouro-hover:#7D5529;
+      --ouro-fundo:rgba(140,96,51,.09);
+      --ouro-borda:rgba(140,96,51,.26);
+      --sobre-ouro:#FFFFFF;
+      --grad-ouro:linear-gradient(118deg,#8C6033 0%,#A9793F 52%,#7A522B 100%);
+      --grad-ouro-r:linear-gradient(90deg,#8C6033,#A9793F);
+
+      /* fita da área: azul elétrico da palestra e do evento. Cor de
+         ênfase e de sinal, nunca de texto corrido no claro (3,4:1). */
+      --eletrico:#3356FF; --eletrico-2:#6E8BFF;
+      --grad:linear-gradient(118deg,#2F55FF 0%,#4B6BFF 48%,#6E8BFF 100%);
+      --grad-r:linear-gradient(90deg,#2F55FF,#6E8BFF);
+
+      --preto:#0F0F0F;
+      --exec:#070D2B; --exec-2:#0B1548;
+
+      --papel:#FFFFFF; --canvas:#FBFAF8; --painel:#F4F2EE; --painel-2:#ECE7DE;
+      --tinta:#1A1815; --tinta-2:#3A3833;
+      --tx:#3A3833; --tx-2:#57534B; --tx-3:#6B6862;
+      --linha:#E7E1D6; --linha-2:#DDD6CA;
+      --borda-campo:#9C8F77;
+
+      --ok:#0A6B4A;      --ok-s:#E8F4EE;
+      --atencao:#8A5A00; --atencao-s:#FBF1DE;
+      --alerta:#A8221B;  --alerta-s:#FBE9E6;
+
+      --elev-1:0 1px 2px rgba(60,50,30,.05), 0 4px 14px rgba(60,50,30,.07);
+      --elev-2:0 2px 6px rgba(60,50,30,.07), 0 14px 38px rgba(60,50,30,.12);
+      --brilho:0 10px 28px rgba(140,96,51,.22);
+
+      --disp:'Geist',system-ui,-apple-system,sans-serif;
+      --sans:'Geist',system-ui,-apple-system,sans-serif;
+      --mono:'Geist Mono',ui-monospace,Menlo,monospace;
+      --max:1140px;
+      --ease:cubic-bezier(.2,.7,.2,1);
+    }
+
+    .ctx-escuro,
+    .cap,
+    .hero,
+    .sec.escura,
+    .bw-top,
+    .bw-foot{
+      --ouro:#D1A476;
+      --ouro-claro:#E3C19C;
+      --ouro-hover:#E3C19C;
+      --ouro-fundo:rgba(209,164,118,.10);
+      --ouro-borda:rgba(209,164,118,.26);
+      --sobre-ouro:#0F0F0F;
+      --grad-ouro:linear-gradient(118deg,#D1A476 0%,#E3C19C 52%,#C08E5C 100%);
+      --grad-ouro-r:linear-gradient(90deg,#D1A476,#E3C19C);
+      --eletrico:#7D95FF; --eletrico-2:#A3B4FF;
+
+      --papel:#0F1A4A; --canvas:#070D2B; --painel:#14225A; --painel-2:#1B2C6E;
+      --tinta:#FFFFFF; --tinta-2:#E8E9EC;
+      --tx:#CFD2D8; --tx-2:#ABB0BF; --tx-3:#8E93A3;
+      --linha:#1F2F66; --linha-2:#2E4288;
+      --borda-campo:#7A8FD0;
+
+      --ok:#7BD3A8;      --ok-s:rgba(123,211,168,.11);
+      --atencao:#E8B96A; --atencao-s:rgba(232,185,106,.11);
+      --alerta:#F0918B;  --alerta-s:rgba(240,145,139,.11);
+
+      --elev-2:0 2px 6px rgba(0,0,0,.45), 0 14px 38px rgba(0,0,0,.42);
+      --brilho:0 10px 30px rgba(209,164,118,.22);
+      color:var(--tx);
+    }
+    .sec.escura.marca,
+    .bw-foot{
+      --papel:#161618; --canvas:#0F0F0F; --painel:#1C1C1F; --painel-2:#242428;
+      --linha:#2A2C33; --linha-2:#3C3F48; --borda-campo:#686D7A;
+    }
+    .ctx-escuro h1,.ctx-escuro h2,.ctx-escuro h3,.ctx-escuro h4{color:var(--tinta)}
+
+    *,*::before,*::after{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+    @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto}
+      *{animation-duration:.01ms !important;transition-duration:.01ms !important} }
+    body{margin:0;background:var(--canvas);color:var(--tx);
+      font-family:var(--sans);font-size:17px;line-height:1.65;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    img{max-width:100%;height:auto;display:block}
+    a{color:var(--ouro)}
+    h1,h2,h3,h4{font-family:var(--disp);color:var(--tinta);margin:0;
+      letter-spacing:-.028em;line-height:1.14;font-weight:700}
+    h1,h2,h3{scroll-margin-top:106px}
+    p{margin:0}
+    ::selection{background:rgba(51,86,255,.2)}
+    :focus-visible{outline:3px solid var(--ouro);outline-offset:3px;border-radius:5px}
+
+    .wrap{max-width:var(--max);margin:0 auto;padding-inline:28px}
+    @media(max-width:560px){ .wrap{padding-inline:20px} }
+
+    /* ═══ Cabeçalho ═══════════════════════════════════════════════ */
+    .bw-top{position:sticky;top:0;z-index:60;
+      background:linear-gradient(100deg, rgba(7,13,43,.94) 0%, rgba(10,18,60,.94) 100%);
+      backdrop-filter:saturate(180%) blur(18px);
+      -webkit-backdrop-filter:saturate(180%) blur(18px);
+      box-shadow:0 1px 0 rgba(255,255,255,.06)}
+    .bw-top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+      background:linear-gradient(90deg, rgba(51,86,255,0) 0%, rgba(51,86,255,.75) 18%,
+        rgba(209,164,118,.7) 82%, rgba(209,164,118,0) 100%)}
+    .bw-top-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:86px}
+    .bw-marca{display:flex;align-items:center;gap:14px;flex:none;text-decoration:none;
+      transition:opacity .18s var(--ease)}
+    .bw-marca:hover{opacity:.84}
+    .bw-marca img{height:30px;width:auto}
+    .bw-marca .sel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--ouro);padding-left:14px;border-left:1px solid rgba(255,255,255,.18);line-height:1.3}
+    .bw-nav{display:flex;align-items:center}
+    .bw-grupo{position:relative;display:flex;align-items:center;gap:2px;padding:4px;
+      border-radius:999px;background:rgba(255,255,255,.045)}
+    .bw-grupo::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+      background:linear-gradient(94deg, rgba(51,86,255,.85) 0%, rgba(110,139,255,.45) 52%, rgba(209,164,118,.8) 100%);
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude}
+    .bw-nav a{position:relative;display:inline-flex;align-items:center;font-size:14px;font-weight:500;
+      letter-spacing:.015em;color:#B4BEEE;text-decoration:none;padding:9px 15px;border-radius:999px;
+      white-space:nowrap;transition:color .2s var(--ease),background .2s var(--ease)}
+    .bw-nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+    .bw-nav a.on{color:#fff;background:rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
+    .bw-nav a.cta{gap:8px;margin-left:14px;font-weight:600;padding:11px 19px;border-radius:999px;
+      color:var(--sobre-ouro);
+      background:linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,0) 58%),var(--ouro);
+      box-shadow:0 6px 18px rgba(209,164,118,.22);
+      transition:transform .18s var(--ease),box-shadow .18s var(--ease),filter .18s var(--ease)}
+    .bw-nav a.cta::after{content:"\2192";font-size:15px;line-height:1;transition:transform .18s var(--ease)}
+    .bw-nav a.cta:hover{transform:translateY(-1px);filter:brightness(1.07);
+      box-shadow:0 10px 26px rgba(209,164,118,.34)}
+    .bw-nav a.cta:hover::after{transform:translateX(3px)}
+    .bw-menu{display:none;background:rgba(143,166,255,.1);border:1px solid rgba(143,166,255,.3);
+      color:#fff;border-radius:11px;padding:9px 16px;min-height:44px;font:500 14.5px var(--sans);cursor:pointer}
+    @media(max-width:900px){
+      .bw-nav{position:absolute;top:86px;left:0;right:0;
+        background:linear-gradient(170deg,rgba(7,13,43,.985),rgba(10,18,60,.985));
+        backdrop-filter:blur(18px);flex-direction:column;align-items:stretch;gap:2px;
+        padding:12px 28px 22px;display:none;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+      .bw-nav.aberto{display:flex}
+      .bw-grupo{flex-direction:column;align-items:stretch;gap:2px;padding:0;border:0;border-radius:0;background:none}
+      .bw-grupo::before{display:none}
+      .bw-nav a{padding:14px;border-radius:12px}
+      .bw-nav a.cta{justify-content:center;margin:12px 0 0}
+      .bw-menu{display:block}
+      .bw-marca .sel{display:none}
+    }
+    @media(max-width:420px){ .bw-marca img{height:26px} .bw-top-in{height:74px} .bw-nav{top:74px} }
+
+    /* ═══ Superfícies de seção ════════════════════════════════════ */
+    .sec{padding:92px 0;position:relative}
+    .sec.ap{padding:60px 0}
+    .sec.escura{background:var(--exec);overflow:hidden;isolation:isolate}
+    .sec.escura::before{content:"";position:absolute;inset:0;z-index:-1;
+      background:
+        radial-gradient(760px 420px at 88% -8%, rgba(209,164,118,.14), transparent 62%),
+        radial-gradient(620px 420px at 4% 108%, rgba(51,86,255,.22), transparent 64%),
+        linear-gradient(180deg,var(--exec) 0%,var(--exec-2) 100%)}
+    .sec.escura.marca{background:#0F0F0F}
+    .sec.escura.marca::before{
+      background:
+        radial-gradient(760px 420px at 88% -8%, rgba(209,164,118,.14), transparent 62%),
+        radial-gradient(620px 420px at 4% 108%, rgba(51,86,255,.12), transparent 64%),
+        linear-gradient(180deg,#0F0F0F 0%,#171719 100%)}
+    .sec.escura h1,.sec.escura h2,.sec.escura h3{color:#fff}
+    .sec.canvas{background:var(--painel)}
+    .sec.canvas + .sec:not(.canvas):not(.escura),
+    .sec:not(.canvas):not(.escura) + .sec.canvas{border-top:1px solid var(--linha)}
+    @media(max-width:700px){ .sec{padding:64px 0} }
+
+    /* ═══ Rótulos e títulos ═══════════════════════════════════════ */
+    .olho{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--ouro);display:flex;align-items:center;gap:13px}
+    .olho::before{content:"";width:30px;height:3px;border-radius:3px;background:var(--grad-ouro-r);flex:none}
+    .tit{font-size:clamp(29px,4.3vw,46px);margin:19px 0 0;max-width:18ch;font-weight:700}
+    .tit.larga{max-width:25ch}
+    .realce{background:var(--grad-ouro);-webkit-background-clip:text;background-clip:text;
+      color:transparent;-webkit-text-fill-color:transparent;padding-bottom:.16em;margin-bottom:-.16em}
+    .lead{font-size:clamp(17px,2vw,20px);line-height:1.6;color:var(--tx-2);margin-top:18px;max-width:64ch}
+
+    /* ═══ Botões ══════════════════════════════════════════════════
+       Alvo de toque mínimo de 44px (PRD §10) em todos os botões. */
+    .bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);
+      font-size:16.5px;font-weight:600;text-decoration:none;border:0;cursor:pointer;
+      padding:15px 28px;min-height:48px;border-radius:999px;line-height:1.2;
+      transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease)}
+    .bt-1{background:var(--ouro);color:var(--sobre-ouro);box-shadow:var(--brilho)}
+    .bt-1:hover{transform:translateY(-2px);background:var(--ouro-hover);box-shadow:0 16px 36px rgba(140,96,51,.26)}
+    .bt-2{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--linha-2)}
+    .bt-2:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1.5px var(--ouro);background:var(--ouro-fundo)}
+    .bt[disabled],.bt[aria-disabled="true"]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+    .botoes{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+
+    /* ═══ Cartões ═════════════════════════════════════════════════ */
+    .grade{display:grid;gap:18px}
+    .g2{grid-template-columns:repeat(2,1fr)}
+    .g3{grid-template-columns:repeat(3,1fr)}
+    .g4{grid-template-columns:repeat(4,1fr)}
+    .g5{grid-template-columns:repeat(5,1fr)}
+    @media(max-width:980px){ .g3,.g4,.g5{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:660px){ .g2,.g3,.g4,.g5{grid-template-columns:1fr} }
+    .cartao{position:relative;background:var(--painel);border:1px solid var(--linha);
+      border-radius:18px;padding:26px;overflow:hidden;
+      transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease)}
+    .cartao::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+      background:var(--grad-ouro-r);opacity:0;transition:opacity .22s var(--ease)}
+    .cartao:hover{transform:translateY(-3px);box-shadow:var(--elev-2);border-color:var(--ouro-borda)}
+    .cartao:hover::before{opacity:1}
+    .cartao h3{font-size:18px;font-weight:600;letter-spacing:-.016em}
+    .cartao p{font-size:15px;color:var(--tx-2);margin-top:10px;line-height:1.6}
+    .cartao .cod{font-family:var(--mono);font-size:11.5px;letter-spacing:.11em;
+      text-transform:uppercase;color:var(--ouro);margin-bottom:12px}
+    .sec.escura .cartao{background:rgba(255,255,255,.04)}
+
+    /* ═══ Nota ════════════════════════════════════════════════════ */
+    .nota{position:relative;background:var(--painel);border-radius:14px;
+      padding:19px 22px 19px 24px;font-size:15px;line-height:1.62;color:var(--tx-2);margin-top:30px}
+    .nota::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+      border-radius:3px 0 0 3px;background:var(--grad-ouro)}
+    .nota b{color:var(--tinta);font-weight:600}
+    .nota.aviso{background:var(--atencao-s)}
+    .nota.aviso::before{background:var(--atencao)}
+    .nota.aviso b{color:var(--atencao)}
+    .sec.escura .nota{background:rgba(255,255,255,.05)}
+
+    /* ═══ Cabeçalho de página ═════════════════════════════════════ */
+    .cap{position:relative;background:var(--exec);padding:78px 0 86px;overflow:hidden;isolation:isolate}
+    .cap::before{content:"";position:absolute;inset:0;z-index:-2;
+      background:
+        radial-gradient(720px 420px at 86% -16%, rgba(209,164,118,.15), transparent 62%),
+        radial-gradient(560px 400px at -4% 116%, rgba(51,86,255,.24), transparent 64%),
+        linear-gradient(180deg,var(--exec) 0%,var(--exec-2) 100%)}
+    .cap::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+      background-image:linear-gradient(rgba(209,164,118,.055) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(209,164,118,.055) 1px,transparent 1px);
+      background-size:64px 64px;
+      mask-image:radial-gradient(620px 420px at 22% 40%,#000,transparent 72%);
+      -webkit-mask-image:radial-gradient(620px 420px at 22% 40%,#000,transparent 72%)}
+    .cap h1{color:#fff;font-size:clamp(31px,4.6vw,48px);max-width:18ch;margin-top:21px;
+      letter-spacing:-.032em;line-height:1.08}
+    .cap .sub{font-size:clamp(17px,2vw,20px);color:var(--tx-2);margin-top:21px;max-width:62ch;line-height:1.58}
+    .cap .olho{color:var(--ouro)}
+    @media(max-width:700px){ .cap{padding:54px 0 60px} }
+
+    /* ═══ Revelação ao rolar ══════════════════════════════════════ */
+    .rv{opacity:0;transform:translateY(16px);transition:opacity .62s var(--ease),transform .62s var(--ease)}
+    .rv.vis{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none} }
+
+    /* ═══ Rodapé ══════════════════════════════════════════════════ */
+    .bw-foot{position:relative;background:#0F0F0F;padding:66px 0 44px;overflow:hidden;isolation:isolate}
+    .bw-foot::before{content:"";position:absolute;inset:0;z-index:-1;
+      background:radial-gradient(700px 300px at 78% -30%, rgba(209,164,118,.09), transparent 64%)}
+    .bw-foot-in{display:grid;grid-template-columns:1.1fr 1fr;gap:46px;align-items:start}
+    @media(max-width:760px){ .bw-foot-in{grid-template-columns:1fr;gap:32px} }
+    .bw-foot .marcas{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+    .bw-foot .alun img{width:248px;height:auto;max-width:100%}
+    .bw-foot .evento img{width:86px;height:auto;border-radius:12px}
+    @media(max-width:420px){ .bw-foot .alun img{width:210px} }
+    .bw-foot .assin{font-family:var(--disp);font-weight:600;font-size:17px;color:#fff;margin-top:18px}
+    .bw-foot p{font-size:14.5px;line-height:1.62;margin-top:13px;max-width:52ch}
+    .bw-foot .links{display:flex;flex-direction:column;gap:11px}
+    .bw-foot .links a{color:var(--tx-2);text-decoration:none;font-size:15px;width:fit-content;transition:color .18s var(--ease)}
+    .bw-foot .links a:hover{color:#fff}
+    .bw-foot .fim{margin-top:40px;padding-top:22px;border-top:1px solid var(--linha);
+      font-size:13px;color:var(--tx-3);line-height:1.62}
+
+    .pular{position:absolute;left:-9999px}
+    .pular:focus{left:26px;top:12px;z-index:90;background:var(--ouro);color:var(--sobre-ouro);
+      padding:11px 18px;border-radius:10px;font-weight:600}
+
+    /* ═══ Impressão: o plano sai sem menus (PRD RF08) ═════════════ */
+    @media print{
+      .bw-top,.bw-foot,.pular,.nao-imprime{display:none !important}
+      body{background:#fff;color:#000;font-size:12pt}
+      .sec,.cap{padding:0;background:none}
+      .rv{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+
+<a href="#conteudo" class="pular">Pular para o conteúdo</a>
+
+<header class="bw-top ctx-escuro">
+  <div class="wrap bw-top-in">
+    <a href="{{ '/bbdw/' | relative_url }}" class="bw-marca" aria-label="Hybrid Skills, Alun Business — início">
+      <img src="{{ '/bbdw/assets/marca/alun-business-branco.png' | relative_url }}" alt="Alun Business">
+      <span class="sel" aria-hidden="true">Hybrid<br>Skills</span>
+    </a>
+    <button class="bw-menu" id="bw-menu" aria-expanded="false" aria-controls="bw-nav">Menu</button>
+    <nav class="bw-nav" id="bw-nav" aria-label="Seções">
+      {% assign u = page.url %}
+      <span class="bw-grupo">
+        <a href="{{ '/bbdw/palestra/' | relative_url }}" {% if u contains 'palestra' %}class="on" aria-current="page"{% endif %}>A palestra</a>
+        <a href="{{ '/bbdw/como-funciona/' | relative_url }}" {% if u contains 'como-funciona' %}class="on" aria-current="page"{% endif %}>Como funciona</a>
+      </span>
+      <a href="{{ '/bbdw/diagnostico/' | relative_url }}" class="cta" {% if u contains 'diagnostico' %}aria-current="page"{% endif %}>Descobrir meu próximo passo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  {{ content }}
+</main>
+
+<footer class="bw-foot ctx-escuro">
+  <div class="wrap">
+    <div class="bw-foot-in">
+      <div>
+        <div class="marcas">
+          <div class="alun">
+            <img src="{{ '/bbdw/assets/marca/alun-business-branco.png' | relative_url }}" alt="Alun Business — Alura, FIAP, PM3 e StartSe">
+          </div>
+          <div class="evento">
+            <img src="{{ '/bbdw/assets/marca/bbdw-2026.png' | relative_url }}" alt="BB Digital Week 2026">
+          </div>
+        </div>
+        <div class="assin">Problemas não chegam separados por competência.</div>
+        <p>Hybrid Skills é a palestra de Guilherme Pereira, Diretor de Inovação da Alun Business,
+           na BB Digital Week 2026. Esta página continua a conversa: um diagnóstico curto, uma
+           prática para a semana e um conteúdo da Alura para apoiar.</p>
+      </div>
+      <div class="links">
+        <a href="{{ '/bbdw/diagnostico/' | relative_url }}">Descobrir meu próximo passo</a>
+        <a href="{{ '/bbdw/palestra/' | relative_url }}">A palestra, slide a slide</a>
+        <a href="{{ '/bbdw/como-funciona/' | relative_url }}">Como o diagnóstico funciona</a>
+        <a href="{{ '/bbdw/como-funciona/#privacidade' | relative_url }}">Seus dados</a>
+        <a href="{{ '/bbdw/assets/hybrid-skills-bbdw-2026.pdf' | relative_url }}">Baixar a apresentação (PDF)</a>
+        <a href="{{ '/recode/' | relative_url }}">Alun Business para empresas</a>
+        <a href="{{ '/privacy/' | relative_url }}">Política de privacidade</a>
+      </div>
+    </div>
+    <div class="fim">
+      <b style="color:var(--ouro)">Hybrid Skills</b> e os cinco movimentos são um modelo autoral de
+      Guilherme Pereira, uma síntese editorial e não uma taxonomia científica. O diagnóstico é uma
+      reflexão guiada por autorrelato: não certifica competências, não compara pessoas e não serve
+      para seleção ou avaliação de desempenho. BB Digital Week é um evento do Banco do Brasil;
+      o conteúdo desta área é de responsabilidade da Alun Business. © Alun Business.
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var b = document.getElementById("bw-menu"), n = document.getElementById("bw-nav");
+    b.addEventListener("click", function(){
+      var aberto = n.classList.toggle("aberto");
+      b.setAttribute("aria-expanded", aberto ? "true" : "false");
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && n.classList.contains("aberto")){
+        n.classList.remove("aberto"); b.setAttribute("aria-expanded","false"); b.focus();
+      }
+    });
+  })();
+  (function(){
+    var alvos = document.querySelectorAll(".rv");
+    if (!alvos.length) return;
+    var reduzido = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduzido || !("IntersectionObserver" in window)){
+      alvos.forEach(function(e){ e.classList.add("vis"); }); return;
+    }
+    var obs = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add("vis"); obs.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    alvos.forEach(function(e){ obs.observe(e); });
+  })();
+</script>
+
+</body>
+</html>

@@ -76,6 +76,11 @@ defaults:
     values:
       layout: "recode"
   - scope:
+      path: "bbdw"
+      type: "pages"
+    values:
+      layout: "bbdw"
+  - scope:
       path: ""
       type: "casos"
     values:

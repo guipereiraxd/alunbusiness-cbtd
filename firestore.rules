@@ -104,6 +104,28 @@ service cloud.firestore {
 
     // Assessments de prontidão em IA do /bbts/ — nome, e-mail e respostas.
     // Quem responde não tem conta; o painel da GEPES tem login.
+    // Hybrid Skills / BBDW 2026 — eventos de uso agregados (PRD §11, RF09).
+    // Só criação, anônima, com forma fixa: nada de respostas, dupla ou
+    // orientação. Leitura fechada: os números saem pelo console ou por
+    // quem estiver autenticado.
+    match /bbdw_eventos/{id} {
+      allow create: if request.resource.data.keys().hasOnly(
+                        ['evento','fonte','eventId','sessaoAnalitica','versoes','etapa','duracaoAtiva','ts'])
+                    && request.resource.data.keys().hasAll(
+                        ['evento','fonte','eventId','sessaoAnalitica','etapa','duracaoAtiva','ts'])
+                    && request.resource.data.evento in ['landing_view','assessment_start','step_completed',
+                        'assessment_complete','action_commit','course_click','plan_print']
+                    && request.resource.data.fonte == 'bbdw-2026'
+                    && request.resource.data.eventId is string && request.resource.data.eventId.size() <= 40
+                    && request.resource.data.sessaoAnalitica is string && request.resource.data.sessaoAnalitica.size() <= 40
+                    && (!('versoes' in request.resource.data) || request.resource.data.versoes is map)
+                    && request.resource.data.etapa is string && request.resource.data.etapa.size() <= 40
+                    && request.resource.data.duracaoAtiva is int && request.resource.data.duracaoAtiva >= 0
+                    && request.resource.data.ts == request.time;
+      allow read: if request.auth != null;
+      allow update, delete: if false;
+    }
+
     match /bbts_assessments/{id} {
 
       // Quem responde não precisa de conta, mas só cria registro "submetido".
