@@ -117,12 +117,16 @@ description: "A IA mudou a capacidade de desenvolver software. O ReCode Tech dia
   .est .rapida .marca::before{content:"";width:12px;height:2px;border-radius:2px;
     background:var(--ouro-hover)}
 
-  /* ── a tradução de H1–H8 para engenharia ─────────────────────
-     A mesma taxonomia do diagnóstico corporativo, instanciada. Não é
-     uma régua nova: os IDs continuam os mesmos, e é isso que permite
-     ler uma campanha de engenharia junto com o resto da empresa. */
+  /* ── as oito perguntas, traduzidas para engenharia ───────────
+     E a mesma taxonomia do diagnostico corporativo, mas o site nao
+     diz isso com as palavras de dentro. O codigo H fica como marcador
+     discreto — quem le nao precisa dele, e ele amarra a pagina ao
+     resto do metodo. O rotulo do meio saiu da taxonomia corporativa
+     ("Modelo de negocio e economia do valor") para linguagem de fora
+     ("Valor entregue"), e por isso a coluna encolheu. */
   .trad{display:grid;gap:10px;margin-top:34px}
-  .trad > div{display:grid;grid-template-columns:44px 1fr 1.25fr;gap:22px;align-items:start;
+  .trad > div{display:grid;grid-template-columns:44px minmax(0,.72fr) minmax(0,1.65fr);
+    gap:22px;align-items:start;
     background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:20px 24px;
     transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
   .trad > div:hover{transform:translateX(3px);box-shadow:var(--elev-2)}
@@ -280,10 +284,10 @@ description: "A IA mudou a capacidade de desenvolver software. O ReCode Tech dia
     </div>
 
     <div class="nota">
-      <b>O modelo organiza a conversa; o instrumento continua o mesmo.</b> As quatro dimensões são
-      a linguagem de quem lidera engenharia. Elas são lidas pelos mesmos oito componentes usados no
-      resto da empresa — e é isso que permite colocar a campanha da engenharia ao lado da campanha
-      corporativa, em vez de num relatório paralelo.
+      <b>O modelo diz o que olhar. O diagnóstico diz como.</b> As quatro dimensões acima são a
+      forma como quem lidera engenharia descreve o problema. O exame é o mesmo que fazemos em
+      qualquer área da empresa — e é por isso que o resultado da engenharia pode ser lido junto
+      com o do resto da organização, e não num relatório separado.
     </div>
   </div>
 </section>
@@ -352,58 +356,56 @@ description: "A IA mudou a capacidade de desenvolver software. O ReCode Tech dia
 
 <section class="sec">
   <div class="wrap">
-    <div class="olho">O instrumento, em engenharia</div>
-    <h2 class="tit larga">Os mesmos oito componentes, lidos no seu fluxo</h2>
-    <p class="lead">O ReCode Tech não traz régua nova. É o <b>Organizational Harness
-       Assessment</b> instanciado em engenharia: os IDs continuam H1 a H8, e as quatro dimensões do
-       modelo aparecem distribuídas entre eles.</p>
+    <div class="olho">O que olhamos</div>
+    <h2 class="tit larga">Oito perguntas sobre a sua engenharia</h2>
+    <p class="lead">O que cada uma delas examina, no dia a dia de quem desenvolve software.</p>
 
     <div class="trad rv">
       <div style="--c:#2D87FF;--ctxt:#1B5FC4">
         <div class="cod">H1</div>
-        <div class="org">Modelo de negócio e economia do valor</div>
+        <div class="org">Valor entregue</div>
         <div class="eng">O que a engenharia entrega em valor de negócio — e não em volume de
           código, pontos ou tickets fechados.</div>
       </div>
       <div style="--c:#3F82FD;--ctxt:#2456C6">
         <div class="cod">H2</div>
-        <div class="org">Arquitetura do trabalho e fluxo</div>
+        <div class="org">Fluxo de entrega</div>
         <div class="eng">O caminho do commit até produção, com as esperas separadas do trabalho:
           quanto do ciclo é fila e quanto é alguém trabalhando.</div>
       </div>
       <div style="--c:#5180FB;--ctxt:#2D4EC8">
         <div class="cod">H3</div>
-        <div class="org">Modelo operacional humano–agente</div>
+        <div class="org">Trabalho humano–agente</div>
         <div class="eng">Quem revisa o que o agente escreveu, quem assina, e quem responde quando
           o código gerado causa um incidente.</div>
       </div>
       <div style="--c:#6379F9;--ctxt:#3645CA">
         <div class="cod">H4</div>
-        <div class="org">Contexto, conhecimento e dados</div>
+        <div class="org">Contexto do agente</div>
         <div class="eng">O que o agente enxerga: só o arquivo aberto, ou o repositório, as
           decisões de arquitetura, os runbooks e o histórico de incidentes.</div>
       </div>
       <div style="--c:#7373F7;--ctxt:#3F3DCC">
         <div class="cod">H5</div>
-        <div class="org">Execução e orquestração</div>
+        <div class="org">Execução e ambientes</div>
         <div class="eng">Integração contínua, ambientes, permissões e recuperação: o que acontece
           quando uma execução falha no meio do caminho.</div>
       </div>
       <div style="--c:#8068F7;--ctxt:#4834CE">
         <div class="cod">H6</div>
-        <div class="org">Avaliação, observabilidade e confiabilidade</div>
+        <div class="org">Qualidade e confiabilidade</div>
         <div class="eng">Como se sabe que o que foi gerado funciona: critério definido antes,
           cobertura de teste, rastro de execução e taxa de incidente depois da entrega.</div>
       </div>
       <div style="--c:#8761F6;--ctxt:#512CD0">
         <div class="cod">H7</div>
-        <div class="org">Governança e direitos de decisão</div>
+        <div class="org">Autonomia e alçada</div>
         <div class="eng">O que um agente pode fazer sem aprovação humana: abrir PR, dar merge,
           mexer em infraestrutura, acessar produção. E quem decidiu que podia.</div>
       </div>
       <div style="--c:#885CF6;--ctxt:#5A23D2">
         <div class="cod">H8</div>
-        <div class="org">Liderança, competências e mudança</div>
+        <div class="org">Pessoas e liderança</div>
         <div class="eng">O que muda no papel do desenvolvedor sênior quando escrever deixa de ser
           o gargalo e revisar passa a ser.</div>
       </div>
@@ -477,10 +479,10 @@ description: "A IA mudou a capacidade de desenvolver software. O ReCode Tech dia
     </div>
 
     <div class="nota">
-      <b>Medimos os seus números, não um benchmark.</b> Não existe base de comparação entre
-      empresas no instrumento, e comparar o seu tempo de ciclo com o de outra organização
-      compararia produtos, bases de código e apetites de risco diferentes. A referência é a sua
-      própria linha de base, antes e depois.
+      <b>Medimos os seus números, não um benchmark.</b> Não comparamos a sua engenharia com a de
+      outras empresas: colocar o seu tempo de ciclo ao lado do de outra organização compararia
+      produtos, bases de código e apetites de risco diferentes. A referência é a sua própria
+      linha de base, antes e depois.
     </div>
   </div>
 </section>
@@ -499,7 +501,7 @@ description: "A IA mudou a capacidade de desenvolver software. O ReCode Tech dia
         <p>Empresas relatam multiplicadores expressivos na geração de código, e as equipes
            percebem o ganho enquanto trabalham. <b>A percepção é real</b> — escrever de fato
            ficou mais rápido.</p>
-        <div class="fonte">Relatos de mercado, com recortes, datas e desenhos distintos.</div>
+        <div class="fonte">Relatos de mercado, com amostras, datas e desenhos de estudo distintos.</div>
       </div>
       <div class="medido">
         <div class="r">O que se mediu</div>
@@ -548,9 +550,9 @@ description: "A IA mudou a capacidade de desenvolver software. O ReCode Tech dia
     </div>
 
     <div class="nota aviso">
-      <b>O instrumento não mede pessoas.</b> Nenhum recorte com menos de sete respostas válidas é
-      publicado, não há resultado individual, e cruzar quem respondeu com o que respondeu é
-      impedido por desenho. Num diagnóstico de engenharia essa garantia não é formalidade: sem
+      <b>O diagnóstico não mede pessoas.</b> Nenhum grupo com menos de sete respostas aparece no
+      resultado, não há nota individual, e cruzar quem respondeu com o que respondeu é impedido
+      por desenho. Num diagnóstico de engenharia essa garantia não é formalidade: sem
       ela, ninguém responde com honestidade sobre o próprio fluxo.
     </div>
 
