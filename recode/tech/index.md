@@ -344,13 +344,6 @@ description: "A IA mudou a capacidade de desenvolver software. O ReCode Tech dia
       </div>
 
     </div>
-
-    <div class="nota">
-      <b>É a mesma jornada da consultoria, condensada para engenharia.</b> Diagnose corresponde a
-      Discover; Reengineer reúne Redesign e Activate; Prove &amp; Scale é Impact. Quem contrata as
-      duas frentes não contrata dois métodos —
-      <a href="{{ '/recode/consultoria/' | relative_url }}">ver as quatro ofertas corporativas</a>.
-    </div>
   </div>
 </section>
 
