@@ -214,9 +214,7 @@ description: "Discover, Redesign, Activate e Impact: quatro ofertas modulares de
       <div>
         <h3>Desenho e coordenação</h3>
         <p>O movimento <i>Orchestrate</i> significa desenhar a arquitetura do harness organizacional e coordenar
-           a execução junto a parceiros ou à TI do cliente. Não assumimos automaticamente a
-           implementação técnica das integrações: ela é contratada à parte, quando houver escopo
-           e capacidade específicos.</p>
+           a execução junto a parceiros ou à TI do cliente.</p>
       </div>
       <div>
         <h3>Autonomia de agentes</h3>

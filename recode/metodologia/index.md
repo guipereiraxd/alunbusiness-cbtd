@@ -270,12 +270,6 @@ description: "Como a Alun Business transforma o potencial da IA em performance o
         <ul><li>Indicadores de negócio</li><li>Aprendizado contínuo</li><li>Escala e expansão</li></ul>
       </div>
     </div>
-
-    <div class="nota">
-      <b>Onde <i>Orchestrate</i> termina.</b> Ele significa desenhar a arquitetura do harness
-      organizacional e coordenar a execução junto a parceiros ou à TI do cliente. A implementação
-      técnica das integrações é contratada à parte, quando houver escopo e capacidade específicos.
-    </div>
   </div>
 </section>
 

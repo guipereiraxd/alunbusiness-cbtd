@@ -542,7 +542,6 @@ description: "A IA mudou a capacidade de desenvolver software. O ReCode Tech dia
           <li>Avaliar desenvolvedores individualmente, ou gerar ranking de produtividade</li>
           <li>Recomendar ou vender ferramenta de assistente de código</li>
           <li>Comparar a sua engenharia com benchmark de mercado</li>
-          <li>Implementar as integrações técnicas — isso é contratado à parte</li>
           <li>Prometer multiplicador de produtividade ou previsão de headcount</li>
         </ul>
       </div>
