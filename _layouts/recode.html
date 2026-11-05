@@ -295,7 +295,10 @@
     .rc-nav a.cta:hover::after{transform:translateX(3px)}
     .rc-menu{display:none;background:rgba(143,186,255,.1);border:1px solid rgba(143,186,255,.28);
       color:#fff;border-radius:11px;padding:9px 14px;font:500 14.5px var(--sans);cursor:pointer}
-    @media(max-width:900px){
+    /* 1000px e nao 900: com cinco itens o grupo passou de ~450 para 564px,
+       e 157 (marca) + 564 + 183 (CTA) + 40 de gap pedem 944 de conteudo —
+       mais os 56 de respiro do .wrap. Abaixo disso o CTA saia da barra. */
+    @media(max-width:1000px){
       .rc-nav{position:absolute;top:86px;left:0;right:0;
         background:linear-gradient(170deg,rgba(14,17,58,.985),rgba(24,13,52,.985));
         backdrop-filter:blur(18px);flex-direction:column;align-items:stretch;gap:2px;
@@ -502,6 +505,7 @@
         <a href="{{ '/recode/metodologia/' | relative_url }}" {% if u contains 'metodologia' %}class="on" aria-current="page"{% endif %}>Metodologia</a>
         <a href="{{ '/recode/diagnostico/' | relative_url }}" {% if u contains 'diagnostico' %}class="on" aria-current="page"{% endif %}>Diagnóstico</a>
         <a href="{{ '/recode/consultoria/' | relative_url }}" {% if u contains 'consultoria' %}class="on" aria-current="page"{% endif %}>Consultoria</a>
+        <a href="{{ '/recode/tech/' | relative_url }}" {% if u contains 'tech' %}class="on" aria-current="page"{% endif %}>ReCode Tech</a>
       </span>
       <a href="{{ '/recode/contato/' | relative_url }}" class="cta">Falar com a gente</a>
     </nav>
@@ -529,6 +533,7 @@
         <a href="{{ '/recode/metodologia/' | relative_url }}">Metodologia e instrumento</a>
         <a href="{{ '/recode/diagnostico/' | relative_url }}">O diagnóstico</a>
         <a href="{{ '/recode/consultoria/' | relative_url }}">Consultoria</a>
+        <a href="{{ '/recode/tech/' | relative_url }}">ReCode Tech · engenharia</a>
         <a href="{{ '/recode/fundamentos/' | relative_url }}">Fundamentos do instrumento</a>
         <a href="{{ '/recode/contato/' | relative_url }}">Falar com a Alun Business</a>
         <a href="{{ '/privacy/' | relative_url }}">Política de privacidade</a>
