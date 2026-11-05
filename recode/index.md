@@ -254,7 +254,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
 
   /* ── a transformação, numa missão concreta ───────────────
      A primeira situação concreta da página aparecia só na metade dela,
-     em "sobre o que o trabalho morde". Esta faixa antecipa uma delas:
+     na seção de exemplos de missão. Esta faixa antecipa uma delas:
      antes e depois de uma única jornada, com o ganho declarado como
      algo a medir — o manual proíbe apresentá-lo como comprovado.
      A seta existe porque o argumento não é a comparação de dois
@@ -626,10 +626,12 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
       </div>
     </div>
 
-    <h3 style="font-size:21px;margin-top:52px">Sobre o que o trabalho morde</h3>
-    <p class="lead" style="margin-top:10px">A unidade de intervenção não é um chatbot nem uma
-       trilha de treinamento: é uma <b>missão de negócio</b> — uma jornada delimitada, com
-       resultado mensurável e alguém que responde por ela.</p>
+    <h3 style="font-size:21px;margin-top:52px">O trabalho começa por um processo, não pela
+       empresa inteira</h3>
+    <p class="lead" style="margin-top:10px">Em vez de “implantar IA na empresa”, escolhemos um
+       processo de ponta a ponta e trabalhamos nele até o fim. Só começamos quando ele tem quatro
+       coisas: um objetivo, um indicador, um dono que responda por ele e um risco declarado. É o
+       que chamamos de <b>missão de negócio</b> — três exemplos:</p>
 
     <div class="mis rv">
       <div>
@@ -637,7 +639,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
         <div class="obj">Reduzir o tempo de cotação mantendo a taxa de erro e a conformidade</div>
         <div class="campos">
           <div><b>Indicador</b><span>tempo de ciclo por faixa de valor, com taxa de retrabalho</span></div>
-          <div><b>Owner</b><span>diretoria comercial, com poder de mudar a alçada de aprovação</span></div>
+          <div><b>Dono</b><span>diretoria comercial, com poder de mudar a alçada de aprovação</span></div>
           <div><b>Risco</b><span>proposta errada chega ao cliente — exige gate humano</span></div>
         </div>
       </div>
@@ -646,7 +648,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
         <div class="obj">Encurtar o atendimento de segunda linha sem perder a qualidade da resolução</div>
         <div class="campos">
           <div><b>Indicador</b><span>tempo até resolução e reabertura em 30 dias</span></div>
-          <div><b>Owner</b><span>gerência de operações, com acesso ao histórico de chamados</span></div>
+          <div><b>Dono</b><span>gerência de operações, com acesso ao histórico de chamados</span></div>
           <div><b>Risco</b><span>resposta plausível e errada ao cliente final</span></div>
         </div>
       </div>
@@ -655,7 +657,7 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
         <div class="obj">Fechar o ciclo de relatórios gerenciais na primeira semana do mês</div>
         <div class="campos">
           <div><b>Indicador</b><span>dia útil de fechamento e número de correções após publicar</span></div>
-          <div><b>Owner</b><span>controladoria, com autoridade sobre a fonte dos dados</span></div>
+          <div><b>Dono</b><span>controladoria, com autoridade sobre a fonte dos dados</span></div>
           <div><b>Risco</b><span>número publicado que orienta decisão e depois muda</span></div>
         </div>
       </div>
