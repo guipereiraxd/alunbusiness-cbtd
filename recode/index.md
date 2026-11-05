@@ -443,12 +443,6 @@ description: "A IA acelera tarefas; o ganho some nos processos e nos alinhamento
            Automatizar um processo ruim entrega um processo ruim mais rápido.</p>
       </div>
     </div>
-
-    <div class="nota">
-      <b>Sobre números de mercado.</b> Multiplicadores divulgados em estudos e demonstrações vêm
-      de recortes, datas e desenhos distintos. Não os usamos como promessa de resultado, benchmark
-      de maturidade ou fator de cálculo — nem aqui, nem no diagnóstico.
-    </div>
   </div>
 </section>
 
