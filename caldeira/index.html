@@ -1,0 +1,49 @@
+---
+layout: none
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Redirecionando para o AI Builder Camp</title>
+
+  <!-- O destino é o canônico: quem indexa deve indexar lá, não aqui. -->
+  <link rel="canonical" href="https://ai-builder-camp.alura.com.br/caldeira">
+  <meta name="robots" content="noindex">
+
+  <!-- replace() em vez de atribuir a location: não deixa esta página no
+       histórico, então o botão voltar leva de volta à origem em vez de
+       devolver o visitante para cá e redirecioná-lo de novo. Fica no head
+       para disparar antes de qualquer pintura. -->
+  <script>location.replace("https://ai-builder-camp.alura.com.br/caldeira");</script>
+
+  <!-- Rede de segurança para quem estiver sem JavaScript. -->
+  <meta http-equiv="refresh" content="0; url=https://ai-builder-camp.alura.com.br/caldeira">
+
+  <style>
+    :root{color-scheme:dark}
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;display:grid;place-items:center;padding:24px;
+      background:#0F0F0F;color:#E8E9EC;
+      font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;
+      text-align:center}
+    .ol{margin:0;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#D1A476}
+    h1{margin:14px 0 0;font-size:26px;font-weight:600;letter-spacing:-.02em}
+    p.sub{margin:10px 0 0;color:#A9ADB7}
+    a{display:inline-block;margin-top:26px;padding:13px 22px;border-radius:999px;
+      background:#D1A476;color:#0F0F0F;font-weight:600;text-decoration:none}
+    a:hover{background:#E3C19C}
+    a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  </style>
+</head>
+<body>
+  <main>
+    <p class="ol">Alun Business</p>
+    <h1>Redirecionando…</h1>
+    <p class="sub">Levando você para o AI Builder Camp.</p>
+    <a href="https://ai-builder-camp.alura.com.br/caldeira">Continuar para o AI Builder Camp</a>
+  </main>
+</body>
+</html>
