@@ -65,6 +65,7 @@ layout: none
       --disp:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
       --corpo:'Space Grotesk','Inter',system-ui,-apple-system,sans-serif;
       --max:900px;
+      --seta:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h13'/%3E%3Cpath d='m12.5 5.5 6.5 6.5-6.5 6.5'/%3E%3C/svg%3E");
       color-scheme:light;
     }
     *,*::before,*::after{box-sizing:border-box}
@@ -103,7 +104,7 @@ layout: none
     .faixa .onde{font-size:13px;color:var(--tx-claro-2)}
 
     /* ── chamada ───────────────────────────────────────────────── */
-    .cap{padding-top:48px;padding-bottom:48px}
+    .cap{padding-top:48px;padding-bottom:50px}
     .cap h1 .coral{display:block}
     .cap .sub{margin:22px 0 0;font-size:clamp(16.5px,2.2vw,19px);color:var(--tx);max-width:58ch}
 
@@ -118,52 +119,108 @@ layout: none
     .garantias{margin:14px 0 0;font-size:14px;color:var(--rotulo)}
 
     /* ── seções ────────────────────────────────────────────────── */
+    /* A seção agora é invólucro e o .wrap é o miolo: assim a superfície
+       alternada sangra de ponta a ponta e some a armadilha do shorthand
+       `padding` zerando a goteira, que já mordeu esta página uma vez. */
     .sec{padding-top:46px;padding-bottom:46px;border-top:1px solid var(--linha)}
-    .sec > .lead{margin:18px 0 0;font-size:17px;color:var(--tx);max-width:62ch}
+    /* superfície alternada: o compasso das seções deixa de ser o mesmo */
+    .sec.alt{background:var(--claro-2);border-top-color:transparent}
+    .sec.alt + .sec{border-top-color:transparent}
+    .sec .lead{margin:18px 0 0;font-size:17px;color:var(--tx);max-width:62ch}
 
     .nota{margin-top:26px;padding-left:17px;border-left:3px solid var(--coral-txt);
       font-family:var(--disp);font-size:clamp(16px,2.1vw,19px);font-weight:700;
       letter-spacing:-.018em;line-height:1.35;color:var(--tinta)}
     .nota span{color:var(--coral-txt)}
 
-    /* ── os quatro degraus ─────────────────────────────────────── */
-    .deg{display:grid;gap:10px;margin-top:30px}
-    @media(min-width:760px){ .deg{grid-template-columns:repeat(4,1fr)} }
-    .deg > div{border:1px solid var(--linha);border-top:2px solid var(--linha-2);padding:19px 20px}
-    .deg .ano{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
+    /* ── a escada ──────────────────────────────────────────────
+       O conceito é uma escada, então ela sobe: as alturas crescem e
+       os blocos encostam embaixo, o que faz a borda de cima virar
+       degrau. No celular a subida vira recuo à esquerda, que é o que
+       ainda lê como ascensão numa coluna só. */
+    .esc{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end;margin-top:34px}
+    .esc > div{position:relative;border:1px solid var(--linha);
+      border-top:3px solid var(--linha-2);padding:18px 18px 20px}
+    .esc > div:nth-child(1){min-height:148px}
+    .esc > div:nth-child(2){min-height:184px}
+    .esc > div:nth-child(3){min-height:220px}
+    .esc > div:nth-child(4){min-height:256px}
+    .esc .ano{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
       text-transform:uppercase;color:var(--rotulo)}
-    .deg b{display:block;margin-top:10px;font-family:var(--disp);font-size:17px;font-weight:800;
+    .esc b{display:block;margin-top:10px;font-family:var(--disp);font-size:18px;font-weight:800;
       letter-spacing:-.02em;color:var(--tinta)}
-    .deg span{display:block;margin-top:7px;font-size:14.5px;color:var(--tx);line-height:1.5}
-    /* o degrau de agora é o bloco escuro — o mesmo gesto que o destino
-       usa no painel de conversão, e aqui marca onde a régua para */
-    .deg .agora{background:var(--painel);border-color:var(--painel);border-top-color:var(--coral)}
-    .deg .agora .ano{color:var(--coral)}
-    .deg .agora b{color:#fff}
-    .deg .agora span{color:var(--tx-claro)}
+    .esc span{display:block;margin-top:7px;font-size:14.5px;color:var(--tx);line-height:1.5}
+    .esc .agora{background:var(--painel);border-color:var(--painel);border-top-color:var(--coral)}
+    .esc .agora .ano{color:var(--coral)}
+    .esc .agora b{color:#fff}
+    .esc .agora span{color:var(--tx-claro)}
+    @media(max-width:760px){
+      .esc{grid-template-columns:1fr;gap:8px;align-items:stretch}
+      .esc > div{min-height:0 !important;border-top-width:1px;
+        border-left:3px solid var(--linha-2)}
+      .esc > div:nth-child(2){margin-left:16px}
+      .esc > div:nth-child(3){margin-left:32px}
+      .esc > div:nth-child(4){margin-left:48px}
+      .esc .agora{border-left-color:var(--coral)}
+    }
 
-    /* ── três definições ───────────────────────────────────────── */
+    /* ── faixa de afirmação, de ponta a ponta ──────────────────
+       Quebra o compasso das seções: o leitor vem de cinco blocos
+       claros e bate num preto com uma frase só. */
+    .afirma{background:var(--escuro)}
+    .afirma > div{padding-top:52px;padding-bottom:52px}
+    .afirma p{margin:0;font-family:var(--disp);font-size:clamp(23px,4.2vw,36px);font-weight:800;
+      letter-spacing:-.028em;line-height:1.14;color:#fff;max-width:20ch;text-wrap:balance}
+    .afirma p span{color:var(--coral)}
+
+    /* ── três definições, agora com glifo ──────────────────────── */
     .tres{display:grid;gap:10px;margin-top:30px}
     @media(min-width:720px){ .tres{grid-template-columns:repeat(3,1fr)} }
-    .tres > div{border:1px solid var(--linha);padding:21px 22px}
+    .tres > div{background:var(--claro);border:1px solid var(--linha);padding:22px}
+    .tres .ic{display:block;color:var(--coral-txt);margin-bottom:15px}
+    /* O diagrama de posição não é silhueta reconhecível: ele só comunica
+       se o anel e o ponto tiverem tamanho. A 30px viravam três manchas
+       iguais. O anel é idêntico nos três — o que muda é onde o ponto
+       está em relação a ele. */
+    .tres .dg{margin-bottom:13px}
     .tres .k{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
       text-transform:uppercase;color:var(--rotulo)}
-    .tres b{display:block;margin-top:11px;font-family:var(--disp);font-size:22px;font-weight:800;
-      letter-spacing:-.022em;color:var(--coral-txt)}
+    .tres b{display:block;margin-top:9px;font-family:var(--disp);font-size:23px;font-weight:800;
+      letter-spacing:-.024em;color:var(--coral-txt)}
     .tres span{display:block;margin-top:7px;font-size:15px;color:var(--tx)}
-    .tres .pos{color:var(--tinta);font-size:19px}
+    .tres .pos{color:var(--tinta);font-size:19px;letter-spacing:-.02em}
 
-    /* ── o loop ────────────────────────────────────────────────── */
-    .loop{display:grid;gap:9px;margin-top:30px}
-    @media(min-width:860px){ .loop{grid-template-columns:repeat(5,1fr)} }
-    .loop > div{border:1px solid var(--linha);padding:17px 18px}
-    .loop .n{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
+    /* ── o ciclo ───────────────────────────────────────────────
+       Cinco caixas enfileiradas não dizem "loop". As setas entre as
+       etapas e o retorno declarado embaixo é que fecham o ciclo. */
+    .ciclo{display:grid;grid-template-columns:repeat(5,1fr);gap:0 6px;margin-top:32px;
+      align-items:stretch}
+    @media(max-width:880px){ .ciclo{grid-template-columns:1fr;gap:0} }
+    .ciclo .et{position:relative;border:1px solid var(--linha);padding:16px 15px}
+    .ciclo .et + .et{margin-left:0}
+    .ciclo .n{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
       color:var(--coral-txt)}
-    .loop b{display:block;margin-top:9px;font-family:var(--disp);font-size:15.5px;font-weight:800;
+    .ciclo b{display:block;margin-top:8px;font-family:var(--disp);font-size:15.5px;font-weight:800;
       letter-spacing:-.018em;color:var(--tinta)}
-    .loop span{display:block;margin-top:6px;font-size:13.5px;color:var(--tx);line-height:1.5}
+    .ciclo span{display:block;margin-top:6px;font-size:13px;color:var(--tx);line-height:1.5}
+    /* a seta mora na borda, entre uma etapa e a seguinte */
+    .ciclo .et:not(:first-child)::before{content:"";position:absolute;z-index:1;
+      left:-11px;top:50%;width:16px;height:16px;margin-top:-8px;
+      background:var(--coral-txt);
+      -webkit-mask:var(--seta) center/contain no-repeat;mask:var(--seta) center/contain no-repeat}
+    @media(max-width:880px){
+      .ciclo .et{margin-top:0}
+      .ciclo .et + .et{margin-top:22px}
+      .ciclo .et:not(:first-child)::before{left:22px;top:-19px;margin-top:0;transform:rotate(90deg)}
+    }
+    .volta{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:14px;
+      border-top:1px dashed var(--linha-2)}
+    .volta .gl{flex:none;color:var(--coral-txt)}
+    .volta span{font-family:var(--disp);font-size:14px;font-weight:700;color:var(--tinta);
+      letter-spacing:-.01em}
+    .volta em{font-style:normal;color:var(--tx);font-weight:400;font-family:var(--corpo)}
 
-    .apoios{display:grid;gap:1px;margin-top:10px;background:var(--linha);border:1px solid var(--linha)}
+    .apoios{display:grid;gap:1px;margin-top:26px;background:var(--linha);border:1px solid var(--linha)}
     @media(min-width:680px){ .apoios{grid-template-columns:repeat(4,1fr)} }
     .apoios > div{background:var(--claro);padding:15px 18px}
     .apoios b{display:block;font-family:var(--disp);font-size:10.5px;font-weight:700;
@@ -222,113 +279,131 @@ layout: none
   </div>
 
   <main>
-    <section class="wrap cap">
-      <span class="rot">A era dos agentes</span>
-      <h1>Quando humanos deixam<span class="coral">de trabalhar sozinhos.</span></h1>
-      <p class="sub">O que você acabou de ver na palestra, em quatro ideias — e o curso para sair
-         daqui com um agente seu funcionando, não com anotações.</p>
-      <a class="bt" href="https://ai-builder-camp.alura.com.br/caldeira">Curso de Agentes de IA na Prática</a>
-      <p class="garantias">Gratuito · sem cartão de crédito · acesso na hora</p>
+    <section class="cap">
+      <div class="wrap">
+        <span class="rot">A era dos agentes</span>
+        <h1>Quando humanos deixam<span class="coral">de trabalhar sozinhos.</span></h1>
+        <p class="sub">O que você acabou de ver na palestra, em quatro ideias — e o curso para sair
+           daqui com um agente seu funcionando, não com anotações.</p>
+        <a class="bt" href="https://ai-builder-camp.alura.com.br/caldeira">Curso de Agentes de IA na Prática</a>
+        <p class="garantias">Gratuito · sem cartão de crédito · acesso na hora</p>
+      </div>
     </section>
 
-    <section class="wrap sec">
-      <span class="rot">Onde você está</span>
-      <h2>Você subiu quantos degraus em quatro anos?</h2>
-      <p class="lead">Em quatro anos a relação com a IA mudou de patamar quatro vezes. A maioria das
-         pessoas ainda opera no primeiro ou no segundo.</p>
+    <section class="sec">
+      <div class="wrap">
+        <span class="rot">Onde você está</span>
+        <h2>Você subiu quantos degraus em quatro anos?</h2>
+        <p class="lead">Em quatro anos a relação com a IA mudou de patamar quatro vezes. A maioria
+           das pessoas ainda opera no primeiro ou no segundo.</p>
 
-      <div class="deg">
-        <div><span class="ano">2022</span><b>Perguntar</b><span>Eu pergunto.</span></div>
-        <div><span class="ano">2024</span><b>Colaborar</b><span>Eu trabalho junto.</span></div>
-        <div><span class="ano">2026</span><b>Delegar</b><span>Eu entrego a missão.</span></div>
-        <div class="agora"><span class="ano">Agora</span><b>Orquestrar</b><span>Eu coordeno humanos e agentes.</span></div>
+        <div class="esc">
+          <div><span class="ano">2022</span><b>Perguntar</b><span>Eu pergunto.</span></div>
+          <div><span class="ano">2024</span><b>Colaborar</b><span>Eu trabalho junto.</span></div>
+          <div><span class="ano">2026</span><b>Delegar</b><span>Eu entrego a missão.</span></div>
+          <div class="agora"><span class="ano">Agora</span><b>Orquestrar</b><span>Eu coordeno humanos e agentes.</span></div>
+        </div>
       </div>
-
-      <p class="nota">O quarto degrau é o único que <span>ainda não tem manual comum.</span></p>
     </section>
 
-    <section class="wrap sec">
-      <span class="rot">O conceito</span>
-      <h2>Chatbot, copiloto e agente não são a mesma coisa.</h2>
-      <p class="lead">Os três usam o mesmo tipo de modelo por baixo. O que muda é outra coisa.</p>
-
-      <div class="tres">
-        <div><span class="k">Chatbot</span><b>Responde</b><span>suas perguntas</span></div>
-        <div><span class="k">Copiloto</span><b>Assiste</b><span>seu trabalho</span></div>
-        <div><span class="k">Agente</span><b>Age</b><span>para atingir um objetivo</span></div>
+    <section class="afirma">
+      <div class="wrap">
+        <p>O quarto degrau é o único que <span>ainda não tem manual comum.</span></p>
       </div>
-
-      <p class="nota">A diferença não é quanta IA tem dentro. É <span>quem decide o próximo
-         passo.</span></p>
     </section>
 
-    <section class="wrap sec">
-      <span class="rot">O que faz de um agente um agente</span>
-      <h2>A diferença não é só a inteligência. É o loop.</h2>
-      <p class="lead">Inteligência isolada responde. O loop transforma: ele observa, aprende,
-         ajusta e melhora.</p>
+    <section class="sec alt">
+      <div class="wrap">
+        <span class="rot">O conceito</span>
+        <h2>Chatbot, copiloto e agente não são a mesma coisa.</h2>
 
-      <div class="loop">
-        <div><span class="n">01</span><b>Objetivo</b><span>Define o que precisa ser alcançado.</span></div>
-        <div><span class="n">02</span><b>Plano</b><span>Decompõe em passos viáveis.</span></div>
-        <div><span class="n">03</span><b>Ação</b><span>Executa com as ferramentas certas.</span></div>
-        <div><span class="n">04</span><b>Observação</b><span>Analisa resultados e o contexto real.</span></div>
-        <div><span class="n">05</span><b>Ajuste</b><span>Corrige, aprende e itera.</span></div>
+        <div class="tres">
+          <div><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.3c0 4-3.8 7.2-8.5 7.2-1 0-2-.15-2.9-.42L4 20l1.3-3.6C4.2 15.05 3.5 13.25 3.5 11.3c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2Z"/></svg><span class="k">Chatbot</span><b>Responde</b><span>suas perguntas</span></div>
+          <div><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20.2c0-3.6 3.2-5.9 7.2-5.9s7.2 2.3 7.2 5.9"/></svg><span class="k">Copiloto</span><b>Assiste</b><span>seu trabalho</span></div>
+          <div><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="12" r="2.4"/><circle cx="18.5" cy="6" r="2.4"/><circle cx="18.5" cy="18" r="2.4"/><path d="M7.7 11 16.3 7"/><path d="m7.7 13 8.6 4"/></svg><span class="k">Agente</span><b>Age</b><span>para atingir um objetivo</span></div>
+        </div>
+
+        <p class="nota">A diferença não é quanta IA tem dentro. É <span>quem decide o próximo
+           passo.</span></p>
       </div>
-
-      <div class="apoios">
-        <div><b>Ferramentas</b><span>Integra o mundo real.</span></div>
-        <div><b>Memória</b><span>Dá continuidade.</span></div>
-        <div><b>Contexto</b><span>Entende a situação.</span></div>
-        <div><b>Permissões</b><span>Age com limites e segurança.</span></div>
-      </div>
-
-      <p class="nota">Modelo é inteligência. Agente é <span>inteligência com consequência.</span></p>
     </section>
 
-    <section class="wrap sec">
-      <span class="rot">O seu papel</span>
-      <h2>O humano não sai do loop. Ele muda de posição.</h2>
-      <p class="lead">Delegar não é desaparecer. É assumir uma posição diferente na mesma operação —
-         e é aí que quase ninguém foi treinado.</p>
+    <section class="sec">
+      <div class="wrap">
+        <span class="rot">O que faz de um agente um agente</span>
+        <h2>A diferença não é só a inteligência. É o loop.</h2>
+        <p class="lead">Inteligência isolada responde. O loop transforma: ele observa, aprende,
+           ajusta e melhora.</p>
 
-      <div class="tres">
-        <div><span class="k">Human-in-the-loop</span><b class="pos">Executa junto</b></div>
-        <div><span class="k">Human-on-the-loop</span><b class="pos">Supervisiona</b></div>
-        <div><span class="k">Human-over-the-loop</span><b class="pos">Define, orienta, avalia</b></div>
+        <div class="ciclo">
+          <div class="et"><span class="n">01</span><b>Objetivo</b><span>O que precisa ser alcançado.</span></div>
+          <div class="et"><span class="n">02</span><b>Plano</b><span>Decompõe em passos viáveis.</span></div>
+          <div class="et"><span class="n">03</span><b>Ação</b><span>Executa com as ferramentas certas.</span></div>
+          <div class="et"><span class="n">04</span><b>Observação</b><span>Analisa resultado e contexto.</span></div>
+          <div class="et"><span class="n">05</span><b>Ajuste</b><span>Corrige, aprende e itera.</span></div>
+        </div>
+
+        <div class="volta">
+          <svg class="gl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 1 2.6 6.1"/><path d="M3.2 18.6V13h5.6"/></svg>
+          <span>E recomeça. <em>É o ciclo que transforma, não a resposta.</em></span>
+        </div>
+
+        <div class="apoios">
+          <div><b>Ferramentas</b><span>Integra o mundo real.</span></div>
+          <div><b>Memória</b><span>Dá continuidade.</span></div>
+          <div><b>Contexto</b><span>Entende a situação.</span></div>
+          <div><b>Permissões</b><span>Age com limites e segurança.</span></div>
+        </div>
+
+        <p class="nota">Modelo é inteligência. Agente é <span>inteligência com consequência.</span></p>
       </div>
-
-      <p class="nota">Delegar para IA é competência de gestão. <span>Não de prompting.</span></p>
     </section>
 
-    <section class="wrap sec">
-      <span class="rot">A prática</span>
-      <h2>O que você viu hoje, você pratica no curso.</h2>
-      <p class="lead">19 exercícios para sair do prompt solto e chegar a agentes, automações e
-         fluxos de trabalho rodando de verdade. Em até cinco horas, sem escrever uma linha de
-         código.</p>
+    <section class="sec alt">
+      <div class="wrap">
+        <span class="rot">O seu papel</span>
+        <h2>O humano não sai do loop. Ele muda de posição.</h2>
 
-      <div class="faz">
-        <div><span class="s">→</span><div><b>Criar aplicações sem programar</b>
-          <p>Você descreve o que quer em linguagem natural e o agente entrega o aplicativo
-             funcionando.</p></div></div>
-        <div><span class="s">→</span><div><b>Automatizar o seu fluxo de trabalho</b>
-          <p>Nunca mais copiar e colar informação de uma ferramenta para outra.</p></div></div>
-        <div><span class="s">→</span><div><b>Acompanhar concorrentes sozinho</b>
-          <p>Um agente busca, analisa e entrega o resumo toda semana, sem você pedir.</p></div></div>
-        <div><span class="s">→</span><div><b>Coordenar vários agentes em paralelo</b>
-          <p>Um pesquisa, outro analisa, outro entrega — o quarto degrau, na prática.</p></div></div>
+        <div class="tres">
+          <div><svg class="ic dg" width="58" height="50" viewBox="0 0 58 50" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="22" cy="27" r="14" stroke-dasharray="3 3"/><circle cx="22" cy="27" r="4.6" fill="currentColor" stroke="none"/></svg><span class="k">Human-in-the-loop</span><b class="pos">Executa junto</b></div>
+          <div><svg class="ic dg" width="58" height="50" viewBox="0 0 58 50" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="22" cy="27" r="14" stroke-dasharray="3 3"/><circle cx="36" cy="27" r="4.6" fill="currentColor" stroke="none"/></svg><span class="k">Human-on-the-loop</span><b class="pos">Supervisiona</b></div>
+          <div><svg class="ic dg" width="58" height="50" viewBox="0 0 58 50" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="22" cy="27" r="14" stroke-dasharray="3 3"/><circle cx="22" cy="6" r="4.6" fill="currentColor" stroke="none"/></svg><span class="k">Human-over-the-loop</span><b class="pos">Define, orienta, avalia</b></div>
+        </div>
+
+        <p class="nota">Delegar para IA é competência de gestão. <span>Não de prompting.</span></p>
       </div>
+    </section>
 
-      <div class="atos">
-        <div><span class="n">Ato I</span><span class="tt">Entenda o poder dos agentes</span><span class="dur">~1h45</span></div>
-        <div><span class="n">Ato II</span><span class="tt">Construa o seu primeiro agente</span><span class="dur">~1h50</span></div>
-        <div><span class="n">Ato III</span><span class="tt">Conecte ao mundo real</span><span class="dur">~1h25</span></div>
-        <div><span class="n">Ato IV</span><span class="tt">Missões complementares</span><span class="dur">missões</span></div>
-      </div>
+    <section class="sec">
+      <div class="wrap">
+        <span class="rot">A prática</span>
+        <h2>O que você viu hoje, você pratica no curso.</h2>
+        <p class="lead">19 exercícios para sair do prompt solto e chegar a agentes, automações e
+           fluxos de trabalho rodando de verdade. Em até cinco horas, sem escrever uma linha de
+           código.</p>
 
-      <div class="ferr">
-        <span>Claude</span><span>ChatGPT</span><span>Gemini</span><span>Microsoft Copilot</span>
+        <div class="faz">
+          <div><span class="s">→</span><div><b>Criar aplicações sem programar</b>
+            <p>Você descreve o que quer em linguagem natural e o agente entrega o aplicativo
+               funcionando.</p></div></div>
+          <div><span class="s">→</span><div><b>Automatizar o seu fluxo de trabalho</b>
+            <p>Nunca mais copiar e colar informação de uma ferramenta para outra.</p></div></div>
+          <div><span class="s">→</span><div><b>Acompanhar concorrentes sozinho</b>
+            <p>Um agente busca, analisa e entrega o resumo toda semana, sem você pedir.</p></div></div>
+          <div><span class="s">→</span><div><b>Coordenar vários agentes em paralelo</b>
+            <p>Um pesquisa, outro analisa, outro entrega — o quarto degrau, na prática.</p></div></div>
+        </div>
+
+        <div class="atos">
+          <div><span class="n">Ato I</span><span class="tt">Entenda o poder dos agentes</span><span class="dur">~1h45</span></div>
+          <div><span class="n">Ato II</span><span class="tt">Construa o seu primeiro agente</span><span class="dur">~1h50</span></div>
+          <div><span class="n">Ato III</span><span class="tt">Conecte ao mundo real</span><span class="dur">~1h25</span></div>
+          <div><span class="n">Ato IV</span><span class="tt">Missões complementares</span><span class="dur">missões</span></div>
+        </div>
+
+        <div class="ferr">
+          <span>Claude</span><span>ChatGPT</span><span>Gemini</span><span>Microsoft Copilot</span>
+        </div>
       </div>
     </section>
 
