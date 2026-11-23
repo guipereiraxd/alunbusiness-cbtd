@@ -6,44 +6,191 @@ layout: none
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Redirecionando para o AI Builder Camp</title>
 
-  <!-- O destino é o canônico: quem indexa deve indexar lá, não aqui. -->
-  <link rel="canonical" href="https://ai-builder-camp.alura.com.br/caldeira">
-  <meta name="robots" content="noindex">
+  <title>Curso de Agentes de IA na Prática · AI Day Caldeira 2026</title>
+  <meta name="description" content="Participou do AI Day Caldeira? Continue na prática: 19 exercícios para criar agentes, automações e workflows com IA, em até cinco horas e sem escrever código. Gratuito.">
+  <link rel="canonical" href="https://alunbusiness.md/caldeira/">
+  <meta name="theme-color" content="#0F0F0F">
 
-  <!-- replace() em vez de atribuir a location: não deixa esta página no
-       histórico, então o botão voltar leva de volta à origem em vez de
-       devolver o visitante para cá e redirecioná-lo de novo. Fica no head
-       para disparar antes de qualquer pintura. -->
-  <script>location.replace("https://ai-builder-camp.alura.com.br/caldeira");</script>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Alun Business">
+  <meta property="og:title" content="Curso de Agentes de IA na Prática · AI Day Caldeira 2026">
+  <meta property="og:description" content="19 exercícios para criar agentes, automações e workflows com IA. Em até cinco horas, sem escrever código. Gratuito.">
+  <meta property="og:url" content="https://alunbusiness.md/caldeira/">
 
-  <!-- Rede de segurança para quem estiver sem JavaScript. -->
-  <meta http-equiv="refresh" content="0; url=https://ai-builder-camp.alura.com.br/caldeira">
+  <link rel="icon" href="{{ '/recode/assets/marca/favicon-32.png' | relative_url }}" sizes="32x32">
+
+  <!-- Space Grotesk é a fonte do destino. A ponte usa a mesma, para a
+       passagem de uma página para a outra não parecer troca de produto. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{color-scheme:dark}
+    /* Paleta lida do próprio destino: o preto e o dourado são os da Alun
+       Business, e o coral #FF8E6C é o acento exclusivo do AI Day Caldeira.
+       Coral sobre o preto dá 8,55:1 — passa como texto e como fundo de
+       botão com texto escuro. */
+    :root{
+      --bg:#0F0F0F; --surf:#161618; --surf-2:#1C1C20;
+      --linha:#1E2026; --linha-2:#33363E;
+      --t1:#FFFFFF; --t2:#CFD2D8; --t3:#8B8F9A;
+      --coral:#FF8E6C; --ouro:#D1A476;
+      --sans:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+      --max:760px;
+      color-scheme:dark;
+    }
     *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;display:grid;place-items:center;padding:24px;
-      background:#0F0F0F;color:#E8E9EC;
-      font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;
-      text-align:center}
-    .ol{margin:0;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#D1A476}
-    h1{margin:14px 0 0;font-size:26px;font-weight:600;letter-spacing:-.02em}
-    p.sub{margin:10px 0 0;color:#A9ADB7}
-    a{display:inline-block;margin-top:26px;padding:13px 22px;border-radius:999px;
-      background:#D1A476;color:#0F0F0F;font-weight:600;text-decoration:none}
-    a:hover{background:#E3C19C}
-    a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+    html{-webkit-text-size-adjust:100%}
+    body{margin:0;background:var(--bg);color:var(--t2);
+      font:400 17px/1.62 var(--sans);-webkit-font-smoothing:antialiased}
+    /* .wrap divide o elemento com a classe da seção (<section class="wrap cap">).
+       Como as seções vêm depois no CSS, qualquer shorthand `padding` nelas zera
+       a goteira lateral daqui — então ali embaixo só se usa longhand vertical. */
+    .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
+    h1,h2,h3{color:var(--t1);margin:0;letter-spacing:-.025em;line-height:1.14}
+    a{color:var(--coral)}
+
+    /* ── topo ───────────────────────────────────────────────────── */
+    .topo{padding-top:34px}
+    .selo{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;
+      border:1px solid rgba(255,142,108,.42);border-radius:999px;
+      font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--coral)}
+    .selo::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--coral)}
+    .onde{margin:14px 0 0;font-size:13.5px;color:var(--t3);letter-spacing:.01em}
+
+    /* ── chamada ────────────────────────────────────────────────── */
+    .cap{padding-top:26px;padding-bottom:44px}
+    .cap h1{font-size:clamp(31px,7.4vw,48px)}
+    .cap h1 span{display:block;color:var(--coral)}
+    .cap .sub{margin:22px 0 0;font-size:clamp(16.5px,2.2vw,19px);color:var(--t2);
+      max-width:56ch}
+
+    /* ── botão ──────────────────────────────────────────────────── */
+    .bt{display:flex;align-items:center;justify-content:center;gap:10px;
+      width:100%;margin-top:30px;padding:19px 26px;border-radius:14px;
+      background:var(--coral);color:#0F0F0F;
+      font-size:17px;font-weight:700;letter-spacing:-.01em;text-decoration:none;
+      transition:background .18s ease,transform .18s ease}
+    .bt::after{content:"→";font-weight:500}
+    .bt:hover{background:#FFA98C;transform:translateY(-1px)}
+    .bt:focus-visible{outline:3px solid var(--t1);outline-offset:3px}
+    @media(min-width:620px){ .bt{width:auto;display:inline-flex} }
+    .garantias{margin:15px 0 0;font-size:14px;color:var(--t3)}
+
+    /* ── seções ─────────────────────────────────────────────────── */
+    .sec{padding-top:40px;padding-bottom:40px;border-top:1px solid var(--linha)}
+    .olho{margin:0 0 20px;font-size:11.5px;font-weight:600;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--ouro)}
+
+    .faz{display:grid;gap:12px}
+    @media(min-width:680px){ .faz{grid-template-columns:1fr 1fr} }
+    .faz > div{background:var(--surf);border:1px solid var(--linha);border-radius:14px;
+      padding:20px 22px}
+    .faz h3{font-size:17px;font-weight:600;line-height:1.3}
+    .faz p{margin:9px 0 0;font-size:14.5px;color:var(--t3);line-height:1.55}
+
+    .atos{display:grid;gap:1px;background:var(--linha);
+      border:1px solid var(--linha);border-radius:14px;overflow:hidden}
+    .atos > div{display:grid;grid-template-columns:62px 1fr auto;gap:16px;align-items:baseline;
+      background:var(--surf);padding:17px 20px}
+    @media(max-width:520px){ .atos > div{grid-template-columns:52px 1fr;gap:4px 12px}
+      .atos .dur{grid-column:2} }
+    .atos .n{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+      color:var(--coral)}
+    .atos .tt{font-size:16px;color:var(--t1);font-weight:500;line-height:1.35}
+    .atos .dur{font-size:13.5px;color:var(--t3);white-space:nowrap}
+
+    .ferr{display:flex;flex-wrap:wrap;gap:9px}
+    .ferr span{padding:9px 16px;border:1px solid var(--linha-2);border-radius:999px;
+      font-size:14.5px;color:var(--t2)}
+
+    /* ── fecho ──────────────────────────────────────────────────── */
+    .fecho{padding-top:44px;border-top:1px solid var(--linha)}
+    .fecho h2{font-size:clamp(23px,4.4vw,30px)}
+    .fecho p{margin:14px 0 0;color:var(--t2);max-width:50ch}
+    footer{margin-top:52px;padding-top:26px;padding-bottom:44px;
+      border-top:1px solid var(--linha);
+      font-size:13.5px;color:var(--t3);line-height:1.7}
+    footer b{color:var(--t2);font-weight:600}
+
+    @media (prefers-reduced-motion:reduce){ *{transition:none !important} }
   </style>
 </head>
 <body>
+
+  <div class="wrap topo">
+    <span class="selo">AI Day Caldeira 2026</span>
+    <p class="onde">Instituto Caldeira · Navegantes, Porto Alegre · 01.12.26</p>
+  </div>
+
   <main>
-    <p class="ol">Alun Business</p>
-    <h1>Redirecionando…</h1>
-    <p class="sub">Levando você para o AI Builder Camp.</p>
-    <a href="https://ai-builder-camp.alura.com.br/caldeira">Continuar para o AI Builder Camp</a>
+    <section class="wrap cap">
+      <h1>Você viu os agentes funcionando.<span>Agora construa o seu.</span></h1>
+      <p class="sub">O curso que continua o AI Day: 19 exercícios para sair do prompt solto e
+         chegar a agentes, automações e fluxos de trabalho rodando de verdade. Em até cinco
+         horas, sem escrever uma linha de código.</p>
+      <a class="bt" href="https://ai-builder-camp.alura.com.br/caldeira">Curso de Agentes de IA na Prática</a>
+      <p class="garantias">Gratuito · sem cartão de crédito · acesso na hora</p>
+    </section>
+
+    <section class="wrap sec">
+      <h2 class="olho">O que você vai conseguir fazer</h2>
+      <div class="faz">
+        <div>
+          <h3>Criar aplicações sem programar</h3>
+          <p>Você descreve o que quer em linguagem natural e o agente entrega o aplicativo
+             funcionando.</p>
+        </div>
+        <div>
+          <h3>Automatizar o seu fluxo de trabalho</h3>
+          <p>Nunca mais copiar e colar informação de uma ferramenta para outra.</p>
+        </div>
+        <div>
+          <h3>Acompanhar concorrentes sozinho</h3>
+          <p>Um agente busca, analisa e entrega o resumo toda semana, sem você pedir.</p>
+        </div>
+        <div>
+          <h3>Coordenar vários agentes em paralelo</h3>
+          <p>Um pesquisa, outro analisa, outro entrega — como um time digital que trabalha
+             junto.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap sec">
+      <h2 class="olho">Como o curso é organizado</h2>
+      <div class="atos">
+        <div><span class="n">Ato I</span><span class="tt">Entenda o poder dos agentes</span><span class="dur">~1h45</span></div>
+        <div><span class="n">Ato II</span><span class="tt">Construa o seu primeiro agente</span><span class="dur">~1h50</span></div>
+        <div><span class="n">Ato III</span><span class="tt">Conecte ao mundo real</span><span class="dur">~1h25</span></div>
+        <div><span class="n">Ato IV</span><span class="tt">Missões complementares</span><span class="dur">missões</span></div>
+      </div>
+    </section>
+
+    <section class="wrap sec">
+      <h2 class="olho">Funciona com a ferramenta que você já usa</h2>
+      <div class="ferr">
+        <span>Claude</span>
+        <span>ChatGPT</span>
+        <span>Gemini</span>
+        <span>Microsoft Copilot</span>
+      </div>
+    </section>
+
+    <section class="wrap fecho">
+      <h2>Comece agora, no seu ritmo</h2>
+      <p>O cadastro leva menos de um minuto e o acesso é liberado na hora.</p>
+      <a class="bt" href="https://ai-builder-camp.alura.com.br/caldeira">Curso de Agentes de IA na Prática</a>
+    </section>
   </main>
+
+  <footer class="wrap">
+    Uma iniciativa da <b>Alun Business</b> — Alura, FIAP, PM3 e StartSe — em parceria com o
+    <b>Instituto Caldeira</b>.
+  </footer>
+
 </body>
 </html>
