@@ -69,7 +69,8 @@ layout: none
       color-scheme:light;
     }
     *,*::before,*::after{box-sizing:border-box}
-    html{-webkit-text-size-adjust:100%}
+    html{-webkit-text-size-adjust:100%;scroll-padding-top:116px}
+    @media(max-width:700px){ html{scroll-padding-top:104px} }
     body{margin:0;background:var(--claro);color:var(--tx);
       font:400 17px/1.62 var(--corpo);-webkit-font-smoothing:antialiased}
 
@@ -87,21 +88,64 @@ layout: none
     .rot{display:block;margin:0 0 18px;font-family:var(--disp);font-size:11px;
       font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rotulo)}
 
-    /* ── cabeçalho e faixa preta ───────────────────────────────── */
-    .topo{display:flex;align-items:center;justify-content:space-between;gap:16px;
-      padding-top:20px;padding-bottom:20px}
-    .topo img{height:22px;width:auto;display:block}
+    /* ── o cabeçalho, que agora fica ───────────────────────────
+       É um <header> filho direto do <body>, então o bloco que o
+       contém é o documento inteiro: `sticky` o prende no topo da
+       primeira rolagem até a última, sem uma linha de JavaScript.
+       E, por continuar no fluxo, ele reserva o próprio espaço — daí
+       não precisar de espaçador, de compensação no <main> nem de
+       truque para evitar salto: não há salto a evitar. */
+    .cab{position:sticky;top:0;z-index:40}
+    .cab-alto{background:var(--claro)}
+    /* longhand de novo: `.wrap` divide o elemento e um shorthand
+       `padding` aqui zeraria a goteira lateral */
+    .cab-alto > .wrap{display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:8px 14px;padding-top:11px;padding-bottom:11px}
+
+    /* O lockup com as quatro marcas embaixo. Quem manda na
+       legibilidade da fileira de baixo é a LARGURA, não a altura —
+       por isso a medida aqui é a largura, e a altura vem da
+       proporção. A partir de ~170px as quatro marcas se leem bem;
+       o piso de 152px só vale abaixo de 323px de tela, onde a
+       alternativa seria quebrar a linha e engordar a barra. */
+    .cab-marca{display:block;width:clamp(152px,47vw,215px);height:auto}
     .selo{flex:none;padding:5px 12px;border:1px solid var(--coral-txt);
       font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
       text-transform:uppercase;color:var(--coral-txt);white-space:nowrap}
-    @media(max-width:460px){ .topo img{height:18px} .selo{font-size:9.5px;padding:4px 9px} }
 
-    .faixa{background:var(--escuro)}
-    .faixa > div{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
-      flex-wrap:wrap;padding-top:13px;padding-bottom:13px}
+    /* O filete de baixo só aparece quando a barra para sobre uma
+       seção escura — sobre o claro ele some, que é o certo: ali a
+       própria faixa preta já é a divisa. */
+    .faixa{background:var(--escuro);border-bottom:1px solid rgba(255,255,255,.14)}
+    .faixa > .wrap{display:flex;align-items:baseline;justify-content:space-between;
+      flex-wrap:wrap;gap:3px 14px;padding-top:10px;padding-bottom:10px}
     .faixa .lema{font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:.1em;
       text-transform:uppercase;color:var(--coral)}
     .faixa .onde{font-size:13px;color:var(--tx-claro-2)}
+
+    /* A barra fica na tela o tempo todo, então cada pixel dela é
+       pixel que o conteúdo perde: no celular ela encolhe. */
+    @media(max-width:700px){
+      .cab-alto > .wrap{padding-top:9px;padding-bottom:9px}
+      .selo{font-size:9px;padding:4px 9px}
+      .faixa > .wrap{padding-top:8px;padding-bottom:8px}
+      .faixa .lema,.faixa .onde{font-size:10.5px;line-height:1.5}
+    }
+    /* Abaixo de 400px o selo com o ano e o lockup legível não cabem
+       na mesma linha — e a linha quebrada custa 31px de barra fixa,
+       que é o pior negócio possível. Some o ano, que continua
+       legível na data da faixa preta logo abaixo. */
+    @media(max-width:400px){ .selo .ano{display:none} }
+    @media(max-width:460px){ .cab-alto > .wrap{column-gap:10px} }
+
+    /* Celular deitado: a tela tem 375px de altura e a barra fixa
+       cobraria 28% dela. Em tela baixa ela aperta. */
+    @media(max-height:460px){
+      .cab-alto > .wrap{padding-top:6px;padding-bottom:6px}
+      .cab-marca{width:clamp(152px,30vw,180px)}
+      .faixa > .wrap{padding-top:6px;padding-bottom:6px}
+      .faixa .lema,.faixa .onde{font-size:10.5px;line-height:1.45}
+    }
 
     /* ── chamada ───────────────────────────────────────────────── */
     .cap{padding-top:48px;padding-bottom:50px}
@@ -266,17 +310,22 @@ layout: none
 </head>
 <body>
 
-  <div class="wrap topo">
-    <img src="{{ '/assets/logo-alun-business-preto.png' | relative_url }}" alt="Alun Business">
-    <span class="selo">AI Day Caldeira 2026</span>
-  </div>
-
-  <div class="faixa">
-    <div class="wrap">
-      <span class="lema">Inteligência artificial na prática.</span>
-      <span class="onde">Instituto Caldeira · Navegantes, Porto Alegre · 01.12.26</span>
+  <header class="cab">
+    <div class="cab-alto">
+      <div class="wrap">
+        <img class="cab-marca" src="{{ '/assets/logo-alun-business-4marcas-preto.png' | relative_url }}"
+             alt="Alun Business — Alura, FIAP, PM3 e StartSe" width="560" height="107">
+        <span class="selo">AI Day Caldeira<span class="ano">&nbsp;2026</span></span>
+      </div>
     </div>
-  </div>
+
+    <div class="faixa">
+      <div class="wrap">
+        <span class="lema">Inteligência artificial na prática.</span>
+        <span class="onde">Instituto Caldeira · Navegantes, Porto Alegre · 01.12.26</span>
+      </div>
+    </div>
+  </header>
 
   <main>
     <section class="cap">
