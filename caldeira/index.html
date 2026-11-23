@@ -10,7 +10,7 @@ layout: none
   <title>A era dos agentes · AI Day Caldeira 2026</title>
   <meta name="description" content="O que muda quando o software começa a trabalhar: os quatro degraus, a diferença entre chatbot, copiloto e agente, e por que delegar para IA é competência de gestão. Com o curso prático, gratuito.">
   <link rel="canonical" href="https://alunbusiness.md/caldeira/">
-  <meta name="theme-color" content="#0F0F0F">
+  <meta name="theme-color" content="#F7F8F1">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
@@ -21,171 +21,172 @@ layout: none
 
   <link rel="icon" href="{{ '/recode/assets/marca/favicon-32.png' | relative_url }}" sizes="32x32">
 
-  <!-- A tipografia é a do destino: Inter para título e rótulo, Space
-       Grotesk para corpo. Mesma dupla, para a passagem de uma página
-       para a outra não parecer troca de produto. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     /* ═══ Identidade do AI Day Caldeira ═════════════════════════
-       Lida da própria página de destino: preto #0F0F0F, superfície
-       #161618, coral #FF8E6C como acento do evento e o dourado
-       #D1A476 da Alun Business. Geometria reta — o selo do evento
-       é retângulo de contorno, não pílula.
+       Lida da página de destino no seu estado PADRÃO, que é claro:
+       superfície #F7F8F1 (branco quente), texto preto, rótulo
+       #6B6B65, bordas rgba(0,0,0,.12), cantos retos, faixa preta
+       sob o cabeçalho e um painel escuro no bloco de conversão.
 
-       Uma correção deliberada: o rótulo de seção do destino usa
-       #6B6B65, que dá 3,57:1 sobre o preto e não passa em AA para
-       texto de 11px. Aqui ele vira #8A8A82 (5,51:1), que mantém o
-       cinza quente e fica legível. */
+       Sobre o coral: #FF8E6C sobre a superfície clara dá 2,10:1 —
+       reprova até como texto grande. Na página de destino ele é usado
+       assim mesmo no destaque da manchete e no selo. Aqui o coral
+       cheio fica só onde o fundo é escuro (faixa, painel, fundo de
+       botão com texto escuro), onde rende 8,52:1; para coral SOBRE o
+       claro existe --coral-txt (#C2410C, 4,85:1), que mantém o matiz
+       e fica legível. */
     :root{
-      --bg:#0F0F0F; --surf:#161618; --surf-2:#1B1B1E;
-      --linha:#26262B; --linha-2:#33363E;
-      --t1:#FFFFFF; --t2:#CFD2D8; --t3:#8B8F9A; --rotulo:#8A8A82;
-      --coral:#FF8E6C; --coral-claro:#FFA98C; --ouro:#D1A476;
+      --claro:#F7F8F1; --claro-2:#EFF0E8;
+      --escuro:#0F0F0F; --painel:#161618; --painel-2:#1F1F22;
+      --tinta:#000000; --tinta-2:#1A1A17;
+      --rotulo:#6B6B65; --tx:#3A3A35; --tx-claro:#CFD2D8; --tx-claro-2:#8B8F9A;
+      --linha:rgba(0,0,0,.12); --linha-2:rgba(0,0,0,.22);
+      --coral:#FF8E6C; --coral-txt:#C2410C; --coral-claro:#FFA98C;
       --disp:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
       --corpo:'Space Grotesk','Inter',system-ui,-apple-system,sans-serif;
-      --max:880px;
-      color-scheme:dark;
+      --max:900px;
+      color-scheme:light;
     }
     *,*::before,*::after{box-sizing:border-box}
     html{-webkit-text-size-adjust:100%}
-    body{margin:0;background:var(--bg);color:var(--t2);
+    body{margin:0;background:var(--claro);color:var(--tx);
       font:400 17px/1.62 var(--corpo);-webkit-font-smoothing:antialiased}
 
     /* .wrap divide o elemento com a classe da seção. Como as seções
-       vêm depois no CSS, qualquer shorthand `padding` nelas zeraria a
+       vêm depois no CSS, um shorthand `padding` nelas zeraria a
        goteira lateral — por isso, dali para baixo, só longhand. */
     .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
 
-    h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;color:var(--t1);
-      letter-spacing:-.025em;line-height:1.12;text-wrap:balance}
+    h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;color:var(--tinta);
+      letter-spacing:-.028em;line-height:1.1;text-wrap:balance}
     h1{font-size:clamp(30px,6.8vw,46px)}
     h2{font-size:clamp(25px,4.6vw,34px)}
-    .coral{color:var(--coral)}
+    .coral{color:var(--coral-txt)}
 
-    /* rótulo de seção — Inter 11px/700/.14em, o padrão do destino */
     .rot{display:block;margin:0 0 18px;font-family:var(--disp);font-size:11px;
       font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rotulo)}
 
-    /* ── cabeçalho e faixa do evento ───────────────────────────── */
+    /* ── cabeçalho e faixa preta ───────────────────────────────── */
     .topo{display:flex;align-items:center;justify-content:space-between;gap:16px;
       padding-top:20px;padding-bottom:20px}
-    .topo img{height:21px;width:auto;display:block}
-    .selo{flex:none;padding:5px 12px;border:1px solid var(--coral);
+    .topo img{height:22px;width:auto;display:block}
+    .selo{flex:none;padding:5px 12px;border:1px solid var(--coral-txt);
       font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
-      text-transform:uppercase;color:var(--coral);white-space:nowrap}
+      text-transform:uppercase;color:var(--coral-txt);white-space:nowrap}
     @media(max-width:460px){ .topo img{height:18px} .selo{font-size:9.5px;padding:4px 9px} }
 
-    .faixa{border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+    .faixa{background:var(--escuro)}
     .faixa > div{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
-      flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+      flex-wrap:wrap;padding-top:13px;padding-bottom:13px}
     .faixa .lema{font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:.1em;
       text-transform:uppercase;color:var(--coral)}
-    .faixa .onde{font-size:13px;color:var(--t3)}
+    .faixa .onde{font-size:13px;color:var(--tx-claro-2)}
 
     /* ── chamada ───────────────────────────────────────────────── */
-    .cap{padding-top:46px;padding-bottom:46px}
+    .cap{padding-top:48px;padding-bottom:48px}
     .cap h1 .coral{display:block}
-    .cap .sub{margin:22px 0 0;font-size:clamp(16.5px,2.2vw,19px);color:var(--t2);max-width:58ch}
+    .cap .sub{margin:22px 0 0;font-size:clamp(16.5px,2.2vw,19px);color:var(--tx);max-width:58ch}
 
     .bt{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-      margin-top:30px;padding:19px 26px;background:var(--coral);color:#0F0F0F;
+      margin-top:30px;padding:19px 26px;background:var(--coral);color:var(--escuro);
       font-family:var(--disp);font-size:16.5px;font-weight:700;letter-spacing:-.01em;
       text-decoration:none;transition:background .18s ease}
     .bt::after{content:"→";font-weight:600}
     .bt:hover{background:var(--coral-claro)}
-    .bt:focus-visible{outline:3px solid var(--t1);outline-offset:3px}
+    .bt:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
     @media(min-width:640px){ .bt{width:auto;display:inline-flex} }
-    .garantias{margin:14px 0 0;font-size:14px;color:var(--t3)}
+    .garantias{margin:14px 0 0;font-size:14px;color:var(--rotulo)}
 
     /* ── seções ────────────────────────────────────────────────── */
     .sec{padding-top:46px;padding-bottom:46px;border-top:1px solid var(--linha)}
-    .sec > .lead{margin:18px 0 0;font-size:17px;color:var(--t2);max-width:62ch}
+    .sec > .lead{margin:18px 0 0;font-size:17px;color:var(--tx);max-width:62ch}
 
-    /* nota de fecho de seção — a frase que a palestra deixa no ar */
-    .nota{margin-top:26px;padding-left:17px;border-left:2px solid var(--coral);
+    .nota{margin-top:26px;padding-left:17px;border-left:3px solid var(--coral-txt);
       font-family:var(--disp);font-size:clamp(16px,2.1vw,19px);font-weight:700;
-      letter-spacing:-.018em;line-height:1.35;color:var(--t1)}
-    .nota span{color:var(--coral)}
+      letter-spacing:-.018em;line-height:1.35;color:var(--tinta)}
+    .nota span{color:var(--coral-txt)}
 
     /* ── os quatro degraus ─────────────────────────────────────── */
     .deg{display:grid;gap:10px;margin-top:30px}
     @media(min-width:760px){ .deg{grid-template-columns:repeat(4,1fr)} }
-    .deg > div{background:var(--surf);border:1px solid var(--linha);border-top:2px solid var(--linha-2);
-      padding:19px 20px}
+    .deg > div{border:1px solid var(--linha);border-top:2px solid var(--linha-2);padding:19px 20px}
     .deg .ano{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
-      text-transform:uppercase;color:var(--t3)}
+      text-transform:uppercase;color:var(--rotulo)}
     .deg b{display:block;margin-top:10px;font-family:var(--disp);font-size:17px;font-weight:800;
-      letter-spacing:-.02em;color:var(--t1)}
-    .deg span{display:block;margin-top:7px;font-size:14.5px;color:var(--t3);line-height:1.5}
-    .deg .agora{border-top-color:var(--coral);background:var(--surf-2)}
+      letter-spacing:-.02em;color:var(--tinta)}
+    .deg span{display:block;margin-top:7px;font-size:14.5px;color:var(--tx);line-height:1.5}
+    /* o degrau de agora é o bloco escuro — o mesmo gesto que o destino
+       usa no painel de conversão, e aqui marca onde a régua para */
+    .deg .agora{background:var(--painel);border-color:var(--painel);border-top-color:var(--coral)}
     .deg .agora .ano{color:var(--coral)}
+    .deg .agora b{color:#fff}
+    .deg .agora span{color:var(--tx-claro)}
 
-    /* ── três definições lado a lado ───────────────────────────── */
+    /* ── três definições ───────────────────────────────────────── */
     .tres{display:grid;gap:10px;margin-top:30px}
     @media(min-width:720px){ .tres{grid-template-columns:repeat(3,1fr)} }
-    .tres > div{background:var(--surf);border:1px solid var(--linha);padding:21px 22px}
+    .tres > div{border:1px solid var(--linha);padding:21px 22px}
     .tres .k{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
-      text-transform:uppercase;color:var(--t3)}
+      text-transform:uppercase;color:var(--rotulo)}
     .tres b{display:block;margin-top:11px;font-family:var(--disp);font-size:22px;font-weight:800;
-      letter-spacing:-.022em;color:var(--coral)}
-    .tres span{display:block;margin-top:7px;font-size:15px;color:var(--t2)}
-    .tres .pos{color:var(--t1);font-size:19px}
+      letter-spacing:-.022em;color:var(--coral-txt)}
+    .tres span{display:block;margin-top:7px;font-size:15px;color:var(--tx)}
+    .tres .pos{color:var(--tinta);font-size:19px}
 
     /* ── o loop ────────────────────────────────────────────────── */
     .loop{display:grid;gap:9px;margin-top:30px}
     @media(min-width:860px){ .loop{grid-template-columns:repeat(5,1fr)} }
-    .loop > div{position:relative;background:var(--surf);border:1px solid var(--linha);
-      padding:17px 18px}
+    .loop > div{border:1px solid var(--linha);padding:17px 18px}
     .loop .n{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
-      color:var(--coral)}
+      color:var(--coral-txt)}
     .loop b{display:block;margin-top:9px;font-family:var(--disp);font-size:15.5px;font-weight:800;
-      letter-spacing:-.018em;color:var(--t1)}
-    .loop span{display:block;margin-top:6px;font-size:13.5px;color:var(--t3);line-height:1.5}
+      letter-spacing:-.018em;color:var(--tinta)}
+    .loop span{display:block;margin-top:6px;font-size:13.5px;color:var(--tx);line-height:1.5}
 
-    .apoios{display:grid;gap:1px;margin-top:10px;background:var(--linha);
-      border:1px solid var(--linha)}
+    .apoios{display:grid;gap:1px;margin-top:10px;background:var(--linha);border:1px solid var(--linha)}
     @media(min-width:680px){ .apoios{grid-template-columns:repeat(4,1fr)} }
-    .apoios > div{background:var(--surf);padding:15px 18px}
+    .apoios > div{background:var(--claro);padding:15px 18px}
     .apoios b{display:block;font-family:var(--disp);font-size:10.5px;font-weight:700;
-      letter-spacing:.12em;text-transform:uppercase;color:var(--ouro)}
-    .apoios span{display:block;margin-top:6px;font-size:14px;color:var(--t2);line-height:1.5}
+      letter-spacing:.12em;text-transform:uppercase;color:var(--rotulo)}
+    .apoios span{display:block;margin-top:6px;font-size:14px;color:var(--tx);line-height:1.5}
 
     /* ── o que você vai conseguir fazer ────────────────────────── */
-    .faz{display:grid;gap:1px;margin-top:30px;background:var(--linha);
-      border:1px solid var(--linha)}
+    .faz{display:grid;gap:1px;margin-top:30px;background:var(--linha);border:1px solid var(--linha)}
     @media(min-width:720px){ .faz{grid-template-columns:1fr 1fr} }
     .faz > div{display:grid;grid-template-columns:22px 1fr;gap:13px;align-items:start;
-      background:var(--surf);padding:19px 21px}
-    .faz .s{font-family:var(--disp);font-weight:700;color:var(--coral);line-height:1.45}
+      background:var(--claro);padding:19px 21px}
+    .faz .s{font-family:var(--disp);font-weight:700;color:var(--coral-txt);line-height:1.45}
     .faz b{display:block;font-family:var(--disp);font-size:16px;font-weight:700;
-      letter-spacing:-.015em;color:var(--t1);line-height:1.35}
-    .faz p{margin:7px 0 0;font-size:14.5px;color:var(--t3);line-height:1.55}
+      letter-spacing:-.015em;color:var(--tinta);line-height:1.35}
+    .faz p{margin:7px 0 0;font-size:14.5px;color:var(--tx);line-height:1.55}
 
     /* ── atos e ferramentas ────────────────────────────────────── */
-    .atos{display:grid;gap:1px;margin-top:22px;background:var(--linha);
-      border:1px solid var(--linha)}
+    .atos{display:grid;gap:1px;margin-top:22px;background:var(--linha);border:1px solid var(--linha)}
     .atos > div{display:grid;grid-template-columns:66px 1fr auto;gap:16px;align-items:baseline;
-      background:var(--surf);padding:16px 20px}
+      background:var(--claro);padding:16px 20px}
     @media(max-width:520px){ .atos > div{grid-template-columns:56px 1fr;gap:4px 12px}
       .atos .dur{grid-column:2} }
     .atos .n{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.11em;
-      text-transform:uppercase;color:var(--coral)}
-    .atos .tt{font-family:var(--disp);font-size:15.5px;font-weight:600;color:var(--t1);
+      text-transform:uppercase;color:var(--coral-txt)}
+    .atos .tt{font-family:var(--disp);font-size:15.5px;font-weight:600;color:var(--tinta);
       letter-spacing:-.012em;line-height:1.35}
-    .atos .dur{font-size:13.5px;color:var(--t3);white-space:nowrap}
+    .atos .dur{font-size:13.5px;color:var(--rotulo);white-space:nowrap}
 
     .ferr{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-    .ferr span{padding:8px 15px;border:1px solid var(--linha-2);font-size:14px;color:var(--t2)}
+    .ferr span{padding:8px 15px;border:1px solid var(--linha-2);font-size:14px;color:var(--tx)}
 
-    /* ── fecho ─────────────────────────────────────────────────── */
-    .fecho{padding-top:46px;border-top:1px solid var(--linha)}
-    .fecho p{margin:14px 0 0;color:var(--t2);max-width:52ch}
-    footer{margin-top:50px;padding-top:24px;padding-bottom:44px;
-      border-top:1px solid var(--linha);font-size:13.5px;color:var(--t3);line-height:1.7}
-    footer b{color:var(--t2);font-weight:500}
+    /* ── fecho: o painel escuro, como no destino ───────────────── */
+    .fecho{margin-top:46px;background:var(--painel)}
+    .fecho > div{padding-top:46px;padding-bottom:50px}
+    .fecho h2{color:#fff}
+    .fecho p{margin:14px 0 0;color:var(--tx-claro);max-width:52ch}
+    .fecho .garantias{color:var(--tx-claro-2)}
+    footer{padding-top:26px;padding-bottom:44px;font-size:13.5px;color:var(--rotulo);line-height:1.7}
+    footer b{color:var(--tinta-2);font-weight:500}
 
     @media (prefers-reduced-motion:reduce){ *{transition:none !important} }
   </style>
@@ -193,7 +194,7 @@ layout: none
 <body>
 
   <div class="wrap topo">
-    <img src="{{ '/assets/logo-alun-business.png' | relative_url }}" alt="Alun Business">
+    <img src="{{ '/assets/logo-alun-business-preto.png' | relative_url }}" alt="Alun Business">
     <span class="selo">AI Day Caldeira 2026</span>
   </div>
 
@@ -221,26 +222,10 @@ layout: none
          pessoas ainda opera no primeiro ou no segundo.</p>
 
       <div class="deg">
-        <div>
-          <span class="ano">2022</span>
-          <b>Perguntar</b>
-          <span>Eu pergunto.</span>
-        </div>
-        <div>
-          <span class="ano">2024</span>
-          <b>Colaborar</b>
-          <span>Eu trabalho junto.</span>
-        </div>
-        <div>
-          <span class="ano">2026</span>
-          <b>Delegar</b>
-          <span>Eu entrego a missão.</span>
-        </div>
-        <div class="agora">
-          <span class="ano">Agora</span>
-          <b>Orquestrar</b>
-          <span>Eu coordeno humanos e agentes.</span>
-        </div>
+        <div><span class="ano">2022</span><b>Perguntar</b><span>Eu pergunto.</span></div>
+        <div><span class="ano">2024</span><b>Colaborar</b><span>Eu trabalho junto.</span></div>
+        <div><span class="ano">2026</span><b>Delegar</b><span>Eu entrego a missão.</span></div>
+        <div class="agora"><span class="ano">Agora</span><b>Orquestrar</b><span>Eu coordeno humanos e agentes.</span></div>
       </div>
 
       <p class="nota">O quarto degrau é o único que <span>ainda não tem manual comum.</span></p>
@@ -252,21 +237,9 @@ layout: none
       <p class="lead">Os três usam o mesmo tipo de modelo por baixo. O que muda é outra coisa.</p>
 
       <div class="tres">
-        <div>
-          <span class="k">Chatbot</span>
-          <b>Responde</b>
-          <span>suas perguntas</span>
-        </div>
-        <div>
-          <span class="k">Copiloto</span>
-          <b>Assiste</b>
-          <span>seu trabalho</span>
-        </div>
-        <div>
-          <span class="k">Agente</span>
-          <b>Age</b>
-          <span>para atingir um objetivo</span>
-        </div>
+        <div><span class="k">Chatbot</span><b>Responde</b><span>suas perguntas</span></div>
+        <div><span class="k">Copiloto</span><b>Assiste</b><span>seu trabalho</span></div>
+        <div><span class="k">Agente</span><b>Age</b><span>para atingir um objetivo</span></div>
       </div>
 
       <p class="nota">A diferença não é quanta IA tem dentro. É <span>quem decide o próximo
@@ -304,18 +277,9 @@ layout: none
          e é aí que quase ninguém foi treinado.</p>
 
       <div class="tres">
-        <div>
-          <span class="k">Human-in-the-loop</span>
-          <b class="pos">Executa junto</b>
-        </div>
-        <div>
-          <span class="k">Human-on-the-loop</span>
-          <b class="pos">Supervisiona</b>
-        </div>
-        <div>
-          <span class="k">Human-over-the-loop</span>
-          <b class="pos">Define, orienta, avalia</b>
-        </div>
+        <div><span class="k">Human-in-the-loop</span><b class="pos">Executa junto</b></div>
+        <div><span class="k">Human-on-the-loop</span><b class="pos">Supervisiona</b></div>
+        <div><span class="k">Human-over-the-loop</span><b class="pos">Define, orienta, avalia</b></div>
       </div>
 
       <p class="nota">Delegar para IA é competência de gestão. <span>Não de prompting.</span></p>
@@ -352,10 +316,13 @@ layout: none
       </div>
     </section>
 
-    <section class="wrap fecho">
-      <h2>Comece agora, no seu ritmo</h2>
-      <p>O cadastro leva menos de um minuto e o acesso é liberado na hora.</p>
-      <a class="bt" href="https://ai-builder-camp.alura.com.br/caldeira">Curso de Agentes de IA na Prática</a>
+    <section class="fecho">
+      <div class="wrap">
+        <h2>Comece agora, no seu ritmo</h2>
+        <p>O cadastro leva menos de um minuto e o acesso é liberado na hora.</p>
+        <a class="bt" href="https://ai-builder-camp.alura.com.br/caldeira">Curso de Agentes de IA na Prática</a>
+        <p class="garantias">Gratuito · sem cartão de crédito · avance no seu ritmo</p>
+      </div>
     </section>
   </main>
 
